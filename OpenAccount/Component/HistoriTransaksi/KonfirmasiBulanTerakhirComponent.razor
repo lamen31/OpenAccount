@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO 
+
+@inject Transaksi trx
+@inject Config config
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
+                    <teks>Hello, @trx._Nasabah[0]</teks>
+                    <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @jumlahtransaksi Histori Transaksi pada</h3><br>
+                    <p>
+                        <h3 style="color: #00529C;"><b>@jenisperiode</b></h3>
+                        <h3 style="color: #F15A23;"><b>@startdate - @enddate</b></h3>
+                    </p>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/printer.png" class="img-fluid" alt="" style="margin-top: 5%;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="PilihHistori">Kembali</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="done">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="HistoriBerhasil">Cetak</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string jenisperiode = "Periode Bulan Terakhir";
+    private string startdate;
+    private string enddate;
+    private string hourdate;
+    private string path;
+    private string[] lines;
+    private string[] uraian;
+    private string[] tipe;
+    private string[] nominal;
+    private string jumlahtransaksi;
+    private string saldo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-30).ToString("yyyy/MM/dd");
+        enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy/MM/dd");
+        hourdate = DateTime.Now.ToString("HH:mm:ss");
+        trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
+
+        path = config.Read("PATH", Config.PARAM_PATH_A4);
+        lines = File.ReadAllLines(path);
+        jumlahtransaksi = lines.Length.ToString();
+        uraian = new string[lines.Length];
+        tipe = new string[lines.Length];
+        nominal = new string[lines.Length];
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string[] column = lines[i].Split(";");
+            for (int j = 0; j < column.Length; j++)
+            {
+                if (j == 0)
+                    uraian[i] = column[j];
+                else if (j == 1)
+                    tipe[i] = column[j];
+                else if (j == 2)
+                    nominal[i] = column[j];
+            }
+        }
+        saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
+        trx.setDataHistoriTransaksi(jumlahtransaksi, uraian, tipe, nominal, saldo);
+    }
+
+    private async Task PilihHistori()
+    {
+        OnClick.InvokeAsync("historiPilih");
+    }
+
+    private async Task HistoriBerhasil()
+    {
+        OnClick.InvokeAsync("historiberhasil");
+    }
+}

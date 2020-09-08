@@ -1,0 +1,152 @@
+﻿@page "/"
+
+@using OpenAccount.Component 
+@using OpenAccount.Component.HistoriTransaksi
+@using OpenAccount.Component.BukuTabungan
+@using OpenAccount.Component.BukaRekening
+
+<div class="wrapper">
+    <div class="main-panel">
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top">
+            <div class="container d-flex">
+
+                <div class="logo mr-auto">
+                    <img src="../assets/img/LogoTP.png">
+                </div>
+                
+                    <div class="justify-content-center" style="margin-top: -1%; margin-right: 18%;">
+                        <div class="container">
+                            <form class="toggle">
+                                <input @onclick="LangChange" type="radio" id="choice1" name="choice" value="creative">
+                                <label for="choice1">EN</label>
+
+                                <input @onclick="LangChange" type="radio" id="choice2" name="choice" value="productive">
+                                <label for="choice2">ID</label>
+                                <div id="flap"><span class="content">@language</span></div>
+                            </form>
+                        </div>
+                    </div>
+
+                <div class="header-social-links">
+                    <div class="clock-container">
+                        <div class="clock-col">
+                            <p class="clock-day clock-timer"></p>
+                        </div>
+                        <!-- <div class="clock-col">
+                          <p id="date" class="clock-timer">
+                          </p>
+                        </div> -->
+                        <div class="clock-col">
+                            <p class="clock-hours clock-timer"></p>
+                        </div>
+                        <div class="clock-col">
+                            <p class="clock-minutes clock-timer"></p>
+                        </div>
+                        <div class="clock-col">
+                            <p class="clock-seconds clock-timer"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        @switch (message)
+        {
+            case "bukarekening":
+                {
+                    <BukaRekeningComponent></BukaRekeningComponent>
+                    break;
+                }
+            case "bukutabungan":
+                {
+                    <BukuTabunganComponent OnClick="ClickHandler"></BukuTabunganComponent>
+                    break;
+                }
+            case "bukuinputpin":
+                {
+                    <BukuInputPinComponent OnClick="ClickHandler"></BukuInputPinComponent>
+                    break;
+                }
+            case "bukuinputdata":
+                {
+                    <BukuInputDataComponent OnClick="ClickHandler"></BukuInputDataComponent>
+                    break;
+                }
+            case "bukukonfirmasi":
+                {
+                    <BukuKonfirmasiComponent OnClick="ClickHandler"></BukuKonfirmasiComponent>
+                    break;
+                }
+            case "bukuberhasil":
+                {
+                    <BukuBerhasilComponent></BukuBerhasilComponent>
+                    break;
+                }
+            case "historitransaksi":
+                {
+                    <HistoriTransaksiComponent OnClick="ClickHandler"></HistoriTransaksiComponent>
+                    break;
+                }
+            case "historiInputPin":
+                {
+                    <HistoriInputPinComponent OnClick="ClickHandler"></HistoriInputPinComponent>
+                    break;
+                }
+            case "historiPilih":
+                {
+                    <HistoriPilihComponent OnClick="ClickHandler"></HistoriPilihComponent>
+                    break;
+                }
+            case "historiBulanBerjalan":
+                {
+                    <KonfirmasiBulanBerjalanComponent OnClick="ClickHandler"></KonfirmasiBulanBerjalanComponent>
+                    break;
+                }
+            case "historiBulanTerakhir":
+                {
+                    <KonfirmasiBulanTerakhirComponent OnClick="ClickHandler"></KonfirmasiBulanTerakhirComponent>
+                    break;
+                }
+            case "historiBulanLalu":
+                {
+                    <KonfirmasiBulanLaluComponent OnClick="ClickHandler"></KonfirmasiBulanLaluComponent>
+                    break;
+                }
+            case "historiSepuluhTerakhir":
+                {
+                    <KonfirmasiSepuluhTerakhirComponent OnClick="ClickHandler"></KonfirmasiSepuluhTerakhirComponent>
+                    break;
+                }
+            case "historiberhasil":
+                {
+                    <HistoriBerhasilComponent></HistoriBerhasilComponent>
+                    break;
+                }
+            default:
+                {
+                    <HomeComponent OnClick="ClickHandler"></HomeComponent>
+                    break;
+                }
+        }
+
+    </div>
+</div>
+
+@code{
+    private string message = string.Empty;
+    private string language = "ID";
+
+    void ClickHandler(string strmessage)
+    {
+        message = strmessage;
+    }
+
+    void LangChange()
+    {
+        if (language == "ID")
+            language = "EN";
+        else if (language == "EN")
+            language = "ID";
+    }
+}

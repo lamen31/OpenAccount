@@ -1,0 +1,140 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx 
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <h3 style="color: #00529C;">Buka Tabungan</h3>
+                    <h2>Get Easy, Simply Use</h2>
+                </div>
+
+                <div class="card-deck" style="display: flex; margin-top: 2%;" data-aos="fade-up">
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="BukaRekening">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="assets/img/icon-menu/oa.png" class="card-img-top" style="width: 70%;" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Buka Tabungan</small>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 90%;">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="assets/img/icon-menu/upgrade-kartu.png" class="card-img-top" style="width: 90%;" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Upgrade Kartu</small>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 90%;">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="assets/img/icon-menu/e-money.png" class="card-img-top" style="width: 90%;" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Beli Kartu <br> e-Money</small>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="BukuTabungan">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="assets/img/icon-menu/p-b-tabungan.png" class="card-img-top" style="width: 70%;" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Print Buku Tabungan</small>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="HistoriTransaksi">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="assets/img/icon-menu/p-h-transaksi.png" class="card-img-top" style="width: 70%;" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Print Histori Transaksi</small>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 90%;">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="assets/img/icon-menu/ganti-kartu.png" class="card-img-top" style="width: 80%;" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Ganti Kartu Hilang/Rusak</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <a href="term-condition.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        trx.clearArray();
+    }
+
+    private async Task HistoriTransaksi()
+    {
+        OnClick.InvokeAsync("historitransaksi");
+    }
+    private async Task BukuTabungan()
+    {
+        OnClick.InvokeAsync("bukutabungan");
+    }
+    private async Task BukaRekening()
+    {
+        OnClick.InvokeAsync("bukarekening");
+    }
+}
