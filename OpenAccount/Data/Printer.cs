@@ -191,7 +191,8 @@ namespace OpenAccount.Data
         {
             printdoc = new PrintDocument();
             _trx = trx;
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.PrintPage += new PrintPageEventHandler(ThermalPrintPage);
             printdoc.Print();
@@ -281,7 +282,8 @@ namespace OpenAccount.Data
             int nol = 0;
             printdoc = new PrintDocument();
             _trx = trx;
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);

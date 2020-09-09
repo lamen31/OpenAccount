@@ -1,0 +1,120 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="margin-top: 50px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 1rem; font-size: 20px;">Buka Rekening</span><br>
+                </div>
+            </div>
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div class="card">
+                    <div class="card-header" style="color: #00529C;">
+                        <h3 style="margin-left: 5%;"><b>Terms and Conditions</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <table style="margin-left: 5%;">
+                                <tr>
+                                    <td>1. &emsp;</td>
+                                    <td><h5>Once you insert a foreign banknote, it cannot be returned. Please be careful.</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>2. &emsp;</td>
+                                    <td><h5>We do not accept cash cards and credit cards. We accept foreign banknotes only.</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>3. &emsp;</td>
+                                    <td><h5>The upper limit of currency exchange per transaction is less than 100.000 Rupiah.</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>4. &emsp;</td>
+                                    <td><h5> We cannot give you changes of foreign banknotes and coins (Rupiah Only).</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>5. &emsp;</td>
+                                    <td><h5>You cannot put in foreign coins.</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>6. &emsp;</td>
+                                    <td><h5>We cannot return foreign banknoter once you put them in.</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>7. &emsp;</td>
+                                    <td><h5>Please do not forget to take Indonesian banknotes, coin and a receipt.</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>8. &emsp;</td>
+                                    <td><h5>Please check the amount of Indonesian Rupiah as soon as possible.</h5></td>
+                                </tr>
+                            </table>
+                            <footer class="blockquote-footer" style="margin-left: 5%; margin-top: 3%;">data can change <cite title="Source Title">any time</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+              <h3 style="color: #adadad; font-size: 18px;">Available Currency to Exchange</h3>
+
+            </div> -->
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem; margin-right: -1rem;" @onclick="Home">Tidak Setuju</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="KTP">Setuju</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private async Task Home()
+    {
+        OnClick.InvokeAsync("home");
+    }
+
+    private async Task KTP()
+    {
+        OnClick.InvokeAsync("bukarekeningktp");
+    }
+}

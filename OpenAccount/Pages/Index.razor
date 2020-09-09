@@ -55,7 +55,22 @@
         {
             case "bukarekening":
                 {
-                    <BukaRekeningComponent></BukaRekeningComponent>
+                    <BukaRekeningComponent OnClick="ClickHandler"></BukaRekeningComponent>
+                    break;
+                }
+            case "bukarekeningsyarat":
+                {
+                    <BukaRekeningSyaratComponent OnClick="ClickHandler"></BukaRekeningSyaratComponent>
+                    break;
+                }
+            case "bukarekeningktp":
+                {
+                    <BukaRekeningKTPComponent OnClick="ClickHandler"></BukaRekeningKTPComponent>
+                    break;
+                }
+            case "bukarekeningktpberhasil":
+                {
+
                     break;
                 }
             case "bukutabungan":
@@ -134,7 +149,7 @@
 </div>
 
 @code{
-    private string message = string.Empty;
+    private string message = "bukarekeningktp";
     private string language = "ID";
 
     void ClickHandler(string strmessage)

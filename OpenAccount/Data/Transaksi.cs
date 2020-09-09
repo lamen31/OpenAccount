@@ -68,11 +68,11 @@ namespace OpenAccount.Data
             _HistoriMaxHalaman = strmaxhalaman;
         }
 
-        public void setHistoriThermal(string[] strdate, string[] strnominal, string[] strkode, string strsaldo)
+        public void setHistoriThermal(string[] strdate, string[] strkode, string[] strnominal, string strsaldo)
         {
             _ThermalDate = strdate;
-            _ThermalNominal = strnominal;
             _ThermalKode = strkode;
+            _ThermalNominal = strnominal;
             _ThermalSaldo = strsaldo;
         }
 
