@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx 
+@inject Config config
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -8,14 +12,14 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Transaksi Buku Tabungan</span><br>
-                    <teks>Hello, BAMBANG PAMUNGKAS</teks>
+                    <teks>Hello, @trx._Nasabah[0]</teks>
                     <h3 style="color: #00529C;">Masukkan data buku tabungan Anda</h3>
                 </div>
                 <form>
                     <div class="form-row" style="padding: 2rem 0rem;">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" @bind="trx._Nasabah[1]">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="input_field_1" style="font-weight: 600; font-size: 18px;">Nomor Baris</label>
@@ -121,14 +125,19 @@
 </footer><!-- End Footer -->
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
+        [Parameter]
+        public EventCallback<string> OnClick { get; set; }
 
     private string jenisbuku = string.Empty;
     private string barisbuku = string.Empty;
     private string halamanbuku = string.Empty;
     private string saldorekening = string.Empty;
     private string isTextfield = string.Empty;
+    private string Date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("dd/MM/yy");
+    private string[] tipe;
+    private string[] sandi;
+    private string[] nominal;
+    private string[] pengesahan;
 
     private async Task Home()
     {
@@ -137,7 +146,36 @@
 
     private async Task BukuKonfirmasi()
     {
-        OnClick.InvokeAsync("bukukonfirmasi");
+        trx.clearArray();
+        if (saldorekening != string.Empty && int.Parse(barisbuku) <= 41 && int.Parse(halamanbuku) < 9)
+        {
+            string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
+            string[] lines = System.IO.File.ReadAllLines(path);
+            tipe = new string[lines.Length];
+            sandi = new string[lines.Length];
+            nominal = new string[lines.Length];
+            pengesahan = new string[lines.Length];
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] column = lines[i].Split(";");
+                for (int j = 0; j < column.Length; j++)
+                {
+                    if (j == 0)
+                        tipe[i] = column[j];
+
+                    else if (j == 1)
+                        sandi[i] = column[j];
+
+                    else if (j == 2)
+                        nominal[i] = column[j];
+
+                    else if (j == 3)
+                        pengesahan[i] = column[j];
+                }
+            }
+            trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
+            OnClick.InvokeAsync("bukukonfirmasi");
+        }
     }
 
     private void Inputfield1()

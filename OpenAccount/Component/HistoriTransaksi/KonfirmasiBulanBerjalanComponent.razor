@@ -5,6 +5,7 @@
 @inject Transaksi trx
 @inject Config config
 @inject Printer print
+
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -70,7 +71,7 @@
 
 @if (isVisible)
 {
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -141,6 +142,7 @@
     private async Task HistoriBerhasil()
     {
         isVisible = !isVisible;
+        await Task.Delay(100);
         StateHasChanged();
 
         int maxbaris = 12;
@@ -187,7 +189,10 @@
                     saldo = await Task.Run(() => print.PrintHistori(trx));
                     //await Task.Delay(20000);
                     await Task.Delay(8000);
-                    OnClick.InvokeAsync("transaksiberhasil");
+                    isVisible = false;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    OnClick.InvokeAsync("historiberhasil");
                     break;
                 }
                 else
@@ -207,7 +212,7 @@
                     sisatransaksi -= maxbaris;
                     await Task.Delay(8000);
                 }
-                isVisible = false;
+                //isVisible = false;
                 //if (maxhalaman >= 1)
                 //{
                 //    isBaris = !isBaris;

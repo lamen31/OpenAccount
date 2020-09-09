@@ -59,5 +59,13 @@
 </footer><!-- End Footer -->
 
 @code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(8000);
+        OnClick.InvokeAsync("home");
+    }
 
 }

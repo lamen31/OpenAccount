@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="card-deck" style="display: flex; margin-top: 2%;" data-aos="fade-up">
-                    <div class="card" style="width: 18rem; height: 90%;" @onclick="BukaRekening">
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="test">
                         <div class="text-center" style="align-items: center; height: 60%;">
                             <img src="assets/img/icon-menu/oa.png" class="card-img-top" style="width: 70%;" alt="...">
                         </div>
@@ -116,13 +116,42 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isVisible)
+{
+<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div style="text-align: center; color: rgb(0, 0, 0);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Histori Transaksi Anda sedang dicetak...</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+    private bool isVisible = false;
 
     protected override async Task OnInitializedAsync()
     {
+        trx.clear();
         trx.clearArray();
+        trx.clearArrayNasabah();
+    }
+
+    private void test()
+    {
+        isVisible = true;
     }
 
     private async Task HistoriTransaksi()

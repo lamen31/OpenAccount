@@ -15,6 +15,7 @@ namespace OpenAccount.Data
     public class Printer
     {
         PrintDocument printdoc = new PrintDocument();
+        PrinterStatus printerstatus = new PrinterStatus();
         Transaksi _trx = new Transaksi();
         Config config = new Config();
         Font font = new Font("Calibri", 8, FontStyle.Regular);
@@ -35,13 +36,16 @@ namespace OpenAccount.Data
         {
             printdoc = new PrintDocument();
             _trx = trx;
-            PrinterSettings settings = new PrinterSettings();
-            printername = settings.PrinterName;
+            printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            //PrinterSettings settings = new PrinterSettings();
+            //printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(HistoriPrintPage);
             printdoc.Print();
+            printerstatus.StatusPrinting(printername);
+            Console.WriteLine("Print Selesai ...");
             return _trx._HistoriSaldo;
         }
 
@@ -181,6 +185,163 @@ namespace OpenAccount.Data
                 temp = string.Empty;
             }
             return arrayhasil;
+        }
+
+        public async Task PrintThermal(Transaksi trx)
+        {
+            printdoc = new PrintDocument();
+            _trx = trx;
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            printdoc.PrinterSettings.PrinterName = printername;
+            printdoc.PrintPage += new PrintPageEventHandler(ThermalPrintPage);
+            printdoc.Print();
+        }
+
+        public void ThermalPrintPage(object sender, PrintPageEventArgs e)
+        {
+            string logo = config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
+            StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
+            StringFormat formatCenter = new StringFormat(formatLeft);
+            formatCenter.Alignment = StringAlignment.Center;
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
+            Graphics g = e.Graphics;
+            font = new Font("Arial", 10, FontStyle.Regular);
+            float point = 4;
+            float sizex = 20;
+            float sizey = point;
+            float offset = 0;
+            float lineheight = font.GetHeight() + point;
+            SizeF layoutsize = new SizeF(280, lineheight);
+            RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            Image img = Image.FromFile(logo);
+
+            g.DrawImage(img, (e.PageBounds.Width - img.Width) / 2, 0, img.Width, img.Height);
+            offset = img.Height + point;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            date = "Date :" + date;
+            string lokasi = "Cikupa";
+
+            string joint = string.Empty;
+
+            joint = "Lokasi : " + lokasi;
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            g.DrawString(date, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            joint = "No Rekening : " + _trx._Nasabah[1];
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "Nama Nasabah : " + _trx._Nasabah[0];
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            joint = string.Empty;
+
+            int batastrx = _trx._ThermalKode.Length - 10;
+            int ypoint = 190;
+            //string joint = string.Empty;
+            int saldo = int.Parse(_trx._ThermalSaldo);
+            for (int i = batastrx; i < _trx._ThermalKode.Length; i++)
+            {
+                int nominal = int.Parse(_trx._ThermalNominal[i]);
+                Random rnd = new Random();
+                if (_trx._ThermalKode[i] == "D")
+                {
+                    saldo -= nominal;
+                }
+                else
+                {
+                    saldo += nominal;
+                }
+                string spasi = " ";
+                string nominalprint = nominal.ToString("N0");
+                string saldoprint = saldo.ToString("N0");
+                joint = joint + _trx._ThermalDate[i] + spasi + spasi + _trx._ThermalKode[i] + spasi + spasi + nominalprint + spasi + spasi + saldoprint;
+                g.DrawString(joint, font, blackBrush, layout, formatLeft);
+                offset += lineheight;
+                layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+                ypoint += 20;
+                joint = string.Empty;
+            }
+        }
+
+        public string PrintPassbook(Transaksi trx)
+        {
+            bool result = false;
+            int nol = 0;
+            printdoc = new PrintDocument();
+            _trx = trx;
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
+            printdoc.PrinterSettings.PrinterName = printername;
+            printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
+            printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
+            printdoc.PrintPage += new PrintPageEventHandler(PassbookPrintPage);
+            printdoc.Print();
+            printerstatus.StatusPrinting(printername);
+            Console.WriteLine("Printing Selesai...");
+            return trx._BukuSaldo;
+        }
+
+        public void PassbookPrintPage(object sender, PrintPageEventArgs e)
+        {
+            font = new Font("Calibri", 8, FontStyle.Regular);
+            SolidBrush blackbrush = new SolidBrush(Color.Black);
+            Graphics g = e.Graphics;
+            long saldo = Convert.ToInt64(_trx._BukuSaldo);
+            int baris = Convert.ToInt32(_trx._BukuBaris);
+            int ypoint = 75;
+            int sisabaris = 13 * baris;
+            if (baris > 20)
+            {
+                sisabaris = sisabaris + (12 * 5);
+            }
+            ypoint += sisabaris;
+            for(int i = 0; i < _trx._BukuTipe.Length; i++)
+            {
+                string keterangan = _trx._BukuSandi[i];
+                int nominal = int.Parse(_trx._BukuNominal[i]);
+
+                if (keterangan == "DBT")
+                {
+                    string sandi = _trx._BukuTipe[i];
+                    saldo -= nominal;
+                    string debetprint = "-" + nominal.ToString("N0");
+                    g.DrawString(sandi, font, blackbrush, new Point(87, ypoint));
+                    g.DrawString(debetprint, font, blackbrush, new Point(155, ypoint));
+                    g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(340, ypoint));
+                }
+                else
+                {
+                    //Random rnd = new Random();
+                    string sandi = _trx._BukuTipe[i];
+                    saldo += nominal;
+                    string kreditprint = nominal.ToString("N0");
+                    g.DrawString(sandi, font, blackbrush, new Point(87, ypoint));
+                    g.DrawString(kreditprint, font, blackbrush, new Point(249, ypoint));
+                    g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(340, ypoint));
+                }
+
+                g.DrawString(baris.ToString(), font, blackbrush, new Point(0, ypoint));
+                g.DrawString(_trx._BukuDate, font, blackbrush, new Point(30, ypoint));
+                g.DrawString(_trx._BukuPengesahan[i], font, blackbrush, new Point(442, ypoint));
+                baris += 1;
+                ypoint += 13;
+                if (baris == 21)
+                {
+                    ypoint = ypoint + (12 * 5);
+                }
+            }
+            _trx._BukuSaldo = saldo.ToString();
         }
     }
 }

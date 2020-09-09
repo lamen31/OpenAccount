@@ -2,9 +2,9 @@
 @using OpenAccount.Data
 @using System.IO
 
-@inject Transaksi trx 
+@inject Transaksi trx
 @inject Config config
-
+@inject Printer print
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -67,11 +67,33 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+@if (isVisible)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h3>Histori Transaksi Anda sedang dicetak...</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isVisible = false;
+    private bool isBaris = false;
     private string jenisperiode = "Periode Bulan Lalu";
     private string startdate;
     private string enddate;
@@ -82,6 +104,7 @@
     private string[] tipe;
     private string[] nominal;
     private string jumlahtransaksi;
+    private int sisatransaksi;
     private string saldo;
 
     protected override async Task OnInitializedAsync()
@@ -121,6 +144,92 @@
 
     private async Task HistoriBerhasil()
     {
-        OnClick.InvokeAsync("historiberhasil");
+        isVisible = !isVisible;
+        await Task.Delay(100);
+
+        int maxbaris = 12;
+        int totalbaris = trx._HistoriUraian.Length;
+        int halaman;
+        int maxhalaman;
+        if (totalbaris > maxbaris)
+        {
+            int n = totalbaris / maxbaris;
+            string[] tempuraian = null;
+            string[] temptipe = null;
+            string[] tempnominal = null;
+            int startindex = 0;
+            if (totalbaris % maxbaris > 0)
+            {
+                n += 1;
+            }
+            maxhalaman = n;
+            trx.setMaxHalamanHistoriTransaksi(maxhalaman.ToString());
+            tempuraian = new string[trx._HistoriUraian.Length];
+            temptipe = new string[trx._HistoriTipe.Length];
+            tempnominal = new string[trx._HistoriNominal.Length];
+            Array.Copy(trx._HistoriUraian, startindex, tempuraian, 0, trx._HistoriUraian.Length);
+            Array.Copy(trx._HistoriTipe, startindex, temptipe, 0, trx._HistoriTipe.Length);
+            Array.Copy(trx._HistoriNominal, startindex, tempnominal, 0, trx._HistoriNominal.Length);
+            halaman = 1;
+            sisatransaksi = totalbaris;
+            for (int i = 0; i < n; i++)
+            {
+                uraian = null;
+                tipe = null;
+                nominal = null;
+                if (i == n - 1)
+                {
+                    trx.clearArray();
+                    int sisabaris = tempuraian.Length - startindex;
+                    uraian = new string[sisabaris];
+                    tipe = new string[sisabaris];
+                    nominal = new string[sisabaris];
+                    Array.Copy(tempuraian, startindex, uraian, 0, sisabaris);
+                    Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
+                    Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
+                    trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    saldo = await Task.Run(() => print.PrintHistori(trx));
+                    //await Task.Delay(20000);
+                    await Task.Delay(8000);
+                    isVisible = false;
+                    await Task.Delay(100);
+                    OnClick.InvokeAsync("historiberhasil");
+                    break;
+                }
+                else
+                {
+                    trx.clearArray();
+                    uraian = new string[maxbaris];
+                    tipe = new string[maxbaris];
+                    nominal = new string[maxbaris];
+                    Array.Copy(tempuraian, startindex, uraian, 0, maxbaris);
+                    Array.Copy(temptipe, startindex, tipe, 0, maxbaris);
+                    Array.Copy(tempnominal, startindex, nominal, 0, maxbaris);
+                    trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    saldo = await Task.Run(() => print.PrintHistori(trx));
+                    startindex += maxbaris;
+                    halaman += 1;
+                    maxhalaman -= 1;
+                    sisatransaksi -= maxbaris;
+                    await Task.Delay(8000);
+                }
+                //isVisible = false;
+                //if (maxhalaman >= 1)
+                //{
+                //    isBaris = !isBaris;
+                //    StateHasChanged();
+                //    do
+                //    {
+                //        await Task.Delay(100);
+                //    } while (isBaris);
+                //}
+            }
+        }
+        else if (totalbaris < maxbaris)
+        {
+            saldo = await Task.Run(() => print.PrintHistori(trx));
+            await Task.Delay(8000);
+            OnClick.InvokeAsync("historiberhasil");
+        }
     }
 }

@@ -20,6 +20,18 @@ namespace OpenAccount.Data
         public string _HistoriSaldo { get; set; }
         public string _HistoriHalaman { get; set; }
         public string _HistoriMaxHalaman { get; set; }
+        public string _BukuBaris { get; set; }
+        public string _BukuHalaman { get; set; }
+        public string _BukuDate { get; set; }
+        public string[] _BukuTipe { get; set; }
+        public string[] _BukuSandi { get; set; }
+        public string[] _BukuNominal { get; set; }
+        public string _BukuSaldo { get; set; }
+        public string[] _BukuPengesahan { get; set; }
+        public string[] _ThermalDate { get; set; }
+        public string[] _ThermalNominal { get; set; }
+        public string[] _ThermalKode { get; set; }
+        public string _ThermalSaldo { get; set; }
 
         public void setArrayNasabah(string[] strnasabah)
         {
@@ -56,6 +68,26 @@ namespace OpenAccount.Data
             _HistoriMaxHalaman = strmaxhalaman;
         }
 
+        public void setHistoriThermal(string[] strdate, string[] strnominal, string[] strkode, string strsaldo)
+        {
+            _ThermalDate = strdate;
+            _ThermalNominal = strnominal;
+            _ThermalKode = strkode;
+            _ThermalSaldo = strsaldo;
+        }
+
+        public void setPassbookTransaksi(string strbaris, string strhalaman, string strdate, string[] strtipe, string[] strsandi, string[] strnominal, string strsaldo, string[] strpengesahan)
+        {
+            _BukuBaris = strbaris;
+            _BukuHalaman = strhalaman;
+            _BukuDate = strdate;
+            _BukuTipe = strtipe;
+            _BukuSandi = strsandi;
+            _BukuNominal = strnominal;
+            _BukuSaldo = strsaldo;
+            _BukuPengesahan = strpengesahan;
+        }
+
         public void clear()
         {
             _HistoriJenisPeriode = string.Empty;
@@ -65,6 +97,10 @@ namespace OpenAccount.Data
             _HistoriJumlahTransaksi = string.Empty;
             _HistoriSaldo = string.Empty;
             _HistoriMaxHalaman = string.Empty;
+            _BukuBaris = string.Empty;
+            _BukuHalaman = string.Empty;
+            _BukuDate = string.Empty;
+            _BukuSaldo = string.Empty;
         }
 
         public void clearArray()
@@ -72,6 +108,10 @@ namespace OpenAccount.Data
             _HistoriUraian = null;
             _HistoriTipe = null;
             _HistoriNominal = null;
+            _BukuTipe = null;
+            _BukuSandi = null;
+            _BukuNominal = null;
+            _BukuPengesahan = null;
         }
         public void clearArrayNasabah()
         {

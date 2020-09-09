@@ -1,5 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
 
+@inject Printer print
+@inject Transaksi trx
+@inject Config config
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -62,10 +66,65 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+@if (isVisible)
+{
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h3>Buku Anda sedang dicetak...</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (isBaris)
+{
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Silahkan ke halaman selanjutnya..</h3>
+                        <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="change">Cetak</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private bool isVisible = false;
+    private bool isBaris = false;
+    private bool isEmpty = false;
+    private bool cetak = true;
+    private bool bukuhabis = false;
+    private int maxbaris;
+    private int maxhalaman;
+    private string tempmaxbaris;
+    private string tempmaxhalaman;
+    private int baris;
+    private int totaldata;
+    private int totalbaris;
+    private int halaman;
+    private string saldo;
 
     private async Task BukuInputData()
     {
@@ -74,6 +133,143 @@
 
     private async Task BukuBerhasil()
     {
-        OnClick.InvokeAsync("bukuberhasil");
+        tempmaxbaris = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARIS);
+        maxbaris = Convert.ToInt32(tempmaxbaris);
+        tempmaxhalaman = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXHALAMAN);
+        maxhalaman = Convert.ToInt32(tempmaxhalaman);
+
+        isVisible = !isVisible;
+        await Task.Delay(100);
+        StateHasChanged();
+
+        baris = Convert.ToInt32(trx._BukuBaris);
+        baris -= 1;
+        totaldata = trx._BukuSandi.Length;
+        totalbaris = baris + totaldata;
+        halaman = Convert.ToInt32(trx._BukuHalaman);
+        saldo = trx._BukuSaldo;
+        if (totalbaris > maxbaris)
+        {
+            int n = totalbaris / 40;
+            string[] temptipe = null;
+            string[] tempsandi = null;
+            string[] tempnominal = null;
+            string[] temppengesahan = null;
+            int startindex = 0;
+
+            if (totalbaris % 40 > 0)
+            {
+                n += 1;
+            }
+
+            temptipe = new string[trx._BukuTipe.Length];
+            tempsandi = new string[trx._BukuSandi.Length];
+            tempnominal = new string[trx._BukuNominal.Length];
+            temppengesahan = new string[trx._BukuPengesahan.Length];
+            Array.Copy(trx._BukuTipe, startindex, temptipe, 0, trx._BukuTipe.Length);
+            Array.Copy(trx._BukuSandi, 0, tempsandi, 0, trx._BukuSandi.Length);
+            Array.Copy(trx._BukuNominal, 0, tempnominal, 0, trx._BukuNominal.Length);
+            Array.Copy(trx._BukuPengesahan, 0, temppengesahan, 0, trx._BukuPengesahan.Length);
+
+            for (int i = 0; i < n; i++)
+            {
+                string tanggal = trx._BukuDate;
+                string[] tipe = null;
+                string[] sandi = null;
+                string[] nominal = null;
+                string[] pengesahan = null;
+
+                if (i == 0)
+                {
+                    trx.clearArray();
+                    tipe = new string[40 - baris];
+                    sandi = new string[40 - baris];
+                    nominal = new string[40 - baris];
+                    pengesahan = new string[40 - baris];
+                    Array.Copy(temptipe, startindex, tipe, 0, 40 - baris);
+                    Array.Copy(tempsandi, startindex, sandi, 0, 40 - baris);
+                    Array.Copy(tempnominal, startindex, nominal, 0, 40 - baris);
+                    Array.Copy(temppengesahan, startindex, pengesahan, 0, 40 - baris);
+                    baris += 1;
+                    trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    baris -= 1;
+                    startindex = 40 - baris;
+                    saldo = await Task.Run(() => print.PrintPassbook(trx));
+                    //await Task.Delay(10000);
+                    if (int.Parse(saldo) == 0) isEmpty = true;
+                    else isEmpty = false;
+                }
+                else
+                {
+                    if (i == n - 1)
+                    {
+                        trx.clearArray();
+                        int sisabaris = tempsandi.Length - startindex;
+                        baris = 1;
+                        tipe = new string[sisabaris];
+                        sandi = new string[sisabaris];
+                        nominal = new string[sisabaris];
+                        pengesahan = new string[sisabaris];
+                        Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
+                        Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
+                        Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
+                        Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
+                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                        saldo = await Task.Run(() => print.PrintPassbook(trx));
+                        //await Task.Delay(10000);
+                        OnClick.InvokeAsync("bukuberhasil");
+                        break;
+                    }
+                    else
+                    {
+                        trx.clearArray();
+                        baris = 1;
+                        tipe = new string[40];
+                        sandi = new string[40];
+                        nominal = new string[40];
+                        pengesahan = new string[40];
+                        Array.Copy(temptipe, startindex, tipe, 0, 40);
+                        Array.Copy(tempsandi, startindex, sandi, 0, 40);
+                        Array.Copy(tempnominal, startindex, nominal, 0, 40);
+                        Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
+                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                        startindex = startindex + 40;
+                        saldo = await Task.Run(() => print.PrintPassbook(trx));
+                        await Task.Delay(10000);
+                    }
+                }
+                halaman += 1;
+                isVisible = false;
+                await Task.Delay(100);
+                StateHasChanged();
+                if (halaman > maxhalaman)
+                {
+                    cetak = false;
+                    bukuhabis = true;
+                    break;
+                }
+                else
+                {
+                    isBaris = !isBaris;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    do
+                    {
+                        await Task.Delay(100);
+                    } while (isBaris);
+                }
+            }
+        }
+        else
+        {
+            saldo = await Task.Run(() => print.PrintPassbook(trx));
+            OnClick.InvokeAsync("bukuberhasil");
+        }
+    }
+
+    private void change()
+    {
+        isVisible = true;
+        isBaris = false;
     }
 }

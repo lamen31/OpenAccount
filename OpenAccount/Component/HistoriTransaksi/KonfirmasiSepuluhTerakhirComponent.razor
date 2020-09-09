@@ -1,4 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO
+
+@inject Transaksi trx
+@inject Config config
+@inject Printer print
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -8,12 +14,12 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
-                    <teks>Hello, BAMBANG PAMUNGKAS</teks>
+                    <teks>Hello, @trx._Nasabah[0]</teks>
                     <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak Histori Transaksi pada</h3><br>
                     <p>
                         <h3 style="color: #00529C;"><b>Sepuluh Transaksi Terakhir</b></h3>
                         <h3 style="color: #00529C;"><b>Sampai Dengan</b></h3>
-                        <h3 style="color: #F15A23;"><b>31/03/2020</b></h3>
+                        <h3 style="color: #F15A23;"><b>@date</b></h3>
                     </p>
                 </div>
             </div>
@@ -63,11 +69,72 @@
         </div>
     </div>
 </footer><!-- End Footer -->
-
+@if (isVisible)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h3>Histori Transaksi Anda sedang dicetak...</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private bool isVisible;
+    private string date;
+    private string[] tanggal;
+    private string[] nominal;
+    private string[] kode;
+    private string saldo;
+    private string path;
+    private string[] lines;
+
+    protected override async Task OnInitializedAsync()
+    {
+        date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy/MM/dd");
+        trx.clearArray();
+        path = config.Read("PATH", Config.PARAM_PATH_THERMAL);
+        lines = File.ReadAllLines(path);
+        tanggal = new string[lines.Length];
+        kode = new string[lines.Length];
+        nominal = new string[lines.Length];
+        saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string[] column = lines[i].Split(";");
+            for (int j = 0; j < column.Length; j++)
+            {
+                if (j == 0)
+                {
+                    tanggal[i] = column[j];
+                }
+                else if (j == 1)
+                {
+                    kode[i] = column[j];
+                }
+                else if (j == 2)
+                {
+                    nominal[i] = column[j];
+                }
+            }
+        }
+        trx.setHistoriThermal(tanggal, kode, nominal, saldo);
+
+    }
 
     private async Task PilihHistori()
     {
@@ -76,6 +143,9 @@
 
     private async Task HistoriBerhasil()
     {
+        isVisible = !isVisible;
+        await Task.Delay(100);
+        await print.PrintThermal(trx);
         OnClick.InvokeAsync("historiberhasil");
     }
 }
