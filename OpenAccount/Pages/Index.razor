@@ -31,20 +31,36 @@
                 <div class="header-social-links">
                     <div class="clock-container">
                         <div class="clock-col">
-                            <p class="clock-day clock-timer"></p>
+                            <p class="clock-day clock-timer">
+                            </p>
+                            <p class="clock-label">
+                                Day
+                            </p>
                         </div>
                         <!-- <div class="clock-col">
                           <p id="date" class="clock-timer">
                           </p>
                         </div> -->
                         <div class="clock-col">
-                            <p class="clock-hours clock-timer"></p>
+                            <p class="clock-hours clock-timer">
+                            </p>
+                            <p class="clock-label">
+                                Hours
+                            </p>
                         </div>
                         <div class="clock-col">
-                            <p class="clock-minutes clock-timer"></p>
+                            <p class="clock-minutes clock-timer">
+                            </p>
+                            <p class="clock-label">
+                                Minutes
+                            </p>
                         </div>
                         <div class="clock-col">
-                            <p class="clock-seconds clock-timer"></p>
+                            <p class="clock-seconds clock-timer">
+                            </p>
+                            <p class="clock-label">
+                                Seconds
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -56,6 +72,11 @@
             case "bukarekening":
                 {
                     <BukaRekeningComponent OnClick="ClickHandler"></BukaRekeningComponent>
+                    break;
+                }
+            case "bukarekeningjenis":
+                {
+                    <BukaRekeningJenisComponent OnClick="ClickHandler"></BukaRekeningJenisComponent>
                     break;
                 }
             case "bukarekeningsyarat":
@@ -70,7 +91,62 @@
                 }
             case "bukarekeningktpberhasil":
                 {
-
+                    <BukaRekeningKTPBerhasilComponent OnClick="ClickHandler"></BukaRekeningKTPBerhasilComponent>
+                    break;
+                }
+            case "bukarekeningfinger":
+                {
+                    <BukaRekeningFingerComponent OnClick="ClickHandler"></BukaRekeningFingerComponent>
+                    break;
+                }
+            case "bukarekeningfingerberhasil":
+                {
+                    <BukaRekeningFingerBerhasilComponent OnClick="ClickHandler"></BukaRekeningFingerBerhasilComponent>
+                    break;
+                }
+            case "bukarekeningdataKTP":
+                {
+                    <BukaRekeningDataKTPComponent OnClick="ClickHandler"></BukaRekeningDataKTPComponent>
+                    break;
+                }
+            case "bukarekeningNPWP":
+                {
+                    <BukaRekeningNPWPComponent OnClick="ClickHandler"></BukaRekeningNPWPComponent>
+                    break;
+                }
+            case "bukarekeningNPWPberhasil":
+                {
+                    <BukaRekeningNPWPBerhasilComponent OnClick="ClickHandler"></BukaRekeningNPWPBerhasilComponent>
+                    break;
+                }
+            case "bukarekeninginputdata":
+                {
+                    <BukaRekeningInputDataComponent OnClick="ClickHandler"></BukaRekeningInputDataComponent>
+                    break;
+                }
+            case "bukarekeninginputdata2":
+                {
+                    <BukaRekeningInputData2Component OnClick="ClickHandler"></BukaRekeningInputData2Component>
+                    break;
+                }
+            case "bukarekeninginputdata3":
+                {
+                    <BukaRekeningInputData3Component OnClick="ClickHandler"></BukaRekeningInputData3Component>
+                    break;
+                }
+            case "bukarekeningtandatangan":
+                {
+                    <BukaRekeningTandaTanganComponent OnClick="ClickHandler"></BukaRekeningTandaTanganComponent>
+                    break;
+                }
+            case "bukarekeningsetoran":
+                {
+                    <BukaRekeningSetoranComponent></BukaRekeningSetoranComponent>
+                    break;
+                }
+            case "bukarekeningberhasil":
+                {
+                    <BukaRekeningBerhasilComponent></BukaRekeningBerhasilComponent>
                     break;
                 }
             case "bukutabungan":
@@ -96,6 +172,11 @@
             case "bukuberhasil":
                 {
                     <BukuBerhasilComponent></BukuBerhasilComponent>
+                    break;
+                }
+            case "bukarekeningdataberhasil":
+                {
+                    <BukaRekeningDataBerhasilComponent></BukaRekeningDataBerhasilComponent>
                     break;
                 }
             case "historitransaksi":
@@ -149,7 +230,7 @@
 </div>
 
 @code{
-    private string message = "bukarekeningktp";
+    private string message = string.Empty;
     private string language = "ID";
 
     void ClickHandler(string strmessage)

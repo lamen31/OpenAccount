@@ -1,24 +1,21 @@
 ﻿@using Microsoft.AspNetCore.Components
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" style="margin-top: 50px;">
+<section id="hero">
 
     <div class="container">
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
+                    <teks style="color: black;">Buka Rekening <b style="color: #46DA00;">Berhasil</b></teks>
+                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">
+                        “Silakan ambil Kartu Debit dan
+                        Struk Anda pada bagian bawah mesin”
+                    </h3>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
-                <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+                <img src="../assets/img/kartu-berhasil.png" class="img-fluid" alt="" style="margin-top: 5%;">
             </div>
         </div>
     </div>
@@ -28,7 +25,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -44,37 +41,26 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>6</em>
                     <!-- <span>Done</span> -->
                 </li>
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+            <!-- <button type="button" class="btn btn-primary" style="float: right;">Lanjut</button> -->
         </div>
     </div>
 </footer><!-- End Footer -->
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
 
-    private async Task Home()
-    {
-        OnClick.InvokeAsync("home");
-    }
-
-    private async Task KTPberhasil()
-    {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
-    }
 }

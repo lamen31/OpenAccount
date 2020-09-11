@@ -9,16 +9,52 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> sesuai e-KTP Anda pada bagian bawah mesin</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
-                <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+                <form method="POST" action="">
+                    <canvas class="pad"></canvas>
+                    <fieldset>
+                        <input type="reset" value="clear" />
+                    </fieldset>
+                </form>
+
+                <!-- <script src="../assets/jquery.signaturepad.js"></script>
+                <script>
+                (function(window) {
+                  var $canvas,
+                      onResize = function(event) {
+                        $canvas.attr({
+                          height: window.innerHeight,
+                          width: window.innerWidth
+                        });
+                      };
+
+                  $(document).ready(function() {
+                    $canvas = $('canvas');
+                    window.addEventListener('orientationchange', onResize, false);
+                    window.addEventListener('resize', onResize, false);
+                    onResize();
+
+                    $('form').signaturePad({
+                      drawOnly: true,
+                      defaultAction: 'drawIt',
+                      validateFields: false,
+                      lineWidth: 0,
+                      output: null,
+                      sigNav: null,
+                      name: null,
+                      typed: null,
+                      clear: 'input[type=reset]',
+                      typeIt: null,
+                      drawIt: null,
+                      typeItDesc: null,
+                      drawItDesc: null
+                    });
+                  });
+                }(this));
+                </script>
+                <script src="../assets/js/json2.min.js"></script> -->
             </div>
         </div>
     </div>
@@ -28,7 +64,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Kembali">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -44,7 +80,7 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
@@ -64,17 +100,14 @@
     </div>
 </footer><!-- End Footer -->
 
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private async Task Home()
+    private async Task Kembali()
     {
-        OnClick.InvokeAsync("home");
+        OnClick.InvokeAsync("bukarekeninginputdata3");
     }
 
-    private async Task KTPberhasil()
-    {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
-    }
 }

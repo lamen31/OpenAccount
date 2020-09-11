@@ -16,12 +16,12 @@
                 <div class="form-input-data">
                     <div id="btn-periode" class="col-md-12" style="text-align: center;">
                         <div class="form-group">
-                            <button type="button" class="btn3 btn-histori" onclick="btn1()">Transaksi</button>
-                            <button type="button" class="btn3 btn-histori" style="margin-left: 1rem;">Menabung/Investasi</button>
+                            <button type="button" class="btn3 btn-histori" @onclick="Jenis">Transaksi</button>
+                            <button type="button" class="btn3 btn-histori" style="margin-left: 1rem;" @onclick="Jenis">Menabung/Investasi</button>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn3 btn-histori">Keperluan Pribadi</button>
-                            <button type="button" class="btn3 btn-histori" style="margin-left: 1rem;">Tujuan Lainnya</button>
+                            <button type="button" class="btn3 btn-histori" @onclick="Jenis">Keperluan Pribadi</button>
+                            <button type="button" class="btn3 btn-histori" style="margin-left: 1rem;" @onclick="Jenis">Tujuan Lainnya</button>
                         </div>
                     </div>
                 </div>
@@ -79,4 +79,8 @@
         OnClick.InvokeAsync("home");
     }
 
+    private async Task Jenis()
+    {
+        OnClick.InvokeAsync("bukarekeningjenis");
+    }
 }

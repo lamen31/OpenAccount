@@ -9,16 +9,39 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Berikut data <b>e-KTP</b> Anda</h3>
+                <table style="margin-top: 9%;">
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> NIK </h4></td>
+                        <td><h4 style="font-weight: 600;">:&emsp;</h4></td>
+                        <td><h4 style="font-weight: 600;">02480327487328</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Nama </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">Bambang Pamungkas</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Tempat/Tgl Lahir</h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">Jakarta, 22-09-1972</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Status Perkawinan </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">Belum Kawin</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Pekerjaan</h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">Wiraswasta</h4><br></td>
+                    </tr>
+                </table>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
-                <br>
+
                 <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+
             </div>
         </div>
     </div>
@@ -59,7 +82,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="NPWP">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -72,9 +95,8 @@
     {
         OnClick.InvokeAsync("home");
     }
-
-    private async Task KTPberhasil()
+    private async Task NPWP()
     {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
+        OnClick.InvokeAsync("bukarekeningNPWP");
     }
 }

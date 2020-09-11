@@ -9,16 +9,13 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Proses pindai Sidik Jari <b style="color: rgb(50, 219, 72);">Berhasil</b></h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
+                <img src="../assets/img/tick (2).png" style="width: 10%;">
                 <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+                <img src="../assets/img/finger.png" class="img-fluid" alt=""><br>
+
             </div>
         </div>
     </div>
@@ -68,13 +65,13 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+        OnClick.InvokeAsync("bukarekeningdataKTP");
+    }
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
-    }
-
-    private async Task KTPberhasil()
-    {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
     }
 }

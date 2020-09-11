@@ -11,8 +11,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenAccount</title>
+    <style>
+        fieldset {
+            position: absolute;
+            border: 5px solid #aaa;
+            background: #aaa;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        canvas {
+            outline: 5px solid #aaa;
+            background: #fff;
+        }
+
+        input[type=submit], input[type=reset] {
+            font-size: larger;
+        }
+    </style>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../assets/css/keyboard.css">
+    <link rel="stylesheet" href="../lib/css/jkeyboard.css">
+    <link rel="stylesheet" href="../assets/css/jquery.signaturepad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
     <link rel="stylesheet" href="../assets/css/clock.css">
@@ -71,7 +91,7 @@
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/bahasa.js"></script>
-    <script src="../lib/js/jkeyboard.js"></script>
+    @*<script src="../lib/js/jkeyboard.js"></script>
     <script type="text/javascript">
         $('#keyboard').jkeyboard({
             layout: "numbers_only",
@@ -80,9 +100,9 @@
 
 
         $(".form-control").focus(function () {
-            $('#keyboard').jkeyboard("setInput", this);
+            $('#keyboard').jkeyboard("setinput", this);
         });
-    </script>
+    </script>*@
 
     <script src="_framework/blazor.server.js"></script>
 </body>

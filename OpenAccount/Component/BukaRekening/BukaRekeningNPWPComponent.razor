@@ -9,7 +9,7 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Masukkan <b>NPWP</b> Anda pada alat pemindai</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <div class="spinner-border text-danger" role="status">
@@ -17,8 +17,8 @@
                 </div>
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+                <img src="../assets/img/npwp.png" class="img-fluid" alt=""><br>
+                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="NPWPberhasil">Pindai</button>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
@@ -72,9 +72,8 @@
     {
         OnClick.InvokeAsync("home");
     }
-
-    private async Task KTPberhasil()
+    private async Task NPWPberhasil()
     {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
+        OnClick.InvokeAsync("bukarekeningNPWPberhasil");
     }
 }

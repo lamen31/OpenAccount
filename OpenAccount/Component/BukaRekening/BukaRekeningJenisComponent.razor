@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <h2 style="font-size: 35px;">Jenis Tabungan</h2>
+                    <h3 style="color: #00529C;">Silakan Pilih Jenis Tabungan yang Anda inginkan</h3>
+                </div>
+
+                <div class="card-deck" style="display: flex; margin-top: 2%;" data-aos="fade-right">
+                    <div class="card" style="border-radius: 0 0 5rem 0; padding-left: 2.5rem; padding-right: 2.5rem;">
+                        <div class="text-center" style="align-items: center; height: 40%;">
+                            <img src="assets/img/jenis-tabungan/simpedes.png" class="card-img-top" alt="...">
+                        </div>
+                        <div style="margin-left: 8px;">
+                            <small class="text-muted" style="font-size: 20px; color: #00529C; font-weight: 600;">Simpedes</small><br><br>
+                            <small class="text-muted" style="font-size: 15px; color: #509fe4;">
+                                Tabungan mata uang rupiah, yang dapat dilayani di seluruh unit kerja BRI,
+                                dengan jumlah setoran awal hanya Rp50.000,-
+                            </small>
+                        </div>
+                        <div class="card-body" style="text-align: right;">
+                            <img src="assets/img/next.png" style="width: 20%;" alt="..." @onclick="Syarat">
+                        </div>
+                    </div>
+
+                    <div class="card" style="border-radius: 0 0 5rem 0; padding-left: 2rem; padding-right: 2rem;">
+                        <div class="text-center" style="align-items: center; height: 40%;">
+                            <img src="assets/img/jenis-tabungan/britama.png" class="card-img-top" alt="...">
+                        </div>
+                        <div style="margin-left: 5px;">
+                            <small class="text-muted" style="font-size: 20px; color: #00529C; font-weight: 600;">BritAma</small><br><br>
+                            <small class="text-muted" style="font-size: 15px; color: #509fe4;">
+                                Tabungan dengan beragam kemudahan yang didukung fasilitas e-banking,
+                                sehingga nasabah dapat bertransaksi kapanpun & dimanapun-
+                            </small>
+                        </div>
+                        <div class="card-body" style="text-align: right;">
+                            <img src="assets/img/next.png" style="width: 20%;" alt="...">
+                        </div>
+                    </div>
+
+                    <div class="card" style="border-radius: 0 0 5rem 0; padding-left: 2rem; padding-right: 2rem;">
+                        <div class="text-center" style="align-items: center; height: 40%;">
+                            <img src="assets/img/jenis-tabungan/britama-bisnis.png" class="card-img-top" alt="...">
+                        </div>
+                        <div style="margin-left: 8px;">
+                            <small class="text-muted" style="font-size: 20px; color: #00529C; font-weight: 600;">BritAma Bisnis</small><br><br>
+                            <small class="text-muted" style="font-size: 15px; color: #509fe4;">
+                                Tabungan dengan beragam kemudahan yang didukung fasilitas e-banking,
+                                sehingga nasabah dapat bertransaksi kapanpun & dimanapun-
+                            </small>
+                        </div>
+                        <div class="card-body" style="text-align: right;">
+                            <img src="assets/img/next.png" style="width: 20%;" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom" style="background-color: rgb(255, 255, 255);">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    @*<span>Menu</span>*@
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    @*<span>T & C</span>*@
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    @*<span>Menu</span>*@
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    @*<span>Verification</span>*@
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    @*<span>Insert Money</span>*@
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    @*<span>Done</span>*@
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <a href="term-condition.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private async Task Syarat()
+    {
+        OnClick.InvokeAsync("bukarekeningsyarat");
+    }
+}

@@ -9,16 +9,18 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;"><b>Aktifkan Rekening barumu dengan melakukan setoran awal</b></h3>
+                <h3 style="color: #FF6533; margin-top: 5%;">Minimum setoran awal sebesar<br><b>Rp 20.000</b></h3>
+                <h3 style="color: #000000; margin-top: 5%;">Masukkan uang kertas pada alat Penerima uang tunai secara<br> lembar per lembar</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <div class="spinner-border text-danger" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+                <img src="../assets/img/insert-money.png" class="img-fluid" style="width: 50%; padding: 1rem;"><br>
+                <h4 style="color: #050505; padding: 1rem;">Uang yang telah Anda<br> masukkan Sebesar</h4>
+                <h4 style="color: #fc1111; "><b>Rp 10.000</b></h4>
             </div>
         </div>
     </div>
@@ -28,7 +30,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <a href="menu-verification.html"><button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button></a>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -44,11 +46,11 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
@@ -65,16 +67,5 @@
 </footer><!-- End Footer -->
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
 
-    private async Task Home()
-    {
-        OnClick.InvokeAsync("home");
-    }
-
-    private async Task KTPberhasil()
-    {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
-    }
 }

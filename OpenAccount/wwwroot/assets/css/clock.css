@@ -48,17 +48,17 @@
   min-width: 10px;
   position: relative;
 }
-.clock-col:not(:last-child):before, .clock-col:not(:last-child):after {
-  content: "";
-  background-color: #00529C;
-  height: 4px;
-  width: 4px;
-  margin-top: -3px;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  right: -16px;
-}
+    .clock-col:not(:last-child):before, .clock-col:not(:last-child):after {
+        content: "";
+        background-color: #00529C;
+        height: 4px;
+        width: 4px;
+        margin-top: -8px;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        right: -16px;
+    }
 .clock-col:not(:last-child):before {
   top: 35%;
 }
