@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject Transaksi trx 
+@inject Transaksi trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -147,6 +148,7 @@
         trx.clear();
         trx.clearArray();
         trx.clearArrayNasabah();
+        trxbaru.clear();
     }
 
     private void test()
