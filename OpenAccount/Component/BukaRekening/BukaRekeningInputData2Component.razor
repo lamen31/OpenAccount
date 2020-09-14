@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject TransaksiBaru trxbaru 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -15,8 +18,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label style="font-weight: 600; font-size: 18px;">Pendidikan Terakhir</label>
-                            <select class="form-control">
-                                <option>-Pilih salah satu-</option>
+                            <select class="form-control" @bind="strpendidikan">
+                                <option disabled selected>-Pilih salah satu-</option>
                                 <option>SD</option>
                                 <option>SMP</option>
                                 <option>SMA</option>
@@ -26,8 +29,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="input_field_1" style="font-weight: 600; font-size: 18px;">Sumber Penghasilan</label>
-                            <select class="form-control" id="input_field_1">
-                                <option>-Pilih salah satu-</option>
+                            <select class="form-control" id="input_field_1" @bind="strpenghasilan">
+                                <option disabled selected>-Pilih salah satu-</option>
                                 <option>Gaji</option>
                                 <option>Investasi</option>
                                 <option>Usaha</option>
@@ -38,15 +41,21 @@
                     <div class="form-row" style="padding: 2rem 0rem;">
                         <div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Email</label>
-                            <input type="text" class="form-control" id="input_field_2" placeholder="email_anda@gmail.com" maxlength="1" required="required">
+                            @if (stremail == string.Empty)
+                            {
+                                <input type="text" class="form-control" id="input_field_2" placeholder="email_anda@gmail.com" maxlength="1" required="required" @onclick="inputField1">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control" id="input_field_2" @bind="stremail" maxlength="1" required="required" @onclick="inputField1">
+                            }
                         </div>
                         <div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Pekerjaan</label>
-                            <select class="form-control" id="input_field_1">
-                                <option>-Pilih salah satu-</option>
+                            <select class="form-control" id="input_field_1" @bind="strpekerjaan">
+                                <option disabled selected>-Pilih salah satu-</option>
                                 <option>Karyawan Swasta</option>
                                 <option>Pegawai Negeri</option>
-                                <option></option>
                             </select>
                             <!-- <input type="text" class="form-control" id="input_field_2"  placeholder="No. halaman yang akan dicetak" maxlength="1" required="required"> -->
                         </div>
@@ -54,70 +63,77 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Pendapatan per Tahun</label>
-                            <select class="form-control" id="input_field_1">
-                                <option>-Pilih salah satu-</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                            <select class="form-control" id="input_field_1" @bind="strpendapatan">
+                                <option disabled selected>-Pilih salah satu-</option>
+                                <option>diatas 10 juta</option>
+                                <option>5 juta - 10 juta</option>
+                                <option>dibawah 5 juta</option>
                             </select>
                             <!-- <input type="text" class="form-control" id="input_field_2"  placeholder="No. halaman yang akan dicetak" maxlength="1" required="required"> -->
                         </div>
                         <div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">No Handphone</label>
-                            <input type="text" class="form-control" id="input_field_2" placeholder="01234567890" maxlength="1" required="required">
+                            @if (strhandphone == string.Empty)
+                            {
+                                <input type="text" class="form-control" id="input_field_2" placeholder="01234567890" maxlength="1" required="required" @onclick="inputField2">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control" id="input_field_2" @bind="strhandphone" maxlength="1" required="required" @onclick="inputField2">
+                            }
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style="padding: 0.5rem;">
                 <div class="num-button2" style="margin-top: 10%;">
-                    <button class="key-num2 btn4" value="1">1</button>
-                    <button class="key-num2 btn4" value="2">2</button>
-                    <button class="key-num2 btn4" value="3">3</button>
-                    <button class="key-num2 btn4" value="4">4</button>
-                    <button class="key-num2 btn4" value="5">5</button>
-                    <button class="key-num2 btn4" value="6">6</button>
-                    <button class="key-num2 btn4" value="7">7</button>
-                    <button class="key-num2 btn4" value="8">8</button>
-                    <button class="key-num2 btn4" value="9">9</button>
-                    <button class="key-num2 btn4" value="9">0</button>
+                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
+                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
+                    <button class="key-num2 btn4" value="3" @onclick="@(() => InputData("3"))">3</button>
+                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("4"))">4</button>
+                    <button class="key-num2 btn4" value="5" @onclick="@(() => InputData("5"))">5</button>
+                    <button class="key-num2 btn4" value="6" @onclick="@(() => InputData("6"))">6</button>
+                    <button class="key-num2 btn4" value="7" @onclick="@(() => InputData("7"))">7</button>
+                    <button class="key-num2 btn4" value="8" @onclick="@(() => InputData("8"))">8</button>
+                    <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
+                    <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
 
-                    <button class="key-num2 btn4"><b class="teks-bold">Q</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">W</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">E</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">R</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">T</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">Y</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">U</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">I</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">O</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">P</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">A</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">S</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">D</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">F</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">G</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">H</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">J</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">K</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">L</b></button><br>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Q"))">Q</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("W"))">W</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("E"))">E</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("R"))">R</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("T"))">T</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Y"))">Y</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("U"))">U</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("I"))">I</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("O"))">O</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("P"))">P</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("A"))">A</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("S"))">S</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("D"))">D</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("F"))">F</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("G"))">G</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("H"))">H</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("J"))">J</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("K"))">K</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("L"))">L</b></button><br>
 
                     <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">Z</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">X</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">C</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">V</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">B</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">N</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">M</b></button>
-                    <button class="key-num4 btn4"><b class="teks-bold">Hapus</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Z"))">Z</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("X"))">X</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("C"))">C</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("V"))">V</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("B"))">B</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("N"))">N</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("M"))">M</b></button>
+                    <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
 
-                    <button class="key-num2 btn4" value="1"><b class="teks-bold">@tomboladd</b></button>
-                    <button class="key-num2 btn4" value="2">,</button>
-                    <button class="key-num5 btn4" value="3">Space</button>
-                    <button class="key-num2 btn4" value="4">.</button>
-                    <button class="key-num6 btn4" value="5"><b class="teks-bold">.com</b></button>
-                    <button class="key-num6 btn4" value="6"><b class="teks-bold">.co.id</b></button>
+                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
+                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
+                    <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">Space</button>
+                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
+                    <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".COM"))"><b class="teks-bold">.com</b></button>
+                    <button class="key-num6 btn4" value="6" @onclick="@(() => InputData(".CO.ID"))"><b class="teks-bold">.co.id</b></button>
                 </div>
             </div>
         </div>
@@ -169,6 +185,13 @@
     public EventCallback<string> OnClick { get; set; }
 
     private string tomboladd = "@";
+    private string strpendidikan = string.Empty;
+    private string strpenghasilan = string.Empty;
+    private string stremail = string.Empty;
+    private string strpekerjaan = string.Empty;
+    private string strpendapatan = string.Empty;
+    private string strhandphone = string.Empty;
+    private string isTextField = string.Empty;
 
     private async Task Kembali()
     {
@@ -177,6 +200,55 @@
 
     private async Task Selanjutnya()
     {
+        trxbaru.setNasabahBaru2(strpendidikan, strpenghasilan, stremail, strpekerjaan, strpendapatan, strhandphone);
         OnClick.InvokeAsync("bukarekeninginputdata3");
+    }
+
+    private void inputField1()
+    {
+        isTextField = "1";
+    }
+
+    private void inputField2()
+    {
+        isTextField = "2";
+    }
+
+    private void InputData(string strinput)
+    {
+        if (isTextField == "1")
+        {
+            stremail += strinput;
+        }
+        else if (isTextField == "2")
+        {
+            strhandphone += strinput;
+        }
+    }
+
+    private void RemoveData()
+    {
+        if (isTextField == "1")
+        {
+            if (stremail.Length <= 0)
+            {
+                stremail = "";
+            }
+            else
+            {
+                stremail = stremail.Substring(0, stremail.Length - 1);
+            }
+        }
+        else if (isTextField == "2")
+        {
+            if (strhandphone.Length <= 0)
+            {
+                strhandphone = "";
+            }
+            else
+            {
+                strhandphone = strhandphone.Substring(0, stremail.Length - 1);
+            }
+        }
     }
 }

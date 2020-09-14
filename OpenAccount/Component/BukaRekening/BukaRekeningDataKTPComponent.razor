@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject IDScanner scanner
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -14,27 +18,27 @@
                     <tr>
                         <td><h4 style="font-weight: 600;"> NIK </h4></td>
                         <td><h4 style="font-weight: 600;">:&emsp;</h4></td>
-                        <td><h4 style="font-weight: 600;">02480327487328</h4><br></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._NIK</h4><br></td>
                     </tr>
                     <tr>
                         <td><h4 style="font-weight: 600;"> Nama </h4></td>
                         <td><h4 style="font-weight: 600;">:</h4></td>
-                        <td><h4 style="font-weight: 600;">Bambang Pamungkas</h4><br></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._Nama</h4><br></td>
                     </tr>
                     <tr>
                         <td><h4 style="font-weight: 600;"> Tempat/Tgl Lahir</h4></td>
                         <td><h4 style="font-weight: 600;">:</h4></td>
-                        <td><h4 style="font-weight: 600;">Jakarta, 22-09-1972</h4><br></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._TTL</h4><br></td>
                     </tr>
                     <tr>
                         <td><h4 style="font-weight: 600;"> Status Perkawinan </h4></td>
                         <td><h4 style="font-weight: 600;">:</h4></td>
-                        <td><h4 style="font-weight: 600;">Belum Kawin</h4><br></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._PerkawinanKTP</h4><br></td>
                     </tr>
                     <tr>
                         <td><h4 style="font-weight: 600;"> Pekerjaan</h4></td>
                         <td><h4 style="font-weight: 600;">:</h4></td>
-                        <td><h4 style="font-weight: 600;">Wiraswasta</h4><br></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._PekerjaanKTP</h4><br></td>
                     </tr>
                 </table>
             </div>
@@ -91,6 +95,19 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string strnik = "02480327487328";
+    private string strnama = "Bambang Pamungkas";
+    private string strttl = "Jakarta, 22-09-1972";
+    private string strperkawinan = "Belum Kawin";
+    private string strpekerjaan = "Wiraswasta";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(100);
+        trxbaru.setKTPNasabah(strnik, strnama, strttl, strperkawinan, strpekerjaan);
+        scanner.ReturnCard();
+        scanner.CloseCVRReader();
+    }
     private async Task Home()
     {
         OnClick.InvokeAsync("home");

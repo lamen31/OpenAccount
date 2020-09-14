@@ -31,8 +31,10 @@ namespace OpenAccount
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<Config>();
             services.AddScoped<Transaksi>();
+            services.AddScoped<TransaksiBaru>();
             services.AddSingleton<Printer>();
             services.AddSingleton<PrinterStatus>();
+            services.AddScoped<IDScanner>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject TransaksiBaru trxbaru 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -15,16 +18,25 @@
                     <div class="form-row" style="padding: 2rem 0rem;">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nama Gadis Ibu Kandung</label>
-                            <input type="text" class="form-control" placeholder="nama gadis ibu kandung">
+                            @if (strnamaibu == string.Empty)
+                            {
+                                <input type="text" class="form-control" placeholder="nama gadis ibu kandung" @onclick="inputField1">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control" @bind="strnamaibu" @onclick="inputField1">
+                            }
                         </div>
                         <div class="form-group col-md-6">
                             <label for="input_field_1" style="font-weight: 600; font-size: 18px;">Agama</label>
-                            <select class="form-control" id="input_field_1">
-                                <option>-Pilih salah satu-</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                            <select class="form-control" id="input_field_1" @bind="stragama">
+                                <option disabled selected>-Pilih salah satu-</option>
+                                <option>Kristen</option>
+                                <option>Katolik</option>
+                                <option>Islam</option>
+                                <option>Hindu</option>
+                                <option>Buddha</option>
+                                <option>Konghucu</option>
                             </select>
                             <!-- <input  type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="-pilih salah satu-" maxlength="2" required="required"> -->
                         </div>
@@ -32,8 +44,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Status Perkawinan</label>
-                            <select class="form-control" id="input_field_1">
-                                <option>-Pilih status perkawinan-</option>
+                            <select class="form-control" id="input_field_1" @bind="strperkawinan">
+                                <option disabled selected>-Pilih status perkawinan-</option>
                                 <option>Belum Kawin</option>
                                 <option>Kawin</option>
                                 <option>Cerai Mati</option>
@@ -42,8 +54,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Status Tempat Tinggal</label>
-                            <select class="form-control" id="input_field_1">
-                                <option>-Pilih status tempat tinggal-</option>
+                            <select class="form-control" id="input_field_1" @bind="strstatustinggal">
+                                <option disabled selected>-Pilih status tempat tinggal-</option>
                                 <option>Milik Sendiri</option>
                                 <option>Nyewa</option>
                                 <option>Kredit Rumah</option>
@@ -53,8 +65,8 @@
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" @bind="flagSesuai">
+                            <label class="form-check-label" for="gridCheck" >
                                 Alamat tinggal saat ini sesuai KTP
                             </label>
                         </div>
@@ -63,53 +75,53 @@
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style="padding: 0.5rem;">
                 <div class="num-button2" style="margin-top: 10%;">
-                    <button class="key-num2 btn4" value="1">1</button>
-                    <button class="key-num2 btn4" value="2">2</button>
-                    <button class="key-num2 btn4" value="3">3</button>
-                    <button class="key-num2 btn4" value="4">4</button>
-                    <button class="key-num2 btn4" value="5">5</button>
-                    <button class="key-num2 btn4" value="6">6</button>
-                    <button class="key-num2 btn4" value="7">7</button>
-                    <button class="key-num2 btn4" value="8">8</button>
-                    <button class="key-num2 btn4" value="9">9</button>
-                    <button class="key-num2 btn4" value="9">0</button>
+                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
+                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
+                    <button class="key-num2 btn4" value="3" @onclick="@(() => InputData("3"))">3</button>
+                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("4"))">4</button>
+                    <button class="key-num2 btn4" value="5" @onclick="@(() => InputData("5"))">5</button>
+                    <button class="key-num2 btn4" value="6" @onclick="@(() => InputData("6"))">6</button>
+                    <button class="key-num2 btn4" value="7" @onclick="@(() => InputData("7"))">7</button>
+                    <button class="key-num2 btn4" value="8" @onclick="@(() => InputData("8"))">8</button>
+                    <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
+                    <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
 
-                    <button class="key-num2 btn4"><b class="teks-bold">Q</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">W</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">E</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">R</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">T</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">Y</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">U</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">I</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">O</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">P</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">A</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">S</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">D</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">F</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">G</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">H</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">J</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">K</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">L</b></button><br>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Q"))">Q</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("W"))">W</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("E"))">E</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("R"))">R</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("T"))">T</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Y"))">Y</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("U"))">U</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("I"))">I</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("O"))">O</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("P"))">P</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("A"))">A</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("S"))">S</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("D"))">D</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("F"))">F</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("G"))">G</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("H"))">H</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("J"))">J</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("K"))">K</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("L"))">L</b></button><br>
 
                     <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">Z</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">X</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">C</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">V</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">B</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">N</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold">M</b></button>
-                    <button class="key-num4 btn4"><b class="teks-bold">Hapus</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Z"))">Z</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("X"))">X</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("C"))">C</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("V"))">V</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("B"))">B</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("N"))">N</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("M"))">M</b></button>
+                    <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
 
-                    <button class="key-num2 btn4" value="1"><b class="teks-bold">@tomboladd</b></button>
-                    <button class="key-num2 btn4" value="2">,</button>
-                    <button class="key-num5 btn4" value="3">Space</button>
-                    <button class="key-num2 btn4" value="4">.</button>
-                    <button class="key-num6 btn4" value="5"><b class="teks-bold">.com</b></button>
-                    <button class="key-num6 btn4" value="6"><b class="teks-bold">.co.id</b></button>
+                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
+                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
+                    <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">Space</button>
+                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
+                    <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".COM"))"><b class="teks-bold">.com</b></button>
+                    <button class="key-num6 btn4" value="6" @onclick="@(() => InputData(".CO.ID"))"><b class="teks-bold">.co.id</b></button>
                 </div>
             </div>
         </div>
@@ -161,6 +173,12 @@
     public EventCallback<string> OnClick { get; set; }
 
     private string tomboladd = "@";
+    private string strnamaibu = string.Empty;
+    private string stragama = string.Empty;
+    private string strperkawinan = string.Empty;
+    private string strstatustinggal = string.Empty;
+    private bool flagSesuai = false;
+    private string isTextField = string.Empty;
 
     private async Task Home()
     {
@@ -169,6 +187,35 @@
 
     private async Task Selanjutnya()
     {
+        trxbaru.setNasabahBaru(strnamaibu, stragama, strperkawinan, strstatustinggal, flagSesuai);
         OnClick.InvokeAsync("bukarekeninginputdata2");
+    }
+
+    private void inputField1()
+    {
+        isTextField = "1";
+    }
+
+    private void InputData(string strinput)
+    {
+        if (isTextField == "1")
+        {
+            strnamaibu += strinput;
+        }
+    }
+
+    private void RemoveData()
+    {
+        if (isTextField == "1")
+        {
+            if (strnamaibu.Length <= 0)
+            {
+                strnamaibu = "";
+            }
+            else
+            {
+                strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
+            }
+        }
     }
 }

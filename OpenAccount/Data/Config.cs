@@ -15,6 +15,7 @@ namespace OpenAccount.Data
         public const string PARAM_PATH_THERMAL = "param.path.thermal";
         public const string PARAM_PATH_IMAGE_A4 = "param.path.image.a4";
         public const string PARAM_PATH_IMAGE_THERMAL = "param.path.image.thermal";
+        public const string PARAM_PATH_IMAGE_SAVESCANNER = "param.path.image.savescanner";
         public const string PARAM_PATH_PRINTSERVER_A4 = "param.path.printserver.a4";
         public const string PARAM_PATH_PRINTSERVER_PASSBOOK = "param.path.printserver.passbook";
         public const string PARAM_PATH_PRINTSERVER_PRINTCOBA = "param.path.printserver.printcoba";

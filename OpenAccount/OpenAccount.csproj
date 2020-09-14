@@ -27,6 +27,12 @@
     <Reference Include="INIFileParser">
       <HintPath>bin\Debug\netcoreapp3.1\INIFileParser.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>bin\Debug\netcoreapp3.1\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Printing">
       <HintPath>System.Printing.dll</HintPath>
     </Reference>

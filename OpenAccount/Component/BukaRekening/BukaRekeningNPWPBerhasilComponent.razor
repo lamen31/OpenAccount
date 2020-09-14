@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject IDScanner scanner
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -70,6 +73,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        scanner.ReturnCard();
+        scanner.CloseCVRReader();
         await Task.Delay(1000);
         OnClick.InvokeAsync("bukarekeninginputdata");
     }

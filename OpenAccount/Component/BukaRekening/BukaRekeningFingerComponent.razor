@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject IDScanner scanner 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -12,9 +15,16 @@
                 <h3 style="color: #00529C;">Letakkan <b>Telunjuk Kanan/Kiri</b> Anda pada alat pemindai Sidik Jari</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
+                @if (!isFingerValid)
+                {
+                    <h5 style="color: #00529C;">Pindai Jari Gagal, Kesempatan untuk mencoba @trylimit.ToString()x lagi</h5>
+                }
+                else
+                {
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                }
                 <br>
                 <img src="../assets/img/finger.png" class="img-fluid" alt=""><br>
 
@@ -67,13 +77,48 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isFingerValid = true;
+    private bool FingerValid = true;
+    private bool loopFinger = false;
+    private int trylimit = 3;
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        OnClick.InvokeAsync("bukarekeningfingerberhasil");
+        loopFinger = true;
+        CheckFingerValid();
+        //OnClick.InvokeAsync("bukarekeningfingerberhasil");
+    }
+    private async Task CheckFingerValid()
+    {
+        do
+        {
+            await Task.Delay(100);
+            if (FingerValid)
+            {
+                loopFinger = false;
+                OnClick.InvokeAsync("bukarekeningfingerberhasil");
+            }
+            else
+            {
+                isFingerValid = false;
+                await Task.Delay(100);
+                StateHasChanged();
+                trylimit -= 1;
+                if (trylimit == 0)
+                {
+                    scanner.ReturnCard();
+                    scanner.CloseCVRReader();
+                    loopFinger = false;
+                    OnClick.InvokeAsync("home");
+                }
+            }
+            await Task.Delay(2000);
+        } while (loopFinger);
     }
     private async Task Home()
     {
+        loopFinger = false;
         OnClick.InvokeAsync("home");
     }
 }

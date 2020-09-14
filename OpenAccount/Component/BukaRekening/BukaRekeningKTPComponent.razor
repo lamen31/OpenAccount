@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject IDScanner scanner 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -9,7 +12,7 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Masukan <b>e-KTP</b> Anda pada alat pemindai</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <div class="spinner-border text-danger" role="status">
@@ -68,6 +71,8 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isKTPValid = true;
+
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
@@ -75,6 +80,26 @@
 
     private async Task KTPberhasil()
     {
-        OnClick.InvokeAsync("bukarekeningktpberhasil");
+        scanner.FrontSwallow();
+        scanner.BackSwallow();
+        await Task.Delay(3000);
+        CheckKTPValid();
+        //OnClick.InvokeAsync("bukarekeningktpberhasil");
+    }
+
+    private async Task CheckKTPValid()
+    {
+        if (isKTPValid)
+        {
+            scanner.RadioPos();
+            await Task.Delay(2000);
+            scanner.ScanKTP();
+            OnClick.InvokeAsync("bukarekeningktpberhasil");
+        }
+        else
+        {
+            scanner.ReturnCard();
+            scanner.CloseCVRReader();
+        }
     }
 }
