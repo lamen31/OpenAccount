@@ -35,6 +35,7 @@ namespace OpenAccount
             services.AddSingleton<Printer>();
             services.AddSingleton<PrinterStatus>();
             services.AddScoped<IDScanner>();
+            services.AddSingleton<SignPad>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

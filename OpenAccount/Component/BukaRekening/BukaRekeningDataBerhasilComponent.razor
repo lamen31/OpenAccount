@@ -79,12 +79,18 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;">Selesai</button>
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="Home">Selesai</button>
         </div>
     </div>
 </footer><!-- End Footer -->
 <!-- Vendor JS Files -->
 
 @code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
 
+    private void Home()
+    {
+        OnClick.InvokeAsync("home");
+    }
 }

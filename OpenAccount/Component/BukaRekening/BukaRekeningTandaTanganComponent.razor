@@ -1,4 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using System 
+@using System.IO
+@using OpenAccount.Data
+
+@inject SignPad sign 
+@inject Config config
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -13,10 +19,19 @@
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <form method="POST" action="">
-                    <canvas class="pad"></canvas>
-                    <fieldset>
-                        <input type="reset" value="clear" />
-                    </fieldset>
+                    @if (!isVisible)
+                    {
+                        <canvas class="pad"></canvas>
+                    }
+                    else
+                    {
+                <div>
+                    <img src="../assets/imgsignpad.png" />
+                </div>
+                    }
+                    @*<fieldset>
+            <input type="reset" value="clear" />
+        </fieldset>*@
                 </form>
 
                 <!-- <script src="../assets/jquery.signaturepad.js"></script>
@@ -95,7 +110,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+            <button type="button" class="btn btn-primary" style="float: right;">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -104,10 +119,54 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+    private string PathImage;
+    private string PathWorking;
+    private string path;
+    private bool flag = false;
+    private bool isVisible = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+        path = Directory.GetCurrentDirectory().ToString();
+        PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+        //if (File.Exists(PathImage))
+        //{
+        //    File.Delete(PathImage);
+        //}
+        //if(flag == false)
+        //{
+        //    if(File.Exists(PathImage))
+        //        File.Delete(PathImage);
+        //}
+        File.Delete(PathImage);
+        sign.signpad();
+
+        PathWorking = sign.workingdirectory + "\\hwsign.png";
+        //path += "\\wwwroot\\assets\\hwsign.png";
+        //if (File.Exists(PathImage))
+        //    File.Move(PathImage, path + "\\wwwroot\\");
+        if (File.Exists(PathWorking))
+        {
+            flag = false;
+            //File.Move(PathWorking, path + "\\wwwroot\\assets\\hwsign.png");
+            await Task.Run(()=> File.Move(PathWorking, path + "\\wwwroot\\assets\\imgsignpad.png"));
+            Console.WriteLine("FILE HAS MOVED");
+            isVisible = true;
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+        //isVisible = true;
+        flag = true;
+    }
 
     private async Task Kembali()
     {
         OnClick.InvokeAsync("bukarekeninginputdata3");
     }
 
+    private async Task Selanjutnya()
+    {
+        OnClick.InvokeAsync("bukarekeningsetoran");
+    }
 }

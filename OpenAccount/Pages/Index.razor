@@ -141,12 +141,17 @@
                 }
             case "bukarekeningsetoran":
                 {
-                    <BukaRekeningSetoranComponent></BukaRekeningSetoranComponent>
+                    <BukaRekeningSetoranComponent OnClick="ClickHandler"></BukaRekeningSetoranComponent>
                     break;
                 }
             case "bukarekeningberhasil":
                 {
-                    <BukaRekeningBerhasilComponent></BukaRekeningBerhasilComponent>
+                    <BukaRekeningBerhasilComponent OnClick="ClickHandler"></BukaRekeningBerhasilComponent>
+                    break;
+                }
+            case "bukarekeningdataberhasil":
+                {
+                    <BukaRekeningDataBerhasilComponent OnClick="ClickHandler"></BukaRekeningDataBerhasilComponent>
                     break;
                 }
             case "bukutabungan":
@@ -172,11 +177,6 @@
             case "bukuberhasil":
                 {
                     <BukuBerhasilComponent></BukuBerhasilComponent>
-                    break;
-                }
-            case "bukarekeningdataberhasil":
-                {
-                    <BukaRekeningDataBerhasilComponent></BukaRekeningDataBerhasilComponent>
                     break;
                 }
             case "historitransaksi":
@@ -230,7 +230,7 @@
 </div>
 
 @code{
-    private string message = "bukarekeningtandatangan";
+    private string message = "bukarekeninginputdata3";
     private string language = "ID";
 
     void ClickHandler(string strmessage)

@@ -16,9 +16,11 @@ namespace OpenAccount.Data
         public const string PARAM_PATH_IMAGE_A4 = "param.path.image.a4";
         public const string PARAM_PATH_IMAGE_THERMAL = "param.path.image.thermal";
         public const string PARAM_PATH_IMAGE_SAVESCANNER = "param.path.image.savescanner";
+        public const string PARAM_PATH_IMAGE_SAVESIGNPAD = "param.path.image.savesignpad";
         public const string PARAM_PATH_PRINTSERVER_A4 = "param.path.printserver.a4";
         public const string PARAM_PATH_PRINTSERVER_PASSBOOK = "param.path.printserver.passbook";
         public const string PARAM_PATH_PRINTSERVER_PRINTCOBA = "param.path.printserver.printcoba";
+        public const string PARAM_PATH_SIGNPAD = "param.path.signpad";
         public const string PARAM_NAMA_NASABAH = "param.nama.nasabah";
         public const string PARAM_REKENING_NASABAH = "param.rekening.nasabah";
         public const string PARAM_ALAMAT_NASABAH = "param.alamat.nasabah";
