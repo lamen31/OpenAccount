@@ -3,6 +3,7 @@
 
 @inject Transaksi trx 
 @inject Config config
+@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -125,8 +126,8 @@
 </footer><!-- End Footer -->
 
 @code {
-        [Parameter]
-        public EventCallback<string> OnClick { get; set; }
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
 
     private string jenisbuku = string.Empty;
     private string barisbuku = string.Empty;
@@ -173,6 +174,10 @@
                         pengesahan[i] = column[j];
                 }
             }
+            Console.WriteLine("INPUT DATA SUCCESS");
+            Utility.WriteLog("Buku condition : input data saldo : " + saldorekening + " success", "step-action");
+            Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
+            Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
             trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
             OnClick.InvokeAsync("bukukonfirmasi");
         }

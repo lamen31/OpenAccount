@@ -71,7 +71,9 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        for(int i = 0; i < Nasabah.Length; i++)
+        Console.WriteLine("INPUT PIN SUCCESS");
+        Utility.WriteLog("Buku condition : input pin success", "step-action");
+        for (int i = 0; i < Nasabah.Length; i++)
         {
             if (i == 0)
                 Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
@@ -80,7 +82,18 @@
             else if (i == 2)
                 Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
         }
+        Console.WriteLine("INPUT DATA SUCCESS");
+        Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
         trx.setArrayNasabah(Nasabah);
         OnClick.InvokeAsync("bukuinputdata");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKU INPUT PIN");
+            Utility.WriteLog("Buku condition : entered into buku input pin", "step-action");
+        }
     }
 }

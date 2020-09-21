@@ -1,0 +1,16 @@
+20200921 15:02:32 Default : entered into home page
+20200921 15:02:34 Buku condition : entered into buku input card
+20200921 15:02:35 Buku condition : input card success
+20200921 15:02:35 Buku condition : entered into buku input pin
+20200921 15:02:36 Buku condition : input pin success
+20200921 15:02:36 Buku condition : input data Bambang Pamungkas success
+20200921 15:02:51 Buku condition : input data saldo : 100000 success
+20200921 15:02:51 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200921 15:03:11 Printer condition : print histori in EPSON L3150 Series start
+20200921 15:03:11 Printer status condition : check status printing in EPSON L3150 Series
+20200921 15:03:12 20200921 15:03:12 Status printing in EPSON L3150 Series : no pages left
+20200921 15:03:12 Status printing in EPSON L3150 Series : status queue is none
+20200921 15:03:12 Status printing in EPSON L3150 Series : printing done
+
+20200921 15:03:12 Printer condition : print histori in EPSON L3150 Series finished
+20200921 15:03:12 Histori condition : entered into histori berhasil

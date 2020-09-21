@@ -305,6 +305,9 @@ namespace OpenAccount.Data
             int nol = 0;
             printdoc = new PrintDocument();
             _trx = trx;
+            string pathStatus;
+            string strfilename = "step-action";
+            string textStatus;
             //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
             string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
             printdoc.PrinterSettings.PrinterName = printername;
@@ -312,8 +315,15 @@ namespace OpenAccount.Data
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(PassbookPrintPage);
             printdoc.Print();
+            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
             printerstatus.StatusPrinting(printername);
-            Console.WriteLine("Printing Selesai...");
+            pathStatus = printerstatus.workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
             return trx._BukuSaldo;
         }
 

@@ -4,6 +4,8 @@
 @inject Printer print
 @inject Transaksi trx
 @inject Config config
+@inject Utility utility
+
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -142,6 +144,7 @@
         await Task.Delay(100);
         StateHasChanged();
 
+        int jmlhalaman = 1;
         baris = Convert.ToInt32(trx._BukuBaris);
         baris -= 1;
         totaldata = trx._BukuSandi.Length;
@@ -194,7 +197,12 @@
                     trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
                     baris -= 1;
                     startindex = 40 - baris;
+                    Console.WriteLine("PRINT HALAMAN KE-" + jmlhalaman.ToString());
+                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintPassbook(trx));
+                    Console.WriteLine("PRINT HALAMAN KE-" + jmlhalaman.ToString() + " SUCCESS");
+                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                    jmlhalaman += 1;
                     //await Task.Delay(10000);
                     if (int.Parse(saldo) == 0) isEmpty = true;
                     else isEmpty = false;
@@ -215,7 +223,11 @@
                         Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
                         Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
                         trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                        Console.WriteLine("PRINT HALAMAN KE-" + jmlhalaman.ToString());
+                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                         saldo = await Task.Run(() => print.PrintPassbook(trx));
+                        Console.WriteLine("PRINT HALAMAN KE-" + jmlhalaman.ToString() + " SUCCESS");
+                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                         //await Task.Delay(10000);
                         OnClick.InvokeAsync("bukuberhasil");
                         break;
@@ -234,7 +246,12 @@
                         Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
                         trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
                         startindex = startindex + 40;
+                        Console.WriteLine("PRINT HALAMAN KE-" + jmlhalaman.ToString());
+                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                         saldo = await Task.Run(() => print.PrintPassbook(trx));
+                        Console.WriteLine("PRINT HALAMAN KE-" + jmlhalaman.ToString() + " SUCCESS");
+                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                        jmlhalaman += 1;
                         await Task.Delay(10000);
                     }
                 }

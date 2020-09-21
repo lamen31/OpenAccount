@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -68,4 +71,12 @@
         OnClick.InvokeAsync("home");
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HISTORI BERHASIL");
+            Utility.WriteLog("Histori condition : entered into histori berhasil", "step-action");
+        }
+    }
 }
