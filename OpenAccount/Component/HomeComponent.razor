@@ -3,6 +3,7 @@
 
 @inject Transaksi trx 
 @inject Transaksi trxbaru
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -149,6 +150,15 @@
         trx.clearArray();
         trx.clearArrayNasabah();
         trxbaru.clear();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HOME PAGE");
+            Utility.WriteLog("Default : entered into home page", "step-action");
+        }
     }
 
     private void test()

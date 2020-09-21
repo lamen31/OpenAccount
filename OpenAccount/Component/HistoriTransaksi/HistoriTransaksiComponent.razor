@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -65,6 +68,17 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
+        Console.WriteLine("INPUT CARD SUCCESS");
+        Utility.WriteLog("Histori condition : input card success", "step-action");
         OnClick.InvokeAsync("historiInputPin");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HISTORI INPUT CARD");
+            Utility.WriteLog("Histori condition : entered into histori input card", "step-action");
+        }
     }
 }

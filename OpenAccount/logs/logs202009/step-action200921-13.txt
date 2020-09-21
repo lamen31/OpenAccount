@@ -1,0 +1,113 @@
+20200921 13:25:37 Default : entered into home page
+20200921 13:25:54 Histori condition : entered into histori input card
+20200921 13:25:54 Histori condition : input card success
+20200921 13:25:55 Histori condition : entered into histori input pin
+20200921 13:25:56 Histori condition : input pin success
+20200921 13:25:56 Histori condition : input data Bambang Pamungkas success
+20200921 13:25:56 Histori condition : entered into histori pilih menu
+20200921 13:25:57 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 13:25:57 Histori condition : entered into history bulan berjalan
+20200921 13:25:58 Histori condition : print halaman ke-1
+20200921 13:26:00 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:28:56 Default : entered into home page
+20200921 13:29:08 Histori condition : entered into histori input card
+20200921 13:29:09 Histori condition : input card success
+20200921 13:29:09 Histori condition : entered into histori input pin
+20200921 13:29:10 Histori condition : input pin success
+20200921 13:29:10 Histori condition : input data Bambang Pamungkas success
+20200921 13:29:10 Histori condition : entered into histori pilih menu
+20200921 13:29:11 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 13:29:12 Histori condition : entered into history bulan berjalan
+20200921 13:29:14 Histori condition : print halaman ke-1
+20200921 13:29:15 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:29:38 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:29:38 Printer condition : print histori in EPSON L3150 Series finished
+20200921 13:29:38 Histori condition : print history halaman ke-1 success
+20200921 13:29:46 Histori condition : print halaman ke-2
+20200921 13:29:47 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:29:49 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:29:49 Printer condition : print histori in EPSON L3150 Series finished
+20200921 13:29:49 Histori condition : print history halaman ke-2 success
+20200921 13:29:57 Histori condition : print halaman ke-3
+20200921 13:29:59 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:36:31 Default : entered into home page
+20200921 13:36:33 Histori condition : entered into histori input card
+20200921 13:36:34 Histori condition : input card success
+20200921 13:36:34 Histori condition : entered into histori input pin
+20200921 13:36:35 Histori condition : input pin success
+20200921 13:36:35 Histori condition : input data Bambang Pamungkas success
+20200921 13:36:35 Histori condition : entered into histori pilih menu
+20200921 13:36:36 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 13:36:36 Histori condition : entered into history bulan berjalan
+20200921 13:36:38 Histori condition : print halaman ke-1
+20200921 13:36:39 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:36:39 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:47:43 Default : entered into home page
+20200921 13:47:44 Histori condition : entered into histori input card
+20200921 13:47:45 Histori condition : input card success
+20200921 13:47:46 Histori condition : entered into histori input pin
+20200921 13:47:47 Histori condition : input pin success
+20200921 13:47:47 Histori condition : input data Bambang Pamungkas success
+20200921 13:47:47 Histori condition : entered into histori pilih menu
+20200921 13:47:48 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 13:47:48 Histori condition : entered into history bulan berjalan
+20200921 13:47:49 Histori condition : print halaman ke-1
+20200921 13:47:51 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:47:51 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:49:19 Default : entered into home page
+20200921 13:49:25 Histori condition : entered into histori input card
+20200921 13:49:26 Histori condition : input card success
+20200921 13:49:26 Histori condition : entered into histori input pin
+20200921 13:49:27 Histori condition : input pin success
+20200921 13:49:27 Histori condition : input data Bambang Pamungkas success
+20200921 13:49:27 Histori condition : entered into histori pilih menu
+20200921 13:49:28 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 13:49:28 Histori condition : entered into history bulan berjalan
+20200921 13:49:30 Histori condition : print halaman ke-1
+20200921 13:49:31 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:49:31 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:51:41 Default : entered into home page
+20200921 13:51:43 Histori condition : entered into histori input card
+20200921 13:51:44 Histori condition : input card success
+20200921 13:51:44 Histori condition : entered into histori input pin
+20200921 13:51:45 Histori condition : input pin success
+20200921 13:51:45 Histori condition : input data Bambang Pamungkas success
+20200921 13:51:45 Histori condition : entered into histori pilih menu
+20200921 13:51:46 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 13:51:46 Histori condition : entered into history bulan berjalan
+20200921 13:51:48 Histori condition : print halaman ke-1
+20200921 13:51:49 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:51:49 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:52:04 20200921 13:29:38 Status printing in EPSON L3150 Series : job queue is empty
+20200921 13:29:38 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:29:38 Status printing in EPSON L3150 Series : printing done
+20200921 13:29:49 Status printing in EPSON L3150 Series : no pages left
+20200921 13:29:49 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:29:49 Status printing in EPSON L3150 Series : printing done
+20200921 13:36:40 Status printing in EPSON L3150 Series : no pages left
+20200921 13:36:40 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:36:40 Status printing in EPSON L3150 Series : printing done
+20200921 13:47:52 Status printing in EPSON L3150 Series : no pages left
+20200921 13:47:52 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:47:52 Status printing in EPSON L3150 Series : printing done
+20200921 13:49:32 Status printing in EPSON L3150 Series : no pages left
+20200921 13:49:32 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:49:32 Status printing in EPSON L3150 Series : printing done
+20200921 13:51:50 Status printing in EPSON L3150 Series : no pages left
+20200921 13:51:50 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:51:50 Status printing in EPSON L3150 Series : printing done
+
+20200921 13:52:08 Printer condition : print histori in EPSON L3150 Series finished
+20200921 13:52:08 Histori condition : print history halaman ke-1 success
+20200921 13:52:16 Histori condition : print halaman ke-2
+20200921 13:52:18 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:52:18 Printer status condition : check status printing in EPSON L3150 Series
+20200921 13:52:42 20200921 13:52:19 Status printing in EPSON L3150 Series : no pages left
+20200921 13:52:19 Status printing in EPSON L3150 Series : status queue is none
+20200921 13:52:19 Status printing in EPSON L3150 Series : printing done
+
+20200921 13:52:42 Printer condition : print histori in EPSON L3150 Series finished
+20200921 13:52:42 Histori condition : print history halaman ke-2 success
+20200921 13:52:50 Histori condition : print halaman ke-3
+20200921 13:52:51 Printer condition : print histori in EPSON L3150 Series start
+20200921 13:52:52 Printer status condition : check status printing in EPSON L3150 Series

@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject Transaksi trx 
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -77,6 +78,15 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HISTORI PILIH MENU");
+            Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
+        }
+    }
 
     private async Task HistoriBulanBerjalan()
     {

@@ -1,0 +1,4 @@
+20200918 15:25:45 Default : entered into home page
+20200918 15:27:23 Default : entered into home page
+20200918 15:32:04 Default : entered into home page
+20200918 15:32:30 Histori condition : entered into histori input card

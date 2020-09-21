@@ -1,0 +1,38 @@
+20200921 11:14:58 Default : entered into home page
+20200921 11:14:59 Histori condition : entered into histori input card
+20200921 11:15:00 Histori condition : input card success
+20200921 11:15:00 Histori condition : entered into histori input pin
+20200921 11:15:01 Histori condition : input pin success
+20200921 11:15:01 Histori condition : input data Bambang Pamungkas success
+20200921 11:15:01 Histori condition : entered into histori pilih menu
+20200921 11:24:07 Default : entered into home page
+20200921 11:24:12 Histori condition : entered into histori input card
+20200921 11:24:13 Histori condition : input card success
+20200921 11:24:13 Histori condition : entered into histori input pin
+20200921 11:24:14 Histori condition : input pin success
+20200921 11:24:14 Histori condition : input data Bambang Pamungkas success
+20200921 11:24:14 Histori condition : entered into histori pilih menu
+20200921 11:24:20 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200921 11:24:20 Histori condition : entered into history bulan berjalan
+20200921 11:24:22 Histori condition : print halaman ke-1
+20200921 11:24:24 Printer condition : print histori in EPSON L3150 Series start
+20200921 11:24:36 Printer status condition : check status printing in EPSON L3150 Series
+20200921 11:24:36 Printer condition : print histori in EPSON L3150 Series finished
+20200921 11:24:36 Histori condition : print history halaman ke-1 success
+20200921 11:24:44 Histori condition : print halaman ke-2
+20200921 11:24:45 Printer condition : print histori in EPSON L3150 Series start
+20200921 11:24:45 Printer status condition : check status printing in EPSON L3150 Series
+20200921 11:24:46 Printer condition : print histori in EPSON L3150 Series finished
+20200921 11:24:46 Histori condition : print history halaman ke-2 success
+20200921 11:24:54 Histori condition : print halaman ke-3
+20200921 11:24:55 Printer condition : print histori in EPSON L3150 Series start
+20200921 11:24:55 Printer status condition : check status printing in EPSON L3150 Series
+20200921 11:24:56 Printer condition : print histori in EPSON L3150 Series finished
+20200921 11:24:56 Histori condition : print history halaman ke-3 success
+20200921 11:25:04 Histori condition : print halaman ke-4
+20200921 11:25:06 Printer condition : print histori in EPSON L3150 Series start
+20200921 11:25:06 Printer status condition : check status printing in EPSON L3150 Series
+20200921 11:25:06 Printer condition : print histori in EPSON L3150 Series finished
+20200921 11:25:06 Histori condition : print history halaman ke-4 success
+20200921 11:25:15 Histori condition : entered into histori berhasil
+20200921 11:25:23 Default : entered into home page
