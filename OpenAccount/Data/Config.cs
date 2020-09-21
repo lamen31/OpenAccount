@@ -20,6 +20,7 @@ namespace OpenAccount.Data
         public const string PARAM_PATH_PRINTSERVER_A4 = "param.path.printserver.a4";
         public const string PARAM_PATH_PRINTSERVER_PASSBOOK = "param.path.printserver.passbook";
         public const string PARAM_PATH_PRINTSERVER_PRINTCOBA = "param.path.printserver.printcoba";
+        public const string PARAM_PATH_PRINTSERVER_THERMAL = "param.path.printserver.thermal";
         public const string PARAM_PATH_SIGNPAD = "param.path.signpad";
         public const string PARAM_NAMA_NASABAH = "param.nama.nasabah";
         public const string PARAM_REKENING_NASABAH = "param.rekening.nasabah";

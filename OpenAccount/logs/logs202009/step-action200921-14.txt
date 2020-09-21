@@ -1,0 +1,20 @@
+20200921 14:33:57 Default : entered into home page
+20200921 14:33:58 Histori condition : entered into histori input card
+20200921 14:33:59 Histori condition : input card success
+20200921 14:33:59 Histori condition : entered into histori input pin
+20200921 14:34:00 Histori condition : input pin success
+20200921 14:34:00 Histori condition : input data Bambang Pamungkas success
+20200921 14:34:00 Histori condition : entered into histori pilih menu
+20200921 14:34:02 Histori condition : input data from C:\\inputopenaccount\\input thermal.csv success
+20200921 14:34:02 Histori condition : entered into history sepuluh terakhir
+20200921 14:34:09 Histori condition : print thermal started
+20200921 14:34:10 Printer condition : print histori in EPSON L3150 Series start
+20200921 14:34:10 Printer status condition : check status printing in EPSON L3150 Series
+20200921 14:34:11 20200921 14:34:11 Status printing in EPSON L3150 Series : no pages left
+20200921 14:34:11 Status printing in EPSON L3150 Series : status queue is none
+20200921 14:34:11 Status printing in EPSON L3150 Series : printing done
+
+20200921 14:34:11 Printer condition : print histori in EPSON L3150 Series finished
+20200921 14:34:11 Histori condition : print thermal finished
+20200921 14:34:11 Histori condition : entered into histori berhasil
+20200921 14:34:19 Default : entered into home page

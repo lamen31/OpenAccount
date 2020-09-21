@@ -202,11 +202,23 @@ namespace OpenAccount.Data
         {
             printdoc = new PrintDocument();
             _trx = trx;
+            string pathStatus;
+            string strfilename = "step-action";
+            string textStatus;
             //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
             string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.PrintPage += new PrintPageEventHandler(ThermalPrintPage);
             printdoc.Print();
+            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            printerstatus.StatusPrinting(printername);
+            pathStatus = printerstatus.workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
         }
 
         public void ThermalPrintPage(object sender, PrintPageEventArgs e)

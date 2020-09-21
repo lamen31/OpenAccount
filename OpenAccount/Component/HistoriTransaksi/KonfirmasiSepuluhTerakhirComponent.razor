@@ -132,8 +132,19 @@
                 }
             }
         }
+        Console.WriteLine("INPUT DATA SUCCESS");
+        Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         trx.setHistoriThermal(tanggal, kode, nominal, saldo);
 
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HISTORI SEPULUH TERAKHIR");
+            Utility.WriteLog("Histori condition : entered into history sepuluh terakhir", "step-action");
+        }
     }
 
     private async Task PilihHistori()
@@ -145,7 +156,11 @@
     {
         isVisible = !isVisible;
         await Task.Delay(100);
+        Console.WriteLine("PRINT THERMAL STARTED");
+        Utility.WriteLog("Histori condition : print thermal started", "step-action");
         await print.PrintThermal(trx);
+        Console.WriteLine("PRINT THERMAL FINISHED");
+        Utility.WriteLog("Histori condition : print thermal finished", "step-action");
         OnClick.InvokeAsync("historiberhasil");
     }
 }

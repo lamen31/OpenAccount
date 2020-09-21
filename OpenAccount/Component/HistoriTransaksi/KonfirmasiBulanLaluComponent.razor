@@ -5,6 +5,8 @@
 @inject Transaksi trx
 @inject Config config
 @inject Printer print
+@inject Utility utility
+
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -133,8 +135,19 @@
                     nominal[i] = column[j];
             }
         }
+        Console.WriteLine("INPUT DATA SUCCESS");
+        Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
         trx.setDataHistoriTransaksi(jumlahtransaksi, uraian, tipe, nominal, saldo);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HISTORI BULAN LALU");
+            Utility.WriteLog("Histori condition : entered into history bulan lalu", "step-action");
+        }
     }
 
     private async Task PilihHistori()
@@ -188,7 +201,11 @@
                     Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
                     Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
                     trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    Console.WriteLine("PRINT HALAMAN KE-" + halaman.ToString());
+                    Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
+                    Console.WriteLine("PRINT HALAMAN KE-" + halaman.ToString() + " SUCCESS");
+                    Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " success", "step-action");
                     //await Task.Delay(20000);
                     await Task.Delay(8000);
                     isVisible = false;
@@ -206,7 +223,11 @@
                     Array.Copy(temptipe, startindex, tipe, 0, maxbaris);
                     Array.Copy(tempnominal, startindex, nominal, 0, maxbaris);
                     trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    Console.WriteLine("PRINT HALAMAN KE-" + halaman.ToString());
+                    Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
+                    Console.WriteLine("PRINT HALAMAN KE-" + halaman.ToString() + " SUCCESS");
+                    Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " success", "step-action");
                     startindex += maxbaris;
                     halaman += 1;
                     maxhalaman -= 1;

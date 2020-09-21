@@ -73,8 +73,11 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender)
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO HISTORI BERHASIL");
             Utility.WriteLog("Histori condition : entered into histori berhasil", "step-action");
+        }
     }
 
 }
