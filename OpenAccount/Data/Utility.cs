@@ -17,6 +17,7 @@ namespace OpenAccount.Data
         public static void ClearLog(string strdatapath)
         {
             File.WriteAllText(strdatapath, "");
+            File.Delete(strdatapath);
         }
         public static void WriteLog(string strmessage, string strfilename)
         {

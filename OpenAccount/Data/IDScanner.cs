@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Text;
+using Microsoft.AspNetCore.Components;
 
 namespace OpenAccount.Data
 {
@@ -18,6 +19,7 @@ namespace OpenAccount.Data
         private int mDeviceId = 0;
         private int res;
         private int overTime;
+        NavigationManager navman;
         private TimeSpan span;
         Config config = new Config();
         byte[] status;
@@ -37,10 +39,30 @@ namespace OpenAccount.Data
             DateTime startTime = DateTime.Now;
             status = new byte[2];
             res = ScannerDLL.openDeviceList(ref deviceNum);
+            if (res == 0)
+                Utility.WriteLog("ID scanner condition : open device list success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : open device list failed", "step-action");
             res = ScannerDLL.openDevice(0);
+            if(res == 0)
+                Utility.WriteLog("ID scanner condition : open device success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : open device failed", "step-action");
             res = ScannerDLL.getDeviceStatus(0);
+            if(res == 1)
+                Utility.WriteLog("ID scanner condition : get status success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : get status failed", "step-action");
             res = ScannerDLL.backSwallow(0, 0, buf);
+            if(res == 0)
+                Utility.WriteLog("ID scanner condition : set back entry success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : set back entry failed", "step-action");
             res = ScannerDLL.frontSwallow(0, 1, buf);
+            if(res == 0)
+                Utility.WriteLog("ID scanner condition : set front entry success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : set front entry failed", "step-action");
 
             while (!isManualStop)
             {
@@ -51,34 +73,72 @@ namespace OpenAccount.Data
                     {
                         res = -132;
                         isTimeOut = true;
+                        Utility.WriteLog("ID scanner condition : device timeout", "step-action");
+                        navman.NavigateTo("/");
                         break;
                     }
                     int iRet = ScannerDLL.getDeviceStatus(0);
                     if (iRet != 1)
                     {
+                        Utility.WriteLog("ID scanner condition : get status failed", "step-action");
                         continue;
                     }
+                    Utility.WriteLog("ID scanner condition : get status success", "step-action");
                     iRet = ScannerDLL.cisQuery(0, status);
                     if (iRet == 0)
                     {
+                        Utility.WriteLog("ID scanner condition : ics checking success", "step-action");
                         if (status[0] == 50)
                         {
+                            Utility.WriteLog("ID scanner condition : the card is at the front card holding", "step-action");
                             iRet = ScannerDLL.goRadioPos(0, status);
-                            if (iRet != 0) continue;
+                            if(iRet==0)
+                                Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
+                            else
+                            {
+                                Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
+                                continue;
+                            }
                             Thread.Sleep(500);
                             iRet = ScannerDLL.cisQuery(0, status);
                             Thread.Sleep(200);
                             if (status[0] == 51)
                             {
+                                Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
                                 res = 0;
                                 break;
                             }
                         }
                         else if (status[0] == 51)
                         {
+                            Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
                             res = 0;
                             break;
                         }
+                        else if (status[0] == 48)
+                        {
+                            Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
+                            continue;
+                        }
+                        else if (status[0] == 49)
+                        {
+                            Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
+                            continue;
+                        }
+                        else if (status[0] == 52)
+                        {
+                            Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");
+                            continue;
+                        }
+                        else if (status[0] == 53)
+                        {
+                            Utility.WriteLog("ID scanner condition : the card is illegally positioned", "step-action");
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        Utility.WriteLog("ID scanner condition : ics checking failed", "step-action");
                     }
                 }
                 catch
@@ -88,11 +148,19 @@ namespace OpenAccount.Data
             }
             mIsRunning = false;
             ScannerDLL.frontSwallow(0, 0, buf);
+            if (res == 0)
+                Utility.WriteLog("ID scanner condition : set front entry success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : set front entry failed", "step-action");
         }
         public void BackSwallow()
         {
             buf = new byte[6];
             res = ScannerDLL.goBackPos(0, buf);
+            if (res == 0)
+                Utility.WriteLog("ID scanner condition : set back entry success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : set back entry failed", "step-action");
         }
         public void RadioPos()
         {

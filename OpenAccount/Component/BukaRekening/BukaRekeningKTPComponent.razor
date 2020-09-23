@@ -73,6 +73,15 @@
 
     private bool isKTPValid = true;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING KTP");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening ktp", "step-action");
+        }
+    }
+
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
@@ -80,7 +89,11 @@
 
     private async Task KTPberhasil()
     {
+        Console.WriteLine("ID SCANNER FRONT SWALLOW");
+        Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
         scanner.FrontSwallow();
+        Console.WriteLine("ID SCANNER BACK SWALLOW");
+        Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
         scanner.BackSwallow();
         await Task.Delay(3000);
         CheckKTPValid();

@@ -64,13 +64,13 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="BukuBerhasil">Cetak</button>
+            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" @onclick="BukuBerhasil">Cetak</button>
         </div>
     </div>
 </footer><!-- End Footer -->
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -90,7 +90,7 @@
 }
 @if (isBaris)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -101,7 +101,7 @@
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
                         <h3 class="teks" style="margin-top: 5%;">Silahkan ke halaman selanjutnya..</h3>
-                        <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="change">Cetak</button>
+                        <button type="button" class="btn btn-primary" style="text-align:center;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="change">Cetak</button>
                     </div>
                 </div>
             </div>
@@ -141,6 +141,8 @@
         maxhalaman = Convert.ToInt32(tempmaxhalaman);
 
         isVisible = !isVisible;
+        Console.WriteLine("MODAL VISIBLE APPEAR");
+        Utility.WriteLog("Buku condition : modal visible appear", "step-action");
         await Task.Delay(100);
         StateHasChanged();
 
@@ -263,6 +265,7 @@
                 {
                     cetak = false;
                     bukuhabis = true;
+                    OnClick.InvokeAsync("bukupenuh");
                     break;
                 }
                 else
@@ -270,6 +273,8 @@
                     isBaris = !isBaris;
                     await Task.Delay(100);
                     StateHasChanged();
+                    Console.WriteLine("MODALBARIS APPEAR");
+                    Utility.WriteLog("Buku condition : modal baris appear", "step-action");
                     do
                     {
                         await Task.Delay(100);
@@ -277,7 +282,7 @@
                 }
             }
         }
-        else
+        else if(totalbaris < maxbaris)
         {
             saldo = await Task.Run(() => print.PrintPassbook(trx));
             OnClick.InvokeAsync("bukuberhasil");

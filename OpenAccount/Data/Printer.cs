@@ -378,5 +378,95 @@ namespace OpenAccount.Data
             }
             _trx._BukuSaldo = saldo.ToString();
         }
+
+        public async Task PrintBukuPenuh(Transaksi trx)
+        {
+            printdoc = new PrintDocument();
+            _trx = trx;
+            string pathStatus;
+            string strfilename = "step-action";
+            string textStatus;
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            printdoc.PrinterSettings.PrinterName = printername;
+            printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
+            printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
+            printdoc.PrintPage += new PrintPageEventHandler(BukuPenuhPage);
+            printdoc.Print();
+            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            printerstatus.StatusPrinting(printername);
+            pathStatus = printerstatus.workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
+        }
+
+        private void BukuPenuhPage(object sender, PrintPageEventArgs e)
+        {
+            StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
+            StringFormat formatCenter = new StringFormat(formatLeft);
+            formatCenter.Alignment = StringAlignment.Center;
+            float point = 4;
+            float sizex = 20;
+            float sizey = point;
+            float offset = 0;
+            float lineheight = font.GetHeight() + point;
+            SizeF layoutsize = new SizeF(280, lineheight);
+            //RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            string logo = config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
+            Graphics g = e.Graphics;
+            font = new Font("Arial", 10, FontStyle.Regular);
+            Image img = Image.FromFile(logo);
+
+            g.DrawImage(img, (e.PageBounds.Width - img.Width) / 2, 0, img.Width, img.Height);
+            offset = img.Height + point;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            //g.DrawString("Cetak Thermal", new Font("Arial", 12, FontStyle.Regular), blackBrush, new Point(5, 10));
+
+            string lokasi = "Cikupa";
+            string joint = "Lokasi : " + lokasi;
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            joint = "Date : " + DateTime.Now.ToString("yyyy-MM-dd");
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            joint = "No Rekening : " + _trx._Nasabah[1].Substring(0, _trx._Nasabah[1].Length - 4) + "****";
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "Nama Nasabah : " + _trx._Nasabah[0];
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            int saldo = int.Parse(_trx._BukuSaldo);
+            joint = "Saldo Buku : Rp " + saldo.ToString("N0");
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            joint = "Harap Menghubungi Costumer Service";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "Untuk Melakukan Penggantian Buku";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "Dengan Menyertakan Struk Ini";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+        }
     }
 }

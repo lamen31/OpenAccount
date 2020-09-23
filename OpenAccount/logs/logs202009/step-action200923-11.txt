@@ -1,0 +1,304 @@
+20200923 11:00:01 Buku condition : input data saldo : 1000000 success
+20200923 11:00:01 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:00:02 Buku condition : modal visible appear
+20200923 11:00:02 Buku condition : print halaman ke-1
+20200923 11:00:04 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:00:04 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:00:04 20200923 11:00:04 Status printing in EPSON L3150 Series : no pages left
+20200923 11:00:04 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:00:04 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:00:04 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:00:04 Buku condition : print history halaman ke-1 success
+20200923 11:00:05 Buku condition : modal baris appear
+20200923 11:00:11 Buku condition : print halaman ke-2
+20200923 11:00:12 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:00:12 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:00:13 20200923 11:00:13 Status printing in EPSON L3150 Series : no pages left
+20200923 11:00:13 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:00:13 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:00:13 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:00:13 Buku condition : print history halaman ke-2 success
+20200923 11:00:13 Histori condition : entered into buku berhasil
+20200923 11:01:03 Default : entered into home page
+20200923 11:01:14 Histori condition : entered into histori input card
+20200923 11:01:15 Histori condition : input card success
+20200923 11:01:15 Histori condition : entered into histori input pin
+20200923 11:01:16 Histori condition : input pin success
+20200923 11:01:16 Histori condition : input data Bambang Pamungkas success
+20200923 11:01:16 Histori condition : entered into histori pilih menu
+20200923 11:01:17 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200923 11:01:18 Histori condition : entered into history bulan berjalan
+20200923 11:01:19 Histori condition : print halaman ke-1
+20200923 11:01:20 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:01:21 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:01:27 20200923 11:01:27 Status printing in EPSON L3150 Series : job has deleting
+20200923 11:01:27 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:01:27 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:01:27 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:01:27 Histori condition : print history halaman ke-1 success
+20200923 11:01:35 Histori condition : print halaman ke-2
+20200923 11:01:36 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:01:36 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:02:06 20200923 11:02:06 Status printing in EPSON L3150 Series : job has deleting
+20200923 11:02:06 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:02:06 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:02:06 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:02:06 Histori condition : print history halaman ke-2 success
+20200923 11:02:41 Default : entered into home page
+20200923 11:02:43 Histori condition : entered into histori input card
+20200923 11:02:44 Histori condition : input card success
+20200923 11:02:44 Histori condition : entered into histori input pin
+20200923 11:02:45 Histori condition : input pin success
+20200923 11:02:45 Histori condition : input data Bambang Pamungkas success
+20200923 11:02:45 Histori condition : entered into histori pilih menu
+20200923 11:02:46 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200923 11:02:46 Histori condition : entered into history bulan berjalan
+20200923 11:04:27 Default : entered into home page
+20200923 11:04:29 Histori condition : entered into histori input card
+20200923 11:04:29 Histori condition : input card success
+20200923 11:04:30 Histori condition : entered into histori input pin
+20200923 11:04:31 Histori condition : input pin success
+20200923 11:04:31 Histori condition : input data Bambang Pamungkas success
+20200923 11:04:31 Histori condition : entered into histori pilih menu
+20200923 11:04:32 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200923 11:04:32 Histori condition : entered into history bulan berjalan
+20200923 11:04:37 Histori condition : print halaman ke-1
+20200923 11:04:38 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:04:38 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:04:39 20200923 11:04:39 Status printing in EPSON L3150 Series : no pages left
+20200923 11:04:39 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:04:39 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:04:39 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:04:39 Histori condition : print history halaman ke-1 success
+20200923 11:04:47 Histori condition : print halaman ke-2
+20200923 11:04:48 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:04:48 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:04:49 20200923 11:04:49 Status printing in EPSON L3150 Series : no pages left
+20200923 11:04:49 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:04:49 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:04:49 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:04:49 Histori condition : print history halaman ke-2 success
+20200923 11:04:57 Histori condition : print halaman ke-3
+20200923 11:04:58 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:04:59 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:05:00 20200923 11:05:00 Status printing in EPSON L3150 Series : no pages left
+20200923 11:05:00 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:05:00 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:05:00 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:05:00 Histori condition : print history halaman ke-3 success
+20200923 11:05:08 Histori condition : print halaman ke-4
+20200923 11:05:09 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:05:09 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:05:10 20200923 11:05:10 Status printing in EPSON L3150 Series : no pages left
+20200923 11:05:10 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:05:10 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:05:10 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:05:10 Histori condition : print history halaman ke-4 success
+20200923 11:05:18 Histori condition : entered into histori berhasil
+20200923 11:05:26 Default : entered into home page
+20200923 11:06:30 Default : entered into home page
+20200923 11:06:37 Histori condition : entered into histori input card
+20200923 11:06:38 Histori condition : input card success
+20200923 11:06:38 Histori condition : entered into histori input pin
+20200923 11:06:39 Histori condition : input pin success
+20200923 11:06:39 Histori condition : input data Bambang Pamungkas success
+20200923 11:06:39 Histori condition : entered into histori pilih menu
+20200923 11:06:42 Histori condition : input data from C:\\inputopenaccount\\input histori a4.csv success
+20200923 11:06:42 Histori condition : entered into history bulan berjalan
+20200923 11:07:03 Default : entered into home page
+20200923 11:07:05 Buku condition : entered into buku input card
+20200923 11:07:06 Buku condition : input card success
+20200923 11:07:06 Buku condition : entered into buku input pin
+20200923 11:07:07 Buku condition : input pin success
+20200923 11:07:07 Buku condition : input data Bambang Pamungkas success
+20200923 11:07:30 Buku condition : input data saldo : 100000 success
+20200923 11:07:30 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:07:32 Buku condition : modal visible appear
+20200923 11:07:32 Buku condition : print halaman ke-1
+20200923 11:07:33 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:07:33 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:07:34 20200923 11:07:34 Status printing in EPSON L3150 Series : no pages left
+20200923 11:07:34 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:07:34 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:07:34 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:07:34 Buku condition : print history halaman ke-1 success
+20200923 11:07:34 Buku condition : modal baris appear
+20200923 11:07:40 Buku condition : print halaman ke-2
+20200923 11:07:41 Printer condition : print histori in EPSON L3150 Series start
+20200923 11:07:41 Printer status condition : check status printing in EPSON L3150 Series
+20200923 11:07:42 20200923 11:07:42 Status printing in EPSON L3150 Series : no pages left
+20200923 11:07:42 Status printing in EPSON L3150 Series : status queue is none
+20200923 11:07:42 Status printing in EPSON L3150 Series : printing done
+
+20200923 11:07:42 Printer condition : print histori in EPSON L3150 Series finished
+20200923 11:07:42 Buku condition : print history halaman ke-2 success
+20200923 11:07:42 Histori condition : entered into buku berhasil
+20200923 11:07:50 Default : entered into home page
+20200923 11:11:45 Default : entered into home page
+20200923 11:11:47 Buku condition : entered into buku input card
+20200923 11:11:48 Buku condition : input card success
+20200923 11:11:48 Buku condition : entered into buku input pin
+20200923 11:11:49 Buku condition : input pin success
+20200923 11:11:49 Buku condition : input data Bambang Pamungkas success
+20200923 11:11:58 Buku condition : input data saldo : 1000000 success
+20200923 11:11:58 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:12:00 Buku condition : modal visible appear
+20200923 11:12:00 Buku condition : print halaman ke-1
+20200923 11:12:00 Buku condition : print history halaman ke-1 success
+20200923 11:12:00 Buku condition : modal baris appear
+20200923 11:12:01 Buku condition : print halaman ke-2
+20200923 11:12:01 Buku condition : print history halaman ke-2 success
+20200923 11:12:01 Histori condition : entered into buku berhasil
+20200923 11:12:09 Default : entered into home page
+20200923 11:12:35 Default : entered into home page
+20200923 11:12:39 Buku condition : entered into buku input card
+20200923 11:12:40 Buku condition : input card success
+20200923 11:12:40 Buku condition : entered into buku input pin
+20200923 11:12:41 Buku condition : input pin success
+20200923 11:12:41 Buku condition : input data Bambang Pamungkas success
+20200923 11:12:50 Buku condition : input data saldo : 100000 success
+20200923 11:12:50 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:12:51 Buku condition : modal visible appear
+20200923 11:12:51 Buku condition : print halaman ke-1
+20200923 11:12:51 Buku condition : print history halaman ke-1 success
+20200923 11:12:52 Buku condition : modal baris appear
+20200923 11:12:53 Buku condition : print halaman ke-2
+20200923 11:12:53 Buku condition : print history halaman ke-2 success
+20200923 11:12:53 Histori condition : entered into buku berhasil
+20200923 11:13:21 Default : entered into home page
+20200923 11:13:23 Buku condition : entered into buku input card
+20200923 11:13:24 Buku condition : input card success
+20200923 11:13:24 Buku condition : entered into buku input pin
+20200923 11:13:25 Buku condition : input pin success
+20200923 11:13:25 Buku condition : input data Bambang Pamungkas success
+20200923 11:13:32 Buku condition : input data saldo : 1000000 success
+20200923 11:13:32 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:13:33 Buku condition : modal visible appear
+20200923 11:13:33 Buku condition : print halaman ke-1
+20200923 11:13:33 Buku condition : print history halaman ke-1 success
+20200923 11:13:34 Buku condition : modal baris appear
+20200923 11:13:35 Buku condition : print halaman ke-2
+20200923 11:13:35 Buku condition : print history halaman ke-2 success
+20200923 11:13:35 Histori condition : entered into buku berhasil
+20200923 11:13:43 Default : entered into home page
+20200923 11:20:27 Default : entered into home page
+20200923 11:20:31 Buku condition : entered into buku input card
+20200923 11:20:32 Buku condition : input card success
+20200923 11:20:32 Buku condition : entered into buku input pin
+20200923 11:20:33 Buku condition : input pin success
+20200923 11:20:33 Buku condition : input data Bambang Pamungkas success
+20200923 11:22:17 Default : entered into home page
+20200923 11:22:18 Buku condition : entered into buku input card
+20200923 11:22:19 Buku condition : input card success
+20200923 11:22:19 Buku condition : entered into buku input pin
+20200923 11:22:20 Buku condition : input pin success
+20200923 11:22:20 Buku condition : input data Bambang Pamungkas success
+20200923 11:23:01 Buku condition : input data saldo : 999999 success
+20200923 11:23:01 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:23:10 Buku condition : modal visible appear
+20200923 11:23:10 Buku condition : print halaman ke-1
+20200923 11:23:10 Buku condition : print history halaman ke-1 success
+20200923 11:23:10 Buku condition : modal baris appear
+20200923 11:23:14 Buku condition : print halaman ke-2
+20200923 11:23:14 Buku condition : print history halaman ke-2 success
+20200923 11:23:14 Histori condition : entered into buku berhasil
+20200923 11:23:22 Default : entered into home page
+20200923 11:25:40 Default : entered into home page
+20200923 11:25:43 Buku condition : entered into buku input card
+20200923 11:25:43 Buku condition : input card success
+20200923 11:25:44 Buku condition : entered into buku input pin
+20200923 11:25:45 Buku condition : input pin success
+20200923 11:25:45 Buku condition : input data Bambang Pamungkas success
+20200923 11:26:36 Default : entered into home page
+20200923 11:26:44 Buku condition : entered into buku input card
+20200923 11:26:45 Buku condition : input card success
+20200923 11:26:45 Buku condition : entered into buku input pin
+20200923 11:26:46 Buku condition : input pin success
+20200923 11:26:46 Buku condition : input data Bambang Pamungkas success
+20200923 11:27:48 Buku condition : input data saldo : 54123 success
+20200923 11:27:48 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:27:51 Buku condition : modal visible appear
+20200923 11:27:51 Buku condition : print halaman ke-1
+20200923 11:27:51 Buku condition : print history halaman ke-1 success
+20200923 11:27:51 Buku condition : modal baris appear
+20200923 11:27:56 Buku condition : print halaman ke-2
+20200923 11:27:56 Buku condition : print history halaman ke-2 success
+20200923 11:27:56 Histori condition : entered into buku berhasil
+20200923 11:28:04 Default : entered into home page
+20200923 11:28:46 Default : entered into home page
+20200923 11:28:49 Buku condition : entered into buku input card
+20200923 11:28:50 Buku condition : input card success
+20200923 11:28:51 Buku condition : entered into buku input pin
+20200923 11:28:52 Buku condition : input pin success
+20200923 11:28:52 Buku condition : input data Bambang Pamungkas success
+20200923 11:29:20 Buku condition : input data saldo : 7888889 success
+20200923 11:29:20 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:29:22 Buku condition : modal visible appear
+20200923 11:29:22 Buku condition : print halaman ke-1
+20200923 11:29:22 Buku condition : print history halaman ke-1 success
+20200923 11:29:23 Buku condition : modal baris appear
+20200923 11:29:25 Buku condition : print halaman ke-2
+20200923 11:29:25 Buku condition : print history halaman ke-2 success
+20200923 11:29:25 Histori condition : entered into buku berhasil
+20200923 11:29:33 Default : entered into home page
+20200923 11:29:35 Buku condition : entered into buku input card
+20200923 11:29:36 Buku condition : input card success
+20200923 11:29:36 Buku condition : entered into buku input pin
+20200923 11:29:37 Buku condition : input pin success
+20200923 11:29:37 Buku condition : input data Bambang Pamungkas success
+20200923 11:30:08 Default : entered into home page
+20200923 11:30:10 Buku condition : entered into buku input card
+20200923 11:30:11 Buku condition : input card success
+20200923 11:30:12 Buku condition : entered into buku input pin
+20200923 11:30:13 Buku condition : input pin success
+20200923 11:30:13 Buku condition : input data Bambang Pamungkas success
+20200923 11:30:24 Buku condition : input data saldo : 896577 success
+20200923 11:30:24 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:30:25 Buku condition : modal visible appear
+20200923 11:30:25 Buku condition : print halaman ke-1
+20200923 11:30:25 Buku condition : print history halaman ke-1 success
+20200923 11:30:25 Buku condition : modal baris appear
+20200923 11:30:27 Buku condition : print halaman ke-2
+20200923 11:30:27 Buku condition : print history halaman ke-2 success
+20200923 11:30:27 Histori condition : entered into buku berhasil
+20200923 11:30:35 Default : entered into home page
+20200923 11:31:48 Default : entered into home page
+20200923 11:31:51 Buku condition : entered into buku input card
+20200923 11:31:52 Buku condition : input card success
+20200923 11:31:52 Buku condition : entered into buku input pin
+20200923 11:31:53 Buku condition : input pin success
+20200923 11:31:53 Buku condition : input data Bambang Pamungkas success
+20200923 11:32:03 Buku condition : input data saldo : 8966 success
+20200923 11:32:03 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:32:04 Buku condition : modal visible appear
+20200923 11:32:04 Buku condition : print halaman ke-1
+20200923 11:32:04 Buku condition : print history halaman ke-1 success
+20200923 11:32:04 Buku condition : modal baris appear
+20200923 11:32:06 Buku condition : print halaman ke-2
+20200923 11:32:06 Buku condition : print history halaman ke-2 success
+20200923 11:32:06 Histori condition : entered into buku berhasil
+20200923 11:32:14 Default : entered into home page
+20200923 11:32:16 Buku condition : entered into buku input card
+20200923 11:32:17 Buku condition : input card success
+20200923 11:32:17 Buku condition : entered into buku input pin
+20200923 11:32:18 Buku condition : input pin success
+20200923 11:32:18 Buku condition : input data Bambang Pamungkas success
+20200923 11:32:38 Buku condition : input data saldo : 123555 success
+20200923 11:32:38 Buku condition : input data from C:\\inputopenaccount\\input passbook.csv success
+20200923 11:32:39 Buku condition : modal visible appear
+20200923 11:32:39 Buku condition : print halaman ke-1
+20200923 11:32:39 Buku condition : print history halaman ke-1 success
+20200923 11:32:39 Buku condition : modal baris appear
+20200923 11:32:53 Buku condition : print halaman ke-2
+20200923 11:32:53 Buku condition : print history halaman ke-2 success
+20200923 11:32:53 Histori condition : entered into buku berhasil
+20200923 11:33:01 Default : entered into home page

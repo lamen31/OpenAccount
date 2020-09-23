@@ -1,0 +1,43 @@
+20200922 12:13:57 Buka rekening condition : entered into buka rekening jenis tabungan
+20200922 12:13:59 Buka rekening condition : entered into buka rekening syarat
+20200922 12:14:01 Buka rekening condition : entered into buka rekening ktp
+20200922 12:14:54 Default : entered into home page
+20200922 12:14:56 Buka rekening condition : entered into buka rekening jenis tujuan
+20200922 12:14:58 Buka rekening condition : entered into buka rekening jenis tabungan
+20200922 12:15:02 Buka rekening condition : entered into buka rekening syarat
+20200922 12:15:04 Buka rekening condition : entered into buka rekening ktp
+20200922 12:19:08 Default : entered into home page
+20200922 12:19:47 Buka rekening condition : entered into buka rekening jenis tujuan
+20200922 12:19:48 Buka rekening condition : entered into buka rekening jenis tabungan
+20200922 12:19:50 Buka rekening condition : entered into buka rekening syarat
+20200922 12:19:52 Buka rekening condition : entered into buka rekening ktp
+20200922 12:19:53 Buka rekening condition : id scanner front swallow
+20200922 12:19:58 Buka rekening condition : id scanner open device list success
+20200922 12:20:00 Buka rekening condition : id scanner open device success
+20200922 12:20:23 Buka rekening condition : id scanner device opened failed
+20200922 12:20:27 Buka rekening condition : id scanner device back swallow success
+20200922 12:20:28 Buka rekening condition : id scanner device front swallow success
+20200922 12:20:28 Buka rekening condition : id scanner back swallow
+20200922 12:55:35 Default : entered into home page
+20200922 12:55:39 Buka rekening condition : entered into buka rekening jenis tujuan
+20200922 12:55:40 Buka rekening condition : entered into buka rekening jenis tabungan
+20200922 12:55:41 Buka rekening condition : entered into buka rekening syarat
+20200922 12:55:43 Buka rekening condition : entered into buka rekening ktp
+20200922 12:55:51 Buka rekening condition : id scanner front swallow
+20200922 12:56:05 Buka rekening condition : id scanner open device list success
+20200922 12:56:06 Buka rekening condition : id scanner open device success
+20200922 12:56:13 Buka rekening condition : id scanner device opened failed
+20200922 12:56:21 Buka rekening condition : id scanner device back swallow success
+20200922 12:56:24 Buka rekening condition : id scanner device front swallow success
+20200922 12:56:24 Buka rekening condition : id scanner back swallow
+20200922 12:58:47 Default : entered into home page
+20200922 12:58:48 Buka rekening condition : entered into buka rekening jenis tujuan
+20200922 12:58:49 Buka rekening condition : entered into buka rekening jenis tabungan
+20200922 12:58:51 Buka rekening condition : entered into buka rekening syarat
+20200922 12:58:53 Buka rekening condition : entered into buka rekening ktp
+20200922 12:58:58 Buka rekening condition : id scanner front swallow
+20200922 12:59:02 Buka rekening condition : id scanner open device list success
+20200922 12:59:03 Buka rekening condition : id scanner open device success
+20200922 12:59:17 Buka rekening condition : id scanner device get status failed
+20200922 12:59:29 Buka rekening condition : id scanner device back swallow success
+20200922 12:59:37 Buka rekening condition : id scanner device front swallow success

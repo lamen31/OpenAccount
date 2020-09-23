@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -73,6 +76,15 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING JENIS TUJUAN");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening jenis tujuan", "step-action");
+        }
+    }
 
     private async Task Home()
     {

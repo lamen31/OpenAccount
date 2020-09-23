@@ -160,6 +160,8 @@
         isVisible = !isVisible;
         await Task.Delay(100);
         StateHasChanged();
+        Console.WriteLine("MODAL VISIBLE APPEAR");
+        Utility.WriteLog("Histori condition : modal visible appear", "step-action");
 
         int maxbaris = 12;
         int totalbaris = trx._HistoriUraian.Length;

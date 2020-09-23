@@ -65,14 +65,14 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="HistoriBerhasil">Cetak</button>
+            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" @onclick="HistoriBerhasil">Cetak</button>
         </div>
     </div>
 </footer><!-- End Footer -->
 
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -113,7 +113,7 @@
     protected override async Task OnInitializedAsync()
     {
         startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy/MM/dd");
-        enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd");
+        enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy/MM/dd");
         hourdate = DateTime.Now.ToString("HH:mm:ss");
         trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
 
@@ -156,6 +156,8 @@
         isVisible = !isVisible;
         await Task.Delay(100);
         StateHasChanged();
+        Console.WriteLine("MODAL VISIBLE APPEAR");
+        Utility.WriteLog("Histori condition : modal visible appear", "step-action");
 
         int maxbaris = 12;
         int totalbaris = trx._HistoriUraian.Length;
