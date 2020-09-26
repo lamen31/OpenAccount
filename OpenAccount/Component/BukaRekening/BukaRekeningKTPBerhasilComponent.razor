@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -33,11 +36,11 @@
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
@@ -69,6 +72,15 @@
     {
         await Task.Delay(1000);
         OnClick.InvokeAsync("bukarekeningfinger");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING KTP BERHASIL");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening ktp berhasil", "step-action");
+        }
     }
 
     private async Task Home()

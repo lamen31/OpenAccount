@@ -1,0 +1,3 @@
+20200925 09:53:38 Buka rekening condition : entered into buka rekening jenis tujuan
+20200925 09:55:53 Buka rekening condition : entered into buka rekening ktp
+20200925 09:56:54 Buka rekening condition : entered into buka rekening ktp

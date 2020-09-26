@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
+                </div>
+                <div>
+                    <h3 style="color: #00529C;">Masukkan Nomor <b style="font-weight: 900;">NPWP</b> Anda</h3>
+                </div>
+                <div class="form-row" style="padding: 2rem 0rem;">
+                    <div class="form-group col-md-6">
+                        <label style="font-weight: 600; font-size: 18px;">Nomor NPWP</label>
+                        <input type="text" class="form-control" style="width: 145%;" placeholder="0123456789">
+                    </div>
+                </div>
+                <h4 style="color: #ee0000; margin-top: 15%;" @onclick="CaptureWajah">Tidak Punya NPWP?</h4>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
+                <div id="keyboard">
+                <container>
+                    <button class="block" value="1" >1</button>
+                    <button class="block" value="2" >2</button>
+                    <button class="block" value="3" >3</button>
+                    <button class="block" value="4" >4</button>
+                    <button class="block" value="5" >5</button>
+                    <button class="block" value="6" >6</button>
+                    <button class="block" value="7" >7</button>
+                    <button class="block" value="8" >8</button>
+                    <button class="block" value="9" >9</button>
+                    <button class="block" h2="" value="Hapus" >Delete</button>
+                    <button class="block" ck value="0" id="myBtnUndefine" >0</button>
+                </container>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom" style="background-color: rgb(255, 255, 255);">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputData">Kembali</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="CaptureNPWP">Lanjut</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private async Task InputData()
+    {
+        OnClick.InvokeAsync("bukarekeninginputdata");
+    }
+
+    private async Task CaptureNPWP()
+    {
+        OnClick.InvokeAsync("bukarekeningcaptureNPWP");
+    }
+
+    private async Task CaptureWajah()
+    {
+        OnClick.InvokeAsync("bukarekeningcapturewajah");
+    }
+}

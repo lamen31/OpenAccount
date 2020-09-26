@@ -1,0 +1,5 @@
+20200925 11:00:01 Buka rekening condition : entered into buka rekening syarat
+20200925 11:00:05 Default : entered into home page
+20200925 11:01:11 Buka rekening condition : entered into buka rekening jenis tabungan
+20200925 11:01:14 Buka rekening condition : entered into buka rekening syarat
+20200925 11:01:15 Default : entered into home page

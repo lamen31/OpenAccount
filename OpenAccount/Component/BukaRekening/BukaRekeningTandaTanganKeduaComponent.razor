@@ -1,7 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Components
-@using OpenAccount.Data
-
-@inject IDScanner scanner 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -12,22 +9,13 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Letakkan <b>Telunjuk Kanan/Kiri</b> Anda pada alat pemindai Sidik Jari</h3>
+                <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> yang ke-2 kali</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                @if (!isFingerValid)
-                {
-                    <h5 style="color: #00529C;">Pindai Jari Gagal, Kesempatan untuk mencoba @trylimit.ToString()x lagi</h5>
-                }
-                else
-                {
-                    <div class="spinner-border text-danger" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                }
-                <br>
-                <img src="../assets/img/finger.png" class="img-fluid" alt=""><br>
-
+                <form method="POST" action="">
+                    <canvas class="pad"></canvas>
+                </form>
+                <h3 style="color: #00529C;">ANIMASI TANDA TANGAN</h3>
             </div>
         </div>
     </div>
@@ -45,11 +33,11 @@
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
@@ -77,58 +65,30 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private bool isFingerValid = true;
-    private bool FingerValid = true;
-    private bool loopFinger = false;
-    private int trylimit = 3;
-
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        loopFinger = true;
-        CheckFingerValid();
-        //OnClick.InvokeAsync("bukarekeningfingerberhasil");
+        //path = Directory.GetCurrentDirectory().ToString();
+        //PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+        //File.Delete(PathImage);
+        //sign.signpad();
+
+        //PathWorking = sign.workingdirectory + "\\hwsign.png";
+        //if (File.Exists(PathWorking))
+        //{
+        //    flag = false;
+        //    await Task.Run(()=> File.Move(PathWorking, path + "\\wwwroot\\assets\\imgsignpad.png"));
+        //    Console.WriteLine("FILE HAS MOVED");
+        //    isVisible = true;
+        //    await Task.Delay(100);
+        //    StateHasChanged();
+        //}
+        //flag = true;
+        OnClick.InvokeAsync("bukarekeningdatatabungan");
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Console.WriteLine("ENTERED INTO BUKA REKENING FINGER PRINT");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening finger print", "step-action");
-        }
-    }
-
-    private async Task CheckFingerValid()
-    {
-        do
-        {
-            await Task.Delay(100);
-            if (FingerValid)
-            {
-                loopFinger = false;
-                OnClick.InvokeAsync("bukarekeningfingerberhasil");
-            }
-            else
-            {
-                isFingerValid = false;
-                await Task.Delay(100);
-                StateHasChanged();
-                trylimit -= 1;
-                if (trylimit == 0)
-                {
-                    //scanner.ReturnCard();
-                    //scanner.CloseCVRReader();
-                    loopFinger = false;
-                    OnClick.InvokeAsync("home");
-                }
-            }
-            await Task.Delay(2000);
-        } while (loopFinger);
-    }
     private async Task Home()
     {
-        loopFinger = false;
         OnClick.InvokeAsync("home");
     }
 }

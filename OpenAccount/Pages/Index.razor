@@ -14,19 +14,19 @@
                 <div class="logo mr-auto">
                     <img src="../assets/img/LogoTP.png">
                 </div>
-                
-                    <div class="justify-content-center" style="margin-top: -1%; margin-right: 18%;">
-                        <div class="container">
-                            <form class="toggle">
-                                <input @onclick="LangChange" type="radio" id="choice1" name="choice" value="creative">
-                                <label for="choice1">EN</label>
 
-                                <input @onclick="LangChange" type="radio" id="choice2" name="choice" value="productive">
-                                <label for="choice2">ID</label>
-                                <div id="flap"><span class="content">@language</span></div>
-                            </form>
-                        </div>
+                <div class="justify-content-center" style="margin-top: -1%; margin-right: 18%;">
+                    <div class="container">
+                        <form class="toggle">
+                            <input @onclick="LangChange" type="radio" id="choice1" name="choice" value="creative">
+                            <label for="choice1">EN</label>
+
+                            <input @onclick="LangChange" type="radio" id="choice2" name="choice" value="productive">
+                            <label for="choice2">ID</label>
+                            <div id="flap"><span class="content">@language</span></div>
+                        </form>
                     </div>
+                </div>
 
                 <div class="header-social-links">
                     <div class="clock-container">
@@ -38,9 +38,9 @@
                             </p>
                         </div>
                         <!-- <div class="clock-col">
-                          <p id="date" class="clock-timer">
-                          </p>
-                        </div> -->
+                      <p id="date" class="clock-timer">
+                      </p>
+                    </div> -->
                         <div class="clock-col">
                             <p class="clock-hours clock-timer">
                             </p>
@@ -74,16 +74,6 @@
                     <BukaRekeningComponent OnClick="ClickHandler"></BukaRekeningComponent>
                     break;
                 }
-            case "bukarekeningjenis":
-                {
-                    <BukaRekeningJenisComponent OnClick="ClickHandler"></BukaRekeningJenisComponent>
-                    break;
-                }
-            case "bukarekeningsyarat":
-                {
-                    <BukaRekeningSyaratComponent OnClick="ClickHandler"></BukaRekeningSyaratComponent>
-                    break;
-                }
             case "bukarekeningktp":
                 {
                     <BukaRekeningKTPComponent OnClick="ClickHandler"></BukaRekeningKTPComponent>
@@ -104,24 +94,120 @@
                     <BukaRekeningFingerBerhasilComponent OnClick="ClickHandler"></BukaRekeningFingerBerhasilComponent>
                     break;
                 }
+            case "bukarekeningcapturektp":
+                {
+                    <BukaRekeningCaptureKTPComponent OnClick="ClickHandler"></BukaRekeningCaptureKTPComponent>
+                    break;
+                }
+            case "bukarekeningcapturektpberhasil":
+                {
+                    <BukaRekeningCaptureKTPBerhasilComponent OnClick="ClickHandler"></BukaRekeningCaptureKTPBerhasilComponent>
+                    break;
+                }
             case "bukarekeningdataKTP":
                 {
                     <BukaRekeningDataKTPComponent OnClick="ClickHandler"></BukaRekeningDataKTPComponent>
                     break;
                 }
-            case "bukarekeningNPWP":
+            case "bukarekeningjenis":
                 {
-                    <BukaRekeningNPWPComponent OnClick="ClickHandler"></BukaRekeningNPWPComponent>
+                    <BukaRekeningJenisComponent OnClick="ClickHandler"></BukaRekeningJenisComponent>
                     break;
                 }
-            case "bukarekeningNPWPberhasil":
+            case "bukarekeningmodelkartu":
                 {
-                    <BukaRekeningNPWPBerhasilComponent OnClick="ClickHandler"></BukaRekeningNPWPBerhasilComponent>
+                    <BukaRekeningModelKartuComponent OnClick="ClickHandler"></BukaRekeningModelKartuComponent>
+                    break;
+                }
+            case "bukarekeningsyarat":
+                {
+                    <BukaRekeningSyaratComponent OnClick="ClickHandler"></BukaRekeningSyaratComponent>
                     break;
                 }
             case "bukarekeninginputdata":
                 {
                     <BukaRekeningInputDataComponent OnClick="ClickHandler"></BukaRekeningInputDataComponent>
+                    break;
+                }
+            case "bukarekeninginputNPWP":
+                {
+                    <BukaRekeningInputNPWPComponent OnClick="ClickHandler"></BukaRekeningInputNPWPComponent>
+                    break;
+                }
+            case "bukarekeningcaptureNPWP":
+                {
+                    <BukaRekeningNPWPComponent OnClick="ClickHandler"></BukaRekeningNPWPComponent>
+                    break;
+                }
+            case "bukarekeningcaptureNPWPberhasil":
+                {
+                    <BukaRekeningNPWPBerhasilComponent OnClick="ClickHandler"></BukaRekeningNPWPBerhasilComponent>
+                    break;
+                }
+            case "bukarekeningcapturewajah":
+                {
+                    <BukaRekeningCaptureWajahComponent OnClick="ClickHandler"></BukaRekeningCaptureWajahComponent>
+                    break;
+                }
+            case "bukarekeningcapturewajahberhasil":
+                {
+                    <BukaRekeningCaptureWajahBerhasilComponent OnClick="ClickHandler"></BukaRekeningCaptureWajahBerhasilComponent>
+                    break;
+                }
+            case "bukarekeningtandatangan":
+                {
+                    <BukaRekeningTandaTanganComponent OnClick="ClickHandler"></BukaRekeningTandaTanganComponent>
+                    break;
+                }
+            case "bukarekeningtandatangankonfirmasi":
+                {
+                    <BukaRekeningTandaTanganKonfirmasiComponent OnClick="ClickHandler"></BukaRekeningTandaTanganKonfirmasiComponent>
+                    break;
+                }
+            case "bukarekeningtandatangankedua":
+                {
+                    <BukaRekeningTandaTanganKeduaComponent OnClick="ClickHandler"></BukaRekeningTandaTanganKeduaComponent>
+                    break;
+                }
+            case "bukarekeningdatatabungan":
+                {
+                    <BukaRekeningDataTabunganComponent OnClick="ClickHandler"></BukaRekeningDataTabunganComponent>
+                    break;
+                }
+            case "bukarekeninginputpinatm":
+                {
+                    <BukaRekeningInputPinATMComponent OnClick="ClickHandler"></BukaRekeningInputPinATMComponent>
+                    break;
+                }
+            case "bukarekeninginputpinatmkedua":
+                {
+                    <BukaRekeningInputPinATMKeduaComponent OnClick="ClickHandler"></BukaRekeningInputPinATMKeduaComponent>
+                    break;
+                }
+            case "bukarekeningmenuebanking":
+                {
+                    <BukaRekeningMenuEBankingComponent OnClick="ClickHandler"></BukaRekeningMenuEBankingComponent>
+                    break;
+                }
+            case "bukarekeninginputpinebanking":
+                {
+                    <BukaRekeningInputPinEBankingComponent OnClick="ClickHandler"></BukaRekeningInputPinEBankingComponent>
+                    break;
+                }
+            case "bukarekeninginputpinebankingkedua":
+                {
+
+                    <BukaRekeningInputPinEBankingKeduaComponent OnClick="ClickHandler"></BukaRekeningInputPinEBankingKeduaComponent>
+                    break;
+                }
+            case "bukarekeningberhasilkartu":
+                {
+                    <BukaRekeningBerhasilKartuComponent OnClick="ClickHandler"></BukaRekeningBerhasilKartuComponent>
+                    break;
+                }
+            case "bukarekeningberhasilstruk":
+                {
+                    <BukaRekeningBerhasilStrukComponent OnClick="ClickHandler"></BukaRekeningBerhasilStrukComponent>
                     break;
                 }
             case "bukarekeninginputdata2":
@@ -132,11 +218,6 @@
             case "bukarekeninginputdata3":
                 {
                     <BukaRekeningInputData3Component OnClick="ClickHandler"></BukaRekeningInputData3Component>
-                    break;
-                }
-            case "bukarekeningtandatangan":
-                {
-                    <BukaRekeningTandaTanganComponent OnClick="ClickHandler"></BukaRekeningTandaTanganComponent>
                     break;
                 }
             case "bukarekeningsetoran":

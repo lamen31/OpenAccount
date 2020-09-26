@@ -5,16 +5,22 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Proses pindai Sidik Jari <b style="color: rgb(50, 219, 72);">Berhasil</b></h3>
-            </div>
-            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/tick (2).png" style="width: 10%;">
-                <br>
-                <img src="../assets/img/finger.png" class="img-fluid" alt=""><br>
+                <h3 style="color: #00529C; text-align: center; font-weight: 900; margin-bottom: 2%; margin-top: 10%;">Masukkan Kembali PIN Baru Anda</h3>
+
+                <form>
+                    <div style="padding-left: 35%; padding-right: 35%;">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" style="text-align: center;" placeholder="******">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <h3 style="color:#00AF80 ; font-weight: 900; text-align: center;">PIN Sesuai</h3>
 
             </div>
         </div>
@@ -25,7 +31,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputPin">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -33,15 +39,15 @@
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
@@ -56,7 +62,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="MenuEbanking">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -65,13 +71,13 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private async Task InputPin()
     {
-        await Task.Delay(1000);
-        OnClick.InvokeAsync("bukarekeningdataKTP");
+        OnClick.InvokeAsync("bukarekeninginputpinatm");
     }
-    private async Task Home()
+
+    private async Task MenuEbanking()
     {
-        OnClick.InvokeAsync("home");
+        OnClick.InvokeAsync("bukarekeningmenuebanking");
     }
 }

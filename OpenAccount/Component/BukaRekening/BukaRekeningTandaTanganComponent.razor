@@ -18,60 +18,19 @@
                 <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> sesuai e-KTP Anda pada bagian bawah mesin</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <form method="POST" action="">
-                    @if (!isVisible)
-                    {
-                        <canvas class="pad"></canvas>
-                    }
-                    else
-                    {
-                <div>
-                    <img src="../assets/imgsignpad.png" />
+                            @if (!isVisible)
+                            {
+                                <canvas class="pad"></canvas>
+                            }
+                            else
+                            {
+                                <div>
+                                    <img src="../assets/imgsignpad.png" />
+                                </div>
+                            }
+                        <h3 style="color: #00529C;">ANIMASI TANDA TANGAN</h3>
+                    </div>
                 </div>
-                    }
-                    @*<fieldset>
-            <input type="reset" value="clear" />
-        </fieldset>*@
-                </form>
-
-                <!-- <script src="../assets/jquery.signaturepad.js"></script>
-                <script>
-                (function(window) {
-                  var $canvas,
-                      onResize = function(event) {
-                        $canvas.attr({
-                          height: window.innerHeight,
-                          width: window.innerWidth
-                        });
-                      };
-
-                  $(document).ready(function() {
-                    $canvas = $('canvas');
-                    window.addEventListener('orientationchange', onResize, false);
-                    window.addEventListener('resize', onResize, false);
-                    onResize();
-
-                    $('form').signaturePad({
-                      drawOnly: true,
-                      defaultAction: 'drawIt',
-                      validateFields: false,
-                      lineWidth: 0,
-                      output: null,
-                      sigNav: null,
-                      name: null,
-                      typed: null,
-                      clear: 'input[type=reset]',
-                      typeIt: null,
-                      drawIt: null,
-                      typeItDesc: null,
-                      drawItDesc: null
-                    });
-                  });
-                }(this));
-                </script>
-                <script src="../assets/js/json2.min.js"></script> -->
-            </div>
-        </div>
     </div>
 </section>
 <!-- End Hero -->
@@ -95,7 +54,7 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
@@ -110,7 +69,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;" @onclick="Selanjutnya">Lanjut</button>
+            @*<button type="button" class="btn btn-primary" style="float: right;" @onclick="Selanjutnya">Lanjut</button>*@
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -128,45 +87,27 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        path = Directory.GetCurrentDirectory().ToString();
-        PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
-        //if (File.Exists(PathImage))
-        //{
-        //    File.Delete(PathImage);
-        //}
-        //if(flag == false)
-        //{
-        //    if(File.Exists(PathImage))
-        //        File.Delete(PathImage);
-        //}
-        File.Delete(PathImage);
-        sign.signpad();
+        //path = Directory.GetCurrentDirectory().ToString();
+        //PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+        //File.Delete(PathImage);
+        //sign.signpad();
 
-        PathWorking = sign.workingdirectory + "\\hwsign.png";
-        //path += "\\wwwroot\\assets\\hwsign.png";
-        //if (File.Exists(PathImage))
-        //    File.Move(PathImage, path + "\\wwwroot\\");
-        if (File.Exists(PathWorking))
-        {
-            flag = false;
-            //File.Move(PathWorking, path + "\\wwwroot\\assets\\hwsign.png");
-            await Task.Run(()=> File.Move(PathWorking, path + "\\wwwroot\\assets\\imgsignpad.png"));
-            Console.WriteLine("FILE HAS MOVED");
-            isVisible = true;
-            await Task.Delay(100);
-            StateHasChanged();
-        }
-        //isVisible = true;
-        flag = true;
+        //PathWorking = sign.workingdirectory + "\\hwsign.png";
+        //if (File.Exists(PathWorking))
+        //{
+        //    flag = false;
+        //    await Task.Run(()=> File.Move(PathWorking, path + "\\wwwroot\\assets\\imgsignpad.png"));
+        //    Console.WriteLine("FILE HAS MOVED");
+        //    isVisible = true;
+        //    await Task.Delay(100);
+        //    StateHasChanged();
+        //}
+        //flag = true;
+        OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
     }
 
     private async Task Kembali()
     {
         OnClick.InvokeAsync("bukarekeninginputdata3");
-    }
-
-    private async Task Selanjutnya()
-    {
-        OnClick.InvokeAsync("bukarekeningsetoran");
     }
 }

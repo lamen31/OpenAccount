@@ -1,8 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject TransaksiBaru trxbaru 
-
+@inject TransaksiBaru trxbaru
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -12,65 +11,102 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
 
-                    <h3 style="color: #00529C;">Lengkapi Informasi Tentang Anda</h3>
+
                 </div>
                 <form>
-                    <div class="form-row" style="padding: 2rem 0rem;">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nama Gadis Ibu Kandung</label>
-                            @if (strnamaibu == string.Empty)
-                            {
-                                <input type="text" class="form-control" placeholder="nama gadis ibu kandung" @onclick="inputField1">
-                            }
-                            else
-                            {
-                                <input type="text" class="form-control" @bind="strnamaibu" @onclick="inputField1">
-                            }
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="input_field_1" style="font-weight: 600; font-size: 18px;">Agama</label>
-                            <select class="form-control" id="input_field_1" @bind="stragama">
-                                <option disabled selected>-Pilih salah satu-</option>
-                                <option>Kristen</option>
-                                <option>Katolik</option>
-                                <option>Islam</option>
-                                <option>Hindu</option>
-                                <option>Buddha</option>
-                                <option>Konghucu</option>
-                            </select>
-                            <!-- <input  type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="-pilih salah satu-" maxlength="2" required="required"> -->
+
+                    <!-- Exaple 1 -->
+                    <div class="example-1 scrollbar-ripe-malinka">
+                        <div class="card-body">
+                            <h4 style="color: #00529C; font-weight: 900; margin-bottom: 5%;">Lengkapi Informasi Tentang Anda</h4>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Ibu Kandung</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="Nama Gadis Ibu Kandung">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nomor Handphone</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="nomor handphone anda">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" placeholder="alamat email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kode Pos</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="kode pos">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Pekerjaan</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="pekerjaan">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Penghasilan</label>
+                                <div class="col-sm-9">
+                                    <select class="custom-select">
+                                        <option selected>-pilih salah satu-</option>
+                                        <option value="1">0-5jt per Bulan</option>
+                                        <option value="2">5-10jt per Bulan</option>
+                                        <option value="3">10-25jt per Bulan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <h4 style="color: #F37024; font-weight: 900; margin-top: 10%; margin-bottom: 5%;">Lengkapi Informasi Pekerjaan Anda</h4>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Perusahaan</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="nama perusahaan">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Bidang Usaha</label>
+                                <div class="col-sm-9">
+                                    <select class="custom-select">
+                                        <option selected>-pilih salah satu-</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Telepon Kantor</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="telepon kantor">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Jabatan / Pangkat</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="jabatan atau pangkat">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kota</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="kota">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Alamat Kantor</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="alamat kantor">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Status Perkawinan</label>
-                            <select class="form-control" id="input_field_1" @bind="strperkawinan">
-                                <option disabled selected>-Pilih status perkawinan-</option>
-                                <option>Belum Kawin</option>
-                                <option>Kawin</option>
-                                <option>Cerai Mati</option>
-                            </select>
-                            <!-- <input type="text" class="form-control" id="input_field_2"  placeholder="No. halaman yang akan dicetak" maxlength="1" required="required"> -->
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Status Tempat Tinggal</label>
-                            <select class="form-control" id="input_field_1" @bind="strstatustinggal">
-                                <option disabled selected>-Pilih status tempat tinggal-</option>
-                                <option>Milik Sendiri</option>
-                                <option>Nyewa</option>
-                                <option>Kredit Rumah</option>
-                            </select>
-                            <!-- <input type="text" class="form-control" id="input_field_2"  placeholder="No. halaman yang akan dicetak" maxlength="1" required="required"> -->
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck" @bind="flagSesuai">
-                            <label class="form-check-label" for="gridCheck" >
-                                Alamat tinggal saat ini sesuai KTP
-                            </label>
-                        </div>
-                    </div>
+                    <!-- Exaple 1 -->
                 </form>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style="padding: 0.5rem;">
@@ -132,7 +168,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Syarat">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -148,7 +184,7 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
@@ -163,7 +199,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button class="btn btn-primary" type="button" style="float: right;" @onclick="Selanjutnya">Lanjut</button>
+            <button class="btn btn-primary" type="button" style="float: right;" @onclick="InputNPWP">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -180,15 +216,15 @@
     private bool flagSesuai = false;
     private string isTextField = string.Empty;
 
-    private async Task Home()
+    private async Task Syarat()
     {
-        OnClick.InvokeAsync("home");
+        OnClick.InvokeAsync("bukarekeningsyarat");
     }
 
-    private async Task Selanjutnya()
+    private async Task InputNPWP()
     {
-        trxbaru.setNasabahBaru(strnamaibu, stragama, strperkawinan, strstatustinggal, flagSesuai);
-        OnClick.InvokeAsync("bukarekeninginputdata2");
+        //trxbaru.setNasabahBaru(strnamaibu, stragama, strperkawinan, strstatustinggal, flagSesuai);
+        OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
 
     private void inputField1()

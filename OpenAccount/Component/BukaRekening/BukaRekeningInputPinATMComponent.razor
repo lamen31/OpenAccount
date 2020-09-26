@@ -1,34 +1,29 @@
 ﻿@using Microsoft.AspNetCore.Components
-@using OpenAccount.Data
-
-@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
-<section id="hero">
+<section id="hero" style="margin-top: 50px;">
 
     <div class="container">
         <div class="row">
             <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
-                    <h3 style="color: #00529C;">Pilih tujuan utama Anda untuk membuka rekening</h3>
                 </div>
-            </div>
+                <h3 style="color: #00529C; text-align: center; font-weight: 900; margin-bottom: 2%; margin-top: 10%;">Masukkan 6 Digit PIN Baru Anda</h3>
 
-            <div class="col-xl-12 order-3 order-lg-3 hero-img" data-aos="fade-left" style=" padding: 3rem;">
-                <div class="form-input-data">
-                    <div id="btn-periode" class="col-md-12" style="text-align: center;">
-                        <div class="form-group">
-                            <button type="button" class="btn3 btn-histori" @onclick="InputKTP">Transaksi</button>
-                            <button type="button" class="btn3 btn-histori" style="margin-left: 1rem;" @onclick="InputKTP">Menabung/Investasi</button>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn3 btn-histori" @onclick="InputKTP">Keperluan Pribadi</button>
-                            <button type="button" class="btn3 btn-histori" style="margin-left: 1rem;" @onclick="InputKTP">Tujuan Lainnya</button>
+                <form>
+                    <div style="padding-left: 35%; padding-right: 35%;">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" style="text-align: center;" placeholder="******">
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
+
             </div>
+
+
         </div>
     </div>
 </section>
@@ -37,7 +32,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-secondary" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -45,15 +40,15 @@
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
@@ -68,7 +63,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <button class="btn btn-primary" type="submit" style="float: right;" disabled>Lanjut</button> -->
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="KonfirmasiPin">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -77,22 +72,13 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Console.WriteLine("ENTERED INTO BUKA REKENING JENIS TUJUAN");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening jenis tujuan", "step-action");
-        }
-    }
-
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
     }
 
-    private async Task InputKTP()
+    private async Task KonfirmasiPin()
     {
-        OnClick.InvokeAsync("bukarekeningktp");
+        OnClick.InvokeAsync("bukarekeninginputpinatmkedua");
     }
 }

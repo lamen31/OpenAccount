@@ -31,7 +31,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputNPWP">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -73,13 +73,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        scanner.ReturnCard();
-        scanner.CloseCVRReader();
+        //scanner.ReturnCard();
+        //scanner.CloseCVRReader();
         await Task.Delay(1000);
-        OnClick.InvokeAsync("bukarekeninginputdata");
+        OnClick.InvokeAsync("bukarekeningcapturewajah");
     }
-    private async Task Home()
+    private async Task InputNPWP()
     {
-        OnClick.InvokeAsync("home");
+        OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
 }

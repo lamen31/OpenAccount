@@ -166,6 +166,10 @@ namespace OpenAccount.Data
         {
             buf = new byte[6];
             res = ScannerDLL.goRadioPos(0, buf);
+            if(res == 0)
+                Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
+            else
+                Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
         }
         public void Scan()
         {
@@ -229,6 +233,7 @@ namespace OpenAccount.Data
             if (retCode != 0)
             {
                 Console.WriteLine("SCANNING PHOTO FAILED");
+                Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
             }
             rect.height = 648;
             rect.width = 1050;
@@ -237,21 +242,25 @@ namespace OpenAccount.Data
             if (retCode != 0)
             {
                 Console.WriteLine("SCANNING PHOTO FAILED");
+                Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
                 return retCode = -138;
             }
             retCode = ScannerDLL.saveBmp(frontFile, frontPtr, ref rect);
             if (retCode != 0)
             {
                 Console.WriteLine("SCANNING PHOTO FAILED");
+                Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
                 return retCode = -138;
             }
             retCode = ScannerDLL.saveBmp(backFile, backPtr, ref rect);
             if (retCode != 0)
             {
                 Console.WriteLine("SCANNING PHOTO FAILED");
+                Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
                 return retCode = -138;
             }
             Console.WriteLine("SCANNING PHOTO SUCCESS");
+            Utility.WriteLog("ID scanner condition : scanning photo success", "step-action");
             return retCode;
         }
         public int ReturnCard()
@@ -261,7 +270,13 @@ namespace OpenAccount.Data
             if (iRet != 1)
             {
                 Console.WriteLine("QUERY DEVICE STATUS FAILED");
+                Utility.WriteLog("ID scanner condition : query device status failed", "step-action");
                 return -133;
+            }
+            else
+            {
+                Console.WriteLine("QUERY DEVICE STATUS SUCCESS");
+                Utility.WriteLog("ID scanner condition : query device status success", "step-action");
             }
             buf = new byte[2];
             res = ScannerDLL.cisQuery(mDeviceId, buf);
@@ -274,6 +289,12 @@ namespace OpenAccount.Data
                 if (retCode != 0)
                 {
                     Console.WriteLine("EXIT CARD FAILED");
+                    Utility.WriteLog("ID scanner condition : exit card failed", "step-action");
+                }
+                else
+                {
+                    Console.WriteLine("EXIT CARD SUCCESS");
+                    Utility.WriteLog("ID scanner condition : exit card success", "step-action");
                 }
             }
             return res;
@@ -290,11 +311,13 @@ namespace OpenAccount.Data
                 res = ScannerDLL.closeCardRead(mDeviceId);
                 if (res == 0)
                 {
-                    Console.WriteLine("CLOSE ID CARD READER SUCCESSED");
+                    Console.WriteLine("CLOSE ID CARD READER SUCCESS");
+                    Utility.WriteLog("ID scanner condition : close id card reader success", "step-action");
                 }
                 else
                 {
                     Console.WriteLine("CLOSE ID CARD READER FAILED");
+                    Utility.WriteLog("ID scanner condition : close id card reader failed", "step-action");
                 }
                 return res;
             }
@@ -302,6 +325,7 @@ namespace OpenAccount.Data
             {
                 res = -131;
                 Console.WriteLine("CLOSE ID CARD READER ERROR");
+                Utility.WriteLog("ID scanner condition : close id card reader error", "step-action");
                 return res;
             }
         }

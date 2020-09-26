@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -7,15 +8,23 @@
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
+                    <span class="badge badge-primary" style="margin-bottom: 10%; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Proses pindai Sidik Jari <b style="color: rgb(50, 219, 72);">Berhasil</b></h3>
+                <h3 style="color: #00529C;"><b> Proses Capture e-KTP <b style="color: rgb(50, 219, 72);">Berhasil</b></b></h3>
+                <h3 style="color: #00529C; margin-top: 10%; font-weight: 400;">"Silakan ambil e-KTP Anda <br> pada bagian bawah mesin"</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/tick (2).png" style="width: 10%;">
-                <br>
-                <img src="../assets/img/finger.png" class="img-fluid" alt=""><br>
 
+                <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
+                    <div class="text-center">
+                        <img class="card-img-top" src="../assets/img/KTP-lutfy.png" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hasil Capture e-KTP Anda</h5>
+                    </div>
+                </div>
+
+                <!-- <img src="../assets/img/ktp.png" class="img-fluid" alt="" style="margin-top: 5%; margin-bottom: 5%;"><br> -->
             </div>
         </div>
     </div>
@@ -25,7 +34,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+           <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -56,7 +65,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+           <button type="button" class="btn btn-primary" style="float: right;" @onclick="DataKTP">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -65,11 +74,11 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private async Task DataKTP()
     {
-        await Task.Delay(1000);
         OnClick.InvokeAsync("bukarekeningdataKTP");
     }
+
     private async Task Home()
     {
         OnClick.InvokeAsync("home");

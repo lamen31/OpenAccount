@@ -1,0 +1,2 @@
+20200926 13:03:02 Buka rekening condition : entered into buka rekening syarat
+20200926 13:38:55 ID scanner condition : query device status failed

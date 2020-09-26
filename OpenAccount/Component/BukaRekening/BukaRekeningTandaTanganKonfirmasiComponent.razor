@@ -1,7 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Components
-@using OpenAccount.Data
-
-@inject IDScanner scanner 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -12,16 +9,19 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Masukan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> sesuai e-KTP Anda pada bagian bawah mesin</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
+                <h5 style="color: #fd1f1f; font-style: italic;">*Tanda tangan anda akan tampil disini</h5>
+                <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
+                    <div class="text-center">
+                        <img class="card-img-top" src="../assets/img/Group 78.png" style="width: 50%;" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hasil Tanda Tangan</h5>
+                    </div>
                 </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
-                <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
-                <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
+                <h5 style="color: #00529C; margin-top: 5%;" @onclick="TandaTangan">Ulangi Tanda Tangan?</h5>
             </div>
         </div>
     </div>
@@ -39,11 +39,11 @@
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
@@ -62,7 +62,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="TandaTangan2">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -71,47 +71,18 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private bool isKTPValid = true;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Console.WriteLine("ENTERED INTO BUKA REKENING KTP");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening ktp", "step-action");
-        }
-    }
-
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
     }
 
-    private async Task KTPberhasil()
+    private async Task TandaTangan()
     {
-        Console.WriteLine("ID SCANNER FRONT SWALLOW");
-        Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
-        //scanner.FrontSwallow();
-        Console.WriteLine("ID SCANNER BACK SWALLOW");
-        Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
-        //scanner.BackSwallow();
-        await Task.Delay(3000);
-        CheckKTPValid();
-        //OnClick.InvokeAsync("bukarekeningktpberhasil");
+        OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 
-    private async Task CheckKTPValid()
+    private async Task TandaTangan2()
     {
-        if (isKTPValid)
-        {
-            //scanner.RadioPos();
-            await Task.Delay(2000);
-            OnClick.InvokeAsync("bukarekeningktpberhasil");
-        }
-        else
-        {
-            //scanner.ReturnCard();
-            //scanner.CloseCVRReader();
-        }
+        OnClick.InvokeAsync("bukarekeningtandatangankedua");
     }
 }

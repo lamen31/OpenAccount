@@ -13,8 +13,8 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Berikut data <b>e-KTP</b> Anda</h3>
-                <table style="margin-top: 9%;">
+                <h3 style="color: #00529C;">Harap konfirmasi data <b>e-KTP</b> Anda</h3>
+                <table style="margin-top: 5%; line-height: 9px;">
                     <tr>
                         <td><h4 style="font-weight: 600;"> NIK </h4></td>
                         <td><h4 style="font-weight: 600;">:&emsp;</h4></td>
@@ -44,7 +44,14 @@
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
 
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
+                <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
+                    <div class="text-center">
+                        <img class="card-img-top" src="../assets/img/KTP-lutfy.png" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hasil Capture e-KTP Anda</h5>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -63,11 +70,11 @@
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
@@ -86,7 +93,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;" @onclick="NPWP">Lanjut</button>
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="JenisTabungan">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -105,15 +112,15 @@
     {
         await Task.Delay(100);
         trxbaru.setKTPNasabah(strnik, strnama, strttl, strperkawinan, strpekerjaan);
-        scanner.ReturnCard();
-        scanner.CloseCVRReader();
+        //scanner.ReturnCard();
+        //scanner.CloseCVRReader();
     }
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
     }
-    private async Task NPWP()
+    private async Task JenisTabungan()
     {
-        OnClick.InvokeAsync("bukarekeningNPWP");
+        OnClick.InvokeAsync("bukarekeningjenis");
     }
 }
