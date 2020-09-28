@@ -22,38 +22,73 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Ibu Kandung</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Nama Gadis Ibu Kandung">
+                                    @if (strnamaibu == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="Nama Ibu Kandung" @onclick="inputField1">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strnamaibu" @onclick="inputField1">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nomor Handphone</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="nomor handphone anda">
+                                    @if (strhandphone == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="nomor handphone anda" @onclick="inputField2">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strhandphone" @onclick="inputField2">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" placeholder="alamat email">
+                                    @if (stremail == string.Empty)
+                                    {
+                                        <input type="email" class="form-control" placeholder="alamat email" @onclick="inputField3">
+                                    }
+                                    else
+                                    {
+                                        <input type="email" class="form-control" @bind="stremail" @onclick="inputField3">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kode Pos</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="kode pos">
+                                    @if (strpos == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="kode pos" @onclick="inputField4">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strpos" @onclick="inputField4">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Pekerjaan</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="pekerjaan">
+                                    @if (strpekerjaan == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="pekerjaan" @onclick="inputField5">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strpekerjaan" @onclick="inputField5">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Penghasilan</label>
                                 <div class="col-sm-9">
-                                    <select class="custom-select">
-                                        <option selected>-pilih salah satu-</option>
+                                    <select class="custom-select" @bind="strpenghasilan">
+                                        <option disabled selected>-pilih salah satu-</option>
                                         <option value="1">0-5jt per Bulan</option>
                                         <option value="2">5-10jt per Bulan</option>
                                         <option value="3">10-25jt per Bulan</option>
@@ -65,14 +100,21 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Perusahaan</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="nama perusahaan">
+                                    @if (strperusahaan == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="nama perusahaan" @onclick="inputField6">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strperusahaan" @onclick="inputField6">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Bidang Usaha</label>
                                 <div class="col-sm-9">
-                                    <select class="custom-select">
-                                        <option selected>-pilih salah satu-</option>
+                                    <select class="custom-select" @bind="strusaha">
+                                        <option disabled selected>-pilih salah satu-</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -82,25 +124,53 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Telepon Kantor</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="telepon kantor">
+                                    @if (strtelepon == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="telepon kantor" @onclick="inputField7">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strtelepon" @onclick="inputField7">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Jabatan / Pangkat</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="jabatan atau pangkat">
+                                    @if (strjabatan == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="jabatan atau pangkat" @onclick="inputField8">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strjabatan" @onclick="inputField8">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kota</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="kota">
+                                    @if (strkota == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="kota" @onclick="inputField9">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strkota" @onclick="inputField9">
+                                    }
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Alamat Kantor</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="alamat kantor">
+                                    @if (stralamat == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="alamat kantor" @onclick="inputField10">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="stralamat" @onclick="inputField10">
+                                    }
                                 </div>
                             </div>
 
@@ -210,11 +280,27 @@
 
     private string tomboladd = "@";
     private string strnamaibu = string.Empty;
-    private string stragama = string.Empty;
-    private string strperkawinan = string.Empty;
-    private string strstatustinggal = string.Empty;
-    private bool flagSesuai = false;
+    private string strhandphone = string.Empty;
+    private string stremail = string.Empty;
+    private string strpos = string.Empty;
+    private string strpekerjaan = string.Empty;
+    private string strpenghasilan = string.Empty;
+    private string strperusahaan = string.Empty;
+    private string strusaha = string.Empty;
+    private string strtelepon = string.Empty;
+    private string strjabatan = string.Empty;
+    private string strkota = string.Empty;
+    private string stralamat = string.Empty;
     private string isTextField = string.Empty;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening input data", "step-action");
+        }
+    }
 
     private async Task Syarat()
     {
@@ -223,7 +309,7 @@
 
     private async Task InputNPWP()
     {
-        //trxbaru.setNasabahBaru(strnamaibu, stragama, strperkawinan, strstatustinggal, flagSesuai);
+        trxbaru.setNasabahBaru(strnamaibu,strhandphone,stremail,strpos,strpekerjaan,strpenghasilan,strperusahaan,strusaha,strtelepon,strjabatan,strkota,stralamat);
         OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
 
@@ -232,26 +318,274 @@
         isTextField = "1";
     }
 
+    private void inputField2()
+    {
+        isTextField = "2";
+    }
+
+    private void inputField3()
+    {
+        isTextField = "3";
+    }
+
+    private void inputField4()
+    {
+        isTextField = "4";
+    }
+
+    private void inputField5()
+    {
+        isTextField = "5";
+    }
+
+    private void inputField6()
+    {
+        isTextField = "6";
+    }
+
+    private void inputField7()
+    {
+        isTextField = "7";
+    }
+
+    private void inputField8()
+    {
+        isTextField = "8";
+    }
+
+    private void inputField9()
+    {
+        isTextField = "9";
+    }
+
+    private void inputField10()
+    {
+        isTextField = "10";
+    }
+
     private void InputData(string strinput)
     {
-        if (isTextField == "1")
+        switch (isTextField)
         {
-            strnamaibu += strinput;
+            case "1":
+                strnamaibu += strinput;
+                break;
+            case "2":
+                strhandphone += strinput;
+                break;
+            case "3":
+                stremail += strinput;
+                break;
+            case "4":
+                strpos += strinput;
+                break;
+            case "5":
+                strpekerjaan += strinput;
+                break;
+            case "6":
+                strperusahaan += strinput;
+                break;
+            case "7":
+                strtelepon += strinput;
+                break;
+            case "8":
+                strjabatan += strinput;
+                break;
+            case "9":
+                strkota += strinput;
+                break;
+            case "10":
+                stralamat += strinput;
+                break;
         }
+        //if (isTextField == "1")
+        //{
+        //    strnamaibu += strinput;
+        //}
+        //else if (isTextField == "2")
+        //{
+        //    strhandphone += strinput;
+        //}
+        //else if (isTextField == "3")
+        //{
+        //    stremail += strinput;
+        //}
+        //else if (isTextField == "4")
+        //{
+        //    strpos += strinput;
+        //}
+        //else if (isTextField == "5")
+        //{
+        //    strpekerjaan += strinput;
+        //}
+        //else if (isTextField == "6")
+        //{
+        //    strperusahaan += strinput;
+        //}
+        //else if (isTextField == "7")
+        //{
+        //    strtelepon += strinput;
+        //}
+        //else if (isTextField == "8")
+        //{
+        //    strjabatan += strinput;
+        //}
+        //else if (isTextField == "9")
+        //{
+        //    strkota += strinput;
+        //}
+        //else if (isTextField == "10")
+        //{
+        //    stralamat += strinput;
+        //}
     }
 
     private void RemoveData()
     {
-        if (isTextField == "1")
+        switch (isTextField)
         {
-            if (strnamaibu.Length <= 0)
-            {
-                strnamaibu = "";
-            }
-            else
-            {
-                strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
-            }
+            case "1":
+                if (strnamaibu.Length > 0)
+                    strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
+                break;
+            case "2":
+                if (strhandphone.Length > 0)
+                    strhandphone = strhandphone.Substring(0, strhandphone.Length - 1);
+                break;
+            case "3":
+                if (stremail.Length > 0)
+                    stremail = stremail.Substring(0, stremail.Length - 1);
+                break;
+            case "4":
+                if (strpos.Length > 0)
+                    strpos = strpos.Substring(0, strpos.Length - 1);
+                break;
+            case "5":
+                if (strpekerjaan.Length > 0)
+                    strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
+                break;
+            case "6":
+                if (strperusahaan.Length > 0)
+                    strperusahaan = strperusahaan.Substring(0, strperusahaan.Length - 1);
+                break;
+            case "7":
+                if (strtelepon.Length > 0)
+                    strtelepon = strtelepon.Substring(0, strtelepon.Length - 1);
+                break;
+            case "8":
+                if (strjabatan.Length > 0)
+                    strjabatan = strjabatan.Substring(0, strjabatan.Length - 1);
+                break;
+            case "9":
+                if (strkota.Length > 0)
+                    strkota = strkota.Substring(0, strkota.Length - 1);
+                break;
+            case "10":
+                if (stralamat.Length > 0)
+                    stralamat = stralamat.Substring(0, stralamat.Length - 1);
+                break;
         }
+        //if (isTextField == "1")
+        //{
+        //    if (strnamaibu.Length > 0)
+        //    {
+        //        strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "2")
+        //{
+        //    if (strhandphone.Length > 0)
+        //    {
+        //        strhandphone = strhandphone.Substring(0, strhandphone.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "3")
+        //{
+        //    if (stremail.Length <= 0)
+        //    {
+        //        stremail = "";
+        //    }
+        //    else
+        //    {
+        //        stremail = stremail.Substring(0, stremail.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "4")
+        //{
+        //    if (strpos.Length <= 0)
+        //    {
+        //        strpos = "";
+        //    }
+        //    else
+        //    {
+        //        strpos = strpos.Substring(0, strpos.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "5")
+        //{
+        //    if (strpekerjaan.Length <= 0)
+        //    {
+        //        strpekerjaan = "";
+        //    }
+        //    else
+        //    {
+        //        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "6")
+        //{
+        //    if (strperusahaan.Length <= 0)
+        //    {
+        //        strperusahaan = "";
+        //    }
+        //    else
+        //    {
+        //        strperusahaan = strperusahaan.Substring(0, strperusahaan.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "7")
+        //{
+        //    if (strtelepon.Length <= 0)
+        //    {
+        //        strtelepon = "";
+        //    }
+        //    else
+        //    {
+        //        strtelepon = strtelepon.Substring(0, strtelepon.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "8")
+        //{
+        //    if (strjabatan.Length <= 0)
+        //    {
+        //        strjabatan = "";
+        //    }
+        //    else
+        //    {
+        //        strjabatan = strjabatan.Substring(0, strjabatan.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "9")
+        //{
+        //    if (strkota.Length <= 0)
+        //    {
+        //        strkota = "";
+        //    }
+        //    else
+        //    {
+        //        strkota = strkota.Substring(0, strkota.Length - 1);
+        //    }
+        //}
+        //else if (isTextField == "10")
+        //{
+        //    if (stralamat.Length <= 0)
+        //    {
+        //        stralamat = "";
+        //    }
+        //    else
+        //    {
+        //        stralamat = stralamat.Substring(0, stralamat.Length - 1);
+        //    }
+        //}
     }
 }

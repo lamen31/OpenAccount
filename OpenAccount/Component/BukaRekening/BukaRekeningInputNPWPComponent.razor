@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -15,7 +19,14 @@
                 <div class="form-row" style="padding: 2rem 0rem;">
                     <div class="form-group col-md-6">
                         <label style="font-weight: 600; font-size: 18px;">Nomor NPWP</label>
-                        <input type="text" class="form-control" style="width: 145%;" placeholder="0123456789">
+                        @if (strnpwp == string.Empty)
+                        {
+                            <input type="text" class="form-control" style="width: 145%;" placeholder="0123456789">
+                        }
+                        else
+                        {
+                            <input type="text" class="form-control" style="width: 145%;" @bind="strnpwp">
+                        }
                     </div>
                 </div>
                 <h4 style="color: #ee0000; margin-top: 15%;" @onclick="CaptureWajah">Tidak Punya NPWP?</h4>
@@ -23,17 +34,17 @@
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
                 <div id="keyboard">
                 <container>
-                    <button class="block" value="1" >1</button>
-                    <button class="block" value="2" >2</button>
-                    <button class="block" value="3" >3</button>
-                    <button class="block" value="4" >4</button>
-                    <button class="block" value="5" >5</button>
-                    <button class="block" value="6" >6</button>
-                    <button class="block" value="7" >7</button>
-                    <button class="block" value="8" >8</button>
-                    <button class="block" value="9" >9</button>
-                    <button class="block" h2="" value="Hapus" >Delete</button>
-                    <button class="block" ck value="0" id="myBtnUndefine" >0</button>
+                    <button class="block" value="1" @onclick="@(() => InputCharData("1"))">1</button>
+                    <button class="block" value="2" @onclick="@(() => InputCharData("2"))">2</button>
+                    <button class="block" value="3" @onclick="@(() => InputCharData("3"))">3</button>
+                    <button class="block" value="4" @onclick="@(() => InputCharData("4"))">4</button>
+                    <button class="block" value="5" @onclick="@(() => InputCharData("5"))">5</button>
+                    <button class="block" value="6" @onclick="@(() => InputCharData("6"))">6</button>
+                    <button class="block" value="7" @onclick="@(() => InputCharData("7"))">7</button>
+                    <button class="block" value="8" @onclick="@(() => InputCharData("8"))">8</button>
+                    <button class="block" value="9" @onclick="@(() => InputCharData("9"))">9</button>
+                    <button class="block" h2="" value="Hapus" @onclick="RemoveCharData">Delete</button>
+                    <button class="block" ck value="0" id="myBtnUndefine" @onclick="@(() => InputCharData("0"))">0</button>
                 </container>
             </div>
         </div>
@@ -85,6 +96,28 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string strnpwp = string.Empty;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NPWP");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening input npwp", "step-action");
+        }
+    }
+
+    private void InputCharData(string strinput)
+    {
+        strnpwp += strinput;
+    }
+
+    private void RemoveCharData()
+    {
+        if(strnpwp.Length > 0)
+            strnpwp = strnpwp.Substring(0, strnpwp.Length - 1);
+    }
+
     private async Task InputData()
     {
         OnClick.InvokeAsync("bukarekeninginputdata");
@@ -92,6 +125,7 @@
 
     private async Task CaptureNPWP()
     {
+        trxbaru.setNomorNPWP(strnpwp);
         OnClick.InvokeAsync("bukarekeningcaptureNPWP");
     }
 

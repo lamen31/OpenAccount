@@ -85,6 +85,7 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
+        scanner.BackSwallow();
         loopFinger = true;
         CheckFingerValid();
         //OnClick.InvokeAsync("bukarekeningfingerberhasil");
@@ -117,8 +118,8 @@
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
-                    //scanner.ReturnCard();
-                    //scanner.CloseCVRReader();
+                    scanner.ReturnCard();
+                    scanner.CloseCVRReader();
                     loopFinger = false;
                     OnClick.InvokeAsync("home");
                 }

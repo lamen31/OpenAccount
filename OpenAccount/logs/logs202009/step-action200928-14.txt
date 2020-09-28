@@ -1,0 +1,597 @@
+20200928 14:13:06 Buka rekening condition : entered into buka rekening ktp
+20200928 14:13:32 Buka rekening condition : id scanner front swallow
+20200928 14:13:32 ID scanner condition : open device list success
+20200928 14:13:32 ID scanner condition : open device success
+20200928 14:13:32 ID scanner condition : get status success
+20200928 14:13:32 ID scanner condition : set back entry success
+20200928 14:13:32 ID scanner condition : set front entry success
+20200928 14:13:41 ID scanner condition : get status success
+20200928 14:13:42 ID scanner condition : ics checking success
+20200928 14:13:44 ID scanner condition : the card is at RF card reading
+20200928 14:13:44 ID scanner condition : set front entry success
+20200928 14:13:44 Buka rekening condition : id scanner back swallow
+20200928 14:13:44 ID scanner condition : set back entry success
+20200928 14:13:47 ID scanner condition : query device status success
+20200928 14:13:52 ID scanner condition : exit card success
+20200928 14:13:52 ID scanner condition : close id card reader success
+20200928 14:32:52 Buka rekening condition : entered into buka rekening ktp
+20200928 14:32:53 Buka rekening condition : id scanner front swallow
+20200928 14:32:53 ID scanner condition : open device list success
+20200928 14:32:53 ID scanner condition : open device success
+20200928 14:32:53 ID scanner condition : get status success
+20200928 14:32:53 ID scanner condition : set back entry success
+20200928 14:32:53 ID scanner condition : set front entry success
+20200928 14:33:21 ID scanner condition : get status success
+20200928 14:33:23 ID scanner condition : ics checking success
+20200928 14:33:36 ID scanner condition : the card is at RF card reading
+20200928 14:33:36 ID scanner condition : set front entry success
+20200928 14:33:36 Buka rekening condition : id scanner back swallow
+20200928 14:33:36 ID scanner condition : set back entry success
+20200928 14:33:39 ID scanner condition : move to the RF card holding success
+20200928 14:33:41 Buka rekening condition : entered into buka rekening ktp berhasil
+20200928 14:33:42 Buka rekening condition : entered into buka rekening finger print
+20200928 14:33:43 ID scanner condition : set back entry success
+20200928 14:33:44 Buka rekening condition : entered into buka rekening finger print berhasil
+20200928 14:33:45 ID scanner condition : move to the RF card holding success
+20200928 14:37:37 Buka rekening condition : entered into buka rekening ktp
+20200928 14:37:38 Buka rekening condition : id scanner front swallow
+20200928 14:37:38 ID scanner condition : open device list success
+20200928 14:37:38 ID scanner condition : open device success
+20200928 14:37:38 ID scanner condition : get status success
+20200928 14:37:38 ID scanner condition : set back entry success
+20200928 14:37:38 ID scanner condition : set front entry success
+20200928 14:37:38 ID scanner condition : get status success
+20200928 14:37:38 ID scanner condition : ics checking success
+20200928 14:37:45 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:37:45 ID scanner condition : get status success
+20200928 14:37:45 ID scanner condition : ics checking success
+20200928 14:37:45 ID scanner condition : the card is at RF card reading
+20200928 14:37:45 ID scanner condition : set front entry success
+20200928 14:37:45 Buka rekening condition : id scanner back swallow
+20200928 14:37:45 ID scanner condition : set back entry success
+20200928 14:37:48 ID scanner condition : move to the RF card holding success
+20200928 14:37:50 Buka rekening condition : entered into buka rekening ktp berhasil
+20200928 14:37:51 Buka rekening condition : entered into buka rekening finger print
+20200928 14:37:52 ID scanner condition : set back entry success
+20200928 14:37:52 Buka rekening condition : entered into buka rekening finger print berhasil
+20200928 14:37:53 ID scanner condition : move to the RF card holding success
+20200928 14:38:41 ID scanner condition : scanning photo success
+20200928 14:55:32 Buka rekening condition : entered into buka rekening ktp
+20200928 14:55:36 Buka rekening condition : id scanner front swallow
+20200928 14:55:36 ID scanner condition : open device list success
+20200928 14:55:36 ID scanner condition : open device success
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : set back entry success
+20200928 14:55:36 ID scanner condition : set front entry success
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:36 ID scanner condition : ics checking success
+20200928 14:55:36 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:36 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20200928 14:55:37 ID scanner condition : get status success
+20200928 14:55:37 ID scanner condition : ics checking success
+20200928 14:55:37 ID scanner condition : the card is at RF card reading
+20200928 14:55:37 ID scanner condition : set front entry success
+20200928 14:55:37 Buka rekening condition : id scanner back swallow
+20200928 14:55:37 ID scanner condition : set back entry success
+20200928 14:55:40 ID scanner condition : move to the RF card holding success
+20200928 14:55:42 Buka rekening condition : entered into buka rekening ktp berhasil
+20200928 14:55:43 Buka rekening condition : entered into buka rekening finger print
+20200928 14:55:44 ID scanner condition : set back entry success
+20200928 14:55:44 Buka rekening condition : entered into buka rekening finger print berhasil
+20200928 14:55:45 ID scanner condition : move to the RF card holding success
+20200928 14:55:47 ID scanner condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\capture\\_UP.BMP has been deleted
+20200928 14:55:47 ID scanner condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\capture\\_BOT.BMP has been deleted
+20200928 14:55:52 ID scanner condition : scanning photo success
+20200928 14:59:26 Buka rekening condition : entered into buka rekening ktp

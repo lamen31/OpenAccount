@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Components;
+using System.IO;
 
 namespace OpenAccount.Data
 {
@@ -202,13 +203,21 @@ namespace OpenAccount.Data
         }
         public void ScanKTP()
         {
+            string directori = Directory.GetCurrentDirectory();
             string pathsaveimage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESCANNER);
+            pathsaveimage = directori +"\\"+ pathsaveimage;
             buf = new byte[6];
             DateTime dateTimeImage = DateTime.Now;
             string strImageZhengmianFile = AppDomain.CurrentDomain.BaseDirectory + "idcard_zhengmian.BMP";
             string strImageBeimianFile = AppDomain.CurrentDomain.BaseDirectory + "idcard_beimian.BMP";
-            string strImageUpFile = pathsaveimage + dateTimeImage.ToString("yyyyMMddHHmm") + "_UP.BMP";
-            string strImageBotFile = pathsaveimage + dateTimeImage.ToString("yyyyMMddHHmm") + "_BOT.BMP";
+            string strImageUpFile = pathsaveimage + "_UP.BMP";
+            string strImageBotFile = pathsaveimage + "_BOT.BMP";
+            File.Delete(strImageUpFile);
+            Console.WriteLine("FILE FROM " + strImageUpFile + " HAS BEEN DELETED");
+            Utility.WriteLog("ID scanner condition : file from " + strImageUpFile + " has been deleted", "step-action");
+            File.Delete(strImageBotFile);
+            Console.WriteLine("FILE FROM " + strImageBotFile + " HAS BEEN DELETED");
+            Utility.WriteLog("ID scanner condition : file from " + strImageBotFile + " has been deleted", "step-action");
             IDCardInfo idCardInfo = new IDCardInfo();
             byte[] frontPtr = new byte[5242880];
             byte[] backPtr = new byte[5242880];
@@ -283,6 +292,7 @@ namespace OpenAccount.Data
             if (res == 0 && (buf[0] == 51 || buf[0] == 53 || buf[0] == 52 || buf[0] == 1))
             {
                 Console.WriteLine("START EXITING CARD");
+                Utility.WriteLog("ID scanner condition : start exiting card", "step-action");
                 buf[0] = 2;
                 int retCode = ScannerDLL.goFrontPos(mDeviceId, buf);
                 Thread.Sleep(5000);

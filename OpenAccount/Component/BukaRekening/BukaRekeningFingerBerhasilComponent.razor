@@ -1,4 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility 
+@inject TransaksiBaru trxbaru
+@inject IDScanner scanner
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -65,10 +70,29 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string strnik = "02480327487328";
+    private string strnama = "Bambang Pamungkas";
+    private string strttl = "Jakarta, 22-09-1972";
+    private string strperkawinan = "Belum Kawin";
+    private string stralamat = "Plaza Semanggi";
+    private string stragama = "Atheis";
+    private string strpekerjaan = "Wiraswasta";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING FINGER PRINT BERHASIL");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening finger print berhasil", "step-action");
+            trxbaru.setKTPNasabah(strnik, strnama, strttl, strperkawinan, stralamat, stragama, strpekerjaan);
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        OnClick.InvokeAsync("bukarekeningdataKTP");
+        scanner.RadioPos();
+        OnClick.InvokeAsync("bukarekeningcapturektp");
     }
     private async Task Home()
     {

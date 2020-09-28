@@ -36,6 +36,16 @@
                         <td><h4 style="font-weight: 600;">@trxbaru._PerkawinanKTP</h4><br></td>
                     </tr>
                     <tr>
+                        <td><h4 style="font-weight: 600;"> Status Perkawinan </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._AlamatKTP</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Status Perkawinan </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trxbaru._AgamaKTP</h4><br></td>
+                    </tr>
+                    <tr>
                         <td><h4 style="font-weight: 600;"> Pekerjaan</h4></td>
                         <td><h4 style="font-weight: 600;">:</h4></td>
                         <td><h4 style="font-weight: 600;">@trxbaru._PekerjaanKTP</h4><br></td>
@@ -102,16 +112,18 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private string strnik = "02480327487328";
-    private string strnama = "Bambang Pamungkas";
-    private string strttl = "Jakarta, 22-09-1972";
-    private string strperkawinan = "Belum Kawin";
-    private string strpekerjaan = "Wiraswasta";
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING DATA KTP");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening data ktp", "step-action");
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(100);
-        trxbaru.setKTPNasabah(strnik, strnama, strttl, strperkawinan, strpekerjaan);
         //scanner.ReturnCard();
         //scanner.CloseCVRReader();
     }

@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject IDScanner scanner
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -71,10 +72,19 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING CAPTURE NPWP BERHASIL");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening capture npwp berhasil", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
-        //scanner.ReturnCard();
-        //scanner.CloseCVRReader();
+        scanner.ReturnCard();
+        scanner.CloseCVRReader();
         await Task.Delay(1000);
         OnClick.InvokeAsync("bukarekeningcapturewajah");
     }

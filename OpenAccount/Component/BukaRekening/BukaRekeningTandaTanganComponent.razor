@@ -5,6 +5,7 @@
 
 @inject SignPad sign 
 @inject Config config
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -84,25 +85,34 @@
     private bool flag = false;
     private bool isVisible = false;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING TANDA TANGAN");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        //path = Directory.GetCurrentDirectory().ToString();
-        //PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
-        //File.Delete(PathImage);
-        //sign.signpad();
+        path = Directory.GetCurrentDirectory().ToString();
+        PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+        File.Delete(PathImage);
+        sign.signpad();
 
-        //PathWorking = sign.workingdirectory + "\\hwsign.png";
-        //if (File.Exists(PathWorking))
-        //{
-        //    flag = false;
-        //    await Task.Run(()=> File.Move(PathWorking, path + "\\wwwroot\\assets\\imgsignpad.png"));
-        //    Console.WriteLine("FILE HAS MOVED");
-        //    isVisible = true;
-        //    await Task.Delay(100);
-        //    StateHasChanged();
-        //}
-        //flag = true;
+        PathWorking = sign.workingdirectory + "\\hwsign.png";
+        if (File.Exists(PathWorking))
+        {
+            flag = false;
+            await Task.Run(() => File.Move(PathWorking, path + "\\wwwroot\\assets\\imgsignpad.png"));
+            Console.WriteLine("FILE HAS MOVED");
+            isVisible = true;
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+        flag = true;
         OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
     }
 

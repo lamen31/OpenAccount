@@ -20,7 +20,7 @@
                 </div>
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
-                <img src="../assets/img/ektp.png" class="img-fluid" alt=""><br>
+                <img src="../assets/img/insert-ktp2.gif" class="img-fluid" alt=""><br>
                 <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
             </div>
         </div>
@@ -91,10 +91,10 @@
     {
         Console.WriteLine("ID SCANNER FRONT SWALLOW");
         Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
-        //scanner.FrontSwallow();
+        scanner.FrontSwallow();
         Console.WriteLine("ID SCANNER BACK SWALLOW");
         Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
-        //scanner.BackSwallow();
+        scanner.BackSwallow();
         await Task.Delay(3000);
         CheckKTPValid();
         //OnClick.InvokeAsync("bukarekeningktpberhasil");
@@ -104,14 +104,14 @@
     {
         if (isKTPValid)
         {
-            //scanner.RadioPos();
+            scanner.RadioPos();
             await Task.Delay(2000);
             OnClick.InvokeAsync("bukarekeningktpberhasil");
         }
         else
         {
-            //scanner.ReturnCard();
-            //scanner.CloseCVRReader();
+            scanner.ReturnCard();
+            scanner.CloseCVRReader();
         }
     }
 }

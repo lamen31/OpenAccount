@@ -210,16 +210,6 @@
                     <BukaRekeningBerhasilStrukComponent OnClick="ClickHandler"></BukaRekeningBerhasilStrukComponent>
                     break;
                 }
-            case "bukarekeninginputdata2":
-                {
-                    <BukaRekeningInputData2Component OnClick="ClickHandler"></BukaRekeningInputData2Component>
-                    break;
-                }
-            case "bukarekeninginputdata3":
-                {
-                    <BukaRekeningInputData3Component OnClick="ClickHandler"></BukaRekeningInputData3Component>
-                    break;
-                }
             case "bukarekeningsetoran":
                 {
                     <BukaRekeningSetoranComponent OnClick="ClickHandler"></BukaRekeningSetoranComponent>
@@ -316,7 +306,7 @@
 </div>
 
 @code{
-    private string message = string.Empty;
+    private string message = "bukarekeningtandatangan";
     private string language = "ID";
 
     void ClickHandler(string strmessage)

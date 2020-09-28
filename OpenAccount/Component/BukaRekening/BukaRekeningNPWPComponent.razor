@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject IDScanner scanner 
+@inject IDScanner scanner
+@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -71,15 +72,24 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING CAPTURE NPWP");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening capture npwp", "step-action");
+        }
+    }
+
     private async Task InputNPWP()
     {
         OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
     private async Task captureNPWPberhasil()
     {
-        //scanner.FrontSwallow();
+        scanner.FrontSwallow();
         await Task.Delay(2000);
-        //scanner.ScanKTP();
+        scanner.ScanKTP();
         OnClick.InvokeAsync("bukarekeningcaptureNPWPberhasil");
     }
 }

@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -18,37 +22,37 @@
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> NIK </h4></td>
                                     <td><h4 style="font-weight: 600;">:&emsp;</h4></td>
-                                    <td><h4 style="font-weight: 600;">02480327487328</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._NIK</h4><br></td>
                                 </tr>
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> Nama </h4></td>
                                     <td><h4 style="font-weight: 600;">:</h4></td>
-                                    <td><h4 style="font-weight: 600;">Bambang Pamungkas</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._Nama</h4><br></td>
                                 </tr>
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> Tempat/Tgl Lahir</h4></td>
                                     <td><h4 style="font-weight: 600;">:</h4></td>
-                                    <td><h4 style="font-weight: 600;">Jakarta, 22-09-1972</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._TTL</h4><br></td>
                                 </tr>
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> Status Perkawinan </h4></td>
                                     <td><h4 style="font-weight: 600;">:</h4></td>
-                                    <td><h4 style="font-weight: 600;">Belum Kawin</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._PerkawinanKTP</h4><br></td>
                                 </tr>
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> Alamat </h4></td>
                                     <td><h4 style="font-weight: 600;">:</h4></td>
-                                    <td><h4 style="font-weight: 600;">Desa ini itu</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._AlamatKTP</h4><br></td>
                                 </tr>
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> Agama </h4></td>
                                     <td><h4 style="font-weight: 600;">:</h4></td>
-                                    <td><h4 style="font-weight: 600;">Islam</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._AgamaKTP</h4><br></td>
                                 </tr>
                                 <tr>
                                     <td><h4 style="font-weight: 900;"> Pekerjaan</h4></td>
                                     <td><h4 style="font-weight: 600;">:</h4></td>
-                                    <td><h4 style="font-weight: 600;">Wiraswasta</h4><br></td>
+                                    <td><h4 style="font-weight: 600;">@trxbaru._PekerjaanKTP</h4><br></td>
                                 </tr>
                             </table>
 
@@ -106,6 +110,15 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING TAMPIL DATA TABUNGAN");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening tampil data tabungan", "step-action");
+        }
+    }
 
     private async Task Home()
     {

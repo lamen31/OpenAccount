@@ -1,0 +1,3 @@
+20200928 15:00:43 Buka rekening condition : entered into buka rekening ktp
+20200928 15:33:42 Buka rekening condition : entered into buka rekening tanda tangan
+20200928 15:33:43 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi

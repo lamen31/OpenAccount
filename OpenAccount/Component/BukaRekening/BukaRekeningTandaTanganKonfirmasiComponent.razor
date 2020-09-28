@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -15,7 +18,7 @@
                 <h5 style="color: #fd1f1f; font-style: italic;">*Tanda tangan anda akan tampil disini</h5>
                 <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
                     <div class="text-center">
-                        <img class="card-img-top" src="../assets/img/Group 78.png" style="width: 50%;" alt="Card image cap">
+                        <img class="card-img-top" src="../assets/imgsignpad.png" style="width: 50%;" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Hasil Tanda Tangan</h5>
@@ -70,6 +73,15 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING TANDA TANGAN KONFIRMASI");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan konfirmasi", "step-action");
+        }
+    }
 
     private async Task Home()
     {
