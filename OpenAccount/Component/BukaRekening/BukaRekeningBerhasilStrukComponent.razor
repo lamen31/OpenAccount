@@ -2,6 +2,8 @@
 @using OpenAccount.Data
 
 @inject Utility utility
+@inject TransaksiBaru trxbaru
+@inject Printer print
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -71,6 +73,7 @@
         {
             Console.WriteLine("ENTERED INTO BUKA REKENING BERHASIL STRUK");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening berhasil struk", "step-action");
+            print.PrintBukaRekening(trxbaru);
         }
     }
 

@@ -104,7 +104,9 @@
     {
         if (isKTPValid)
         {
-            scanner.RadioPos();
+            scanner.RadioPos(); 
+            Console.WriteLine("ID SCANNER RADIO POS");
+            Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
             await Task.Delay(2000);
             OnClick.InvokeAsync("bukarekeningktpberhasil");
         }

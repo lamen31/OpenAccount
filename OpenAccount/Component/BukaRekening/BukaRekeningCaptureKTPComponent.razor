@@ -71,9 +71,22 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string captureFile = "KTP";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING CAPTURE KTP");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening capture ktp", "step-action");
+        }
+    }
+
     private async Task CaptureBerhasil()
     {
-        scanner.ScanKTP();
+        Console.WriteLine("ID SCANNER SCAN KTP");
+        Utility.WriteLog("Buka rekening condition : id scanner scan ktp", "step-action");
+        scanner.ScanKTP(captureFile);
         OnClick.InvokeAsync("bukarekeningcapturektpberhasil");
     }
 

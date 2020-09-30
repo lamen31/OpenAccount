@@ -17,6 +17,7 @@ namespace OpenAccount.Data
         public const string PARAM_PATH_IMAGE_THERMAL = "param.path.image.thermal";
         public const string PARAM_PATH_IMAGE_SAVESCANNER = "param.path.image.savescanner";
         public const string PARAM_PATH_IMAGE_SAVESIGNPAD = "param.path.image.savesignpad";
+        public const string PARAM_PATH_IMAGE_SAVESIGNPAD2 = "param.path.image.savesignpad2";
         public const string PARAM_PATH_PRINTSERVER_A4 = "param.path.printserver.a4";
         public const string PARAM_PATH_PRINTSERVER_PASSBOOK = "param.path.printserver.passbook";
         public const string PARAM_PATH_PRINTSERVER_PRINTCOBA = "param.path.printserver.printcoba";
@@ -32,6 +33,9 @@ namespace OpenAccount.Data
         public const string PARAM_PRINTERNAME_A4 = "param.printername.a4";
         public const string PARAM_PRINTERNAME_PASSBOOK = "param.printername.passbook";
         public const string PARAM_PRINTERNAME_THERMAL = "param.printername.thermal";
+        public const string PARAM_PORT_EDC = "param.port.edc";
+        public const string PARAM_PORT_CARD_DISPENSER = "param.port.card.dispenser";
+
 
         private FileIniDataParser iniFile = new FileIniDataParser();
         private IniData iniData = new IniData();

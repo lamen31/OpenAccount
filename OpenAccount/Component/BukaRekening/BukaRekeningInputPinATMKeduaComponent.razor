@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject Utility utility
+@inject TransaksiBaru trxbaru 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -74,6 +75,8 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string rekening = "1323492841";
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -90,6 +93,11 @@
 
     private async Task MenuEbanking()
     {
+        Console.WriteLine("INPUT PIN ATM KEDUA SUCCESS");
+        Utility.WriteLog("Buka rekening condition : input pin atm kedua success", "step-action");
+        trxbaru.setRekening(rekening);
+        Console.WriteLine("SET NOMOR REKENING SUCCESS");
+        Utility.WriteLog("Buka rekening condition : set nomor rekening success", "step-action");
         OnClick.InvokeAsync("bukarekeningmenuebanking");
     }
 }

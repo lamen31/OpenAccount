@@ -102,8 +102,8 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NPWP");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening input npwp", "step-action");
+            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp", "step-action");
         }
     }
 
@@ -126,11 +126,15 @@
     private async Task CaptureNPWP()
     {
         trxbaru.setNomorNPWP(strnpwp);
+        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SUCCESS");
+        Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp success", "step-action");
         OnClick.InvokeAsync("bukarekeningcaptureNPWP");
     }
 
     private async Task CaptureWajah()
     {
+        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SKIPPED");
+        Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp skipped", "step-action");
         OnClick.InvokeAsync("bukarekeningcapturewajah");
     }
 }

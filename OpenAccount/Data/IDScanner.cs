@@ -201,17 +201,27 @@ namespace OpenAccount.Data
             res = ReturnCard();
             res = CloseCVRReader();
         }
-        public void ScanKTP()
+        public void ScanKTP(string strfile)
         {
             string directori = Directory.GetCurrentDirectory();
             string pathsaveimage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESCANNER);
+            string strImageUpFile = string.Empty;
+            string strImageBotFile = string.Empty;
             pathsaveimage = directori +"\\"+ pathsaveimage;
             buf = new byte[6];
             DateTime dateTimeImage = DateTime.Now;
             string strImageZhengmianFile = AppDomain.CurrentDomain.BaseDirectory + "idcard_zhengmian.BMP";
             string strImageBeimianFile = AppDomain.CurrentDomain.BaseDirectory + "idcard_beimian.BMP";
-            string strImageUpFile = pathsaveimage + "_UP.BMP";
-            string strImageBotFile = pathsaveimage + "_BOT.BMP";
+            if (strfile == "KTP")
+            {
+                strImageUpFile = pathsaveimage + "KTP_UP.BMP";
+                strImageBotFile = pathsaveimage + "KTP_BOT.BMP";
+            }
+            else if(strfile== "NPWP")
+            {
+                strImageUpFile = pathsaveimage + "NPWP_UP.BMP";
+                strImageBotFile = pathsaveimage + "NPWP_BOT.BMP";
+            }
             File.Delete(strImageUpFile);
             Console.WriteLine("FILE FROM " + strImageUpFile + " HAS BEEN DELETED");
             Utility.WriteLog("ID scanner condition : file from " + strImageUpFile + " has been deleted", "step-action");

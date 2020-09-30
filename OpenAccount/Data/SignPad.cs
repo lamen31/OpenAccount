@@ -25,12 +25,14 @@ namespace OpenAccount.Data
             process.StartInfo.WorkingDirectory = workingdirectory;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             process.Start();
-            Console.WriteLine("SIGN PAD FUNCTION: SIGN PAD PROCESS RUNNING");
+            Console.WriteLine("SIGN PAD: SIGN PAD PROCESS RUNNING");
+            Utility.WriteLog("Signpad condition : sign pad process running", "step-action");
             process.WaitForExit();
             if (process.HasExited)
             {
                 process.Close();
                 Console.WriteLine("SIGN PAD FUNCTION: SIGN PAD PROCESS CLOSE");
+                Utility.WriteLog("Signpad condition : sign pad process close", "step-action");
                 process.Dispose();
             }
         }

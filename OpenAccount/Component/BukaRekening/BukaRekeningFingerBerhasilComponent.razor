@@ -85,13 +85,14 @@
             Console.WriteLine("ENTERED INTO BUKA REKENING FINGER PRINT BERHASIL");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening finger print berhasil", "step-action");
             trxbaru.setKTPNasabah(strnik, strnama, strttl, strperkawinan, stralamat, stragama, strpekerjaan);
+            Console.WriteLine("SET DATA KTP " + strnama + " SUCCESS");
+            Utility.WriteLog("Buka rekening condition : set data ktp " + strnama + " success", "step-action");
         }
     }
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        scanner.RadioPos();
         OnClick.InvokeAsync("bukarekeningcapturektp");
     }
     private async Task Home()

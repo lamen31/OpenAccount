@@ -27,6 +27,10 @@ namespace OpenAccount.Data
         public string _Kota { get; set; }
         public string _AlamatKantor { get; set; }
         public string _NomorNPWP { get; set; }
+        public string _PinATM1 { get; set; }
+        public string _NomorRekening { get; set; }
+        public string _MenuEBanking { get; set; }
+        public string _ReferenceID { get; set; }
 
         public void setKTPNasabah(string strnik, string strnama, string strttl, string strperkawinan, string stralamat, string stragama, string strpekerjaan)
         {
@@ -60,6 +64,26 @@ namespace OpenAccount.Data
             _NomorNPWP = strnpwp;
         }
 
+        public void setPinPertama(string strpin)
+        {
+            _PinATM1 = strpin;
+        }
+
+        public void setRekening(string strrekening)
+        {
+            _NomorRekening = strrekening;
+        }
+
+        public void setEBanking(string strmenu)
+        {
+            _MenuEBanking = strmenu;
+        }
+
+        public void setReference(string strreference)
+        {
+            _ReferenceID = strreference;
+        }
+
         public void clear()
         {
             _NIK = string.Empty;
@@ -80,6 +104,9 @@ namespace OpenAccount.Data
             _Kota = string.Empty;
             _AlamatKantor = string.Empty;
             _NomorNPWP = string.Empty;
+            _NomorRekening = string.Empty;
+            _MenuEBanking = string.Empty;
+            _ReferenceID = string.Empty;
         }
     }
 }

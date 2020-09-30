@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject Utility utility 
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -17,7 +18,7 @@
                 </div>
 
                 <div class="card-deck" style="margin-top: 2%;">
-                    <div class="card" @onclick="InputPin">
+                    <div class="card" @onclick="menu1">
                         <div class="text-center">
                             <img class="card-img-top" style="width: 80%;" src="../assets/img/ebanking/internet-bri.png" alt="Card image cap">
                         </div>
@@ -26,7 +27,7 @@
                             <p class="card-text">Deskripsi</p>
                         </div>
                     </div>
-                    <div class="card" @onclick="InputPin">
+                    <div class="card" @onclick="menu2">
                         <div class="text-center">
                             <img class="card-img-top" style="width: 80%;" src="../assets/img/ebanking/brimo.png" alt="Card image cap">
                         </div>
@@ -35,7 +36,7 @@
                             <p class="card-text">Deskripsi</p>
                         </div>
                     </div>
-                    <div class="card" @onclick="InputPin">
+                    <div class="card" @onclick="menu3">
                         <div class="text-center">
                             <img class="card-img-top" style="width: 80%;" src="../assets/img/ebanking/SMS Banking.png" alt="Card image cap">
                         </div>
@@ -97,6 +98,8 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string ebangking = string.Empty;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -106,6 +109,24 @@
         }
     }
 
+    private void menu1()
+    {
+        ebangking = "Internet Banking";
+        InputPin();
+    }
+
+    private void menu2()
+    {
+        ebangking = "BRIMO";
+        InputPin();
+    }
+
+    private void menu3()
+    {
+        ebangking = "SMS Banking BRI";
+        InputPin();
+    }
+
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
@@ -113,6 +134,9 @@
 
     private async Task InputPin()
     {
+        trxbaru.setEBanking(ebangking);
+        Console.WriteLine("SET MENU E-BANKING SUCCESS");
+        Utility.WriteLog("Buka rekening condition : set menu e-banking success", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinebanking");
     }
 }

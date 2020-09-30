@@ -17,6 +17,7 @@ namespace OpenAccount.Data
         PrintDocument printdoc = new PrintDocument();
         PrinterStatus printerstatus = new PrinterStatus();
         Transaksi _trx = new Transaksi();
+        TransaksiBaru _trxbaru = new TransaksiBaru();
         Config config = new Config();
         
         Font font = new Font("Calibri", 8, FontStyle.Regular);
@@ -466,6 +467,107 @@ namespace OpenAccount.Data
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
             joint = "Dengan Menyertakan Struk Ini";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+        }
+
+        public async Task PrintBukaRekening(TransaksiBaru trxbaru)
+        {
+            printdoc = new PrintDocument();
+            _trxbaru = trxbaru;
+            string pathStatus;
+            string strfilename = "step-action";
+            string textStatus;
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            printdoc.PrinterSettings.PrinterName = printername;
+            printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
+            printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
+            printdoc.PrintPage += new PrintPageEventHandler(BukaRekeningPage);
+            printdoc.Print();
+            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            printerstatus.StatusPrinting(printername);
+            pathStatus = printerstatus.workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
+        }
+
+        private void BukaRekeningPage(object sender, PrintPageEventArgs e)
+        {
+            StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
+            StringFormat formatCenter = new StringFormat(formatLeft);
+            formatCenter.Alignment = StringAlignment.Center;
+            float point = 4;
+            float sizex = 20;
+            float sizey = point;
+            float offset = 0;
+            float lineheight = font.GetHeight() + point;
+            SizeF layoutsize = new SizeF(280, lineheight);
+            //RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            string logo = config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
+            Graphics g = e.Graphics;
+            font = new Font("Arial", 10, FontStyle.Regular);
+            Image img = Image.FromFile(logo);
+
+            g.DrawImage(img, (e.PageBounds.Width - img.Width) / 2, 0, img.Width, img.Height);
+            offset = img.Height + point;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            //g.DrawString("Cetak Thermal", new Font("Arial", 12, FontStyle.Regular), blackBrush, new Point(5, 10));
+
+            string lokasi = "Cikupa";
+            string joint = "BRI KC " + lokasi;
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+
+            joint = "DATETIME : " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "TRANSAKSI : PEMBUKAAN AKUN";
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "PESAN : SUKSES";
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "NO REKENING : " + _trxbaru._NomorRekening;
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "REFERENCE ID : " + _trxbaru._ReferenceID;
+            g.DrawString(joint, font, blackBrush, layout, formatLeft);
+            offset += lineheight;
+
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "PROSES PEMBUKAAN AKUN TELAH BERHASIL";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "BERHASIL. HARAP UBAH PIN ANDA";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "UNTUK AKUN TERSEBUT";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "UNTUK PERTANYAAN LEBIH LANJUT";
+            g.DrawString(joint, font, blackBrush, layout, formatCenter);
+            offset += lineheight;
+            layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
+            joint = "SILAKAN KUNJUNGI KANTOR CABANG BRI TERDEKAT";
             g.DrawString(joint, font, blackBrush, layout, formatCenter);
         }
     }

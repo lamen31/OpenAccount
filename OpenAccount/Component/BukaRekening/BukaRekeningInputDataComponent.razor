@@ -310,6 +310,8 @@
     private async Task InputNPWP()
     {
         trxbaru.setNasabahBaru(strnamaibu,strhandphone,stremail,strpos,strpekerjaan,strpenghasilan,strperusahaan,strusaha,strtelepon,strjabatan,strkota,stralamat);
+        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
+        Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
         OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
 

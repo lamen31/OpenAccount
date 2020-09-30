@@ -1,7 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using System.IO.Ports 
 @using OpenAccount.Data
 
 @inject Utility utility 
+@inject EDC edc
+@inject Config config
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -75,6 +79,9 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string strpin = string.Empty;
+    private bool loopEDC = false;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -84,6 +91,144 @@
         }
     }
 
+    private async Task EDCloop()
+    {
+        edc.serialPort = new SerialPort();
+        do
+        {
+            edc.serialPort.DataReceived += new SerialDataReceivedEventHandler(edc.port_DataReceivedLoop);
+            await Task.Delay(500);
+            if (edc.statusCode == "20")
+            {
+                strpin += "0";
+            }
+            else if (edc.statusCode == "01")
+            {
+                strpin += "1";
+            }
+            else if (edc.statusCode == "02")
+            {
+                strpin += "2";
+            }
+            else if (edc.statusCode == "03")
+            {
+                strpin += "3";
+            }
+            else if (edc.statusCode == "04")
+            {
+                strpin += "4";
+            }
+            else if (edc.statusCode == "05")
+            {
+                strpin += "5";
+            }
+            else if (edc.statusCode == "06")
+            {
+                strpin += "6";
+            }
+            else if (edc.statusCode == "07")
+            {
+                strpin += "7";
+            }
+            else if (edc.statusCode == "08")
+            {
+                strpin += "8";
+            }
+            else if (edc.statusCode == "09")
+            {
+                strpin += "9";
+            }
+            else if (edc.statusCode == "43")
+            {
+                strpin = strpin.Substring(0, strpin.Length - 1);
+            }
+            else if (edc.statusCode == "58")
+            {
+                OnClick.InvokeAsync("home");
+                break;
+            }
+            else if (edc.statusCode == "45")
+            {
+                if (strpin.Length == 6)
+                    break;
+                else
+                    continue;
+            }
+        } while (!loopEDC);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+        edc.Clear();
+        edc.serialPort = new SerialPort();
+        edc.serialPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        edc.serialPort.DataReceived += new SerialDataReceivedEventHandler(edc.port_DataReceived);
+        await Task.Run(() => edc.SendCommandLoop(edc.serialPort, "14"));
+        EDCloop();
+        //do
+        //{
+        //Task.Delay(500);
+        //if (edc.statusCode == "20")
+        //{
+        //    strpin += "0";
+        //}
+        //else if (edc.statusCode == "01")
+        //{
+        //    strpin += "1";
+        //}
+        //else if (edc.statusCode == "02")
+        //{
+        //    strpin += "2";
+        //}
+        //else if (edc.statusCode == "03")
+        //{
+        //    strpin += "3";
+        //}
+        //else if (edc.statusCode == "04")
+        //{
+        //    strpin += "4";
+        //}
+        //else if (edc.statusCode == "05")
+        //{
+        //    strpin += "5";
+        //}
+        //else if (edc.statusCode == "06")
+        //{
+        //    strpin += "6";
+        //}
+        //else if (edc.statusCode == "07")
+        //{
+        //    strpin += "7";
+        //}
+        //else if (edc.statusCode == "08")
+        //{
+        //    strpin += "8";
+        //}
+        //else if (edc.statusCode == "09")
+        //{
+        //    strpin += "9";
+        //}
+        //else if (edc.statusCode == "43")
+        //{
+        //    strpin = strpin.Substring(0, strpin.Length-1);
+        //}
+        //else if (edc.statusCode == "58")
+        //{
+        //    OnClick.InvokeAsync("home");
+        //    //break;
+        //}
+        //else if (edc.statusCode == "45")
+        //{
+        //    //if (strpin.Length == 6)
+        //    //    break;
+        //    //else
+        //    //    continue;
+        //}
+
+        //} while (strpin.Length < 7);
+    }
+
     private async Task Home()
     {
         OnClick.InvokeAsync("home");
@@ -91,6 +236,11 @@
 
     private async Task KonfirmasiPin()
     {
+        Console.WriteLine("INPUT PIN ATM PERTAMA SUCCESS");
+        Utility.WriteLog("Buka rekening condition : input pin atm pertama success", "step-action");
+        trxbaru.setPinPertama(strpin);
+        Console.WriteLine("SET PIN " + strpin + " SUCCESS");
+        Utility.WriteLog("Buka rekening condition : set pin " + strpin + " success", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinatmkedua");
     }
 }
