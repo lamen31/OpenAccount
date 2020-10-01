@@ -1,11 +1,14 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 @using System.IO
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 
 @inject Transaksi trx
 @inject Config config
 @inject Printer print
 @inject Utility utility
+@inject HitServices services
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -107,6 +110,7 @@
     private string[] tipe;
     private string[] nominal;
     private string jumlahtransaksi;
+    private int tempjumlahtransaksi;
     private int sisatransaksi;
     private string saldo;
 
@@ -115,31 +119,34 @@
         startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy/MM/dd");
         enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy/MM/dd");
         hourdate = DateTime.Now.ToString("HH:mm:ss");
-        trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
+        //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
 
-        path = config.Read("PATH", Config.PARAM_PATH_A4);
-        lines = File.ReadAllLines(path);
-        jumlahtransaksi = lines.Length.ToString();
-        uraian = new string[lines.Length];
-        tipe = new string[lines.Length];
-        nominal = new string[lines.Length];
-        for (int i = 0; i < lines.Length; i++)
-        {
-            string[] column = lines[i].Split(";");
-            for (int j = 0; j < column.Length; j++)
-            {
-                if (j == 0)
-                    uraian[i] = column[j];
-                else if (j == 1)
-                    tipe[i] = column[j];
-                else if (j == 2)
-                    nominal[i] = column[j];
-            }
-        }
-        Console.WriteLine("INPUT DATA SUCCESS");
-        Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
+       await ServiceHistori();
+
+        //path = config.Read("PATH", Config.PARAM_PATH_A4);
+        //lines = File.ReadAllLines(path);
+        //jumlahtransaksi = lines.Length.ToString();
+        //uraian = new string[lines.Length];
+        //tipe = new string[lines.Length];
+        //nominal = new string[lines.Length];
+        //for (int i = 0; i < lines.Length; i++)
+        //{
+        //    string[] column = lines[i].Split(";");
+        //    for (int j = 0; j < column.Length; j++)
+        //    {
+        //        if (j == 0)
+        //            uraian[i] = column[j];
+        //        else if (j == 1)
+        //            tipe[i] = column[j];
+        //        else if (j == 2)
+        //            nominal[i] = column[j];
+        //    }
+        //}
+        //Console.WriteLine("INPUT DATA SUCCESS");
+        //Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
-        trx.setDataHistoriTransaksi(jumlahtransaksi, uraian, tipe, nominal, saldo);
+        jumlahtransaksi = tempjumlahtransaksi.ToString();
+        trx.setHistori(jenisperiode, startdate, enddate, jumlahtransaksi, saldo);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -148,6 +155,29 @@
         {
             Console.WriteLine("ENTERED INTO HISTORI BULAN BERJALAN");
             Utility.WriteLog("Histori condition : entered into history bulan berjalan", "step-action");
+        }
+    }
+
+    private async Task ServiceHistori()
+    {
+        trx.clearListHistori();
+        string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
+        string myUrl = "http://d70d6399ae06.ngrok.io/latihan/data-history/321852159753231";
+        trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
+        string strResultGET = await services.GetCallAPI(myUrl, myJson);
+        if (strResultGET != null)
+        {
+            JObject jobResult = JObject.Parse(strResultGET);
+            trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+
+            if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
+            {
+                foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
+                {
+                    trx.AddListHistori((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
+                }
+                tempjumlahtransaksi = trx._listhistori.Count;
+            }
         }
     }
 
@@ -160,7 +190,7 @@
         Utility.WriteLog("Histori condition : modal visible appear", "step-action");
 
         int maxbaris = 12;
-        int totalbaris = trx._HistoriUraian.Length;
+        int totalbaris = trx._listhistori.Count;
         int halaman;
         int maxhalaman;
         if (totalbaris > maxbaris)
@@ -176,30 +206,49 @@
             }
             maxhalaman = n;
             trx.setMaxHalamanHistoriTransaksi(maxhalaman.ToString());
-            tempuraian = new string[trx._HistoriUraian.Length];
-            temptipe = new string[trx._HistoriTipe.Length];
-            tempnominal = new string[trx._HistoriNominal.Length];
-            Array.Copy(trx._HistoriUraian, startindex, tempuraian, 0, trx._HistoriUraian.Length);
-            Array.Copy(trx._HistoriTipe, startindex, temptipe, 0, trx._HistoriTipe.Length);
-            Array.Copy(trx._HistoriNominal, startindex, tempnominal, 0, trx._HistoriNominal.Length);
+            //tempuraian = new string[trx._HistoriUraian.Length];
+            //temptipe = new string[trx._HistoriTipe.Length];
+            //tempnominal = new string[trx._HistoriNominal.Length];
+            //Array.Copy(trx._HistoriUraian, startindex, tempuraian, 0, trx._HistoriUraian.Length);
+            //Array.Copy(trx._HistoriTipe, startindex, temptipe, 0, trx._HistoriTipe.Length);
+            //Array.Copy(trx._HistoriNominal, startindex, tempnominal, 0, trx._HistoriNominal.Length);
+            List<Transaksi.HistoriTransaksi> tempList = new List<Transaksi.HistoriTransaksi>();
+            foreach(var histori in trx._listhistori)
+            {
+                tempList.Add(histori);
+            }
             halaman = 1;
             sisatransaksi = totalbaris;
             for (int i = 0; i < n; i++)
             {
+                string TransactionID = string.Empty;
+                string JenisTransaksi = string.Empty;
+                string Nominal = string.Empty;
+                string Keterangan = string.Empty;
+                string KodeTransaksi = string.Empty;
+                string Tanggal = string.Empty;
+                string SecurityCode = string.Empty;
+
                 uraian = null;
                 tipe = null;
                 nominal = null;
+
                 if (i == n - 1)
                 {
-                    trx.clearArray();
-                    int sisabaris = tempuraian.Length - startindex;
-                    uraian = new string[sisabaris];
-                    tipe = new string[sisabaris];
-                    nominal = new string[sisabaris];
-                    Array.Copy(tempuraian, startindex, uraian, 0, sisabaris);
-                    Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
-                    Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
-                    trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    trx.clearListHistori();
+                    int sisabaris = tempList.Count - startindex;
+                    //uraian = new string[sisabaris];
+                    //tipe = new string[sisabaris];
+                    //nominal = new string[sisabaris];
+                    //Array.Copy(tempuraian, startindex, uraian, 0, sisabaris);
+                    //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
+                    //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
+                    for (int j = startindex; j < tempList.Count; j++)
+                    {
+                        trx.AddListHistori(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
+                    }
+                    //trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    trx.setHalamanHistori(halaman.ToString());
                     Console.WriteLine("PRINT HALAMAN KE-" + halaman.ToString());
                     Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
@@ -215,14 +264,19 @@
                 }
                 else
                 {
-                    trx.clearArray();
-                    uraian = new string[maxbaris];
-                    tipe = new string[maxbaris];
-                    nominal = new string[maxbaris];
-                    Array.Copy(tempuraian, startindex, uraian, 0, maxbaris);
-                    Array.Copy(temptipe, startindex, tipe, 0, maxbaris);
-                    Array.Copy(tempnominal, startindex, nominal, 0, maxbaris);
-                    trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    trx.clearListHistori();
+                    //uraian = new string[maxbaris];
+                    //tipe = new string[maxbaris];
+                    //nominal = new string[maxbaris];
+                    //Array.Copy(tempuraian, startindex, uraian, 0, maxbaris);
+                    //Array.Copy(temptipe, startindex, tipe, 0, maxbaris);
+                    //Array.Copy(tempnominal, startindex, nominal, 0, maxbaris);
+                    for (int j = startindex; j < maxbaris; j++)
+                    {
+                        trx.AddListHistori(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
+                    }
+                    //trx.setHistoriTransaksi(uraian, tipe, nominal, halaman.ToString());
+                    trx.setHalamanHistori(halaman.ToString());
                     Console.WriteLine("PRINT HALAMAN KE-" + halaman.ToString());
                     Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));

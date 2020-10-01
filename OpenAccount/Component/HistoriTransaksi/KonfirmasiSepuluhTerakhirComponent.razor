@@ -1,10 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 @using System.IO
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 
 @inject Transaksi trx
 @inject Config config
 @inject Printer print
+@inject HitServices services
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -107,35 +110,59 @@
     {
         date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy/MM/dd");
         trx.clearArray();
-        path = config.Read("PATH", Config.PARAM_PATH_THERMAL);
-        lines = File.ReadAllLines(path);
-        tanggal = new string[lines.Length];
-        kode = new string[lines.Length];
-        nominal = new string[lines.Length];
+        //path = config.Read("PATH", Config.PARAM_PATH_THERMAL);
+        //lines = File.ReadAllLines(path);
+        //tanggal = new string[lines.Length];
+        //kode = new string[lines.Length];
+        //nominal = new string[lines.Length];
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
-        for (int i = 0; i < lines.Length; i++)
+
+        await ServiceThermal();
+
+        //for (int i = 0; i < lines.Length; i++)
+        //{
+        //    string[] column = lines[i].Split(";");
+        //    for (int j = 0; j < column.Length; j++)
+        //    {
+        //        if (j == 0)
+        //        {
+        //            tanggal[i] = column[j];
+        //        }
+        //        else if (j == 1)
+        //        {
+        //            kode[i] = column[j];
+        //        }
+        //        else if (j == 2)
+        //        {
+        //            nominal[i] = column[j];
+        //        }
+        //    }
+        //}
+        Console.WriteLine("INPUT DATA SUCCESS");
+        Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
+        //trx.setHistoriThermal(tanggal, kode, nominal, saldo);
+        trx.setSaldoThermal(saldo);
+    }
+
+    private async Task ServiceThermal()
+    {
+        string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
+        string myUrl = "http://d70d6399ae06.ngrok.io/latihan/data-thermal/426684591519268";
+        trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
+        string strResultGET = await services.GetCallAPI(myUrl, myJson);
+        if (strResultGET != null)
         {
-            string[] column = lines[i].Split(";");
-            for (int j = 0; j < column.Length; j++)
+            JObject jobResult = JObject.Parse(strResultGET);
+            trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+
+            if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
             {
-                if (j == 0)
+                foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
                 {
-                    tanggal[i] = column[j];
-                }
-                else if (j == 1)
-                {
-                    kode[i] = column[j];
-                }
-                else if (j == 2)
-                {
-                    nominal[i] = column[j];
+                    trx.AddListThermal((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
                 }
             }
         }
-        Console.WriteLine("INPUT DATA SUCCESS");
-        Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
-        trx.setHistoriThermal(tanggal, kode, nominal, saldo);
-
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace OpenAccount.Data
@@ -32,6 +33,88 @@ namespace OpenAccount.Data
         public string[] _ThermalNominal { get; set; }
         public string[] _ThermalKode { get; set; }
         public string _ThermalSaldo { get; set; }
+        public string _TransaksiID { get; set; }
+
+        public class HistoriTransaksi
+        {
+            public string _TransactionID { get; set; }
+            public string _Keterangan { get; set; }
+            public string _JenisTransaksi { get; set; }
+            public string _Nominal { get; set; }
+            public string _KodeTransaksi { get; set; }
+            public string _Tanggal { get; set; }
+            public string _SecurityCode { get; set; }
+        }
+
+        public class printBuku
+        {
+            public string _TransactionID { get; set; }
+            public string _JenisTransaksi { get; set; }
+            public string _Nominal { get; set; }
+            public string _Keterangan { get; set; }
+            public string _KodeTransaksi { get; set; }
+            public string _Tanggal { get; set; }
+            public string _SecurityCode { get; set; }
+        }
+
+        public class printThermal
+        {
+            public string _TransactionID { get; set; }
+            public string _JenisTransaksi { get; set; }
+            public string _Nominal { get; set; }
+            public string _Keterangan { get; set; }
+            public string _KodeTransaksi { get; set; }
+            public string _Tanggal { get; set; }
+            public string _SecurityCode { get; set; }
+        }
+
+        public List<HistoriTransaksi> _listhistori = new List<HistoriTransaksi>();
+        public List<printBuku> _listbuku = new List<printBuku>();
+        public List<printThermal> _listthermal = new List<printThermal>();
+
+        public void AddListHistori(string strid, string strjenis, string strnominal, string strketerangan, string strkodetransaksi, string strtanggal, string strsecurity)
+        {
+            HistoriTransaksi histori = new HistoriTransaksi();
+            histori._TransactionID = strid;
+            histori._JenisTransaksi = strjenis;
+            histori._Nominal = strnominal;
+            histori._Keterangan = strketerangan;
+            histori._KodeTransaksi = strkodetransaksi;
+            histori._Tanggal = strtanggal;
+            histori._SecurityCode = strsecurity;
+            _listhistori.Add(histori);
+        }
+
+        public void AddListBuku(string strid, string strjenis, string strnominal, string strketerangan, string strkodetransaksi, string strtanggal, string strsecurity)
+        {
+            printBuku buku = new printBuku();
+            buku._TransactionID = strid;
+            buku._JenisTransaksi = strjenis;
+            buku._Nominal = strnominal;
+            buku._Keterangan = strketerangan;
+            buku._KodeTransaksi = strkodetransaksi;
+            buku._Tanggal = strtanggal;
+            buku._SecurityCode = strsecurity;
+            _listbuku.Add(buku);
+        }
+
+        public void AddListThermal(string strid, string strjenis, string strnominal, string strketerangan, string strkodetransaksi, string strtanggal, string strsecurity)
+        {
+            printThermal thermal = new printThermal();
+            thermal._TransactionID = strid;
+            thermal._JenisTransaksi = strjenis;
+            thermal._Nominal = strnominal;
+            thermal._Keterangan = strketerangan;
+            thermal._KodeTransaksi = strkodetransaksi;
+            thermal._Tanggal = strtanggal;
+            thermal._SecurityCode = strsecurity;
+            _listthermal.Add(thermal);
+        }
+
+        public void setTransaksiID(string strtransaksiid)
+        {
+            _TransaksiID = strtransaksiid;
+        }
 
         public void setArrayNasabah(string[] strnasabah)
         {
@@ -54,6 +137,15 @@ namespace OpenAccount.Data
             _HistoriHalaman = strhalaman;
         }
 
+        public void setHistori(string strjenisperiode, string startdate, string enddate, string strjumlahtransaksi, string strsaldo)
+        {
+            _HistoriJenisPeriode = strjenisperiode;
+            _HistoriStartDate = startdate;
+            _HistoriEndDate = enddate;
+            _HistoriJumlahTransaksi = strjumlahtransaksi;
+            _HistoriSaldo = strsaldo;
+        }
+
         public void setDataHistoriTransaksi(string strjumlahtransaksi, string[] struraian, string[] strtipe, string[] strnominal, string strsaldo)
         {
             _HistoriJumlahTransaksi = strjumlahtransaksi;
@@ -68,11 +160,21 @@ namespace OpenAccount.Data
             _HistoriMaxHalaman = strmaxhalaman;
         }
 
+        public void setHalamanHistori(string strhalaman)
+        {
+            _HistoriHalaman = strhalaman;
+        }
+
         public void setHistoriThermal(string[] strdate, string[] strkode, string[] strnominal, string strsaldo)
         {
             _ThermalDate = strdate;
             _ThermalKode = strkode;
             _ThermalNominal = strnominal;
+            _ThermalSaldo = strsaldo;
+        }
+
+        public void setSaldoThermal(string strsaldo)
+        {
             _ThermalSaldo = strsaldo;
         }
 
@@ -86,6 +188,19 @@ namespace OpenAccount.Data
             _BukuNominal = strnominal;
             _BukuSaldo = strsaldo;
             _BukuPengesahan = strpengesahan;
+        }
+
+        public void setPassbookTransaksi(string strbaris, string strhalaman, string strsaldo)
+        {
+            _BukuBaris = strbaris;
+            _BukuHalaman = strhalaman;
+            _BukuSaldo = strsaldo;
+        }
+
+        public void setBuku(string strbaris, string strhalaman)
+        {
+            _BukuBaris = strbaris;
+            _BukuHalaman = strhalaman;
         }
 
         public void clear()
@@ -113,9 +228,32 @@ namespace OpenAccount.Data
             _BukuNominal = null;
             _BukuPengesahan = null;
         }
+
         public void clearArrayNasabah()
         {
             _Nasabah = null;
+        }
+
+        public void clearListHistori()
+        {
+            _listhistori.Clear();
+        }
+
+        public void clearListBuku()
+        {
+            _listbuku.Clear();
+        }
+
+        public void clearListThermal()
+        {
+            _listthermal.Clear();
+        }
+
+        public void ClearList()
+        {
+            _listhistori.Clear();
+            _listbuku.Clear();
+            _listthermal.Clear();
         }
     }
 }

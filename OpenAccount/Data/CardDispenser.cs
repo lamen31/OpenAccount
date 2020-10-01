@@ -180,7 +180,7 @@ namespace OpenAccount.Data
                     TxData[0] = 0x43;
                     TxData[1] = 0x32;
                     TxData[2] = 0x32;
-                    TxData[3] = 0x31;
+                    TxData[3] = 0x31; //determine box 0x31=box#1; 0x32=box#2;
                     RxDataLen = 0;
 
                     j = RS232_ExeCommand(Hndl, TxDataLen, TxData, ref RxDataLen, Rxdata);

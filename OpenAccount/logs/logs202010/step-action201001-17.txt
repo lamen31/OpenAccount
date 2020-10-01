@@ -1,0 +1,67 @@
+20201001 17:03:45 Default : entered into home page
+20201001 17:03:49 Histori condition : entered into histori input card
+20201001 17:03:50 Histori condition : input card success
+20201001 17:03:50 Histori condition : entered into histori input pin
+20201001 17:03:51 Histori condition : input pin success
+20201001 17:03:51 Histori condition : input data Bambang Pamungkas success
+20201001 17:03:55 Histori condition : entered into histori pilih menu
+20201001 17:04:02 Histori condition : entered into history bulan berjalan
+20201001 17:04:26 Histori condition : modal visible appear
+20201001 17:05:10 Default : entered into home page
+20201001 17:05:13 Histori condition : entered into histori input card
+20201001 17:05:14 Histori condition : input card success
+20201001 17:05:14 Histori condition : entered into histori input pin
+20201001 17:05:15 Histori condition : input pin success
+20201001 17:05:15 Histori condition : input data Bambang Pamungkas success
+20201001 17:05:15 Histori condition : entered into histori pilih menu
+20201001 17:05:16 Histori condition : entered into history bulan berjalan
+20201001 17:05:21 Histori condition : modal visible appear
+20201001 17:44:49 Default : entered into home page
+20201001 17:44:53 Histori condition : entered into histori input card
+20201001 17:44:54 Histori condition : input card success
+20201001 17:44:54 Histori condition : entered into histori input pin
+20201001 17:44:55 Histori condition : input pin success
+20201001 17:44:55 Histori condition : input data Bambang Pamungkas success
+20201001 17:44:55 Histori condition : entered into histori pilih menu
+20201001 17:44:56 Histori condition : entered into history bulan berjalan
+20201001 17:45:01 Histori condition : modal visible appear
+20201001 17:46:38 Default : entered into home page
+20201001 17:46:40 Histori condition : entered into histori input card
+20201001 17:46:41 Histori condition : input card success
+20201001 17:46:41 Histori condition : entered into histori input pin
+20201001 17:46:42 Histori condition : input pin success
+20201001 17:46:42 Histori condition : input data Bambang Pamungkas success
+20201001 17:46:42 Histori condition : entered into histori pilih menu
+20201001 17:46:43 Histori condition : entered into history bulan berjalan
+20201001 17:46:49 Histori condition : modal visible appear
+20201001 17:47:03 Histori condition : print halaman ke-1
+20201001 17:50:11 Printer condition : print histori in EPSON L3150 Series start
+20201001 17:50:11 Printer status condition : check status printing in EPSON L3150 Series
+20201001 17:50:12 20201001 17:50:12 Status printing in EPSON L3150 Series : no pages left
+20201001 17:50:12 Status printing in EPSON L3150 Series : status queue is none
+20201001 17:50:12 Status printing in EPSON L3150 Series : printing done
+
+20201001 17:50:12 Printer condition : print histori in EPSON L3150 Series finished
+20201001 17:50:12 Histori condition : print history halaman ke-1 success
+20201001 17:51:58 Default : entered into home page
+20201001 17:52:05 Histori condition : entered into histori input card
+20201001 17:52:06 Histori condition : input card success
+20201001 17:52:06 Histori condition : entered into histori input pin
+20201001 17:52:07 Histori condition : input pin success
+20201001 17:52:07 Histori condition : input data Bambang Pamungkas success
+20201001 17:52:07 Histori condition : entered into histori pilih menu
+20201001 17:54:26 Default : entered into home page
+20201001 17:54:30 Histori condition : entered into histori input card
+20201001 17:54:31 Histori condition : input card success
+20201001 17:54:31 Histori condition : entered into histori input pin
+20201001 17:54:32 Histori condition : input pin success
+20201001 17:54:32 Histori condition : input data Bambang Pamungkas success
+20201001 17:54:32 Histori condition : entered into histori pilih menu
+20201001 17:56:01 Default : entered into home page
+20201001 17:56:04 Histori condition : entered into histori input card
+20201001 17:56:05 Histori condition : input card success
+20201001 17:56:05 Histori condition : entered into histori input pin
+20201001 17:56:06 Histori condition : input pin success
+20201001 17:56:06 Histori condition : input data Bambang Pamungkas success
+20201001 17:56:06 Histori condition : entered into histori pilih menu
+20201001 17:56:40 Histori condition : entered into history bulan berjalan

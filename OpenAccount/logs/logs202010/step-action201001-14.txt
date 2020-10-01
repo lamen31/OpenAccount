@@ -1,0 +1,48 @@
+20201001 14:30:24 Default : entered into home page
+20201001 14:30:27 Buku condition : entered into buku input card
+20201001 14:30:28 Buku condition : input card success
+20201001 14:30:28 Buku condition : entered into buku input pin
+20201001 14:30:29 Buku condition : input pin success
+20201001 14:30:29 Buku condition : input data Bambang Pamungkas success
+20201001 14:30:29 Buku condition : entered into buku input data
+20201001 14:30:41 Buku condition : modal visible appear
+20201001 14:31:49 Default : entered into home page
+20201001 14:31:52 Buku condition : entered into buku input card
+20201001 14:31:53 Buku condition : input card success
+20201001 14:31:53 Buku condition : entered into buku input pin
+20201001 14:31:54 Buku condition : input pin success
+20201001 14:31:54 Buku condition : input data Bambang Pamungkas success
+20201001 14:31:54 Buku condition : entered into buku input data
+20201001 14:32:14 Buku condition : modal visible appear
+20201001 14:33:12 Default : entered into home page
+20201001 14:33:13 Buku condition : entered into buku input card
+20201001 14:33:14 Buku condition : input card success
+20201001 14:33:15 Buku condition : entered into buku input pin
+20201001 14:33:16 Buku condition : input pin success
+20201001 14:33:16 Buku condition : input data Bambang Pamungkas success
+20201001 14:33:16 Buku condition : entered into buku input data
+20201001 14:33:29 Buku condition : modal visible appear
+20201001 14:36:56 Default : entered into home page
+20201001 14:36:57 Buku condition : entered into buku input card
+20201001 14:36:58 Buku condition : input card success
+20201001 14:36:58 Buku condition : entered into buku input pin
+20201001 14:36:59 Buku condition : input pin success
+20201001 14:36:59 Buku condition : input data Bambang Pamungkas success
+20201001 14:37:00 Buku condition : entered into buku input data
+20201001 14:37:12 Buku condition : modal visible appear
+20201001 14:38:38 Default : entered into home page
+20201001 14:38:40 Buku condition : entered into buku input card
+20201001 14:38:41 Buku condition : input card success
+20201001 14:38:42 Buku condition : entered into buku input pin
+20201001 14:38:43 Buku condition : input pin success
+20201001 14:38:43 Buku condition : input data Bambang Pamungkas success
+20201001 14:38:43 Buku condition : entered into buku input data
+20201001 14:39:01 Buku condition : modal visible appear
+20201001 14:43:21 Default : entered into home page
+20201001 14:43:23 Buku condition : entered into buku input card
+20201001 14:43:24 Buku condition : input card success
+20201001 14:43:24 Buku condition : entered into buku input pin
+20201001 14:43:25 Buku condition : input pin success
+20201001 14:43:25 Buku condition : input data Bambang Pamungkas success
+20201001 14:43:26 Buku condition : entered into buku input data
+20201001 14:43:38 Buku condition : modal visible appear

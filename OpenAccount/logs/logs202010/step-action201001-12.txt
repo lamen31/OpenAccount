@@ -1,0 +1,20 @@
+20201001 12:16:58 Buku condition : input pin success
+20201001 12:16:58 Buku condition : input data Bambang Pamungkas success
+20201001 12:16:58 Buku condition : entered into buku input pin
+20201001 12:16:59 Buku condition : input pin success
+20201001 12:16:59 Buku condition : input data Bambang Pamungkas success
+20201001 12:18:10 Buku condition : input pin success
+20201001 12:18:10 Buku condition : input data Bambang Pamungkas success
+20201001 12:18:27 Buku condition : entered into buku input pin
+20201001 12:18:28 Buku condition : input pin success
+20201001 12:18:28 Buku condition : input data Bambang Pamungkas success
+20201001 12:54:16 Buku condition : input pin success
+20201001 12:54:17 Buku condition : input data Bambang Pamungkas success
+20201001 12:54:17 Buku condition : entered into buku input pin
+20201001 12:54:18 Buku condition : input pin success
+20201001 12:54:18 Buku condition : input data Bambang Pamungkas success
+20201001 12:55:59 Buku condition : input pin success
+20201001 12:55:59 Buku condition : input data Bambang Pamungkas success
+20201001 12:56:04 Buku condition : entered into buku input pin
+20201001 12:56:07 Buku condition : input pin success
+20201001 12:56:07 Buku condition : input data Bambang Pamungkas success
