@@ -59,6 +59,16 @@ namespace OpenAccount.Data
             _Penghasilan = strpenghasilan;
         }
 
+        public void clearNasabahBaru()
+        {
+            _NamaIbu = string.Empty;
+            _Handphone = string.Empty;
+            _Email = string.Empty;
+            _KodePos = string.Empty;
+            _PekerjaanData = string.Empty;
+            _Penghasilan = string.Empty;
+        }
+
         public void setNasabahBaru2(string strperusahaan, string strusaha, string strtelepon, string strjabatan, string strkota, string stralamat)
         {
             _NamaPerusahaan = strperusahaan;
@@ -69,9 +79,24 @@ namespace OpenAccount.Data
             _AlamatKantor = stralamat;
         }
 
+        public void clearNasabahBaru2()
+        {
+            _NamaPerusahaan = string.Empty;
+            _UsahaKantor = string.Empty;
+            _TeleponKantor = string.Empty;
+            _Jabatan = string.Empty;
+            _Kota = string.Empty;
+            _AlamatKantor = string.Empty;
+        }
+
         public void setNomorNPWP(string strnpwp)
         {
             _NomorNPWP = strnpwp;
+        }
+
+        public void clearNomorNPWP()
+        {
+            _NomorNPWP = string.Empty;
         }
 
         public void setPinPertama(string strpin)

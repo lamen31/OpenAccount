@@ -156,70 +156,73 @@
                     dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
                     byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
                     int intBuffer = buffer[4];
-                    switch (intBuffer)
+                    switch (edc.statusCode)
                     {
-                        case 69:
+                        case "45":
                             Console.WriteLine(strpin);
                             if (strpin.Length == 6)
+                            {
                                 isLoop = false;
+                                KonfirmasiPin();
+                            }
                             break;
-                        case 88:
+                        case "58":
                             Console.WriteLine(strpin);
                             isLoop = false;
                             break;
-                        case 84:
+                        case "54":
                             Console.WriteLine(strpin);
                             isLoop = false;
                             break;
-                        case 67:
+                        case "43":
                             strpin = string.Empty;
                             break;
-                        case 32:
+                        case "20":
                             if (strpin.Length < 7)
                                 strpin = strpin + "0";
                             Console.WriteLine(strpin);
                             break;
-                        case 1:
+                        case "01":
                             if (strpin.Length < 7)
                                 strpin = strpin + "1";
                             Console.WriteLine(strpin);
                             break;
-                        case 2:
+                        case "02":
                             if (strpin.Length < 7)
                                 strpin = strpin + "2";
                             Console.WriteLine(strpin);
                             break;
-                        case 3:
+                        case "03":
                             if (strpin.Length < 7)
                                 strpin = strpin + "3";
                             Console.WriteLine(strpin);
                             break;
-                        case 4:
+                        case "04":
                             if (strpin.Length < 7)
                                 strpin = strpin + "4";
                             Console.WriteLine(strpin);
                             break;
-                        case 5:
+                        case "05":
                             if (strpin.Length < 7)
                                 strpin = strpin + "5";
                             Console.WriteLine(strpin);
                             break;
-                        case 6:
+                        case "06":
                             if (strpin.Length < 7)
                                 strpin = strpin + "6";
                             Console.WriteLine(strpin);
                             break;
-                        case 7:
+                        case "07":
                             if (strpin.Length < 7)
                                 strpin = strpin + "7";
                             Console.WriteLine(strpin);
                             break;
-                        case 8:
+                        case "08":
                             if (strpin.Length < 7)
                                 strpin = strpin + "8";
                             Console.WriteLine(strpin);
                             break;
-                        case 9:
+                        case "09":
                             if (strpin.Length < 7)
                                 strpin = strpin + "9";
                             Console.WriteLine(strpin);
@@ -417,11 +420,15 @@
 
     private async Task KonfirmasiPin()
     {
+        if (strpin.Length == 6)
+        {
         Console.WriteLine("INPUT PIN ATM PERTAMA SUCCESS");
         Utility.WriteLog("Buka rekening condition : input pin atm pertama success", "step-action");
         trxbaru.setPinPertama(strpin);
         Console.WriteLine("SET PIN " + strpin + " SUCCESS");
         Utility.WriteLog("Buka rekening condition : set pin " + strpin + " success", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinatmkedua");
+        }
+
     }
 }

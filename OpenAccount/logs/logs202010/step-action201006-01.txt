@@ -1,0 +1,73 @@
+20201006 01:02:18 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:02:24 Signpad condition : sign pad process running
+20201006 01:02:33 Signpad condition : sign pad process close
+20201006 01:02:35 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:02:35 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:02:35 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:02:44 Buka rekening condition : entered into buka rekening tanda tangan kedua
+20201006 01:02:46 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png has deleted
+20201006 01:02:48 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 01:06:08 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:06:12 Signpad condition : sign pad process running
+20201006 01:06:22 Signpad condition : sign pad process close
+20201006 01:06:25 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:06:25 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:06:25 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:06:32 Buka rekening condition : entered into buka rekening tanda tangan kedua
+20201006 01:06:36 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png has deleted
+20201006 01:06:36 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 01:09:18 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:09:21 Signpad condition : sign pad process running
+20201006 01:09:31 Signpad condition : sign pad process close
+20201006 01:09:34 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:09:34 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:09:34 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:09:40 Buka rekening condition : entered into buka rekening tanda tangan kedua
+20201006 01:09:44 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png has deleted
+20201006 01:09:44 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 01:10:01 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:10:28 Signpad condition : sign pad process running
+20201006 01:10:38 Signpad condition : sign pad process close
+20201006 01:10:41 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:10:41 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:10:41 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:10:49 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:13:11 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:13:12 Signpad condition : sign pad process running
+20201006 01:13:21 Signpad condition : sign pad process close
+20201006 01:13:22 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:13:22 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:13:24 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:13:30 Buka rekening condition : entered into buka rekening tanda tangan kedua
+20201006 01:15:13 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:15:20 Signpad condition : sign pad process running
+20201006 01:15:28 Signpad condition : sign pad process close
+20201006 01:15:31 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:15:31 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:15:33 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:15:36 Buka rekening condition : entered into buka rekening tanda tangan kedua
+20201006 01:15:40 Signpad condition : sign pad process running
+20201006 01:15:48 Signpad condition : sign pad process close
+20201006 01:15:48 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png has deleted
+20201006 01:15:48 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png
+20201006 01:15:48 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 01:16:54 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:16:54 Signpad condition : sign pad process running
+20201006 01:17:20 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:17:20 Signpad condition : sign pad process running
+20201006 01:17:28 Signpad condition : sign pad process close
+20201006 01:17:28 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:17:28 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:17:28 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:17:33 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 01:17:33 Signpad condition : sign pad process running
+20201006 01:17:42 Signpad condition : sign pad process close
+20201006 01:17:42 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 01:17:42 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png
+20201006 01:17:42 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 01:17:43 Buka rekening condition : entered into buka rekening tanda tangan kedua
+20201006 01:17:51 Signpad condition : sign pad process running
+20201006 01:17:57 Signpad condition : sign pad process close
+20201006 01:17:57 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png has deleted
+20201006 01:17:57 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\SignPad\hwsign.png has moved to C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad2.png
+20201006 01:17:57 Buka rekening condition : entered into buka rekening tampil data tabungan

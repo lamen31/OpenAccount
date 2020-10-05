@@ -1,0 +1,7 @@
+20201005 16:24:32 Buka rekening condition : entered into buka rekening input data
+20201005 16:25:08 Buka rekening condition : entered into buka rekening input data
+20201005 16:25:39 Buka rekening condition : entered into buka rekening input data
+20201005 16:25:41 Buka rekening condition : entered into buka rekening input data success
+20201005 16:25:42 Buka rekening condition : entered into buka rekening input data success
+20201005 16:25:42 Buka rekening condition : entered into buka rekening input nomor npwp
+20201005 16:54:16 Buka rekening condition : entered into buka rekening input pin atm

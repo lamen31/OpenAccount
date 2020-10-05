@@ -84,33 +84,37 @@
         {
             Console.WriteLine("ENTERED INTO BUKA REKENING TANDA TANGAN");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan", "step-action");
+            await sign.signpad();
+            sign.saveSign();
+            OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
         }
     }
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        path = Directory.GetCurrentDirectory().ToString();
-        PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
-        path = path + "\\" + PathImage;
-        File.Delete(path);
-        Console.WriteLine("FILE FROM " + path + " HAS DELETED");
-        Utility.WriteLog("Buka rekening condition : file from " + path + " has deleted", "step-action");
-        sign.signpad();
+        //path = Directory.GetCurrentDirectory().ToString();
+        //PathImage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+        //path = path + "\\" + PathImage;
+        //File.Delete(path);
+        //Console.WriteLine("FILE FROM " + path + " HAS DELETED");
+        //Utility.WriteLog("Buka rekening condition : file from " + path + " has deleted", "step-action");
+        //sign.signpad();
 
-        PathWorking = sign.workingdirectory + "\\hwsign.png";
-        if (File.Exists(PathWorking))
-        {
-            flag = false;
-            await Task.Run(() => File.Move(PathWorking, path));
-            Console.WriteLine("FILE FROM " + PathWorking + " HAS MOVED TO " + path);
-            Utility.WriteLog("Buka rekening condition : file from " + PathWorking + " has moved to " + path, "step-action");
-            isVisible = true;
-            await Task.Delay(100);
-            StateHasChanged();
-        }
-        flag = true;
-        OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
+        //PathWorking = sign.workingdirectory + "\\hwsign.png";
+        //if (File.Exists(PathWorking))
+        //{
+        //    flag = false;
+        //    await Task.Run(() => File.Move(PathWorking, path));
+        //    Console.WriteLine("FILE FROM " + PathWorking + " HAS MOVED TO " + path);
+        //    Utility.WriteLog("Buka rekening condition : file from " + PathWorking + " has moved to " + path, "step-action");
+        //    isVisible = true;
+        //    await Task.Delay(100);
+        //    StateHasChanged();
+        //}
+        //flag = true;
+        //sign.saveSign();
+        //OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
     }
 
     private async Task InputNPWP()

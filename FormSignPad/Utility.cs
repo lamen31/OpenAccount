@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using System.Data.SqlTypes;
 
-namespace printserverapplication
+namespace FormSignPad
 {
     class Utility
     {
@@ -24,7 +25,7 @@ namespace printserverapplication
                 CreateDirectory(dir);
 
                 string filename = dir + @"\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
-                //CreateFile(filename);
+                CreateFile(filename);
 
                 string msg = string.Empty;
                 WriteToFile(DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + " " + strmessage, filename, ref strerror);

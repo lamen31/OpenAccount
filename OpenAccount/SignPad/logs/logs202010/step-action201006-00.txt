@@ -1,0 +1,10 @@
+20201006 00:37:05 Condition : device not found
+20201006 00:37:55 Sign pad condition : device open success
+20201006 00:38:04 Sign pad condition : save image success
+20201006 00:38:08 Sign pad condition : device has been closed
+20201006 00:38:25 Sign pad condition : device open success
+20201006 00:38:31 Sign pad condition : save image success
+20201006 00:38:32 Sign pad condition : device has been closed
+20201006 00:57:05 Sign pad condition : device open success
+20201006 00:57:22 Sign pad condition : save image success
+20201006 00:57:22 Sign pad condition : device has been closed

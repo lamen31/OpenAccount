@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PrintingServerA4")]
+[assembly: AssemblyTitle("FormSignPad")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PrintingServerA4")]
+[assembly: AssemblyProduct("FormSignPad")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3b9699bc-e36c-4018-8f5d-d748ccb4b178")]
+[assembly: Guid("9225d1b3-3538-4edc-a062-6ffb6949a4fb")]
 
 // Version information for an assembly consists of the following four values:
 //

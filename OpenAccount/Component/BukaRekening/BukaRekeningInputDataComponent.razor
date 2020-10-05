@@ -98,140 +98,197 @@
                                 </div>
                             </div>
                             @*<hr>
-                            <h4 style="color: #F37024; font-weight: 900; margin-top: 10%; margin-bottom: 5%;">Lengkapi Informasi Pekerjaan Anda</h4>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Perusahaan</label>
-                                <div class="col-sm-9">
-                                    @if (strperusahaan == string.Empty)
-                                    {
-                                        <input type="text" class="form-control" placeholder="nama perusahaan" @onclick="inputField6">
-                                    }
-                                    else
-                                    {
-                                        <input type="text" class="form-control" @bind="strperusahaan" @onclick="inputField6">
-                                    }
-                                </div>
+                        <h4 style="color: #F37024; font-weight: 900; margin-top: 10%; margin-bottom: 5%;">Lengkapi Informasi Pekerjaan Anda</h4>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Perusahaan</label>
+                            <div class="col-sm-9">
+                                @if (strperusahaan == string.Empty)
+                                {
+                                    <input type="text" class="form-control" placeholder="nama perusahaan" @onclick="inputField6">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" @bind="strperusahaan" @onclick="inputField6">
+                                }
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Bidang Usaha</label>
-                                <div class="col-sm-9">
-                                    <select class="custom-select" @bind="strusaha">
-                                        <option disabled selected>-pilih salah satu-</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Bidang Usaha</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select" @bind="strusaha">
+                                    <option disabled selected>-pilih salah satu-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Telepon Kantor</label>
-                                <div class="col-sm-9">
-                                    @if (strtelepon == string.Empty)
-                                    {
-                                        <input type="text" class="form-control" placeholder="telepon kantor" @onclick="inputField7">
-                                    }
-                                    else
-                                    {
-                                        <input type="text" class="form-control" @bind="strtelepon" @onclick="inputField7">
-                                    }
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Telepon Kantor</label>
+                            <div class="col-sm-9">
+                                @if (strtelepon == string.Empty)
+                                {
+                                    <input type="text" class="form-control" placeholder="telepon kantor" @onclick="inputField7">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" @bind="strtelepon" @onclick="inputField7">
+                                }
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Jabatan / Pangkat</label>
-                                <div class="col-sm-9">
-                                    @if (strjabatan == string.Empty)
-                                    {
-                                        <input type="text" class="form-control" placeholder="jabatan atau pangkat" @onclick="inputField8">
-                                    }
-                                    else
-                                    {
-                                        <input type="text" class="form-control" @bind="strjabatan" @onclick="inputField8">
-                                    }
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Jabatan / Pangkat</label>
+                            <div class="col-sm-9">
+                                @if (strjabatan == string.Empty)
+                                {
+                                    <input type="text" class="form-control" placeholder="jabatan atau pangkat" @onclick="inputField8">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" @bind="strjabatan" @onclick="inputField8">
+                                }
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kota</label>
-                                <div class="col-sm-9">
-                                    @if (strkota == string.Empty)
-                                    {
-                                        <input type="text" class="form-control" placeholder="kota" @onclick="inputField9">
-                                    }
-                                    else
-                                    {
-                                        <input type="text" class="form-control" @bind="strkota" @onclick="inputField9">
-                                    }
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kota</label>
+                            <div class="col-sm-9">
+                                @if (strkota == string.Empty)
+                                {
+                                    <input type="text" class="form-control" placeholder="kota" @onclick="inputField9">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" @bind="strkota" @onclick="inputField9">
+                                }
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Alamat Kantor</label>
-                                <div class="col-sm-9">
-                                    @if (stralamat == string.Empty)
-                                    {
-                                        <input type="text" class="form-control" placeholder="alamat kantor" @onclick="inputField10">
-                                    }
-                                    else
-                                    {
-                                        <input type="text" class="form-control" @bind="stralamat" @onclick="inputField10">
-                                    }
-                                </div>
-                            </div>*@
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Alamat Kantor</label>
+                            <div class="col-sm-9">
+                                @if (stralamat == string.Empty)
+                                {
+                                    <input type="text" class="form-control" placeholder="alamat kantor" @onclick="inputField10">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" @bind="stralamat" @onclick="inputField10">
+                                }
+                            </div>
+                        </div>*@
 
                         </div>
-                            </div>
-                            <!-- Exaple 1 -->
+                    </div>
+                    <!-- Exaple 1 -->
                 </form>
             </div>
-            <div class="col-xl-6 order-1 order-lg-2 hero-img" style="padding: 0.5rem;">
-                <div class="num-button2" style="margin-top: 10%;">
-                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
-                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
-                    <button class="key-num2 btn4" value="3" @onclick="@(() => InputData("3"))">3</button>
-                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("4"))">4</button>
-                    <button class="key-num2 btn4" value="5" @onclick="@(() => InputData("5"))">5</button>
-                    <button class="key-num2 btn4" value="6" @onclick="@(() => InputData("6"))">6</button>
-                    <button class="key-num2 btn4" value="7" @onclick="@(() => InputData("7"))">7</button>
-                    <button class="key-num2 btn4" value="8" @onclick="@(() => InputData("8"))">8</button>
-                    <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
-                    <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
+            @if (!isUpper)
+            {
+                <div class="col-xl-6 order-1 order-lg-2 hero-img" style="padding: 0.5rem;">
+                    <div class="num-button2" style="margin-top: 10%;">
+                        <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
+                        <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
+                        <button class="key-num2 btn4" value="3" @onclick="@(() => InputData("3"))">3</button>
+                        <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("4"))">4</button>
+                        <button class="key-num2 btn4" value="5" @onclick="@(() => InputData("5"))">5</button>
+                        <button class="key-num2 btn4" value="6" @onclick="@(() => InputData("6"))">6</button>
+                        <button class="key-num2 btn4" value="7" @onclick="@(() => InputData("7"))">7</button>
+                        <button class="key-num2 btn4" value="8" @onclick="@(() => InputData("8"))">8</button>
+                        <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
+                        <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
 
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("q"))">Q</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("w"))">W</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("e"))">E</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("r"))">R</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("t"))">T</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("y"))">Y</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("u"))">U</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("i"))">I</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("o"))">O</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("p"))">P</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("a"))">A</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("s"))">S</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("d"))">D</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("f"))">F</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("g"))">G</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("h"))">H</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("j"))">J</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("k"))">K</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("l"))">L</b></button><br>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("q"))">Q</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("w"))">W</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("e"))">E</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("r"))">R</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("t"))">T</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("y"))">Y</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("u"))">U</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("i"))">I</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("o"))">O</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("p"))">P</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("a"))">A</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("s"))">S</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("d"))">D</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("f"))">F</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("g"))">G</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("h"))">H</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("j"))">J</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("k"))">K</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("l"))">L</b></button><br>
 
-                    <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("z"))">Z</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("x"))">X</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("c"))">C</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("v"))">V</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("b"))">B</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("n"))">N</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("m"))">M</b></button>
-                    <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
+                        <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("z"))">Z</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("x"))">X</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("c"))">C</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("v"))">V</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("b"))">B</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("n"))">N</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("m"))">M</b></button>
+                        <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
 
-                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
-                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
-                    <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">Space</button>
-                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
-                    <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".com"))"><b class="teks-bold">.com</b></button>
-                    <button class="key-num6 btn4" value="6" @onclick="@(() => InputData(".co.id"))"><b class="teks-bold">.co.id</b></button>
+                        <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
+                        <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
+                        <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">SPACE</button>
+                        <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
+                        <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".com"))"><b class="teks-bold">.COM</b></button>
+                        <button class="key-num6 btn4" value="6" @onclick="Shift"><b class="teks-bold">SHFT</b></button>
+                    </div>
                 </div>
-            </div>
+            }
+            else if (isUpper)
+            {
+                <div class="col-xl-6 order-1 order-lg-2 hero-img" style="padding: 0.5rem;">
+                    <div class="num-button2" style="margin-top: 10%;">
+                        <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
+                        <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
+                        <button class="key-num2 btn4" value="3" @onclick="@(() => InputData("3"))">3</button>
+                        <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("4"))">4</button>
+                        <button class="key-num2 btn4" value="5" @onclick="@(() => InputData("5"))">5</button>
+                        <button class="key-num2 btn4" value="6" @onclick="@(() => InputData("6"))">6</button>
+                        <button class="key-num2 btn4" value="7" @onclick="@(() => InputData("7"))">7</button>
+                        <button class="key-num2 btn4" value="8" @onclick="@(() => InputData("8"))">8</button>
+                        <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
+                        <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
+
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Q"))">Q</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("W"))">W</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("E"))">E</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("R"))">R</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("T"))">T</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Y"))">Y</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("U"))">U</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("I"))">I</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("O"))">O</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("P"))">P</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("A"))">A</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("S"))">S</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("D"))">D</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("F"))">F</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("G"))">G</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("H"))">H</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("J"))">J</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("K"))">K</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("L"))">L</b></button><br>
+
+                        <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Z"))">Z</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("X"))">X</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("C"))">C</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("V"))">V</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("B"))">B</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("N"))">N</b></button>
+                        <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("M"))">M</b></button>
+                        <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
+
+                        <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
+                        <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
+                        <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">SPACE</button>
+                        <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
+                        <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".COM"))"><b class="teks-bold">.COM</b></button>
+                        <button class="key-num6 btn4" value="6" @onclick="Shift"><b class="teks-bold">SHIFT</b></button>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </section>
@@ -277,8 +334,8 @@
 </footer><!-- End Footer -->
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
+        [Parameter]
+        public EventCallback<string> OnClick { get; set; }
 
     private string tomboladd = "@";
     private string strnamaibu = string.Empty;
@@ -289,7 +346,8 @@
     private string strpenghasilan = string.Empty;
 
     private string isTextField = "1";
-    private string isTextField2 = "2";
+    private string isTextField2 = "1";
+    private bool isUpper = true;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -300,17 +358,29 @@
         }
     }
 
+    private void Shift()
+    {
+        if (!isUpper)
+            isUpper = true;
+        else if (isUpper)
+            isUpper = false;
+    }
+
     private async Task Syarat()
     {
+        trxbaru.clearNasabahBaru();
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 
     private async Task InputData2()
     {
-        trxbaru.setNasabahBaru(strnamaibu,strhandphone,stremail,strpos,strpekerjaan,strpenghasilan);
-        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-        Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
-        OnClick.InvokeAsync("bukarekeninginputdata2");
+        if (strnamaibu != string.Empty && strhandphone != string.Empty && stremail != string.Empty && strpos != string.Empty && strpekerjaan != string.Empty && strpenghasilan != string.Empty)
+        {
+            trxbaru.setNasabahBaru(strnamaibu, strhandphone, stremail, strpos, strpekerjaan, strpenghasilan);
+            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+            OnClick.InvokeAsync("bukarekeninginputdata2");
+        }
     }
 
     private void inputField1()
@@ -423,46 +493,6 @@
                     //    break;
             }
         }
-        //if (isTextField == "1")
-        //{
-        //    strnamaibu += strinput;
-        //}
-        //else if (isTextField == "2")
-        //{
-        //    strhandphone += strinput;
-        //}
-        //else if (isTextField == "3")
-        //{
-        //    stremail += strinput;
-        //}
-        //else if (isTextField == "4")
-        //{
-        //    strpos += strinput;
-        //}
-        //else if (isTextField == "5")
-        //{
-        //    strpekerjaan += strinput;
-        //}
-        //else if (isTextField == "6")
-        //{
-        //    strperusahaan += strinput;
-        //}
-        //else if (isTextField == "7")
-        //{
-        //    strtelepon += strinput;
-        //}
-        //else if (isTextField == "8")
-        //{
-        //    strjabatan += strinput;
-        //}
-        //else if (isTextField == "9")
-        //{
-        //    strkota += strinput;
-        //}
-        //else if (isTextField == "10")
-        //{
-        //    stralamat += strinput;
-        //}
     }
 
     private void RemoveData()
@@ -492,7 +522,8 @@
                     //        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
                     //    break;
             }
-        }else
+        }
+        else
         {
             switch (isTextField)
             {
@@ -526,107 +557,6 @@
                     //    break;
             }
         }
-        //if (isTextField == "1")
-        //{
-        //    if (strnamaibu.Length > 0)
-        //    {
-        //        strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "2")
-        //{
-        //    if (strhandphone.Length > 0)
-        //    {
-        //        strhandphone = strhandphone.Substring(0, strhandphone.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "3")
-        //{
-        //    if (stremail.Length <= 0)
-        //    {
-        //        stremail = "";
-        //    }
-        //    else
-        //    {
-        //        stremail = stremail.Substring(0, stremail.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "4")
-        //{
-        //    if (strpos.Length <= 0)
-        //    {
-        //        strpos = "";
-        //    }
-        //    else
-        //    {
-        //        strpos = strpos.Substring(0, strpos.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "5")
-        //{
-        //    if (strpekerjaan.Length <= 0)
-        //    {
-        //        strpekerjaan = "";
-        //    }
-        //    else
-        //    {
-        //        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "6")
-        //{
-        //    if (strperusahaan.Length <= 0)
-        //    {
-        //        strperusahaan = "";
-        //    }
-        //    else
-        //    {
-        //        strperusahaan = strperusahaan.Substring(0, strperusahaan.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "7")
-        //{
-        //    if (strtelepon.Length <= 0)
-        //    {
-        //        strtelepon = "";
-        //    }
-        //    else
-        //    {
-        //        strtelepon = strtelepon.Substring(0, strtelepon.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "8")
-        //{
-        //    if (strjabatan.Length <= 0)
-        //    {
-        //        strjabatan = "";
-        //    }
-        //    else
-        //    {
-        //        strjabatan = strjabatan.Substring(0, strjabatan.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "9")
-        //{
-        //    if (strkota.Length <= 0)
-        //    {
-        //        strkota = "";
-        //    }
-        //    else
-        //    {
-        //        strkota = strkota.Substring(0, strkota.Length - 1);
-        //    }
-        //}
-        //else if (isTextField == "10")
-        //{
-        //    if (stralamat.Length <= 0)
-        //    {
-        //        stralamat = "";
-        //    }
-        //    else
-        //    {
-        //        stralamat = stralamat.Substring(0, stralamat.Length - 1);
-        //    }
-        //}
     }
+
 }

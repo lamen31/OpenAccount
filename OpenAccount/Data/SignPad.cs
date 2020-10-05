@@ -15,10 +15,12 @@ namespace OpenAccount.Data
         public string workingdirectory;
         Process process = new Process();
         Config config = new Config();
+        private string pathWorking;
 
         public async Task signpad()
         {
-            PathSignPad = config.Read("PATH", Config.PARAM_PATH_SIGNPAD);
+            string path = Directory.GetCurrentDirectory();
+            PathSignPad = path + "\\" + config.Read("PATH", Config.PARAM_PATH_SIGNPAD);
             workingdirectory = Path.GetDirectoryName(PathSignPad);
             process.StartInfo.FileName = PathSignPad;
             process.StartInfo.UseShellExecute = false;
@@ -33,7 +35,41 @@ namespace OpenAccount.Data
                 process.Close();
                 Console.WriteLine("SIGN PAD FUNCTION: SIGN PAD PROCESS CLOSE");
                 Utility.WriteLog("Signpad condition : sign pad process close", "step-action");
-                process.Dispose();
+                //process.Dispose();
+            }
+        }
+
+        public async Task saveSign()
+        {
+            string path = Directory.GetCurrentDirectory();
+            path = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+            File.Delete(path);
+            Console.WriteLine("FILE FROM " + path + " HAS DELETED");
+            Utility.WriteLog("Buka rekening condition : file from " + path + " has deleted", "step-action");
+
+            pathWorking = workingdirectory + "\\hwsign.png";
+            if (File.Exists(pathWorking))
+            {
+                await Task.Run(() => File.Move(pathWorking, path));
+                Console.WriteLine("FILE FROM " + pathWorking + " HAS MOVED TO " + path);
+                Utility.WriteLog("Buka rekening condition : file from " + pathWorking + " has moved to " + path, "step-action");
+            }
+        }
+
+        public async Task saveSign2()
+        {
+            string path = Directory.GetCurrentDirectory();
+            path = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD2);
+            File.Delete(path);
+            Console.WriteLine("FILE FROM " + path + " HAS DELETED");
+            Utility.WriteLog("Buka rekening condition : file from " + path + " has deleted", "step-action");
+
+            pathWorking = workingdirectory + "\\hwsign.png";
+            if (File.Exists(pathWorking))
+            {
+                await Task.Run(() => File.Move(pathWorking, path));
+                Console.WriteLine("FILE FROM " + pathWorking + " HAS MOVED TO " + path);
+                Utility.WriteLog("Buka rekening condition : file from " + pathWorking + " has moved to " + path, "step-action");
             }
         }
     }

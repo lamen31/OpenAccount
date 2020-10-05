@@ -1,0 +1,28 @@
+20201006 01:06:14 Sign pad condition : device open success
+20201006 01:06:21 Sign pad condition : save image success
+20201006 01:06:21 Sign pad condition : device has been closed
+20201006 01:09:22 Sign pad condition : device open success
+20201006 01:09:30 Sign pad condition : save image success
+20201006 01:09:31 Sign pad condition : device has been closed
+20201006 01:10:30 Sign pad condition : device open success
+20201006 01:10:37 Sign pad condition : save image success
+20201006 01:10:38 Sign pad condition : device has been closed
+20201006 01:13:14 Sign pad condition : device open success
+20201006 01:13:20 Sign pad condition : save image success
+20201006 01:13:20 Sign pad condition : device has been closed
+20201006 01:15:22 Sign pad condition : device open success
+20201006 01:15:27 Sign pad condition : save image success
+20201006 01:15:28 Sign pad condition : device has been closed
+20201006 01:15:42 Sign pad condition : device open success
+20201006 01:15:47 Sign pad condition : save image success
+20201006 01:15:48 Sign pad condition : device has been closed
+20201006 01:16:55 Sign pad condition : device open success
+20201006 01:17:22 Sign pad condition : device open success
+20201006 01:17:27 Sign pad condition : save image success
+20201006 01:17:28 Sign pad condition : device has been closed
+20201006 01:17:35 Sign pad condition : device open success
+20201006 01:17:41 Sign pad condition : save image success
+20201006 01:17:41 Sign pad condition : device has been closed
+20201006 01:17:52 Sign pad condition : device open success
+20201006 01:17:56 Sign pad condition : save image success
+20201006 01:17:56 Sign pad condition : device has been closed
