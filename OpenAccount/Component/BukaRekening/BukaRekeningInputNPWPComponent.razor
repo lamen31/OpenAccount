@@ -125,7 +125,7 @@
 
     private async Task CaptureNPWP()
     {
-        if (strnpwp == string.Empty)
+        if (strnpwp != string.Empty)
         {
             trxbaru.setNomorNPWP(strnpwp);
             Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SUCCESS");

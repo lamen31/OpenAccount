@@ -91,11 +91,11 @@
     {
         Console.WriteLine("ID SCANNER FRONT SWALLOW");
         Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
-        //scanner.FrontSwallow();
+        scanner.FrontSwallow();
         await Task.Delay(2000);
         Console.WriteLine("ID SCANNER SCAN NPWP");
         Utility.WriteLog("Buka rekening condition : id scanner scan npwp", "step-action");
-        //scanner.ScanKTP(captureFile);
+        scanner.ScanKTP(captureFile);
         OnClick.InvokeAsync("bukarekeningcaptureNPWPberhasil");
     }
 }

@@ -1,0 +1,20 @@
+20201005 15:03:38 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:08:42 Default : entered into home page
+20201005 15:08:48 Buku condition : entered into buku input card
+20201005 15:08:49 Buku condition : input card success
+20201005 15:08:50 Buku condition : entered into buku input pin
+20201005 15:09:06 Default : entered into home page
+20201005 15:09:10 Buku condition : entered into buku input card
+20201005 15:09:10 Buku condition : input card success
+20201005 15:09:11 Buku condition : entered into buku input pin
+20201005 15:09:46 Default : entered into home page
+20201005 15:09:49 Buku condition : entered into buku input card
+20201005 15:09:50 Buku condition : input card success
+20201005 15:09:50 Buku condition : entered into buku input pin
+20201005 15:16:10 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:39:34 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:41:57 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:49:29 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:50:50 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:51:29 Buka rekening condition : entered into buka rekening input pin atm
+20201005 15:52:13 Buka rekening condition : entered into buka rekening input pin atm

@@ -32,7 +32,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Kembali">Kembali</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputNPWP">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -113,8 +113,8 @@
         OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
     }
 
-    private async Task Kembali()
+    private async Task InputNPWP()
     {
-        OnClick.InvokeAsync("bukarekeninginputdata3");
+        OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
 }
