@@ -1,0 +1,153 @@
+20201002 11:00:22 Histori condition : entered into histori input card
+20201002 11:00:23 Histori condition : input card success
+20201002 11:00:23 Histori condition : entered into histori input pin
+20201002 11:00:24 Histori condition : input pin success
+20201002 11:00:24 Histori condition : input data Bambang Pamungkas success
+20201002 11:00:24 Histori condition : entered into histori pilih menu
+20201002 11:00:29 Histori condition : entered into history bulan terakhir
+20201002 11:00:32 Histori condition : modal visible appear
+20201002 11:01:24 Default : entered into home page
+20201002 11:01:26 Histori condition : entered into histori input card
+20201002 11:01:27 Histori condition : input card success
+20201002 11:01:27 Histori condition : entered into histori input pin
+20201002 11:01:28 Histori condition : input pin success
+20201002 11:01:28 Histori condition : input data Bambang Pamungkas success
+20201002 11:01:28 Histori condition : entered into histori pilih menu
+20201002 11:01:30 Histori condition : entered into history bulan terakhir
+20201002 11:01:31 Histori condition : modal visible appear
+20201002 11:01:31 Histori condition : print halaman ke-1
+20201002 11:01:36 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201002 11:01:36 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201002 11:01:36 20201002 11:01:36 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201002 11:01:36 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201002 11:01:36 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201002 11:01:36 Printer condition : print histori in EPSOND03466 (L3150 Series) finished
+20201002 11:01:36 Histori condition : print history halaman ke-1 success
+20201002 11:01:44 Histori condition : print halaman ke-2
+20201002 11:04:48 Default : entered into home page
+20201002 11:04:50 Histori condition : entered into histori input card
+20201002 11:04:51 Histori condition : input card success
+20201002 11:04:52 Histori condition : entered into histori input pin
+20201002 11:04:53 Histori condition : input pin success
+20201002 11:04:53 Histori condition : input data Bambang Pamungkas success
+20201002 11:04:53 Histori condition : entered into histori pilih menu
+20201002 11:05:37 Histori condition : entered into history sepuluh terakhir
+20201002 11:05:44 Histori condition : input data from  success
+20201002 11:05:49 Histori condition : print thermal started
+20201002 11:05:55 Printer condition : print histori in EPSON L3150 Series start
+20201002 11:05:55 Printer status condition : check status printing in EPSON L3150 Series
+20201002 11:05:55 20201002 11:05:55 Status printing in EPSON L3150 Series : no pages left
+20201002 11:05:55 Status printing in EPSON L3150 Series : status queue is none
+20201002 11:05:55 Status printing in EPSON L3150 Series : printing done
+
+20201002 11:05:55 Printer condition : print histori in EPSON L3150 Series finished
+20201002 11:05:55 Histori condition : print thermal finished
+20201002 11:05:55 Histori condition : entered into histori berhasil
+20201002 11:06:03 Default : entered into home page
+20201002 11:06:18 Buku condition : entered into buku input card
+20201002 11:06:19 Buku condition : input card success
+20201002 11:06:19 Buku condition : entered into buku input pin
+20201002 11:06:20 Buku condition : input pin success
+20201002 11:06:20 Buku condition : input data Bambang Pamungkas success
+20201002 11:06:20 Buku condition : entered into buku input data
+20201002 11:06:53 Buku condition : modal visible appear
+20201002 11:06:53 Buku condition : print halaman ke-1
+20201002 11:06:54 Printer condition : print histori in EPSON L3150 Series start
+20201002 11:06:54 Printer status condition : check status printing in EPSON L3150 Series
+20201002 11:06:54 20201002 11:06:54 Status printing in EPSON L3150 Series : no pages left
+20201002 11:06:54 Status printing in EPSON L3150 Series : status queue is none
+20201002 11:06:54 Status printing in EPSON L3150 Series : printing done
+
+20201002 11:06:54 Printer condition : print histori in EPSON L3150 Series finished
+20201002 11:06:54 Buku condition : print history halaman ke-1 success
+20201002 11:06:54 Buku condition : modal baris appear
+20201002 11:07:18 Buku condition : print halaman ke-2
+20201002 11:07:19 Printer condition : print histori in EPSON L3150 Series start
+20201002 11:07:19 Printer status condition : check status printing in EPSON L3150 Series
+20201002 11:07:19 20201002 11:07:19 Status printing in EPSON L3150 Series : no pages left
+20201002 11:07:19 Status printing in EPSON L3150 Series : status queue is none
+20201002 11:07:19 Status printing in EPSON L3150 Series : printing done
+
+20201002 11:07:19 Printer condition : print histori in EPSON L3150 Series finished
+20201002 11:07:19 Buku condition : print history halaman ke-2 success
+20201002 11:07:19 Histori condition : entered into buku berhasil
+20201002 11:07:28 Default : entered into home page
+20201002 11:08:05 Buku condition : entered into buku input card
+20201002 11:08:06 Buku condition : input card success
+20201002 11:08:06 Buku condition : entered into buku input pin
+20201002 11:08:07 Buku condition : input pin success
+20201002 11:08:07 Buku condition : input data Bambang Pamungkas success
+20201002 11:08:07 Buku condition : entered into buku input data
+20201002 11:08:22 Buku condition : modal visible appear
+20201002 11:08:23 Printer condition : print histori in EPSON L3150 Series start
+20201002 11:08:23 Printer status condition : check status printing in EPSON L3150 Series
+20201002 11:08:24 20201002 11:08:24 Status printing in EPSON L3150 Series : no pages left
+20201002 11:08:24 Status printing in EPSON L3150 Series : status queue is none
+20201002 11:08:24 Status printing in EPSON L3150 Series : printing done
+
+20201002 11:08:24 Printer condition : print histori in EPSON L3150 Series finished
+20201002 11:08:24 Histori condition : entered into buku berhasil
+20201002 11:08:32 Default : entered into home page
+20201002 11:08:49 Buku condition : entered into buku input card
+20201002 11:08:50 Buku condition : input card success
+20201002 11:08:50 Buku condition : entered into buku input pin
+20201002 11:08:51 Buku condition : input pin success
+20201002 11:08:51 Buku condition : input data Bambang Pamungkas success
+20201002 11:08:51 Buku condition : entered into buku input data
+20201002 11:23:32 Default : entered into home page
+20201002 11:23:33 Histori condition : entered into histori input card
+20201002 11:23:34 Histori condition : input card success
+20201002 11:23:34 Histori condition : entered into histori input pin
+20201002 11:23:35 Histori condition : input pin success
+20201002 11:23:35 Histori condition : input data Bambang Pamungkas success
+20201002 11:23:35 Histori condition : entered into histori pilih menu
+20201002 11:23:37 Default : entered into home page
+20201002 11:23:38 Buku condition : entered into buku input card
+20201002 11:23:39 Buku condition : input card success
+20201002 11:23:39 Buku condition : entered into buku input pin
+20201002 11:23:40 Buku condition : input pin success
+20201002 11:23:40 Buku condition : input data Bambang Pamungkas success
+20201002 11:23:40 Buku condition : entered into buku input data
+20201002 11:23:58 Buku condition : modal visible appear
+20201002 11:23:59 Buku condition : print halaman ke-1
+20201002 11:23:59 Printer condition : print histori in EPSON L3150 Series start
+20201002 11:23:59 Printer status condition : check status printing in EPSON L3150 Series
+20201002 11:24:00 20201002 11:24:00 Status printing in EPSON L3150 Series : no pages left
+20201002 11:24:00 Status printing in EPSON L3150 Series : status queue is none
+20201002 11:24:00 Status printing in EPSON L3150 Series : printing done
+
+20201002 11:24:00 Printer condition : print histori in EPSON L3150 Series finished
+20201002 11:24:00 Buku condition : print history halaman ke-1 success
+20201002 11:24:01 Printer condition : print histori in EPSON L3150 Series start
+20201002 11:24:01 Printer status condition : check status printing in EPSON L3150 Series
+20201002 11:24:01 20201002 11:24:01 Status printing in EPSON L3150 Series : no pages left
+20201002 11:24:01 Status printing in EPSON L3150 Series : status queue is none
+20201002 11:24:01 Status printing in EPSON L3150 Series : printing done
+
+20201002 11:24:01 Printer condition : print histori in EPSON L3150 Series finished
+20201002 11:24:01 Histori condition : entered into buku penuh
+20201002 11:24:09 Default : entered into home page
+20201002 11:55:57 Default : entered into home page
+20201002 11:56:03 Histori condition : entered into histori input card
+20201002 11:56:04 Histori condition : input card success
+20201002 11:56:04 Histori condition : entered into histori input pin
+20201002 11:56:05 Histori condition : input pin success
+20201002 11:56:05 Histori condition : input data Bambang Pamungkas success
+20201002 11:56:05 Histori condition : entered into histori pilih menu
+20201002 11:57:25 Histori condition : entered into history bulan lalu
+20201002 11:58:06 Default : entered into home page
+20201002 11:58:09 Histori condition : entered into histori input card
+20201002 11:58:10 Histori condition : input card success
+20201002 11:58:10 Histori condition : entered into histori input pin
+20201002 11:58:11 Histori condition : input pin success
+20201002 11:58:11 Histori condition : input data Bambang Pamungkas success
+20201002 11:58:11 Histori condition : entered into histori pilih menu
+20201002 11:58:26 Histori condition : entered into history bulan lalu
+20201002 11:58:55 Default : entered into home page
+20201002 11:58:57 Histori condition : entered into histori input card
+20201002 11:58:58 Histori condition : input card success
+20201002 11:58:58 Histori condition : entered into histori input pin
+20201002 11:58:59 Histori condition : input pin success
+20201002 11:58:59 Histori condition : input data Bambang Pamungkas success
+20201002 11:58:59 Histori condition : entered into histori pilih menu

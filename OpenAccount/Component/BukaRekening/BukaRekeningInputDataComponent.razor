@@ -2,6 +2,8 @@
 @using OpenAccount.Data
 
 @inject TransaksiBaru trxbaru
+@inject Utility utility
+
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -18,13 +20,13 @@
                     <!-- Exaple 1 -->
                     <div class="example-1 scrollbar-ripe-malinka">
                         <div class="card-body">
-                            <h4 style="color: #00529C; font-weight: 900; margin-bottom: 5%;">Lengkapi Informasi Tentang Anda</h4>
+                            <h4 style="color: #00529C; font-weight: 900;">Lengkapi Informasi Tentang Anda</h4>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Ibu Kandung</label>
                                 <div class="col-sm-9">
                                     @if (strnamaibu == string.Empty)
                                     {
-                                        <input type="text" class="form-control" placeholder="Nama Ibu Kandung" @onclick="inputField1">
+                                        <input type="text" class="form-control" placeholder="Nama Gadis Ibu Kandung" @onclick="inputField1">
                                     }
                                     else
                                     {
@@ -95,7 +97,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <hr>
+                            @*<hr>
                             <h4 style="color: #F37024; font-weight: 900; margin-top: 10%; margin-bottom: 5%;">Lengkapi Informasi Pekerjaan Anda</h4>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Perusahaan</label>
@@ -172,14 +174,14 @@
                                         <input type="text" class="form-control" @bind="stralamat" @onclick="inputField10">
                                     }
                                 </div>
-                            </div>
+                            </div>*@
 
                         </div>
-                    </div>
-                    <!-- Exaple 1 -->
+                            </div>
+                            <!-- Exaple 1 -->
                 </form>
             </div>
-            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style="padding: 0.5rem;">
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" style="padding: 0.5rem;">
                 <div class="num-button2" style="margin-top: 10%;">
                     <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
                     <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
@@ -192,42 +194,42 @@
                     <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
                     <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
 
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Q"))">Q</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("W"))">W</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("E"))">E</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("R"))">R</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("T"))">T</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Y"))">Y</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("U"))">U</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("I"))">I</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("O"))">O</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("P"))">P</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("A"))">A</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("S"))">S</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("D"))">D</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("F"))">F</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("G"))">G</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("H"))">H</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("J"))">J</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("K"))">K</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("L"))">L</b></button><br>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("q"))">Q</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("w"))">W</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("e"))">E</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("r"))">R</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("t"))">T</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("y"))">Y</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("u"))">U</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("i"))">I</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("o"))">O</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("p"))">P</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("a"))">A</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("s"))">S</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("d"))">D</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("f"))">F</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("g"))">G</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("h"))">H</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("j"))">J</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("k"))">K</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("l"))">L</b></button><br>
 
                     <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("Z"))">Z</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("X"))">X</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("C"))">C</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("V"))">V</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("B"))">B</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("N"))">N</b></button>
-                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("M"))">M</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("z"))">Z</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("x"))">X</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("c"))">C</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("v"))">V</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("b"))">B</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("n"))">N</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("m"))">M</b></button>
                     <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
 
                     <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
                     <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
                     <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">Space</button>
                     <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
-                    <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".COM"))"><b class="teks-bold">.com</b></button>
-                    <button class="key-num6 btn4" value="6" @onclick="@(() => InputData(".CO.ID"))"><b class="teks-bold">.co.id</b></button>
+                    <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".com"))"><b class="teks-bold">.com</b></button>
+                    <button class="key-num6 btn4" value="6" @onclick="@(() => InputData(".co.id"))"><b class="teks-bold">.co.id</b></button>
                 </div>
             </div>
         </div>
@@ -269,7 +271,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button class="btn btn-primary" type="button" style="float: right;" @onclick="InputNPWP">Lanjut</button>
+            <button class="btn btn-primary" type="button" style="float: right;" @onclick="InputData2">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -285,13 +287,9 @@
     private string strpos = string.Empty;
     private string strpekerjaan = string.Empty;
     private string strpenghasilan = string.Empty;
-    private string strperusahaan = string.Empty;
-    private string strusaha = string.Empty;
-    private string strtelepon = string.Empty;
-    private string strjabatan = string.Empty;
-    private string strkota = string.Empty;
-    private string stralamat = string.Empty;
-    private string isTextField = string.Empty;
+
+    private string isTextField = "1";
+    private string isTextField2 = "2";
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -307,98 +305,123 @@
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 
-    private async Task InputNPWP()
+    private async Task InputData2()
     {
-        trxbaru.setNasabahBaru(strnamaibu,strhandphone,stremail,strpos,strpekerjaan,strpenghasilan,strperusahaan,strusaha,strtelepon,strjabatan,strkota,stralamat);
+        trxbaru.setNasabahBaru(strnamaibu,strhandphone,stremail,strpos,strpekerjaan,strpenghasilan);
         Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
         Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
-        OnClick.InvokeAsync("bukarekeninginputNPWP");
+        OnClick.InvokeAsync("bukarekeninginputdata2");
     }
 
     private void inputField1()
     {
         isTextField = "1";
+        isTextField2 = "1";
     }
 
     private void inputField2()
     {
         isTextField = "2";
+        isTextField2 = "1";
     }
 
     private void inputField3()
     {
         isTextField = "3";
+        isTextField2 = "1";
     }
 
     private void inputField4()
     {
         isTextField = "4";
+        isTextField2 = "2";
     }
 
     private void inputField5()
     {
         isTextField = "5";
+        isTextField2 = "2";
     }
 
     private void inputField6()
     {
         isTextField = "6";
+        isTextField2 = "2";
     }
 
     private void inputField7()
     {
         isTextField = "7";
+        isTextField2 = "2";
     }
 
     private void inputField8()
     {
         isTextField = "8";
+        isTextField2 = "2";
     }
 
     private void inputField9()
     {
         isTextField = "9";
+        isTextField2 = "2";
     }
 
     private void inputField10()
     {
         isTextField = "10";
+        isTextField2 = "2";
     }
 
     private void InputData(string strinput)
     {
-        switch (isTextField)
+        if (isTextField2 == "1")
         {
-            case "1":
-                strnamaibu += strinput;
-                break;
-            case "2":
-                strhandphone += strinput;
-                break;
-            case "3":
-                stremail += strinput;
-                break;
-            case "4":
-                strpos += strinput;
-                break;
-            case "5":
-                strpekerjaan += strinput;
-                break;
-            case "6":
-                strperusahaan += strinput;
-                break;
-            case "7":
-                strtelepon += strinput;
-                break;
-            case "8":
-                strjabatan += strinput;
-                break;
-            case "9":
-                strkota += strinput;
-                break;
-            case "10":
-                stralamat += strinput;
-                break;
+            switch (isTextField)
+            {
+                case "1":
+                    strnamaibu += strinput;
+                    break;
+                case "2":
+                    strhandphone += strinput;
+                    break;
+                case "3":
+                    stremail += strinput;
+                    break;
+                    //case "4":
+                    //    strpos += strinput;
+                    //    break;
+                    //case "5":
+                    //    strpekerjaan += strinput;
+                    //    break;
+            }
+        }
+        else
+        {
+            switch (isTextField)
+            {
+                case "4":
+                    strpos += strinput;
+                    break;
+                case "5":
+                    strpekerjaan += strinput;
+                    break;
+                    //case "6":
+                    //    strperusahaan += strinput;
+                    //    break;
+                    //case "7":
+                    //    strtelepon += strinput;
+                    //    break;
+                    //case "8":
+                    //    strjabatan += strinput;
+                    //    break;
+                    //case "9":
+                    //    strkota += strinput;
+                    //    break;
+                    //case "10":
+                    //    stralamat += strinput;
+                    //    break;
+            }
         }
         //if (isTextField == "1")
         //{
@@ -444,48 +467,64 @@
 
     private void RemoveData()
     {
-        switch (isTextField)
+        if (isTextField2 == "1")
         {
-            case "1":
-                if (strnamaibu.Length > 0)
-                    strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
-                break;
-            case "2":
-                if (strhandphone.Length > 0)
-                    strhandphone = strhandphone.Substring(0, strhandphone.Length - 1);
-                break;
-            case "3":
-                if (stremail.Length > 0)
-                    stremail = stremail.Substring(0, stremail.Length - 1);
-                break;
-            case "4":
-                if (strpos.Length > 0)
-                    strpos = strpos.Substring(0, strpos.Length - 1);
-                break;
-            case "5":
-                if (strpekerjaan.Length > 0)
-                    strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
-                break;
-            case "6":
-                if (strperusahaan.Length > 0)
-                    strperusahaan = strperusahaan.Substring(0, strperusahaan.Length - 1);
-                break;
-            case "7":
-                if (strtelepon.Length > 0)
-                    strtelepon = strtelepon.Substring(0, strtelepon.Length - 1);
-                break;
-            case "8":
-                if (strjabatan.Length > 0)
-                    strjabatan = strjabatan.Substring(0, strjabatan.Length - 1);
-                break;
-            case "9":
-                if (strkota.Length > 0)
-                    strkota = strkota.Substring(0, strkota.Length - 1);
-                break;
-            case "10":
-                if (stralamat.Length > 0)
-                    stralamat = stralamat.Substring(0, stralamat.Length - 1);
-                break;
+            switch (isTextField)
+            {
+                case "1":
+                    if (strnamaibu.Length > 0)
+                        strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
+                    break;
+                case "2":
+                    if (strhandphone.Length > 0)
+                        strhandphone = strhandphone.Substring(0, strhandphone.Length - 1);
+                    break;
+                case "3":
+                    if (stremail.Length > 0)
+                        stremail = stremail.Substring(0, stremail.Length - 1);
+                    break;
+                    //case "4":
+                    //    if (strpos.Length > 0)
+                    //        strpos = strpos.Substring(0, strpos.Length - 1);
+                    //    break;
+                    //case "5":
+                    //    if (strpekerjaan.Length > 0)
+                    //        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
+                    //    break;
+            }
+        }else
+        {
+            switch (isTextField)
+            {
+                case "4":
+                    if (strpos.Length > 0)
+                        strpos = strpos.Substring(0, strpos.Length - 1);
+                    break;
+                case "5":
+                    if (strpekerjaan.Length > 0)
+                        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
+                    break;
+                    //case "6":
+                    //    if (strperusahaan.Length > 0)
+                    //        strperusahaan = strperusahaan.Substring(0, strperusahaan.Length - 1);
+                    //    break;
+                    //case "7":
+                    //    if (strtelepon.Length > 0)
+                    //        strtelepon = strtelepon.Substring(0, strtelepon.Length - 1);
+                    //    break;
+                    //case "8":
+                    //    if (strjabatan.Length > 0)
+                    //        strjabatan = strjabatan.Substring(0, strjabatan.Length - 1);
+                    //    break;
+                    //case "9":
+                    //    if (strkota.Length > 0)
+                    //        strkota = strkota.Substring(0, strkota.Length - 1);
+                    //    break;
+                    //case "10":
+                    //    if (stralamat.Length > 0)
+                    //        stralamat = stralamat.Substring(0, stralamat.Length - 1);
+                    //    break;
+            }
         }
         //if (isTextField == "1")
         //{

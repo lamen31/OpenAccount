@@ -14,6 +14,7 @@ namespace OpenAccount.Data
         public string _AlamatKTP { get; set; }
         public string _AgamaKTP { get; set; }
         public string _PekerjaanKTP { get; set; }
+        public string _ModelKartu { get; set; }
         public string _NamaIbu { get; set; }
         public string _Handphone { get; set; }
         public string _Email { get; set; }
@@ -43,7 +44,12 @@ namespace OpenAccount.Data
             _PekerjaanKTP = strpekerjaan;
         }
 
-        public void setNasabahBaru(string strnamaibu, string strhandphone, string stremail, string strpos, string strpekerjaan, string strpenghasilan, string strperusahaan, string strusaha, string strtelepon, string strjabatan, string strkota, string stralamat)
+        public void setModelKartu(string strmodel)
+        {
+            _ModelKartu = strmodel;
+        }
+
+        public void setNasabahBaru(string strnamaibu, string strhandphone, string stremail, string strpos, string strpekerjaan, string strpenghasilan)
         {
             _NamaIbu = strnamaibu;
             _Handphone = strhandphone;
@@ -51,6 +57,10 @@ namespace OpenAccount.Data
             _KodePos = strpos;
             _PekerjaanData = strpekerjaan;
             _Penghasilan = strpenghasilan;
+        }
+
+        public void setNasabahBaru2(string strperusahaan, string strusaha, string strtelepon, string strjabatan, string strkota, string stralamat)
+        {
             _NamaPerusahaan = strperusahaan;
             _UsahaKantor = strusaha;
             _TeleponKantor = strtelepon;

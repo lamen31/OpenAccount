@@ -245,7 +245,31 @@ namespace OpenAccount.Data
             idCardInfo.frontPictureBase64 = ImageHelper.GetBase64FromImage(strImageUpFile);
             idCardInfo.backPictureBase64 = ImageHelper.GetBase64FromImage(strImageBotFile);
         }
-        private int ScanIDCard(byte[] frontPtr, byte[] backPtr, string frontFile, string backFile, ref CrtRect rect, ref IDcardImgOcrInfo idcardImgOcrInfo)
+        public void DeleteScan(string strfile)
+        {
+            string directori = Directory.GetCurrentDirectory();
+            string pathsaveimage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESCANNER);
+            string strImageUpFile = string.Empty;
+            string strImageBotFile = string.Empty;
+            pathsaveimage = directori + "\\" + pathsaveimage;
+            if (strfile == "KTP")
+            {
+                strImageUpFile = pathsaveimage + "KTP_UP.BMP";
+                strImageBotFile = pathsaveimage + "KTP_BOT.BMP";
+            }
+            else if (strfile == "NPWP")
+            {
+                strImageUpFile = pathsaveimage + "NPWP_UP.BMP";
+                strImageBotFile = pathsaveimage + "NPWP_BOT.BMP";
+            }
+            File.Delete(strImageUpFile);
+            Console.WriteLine("FILE FROM " + strImageUpFile + " HAS BEEN DELETED");
+            Utility.WriteLog("ID scanner condition : file from " + strImageUpFile + " has been deleted", "step-action");
+            File.Delete(strImageBotFile);
+            Console.WriteLine("FILE FROM " + strImageBotFile + " HAS BEEN DELETED");
+            Utility.WriteLog("ID scanner condition : file from " + strImageBotFile + " has been deleted", "step-action");
+        }
+        public int ScanIDCard(byte[] frontPtr, byte[] backPtr, string frontFile, string backFile, ref CrtRect rect, ref IDcardImgOcrInfo idcardImgOcrInfo)
         {
             buf = new byte[6];
             int retCode = ScannerDLL.scan(mDeviceId, 648, 1050, 10);

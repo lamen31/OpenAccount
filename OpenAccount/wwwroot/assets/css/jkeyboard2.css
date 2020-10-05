@@ -1,0 +1,73 @@
+  container {
+      width: 100%;
+      /*border: 1px solid black;*/
+      display: inline-block;
+  }
+  
+  .block {
+      display: inline-block;
+      width: 55px;
+      height: 40px;
+      padding: 0.1rem;
+      font-weight: 600;
+      font-size: 26px;
+      color: #000000;
+      margin: 5px;
+      background: white;
+      border: 1px solid #e2b1b1;
+      border-radius: 0.3rem;
+      float: left;
+      -webkit-box-shadow: 0 0 3px #f70000;
+      -webkit-box-shadow: inset 0 0 3px #f71616;
+  }
+  
+      .block:hover {
+          background-color: #185a82;
+          color: #fff;
+          border-color: #005E6A;
+          cursor: pointer;
+      }
+  
+      .block[v2] {
+          height: 210px;
+      }
+  
+      .block[h2] {
+          width: 220px;
+          font-size: 30px;
+          padding: 0.5rem;
+          background-color: #000000;
+          color: white;
+      }
+
+      .block[shift] {
+        width: 85px;
+        font-size: 25px;
+        padding: 0.5rem;
+        background-color: #d6d6d6;
+        color: white;
+    }
+
+    .block[del] {
+      width: 110px;
+      font-size: 25px;
+      padding: 0.5rem;
+      background-color: #d6d6d6;
+      color: white;
+  }
+
+  .block[num] {
+    width: 80px;
+    font-size: 25px;
+    padding: 0.6rem;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.block[space] {
+  width: 400px;
+  font-size: 20px;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  color: #000000;
+}

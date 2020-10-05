@@ -1,0 +1,35 @@
+20201003 13:12:32 Default : entered into home page
+20201003 13:12:35 Histori condition : entered into histori input card
+20201003 13:12:36 Histori condition : input card success
+20201003 13:12:36 Histori condition : entered into histori input pin
+20201003 13:12:37 Histori condition : input pin success
+20201003 13:12:37 Histori condition : input data Bambang Pamungkas success
+20201003 13:12:37 Histori condition : entered into histori pilih menu
+20201003 13:12:38 Histori condition : entered into history bulan berjalan
+20201003 13:55:24 Default : entered into home page
+20201003 13:57:01 Histori condition : entered into histori input card
+20201003 13:57:02 Histori condition : input card success
+20201003 13:57:03 Histori condition : entered into histori input pin
+20201003 13:57:04 Histori condition : input pin success
+20201003 13:57:04 Histori condition : input data Bambang Pamungkas success
+20201003 13:57:04 Histori condition : entered into histori pilih menu
+20201003 13:57:31 Histori condition : entered into history bulan berjalan
+20201003 13:58:17 Default : entered into home page
+20201003 13:58:20 Histori condition : entered into histori input card
+20201003 13:58:21 Histori condition : input card success
+20201003 13:58:21 Histori condition : entered into histori input pin
+20201003 13:58:22 Histori condition : input pin success
+20201003 13:58:22 Histori condition : input data Bambang Pamungkas success
+20201003 13:58:23 Histori condition : entered into histori pilih menu
+20201003 13:58:35 Histori condition : entered into history bulan berjalan
+20201003 13:59:20 Default : entered into home page
+20201003 13:59:24 Histori condition : entered into histori input card
+20201003 13:59:25 Histori condition : input card success
+20201003 13:59:25 Histori condition : entered into histori input pin
+20201003 13:59:26 Histori condition : input pin success
+20201003 13:59:26 Histori condition : input data Bambang Pamungkas success
+20201003 13:59:26 Histori condition : entered into histori pilih menu
+20201003 13:59:33 Histori condition : entered into history bulan berjalan
+20201003 13:59:43 Histori condition : modal visible appear
+20201003 13:59:43 Histori condition : print halaman ke-1
+20201003 13:59:48 Printer condition : print histori in EPSOND03466 (L3150 Series) start

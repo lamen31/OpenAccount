@@ -1,0 +1,376 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject TransaksiBaru trxbaru
+@inject Utility utility
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
+
+
+                </div>
+                <form>
+
+                    <!-- Exaple 1 -->
+                    <div class="example-1 scrollbar-ripe-malinka">
+                        <div class="card-body">
+                            <h4 style="color: #F37024; font-weight: 900; margin-top: 10%; margin-bottom: 5%;">Lengkapi Informasi Pekerjaan Anda</h4>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Nama Perusahaan</label>
+                                <div class="col-sm-9">
+                                    @if (strperusahaan == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="nama perusahaan" @onclick="inputField6">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strperusahaan" @onclick="inputField6">
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Bidang Usaha</label>
+                                <div class="col-sm-9">
+                                    <select class="custom-select" @bind="strusaha">
+                                        <option disabled selected>-pilih salah satu-</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Telepon Kantor</label>
+                                <div class="col-sm-9">
+                                    @if (strtelepon == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="telepon kantor" @onclick="inputField7">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strtelepon" @onclick="inputField7">
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Jabatan / Pangkat</label>
+                                <div class="col-sm-9">
+                                    @if (strjabatan == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="jabatan atau pangkat" @onclick="inputField8">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strjabatan" @onclick="inputField8">
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Kota</label>
+                                <div class="col-sm-9">
+                                    @if (strkota == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="kota" @onclick="inputField9">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="strkota" @onclick="inputField9">
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="font-weight: 600; font-size: 18px;">Alamat Kantor</label>
+                                <div class="col-sm-9">
+                                    @if (stralamat == string.Empty)
+                                    {
+                                        <input type="text" class="form-control" placeholder="alamat kantor" @onclick="inputField10">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" @bind="stralamat" @onclick="inputField10">
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Exaple 1 -->
+                </form>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" style="padding: 0.5rem;">
+                <div class="num-button2" style="margin-top: 10%;">
+                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("1"))">1</button>
+                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData("2"))">2</button>
+                    <button class="key-num2 btn4" value="3" @onclick="@(() => InputData("3"))">3</button>
+                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("4"))">4</button>
+                    <button class="key-num2 btn4" value="5" @onclick="@(() => InputData("5"))">5</button>
+                    <button class="key-num2 btn4" value="6" @onclick="@(() => InputData("6"))">6</button>
+                    <button class="key-num2 btn4" value="7" @onclick="@(() => InputData("7"))">7</button>
+                    <button class="key-num2 btn4" value="8" @onclick="@(() => InputData("8"))">8</button>
+                    <button class="key-num2 btn4" value="9" @onclick="@(() => InputData("9"))">9</button>
+                    <button class="key-num2 btn4" value="0" @onclick="@(() => InputData("0"))">0</button>
+
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("q"))">Q</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("w"))">W</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("e"))">E</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("r"))">R</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("t"))">T</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("y"))">Y</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("u"))">U</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("i"))">I</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("o"))">O</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("p"))">P</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("a"))">A</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("s"))">S</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("d"))">D</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("f"))">F</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("g"))">G</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("h"))">H</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("j"))">J</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("k"))">K</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("l"))">L</b></button><br>
+
+                    <button class="key-num3 btn4"><b class="teks-bold">!#$</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("z"))">Z</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("x"))">X</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("c"))">C</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("v"))">V</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("b"))">B</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("n"))">N</b></button>
+                    <button class="key-num2 btn4"><b class="teks-bold" @onclick="@(() => InputData("m"))">M</b></button>
+                    <button class="key-num4 btn4"><b class="teks-bold" @onclick="RemoveData">Hapus</b></button>
+
+                    <button class="key-num2 btn4" value="1" @onclick="@(() => InputData("@"))"><b class="teks-bold">@tomboladd</b></button>
+                    <button class="key-num2 btn4" value="2" @onclick="@(() => InputData(","))">,</button>
+                    <button class="key-num5 btn4" value="3" @onclick="@(() => InputData(" "))">Space</button>
+                    <button class="key-num2 btn4" value="4" @onclick="@(() => InputData("."))">.</button>
+                    <button class="key-num6 btn4" value="5" @onclick="@(() => InputData(".com"))"><b class="teks-bold">.com</b></button>
+                    <button class="key-num6 btn4" value="6" @onclick="@(() => InputData(".co.id"))"><b class="teks-bold">.co.id</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputData">Kembali</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button class="btn btn-primary" type="button" style="float: right;" @onclick="InputNPWP">Lanjut</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string tomboladd = "@";
+    private string strperusahaan = string.Empty;
+    private string strusaha = string.Empty;
+    private string strtelepon = string.Empty;
+    private string strjabatan = string.Empty;
+    private string strkota = string.Empty;
+    private string stralamat = string.Empty;
+
+    private string isTextField = "1";
+    private string isTextField2 = "2";
+
+    private void inputField6()
+    {
+        isTextField = "6";
+        isTextField2 = "1";
+    }
+
+    private void inputField7()
+    {
+        isTextField = "7";
+        isTextField2 = "1";
+    }
+
+    private void inputField8()
+    {
+        isTextField = "8";
+        isTextField2 = "1";
+    }
+
+    private void inputField9()
+    {
+        isTextField = "9";
+        isTextField2 = "2";
+    }
+
+    private void inputField10()
+    {
+        isTextField = "10";
+        isTextField2 = "2";
+    }
+
+    private void InputData(string strinput)
+    {
+        if (isTextField2 == "1")
+        {
+            switch (isTextField)
+            {
+                //case "1":
+                //    strnamaibu += strinput;
+                //    break;
+                //case "2":
+                //    strhandphone += strinput;
+                //    break;
+                //case "3":
+                //    stremail += strinput;
+                //    break;
+                //case "4":
+                //    strpos += strinput;
+                //    break;
+                //case "5":
+                //    strpekerjaan += strinput;
+                //    break;
+
+                case "6":
+                    strperusahaan += strinput;
+                    break;
+                case "7":
+                    strtelepon += strinput;
+                    break;
+                case "8":
+                    strjabatan += strinput;
+                    break;
+            }
+        }
+        else
+        {
+            switch (isTextField)
+            {
+                //case "4":
+                //    strpos += strinput;
+                //    break;
+                //case "5":
+                //    strpekerjaan += strinput;
+                //    break;
+
+                case "9":
+                    strkota += strinput;
+                    break;
+                case "10":
+                    stralamat += strinput;
+                    break;
+            }
+        }
+    }
+
+    private void RemoveData()
+    {
+        if (isTextField2 == "1")
+        {
+            switch (isTextField)
+            {
+                //case "1":
+                //    if (strnamaibu.Length > 0)
+                //        strnamaibu = strnamaibu.Substring(0, strnamaibu.Length - 1);
+                //    break;
+                //case "2":
+                //    if (strhandphone.Length > 0)
+                //        strhandphone = strhandphone.Substring(0, strhandphone.Length - 1);
+                //    break;
+                //case "3":
+                //    if (stremail.Length > 0)
+                //        stremail = stremail.Substring(0, stremail.Length - 1);
+                //    break;
+                //case "4":
+                //    if (strpos.Length > 0)
+                //        strpos = strpos.Substring(0, strpos.Length - 1);
+                //    break;
+                //case "5":
+                //    if (strpekerjaan.Length > 0)
+                //        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
+                //    break;
+                case "6":
+                    if (strperusahaan.Length > 0)
+                        strperusahaan = strperusahaan.Substring(0, strperusahaan.Length - 1);
+                    break;
+                case "7":
+                    if (strtelepon.Length > 0)
+                        strtelepon = strtelepon.Substring(0, strtelepon.Length - 1);
+                    break;
+                case "8":
+                    if (strjabatan.Length > 0)
+                        strjabatan = strjabatan.Substring(0, strjabatan.Length - 1);
+                    break;
+            }
+        }
+        else
+        {
+            switch (isTextField)
+            {
+                //case "4":
+                //    if (strpos.Length > 0)
+                //        strpos = strpos.Substring(0, strpos.Length - 1);
+                //    break;
+                //case "5":
+                //    if (strpekerjaan.Length > 0)
+                //        strpekerjaan = strpekerjaan.Substring(0, strpekerjaan.Length - 1);
+                //    break;
+
+                case "9":
+                    if (strkota.Length > 0)
+                        strkota = strkota.Substring(0, strkota.Length - 1);
+                    break;
+                case "10":
+                    if (stralamat.Length > 0)
+                        stralamat = stralamat.Substring(0, stralamat.Length - 1);
+                    break;
+            }
+        }
+    }
+
+    private async Task InputNPWP()
+    {
+        trxbaru.setNasabahBaru(strperusahaan, strusaha, strtelepon, strjabatan, strkota, stralamat);
+        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
+        Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+        OnClick.InvokeAsync("bukarekeninginputNPWP");
+    }
+
+    private async Task InputData()
+    {
+        OnClick.InvokeAsync("bukarekeninginputdata");
+    }
+}

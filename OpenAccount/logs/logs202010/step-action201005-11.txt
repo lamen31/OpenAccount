@@ -1,0 +1,1451 @@
+20201005 11:08:17 Default : entered into home page
+20201005 11:57:01 Default : entered into home page
+20201005 11:57:21 Buka rekening condition : entered into buka rekening jenis tujuan
+20201005 11:57:22 Buka rekening condition : entered into buka rekening ktp
+20201005 11:57:33 Buka rekening condition : id scanner front swallow
+20201005 11:57:33 ID scanner condition : open device list success
+20201005 11:57:33 ID scanner condition : open device success
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : set back entry success
+20201005 11:57:33 ID scanner condition : set front entry success
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:57:33 ID scanner condition : get status success
+20201005 11:57:33 ID scanner condition : ics checking success
+20201005 11:57:33 ID scanner condition : the card is at RF card reading
+20201005 11:57:33 ID scanner condition : set front entry success
+20201005 11:57:33 Buka rekening condition : id scanner back swallow
+20201005 11:57:33 ID scanner condition : set back entry success
+20201005 11:57:36 ID scanner condition : move to the RF card holding success
+20201005 11:57:36 Buka rekening condition : id scanner radio pos
+20201005 11:57:38 Buka rekening condition : entered into buka rekening ktp berhasil
+20201005 11:57:40 Buka rekening condition : entered into buka rekening finger print
+20201005 11:57:40 ID scanner condition : set back entry success
+20201005 11:57:40 Buka rekening condition : id scanner back swallow
+20201005 11:57:41 ID scanner condition : move to the RF card holding success
+20201005 11:57:41 Buka rekening condition : id scanner radio pos
+20201005 11:57:41 Buka rekening condition : entered into buka rekening finger print berhasil
+20201005 11:57:41 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201005 11:57:42 Buka rekening condition : entered into buka rekening capture ktp
+20201005 11:57:46 Buka rekening condition : id scanner scan ktp
+20201005 11:57:46 ID scanner condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\capture\\KTP_UP.BMP has been deleted
+20201005 11:57:46 ID scanner condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\capture\\KTP_BOT.BMP has been deleted
+20201005 11:57:46 ID scanner condition : scanning photo failed
+20201005 11:58:29 Default : entered into home page
+20201005 11:58:30 Buka rekening condition : entered into buka rekening jenis tujuan
+20201005 11:58:31 Buka rekening condition : entered into buka rekening ktp
+20201005 11:58:35 Buka rekening condition : entered into buka rekening jenis tujuan
+20201005 11:58:36 Buka rekening condition : entered into buka rekening ktp
+20201005 11:58:37 Buka rekening condition : id scanner front swallow
+20201005 11:58:37 ID scanner condition : open device list success
+20201005 11:58:37 ID scanner condition : open device success
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : set back entry success
+20201005 11:58:37 ID scanner condition : set front entry success
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:37 ID scanner condition : get status success
+20201005 11:58:37 ID scanner condition : ics checking success
+20201005 11:58:37 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201005 11:58:38 ID scanner condition : get status success
+20201005 11:58:38 ID scanner condition : ics checking success
+20201005 11:58:38 ID scanner condition : the card is at RF card reading
+20201005 11:58:38 ID scanner condition : set front entry success
+20201005 11:58:38 Buka rekening condition : id scanner back swallow
+20201005 11:58:38 ID scanner condition : set back entry success
+20201005 11:58:41 ID scanner condition : move to the RF card holding success
+20201005 11:58:41 Buka rekening condition : id scanner radio pos
+20201005 11:58:43 Buka rekening condition : entered into buka rekening ktp berhasil
+20201005 11:58:44 Buka rekening condition : entered into buka rekening finger print
+20201005 11:58:45 ID scanner condition : set back entry success
+20201005 11:58:45 Buka rekening condition : id scanner back swallow
+20201005 11:58:51 ID scanner condition : move to the RF card holding success
+20201005 11:58:51 Buka rekening condition : id scanner radio pos
+20201005 11:58:51 Buka rekening condition : entered into buka rekening finger print berhasil
+20201005 11:58:51 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201005 11:58:52 Buka rekening condition : entered into buka rekening capture ktp
+20201005 11:58:53 Buka rekening condition : id scanner scan ktp
+20201005 11:58:53 ID scanner condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\capture\\KTP_UP.BMP has been deleted
+20201005 11:58:53 ID scanner condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\capture\\KTP_BOT.BMP has been deleted
+20201005 11:58:57 ID scanner condition : scanning photo success
+20201005 11:58:57 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201005 11:59:00 Buka rekening condition : entered into buka rekening data ktp
+20201005 11:59:00 ID scanner condition : query device status success
+20201005 11:59:00 ID scanner condition : start exiting card
+20201005 11:59:05 ID scanner condition : exit card success
+20201005 11:59:05 Buka rekening condition : id scanner return card
+20201005 11:59:05 ID scanner condition : close id card reader success
+20201005 11:59:05 Buka rekening condition : id scanner close reader

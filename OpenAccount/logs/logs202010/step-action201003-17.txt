@@ -1,0 +1,28 @@
+20201003 17:00:00 Histori condition : input card success
+20201003 17:00:00 Histori condition : entered into histori input pin
+20201003 17:00:36 Default : entered into home page
+20201003 17:01:49 Default : entered into home page
+20201003 17:01:50 Histori condition : entered into histori input card
+20201003 17:01:51 Histori condition : input card success
+20201003 17:01:51 Histori condition : entered into histori input pin
+20201003 17:01:57 Default : entered into home page
+20201003 17:03:27 Default : entered into home page
+20201003 17:03:28 Histori condition : entered into histori input card
+20201003 17:03:29 Histori condition : input card success
+20201003 17:03:29 Histori condition : entered into histori input pin
+20201003 17:05:15 Default : entered into home page
+20201003 17:05:30 Buku condition : entered into buku input card
+20201003 17:05:31 Buku condition : input card success
+20201003 17:05:31 Buku condition : entered into buku input pin
+20201003 17:05:38 Buku condition : input pin success
+20201003 17:05:38 Buku condition : input data Bambang Pamungkas success
+20201003 17:05:38 Buku condition : entered into buku input data
+20201003 17:22:16 Default : entered into home page
+20201003 17:53:07 Default : entered into home page
+20201003 17:53:09 Histori condition : entered into histori input card
+20201003 17:53:10 Histori condition : input card success
+20201003 17:53:11 Histori condition : entered into histori input pin
+20201003 17:53:12 Histori condition : input pin success
+20201003 17:53:12 Histori condition : input data Bambang Pamungkas success
+20201003 17:53:12 Histori condition : entered into histori pilih menu
+20201003 17:55:47 Default : entered into home page

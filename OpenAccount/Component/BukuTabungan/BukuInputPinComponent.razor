@@ -1,9 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
+@using System.IO.Ports
+@using System.Text;
 
-@inject Transaksi trx 
 @inject Config config
-
+@inject Transaksi trx
+@inject Utility utility
+@inject EDC edc
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -67,25 +70,60 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
     private string[] Nasabah = new string[3];
+    private string strpin = string.Empty;
+    private SerialPort sPort = new SerialPort();
+    private bool isLoop = true;
+    private bool isCancel = false;
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        Console.WriteLine("INPUT PIN SUCCESS");
-        Utility.WriteLog("Buku condition : input pin success", "step-action");
-        for (int i = 0; i < Nasabah.Length; i++)
+        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        await EDC("14");
+        if (!isCancel)
         {
-            if (i == 0)
-                Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-            else if (i == 1)
-                Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-            else if (i == 2)
-                Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+            if (strpin == "123456")
+            {
+                Console.WriteLine("INPUT PIN SUCCESS");
+                Utility.WriteLog("Buku condition : input pin success", "step-action");
+                for (int i = 0; i < Nasabah.Length; i++)
+                {
+                    if (i == 0)
+                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                    else if (i == 1)
+                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                    else if (i == 2)
+                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                }
+                Console.WriteLine("INPUT DATA SUCCESS");
+                Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                trx.setArrayNasabah(Nasabah);
+                OnClick.InvokeAsync("bukuinputdata");
+            }
+            else
+            {
+                OnClick.InvokeAsync("home");
+            }
         }
-        Console.WriteLine("INPUT DATA SUCCESS");
-        Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-        trx.setArrayNasabah(Nasabah);
-        OnClick.InvokeAsync("bukuinputdata");
+        else
+        {
+            OnClick.InvokeAsync("home");
+        }
+        //Console.WriteLine("INPUT PIN SUCCESS");
+        //Utility.WriteLog("Buku condition : input pin success", "step-action");
+        //for (int i = 0; i < Nasabah.Length; i++)
+        //{
+        //    if (i == 0)
+        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+        //    else if (i == 1)
+        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+        //    else if (i == 2)
+        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+        //}
+        //Console.WriteLine("INPUT DATA SUCCESS");
+        //Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+        //trx.setArrayNasabah(Nasabah);
+        //OnClick.InvokeAsync("bukuinputdata");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -95,5 +133,161 @@
             Console.WriteLine("ENTERED INTO BUKU INPUT PIN");
             Utility.WriteLog("Buku condition : entered into buku input pin", "step-action");
         }
+    }
+    private async Task EDC(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        serialPort.Open();
+
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        do
+        {
+            await Task.Delay(150);
+
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            //Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                //Console.WriteLine("Data Current: " + dataCurrent);
+                //Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    switch (intBuffer)
+                    {
+                        case 69:
+                            //Console.WriteLine(strpin);
+                            if (strpin.Length == 6)
+                                isLoop = false;
+                            break;
+                        case 88:
+                            //Console.WriteLine(strpin);
+                            isCancel = true;
+                            isLoop = false;
+                            break;
+                        case 84:
+                            //Console.WriteLine(strpin);
+                            isCancel = true;
+                            isLoop = false;
+                            break;
+                        case 67:
+                            strpin = string.Empty;
+                            break;
+                        case 32:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "0";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 1:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "1";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 2:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "2";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 3:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "3";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 4:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "4";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 5:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "5";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 6:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "6";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 7:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "7";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 8:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "8";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 9:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "9";
+                            //Console.WriteLine(strpin);
+                            break;
+                    }
+                }
+                //Console.WriteLine("Data Split: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Console.WriteLine("EDC ACK");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    Console.WriteLine("EDC NAK");
+                }
+            }
+            StateHasChanged();
+        } while (isLoop);
+
+        Console.WriteLine("2");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
 }

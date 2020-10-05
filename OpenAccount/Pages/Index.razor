@@ -129,6 +129,11 @@
                     <BukaRekeningInputDataComponent OnClick="ClickHandler"></BukaRekeningInputDataComponent>
                     break;
                 }
+            case "bukarekeninginputdata2":
+                {
+                    <BukaRekeningInputData2Component OnClick="ClickHandler"></BukaRekeningInputData2Component>
+                    break;
+                }
             case "bukarekeninginputNPWP":
                 {
                     <BukaRekeningInputNPWPComponent OnClick="ClickHandler"></BukaRekeningInputNPWPComponent>
@@ -306,7 +311,7 @@
 </div>
 
 @code{
-    private string message = string.Empty;
+    private string message = "bukarekeninginputNPWP";
     private string language = "ID";
 
     void ClickHandler(string strmessage)

@@ -15,32 +15,37 @@ namespace OpenAccount.Data
         private string pathA4;
         private string pathPassbook;
         private string pathPrintCoba;
+        private string pathThermal;
         Process process = new Process();
         PrinterSettings settings = new PrinterSettings();
         private string printername;
         public string workingdirectory;
+        string path;
 
         public void StatusPrinting(string strnamaprinter)
         {
             process = new Process();
             printername = settings.PrinterName;
-            pathA4 = config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_A4);
-            pathPassbook = config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_PASSBOOK);
+            path = Directory.GetCurrentDirectory();
+            string pathprinter = "";
             pathPrintCoba = config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_PRINTCOBA);
             if (strnamaprinter == printername)
             {
-                workingdirectory = Path.GetDirectoryName(pathA4);
-                process.StartInfo.FileName = pathA4;
+                pathprinter = path + "\\" + config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_A4);
+                workingdirectory = Path.GetDirectoryName(pathprinter);
+                process.StartInfo.FileName = pathprinter;
             }
-            else if(strnamaprinter == "PsiPR-OLI")
+            else if(strnamaprinter == config.Read("PRINTERNAME",Config.PARAM_PRINTERNAME_PASSBOOK))
             {
-                workingdirectory = Path.GetDirectoryName(pathPassbook);
-                process.StartInfo.FileName = pathPassbook;
+                pathprinter = path + "\\" + config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_PASSBOOK);
+                workingdirectory = Path.GetDirectoryName(pathprinter);
+                process.StartInfo.FileName = pathprinter;
             }
-            else if(strnamaprinter== "EPSON L3150 Series")
+            else if(strnamaprinter== config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL))
             {
-                workingdirectory = Path.GetDirectoryName(pathPrintCoba);
-                process.StartInfo.FileName = pathPrintCoba;
+                pathprinter = path + "\\" + config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_THERMAL);
+                workingdirectory = Path.GetDirectoryName(pathprinter);
+                process.StartInfo.FileName = pathprinter;
             }
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.WorkingDirectory = workingdirectory;

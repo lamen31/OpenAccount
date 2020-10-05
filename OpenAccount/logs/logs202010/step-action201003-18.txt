@@ -1,0 +1,27 @@
+20201003 18:08:43 Default : entered into home page
+20201003 18:23:18 Default : entered into home page
+20201003 18:23:34 Histori condition : entered into histori input card
+20201003 18:23:35 Histori condition : input card success
+20201003 18:23:35 Histori condition : entered into histori input pin
+20201003 18:23:38 Default : entered into home page
+20201003 18:23:40 Histori condition : entered into histori input card
+20201003 18:23:41 Histori condition : input card success
+20201003 18:23:41 Histori condition : entered into histori input pin
+20201003 18:24:01 Default : entered into home page
+20201003 18:24:02 Histori condition : entered into histori input card
+20201003 18:24:03 Histori condition : input card success
+20201003 18:24:03 Histori condition : entered into histori input pin
+20201003 18:24:08 Default : entered into home page
+20201003 18:30:30 Histori condition : entered into histori input card
+20201003 18:30:31 Histori condition : input card success
+20201003 18:30:31 Histori condition : entered into histori input pin
+20201003 18:30:45 Default : entered into home page
+20201003 18:32:07 Default : entered into home page
+20201003 18:32:09 Histori condition : entered into histori input card
+20201003 18:32:10 Histori condition : input card success
+20201003 18:32:11 Histori condition : entered into histori input pin
+20201003 18:32:59 Default : entered into home page
+20201003 18:33:03 Histori condition : entered into histori input card
+20201003 18:33:04 Histori condition : input card success
+20201003 18:33:04 Histori condition : entered into histori input pin
+20201003 18:36:34 Default : entered into home page

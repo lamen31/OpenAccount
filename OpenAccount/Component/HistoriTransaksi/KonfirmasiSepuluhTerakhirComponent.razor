@@ -147,7 +147,8 @@
     private async Task ServiceThermal()
     {
         string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
-        string myUrl = "http://d70d6399ae06.ngrok.io/latihan/data-thermal/426684591519268";
+        string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
         trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
         if (strResultGET != null)

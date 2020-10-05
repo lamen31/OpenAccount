@@ -35,6 +35,10 @@ namespace OpenAccount.Data
         public const string PARAM_PRINTERNAME_THERMAL = "param.printername.thermal";
         public const string PARAM_PORT_EDC = "param.port.edc";
         public const string PARAM_PORT_CARD_DISPENSER = "param.port.card.dispenser";
+        public const string PARAM_SERVICES_LINK = "param.services.link";
+        public const string PARAM_SERVICES_PASSBOOK = "param.services.passbook";
+        public const string PARAM_SERVICES_HISTORI = "param.services.histori";
+        public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
 
 
         private FileIniDataParser iniFile = new FileIniDataParser();

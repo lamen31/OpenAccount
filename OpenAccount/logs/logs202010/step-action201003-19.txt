@@ -1,0 +1,201 @@
+20201003 19:00:16 Default : entered into home page
+20201003 19:00:19 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:00:20 Buka rekening condition : entered into buka rekening ktp
+20201003 19:00:22 Buka rekening condition : id scanner front swallow
+20201003 19:00:22 Buka rekening condition : id scanner back swallow
+20201003 19:00:25 Buka rekening condition : id scanner radio pos
+20201003 19:00:51 Default : entered into home page
+20201003 19:00:53 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:00:54 Buka rekening condition : entered into buka rekening ktp
+20201003 19:00:56 Buka rekening condition : id scanner front swallow
+20201003 19:00:56 Buka rekening condition : id scanner back swallow
+20201003 19:00:59 Buka rekening condition : id scanner radio pos
+20201003 19:02:28 Default : entered into home page
+20201003 19:02:30 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:02:31 Buka rekening condition : entered into buka rekening ktp
+20201003 19:02:35 Buka rekening condition : id scanner front swallow
+20201003 19:02:35 Buka rekening condition : id scanner back swallow
+20201003 19:02:36 Buka rekening condition : id scanner front swallow
+20201003 19:02:36 Buka rekening condition : id scanner back swallow
+20201003 19:02:36 Buka rekening condition : id scanner front swallow
+20201003 19:02:36 Buka rekening condition : id scanner back swallow
+20201003 19:02:36 Buka rekening condition : id scanner front swallow
+20201003 19:02:36 Buka rekening condition : id scanner back swallow
+20201003 19:02:36 Buka rekening condition : id scanner front swallow
+20201003 19:02:36 Buka rekening condition : id scanner back swallow
+20201003 19:02:37 Buka rekening condition : id scanner front swallow
+20201003 19:02:37 Buka rekening condition : id scanner back swallow
+20201003 19:02:37 Buka rekening condition : id scanner front swallow
+20201003 19:02:37 Buka rekening condition : id scanner back swallow
+20201003 19:02:37 Buka rekening condition : id scanner front swallow
+20201003 19:02:37 Buka rekening condition : id scanner back swallow
+20201003 19:02:37 Buka rekening condition : id scanner front swallow
+20201003 19:02:37 Buka rekening condition : id scanner back swallow
+20201003 19:02:54 Default : entered into home page
+20201003 19:02:56 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:02:57 Buka rekening condition : entered into buka rekening ktp
+20201003 19:02:59 Buka rekening condition : id scanner front swallow
+20201003 19:03:01 Buka rekening condition : id scanner back swallow
+20201003 19:03:09 Buka rekening condition : id scanner radio pos
+20201003 19:03:17 Buka rekening condition : entered into buka rekening finger print
+20201003 19:03:46 Default : entered into home page
+20201003 19:03:48 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:03:49 Buka rekening condition : entered into buka rekening ktp
+20201003 19:03:50 Buka rekening condition : id scanner front swallow
+20201003 19:03:54 Buka rekening condition : id scanner back swallow
+20201003 19:04:02 Buka rekening condition : id scanner radio pos
+20201003 19:04:09 Buka rekening condition : entered into buka rekening finger print
+20201003 19:06:22 Default : entered into home page
+20201003 19:06:25 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:06:26 Buka rekening condition : entered into buka rekening ktp
+20201003 19:06:28 Buka rekening condition : id scanner front swallow
+20201003 19:06:31 Buka rekening condition : id scanner back swallow
+20201003 19:06:37 Buka rekening condition : id scanner radio pos
+20201003 19:06:39 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:06:40 Buka rekening condition : entered into buka rekening finger print
+20201003 19:06:41 Buka rekening condition : id scanner back swallow
+20201003 19:06:41 Buka rekening condition : id scanner radio pos
+20201003 19:06:41 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:06:41 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:06:42 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:06:51 Buka rekening condition : id scanner scan ktp
+20201003 19:06:51 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:06:57 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:06:57 ID scanner condition : query device status failed
+20201003 19:06:57 Buka rekening condition : id scanner return card
+20201003 19:08:05 Default : entered into home page
+20201003 19:08:07 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:08:08 Buka rekening condition : entered into buka rekening ktp
+20201003 19:08:10 Buka rekening condition : id scanner front swallow
+20201003 19:08:10 Buka rekening condition : id scanner back swallow
+20201003 19:08:13 Buka rekening condition : id scanner radio pos
+20201003 19:08:16 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:08:17 Buka rekening condition : entered into buka rekening finger print
+20201003 19:08:18 Buka rekening condition : id scanner back swallow
+20201003 19:08:18 Buka rekening condition : id scanner radio pos
+20201003 19:08:18 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:08:18 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:08:19 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:08:20 Buka rekening condition : id scanner scan ktp
+20201003 19:08:20 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:08:21 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:08:21 Buka rekening condition : id scanner return card
+20201003 19:08:21 Buka rekening condition : id scanner close reader
+20201003 19:08:27 Default : entered into home page
+20201003 19:08:28 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:08:30 Buka rekening condition : entered into buka rekening ktp
+20201003 19:08:31 Buka rekening condition : id scanner front swallow
+20201003 19:08:31 Buka rekening condition : id scanner back swallow
+20201003 19:08:34 Buka rekening condition : id scanner radio pos
+20201003 19:08:36 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:08:37 Buka rekening condition : entered into buka rekening finger print
+20201003 19:08:38 Buka rekening condition : id scanner back swallow
+20201003 19:08:38 Buka rekening condition : id scanner radio pos
+20201003 19:08:38 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:08:38 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:08:39 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:08:40 Buka rekening condition : id scanner scan ktp
+20201003 19:08:40 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:08:44 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:08:44 Buka rekening condition : id scanner return card
+20201003 19:08:44 Buka rekening condition : id scanner close reader
+20201003 19:08:47 Buka rekening condition : entered into buka rekening jenis tabungan
+20201003 19:08:57 Buka rekening condition : entered into buka rekening model kartu
+20201003 19:09:00 Buka rekening condition : entered into buka rekening syarat
+20201003 19:09:10 Buka rekening condition : entered into buka rekening input data
+20201003 19:12:52 Default : entered into home page
+20201003 19:12:55 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:12:56 Buka rekening condition : entered into buka rekening ktp
+20201003 19:12:57 Buka rekening condition : id scanner front swallow
+20201003 19:12:57 Buka rekening condition : id scanner back swallow
+20201003 19:13:00 Buka rekening condition : id scanner radio pos
+20201003 19:13:02 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:13:03 Buka rekening condition : entered into buka rekening finger print
+20201003 19:13:04 Buka rekening condition : id scanner back swallow
+20201003 19:13:04 Buka rekening condition : id scanner radio pos
+20201003 19:13:04 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:13:04 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:13:05 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:13:06 Buka rekening condition : id scanner scan ktp
+20201003 19:13:06 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:13:07 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:13:07 Buka rekening condition : id scanner return card
+20201003 19:13:07 Buka rekening condition : id scanner close reader
+20201003 19:13:08 Buka rekening condition : entered into buka rekening jenis tabungan
+20201003 19:13:09 Buka rekening condition : entered into buka rekening model kartu
+20201003 19:13:10 Buka rekening condition : entered into buka rekening syarat
+20201003 19:13:11 Buka rekening condition : entered into buka rekening input data
+20201003 19:17:33 Default : entered into home page
+20201003 19:17:35 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:17:36 Buka rekening condition : entered into buka rekening ktp
+20201003 19:17:40 Buka rekening condition : id scanner front swallow
+20201003 19:17:40 Buka rekening condition : id scanner back swallow
+20201003 19:17:43 Buka rekening condition : id scanner radio pos
+20201003 19:17:45 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:17:46 Buka rekening condition : entered into buka rekening finger print
+20201003 19:17:47 Buka rekening condition : id scanner back swallow
+20201003 19:17:47 Buka rekening condition : id scanner radio pos
+20201003 19:17:47 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:17:47 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:17:48 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:17:49 Buka rekening condition : id scanner scan ktp
+20201003 19:17:49 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:17:50 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:17:50 Buka rekening condition : id scanner return card
+20201003 19:17:50 Buka rekening condition : id scanner close reader
+20201003 19:17:51 Buka rekening condition : entered into buka rekening jenis tabungan
+20201003 19:17:52 Buka rekening condition : entered into buka rekening model kartu
+20201003 19:17:53 Buka rekening condition : entered into buka rekening syarat
+20201003 19:17:54 Buka rekening condition : entered into buka rekening input data
+20201003 19:22:09 Default : entered into home page
+20201003 19:22:14 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:22:15 Buka rekening condition : entered into buka rekening ktp
+20201003 19:22:18 Buka rekening condition : id scanner front swallow
+20201003 19:22:18 Buka rekening condition : id scanner back swallow
+20201003 19:22:21 Buka rekening condition : id scanner radio pos
+20201003 19:22:23 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:22:24 Buka rekening condition : entered into buka rekening finger print
+20201003 19:22:25 Buka rekening condition : id scanner back swallow
+20201003 19:22:25 Buka rekening condition : id scanner radio pos
+20201003 19:22:25 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:22:25 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:22:26 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:22:28 Buka rekening condition : id scanner scan ktp
+20201003 19:22:28 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:22:29 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:22:29 Buka rekening condition : id scanner return card
+20201003 19:22:29 Buka rekening condition : id scanner close reader
+20201003 19:22:30 Buka rekening condition : entered into buka rekening jenis tabungan
+20201003 19:22:31 Buka rekening condition : entered into buka rekening model kartu
+20201003 19:22:32 Buka rekening condition : entered into buka rekening syarat
+20201003 19:22:33 Buka rekening condition : entered into buka rekening input data
+20201003 19:33:43 Default : entered into home page
+20201003 19:35:02 Buka rekening condition : entered into buka rekening jenis tujuan
+20201003 19:35:03 Buka rekening condition : entered into buka rekening ktp
+20201003 19:35:07 Buka rekening condition : id scanner front swallow
+20201003 19:35:07 Buka rekening condition : id scanner back swallow
+20201003 19:35:10 Buka rekening condition : id scanner radio pos
+20201003 19:35:12 Buka rekening condition : entered into buka rekening ktp berhasil
+20201003 19:35:13 Buka rekening condition : entered into buka rekening finger print
+20201003 19:35:14 Buka rekening condition : id scanner back swallow
+20201003 19:35:15 Buka rekening condition : id scanner radio pos
+20201003 19:35:15 Buka rekening condition : entered into buka rekening finger print berhasil
+20201003 19:35:15 Buka rekening condition : set data ktp Bambang Pamungkas success
+20201003 19:35:16 Buka rekening condition : entered into buka rekening capture ktp
+20201003 19:35:23 Buka rekening condition : id scanner scan ktp
+20201003 19:35:23 Buka rekening condition : entered into buka rekening capture ktp berhasil
+20201003 19:35:24 Buka rekening condition : entered into buka rekening data ktp
+20201003 19:35:25 Buka rekening condition : id scanner return card
+20201003 19:35:25 Buka rekening condition : id scanner close reader
+20201003 19:35:26 Buka rekening condition : entered into buka rekening jenis tabungan
+20201003 19:35:28 Buka rekening condition : entered into buka rekening model kartu
+20201003 19:35:29 Buka rekening condition : entered into buka rekening syarat
+20201003 19:35:30 Buka rekening condition : entered into buka rekening input data
+20201003 19:35:32 Buka rekening condition : entered into buka rekening input data success
+20201003 19:35:32 Buka rekening condition : entered into buka rekening input nomor npwp
+20201003 19:35:36 Buka rekening condition : entered into buka rekening input nomor npwp skipped
+20201003 19:35:39 Buka rekening condition : entered into buka rekening tanda tangan
+20201003 19:35:40 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201003 19:35:40 Signpad condition : sign pad process running
+20201003 19:35:53 Signpad condition : sign pad process close
+20201003 19:35:53 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi

@@ -121,7 +121,7 @@
         hourdate = DateTime.Now.ToString("HH:mm:ss");
         //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
 
-       await ServiceHistori();
+        await ServiceHistori();
 
         //path = config.Read("PATH", Config.PARAM_PATH_A4);
         //lines = File.ReadAllLines(path);
@@ -146,6 +146,7 @@
         //Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
         jumlahtransaksi = tempjumlahtransaksi.ToString();
+        //trx.setDataHistoriTransaksi(jumlahtransaksi, uraian, tipe, nominal, saldo);
         trx.setHistori(jenisperiode, startdate, enddate, jumlahtransaksi, saldo);
     }
 
@@ -162,7 +163,8 @@
     {
         trx.clearListHistori();
         string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
-        string myUrl = "http://d70d6399ae06.ngrok.io/latihan/data-history/321852159753231";
+        string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_HISTORI);
         trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
         if (strResultGET != null)

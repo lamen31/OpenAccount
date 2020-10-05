@@ -1,0 +1,5 @@
+20201005 10:20:11 Default : entered into home page
+20201005 10:51:25 Default : entered into home page
+20201005 10:52:46 Buku condition : entered into buku input card
+20201005 10:52:47 Buku condition : input card success
+20201005 10:52:47 Buku condition : entered into buku input pin

@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject Utility utility 
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -17,7 +18,7 @@
                 </div>
 
                 <div class="card-deck" style="padding-left: 20%; padding-right: 20%; margin-top: 2%;">
-                    <div class="card" @onclick="Syarat">
+                    <div class="card" @onclick="Field1">
                         <div class="text-center">
                             <img class="card-img-top" style="width: 80%;" src="../assets/img/model-kartu/model1.jpg" alt="Card image cap">
                         </div>
@@ -29,7 +30,7 @@
                             <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
                         </div>
                     </div>
-                    <div class="card" @onclick="Syarat">
+                    <div class="card" @onclick="Field2">
                         <div class="text-center">
                             <img class="card-img-top" style="width: 80%;" src="../assets/img/model-kartu/model2.png" alt="Card image cap">
                         </div>
@@ -94,6 +95,8 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string modelKartu = string.Empty;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -103,8 +106,21 @@
         }
     }
 
+    private void Field1()
+    {
+        modelKartu = "1";
+        Syarat();
+    }
+
+    private void Field2()
+    {
+        modelKartu = "2";
+        Syarat();
+    }
+
     private async Task Syarat()
     {
+        trxbaru.setModelKartu(modelKartu);
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 

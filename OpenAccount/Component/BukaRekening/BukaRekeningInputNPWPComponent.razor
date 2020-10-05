@@ -29,7 +29,7 @@
                         }
                     </div>
                 </div>
-                <h4 style="color: #ee0000; margin-top: 15%;" @onclick="CaptureWajah">Tidak Punya NPWP?</h4>
+                <h4 style="color: #ee0000; margin-top: 15%;" @onclick="TandaTangan">Tidak Punya NPWP?</h4>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
                 <div id="keyboard">
@@ -56,7 +56,7 @@
 <footer id="footer" class="fixed-bottom" style="background-color: rgb(255, 255, 255);">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputData">Kembali</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputData2">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -118,23 +118,26 @@
             strnpwp = strnpwp.Substring(0, strnpwp.Length - 1);
     }
 
-    private async Task InputData()
+    private async Task InputData2()
     {
-        OnClick.InvokeAsync("bukarekeninginputdata");
+        OnClick.InvokeAsync("bukarekeninginputdata2");
     }
 
     private async Task CaptureNPWP()
     {
-        trxbaru.setNomorNPWP(strnpwp);
-        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SUCCESS");
-        Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp success", "step-action");
-        OnClick.InvokeAsync("bukarekeningcaptureNPWP");
+        if (strnpwp == string.Empty)
+        {
+            trxbaru.setNomorNPWP(strnpwp);
+            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SUCCESS");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp success", "step-action");
+            OnClick.InvokeAsync("bukarekeningcaptureNPWP");
+        }
     }
 
-    private async Task CaptureWajah()
+    private async Task TandaTangan()
     {
         Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SKIPPED");
         Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp skipped", "step-action");
-        OnClick.InvokeAsync("bukarekeningcapturewajah");
+        OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 }

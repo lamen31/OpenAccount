@@ -80,7 +80,7 @@ namespace OpenAccount.Data
             return result;
         }
 
-        public static byte[] StringToByteArray(string p_str)
+        public byte[] StringToByteArray(string p_str)
         {
             byte[] result = null;
 
@@ -113,7 +113,7 @@ namespace OpenAccount.Data
             return result;
         }
 
-        public static byte[] LRC(byte[] p_data)
+        public byte[] LRC(byte[] p_data)
         {
             try
             {
@@ -132,7 +132,7 @@ namespace OpenAccount.Data
             return p_data;
         }
 
-        public static string HexaBankFiller(string data_filler)
+        public string HexaBankFiller(string data_filler)
         {
             return "20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020";
         }

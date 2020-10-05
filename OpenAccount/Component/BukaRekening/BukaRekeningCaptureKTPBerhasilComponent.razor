@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject Utility utility
+@inject IDScanner scanner
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -19,12 +20,14 @@
 
                 <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
                     <div class="text-center">
-                        <img class="card-img-top" src="../assets/capture/_UP.BMP" alt="Card image cap">
+                        <img class="card-img-top" src="../assets/capture/KTP_UP.BMP" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Hasil Capture e-KTP Anda</h5>
                     </div>
                 </div>
+
+                <button type="button" class="btn btn-primary" style="background-color: #F37024; font-weight: 100; padding: 8px 30px;">Rotate</button>
 
                 <!-- <img src="../assets/img/ktp.png" class="img-fluid" alt="" style="margin-top: 5%; margin-bottom: 5%;"><br> -->
             </div>
@@ -36,7 +39,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-           <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+           <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="KTP">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -76,6 +79,8 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string captureFile = "KTP";
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -90,8 +95,14 @@
         OnClick.InvokeAsync("bukarekeningdataKTP");
     }
 
-    private async Task Home()
+    private async Task KTP()
     {
-        OnClick.InvokeAsync("home");
+        scanner.ReturnCard();
+        Console.WriteLine("ID SCANNER RETURN CARD");
+        Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("ID SCANNER CLOSE READER");
+        Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        OnClick.InvokeAsync("bukarekeningktp");
     }
 }

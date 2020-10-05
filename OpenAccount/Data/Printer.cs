@@ -23,6 +23,7 @@ namespace OpenAccount.Data
         
         Font font = new Font("Calibri", 8, FontStyle.Regular);
         string printername;
+        private string path = string.Empty;
 
         public void BeginPrintEH(object sender, PrintEventArgs e)
         {
@@ -42,9 +43,9 @@ namespace OpenAccount.Data
             string pathStatus;
             string strfilename = "step-action";
             string textStatus;
-            printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
-            //PrinterSettings settings = new PrinterSettings();
-            //printername = settings.PrinterName;
+            //printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            PrinterSettings settings = new PrinterSettings();
+            printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
@@ -67,7 +68,9 @@ namespace OpenAccount.Data
             SolidBrush blackBrush = new SolidBrush(Color.Black);
             Graphics g = e.Graphics;
 
-            string pathlogo = config.Read("PATH", Config.PARAM_PATH_IMAGE_A4);
+            path = Directory.GetCurrentDirectory();
+
+            string pathlogo = path + "\\wwwroot\\inputopenaccount" + config.Read("PATH", Config.PARAM_PATH_IMAGE_A4);
             Image img = Image.FromFile(pathlogo);
             g.DrawImage(img, new Point(50, 30));
 
@@ -211,8 +214,10 @@ namespace OpenAccount.Data
             string pathStatus;
             string strfilename = "step-action";
             string textStatus;
-            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            //PrinterSettings settings = new PrinterSettings();
+            //string printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.PrintPage += new PrintPageEventHandler(ThermalPrintPage);
             printdoc.Print();
@@ -229,7 +234,8 @@ namespace OpenAccount.Data
 
         public void ThermalPrintPage(object sender, PrintPageEventArgs e)
         {
-            string logo = config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
+            path = Directory.GetCurrentDirectory();
+            string logo = path + "\\wwwroot\\inputopenaccount" + config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
             StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
             StringFormat formatCenter = new StringFormat(formatLeft);
             formatCenter.Alignment = StringAlignment.Center;
@@ -314,8 +320,10 @@ namespace OpenAccount.Data
             string pathStatus;
             string strfilename = "step-action";
             string textStatus;
-            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            //PrinterSettings settings = new PrinterSettings();
+            //string printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
@@ -427,8 +435,10 @@ namespace OpenAccount.Data
             string pathStatus;
             string strfilename = "step-action";
             string textStatus;
-            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            //PrinterSettings settings = new PrinterSettings();
+            //string printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
@@ -459,7 +469,8 @@ namespace OpenAccount.Data
             //RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
             RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
 
-            string logo = config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
+            path = Directory.GetCurrentDirectory();
+            string logo = path + "\\wwwroot\\inputopenaccount" + config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
             SolidBrush blackBrush = new SolidBrush(Color.Black);
             Graphics g = e.Graphics;
             font = new Font("Arial", 10, FontStyle.Regular);

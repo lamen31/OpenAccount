@@ -30,7 +30,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="KTP">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -93,10 +93,19 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
+        scanner.RadioPos();
+        Console.WriteLine("ID SCANNER RADIO POS");
+        Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
         OnClick.InvokeAsync("bukarekeningcapturektp");
     }
-    private async Task Home()
+    private async Task KTP()
     {
-        OnClick.InvokeAsync("home");
+        scanner.ReturnCard();
+        Console.WriteLine("ID SCANNER RETURN CARD");
+        Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("ID SCANNER CLOSE READER");
+        Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        OnClick.InvokeAsync("bukarekeningktp");
     }
 }
