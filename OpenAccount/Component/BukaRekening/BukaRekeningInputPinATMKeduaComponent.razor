@@ -1,8 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using System.IO.Ports
+@using System.Text
 @using OpenAccount.Data
 
 @inject Utility utility
-@inject TransaksiBaru trxbaru 
+@inject EDC edc
+@inject Config config
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -19,12 +23,20 @@
                     <div style="padding-left: 35%; padding-right: 35%;">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" style="text-align: center;" placeholder="******">
+                                <input type="text" class="form-control" style="text-align: center;" placeholder="Konfirmasi Pin Anda" @bind="strpin">
                             </div>
                         </div>
                     </div>
                 </form>
-                <h3 style="color:#00AF80 ; font-weight: 900; text-align: center;">PIN Sesuai</h3>
+                @if (isSesuai && !isNotCorrect)
+                {
+                    <h3 style="color:#00AF80 ; font-weight: 900; text-align: center;">PIN Sesuai</h3>
+                }
+                else if (!isSesuai && isNotCorrect)
+                {
+                    <h3 style="color:#af0000 ; font-weight: 900; text-align: center;">PIN Tidak Sesuai</h3>
+                    @*<p style="color:#af0000 ; font-weight: 900; text-align: center;">Kesempatan mencoba @tryLimit.ToString()x lagi</p>*@
+                }
 
             </div>
         </div>
@@ -66,7 +78,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;" @onclick="MenuEbanking">Lanjut</button>
+            @*<button type="button" class="btn btn-primary" style="float: right;" @onclick="MenuEbanking">Lanjut</button>*@
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -76,6 +88,17 @@
     public EventCallback<string> OnClick { get; set; }
 
     private string rekening = "1323492841";
+    private string strpin = string.Empty;
+    private string strpinNomor = string.Empty;
+    private SerialPort sPort = new SerialPort();
+    private bool loopEDC = false;
+    private bool isLoop = true;
+    private bool isSesuai = false;
+    private bool isNotCorrect = false;
+    private bool isPin = false;
+    private SerialPort serialPort = new SerialPort();
+
+    private int tryLimit = 3;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -83,21 +106,357 @@
         {
             Console.WriteLine("ENTERED INTO BUKA REKENING KONFIRMASI PIN ATM");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening konfirmasi pin atm", "step-action");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            if (sPort.IsOpen)
+            {
+                sPort.Close();
+            }
+            await EDC("14");
+            if (isPin)
+            {
+                Console.WriteLine("INPUT PIN ATM KEDUA SUCCESS");
+                Utility.WriteLog("Buka rekening condition : input pin atm kedua success", "step-action");
+                trxbaru.setPinRekening(strpinNomor, rekening);
+                Console.WriteLine("SET NOMOR REKENING SUCCESS");
+                Utility.WriteLog("Buka rekening condition : set nomor rekening success", "step-action");
+                OnClick.InvokeAsync("bukarekeningmenuebanking");
+            }
         }
+    }
+
+    private async Task EDC(string ecrmsg)
+    {
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        serialPort = new SerialPort();
+
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        serialPort.Open();
+
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        do
+        {
+            await Task.Delay(150);
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            //Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                //Console.WriteLine("Data Current: " + dataCurrent);
+                //Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    switch (intBuffer)
+                    {
+                        case 69:
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            if (strpin.Length == 6)
+                            {
+                                if (isSesuai)
+                                {
+                                    isPin = true;
+                                    isLoop = false;
+                                }
+                            }
+                            break;
+                        case 88:
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            InputPin();
+                            isLoop = false;
+                            break;
+                        case 84:
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            isLoop = false;
+                            break;
+                        case 67:
+                            strpin = string.Empty;
+                            strpinNomor = string.Empty;
+                            break;
+                        case 32:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "0";
+                                strpinNomor += "0";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 1:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "1";
+                                strpinNomor += "1";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 2:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "2";
+                                strpinNomor += "2";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 3:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "3";
+                                strpinNomor += "3";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 4:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "4";
+                                strpinNomor += "4";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 5:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "5";
+                                strpinNomor += "5";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 6:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "6";
+                                strpinNomor += "6";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 7:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "7";
+                                strpinNomor += "7";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 8:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "8";
+                                strpinNomor += "8";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                        case 9:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "9";
+                                strpinNomor += "9";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            break;
+                    }
+                }
+                //Console.WriteLine("Data Split: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Console.WriteLine("EDC ACK");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    Console.WriteLine("EDC NAK");
+                }
+            }
+            StateHasChanged();
+            switch (strpin.Length)
+            {
+                case 1:
+                    strpin = strpin.Substring(0, strpin.Length - 1) + "*";
+                    break;
+                case 2:
+                    strpin = strpin.Substring(0, strpin.Length - 2) + "**";
+                    break;
+                case 3:
+                    strpin = strpin.Substring(0, strpin.Length - 3) + "***";
+                    break;
+                case 4:
+                    strpin = strpin.Substring(0, strpin.Length - 4) + "****";
+                    break;
+                case 5:
+                    strpin = strpin.Substring(0, strpin.Length - 5) + "*****";
+                    break;
+                case 6:
+                    strpin = strpin.Substring(0, strpin.Length - 6) + "******";
+                    break;
+            }
+            await Task.Delay(100);
+            StateHasChanged();
+            if (strpin.Length == 6)
+            {
+                if(strpinNomor == trxbaru._PinATM1)
+                {
+                    isSesuai = true;
+                    isNotCorrect = false;
+                }
+                else if (strpinNomor != trxbaru._PinATM1)
+                {
+                    isSesuai = false;
+                    isNotCorrect = true;
+                    //tryLimit -= 1;
+                    //if (tryLimit == 0)
+                    //{
+                    //    trxbaru.clearPinPertama();
+                    //    OnClick.InvokeAsync("bukarekeninginputpinatm");
+                    //}
+                }
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+        } while (isLoop);
+
+        Console.WriteLine("2");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
 
     private async Task InputPin()
     {
+        strpin = string.Empty;
+        isLoop = false;
+        serialPort.Close();
+        await CancelEDC("15");
         OnClick.InvokeAsync("bukarekeninginputpinatm");
+    }
+
+    private async Task CancelEDC(string ecrmsg)
+    {
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        serialPort.Open();
+
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        await Task.Delay(150);
+        dataRespond = string.Empty;
+        dataSplit = string.Empty;
+        //bool exitLoop = false;
+        //Console.WriteLine(dataRespond);
+        if (serialPort.IsOpen)
+        {
+
+            string dataCurrent = serialPort.ReadExisting();
+            dataRespond += dataCurrent;
+            if (dataRespond.Contains("\x06"))
+            {
+                if (dataRespond.Length > 10)
+                {
+                    serialPort.Close();
+                    Console.WriteLine("EDC ACK");
+                }
+            }
+            else if (dataRespond.Contains("\x15"))
+            {
+                serialPort.Close();
+                Console.WriteLine("EDC NAK");
+            }
+        }
     }
 
     private async Task MenuEbanking()
     {
         Console.WriteLine("INPUT PIN ATM KEDUA SUCCESS");
         Utility.WriteLog("Buka rekening condition : input pin atm kedua success", "step-action");
-        trxbaru.setRekening(rekening);
+        isLoop = false;
+        serialPort.Close();
+        trxbaru.setPinRekening(strpin, rekening);
         Console.WriteLine("SET NOMOR REKENING SUCCESS");
         Utility.WriteLog("Buka rekening condition : set nomor rekening success", "step-action");
+        await CancelEDC("15");
         OnClick.InvokeAsync("bukarekeningmenuebanking");
     }
 }

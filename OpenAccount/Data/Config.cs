@@ -39,6 +39,8 @@ namespace OpenAccount.Data
         public const string PARAM_SERVICES_PASSBOOK = "param.services.passbook";
         public const string PARAM_SERVICES_HISTORI = "param.services.histori";
         public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
+        public const string PARAM_SERVICES_POST_HISTORI = "param.services.post.histori";
+        public const string PARAM_SERVICES_NASABAH = "param.service.nasabah";
 
 
         private FileIniDataParser iniFile = new FileIniDataParser();

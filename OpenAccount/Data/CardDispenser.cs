@@ -35,11 +35,13 @@ namespace OpenAccount.Data
         private string Device_Address = "00";
         private string com_serial = string.Empty;
 
-        public void Dispenser(ref string p_errorCode, string p_com_Serial, ref string p_message)
+        public void Dispenser(ref string p_errorCode, string p_com_Serial, string strbox, ref string p_message)
         {
             p_errorCode = string.Empty;
             p_message = string.Empty;
             com_serial = p_com_Serial;
+            byte CBox = Convert.ToByte(strbox);
+
             try
             {
                 uint x = 115200;
@@ -176,11 +178,20 @@ namespace OpenAccount.Data
                     TxData = new byte[1024];
                     Rxdata = new byte[1024];
 
+                    if (strbox == "1")
+                    {
+                        CBox = 0x31;
+                    }
+                    else if (strbox == "2")
+                    {
+                        CBox = 0x32;
+                    }
+
                     TxDataLen = 4;
                     TxData[0] = 0x43;
                     TxData[1] = 0x32;
                     TxData[2] = 0x32;
-                    TxData[3] = 0x31; //determine box 0x31=box#1; 0x32=box#2;
+                    TxData[3] = CBox; //determine box 0x31=box#1; 0x32=box#2;
                     RxDataLen = 0;
 
                     j = RS232_ExeCommand(Hndl, TxDataLen, TxData, ref RxDataLen, Rxdata);

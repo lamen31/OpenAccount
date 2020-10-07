@@ -1,0 +1,329 @@
+﻿@using Microsoft.AspNetCore.Components
+@using System.IO.Ports
+@using System.Text
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using OpenAccount.Data
+
+@inject Utility utility
+@inject EDC edc
+@inject Config config
+@inject TransaksiBaru trxbaru
+@inject HitServices services
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <div>
+                    <img src="../assets/img/debit.png" style="width: 80%;" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <!-- <a href="menu-verification.html"><button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button></a> -->
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="done">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            @*<button type="button" class="btn btn-primary" style="float: right;">Lanjut</button>*@
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string strpin = string.Empty;
+    private SerialPort sPort = new SerialPort();
+    private bool isLoop = true;
+    private bool isCancel = false;
+    private bool isSesuai = false;
+    private bool isNotCorrect = false;
+    private bool isPin = false;
+    private SerialPort serialPort = new SerialPort();
+    private string imageKTP = "tesKTP";
+    private string imageNPWP = "tesNPWP";
+    private string imageTTD1 = "tesTTD1";
+    private string imageTTD2 = "tesTTD2";
+    private string imageWajah = "tesWajah";
+    private string kelamin = "tesKelamin";
+    private string jenisTabungan = "tesTabungan";
+    private string kecamatan = "tesKecamatan";
+    private string desa = "tesDesa";
+    private string rtrw = "tesRTRW";
+    private string tujuanRekening = "tesTujuanRekening";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            await EDC("14");
+            if (isPin)
+            {
+                if (strpin == trxbaru._PinATM2)
+                {
+                    await ServiceBukaRekening();
+                }
+            }
+        }
+    }
+
+    private async Task ServiceBukaRekening()
+    {
+        string myJson = "{" +
+            "\"agama\":\"" + trxbaru._AgamaKTP + "\"," +
+            "\"alamat\":\"" + trxbaru._AlamatKTP + "\"," +
+            "\"alamatKantor\":\"" + trxbaru._AlamatKantor + "\"," +
+            "\"bidangUsaha\":\"" + trxbaru._UsahaKantor + "\"," +
+            "\"email\":\"" + trxbaru._Email + "\"," +
+            "\"imageEktp\":\"" + imageKTP + "\"," +
+            "\"imageNpwp\":\"" + imageNPWP + "\"," +
+            "\"imageTtd1\":\"" + imageTTD1 + "\"," +
+            "\"imageTtd2\":\"" + imageTTD2 + "\"," +
+            "\"imageWajah\":\"" + imageTTD2 + "\"," +
+            "\"jabatan\":\"" + trxbaru._Jabatan + "\"," +
+            "\"jenisEbanking\":\"" + trxbaru._MenuEBanking + "\"," +
+            "\"jenisKartu\":\"" + trxbaru._ModelKartu + "\"," +
+            "\"jenisKelamin\":\"" + kelamin + "\"," +
+            "\"jenisTabungan\":\"" + jenisTabungan + "\"," +
+            "\"kecamatan\":\"" + kecamatan + "\"," +
+            "\"kelDesa\":\"" + desa + "\"," +
+            "\"kodepos\":\"" + trxbaru._KodePos + "\"," +
+            "\"kotaKantor\":\"" + trxbaru._Kota + "\"," +
+            "\"namaIbu\":\"" + trxbaru._NamaIbu + "\"," +
+            "\"namaLengkap\":\"" + trxbaru._Nama + "\"," +
+            "\"namaPerusahaan\":\"" + trxbaru._NamaPerusahaan + "\"," +
+            "\"nik\":\"" + trxbaru._NIK + "\"," +
+            "\"noHp\":\"" + trxbaru._Handphone + "\"," +
+            "\"noNpwp\":\"" + trxbaru._NomorNPWP + "\"," +
+            "\"pekerjaan\":\"" + trxbaru._PekerjaanData + "\"," +
+            "\"penghasilan\":\"" + trxbaru._Penghasilan + "\"," +
+            "\"pinEbanking\":\"" + trxbaru._PinEBanking2 + "\"," +
+            "\"pinKartu\":\"" + trxbaru._PinATM2 + "\"," +
+            "\"rtRw\":\"" + rtrw + "\"," +
+            "\"statusPerkawinan\":\"" + trxbaru._PerkawinanKTP + "\"," +
+            "\"ttl\":\"" + trxbaru._TTL + "\"," +
+            "\"telpKantor\":\"" + trxbaru._TeleponKantor + "\"," +
+            "\"tujuanRekening\":\"" + tujuanRekening + "\"" +
+            "}";
+        string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_NASABAH);
+        string strResultPOST = await HitServices.PostCallAPI(myUrl, myJson);
+        if (strResultPOST != string.Empty)
+        {
+            JObject jobResult = JObject.Parse(strResultPOST);
+            trxbaru.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+            if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
+            {
+                Console.WriteLine("HIT SERVICE NASABAH SUKSES");
+                OnClick.InvokeAsync("bukarekeningberhasilkartu");
+            }
+            else
+            {
+                Console.WriteLine("HIT SERVICE NASABAH FAILED");
+            }
+        }
+    }
+
+    private async Task EDC(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        serialPort.Open();
+
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        do
+        {
+            await Task.Delay(150);
+
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            //Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                //Console.WriteLine("Data Current: " + dataCurrent);
+                //Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    switch (intBuffer)
+                    {
+                        case 69:
+                            //Console.WriteLine(strpin);
+                            if (strpin.Length == 6)
+                            {
+                                isPin = true;
+                                isLoop = false;
+                            }
+                            break;
+                        case 88:
+                            //Console.WriteLine(strpin);
+                            isCancel = true;
+                            isLoop = false;
+                            break;
+                        case 84:
+                            //Console.WriteLine(strpin);
+                            isCancel = true;
+                            isLoop = false;
+                            break;
+                        case 67:
+                            strpin = string.Empty;
+                            break;
+                        case 32:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "0";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 1:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "1";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 2:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "2";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 3:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "3";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 4:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "4";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 5:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "5";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 6:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "6";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 7:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "7";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 8:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "8";
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 9:
+                            if (strpin.Length < 7)
+                                strpin = strpin + "9";
+                            //Console.WriteLine(strpin);
+                            break;
+                    }
+                }
+                //Console.WriteLine("Data Split: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Console.WriteLine("EDC ACK");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    Console.WriteLine("EDC NAK");
+                }
+            }
+            StateHasChanged();
+
+        } while (isLoop);
+
+        Console.WriteLine("2");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+    }
+}

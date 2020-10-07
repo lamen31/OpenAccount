@@ -1,0 +1,52 @@
+20201006 14:04:20 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:12:40 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:12:49 Buka rekening condition : set pin ****** success
+20201006 14:12:49 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:15:31 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:18:11 Buka rekening condition : set pin ****** success
+20201006 14:18:11 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:18:54 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:19:01 Buka rekening condition : set pin ****** success
+20201006 14:19:01 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:19:28 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:19:49 Buka rekening condition : set pin ****** success
+20201006 14:19:49 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:20:24 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:20:31 Buka rekening condition : set pin ****** success
+20201006 14:20:31 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:21:34 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:21:41 Buka rekening condition : set pin ****** success
+20201006 14:21:41 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:23:41 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:23:46 Buka rekening condition : set pin ****** success
+20201006 14:23:46 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:25:10 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:25:54 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:26:06 Buka rekening condition : set pin ****** success
+20201006 14:26:06 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:26:29 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:26:40 Buka rekening condition : set pin ****** success
+20201006 14:26:40 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:29:05 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:29:11 Buka rekening condition : set pin ****** success
+20201006 14:29:11 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:30:08 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:30:10 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 14:30:17 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:30:22 Buka rekening condition : set pin ****** success
+20201006 14:30:22 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:34:02 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:34:09 Buka rekening condition : set pin ****** success
+20201006 14:34:09 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:35:05 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:35:13 Buka rekening condition : set pin ****** success
+20201006 14:35:13 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:40:57 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:41:03 Buka rekening condition : set pin ****** success
+20201006 14:41:03 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:41:09 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:43:51 Buka rekening condition : entered into buka rekening input pin atm
+20201006 14:43:58 Buka rekening condition : set pin ****** success
+20201006 14:43:58 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 14:44:12 Buka rekening condition : set nomor rekening success
+20201006 14:44:12 Buka rekening condition : entered into buka rekening menu e-banking

@@ -1,0 +1,116 @@
+20201006 13:01:59 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:02:07 Buka rekening condition : input pin atm pertama success
+20201006 13:02:07 Buka rekening condition : set pin ****** success
+20201006 13:02:25 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:04:44 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:04:51 Buka rekening condition : input pin atm pertama success
+20201006 13:04:51 Buka rekening condition : set pin ****** success
+20201006 13:04:56 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:06:01 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:06:10 Buka rekening condition : input pin atm pertama success
+20201006 13:06:10 Buka rekening condition : set pin ****** success
+20201006 13:06:21 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:06:58 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:07:05 Buka rekening condition : input pin atm pertama success
+20201006 13:07:05 Buka rekening condition : set pin ****** success
+20201006 13:07:25 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:17:03 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:17:09 Buka rekening condition : input pin atm pertama success
+20201006 13:17:09 Buka rekening condition : set pin ****** success
+20201006 13:17:12 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:17:45 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:17:50 Buka rekening condition : input pin atm pertama success
+20201006 13:17:50 Buka rekening condition : set pin ****** success
+20201006 13:17:53 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:18:14 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:18:23 Buka rekening condition : input pin atm pertama success
+20201006 13:18:23 Buka rekening condition : set pin ****** success
+20201006 13:18:40 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:19:14 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:19:20 Buka rekening condition : input pin atm pertama success
+20201006 13:19:20 Buka rekening condition : set pin ****** success
+20201006 13:19:23 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:19:52 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:20:02 Buka rekening condition : input pin atm pertama success
+20201006 13:20:02 Buka rekening condition : set pin ****** success
+20201006 13:20:06 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:20:32 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:20:38 Buka rekening condition : input pin atm pertama success
+20201006 13:20:38 Buka rekening condition : set pin ****** success
+20201006 13:20:44 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:21:41 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:21:47 Buka rekening condition : input pin atm pertama success
+20201006 13:21:48 Buka rekening condition : set pin ****** success
+20201006 13:21:50 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:22:24 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:22:33 Buka rekening condition : input pin atm pertama success
+20201006 13:22:33 Buka rekening condition : set pin ****** success
+20201006 13:22:40 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:23:36 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:23:49 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:23:55 Buka rekening condition : input pin atm pertama success
+20201006 13:23:55 Buka rekening condition : set pin ****** success
+20201006 13:23:57 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:24:52 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:24:59 Buka rekening condition : input pin atm pertama success
+20201006 13:24:59 Buka rekening condition : set pin ****** success
+20201006 13:25:04 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:26:53 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:27:34 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:27:40 Buka rekening condition : input pin atm pertama success
+20201006 13:27:40 Buka rekening condition : set pin ****** success
+20201006 13:28:11 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:28:34 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:28:41 Buka rekening condition : input pin atm pertama success
+20201006 13:28:41 Buka rekening condition : set pin ****** success
+20201006 13:29:00 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:33:24 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:33:38 Buka rekening condition : input pin atm pertama success
+20201006 13:33:38 Buka rekening condition : set pin ****** success
+20201006 13:34:04 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:34:11 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:34:36 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:34:41 Buka rekening condition : input pin atm pertama success
+20201006 13:34:41 Buka rekening condition : set pin ****** success
+20201006 13:34:41 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:38:59 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:39:07 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:39:13 Buka rekening condition : input pin atm kedua success
+20201006 13:39:13 Buka rekening condition : set nomor rekening success
+20201006 13:39:13 Buka rekening condition : entered into buka rekening menu e-banking
+20201006 13:40:36 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:40:45 Buka rekening condition : input pin atm pertama success
+20201006 13:40:45 Buka rekening condition : set pin ****** success
+20201006 13:40:45 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:41:22 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:41:27 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:41:31 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:41:37 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:41:46 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:41:50 Buka rekening condition : input pin atm pertama success
+20201006 13:41:50 Buka rekening condition : set pin ****** success
+20201006 13:41:50 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:43:37 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:44:02 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 13:44:12 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:44:19 Buka rekening condition : input pin atm pertama success
+20201006 13:44:19 Buka rekening condition : set pin ****** success
+20201006 13:44:19 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:45:58 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:46:07 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:46:16 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:46:22 Buka rekening condition : input pin atm pertama success
+20201006 13:46:22 Buka rekening condition : set pin ****** success
+20201006 13:46:22 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:46:58 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:47:04 Buka rekening condition : input pin atm pertama success
+20201006 13:47:04 Buka rekening condition : set pin ****** success
+20201006 13:47:04 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:47:59 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:48:17 Buka rekening condition : input pin atm pertama success
+20201006 13:48:17 Buka rekening condition : set pin ****** success
+20201006 13:48:17 Buka rekening condition : entered into buka rekening konfirmasi pin atm
+20201006 13:48:44 Buka rekening condition : entered into buka rekening input pin atm
+20201006 13:48:49 Buka rekening condition : input pin atm pertama success
+20201006 13:48:49 Buka rekening condition : set pin ****** success
+20201006 13:48:49 Buka rekening condition : entered into buka rekening konfirmasi pin atm

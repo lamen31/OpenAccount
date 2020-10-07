@@ -205,6 +205,16 @@
                     <BukaRekeningInputPinEBankingKeduaComponent OnClick="ClickHandler"></BukaRekeningInputPinEBankingKeduaComponent>
                     break;
                 }
+            case "bukarekeningsetoranawal":
+                {
+                    <BukaRekeningSetoranAwalComponent OnClick="ClickHandler"></BukaRekeningSetoranAwalComponent>
+                    break;
+                }
+            case "bukarekeningsetoranawaledc":
+                {
+                    <BukaRekeningSetoranAwalEDCComponent OnClick="ClickHandler"></BukaRekeningSetoranAwalEDCComponent>
+                    break;
+                }
             case "bukarekeningberhasilkartu":
                 {
                     <BukaRekeningBerhasilKartuComponent OnClick="ClickHandler"></BukaRekeningBerhasilKartuComponent>
@@ -311,7 +321,7 @@
 </div>
 
 @code{
-    private string message = "bukarekeningtandatangan";
+    private string message = string.Empty;
     private string language = "ID";
 
     void ClickHandler(string strmessage)

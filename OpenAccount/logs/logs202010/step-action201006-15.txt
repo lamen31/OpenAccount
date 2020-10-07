@@ -1,0 +1,17 @@
+20201006 15:11:21 Buka rekening condition : entered into buka rekening input pin e-banking
+20201006 15:11:31 Buka rekening condition : input pin e-banking pertama success
+20201006 15:11:31 Buka rekening condition : entered into buka rekening konfimasi pin e-banking
+20201006 15:12:30 Buka rekening condition : entered into buka rekening input pin e-banking
+20201006 15:13:21 Buka rekening condition : entered into buka rekening input pin e-banking
+20201006 15:13:28 Buka rekening condition : input pin e-banking pertama success
+20201006 15:13:28 Buka rekening condition : entered into buka rekening konfimasi pin e-banking
+20201006 15:14:48 Buka rekening condition : entered into buka rekening input pin e-banking
+20201006 15:14:58 Buka rekening condition : input pin e-banking pertama success
+20201006 15:14:58 Buka rekening condition : entered into buka rekening konfimasi pin e-banking
+20201006 15:16:20 Buka rekening condition : entered into buka rekening input pin e-banking
+20201006 15:16:25 Buka rekening condition : input pin e-banking pertama success
+20201006 15:16:25 Buka rekening condition : entered into buka rekening konfimasi pin e-banking
+20201006 15:16:42 Buka rekening condition : input pin e-banking kedua success
+20201006 15:16:42 Buka rekening condition : set reference id success
+20201006 15:16:42 Buka rekening condition : entered into buka rekening berhasil kartu
+20201006 15:16:46 Buka rekening condition : entered into buka rekening berhasil struk

@@ -528,8 +528,8 @@ namespace OpenAccount.Data
             string pathStatus;
             string strfilename = "step-action";
             string textStatus;
-            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_THERMAL);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
@@ -560,7 +560,8 @@ namespace OpenAccount.Data
             //RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
             RectangleF layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
 
-            string logo = config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
+            path = Directory.GetCurrentDirectory();
+            string logo = path + "\\wwwroot\\inputopenaccount" + config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
             SolidBrush blackBrush = new SolidBrush(Color.Black);
             Graphics g = e.Graphics;
             font = new Font("Arial", 10, FontStyle.Regular);

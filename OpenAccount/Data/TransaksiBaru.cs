@@ -7,6 +7,7 @@ namespace OpenAccount.Data
 {
     public class TransaksiBaru
     {
+        public string _TransaksiID { get; set; }
         public string _NIK { get; set; }
         public string _Nama { get; set; }
         public string _TTL { get; set; }
@@ -29,9 +30,17 @@ namespace OpenAccount.Data
         public string _AlamatKantor { get; set; }
         public string _NomorNPWP { get; set; }
         public string _PinATM1 { get; set; }
+        public string _PinATM2 { get; set; }
+        public string _PinEBanking1 { get; set; }
+        public string _PinEBanking2 { get; set; }
         public string _NomorRekening { get; set; }
         public string _MenuEBanking { get; set; }
         public string _ReferenceID { get; set; }
+
+        public void setTransaksiID(string strtransaksiid)
+        {
+            _TransaksiID = strtransaksiid;
+        }
 
         public void setKTPNasabah(string strnik, string strnama, string strttl, string strperkawinan, string stralamat, string stragama, string strpekerjaan)
         {
@@ -104,8 +113,14 @@ namespace OpenAccount.Data
             _PinATM1 = strpin;
         }
 
-        public void setRekening(string strrekening)
+        public void clearPinPertama()
         {
+            _PinATM1 = string.Empty;
+        }
+
+        public void setPinRekening(string strpin, string strrekening)
+        {
+            _PinATM2 = strpin;
             _NomorRekening = strrekening;
         }
 
@@ -114,7 +129,12 @@ namespace OpenAccount.Data
             _MenuEBanking = strmenu;
         }
 
-        public void setReference(string strreference)
+        public void setPinEBankingPertama(string strpin)
+        {
+            _PinEBanking1 = strpin;
+        }
+
+        public void setPinReference(string strpin, string strreference)
         {
             _ReferenceID = strreference;
         }

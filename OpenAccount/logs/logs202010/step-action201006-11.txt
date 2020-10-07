@@ -1,0 +1,23 @@
+20201006 11:00:08 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:00:46 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:03:45 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:08:14 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:10:30 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:17:37 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:17:44 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 11:17:55 Buka rekening condition : entered into buka rekening tanda tangan
+20201006 11:17:55 Signpad condition : sign pad process running
+20201006 11:17:57 Signpad condition : sign pad process close
+20201006 11:17:57 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201006 11:17:57 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi
+20201006 11:27:03 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:27:49 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 11:28:48 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:28:57 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 11:33:23 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:33:34 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 11:33:50 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:34:32 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 11:35:13 Buka rekening condition : entered into buka rekening input pin atm
+20201006 11:35:21 Buka rekening condition : entered into buka rekening tampil data tabungan
+20201006 11:48:21 Buka rekening condition : entered into buka rekening input data
