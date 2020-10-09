@@ -1,0 +1,4 @@
+20201009 12:17:15 Default : entered into home page
+20201009 12:17:30 Buku condition : entered into buku input card
+20201009 12:17:31 Buku condition : input card success
+20201009 12:17:31 Buku condition : entered into buku input pin

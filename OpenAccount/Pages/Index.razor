@@ -4,6 +4,7 @@
 @using OpenAccount.Component.HistoriTransaksi
 @using OpenAccount.Component.BukuTabungan
 @using OpenAccount.Component.BukaRekening
+@using OpenAccount.Component.GantiKartu
 
 <div class="wrapper">
     <div class="main-panel">
@@ -69,6 +70,11 @@
 
         @switch (message)
         {
+            case "gantikartu":
+                {
+                    <GantiKartuComponent OnClick="ClickHandler"></GantiKartuComponent>
+                    break;
+                }
             case "bukarekening":
                 {
                     <BukaRekeningComponent OnClick="ClickHandler"></BukaRekeningComponent>
@@ -206,7 +212,6 @@
                 }
             case "bukarekeninginputpinebankingkedua":
                 {
-
                     <BukaRekeningInputPinEBankingKeduaComponent OnClick="ClickHandler"></BukaRekeningInputPinEBankingKeduaComponent>
                     break;
                 }
@@ -331,7 +336,7 @@
 </div>
 
 @code{
-    private string message = string.Empty;
+    private string message = "gantikartu";
     private string language = "ID";
 
     void ClickHandler(string strmessage)

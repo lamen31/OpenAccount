@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/input-pin.png" class="img-fluid" alt="" style="margin-top: 5%;" @onclick="CancelEDC">
+                <img src="../assets/img/Enter-PIN.gif" class="img-fluid" alt="" style="margin-top: 5%;">
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
@@ -90,52 +90,52 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        //sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
-        //await EDC("14");
-        //if (!isCancel)
-        //{
-        //    if (strpin == "123456")
-        //    {
-        //        Console.WriteLine("INPUT PIN SUCCESS");
-        //        Utility.WriteLog("Histori condition : input pin success", "step-action");
-        //        for (int i = 0; i < Nasabah.Length; i++)
-        //        {
-        //            if (i == 0)
-        //                Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-        //            else if (i == 1)
-        //                Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-        //            else if (i == 2)
-        //                Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
-        //        }
-        //        Console.WriteLine("INPUT DATA SUCCESS");
-        //        Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-        //        trx.setArrayNasabah(Nasabah);
-        //        OnClick.InvokeAsync("historiPilih");
-        //    }
-        //    else
-        //    {
-        //        OnClick.InvokeAsync("blokirkartu");
-        //    }
-        //}
-        //else
-        //{
-        //    OnClick.InvokeAsync("home");
-        //}
-        Console.WriteLine("INPUT PIN SUCCESS");
-        Utility.WriteLog("Histori condition : input pin success", "step-action");
-        for (int i = 0; i < Nasabah.Length; i++)
+        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        await EDC("14");
+        if (!isCancel)
         {
-            if (i == 0)
-                Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-            else if (i == 1)
-                Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-            else if (i == 2)
-                Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+            if (strpin == "123456")
+            {
+                Console.WriteLine("INPUT PIN SUCCESS");
+                Utility.WriteLog("Histori condition : input pin success", "step-action");
+                for (int i = 0; i < Nasabah.Length; i++)
+                {
+                    if (i == 0)
+                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                    else if (i == 1)
+                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                    else if (i == 2)
+                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                }
+                Console.WriteLine("INPUT DATA SUCCESS");
+                Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                trx.setArrayNasabah(Nasabah);
+                OnClick.InvokeAsync("historiPilih");
+            }
+            else
+            {
+                OnClick.InvokeAsync("blokirkartu");
+            }
         }
-        Console.WriteLine("INPUT DATA SUCCESS");
-        Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-        trx.setArrayNasabah(Nasabah);
-        OnClick.InvokeAsync("historiPilih");
+        else
+        {
+            OnClick.InvokeAsync("home");
+        }
+        //Console.WriteLine("INPUT PIN SUCCESS");
+        //Utility.WriteLog("Histori condition : input pin success", "step-action");
+        //for (int i = 0; i < Nasabah.Length; i++)
+        //{
+        //    if (i == 0)
+        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+        //    else if (i == 1)
+        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+        //    else if (i == 2)
+        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+        //}
+        //Console.WriteLine("INPUT DATA SUCCESS");
+        //Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+        //trx.setArrayNasabah(Nasabah);
+        //OnClick.InvokeAsync("historiPilih");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
