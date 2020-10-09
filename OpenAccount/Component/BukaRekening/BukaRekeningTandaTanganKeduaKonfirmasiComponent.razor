@@ -1,8 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject IDScanner scanner
-
+@inject Utility utility
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -12,16 +11,19 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
-                <h3 style="color: #00529C;">Silakan klik Capture untuk memfoto <br><b>e-KTP</b> Anda</h3>
+                <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> sesuai e-KTP Anda pada bagian bawah mesin</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
+                <h5 style="color: #fd1f1f; font-style: italic;">*Tanda tangan anda akan tampil disini</h5>
+                <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
+                    <div class="text-center">
+                        <img class="card-img-top" src="../assets/signpad/imgsignpad2.png" style="width: 50%;" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hasil Tanda Tangan</h5>
+                    </div>
                 </div>
-                <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
-                <br>
-                <img src="../assets/img/ktp.png" class="img-fluid" alt="" style="margin-top: 5%; margin-bottom: 5%;"><br>
-                <button type="button" class="btn btn-primary" style="background-color: #F37024; font-weight: 100; padding: 8px 30px;" @onclick="CaptureBerhasil">Capture</button>
+                <h5 style="color: #00529C; margin-top: 5%;" @onclick="TandaTangan2">Ulangi Tanda Tangan?</h5>
             </div>
         </div>
     </div>
@@ -31,7 +33,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="KTP">Kembali</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="TandaTangan2">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -43,19 +45,19 @@
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>6</em>
                     <!-- <span>Done</span> -->
                 </li>
@@ -78,7 +80,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="DataTabungan">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -87,33 +89,13 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private string captureFile = "KTP";
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private async Task TandaTangan2()
     {
-        if (firstRender)
-        {
-            Console.WriteLine("ENTERED INTO BUKA REKENING CAPTURE KTP");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening capture ktp", "step-action");
-        }
+        OnClick.InvokeAsync("bukarekeningtandatangankedua");
     }
 
-    private async Task CaptureBerhasil()
+    private async Task DataTabungan()
     {
-        Console.WriteLine("ID SCANNER SCAN KTP");
-        Utility.WriteLog("Buka rekening condition : id scanner scan ktp", "step-action");
-        scanner.ScanKTP(captureFile);
-        OnClick.InvokeAsync("bukarekeningcapturektpberhasil");
-    }
-
-    private async Task KTP()
-    {
-        scanner.ReturnCard();
-        Console.WriteLine("ID SCANNER RETURN CARD");
-        Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
-        Console.WriteLine("ID SCANNER CLOSE READER");
-        Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
-        OnClick.InvokeAsync("bukarekeningktp");
+        OnClick.InvokeAsync("bukarekeningdatatabungan");
     }
 }

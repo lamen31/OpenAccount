@@ -1,0 +1,7 @@
+20201009 00:10:29 Buka rekening condition : entered into buka rekening input nomor npwp
+20201009 00:10:47 Buka rekening condition : entered into buka rekening input nomor npwp skipped
+20201009 00:10:47 Buka rekening condition : entered into buka rekening tanda tangan
+20201009 00:10:47 Signpad condition : sign pad process running
+20201009 00:10:49 Signpad condition : sign pad process close
+20201009 00:10:49 Buka rekening condition : file from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\wwwroot\\assets\\signpad\\imgsignpad.png has deleted
+20201009 00:10:49 Buka rekening condition : entered into buka rekening tanda tangan konfirmasi

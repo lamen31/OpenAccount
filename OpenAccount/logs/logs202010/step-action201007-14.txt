@@ -1,0 +1,50 @@
+20201007 14:18:39 Default : entered into home page
+20201007 14:19:52 Default : entered into home page
+20201007 14:19:54 Buku condition : entered into buku input card
+20201007 14:19:55 Buku condition : input card success
+20201007 14:19:55 Buku condition : entered into buku input pin
+20201007 14:20:13 Default : entered into home page
+20201007 14:20:15 Histori condition : entered into histori input card
+20201007 14:20:16 Histori condition : input card success
+20201007 14:20:16 Histori condition : entered into histori input pin
+20201007 14:20:49 Default : entered into home page
+20201007 14:20:50 Buku condition : entered into buku input card
+20201007 14:20:51 Buku condition : input card success
+20201007 14:20:52 Buku condition : entered into buku input pin
+20201007 14:21:49 Default : entered into home page
+20201007 14:21:50 Buku condition : entered into buku input card
+20201007 14:21:51 Buku condition : input card success
+20201007 14:21:51 Buku condition : entered into buku input pin
+20201007 14:24:59 Default : entered into home page
+20201007 14:25:26 Default : entered into home page
+20201007 14:25:40 Buku condition : entered into buku input card
+20201007 14:25:41 Buku condition : input card success
+20201007 14:25:41 Buku condition : entered into buku input pin
+20201007 14:26:48 Default : entered into home page
+20201007 14:26:51 Buku condition : entered into buku input card
+20201007 14:26:52 Buku condition : input card success
+20201007 14:26:52 Buku condition : entered into buku input pin
+20201007 14:27:39 Default : entered into home page
+20201007 14:27:44 Buku condition : entered into buku input card
+20201007 14:27:45 Buku condition : input card success
+20201007 14:27:45 Buku condition : entered into buku input pin
+20201007 14:30:18 Default : entered into home page
+20201007 14:30:23 Buku condition : entered into buku input card
+20201007 14:30:24 Buku condition : input card success
+20201007 14:30:24 Buku condition : entered into buku input pin
+20201007 14:31:23 Default : entered into home page
+20201007 14:31:25 Buku condition : entered into buku input card
+20201007 14:31:26 Buku condition : input card success
+20201007 14:31:26 Buku condition : entered into buku input pin
+20201007 14:32:25 Default : entered into home page
+20201007 14:32:27 Buku condition : entered into buku input card
+20201007 14:32:28 Buku condition : input card success
+20201007 14:32:28 Buku condition : entered into buku input pin
+20201007 14:39:36 Default : entered into home page
+20201007 14:39:37 Buku condition : entered into buku input card
+20201007 14:39:38 Buku condition : input card success
+20201007 14:39:38 Buku condition : entered into buku input pin
+20201007 14:40:59 Default : entered into home page
+20201007 14:41:01 Buku condition : entered into buku input card
+20201007 14:41:02 Buku condition : input card success
+20201007 14:41:02 Buku condition : entered into buku input pin

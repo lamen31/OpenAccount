@@ -52,8 +52,24 @@
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="done">
+                    <em>7</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="done">
+                    <em>8</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="done">
+                    <em>9</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>10</em>
                     <!-- <span>Done</span> -->
                 </li>
             </ol>
@@ -87,6 +103,7 @@
     private string desa = "tesDesa";
     private string rtrw = "tesRTRW";
     private string tujuanRekening = "tesTujuanRekening";
+    private string kodePos = "tesKodePos";
 
     protected override async Task OnInitializedAsync()
     {
@@ -117,19 +134,19 @@
             "\"alamatKantor\":\"" + trxbaru._AlamatKantor + "\"," +
             "\"bidangUsaha\":\"" + trxbaru._UsahaKantor + "\"," +
             "\"email\":\"" + trxbaru._Email + "\"," +
-            "\"imageEktp\":\"" + imageKTP + "\"," +
-            "\"imageNpwp\":\"" + imageNPWP + "\"," +
-            "\"imageTtd1\":\"" + imageTTD1 + "\"," +
-            "\"imageTtd2\":\"" + imageTTD2 + "\"," +
-            "\"imageWajah\":\"" + imageTTD2 + "\"," +
+            "\"imageEktp\":\"" + trxbaru._ImageKTP + "\"," +
+            "\"imageNpwp\":\"" + trxbaru._ImageKTP + "\"," +
+            "\"imageTtd1\":\"" + trxbaru._ImageTTD1 + "\"," +
+            "\"imageTtd2\":\"" + trxbaru._ImageTTD2 + "\"," +
+            "\"imageWajah\":\"" + imageWajah + "\"," +
             "\"jabatan\":\"" + trxbaru._Jabatan + "\"," +
             "\"jenisEbanking\":\"" + trxbaru._MenuEBanking + "\"," +
             "\"jenisKartu\":\"" + trxbaru._ModelKartu + "\"," +
             "\"jenisKelamin\":\"" + kelamin + "\"," +
-            "\"jenisTabungan\":\"" + jenisTabungan + "\"," +
+            "\"jenisTabungan\":\"" + trxbaru._JenisTabungan + "\"," +
             "\"kecamatan\":\"" + kecamatan + "\"," +
             "\"kelDesa\":\"" + desa + "\"," +
-            "\"kodepos\":\"" + trxbaru._KodePos + "\"," +
+            "\"kodepos\":\"" + kodePos + "\"," +
             "\"kotaKantor\":\"" + trxbaru._Kota + "\"," +
             "\"namaIbu\":\"" + trxbaru._NamaIbu + "\"," +
             "\"namaLengkap\":\"" + trxbaru._Nama + "\"," +
@@ -145,7 +162,7 @@
             "\"statusPerkawinan\":\"" + trxbaru._PerkawinanKTP + "\"," +
             "\"ttl\":\"" + trxbaru._TTL + "\"," +
             "\"telpKantor\":\"" + trxbaru._TeleponKantor + "\"," +
-            "\"tujuanRekening\":\"" + tujuanRekening + "\"" +
+            "\"tujuanRekening\":\"" + trxbaru._TujuanRekening + "\"" +
             "}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
         string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_NASABAH);
@@ -156,6 +173,7 @@
             trxbaru.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
             if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
             {
+                trxbaru.setNomorRekening((string)jobResult.SelectToken("noRekening"));
                 Console.WriteLine("HIT SERVICE NASABAH SUKSES");
                 OnClick.InvokeAsync("bukarekeningberhasilkartu");
             }

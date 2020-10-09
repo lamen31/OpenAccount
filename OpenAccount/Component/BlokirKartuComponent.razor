@@ -1,10 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Components
-@using OpenAccount.Data
-
-@inject Utility utility
-@inject Config config
-@inject CardDispenser dispenser
-@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -13,12 +7,16 @@
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <teks style="color: black;">Buka Rekening <b style="color: #46DA00;">Berhasil</b></teks>
-                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">“Silakan ambil Kartu Debit Anda <br> pada bagian bawah mesin”</h3>
+                    <teks style="color: #FF0000; font-weight: 900;">Mohon Maaf,</teks>
+                    <h3 style="margin-top: 5%; font-size: 25px; font-weight: 600; line-height: 40px;">
+                        Nomor PIN yang Anda Masukkan Salah <br>
+                        Untuk Keamanan, Kartu Anda Kami Blokir
+                    </h3>
+                    <h3 style="color: #00529C; margin-top: 10%; font-size: 25px; line-height: 40px;">"Harap menghubungi <b>Customer Service</b><br> untuk info lebih lanjut"</h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <h3 style="color: #00529C;">ANIMASI AMBIL KARTU</h3>
+                <img src="../assets/img/KartuTerblokir.png" class="img-fluid" alt="" style="margin-top: 5%;">
             </div>
         </div>
     </div>
@@ -56,22 +54,6 @@
                     <em>6</em>
                     <!-- <span>Done</span> -->
                 </li>
-                <li class="done">
-                    <em>7</em>
-                    <!-- <span>Done</span> -->
-                </li>
-                <li class="done">
-                    <em>8</em>
-                    <!-- <span>Done</span> -->
-                </li>
-                <li class="done">
-                    <em>9</em>
-                    <!-- <span>Done</span> -->
-                </li>
-                <li class="done">
-                    <em>10</em>
-                    <!-- <span>Done</span> -->
-                </li>
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
@@ -84,34 +66,9 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private string dispenserPort = string.Empty;
-    private string dispenserBox = string.Empty;
-    private string modelKartu = string.Empty;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Console.WriteLine("ENTERED INTO BUKA REKENING BERHASIL KARTU");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening berhasil kartu", "step-action");
-        }
-    }
-
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(1000);
-        dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
-        CardDispenser.baudRate = 115200;
-        string ErrorCode = string.Empty;
-        string message = string.Empty;
-        modelKartu = trxbaru._ModelKartu;
-        if (modelKartu == "Britama 1")
-        {
-            dispenserBox = "1";
-        }
-        else if (modelKartu == "Britama 2")
-            dispenserBox = "2";
-        dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
-        OnClick.InvokeAsync("bukarekeningberhasilstruk");
+        await Task.Delay(3000);
+        OnClick.InvokeAsync("home");
     }
 }

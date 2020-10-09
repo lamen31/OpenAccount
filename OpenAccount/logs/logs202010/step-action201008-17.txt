@@ -1,0 +1,8 @@
+20201008 17:31:12 Default : entered into home page
+20201008 17:31:13 Buka rekening condition : entered into buka rekening jenis tujuan
+20201008 17:43:59 Default : entered into home page
+20201008 17:44:00 Buka rekening condition : entered into buka rekening jenis tujuan
+20201008 17:44:04 Default : entered into home page
+20201008 17:44:06 Buku condition : entered into buku input card
+20201008 17:44:07 Buku condition : input card success
+20201008 17:44:07 Buku condition : entered into buku input pin

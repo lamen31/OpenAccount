@@ -1,0 +1,14 @@
+20201008 23:12:57 Buka rekening condition : entered into buka rekening input data
+20201008 23:13:17 Buka rekening condition : entered into buka rekening input data success
+20201008 23:13:17 Buka rekening condition : entered into buka rekening input nomor npwp
+20201008 23:19:40 Buka rekening condition : entered into buka rekening input data 2
+20201008 23:21:00 Buka rekening condition : entered into buka rekening input data
+20201008 23:33:46 Buka rekening condition : entered into buka rekening input data
+20201008 23:34:10 Buka rekening condition : entered into buka rekening input data success
+20201008 23:34:10 Buka rekening condition : entered into buka rekening input data 2
+20201008 23:34:45 Buka rekening condition : entered into buka rekening input data success
+20201008 23:34:45 Buka rekening condition : entered into buka rekening input nomor npwp
+20201008 23:40:15 Buka rekening condition : entered into buka rekening input nomor npwp
+20201008 23:43:32 Buka rekening condition : entered into buka rekening input nomor npwp
+20201008 23:43:54 Buka rekening condition : entered into buka rekening input nomor npwp success
+20201008 23:43:54 Buka rekening condition : entered into buka rekening capture npwp

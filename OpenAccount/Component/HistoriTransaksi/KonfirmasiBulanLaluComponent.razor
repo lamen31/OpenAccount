@@ -22,7 +22,7 @@
                     <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @jumlahtransaksi Histori Transaksi pada</h3><br>
                     <p>
                         <h3 style="color: #00529C;"><b>@jenisperiode</b></h3>
-                        <h3 style="color: #F15A23;"><b>@startdate - @enddate</b></h3>
+                        <h3 style="color: #F15A23;"><b>@startdate s/d @enddate</b></h3>
                     </p>
                 </div>
             </div>
@@ -118,8 +118,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1).ToString("yyyy/MM/dd");
-        enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).ToString("yyyy/MM/dd");
+        startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1).ToString("yyyy-MM-dd");
+        enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).ToString("yyyy-MM-dd");
         hourdate = DateTime.Now.ToString("HH:mm:ss");
         //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
 
@@ -164,14 +164,17 @@
     private async Task ServiceHistori()
     {
         trx.clearListHistori();
-        string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
+        string myJson = "{" +
+            "\"noRekening\":\"" + trx._Nasabah[1] + "\"," +
+            "\"tanggalAwal\":\"" + startdate + "\"," +
+            "\"tanggalAkhir\":\"" + enddate + "\"" +
+            "}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
-        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_HISTORI);
-        trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
-        string strResultGET = await services.GetCallAPI(myUrl, myJson);
-        if (strResultGET != null)
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_POST_HISTORI);
+        string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+        if (strResult != null)
         {
-            JObject jobResult = JObject.Parse(strResultGET);
+            JObject jobResult = JObject.Parse(strResult);
             trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
 
             if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")

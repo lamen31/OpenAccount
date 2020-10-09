@@ -67,7 +67,7 @@
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
@@ -81,6 +81,22 @@
                 </li>
                 <li class="todo">
                     <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>7</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>8</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>9</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>10</em>
                     <!-- <span>Done</span> -->
                 </li>
             </ol>
@@ -108,19 +124,22 @@
 
     private void Field1()
     {
-        modelKartu = "1";
+        modelKartu = "Britama 1";
+        trxbaru.setModelKartu(modelKartu);
         Syarat();
     }
 
     private void Field2()
     {
-        modelKartu = "2";
+        modelKartu = "Britama 2";
+        trxbaru.setModelKartu(modelKartu);
         Syarat();
     }
 
     private async Task Syarat()
     {
-        trxbaru.setModelKartu(modelKartu);
+        Console.WriteLine("SET MODEL KARTU SUCCESS");
+        Utility.WriteLog("Buka rekening condition : set model kartu success", "step-action");
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 

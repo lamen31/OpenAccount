@@ -67,12 +67,28 @@
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="done">
+                    <em>7</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>8</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>9</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>10</em>
                     <!-- <span>Done</span> -->
                 </li>
             </ol>
@@ -96,6 +112,7 @@
     private bool isSesuai = false;
     private bool isNotCorrect = false;
     private bool isPin = false;
+    private bool isNotPin = false;
     private SerialPort serialPort = new SerialPort();
 
     private int tryLimit = 3;
@@ -116,10 +133,14 @@
             {
                 Console.WriteLine("INPUT PIN ATM KEDUA SUCCESS");
                 Utility.WriteLog("Buka rekening condition : input pin atm kedua success", "step-action");
-                trxbaru.setPinRekening(strpinNomor, rekening);
+                trxbaru.setPinRekening(strpinNomor);
                 Console.WriteLine("SET NOMOR REKENING SUCCESS");
                 Utility.WriteLog("Buka rekening condition : set nomor rekening success", "step-action");
                 OnClick.InvokeAsync("bukarekeningmenuebanking");
+            }
+            else if (isNotPin)
+            {
+                OnClick.InvokeAsync("bukarekeninginputpinatm");
             }
         }
     }
@@ -194,6 +215,10 @@
                                 {
                                     isPin = true;
                                     isLoop = false;
+                                }
+                                else if (isNotCorrect)
+                                {
+                                    isNotPin = true;
                                 }
                             }
                             break;
@@ -453,7 +478,7 @@
         Utility.WriteLog("Buka rekening condition : input pin atm kedua success", "step-action");
         isLoop = false;
         serialPort.Close();
-        trxbaru.setPinRekening(strpin, rekening);
+        trxbaru.setPinRekening(strpin);
         Console.WriteLine("SET NOMOR REKENING SUCCESS");
         Utility.WriteLog("Buka rekening condition : set nomor rekening success", "step-action");
         await CancelEDC("15");

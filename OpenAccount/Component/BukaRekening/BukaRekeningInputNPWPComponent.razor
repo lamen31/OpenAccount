@@ -21,7 +21,7 @@
                         <label style="font-weight: 600; font-size: 18px;">Nomor NPWP</label>
                         @if (strnpwp == string.Empty)
                         {
-                            <input type="text" class="form-control" style="width: 145%;" placeholder="0123456789">
+                            <input type="text" class="form-control" style="width: 145%;" placeholder="Masukan Nomor NPWP Anda">
                         }
                         else
                         {
@@ -72,15 +72,15 @@
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>6</em>
                     <!-- <span>Done</span> -->
                 </li>
@@ -110,6 +110,26 @@
     private void InputCharData(string strinput)
     {
         strnpwp += strinput;
+        if (strnpwp.Length == 2)
+        {
+            strnpwp += ".";
+        }
+        if (strnpwp.Length == 6)
+        {
+            strnpwp += ".";
+        }
+        if (strnpwp.Length == 10)
+        {
+            strnpwp += ".";
+        }
+        if (strnpwp.Length == 12)
+        {
+            strnpwp += "-";
+        }
+        if (strnpwp.Length == 16)
+        {
+            strnpwp += ".";
+        }
     }
 
     private void RemoveCharData()
@@ -126,7 +146,7 @@
 
     private async Task CaptureNPWP()
     {
-        if (strnpwp != string.Empty)
+        if (strnpwp.Length == 20)
         {
             trxbaru.setNomorNPWP(strnpwp);
             Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SUCCESS");

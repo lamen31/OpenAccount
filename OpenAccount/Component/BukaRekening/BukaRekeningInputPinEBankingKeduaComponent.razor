@@ -67,12 +67,28 @@
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="done">
+                    <em>7</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="done">
+                    <em>8</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>9</em>
+                    <!-- <span>Done</span> -->
+                </li>
+                <li class="todo">
+                    <em>10</em>
                     <!-- <span>Done</span> -->
                 </li>
             </ol>
@@ -96,6 +112,7 @@
     private bool isSesuai = false;
     private bool isNotCorrect = false;
     private bool isPin = false;
+    private bool isNotPin = false;
     private SerialPort serialPort = new SerialPort();
 
     protected override async Task OnInitializedAsync()
@@ -119,10 +136,14 @@
             {
                 Console.WriteLine("INPUT PIN E-BANKING KEDUA SUCCESS");
                 Utility.WriteLog("Buka rekening condition : input pin e-banking kedua success", "step-action");
-                trxbaru.setPinReference(strpinNomor, reference);
+                trxbaru.setPinEBanking(strpinNomor, reference);
                 Console.WriteLine("SET REFERENCE ID SUCCESS");
                 Utility.WriteLog("Buka rekening condition : set reference id success", "step-action");
                 OnClick.InvokeAsync("bukarekeningsetoranawal");
+            }
+            else if (isNotPin)
+            {
+                OnClick.InvokeAsync("bukarekeninginputpinebanking");
             }
         }
     }
@@ -197,6 +218,10 @@
                                 {
                                     isPin = true;
                                     isLoop = false;
+                                }
+                                else if (isNotCorrect)
+                                {
+                                    isNotPin = true;
                                 }
                             }
                             break;
@@ -454,7 +479,7 @@
     {
         Console.WriteLine("INPUT PIN E-BANKING KEDUA SUCCESS");
         Utility.WriteLog("Buka rekening condition : input pin e-banking kedua success", "step-action");
-        trxbaru.setPinReference(strpin, reference);
+        trxbaru.setPinEBanking(strpin, reference);
         Console.WriteLine("SET REFERENCE ID SUCCESS");
         Utility.WriteLog("Buka rekening condition : set reference id success", "step-action");
         OnClick.InvokeAsync("bukarekeningberhasilkartu");

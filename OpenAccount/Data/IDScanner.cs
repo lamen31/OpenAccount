@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Components;
 using System.IO;
+using System.Drawing;
+using System.Transactions;
 
 namespace OpenAccount.Data
 {
@@ -22,6 +24,7 @@ namespace OpenAccount.Data
         private int overTime;
         NavigationManager navman;
         private TimeSpan span;
+        TransaksiBaru trxbaru = new TransaksiBaru();
         Config config = new Config();
         byte[] status;
 
@@ -203,6 +206,7 @@ namespace OpenAccount.Data
         }
         public void ScanKTP(string strfile)
         {
+            string strBase64 = string.Empty;
             string directori = Directory.GetCurrentDirectory();
             string pathsaveimage = config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESCANNER);
             string strImageUpFile = string.Empty;
@@ -217,7 +221,7 @@ namespace OpenAccount.Data
                 strImageUpFile = pathsaveimage + "KTP_UP.BMP";
                 strImageBotFile = pathsaveimage + "KTP_BOT.BMP";
             }
-            else if(strfile== "NPWP")
+            else if(strfile == "NPWP")
             {
                 strImageUpFile = pathsaveimage + "NPWP_UP.BMP";
                 strImageBotFile = pathsaveimage + "NPWP_BOT.BMP";
@@ -244,7 +248,34 @@ namespace OpenAccount.Data
             }
             idCardInfo.frontPictureBase64 = ImageHelper.GetBase64FromImage(strImageUpFile);
             idCardInfo.backPictureBase64 = ImageHelper.GetBase64FromImage(strImageBotFile);
+            if(strfile == "KTP")
+            {
+                strBase64 = convertToBase64(strImageUpFile);
+                trxbaru.setImageKTP(strBase64);
+            }
+            else if(strfile == "NPWP")
+            {
+                strBase64 = convertToBase64(strImageUpFile);
+                trxbaru.setImageNPWP(strBase64);
+            }
         }
+
+        private string convertToBase64(string strpath)
+        {
+            string base64String = string.Empty;
+            var path = strpath;
+            using(Image image = Image.FromFile(path))
+            {
+                using(MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+                    base64String = Convert.ToBase64String(imageBytes);
+                }
+            }
+            return base64String;
+        }
+
         public void DeleteScan(string strfile)
         {
             string directori = Directory.GetCurrentDirectory();

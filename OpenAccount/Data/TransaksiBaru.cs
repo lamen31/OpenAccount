@@ -8,6 +8,7 @@ namespace OpenAccount.Data
     public class TransaksiBaru
     {
         public string _TransaksiID { get; set; }
+        public string _TujuanRekening { get; set; }
         public string _NIK { get; set; }
         public string _Nama { get; set; }
         public string _TTL { get; set; }
@@ -15,6 +16,8 @@ namespace OpenAccount.Data
         public string _AlamatKTP { get; set; }
         public string _AgamaKTP { get; set; }
         public string _PekerjaanKTP { get; set; }
+        public string _ImageKTP { get; set; }
+        public string _JenisTabungan { get; set; }
         public string _ModelKartu { get; set; }
         public string _NamaIbu { get; set; }
         public string _Handphone { get; set; }
@@ -29,6 +32,9 @@ namespace OpenAccount.Data
         public string _Kota { get; set; }
         public string _AlamatKantor { get; set; }
         public string _NomorNPWP { get; set; }
+        public string _ImageNPWP { get; set; }
+        public string _ImageTTD1 { get; set; }
+        public string _ImageTTD2 { get; set; }
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _PinEBanking1 { get; set; }
@@ -42,6 +48,11 @@ namespace OpenAccount.Data
             _TransaksiID = strtransaksiid;
         }
 
+        public void setTujuanRekening(string strtujuan)
+        {
+            _TujuanRekening = strtujuan;
+        }
+
         public void setKTPNasabah(string strnik, string strnama, string strttl, string strperkawinan, string stralamat, string stragama, string strpekerjaan)
         {
             _NIK = strnik;
@@ -53,17 +64,26 @@ namespace OpenAccount.Data
             _PekerjaanKTP = strpekerjaan;
         }
 
+        public void setImageKTP(string strimage)
+        {
+            _ImageKTP = strimage;
+        }
+
+        public void setJenisTabungan(string strjenis)
+        {
+            _JenisTabungan = strjenis;
+        }
+
         public void setModelKartu(string strmodel)
         {
             _ModelKartu = strmodel;
         }
 
-        public void setNasabahBaru(string strnamaibu, string strhandphone, string stremail, string strpos, string strpekerjaan, string strpenghasilan)
+        public void setNasabahBaru(string strnamaibu, string strhandphone, string stremail, string strpekerjaan, string strpenghasilan)
         {
             _NamaIbu = strnamaibu;
             _Handphone = strhandphone;
             _Email = stremail;
-            _KodePos = strpos;
             _PekerjaanData = strpekerjaan;
             _Penghasilan = strpenghasilan;
         }
@@ -73,9 +93,23 @@ namespace OpenAccount.Data
             _NamaIbu = string.Empty;
             _Handphone = string.Empty;
             _Email = string.Empty;
-            _KodePos = string.Empty;
             _PekerjaanData = string.Empty;
             _Penghasilan = string.Empty;
+        }
+
+        public void setNasabahBaru3(string strnamaibu, string strhandphone, string stremail, string strpekerjaan, string strpenghasilan, string strperusahaan, string strusaha, string strtelepon, string strjabatan, string strkota, string stralamat)
+        {
+            _NamaIbu = strnamaibu;
+            _Handphone = strhandphone;
+            _Email = stremail;
+            _PekerjaanData = strpekerjaan;
+            _Penghasilan = strpenghasilan;
+            _NamaPerusahaan = strperusahaan;
+            _UsahaKantor = strusaha;
+            _TeleponKantor = strtelepon;
+            _Jabatan = strjabatan;
+            _Kota = strkota;
+            _AlamatKantor = stralamat;
         }
 
         public void setNasabahBaru2(string strperusahaan, string strusaha, string strtelepon, string strjabatan, string strkota, string stralamat)
@@ -108,6 +142,21 @@ namespace OpenAccount.Data
             _NomorNPWP = string.Empty;
         }
 
+        public void setImageNPWP(string strimage)
+        {
+            _ImageNPWP = strimage;
+        }
+
+        public void setImageTTD1 (string strimage)
+        {
+            _ImageTTD1 = strimage;
+        }
+
+        public void setImageTTD2(string strimage)
+        {
+            _ImageTTD2 = strimage;
+        }
+
         public void setPinPertama(string strpin)
         {
             _PinATM1 = strpin;
@@ -118,10 +167,9 @@ namespace OpenAccount.Data
             _PinATM1 = string.Empty;
         }
 
-        public void setPinRekening(string strpin, string strrekening)
+        public void setPinRekening(string strpin)
         {
             _PinATM2 = strpin;
-            _NomorRekening = strrekening;
         }
 
         public void setEBanking(string strmenu)
@@ -134,9 +182,15 @@ namespace OpenAccount.Data
             _PinEBanking1 = strpin;
         }
 
-        public void setPinReference(string strpin, string strreference)
+        public void setPinEBanking(string strpin, string strreference)
         {
+            _PinEBanking2 = strpin;
             _ReferenceID = strreference;
+        }
+
+        public void setNomorRekening(string strnorek)
+        {
+            _NomorRekening = strnorek;
         }
 
         public void clear()
