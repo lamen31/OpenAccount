@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LearnImg>
+	<Project Name="default" Switch="on">
+		<Element>
+			<Path>data/hk_macao_pass.bmp</Path>
+			<XPos>30</XPos>
+			<YPos>538</YPos>
+			<Width>916</Width>
+			<Height>88</Height>
+			<Regular><![CDATA[^[A-Z][0-9A-Z]+[<]+[0-9]+<[0-9]+<[0-9]+]]></Regular> <!-- ^[A-Z][0-9A-Z]+[<]+[0-9]+<[0-9]+<[0-9]+-->
+		</Element>
+		
+		<Element>
+			<Path>data/returnhome.bmp</Path>
+			<XPos>30</XPos>
+			<YPos>430</YPos>
+			<Width>900</Width>
+			<Height>160</Height>
+			<Regular><![CDATA[]]></Regular>
+		</Element>
+	</Project>
+	
+	<!-- 南美身份证ocr识别项目 -->
+	<Project Name="SouthAmerica" Switch="on">
+		<Element>
+			<Path>data/south_america_chile.bmp</Path>
+			<XPos>24</XPos>
+			<YPos>424</YPos>
+			<Width>900</Width>
+			<Height>171</Height>
+			<Regular><![CDATA[]]></Regular>
+		</Element>
+	</Project>
+</LearnImg>

@@ -18,7 +18,21 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <div id="keyboard"></div>
+                <div id="keyboard">
+                    <container>
+                        <button class="block" value="1" @onclick="@(() => InputCharData("1"))">1</button>
+                        <button class="block" value="2" @onclick="@(() => InputCharData("2"))">2</button>
+                        <button class="block" value="3" @onclick="@(() => InputCharData("3"))">3</button>
+                        <button class="block" value="4" @onclick="@(() => InputCharData("4"))">4</button>
+                        <button class="block" value="5" @onclick="@(() => InputCharData("5"))">5</button>
+                        <button class="block" value="6" @onclick="@(() => InputCharData("6"))">6</button>
+                        <button class="block" value="7" @onclick="@(() => InputCharData("7"))">7</button>
+                        <button class="block" value="8" @onclick="@(() => InputCharData("8"))">8</button>
+                        <button class="block" value="9" @onclick="@(() => InputCharData("9"))">9</button>
+                        <button class="block" h2="" value="Hapus" @onclick="RemoveCharData">Delete</button>
+                        <button class="block" ck value="0" id="myBtnUndefine" @onclick="@(() => InputCharData("0"))">0</button>
+                    </container>
+                </div>
             </div>
         </div>
     </div>
@@ -67,4 +81,37 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private string strnorek
+
+    private void InputCharData(string strinput)
+    {
+        strnpwp += strinput;
+        if (strnpwp.Length == 2)
+        {
+            strnpwp += ".";
+        }
+        if (strnpwp.Length == 6)
+        {
+            strnpwp += ".";
+        }
+        if (strnpwp.Length == 10)
+        {
+            strnpwp += ".";
+        }
+        if (strnpwp.Length == 12)
+        {
+            strnpwp += "-";
+        }
+        if (strnpwp.Length == 16)
+        {
+            strnpwp += ".";
+        }
+    }
+
+    private void RemoveCharData()
+    {
+        if (strnpwp.Length > 0)
+            strnpwp = strnpwp.Substring(0, strnpwp.Length - 1);
+    }
 }
