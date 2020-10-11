@@ -83,6 +83,17 @@
                 }
             case "gantipininputpinbaru":
                 {
+                    <GantiPinInputPinBaruComponent OnClick="ClickHandler"></GantiPinInputPinBaruComponent>
+                    break;
+                }
+            case "gantipininputpinkonfirmasi":
+                {
+                    <GantiPinInputPinKonfirmasiComponent OnClick="ClickHandler"></GantiPinInputPinKonfirmasiComponent>
+                    break;
+                }
+            case "gantipinsukses":
+                {
+                    <GantiPinSuksesComponent OnClick="ClickHandler"></GantiPinSuksesComponent>
                     break;
                 }
             case "gantikartu":
@@ -386,7 +397,7 @@
 </div>
 
 @code{
-    private string message = "gantipin";
+    private string message = "gantipinsukses";
     private string language = "ID";
 
     void ClickHandler(string strmessage)
