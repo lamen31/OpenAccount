@@ -42,7 +42,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Kembali</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
@@ -66,14 +66,10 @@
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
-                    <em>6</em>
-                    <!-- <span>Done</span> -->
-                </li>
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;">Lanjut</button>
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="KTP">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -82,36 +78,26 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private string strnorek
+    private string strnorek = string.Empty;
 
     private void InputCharData(string strinput)
     {
-        strnpwp += strinput;
-        if (strnpwp.Length == 2)
-        {
-            strnpwp += ".";
-        }
-        if (strnpwp.Length == 6)
-        {
-            strnpwp += ".";
-        }
-        if (strnpwp.Length == 10)
-        {
-            strnpwp += ".";
-        }
-        if (strnpwp.Length == 12)
-        {
-            strnpwp += "-";
-        }
-        if (strnpwp.Length == 16)
-        {
-            strnpwp += ".";
-        }
+        strnorek += strinput;
     }
 
     private void RemoveCharData()
     {
-        if (strnpwp.Length > 0)
-            strnpwp = strnpwp.Substring(0, strnpwp.Length - 1);
+        if (strnorek.Length > 0)
+            strnorek = strnorek.Substring(0, strnorek.Length - 1);
+    }
+
+    private async Task Home()
+    {
+        OnClick.InvokeAsync("home");
+    }
+
+    private async Task KTP()
+    {
+        OnClick.InvokeAsync("gantikartupindaiktp");
     }
 }

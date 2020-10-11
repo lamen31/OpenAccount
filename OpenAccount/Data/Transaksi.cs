@@ -34,6 +34,13 @@ namespace OpenAccount.Data
         public string[] _ThermalKode { get; set; }
         public string _ThermalSaldo { get; set; }
         public string _TransaksiID { get; set; }
+        public string _KTPNIK { get; set; }
+        public string _KTPNama { get; set; }
+        public string _KTPTTL { get; set; }
+        public string _KTPPerkawinan { get; set; }
+        public string _KTPAlamat { get; set; }
+        public string _KTPAgama { get; set; }
+        public string _KTPPekerjaan { get; set; }
 
         public class HistoriTransaksi
         {
@@ -203,6 +210,17 @@ namespace OpenAccount.Data
             _BukuHalaman = strhalaman;
         }
 
+        public void setKTP(string strnik, string strnama, string strttl, string strperkawinan, string stralamat, string stragama, string strpekerjaan)
+        {
+            _KTPNIK = strnik;
+            _KTPNama = strnama;
+            _KTPTTL = strttl;
+            _KTPPerkawinan = strperkawinan;
+            _KTPAlamat = stralamat;
+            _KTPAgama = stragama;
+            _KTPPekerjaan = strpekerjaan;
+        }
+
         public void clear()
         {
             _HistoriJenisPeriode = string.Empty;
@@ -216,7 +234,16 @@ namespace OpenAccount.Data
             _BukuHalaman = string.Empty;
             _BukuDate = string.Empty;
             _BukuSaldo = string.Empty;
+            _KTPAgama = string.Empty;
+            _KTPAlamat = string.Empty;
+            _KTPNama = string.Empty;
+            _KTPNIK = string.Empty;
+            _KTPPekerjaan = string.Empty;
+            _KTPPerkawinan = string.Empty;
+            _KTPTTL = string.Empty;
         }
+
+
 
         public void clearArray()
         {

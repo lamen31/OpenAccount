@@ -1,0 +1,8 @@
+20201009 13:58:05 Default : entered into home page
+20201009 13:58:07 Histori condition : entered into histori input card
+20201009 13:58:08 Histori condition : input card success
+20201009 13:58:08 Histori condition : entered into histori input pin
+20201009 13:59:39 Default : entered into home page
+20201009 13:59:40 Histori condition : entered into histori input card
+20201009 13:59:41 Histori condition : input card success
+20201009 13:59:41 Histori condition : entered into histori input pin

@@ -1,0 +1,106 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject IDScanner scanner
+@inject Utility utility
+@inject Transaksi trx
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="margin-top: 50px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti Kartu</span><br>
+                </div>
+                <h3 style="color: #00529C;">Proses pindai Sidik Jari <b style="color: #00AF80;">Berhasil</b></h3>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder GIF/finger-print-sukses2.gif" class="img-fluid" alt=""><br>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <a href="menu-verification.html"><button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="KTP">Kembali</button></a>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <a href="insert-money.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string strnik = "02480327487328";
+    private string strnama = "Bambang Pamungkas";
+    private string strttl = "Jakarta, 22-09-1972";
+    private string strperkawinan = "Belum Kawin";
+    private string stralamat = "Plaza Semanggi";
+    private string stragama = "Atheis";
+    private string strpekerjaan = "Wiraswasta";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO BUKA REKENING FINGER PRINT BERHASIL");
+            Utility.WriteLog("Ganti kartu condition : entered into buka rekening finger print berhasil", "step-action");
+            trx.setKTP(strnik, strnama, strttl, strperkawinan, stralamat, stragama, strpekerjaan);
+            Console.WriteLine("SET DATA KTP " + strnama + " SUCCESS");
+            Utility.WriteLog("Ganti kartu condition : set data ktp " + strnama + " success", "step-action");
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000);
+        scanner.RadioPos();
+        Console.WriteLine("ID SCANNER RADIO POS");
+        Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
+        OnClick.InvokeAsync("gantikartukonfirmasidata");
+    }
+
+    private async Task KTP()
+    {
+        scanner.ReturnCard();
+        Console.WriteLine("ID SCANNER RETURN CARD");
+        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("ID SCANNER CLOSE READER");
+        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+        OnClick.InvokeAsync("gantikartupindaiktp");
+    }
+}

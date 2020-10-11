@@ -1,0 +1,124 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx  
+@inject Utility utility
+@inject IDScanner scanner
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="margin-top: 50px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti Kartu</span><br>
+                </div>
+                <h3 style="color: #FF6533; margin-bottom: 5%;">Nomor Rekening Anda <b>0987654321</b></h3>
+                <h3 style="color: #00529C;">Harap konfirmasi data <b>e-KTP</b> Anda</h3>
+                <table style="margin-top: 5%; line-height: 7px;">
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> NIK </h4></td>
+                        <td><h4 style="font-weight: 600;">:&emsp;</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._KTPNIK</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Nama </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._KTPNama</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Tempat/Tgl Lahir</h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._KTPTTL</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Status Perkawinan </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._KTPPerkawinan</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Pekerjaan</h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._KTPPekerjaan</h4><br></td>
+                    </tr>
+                </table>
+                <h3 style="color: #ff0000; font-size: 18px;">Tekan Tombol <b>"Cetak"</b> untuk mencetak Kartu Debit</h3>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img class="card-img-top" src="../assets/img/ktp-depan.png" alt="Card image cap">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="KTP">Kembali</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="Berhasil">Cetak</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO GANTI KARTU KONFIRMASI DATA");
+            Utility.WriteLog("Ganti kartu condition : entered into ganti kartu konfirmasi data", "step-action");
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(100);
+        scanner.ReturnCard();
+        Console.WriteLine("ID SCANNER RETURN CARD");
+        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("ID SCANNER CLOSE READER");
+        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+    }
+
+    private async Task KTP()
+    {
+        OnClick.InvokeAsync("gantikartupindaiktp");
+    }
+
+    private async Task Berhasil()
+    {
+        OnClick.InvokeAsync("gantikartuberhasil");
+    }
+}

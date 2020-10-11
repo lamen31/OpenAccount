@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem; height: 90%;">
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="GantiKartu">
                         <div class="text-center" style="align-items: center; height: 60%;">
                             <img src="assets/img/icon-menu/ganti-kartu.png" class="card-img-top" style="width: 80%;" alt="...">
                         </div>
@@ -105,6 +105,11 @@
     private void test()
     {
         isVisible = true;
+    }
+
+    private async Task GantiKartu()
+    {
+        OnClick.InvokeAsync("gantikartu");
     }
 
     private async Task HistoriTransaksi()

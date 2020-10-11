@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <teks style="color: black; font-weight: bold;">Transaksi Anda telah <b style="color: #00AF80;">Selesai</b></teks>
+                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">“Silakan ambil Kartu Debit Anda <br> pada bagian bawah mesin”</h3>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder GIF/Ambil-Kartu.gif" class="img-fluid" style="margin-top: 20%;"><br>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000);
+        OnClick.InvokeAsync("home");
+    }
+}

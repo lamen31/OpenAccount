@@ -19,12 +19,6 @@
                 {
                     <h5 style="color: #00529C;">Pindai Jari Gagal, Kesempatan untuk mencoba @trylimit.ToString()x lagi</h5>
                 }
-                else
-                {
-                    <div class="spinner-border text-danger" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                }
                 <br>
                 <img src="../assets/img/finger-print.gif" class="img-fluid" alt=""><br>
 
@@ -133,7 +127,6 @@
             }
             else
             {
-                isFingerValid = false;
                 await Task.Delay(100);
                 StateHasChanged();
                 trylimit -= 1;
