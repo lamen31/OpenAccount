@@ -26,12 +26,12 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem; height: 90%;">
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="GantiPin">
                         <div class="text-center" style="align-items: center; height: 60%;">
-                            <img src="assets/img/icon-menu/upgrade-kartu.png" class="card-img-top" style="width: 90%;" alt="...">
+                            <img src="assets/img/icon-menu/ganti-pin.png" class="card-img-top" style="width: 90%;" alt="...">
                         </div>
                         <div class="card-body">
-                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Upgrade Kartu</small>
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Ganti Pin Rekening</small>
                         </div>
                     </div>
 
@@ -107,21 +107,38 @@
         isVisible = true;
     }
 
+    private async Task GantiPin()
+    {
+        Console.WriteLine("MOVE TO GANTI PIN");
+        Utility.WriteLog("Home condition : move to ganti pin", "step-action");
+        OnClick.InvokeAsync("gantipin");
+    }
+
     private async Task GantiKartu()
     {
+        Console.WriteLine("MOVE TO GANTI KARTU");
+        Utility.WriteLog("Home condition : move to ganti kartu", "step-action");
         OnClick.InvokeAsync("gantikartu");
     }
 
     private async Task HistoriTransaksi()
     {
+        Console.WriteLine("MOVE TO HISTORI TRANSAKSI");
+        Utility.WriteLog("Home condition : move to histori transaksi", "step-action");
         OnClick.InvokeAsync("historitransaksi");
     }
+
     private async Task BukuTabungan()
     {
+        Console.WriteLine("MOVE TO BUKU TABUNGAN");
+        Utility.WriteLog("Home condition : move to buku tabungan", "step-action");
         OnClick.InvokeAsync("bukutabungan");
     }
+
     private async Task BukaRekening()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING");
+        Utility.WriteLog("Home condition : move to buka rekening", "step-action");
         OnClick.InvokeAsync("bukarekening");
     }
 }

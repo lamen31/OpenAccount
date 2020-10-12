@@ -1,5 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using System.IO.Ports
+@using System.Text
+@using OpenAccount.Data
 
+@inject Utility utility
+@inject EDC edc
+@inject Config config
+@inject Transaksi trx
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -12,7 +19,7 @@
                     <div class="form-row" style="margin-top: 9%;">
                         <div class="form-group col-md-6">
                             <label style="font-weight: 600; font-size: 18px;">Konfirmasi PIN ATM <b style="color: red;"> (*6 Digit)</b></label>
-                            <input type="password" class="form-control" placeholder="******">
+                            <input type="password" class="form-control" placeholder="Konfirmasi Pin Baru Anda">
                         </div>
                     </div>
                 </div>
@@ -63,4 +70,328 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private string strpin = string.Empty;
+    private string strpinNomor = string.Empty;
+    private SerialPort sPort = new SerialPort();
+    private SerialPort serialPort = new SerialPort();
+    private bool isLoop = true;
+    private bool isPin = false;
+    private bool isNotPin = false;
+    private bool isSesuai = false;
+    private bool isNotCorrect = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO GANTI PIN INPUT PIN KONFIRMASI");
+            Utility.WriteLog("Ganti pin condition : entered into ganti pin input pin konfirmasi", "step-action");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            await EDC("14");
+            if (isPin)
+            {
+                Console.WriteLine("INPUT PIN ATM KONFIRMASI " + strpinNomor + " SUCCESS");
+                Utility.WriteLog("Buka rekening condition : input pin atm konfirmasi " + strpinNomor + " success", "step-action");
+                trx.setPinKedua(strpinNomor);
+                Console.WriteLine("SET PIN " + strpinNomor + " SUCCESS");
+                Utility.WriteLog("Buka rekening condition : set pin " + strpinNomor + " success", "step-action");
+                Console.WriteLine("MOVE TO GANTI PIN SUKSES");
+                Utility.WriteLog("Ganti pin condition : move to ganti pin sukses", "step-action");
+                OnClick.InvokeAsync("gantipinsukses");
+            }
+        }
+    }
+
+    private async Task EDC(string ecrmsg)
+    {
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        serialPort = new SerialPort();
+
+        serialPort.Close();
+        Console.WriteLine("SERIAL PORT CLOSE SUCCESS");
+        Utility.WriteLog("Ganti pin condition : serial port close success", "step-action");
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        serialPort.Open();
+        Console.WriteLine("SERIAL PORT OPEN SUCCESS");
+        Utility.WriteLog("Ganti pin condition : serial port open success", "step-action");
+
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+        Console.WriteLine("SERIAL PORT WRITE SUCCESS");
+        Utility.WriteLog("Ganti pin condition : serial port write success", "step-action");
+
+        do
+        {
+            await Task.Delay(150);
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            //Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+                Console.WriteLine("SERIAL PORT IS OPEN");
+                Utility.WriteLog("Ganti pin condition : serial port is open", "step-action");
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                //Console.WriteLine("Data Current: " + dataCurrent);
+                //Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    switch (intBuffer)
+                    {
+                        case 69:
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN ENTER");
+                            Utility.WriteLog("Ganti pin condition : edc pin enter", "step-action");
+                            if (strpin.Length == 6)
+                            {
+                                if (isSesuai)
+                                {
+                                    isPin = true;
+                                    isLoop = false;
+                                }
+                                else if (isNotCorrect)
+                                {
+                                    isNotPin = true;
+                                }
+                            }
+                            break;
+                        case 88:
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN CANCEL");
+                            Utility.WriteLog("Ganti pin condition : edc pin cancel", "step-action");
+                            OnClick.InvokeAsync("gantipin");
+                            isLoop = false;
+                            break;
+                        case 84:
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            isLoop = false;
+                            break;
+                        case 67:
+                            strpin = string.Empty;
+                            strpinNomor = string.Empty;
+                            Console.WriteLine("EDC PIN CLEAR");
+                            Utility.WriteLog("Ganti pin condition : edc pin clear", "step-action");
+                            break;
+                        case 32:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "0";
+                                strpinNomor += "0";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 0");
+                            Utility.WriteLog("Ganti pin condition : edc pin 0", "step-action");
+                            break;
+                        case 1:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "1";
+                                strpinNomor += "1";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 1");
+                            Utility.WriteLog("Ganti pin condition : edc pin 1", "step-action");
+                            break;
+                        case 2:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "2";
+                                strpinNomor += "2";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 2");
+                            Utility.WriteLog("Ganti pin condition : edc pin 2", "step-action");
+                            break;
+                        case 3:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "3";
+                                strpinNomor += "3";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 3");
+                            Utility.WriteLog("Ganti pin condition : edc pin 3", "step-action");
+                            break;
+                        case 4:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "4";
+                                strpinNomor += "4";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 4");
+                            Utility.WriteLog("Ganti pin condition : edc pin 4", "step-action");
+                            break;
+                        case 5:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "5";
+                                strpinNomor += "5";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 5");
+                            Utility.WriteLog("Ganti pin condition : edc pin 5", "step-action");
+                            break;
+                        case 6:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "6";
+                                strpinNomor += "6";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 6");
+                            Utility.WriteLog("Ganti pin condition : edc pin 6", "step-action");
+                            break;
+                        case 7:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "7";
+                                strpinNomor += "7";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 7");
+                            Utility.WriteLog("Ganti pin condition : edc pin 7", "step-action");
+                            break;
+                        case 8:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "8";
+                                strpinNomor += "8";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 8");
+                            Utility.WriteLog("Ganti pin condition : edc pin 8", "step-action");
+                            break;
+                        case 9:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "9";
+                                strpinNomor += "9";
+                            }
+                            Console.WriteLine(strpin);
+                            Console.WriteLine(strpinNomor);
+                            Console.WriteLine("EDC PIN 9");
+                            Utility.WriteLog("Ganti pin condition : edc pin 9", "step-action");
+                            break;
+                    }
+                }
+                //Console.WriteLine("Data Split: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Console.WriteLine("EDC ACK");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    Console.WriteLine("EDC NAK");
+                }
+            }
+            StateHasChanged();
+            switch (strpin.Length)
+            {
+                case 1:
+                    strpin = strpin.Substring(0, strpin.Length - 1) + "*";
+                    break;
+                case 2:
+                    strpin = strpin.Substring(0, strpin.Length - 2) + "**";
+                    break;
+                case 3:
+                    strpin = strpin.Substring(0, strpin.Length - 3) + "***";
+                    break;
+                case 4:
+                    strpin = strpin.Substring(0, strpin.Length - 4) + "****";
+                    break;
+                case 5:
+                    strpin = strpin.Substring(0, strpin.Length - 5) + "*****";
+                    break;
+                case 6:
+                    strpin = strpin.Substring(0, strpin.Length - 6) + "******";
+                    break;
+            }
+            await Task.Delay(100);
+            StateHasChanged();
+            if (strpin.Length == 6)
+            {
+                if (strpinNomor == trx._PinATM1)
+                {
+
+                    Console.WriteLine("KONFIRMASI PIN SESUAI");
+                    Utility.WriteLog("Ganti pin condition : konfirmasi pin sesuai", "step-action");
+                    isSesuai = true;
+                    isNotCorrect = false;
+                }
+                else if (strpinNomor != trx._PinATM1)
+                {
+                    Console.WriteLine("KONFIRMASI TIDAK PIN SESUAI");
+                    Utility.WriteLog("Ganti pin condition : konfirmasi tidak pin sesuai", "step-action");
+                    isSesuai = false;
+                    isNotCorrect = true;
+                    //tryLimit -= 1;
+                    //if (tryLimit == 0)
+                    //{
+                    //    trxbaru.clearPinPertama();
+                    //    OnClick.InvokeAsync("bukarekeninginputpinatm");
+                    //}
+                }
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+        } while (isLoop);
+
+        Console.WriteLine("2");
+        serialPort.Close();
+        Console.WriteLine("SERIAL PORT CLOSE SUCCESS");
+        Utility.WriteLog("Ganti pin condition : serial port close success", "step-action");
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+    }
 }

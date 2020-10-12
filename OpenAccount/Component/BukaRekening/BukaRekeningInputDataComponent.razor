@@ -372,6 +372,10 @@
     private async Task Syarat()
     {
         trxbaru.clearNasabahBaru();
+        Console.WriteLine("CLEAR NASABAH BARU SUCCESS");
+        Utility.WriteLog("Buka rekening condition : clear nasabah baru success", "step-action");
+        Console.WriteLine("MOVE TO BUKA REKENING SYARAT");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening syarat", "step-action");
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 
@@ -382,8 +386,10 @@
             if (strnamaibu != string.Empty && strhandphone != string.Empty && strpekerjaan != string.Empty && strpenghasilan != string.Empty)
             {
                 trxbaru.setNasabahBaru(strnamaibu, strhandphone, stremail, strpekerjaan, strpenghasilan);
-                Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-                Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+                Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA 1 " + strnamaibu + " SUCCESS");
+                Utility.WriteLog("Buka rekening condition : entered into buka rekening input data 1 " + strnamaibu + " success", "step-action");
+                Console.WriteLine("MOVE TO BUKA REKENING INPUT DATA 2");
+                Utility.WriteLog("Buka rekening condition : move to buka rekening input data 2", "step-action");
                 OnClick.InvokeAsync("bukarekeninginputdata2");
             }
         }
@@ -393,8 +399,10 @@
             {
                 strpekerjaan = strpenghasilan = strperusahaan = strusaha = strtelepon = strjabatan = strkota = stralamat = "belum bekerja";
                 trxbaru.setNasabahBaru3(strnamaibu, strhandphone, stremail, strpekerjaan, strpenghasilan, strperusahaan, strusaha, strtelepon, strjabatan, strkota, stralamat);
-                Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-                Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+                Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA 3 " + strnamaibu + " SUCCESS");
+                Utility.WriteLog("Buka rekening condition : entered into buka rekening input data 3 " + strnamaibu + " success", "step-action");
+                Console.WriteLine("MOVE TO BUKA REKENING INPUT NPWP");
+                Utility.WriteLog("Buka rekening condition : move to buka rekening input npwp", "step-action");
                 OnClick.InvokeAsync("bukarekeninginputNPWP");
             }
         }
@@ -445,7 +453,7 @@
                         strhandphone += strinput;
                     break;
                 case "3":
-                        stremail += strinput;
+                    stremail += strinput;
                     break;
                     //case "4":
                     //    strpos += strinput;

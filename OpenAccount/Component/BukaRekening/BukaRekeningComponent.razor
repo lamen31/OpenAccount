@@ -107,6 +107,8 @@
 
     private async Task Home()
     {
+        Console.WriteLine("MOVE TO HOME");
+        Utility.WriteLog("Buka rekening condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 
@@ -142,6 +144,8 @@
     {
         Console.WriteLine("SET TUJUAN REKENING SUCCESS");
         Utility.WriteLog("Buka rekening condition : set tujuan rekening success", "step-action");
+        Console.WriteLine("MOVE TO BUKA REKENING KTP");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

@@ -378,15 +378,15 @@
 
                 case "6":
                     if(!isNumeric)
-                    strperusahaan += strinput;
+                        strperusahaan += strinput;
                     break;
                 case "7":
                     if(isNumeric)
-                    strtelepon += strinput;
+                        strtelepon += strinput;
                     break;
                 case "8":
                     if(!isNumeric)
-                    strjabatan += strinput;
+                        strjabatan += strinput;
                     break;
             }
         }
@@ -403,11 +403,11 @@
 
                 case "9":
                     if(!isNumeric)
-                    strkota += strinput;
+                        strkota += strinput;
                     break;
                 case "10":
                     if(!isNumeric)
-                    stralamat += strinput;
+                        stralamat += strinput;
                     break;
             }
         }
@@ -483,8 +483,10 @@
         if (strperusahaan != string.Empty && strusaha != string.Empty && strtelepon != string.Empty && strjabatan != string.Empty && strkota != string.Empty && stralamat != string.Empty)
         {
             trxbaru.setNasabahBaru2(strperusahaan, strusaha, strtelepon, strjabatan, strkota, stralamat);
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA 2 " + strperusahaan + " SUCCESS");
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening input data 2 " + strperusahaan + " success", "step-action");
+            Console.WriteLine("MOVE TO BUKA REKENING INPUT NPWP");
+            Utility.WriteLog("Buka rekening condition : move to buka rekening input npwp", "step-action");
             OnClick.InvokeAsync("bukarekeninginputNPWP");
         }
     }
@@ -492,6 +494,10 @@
     private async Task InputData()
     {
         trxbaru.clearNasabahBaru2();
+        Console.WriteLine("CLEAR NASABAH BARU 2 SUCCESS");
+        Utility.WriteLog("Buka rekening condition : clear nasabah baru 2 success", "step-action");
+        Console.WriteLine("MOVE TO BUKA REKENING INPUT DATA");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input data", "step-action");
         OnClick.InvokeAsync("bukarekeninginputdata");
     }
 }

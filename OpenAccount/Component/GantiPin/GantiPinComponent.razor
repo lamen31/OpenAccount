@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -58,9 +61,20 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO GANTI PIN INPUT KARTU");
+            Utility.WriteLog("Ganti pin condition : entered into ganti pin input kartu", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(2000);
+        Console.WriteLine("MOVE TO GANTI PIN INPUT PIN");
+        Utility.WriteLog("Ganti pin condition : move to ganti pin input pin", "step-action");
         OnClick.InvokeAsync("gantipininputpin");
     }
 }

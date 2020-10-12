@@ -110,6 +110,8 @@
         scanner.CloseCVRReader();
         Console.WriteLine("ID SCANNER CLOSE READER");
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        Console.WriteLine("MOVE TO BUKA REKENING JENIS TUJUAN");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening jenis tujuan", "step-action");
         OnClick.InvokeAsync("bukarekening");
     }
 
@@ -132,20 +134,22 @@
     {
         if (isKTPValid)
         {
-            scanner.RadioPos();
             Console.WriteLine("ID SCANNER RADIO POS");
             Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
+            scanner.RadioPos();
             await Task.Delay(2000);
+            Console.WriteLine("MOVE TO BUKA REKENING KTP BERHASIL");
+            Utility.WriteLog("Buka rekening condition : move to buka rekening ktp berhasil", "step-action");
             OnClick.InvokeAsync("bukarekeningktpberhasil");
         }
         else
         {
-            scanner.ReturnCard();
             Console.WriteLine("ID SCANNER RETURN CARD");
             Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-            scanner.CloseCVRReader();
+            scanner.ReturnCard();
             Console.WriteLine("ID SCANNER CLOSE READER");
             Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+            scanner.CloseCVRReader();
         }
     }
 }

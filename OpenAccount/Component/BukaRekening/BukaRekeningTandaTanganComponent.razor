@@ -91,15 +91,26 @@
     private string path;
     private bool flag = false;
     private bool isVisible = false;
+    private string pathStatus;
+    private string textStatus;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            string strfilename = "step-action";
             Console.WriteLine("ENTERED INTO BUKA REKENING TANDA TANGAN");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan", "step-action");
             await sign.signpad();
             sign.saveSign();
+            pathStatus = sign.workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+
+            Console.WriteLine("MOVE TO BUKA REKENING TANDA TANGAN KONFIRMASI");
+            Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan konfirmasi", "step-action");
             OnClick.InvokeAsync("bukarekeningtandatangankonfirmasi");
         }
     }
@@ -111,6 +122,8 @@
 
     private async Task InputNPWP()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING INPUT NPWP");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input npwp", "step-action");
         OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
 }

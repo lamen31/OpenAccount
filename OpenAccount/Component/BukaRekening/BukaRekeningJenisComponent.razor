@@ -163,13 +163,17 @@
 
     private async Task ModelKartu()
     {
-        Console.WriteLine("SET JENIS TABUNGAN SUCCESS");
-        Utility.WriteLog("Buka rekening condition : set jenis tabungan success", "step-action");
+        Console.WriteLine("SET JENIS TABUNGAN " + jenisTabungan + " SUCCESS");
+        Utility.WriteLog("Buka rekening condition : set jenis tabungan " + jenisTabungan + " success", "step-action");
+        Console.WriteLine("MOVE TO BUKA REKENING MODEL KARTU");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening model kartu", "step-action");
         OnClick.InvokeAsync("bukarekeningmodelkartu");
     }
 
     private async Task KTP()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING KTP");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

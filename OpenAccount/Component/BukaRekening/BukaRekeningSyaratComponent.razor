@@ -138,11 +138,15 @@
 
     private async Task Jenis()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING JENIS");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening jenis", "step-action");
         OnClick.InvokeAsync("bukarekeningjenis");
     }
 
     private async Task InputData()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING INPUT DATA");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input data", "step-action");
         OnClick.InvokeAsync("bukarekeninginputdata");
     }
 }

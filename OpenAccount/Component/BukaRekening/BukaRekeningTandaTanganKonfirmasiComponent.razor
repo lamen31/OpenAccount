@@ -101,16 +101,22 @@
 
     private async Task Home()
     {
+        Console.WriteLine("MOVE TO HOME");
+        Utility.WriteLog("Buka rekening condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 
     private async Task TandaTangan()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING TANDA TANGAN");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 
     private async Task TandaTangan2()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING TANDA TANGAN KEDUA");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan kedua", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangankedua");
     }
 }

@@ -117,8 +117,8 @@
                 Console.WriteLine("INPUT PIN ATM PERTAMA SUCCESS");
                 Utility.WriteLog("Buka rekening condition : input pin atm pertama success", "step-action");
                 trxbaru.setPinPertama(strpinNomor);
-                Console.WriteLine("SET PIN " + strpin + " SUCCESS");
-                Utility.WriteLog("Buka rekening condition : set pin " + strpin + " success", "step-action");
+                Console.WriteLine("SET PIN " + strpinNomor + " SUCCESS");
+                Utility.WriteLog("Buka rekening condition : set pin " + strpinNomor + " success", "step-action");
                 OnClick.InvokeAsync("bukarekeninginputpinatmkedua");
             }
         }

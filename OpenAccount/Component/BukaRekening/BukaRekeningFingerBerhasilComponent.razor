@@ -107,9 +107,9 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(2000);
-        scanner.RadioPos();
         Console.WriteLine("ID SCANNER RADIO POS");
         Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
+        scanner.RadioPos();
         OnClick.InvokeAsync("bukarekeningcapturektp");
     }
 

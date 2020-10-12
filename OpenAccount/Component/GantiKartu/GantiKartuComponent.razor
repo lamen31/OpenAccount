@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -13,7 +16,14 @@
                 <div class="form-row" style="margin-top: 9%;">
                     <div class="form-group col-md-6">
                         <label style="font-weight: 600; font-size: 18px;">Nomor Rekening</label>
-                        <input type="number" class="form-control" placeholder="nomor rekening anda">
+                        @if (strnorek == string.Empty)
+                        {
+                            <input type="number" class="form-control" placeholder="nomor rekening anda">
+                        }
+                        else
+                        {
+                            <input type="number" class="form-control" @bind="strnorek">
+                        }
                     </div>
                 </div>
             </div>
@@ -80,6 +90,15 @@
 
     private string strnorek = string.Empty;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO GANTI KARTU INPUT REKENING");
+            Utility.WriteLog("Ganti kartu condition : entered into ganti kartu input rekening", "step-action");
+        }
+    }
+
     private void InputCharData(string strinput)
     {
         strnorek += strinput;
@@ -93,11 +112,18 @@
 
     private async Task Home()
     {
+        Console.WriteLine("MOVE TO HOME");
+        Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 
     private async Task KTP()
     {
-        OnClick.InvokeAsync("gantikartupindaiktp");
+        if (strnorek.Length == 15)
+        {
+            Console.WriteLine("MOVE TO GANTI KARTU PINDAI KTP");
+            Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
+            OnClick.InvokeAsync("gantikartupindaiktp");
+        }
     }
 }

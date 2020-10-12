@@ -91,11 +91,15 @@
 
     private async Task TandaTangan2()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING TANDA TANGAN KEDUA");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan kedua", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangankedua");
     }
 
     private async Task DataTabungan()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING DATA TABUNGAN");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening data tabungan", "step-action");
         OnClick.InvokeAsync("bukarekeningdatatabungan");
     }
 }

@@ -15,9 +15,12 @@
                 <h3 style="color: #00529C;">Silakan klik Capture untuk memfoto <br><b>e-KTP</b> Anda</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                @if (isSpinner)
+                {
                 <div class="spinner-border text-danger" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
+                }
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
                 <img src="../assets/img/ktp.png" class="img-fluid" alt="" style="margin-top: 5%; margin-bottom: 5%;"><br>
@@ -88,6 +91,8 @@
     public EventCallback<string> OnClick { get; set; }
 
     private string captureFile = "KTP";
+    private bool isSpinner = false;
+    private int result;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -100,20 +105,35 @@
 
     private async Task CaptureBerhasil()
     {
+        isSpinner = true;
         Console.WriteLine("ID SCANNER SCAN KTP");
         Utility.WriteLog("Buka rekening condition : id scanner scan ktp", "step-action");
-        scanner.ScanKTP(captureFile);
+        result = scanner.ScanKTP(captureFile);
+        if (result == 0)
+        {
+            Console.WriteLine("ID SCANNER SCAN KTP SUCCESS");
+            Utility.WriteLog("Buka rekening condition : id scanner scan ktp success", "step-action");
+        }
+        else
+        {
+            Console.WriteLine("ID SCANNER SCAN KTP FAILED");
+            Utility.WriteLog("Buka rekening condition : id scanner scan ktp failed", "step-action");
+        }
+        Console.WriteLine("MOVE TO BUKA REKENING CAPTURE KTP BERHASIL");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening capture ktp berhasil", "step-action");
         OnClick.InvokeAsync("bukarekeningcapturektpberhasil");
     }
 
     private async Task KTP()
     {
-        scanner.ReturnCard();
         Console.WriteLine("ID SCANNER RETURN CARD");
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
+        scanner.ReturnCard();
         Console.WriteLine("ID SCANNER CLOSE READER");
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("MOVE TO BUKA REKENING KTP");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

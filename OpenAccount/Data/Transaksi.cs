@@ -41,6 +41,8 @@ namespace OpenAccount.Data
         public string _KTPAlamat { get; set; }
         public string _KTPAgama { get; set; }
         public string _KTPPekerjaan { get; set; }
+        public string _PinATM1 { get; set; }
+        public string _PinATM2 { get; set; }
 
         public class HistoriTransaksi
         {
@@ -219,6 +221,15 @@ namespace OpenAccount.Data
             _KTPAlamat = stralamat;
             _KTPAgama = stragama;
             _KTPPekerjaan = strpekerjaan;
+        }
+
+        public void setPinPertama(string strpin)
+        {
+            _PinATM1 = strpin;
+        }
+        public void setPinKedua(string strpin)
+        {
+            _PinATM2 = strpin;
         }
 
         public void clear()

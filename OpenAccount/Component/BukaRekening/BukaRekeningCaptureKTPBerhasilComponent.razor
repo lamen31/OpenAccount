@@ -108,17 +108,21 @@
 
     private async Task DataKTP()
     {
+        Console.WriteLine("MOVE TO BUKA REKENING DATA KTP");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening data ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningdataKTP");
     }
 
     private async Task KTP()
     {
-        scanner.ReturnCard();
         Console.WriteLine("ID SCANNER RETURN CARD");
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
+        scanner.ReturnCard();
         Console.WriteLine("ID SCANNER CLOSE READER");
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("MOVE TO BUKA REKENING KTP");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

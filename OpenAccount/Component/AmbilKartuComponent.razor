@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -23,9 +26,20 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO AMBIL KARTU");
+            Utility.WriteLog("Ambil kartu condition : entered into ambil kartu", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(2000);
+        Console.WriteLine("MOVE TO HOME");
+        Utility.WriteLog("Ambil kartu condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 }

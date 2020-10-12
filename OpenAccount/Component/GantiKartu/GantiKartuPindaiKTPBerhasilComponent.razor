@@ -66,20 +66,33 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("ENTERED INTO GANTI KARTU PINDAI KTP BERHASIL");
+            Utility.WriteLog("Ganti kartu condition : entered into ganti kartu pindai ktp berhasil", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(2000);
+        Console.WriteLine("MOVE TO GANTI KARTU FINGER");
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu finger", "step-action");
         OnClick.InvokeAsync("gantikartufinger");
     }
 
     private async Task KTP()
     {
-        scanner.ReturnCard();
         Console.WriteLine("ID SCANNER RETURN CARD");
-        Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
+        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
+        scanner.ReturnCard();
         Console.WriteLine("ID SCANNER CLOSE READER");
-        Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
+        Console.WriteLine("MOVE TO GANTI KARTU PINDAI KTP");
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
         OnClick.InvokeAsync("gantikartupindaiktp");
     }
 }
