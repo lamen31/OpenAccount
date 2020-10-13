@@ -98,11 +98,10 @@ namespace OpenAccount.Data
                                 {
                                     Utility.WriteLog("ID scanner condition : the card is at the front card holding", "step-action");
                                     iRet = ScannerDLL.goRadioPos(0, status);
-                                    if (iRet == 0)
-                                        Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
-                                    else
+                                    if (iRet != 0)
                                     {
                                         Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
+                                        break;
                                     }
                                     Thread.Sleep(500);
                                     iRet = ScannerDLL.cisQuery(0, status);
@@ -111,6 +110,8 @@ namespace OpenAccount.Data
                                     {
                                         Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
                                         res = 0;
+                                        iRet = ScannerDLL.goFrontPos(0, status);
+                                        isManualStop = true;
                                         break;
                                     }
                                     break;
@@ -199,10 +200,11 @@ namespace OpenAccount.Data
                 catch
                 {
                     idcardinfo = null;
+                    Utility.WriteLog("ID scanner condition : read card id information error", "step-action");
                 }
             }
             mIsRunning = false;
-            ScannerDLL.frontSwallow(0, 0, buf);
+            res = ScannerDLL.frontSwallow(0, 0, buf);
             if (res == 0)
                 Utility.WriteLog("ID scanner condition : set front entry success", "step-action");
             else

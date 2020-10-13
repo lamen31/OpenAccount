@@ -102,7 +102,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(100);
+        await Task.Delay(1000);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");

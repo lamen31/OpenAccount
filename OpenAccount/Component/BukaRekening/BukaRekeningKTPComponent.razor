@@ -103,6 +103,7 @@
 
     private async Task Tujuan()
     {
+        await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
@@ -119,7 +120,7 @@
         Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
         scanner.FrontSwallow();
         scanner.BackSwallow();
-        await Task.Delay(3000);
+        await Task.Delay(2000);
         CheckKTPValid();
         //OnClick.InvokeAsync("bukarekeningktpberhasil");
     }
@@ -136,6 +137,7 @@
         }
         else
         {
+            await Task.Delay(1000);
             Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
             scanner.ReturnCard();
             Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");

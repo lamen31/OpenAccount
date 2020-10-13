@@ -99,6 +99,7 @@
                 loopFinger = false;
                 Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
                 scanner.RadioPos();
+                await Task.Delay(2000);
                 Utility.WriteLog("Ganti kartu condition : move to ganti kartu finger berhasil", "step-action");
                 OnClick.InvokeAsync("gantikartufingerberhasil");
             }
@@ -109,6 +110,7 @@
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
+                    await Task.Delay(1000);
                     Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
                     Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
@@ -125,6 +127,7 @@
     private async Task KTP()
     {
         loopFinger = false;
+        await Task.Delay(1000);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");

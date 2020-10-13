@@ -120,6 +120,7 @@
                 loopFinger = false;
                 Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
                 scanner.RadioPos();
+                await Task.Delay(2000);
                 Utility.WriteLog("Buka rekening condition : move to buka rekening finger berhasil", "step-action");
                 OnClick.InvokeAsync("bukarekeningfingerberhasil");
             }
@@ -130,6 +131,7 @@
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
+                    await Task.Delay(1000);
                     Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
                     Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
@@ -146,6 +148,7 @@
     private async Task KTP()
     {
         loopFinger = false;
+        await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");

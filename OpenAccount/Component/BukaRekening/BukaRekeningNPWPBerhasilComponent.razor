@@ -98,11 +98,11 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();
-        await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangan");
     }
