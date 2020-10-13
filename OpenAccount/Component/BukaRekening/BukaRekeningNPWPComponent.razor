@@ -16,12 +16,15 @@
                 <h3 style="color: #00529C;">Masukkan <b>NPWP</b> Anda pada alat pemindai</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                @if (isSpinner)
+                {
                 <div class="spinner-border text-danger" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
+                }
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
-                <img src="../assets/img/Insert-NPWP.gif" class="img-fluid" alt=""><br>
+                <img src="../assets/img/Folder GIF/Insert-NPWP.gif" class="img-fluid" alt=""><br>
                 <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="captureNPWPberhasil">Pindai</button>
             </div>
         </div>
@@ -89,29 +92,30 @@
     public EventCallback<string> OnClick { get; set; }
 
     private string captureFile = "NPWP";
+    private bool isSpinner = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING CAPTURE NPWP");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening capture npwp", "step-action");
         }
     }
 
     private async Task InputNPWP()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input npwp", "step-action");
         OnClick.InvokeAsync("bukarekeninginputNPWP");
     }
     private async Task captureNPWPberhasil()
     {
-        Console.WriteLine("ID SCANNER FRONT SWALLOW");
+        isSpinner = true;
         Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
         scanner.FrontSwallow();
         await Task.Delay(2000);
-        Console.WriteLine("ID SCANNER SCAN NPWP");
         Utility.WriteLog("Buka rekening condition : id scanner scan npwp", "step-action");
         scanner.ScanKTP(captureFile);
+        Utility.WriteLog("Buka rekening condition : move to buka rekening capture npwp berhasil", "step-action");
         OnClick.InvokeAsync("bukarekeningcaptureNPWPberhasil");
     }
 }

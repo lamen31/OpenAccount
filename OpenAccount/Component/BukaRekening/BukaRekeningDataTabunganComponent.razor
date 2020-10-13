@@ -131,18 +131,19 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING TAMPIL DATA TABUNGAN");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tampil data tabungan", "step-action");
         }
     }
 
     private async Task TandaTangan()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 
     private async Task InputPin()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input atm", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinatm");
     }
 }

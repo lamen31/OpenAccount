@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Enter-PIN.gif" class="img-fluid" alt="" style="margin-top: 5%;">
+                <img src="../assets/img/Folder GIF/Enter-PIN.gif" class="img-fluid" alt="" style="margin-top: 5%;">
             </div>
         </div>
     </div>
@@ -91,12 +91,12 @@
     {
         await Task.Delay(1000);
         sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        Utility.WriteLog("Histori condition : EDC process start", "step-action");
         await EDC("14");
         if (!isCancel)
         {
             if (strpin == "123456")
             {
-                Console.WriteLine("INPUT PIN SUCCESS");
                 Utility.WriteLog("Histori condition : input pin success", "step-action");
                 for (int i = 0; i < Nasabah.Length; i++)
                 {
@@ -107,18 +107,20 @@
                     else if (i == 2)
                         Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
                 }
-                Console.WriteLine("INPUT DATA SUCCESS");
-                Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
                 trx.setArrayNasabah(Nasabah);
+                Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
                 OnClick.InvokeAsync("historiPilih");
             }
             else
             {
+                Utility.WriteLog("Histori condition : move to blokir kartu", "step-action");
                 OnClick.InvokeAsync("blokirkartu");
             }
         }
         else
         {
+            Utility.WriteLog("Histori condition : move to home", "step-action");
             OnClick.InvokeAsync("home");
         }
         //Console.WriteLine("INPUT PIN SUCCESS");
@@ -142,7 +144,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO HISTORI INPUT PIN");
             Utility.WriteLog("Histori condition : entered into histori input pin", "step-action");
         }
     }
@@ -160,6 +161,7 @@
         string dataRespond = string.Empty;
         SerialPort serialPort = new SerialPort();
 
+        Utility.WriteLog("Histori condition : EDC serial port close", "step-action");
         serialPort.Close();
 
         string request_BankFiller = string.Empty;
@@ -184,8 +186,10 @@
 
         Console.WriteLine("1");
 
+        Utility.WriteLog("Histori condition : EDC serial port open", "step-action");
         serialPort.Open();
 
+        Utility.WriteLog("Histori condition : EDC serial port write", "step-action");
         serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
 
         do
@@ -198,7 +202,7 @@
             //Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
-
+                Utility.WriteLog("Histori condition : EDC serial port already open", "step-action");
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
                 //Console.WriteLine("Data Current: " + dataCurrent);
@@ -214,11 +218,14 @@
                             //Console.WriteLine(strpin);
                             if (strpin.Length == 6)
                                 isLoop = false;
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin enter", "step-action");
                             break;
                         case 88:
                             //Console.WriteLine(strpin);
                             isCancel = true;
                             isLoop = false;
+                            Utility.WriteLog("Histori condition : EDC pin cancel", "step-action");
                             break;
                         case 84:
                             //Console.WriteLine(strpin);
@@ -227,55 +234,76 @@
                             break;
                         case 67:
                             strpin = string.Empty;
+                            Utility.WriteLog("Histori condition : EDC pin clear", "step-action");
                             break;
                         case 32:
                             if (strpin.Length < 7)
                                 strpin = strpin + "0";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 0", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 1:
                             if (strpin.Length < 7)
                                 strpin = strpin + "1";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 1", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 2:
                             if (strpin.Length < 7)
                                 strpin = strpin + "2";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 2", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 3:
                             if (strpin.Length < 7)
                                 strpin = strpin + "3";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 3", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 4:
                             if (strpin.Length < 7)
                                 strpin = strpin + "4";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 4", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 5:
                             if (strpin.Length < 7)
                                 strpin = strpin + "5";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 5", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 6:
                             if (strpin.Length < 7)
                                 strpin = strpin + "6";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 6", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 7:
                             if (strpin.Length < 7)
                                 strpin = strpin + "7";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 7", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 8:
                             if (strpin.Length < 7)
                                 strpin = strpin + "8";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 8", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                         case 9:
                             if (strpin.Length < 7)
                                 strpin = strpin + "9";
+                            Utility.WriteLog("Histori condition : " + strpin, "step-action");
+                            Utility.WriteLog("Histori condition : EDC pin 9", "step-action");
                             //Console.WriteLine(strpin);
                             break;
                     }
@@ -286,19 +314,20 @@
                     if (dataRespond.Length > 10)
                     {
                         //serialPort.Close();
-                        Console.WriteLine("EDC ACK");
+                        Utility.WriteLog("Histori condition : EDC ACK", "step-action");
                     }
                 }
                 else if (dataRespond.Contains("\x15"))
                 {
                     serialPort.Close();
-                    Console.WriteLine("EDC NAK");
+                    Utility.WriteLog("Histori condition : EDC NAK", "step-action");
                 }
             }
             StateHasChanged();
         } while (isLoop);
 
         Console.WriteLine("2");
+        Utility.WriteLog("Histori condition : EDC serial port close", "step-action");
         serialPort.Close();
         //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }

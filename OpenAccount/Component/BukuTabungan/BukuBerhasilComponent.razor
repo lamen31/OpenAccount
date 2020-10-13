@@ -64,6 +64,7 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(5000);
+        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
         OnClick.InvokeAsync("ambilkartu");
     }
 
@@ -71,8 +72,7 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKU BERHASIL");
-            Utility.WriteLog("Histori condition : entered into buku berhasil", "step-action");
+            Utility.WriteLog("Buku condition : entered into buku berhasil", "step-action");
         }
     }
 }

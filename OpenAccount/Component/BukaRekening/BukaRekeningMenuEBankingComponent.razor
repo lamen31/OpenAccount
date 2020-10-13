@@ -58,7 +58,7 @@
 <footer id="footer" class="fixed-bottom" style="background-color: rgb(255, 255, 255);">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="DataTabungan">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -120,7 +120,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING MENU E-BANKING");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening menu e-banking", "step-action");
         }
     }
@@ -143,16 +142,17 @@
         InputPin();
     }
 
-    private async Task Home()
+    private async Task DataTabungan()
     {
-        OnClick.InvokeAsync("home");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening data tabungan", "step-action");
+        OnClick.InvokeAsync("bukarekeningdatatabungan");
     }
 
     private async Task InputPin()
     {
         trxbaru.setEBanking(ebangking);
-        Console.WriteLine("SET MENU E-BANKING SUCCESS");
-        Utility.WriteLog("Buka rekening condition : set menu e-banking success", "step-action");
+        Utility.WriteLog("Buka rekening condition : set menu e-banking " + ebangking + " success", "step-action");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input pin ebanking", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinebanking");
     }
 }

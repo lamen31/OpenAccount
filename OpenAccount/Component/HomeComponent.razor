@@ -26,12 +26,12 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem; height: 90%;">
+                    <div class="card" style="width: 18rem; height: 90%;" @onclick="GantiPin">
                         <div class="text-center" style="align-items: center; height: 60%;">
-                            <img src="assets/img/icon-menu/upgrade-kartu.png" class="card-img-top" style="width: 90%;" alt="...">
+                            <img src="assets/img/icon-menu/ganti-pin.png" class="card-img-top" style="width: 90%;" alt="...">
                         </div>
                         <div class="card-body">
-                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Upgrade Kartu</small>
+                            <small class="text-muted" style="font-size: 17px; color: #000000; font-weight: 600;">Ganti Pin</small>
                         </div>
                     </div>
 
@@ -87,18 +87,22 @@
     protected override async Task OnInitializedAsync()
     {
         trx.clear();
+        Utility.WriteLog("Home condition : clear transaksi success", "step-action");
         trx.clearArray();
+        Utility.WriteLog("Home condition : clear array success", "step-action");
         trx.clearArrayNasabah();
+        Utility.WriteLog("Home condition : clear array nasabah success", "step-action");
         trx.ClearList();
+        Utility.WriteLog("Home condition : clear list success", "step-action");
         trxbaru.clear();
+        Utility.WriteLog("Home condition : clear transaksi baru success", "step-action");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO HOME PAGE");
-            Utility.WriteLog("Default : entered into home page", "step-action");
+            Utility.WriteLog("Home condition : entered into home page", "step-action");
         }
     }
 
@@ -109,19 +113,31 @@
 
     private async Task GantiKartu()
     {
+        Utility.WriteLog("Home condition : move to ganti kartu", "step-action");
         OnClick.InvokeAsync("gantikartu");
     }
 
     private async Task HistoriTransaksi()
     {
+        Utility.WriteLog("Home condition : move to histori transaksi", "step-action");
         OnClick.InvokeAsync("historitransaksi");
     }
+
     private async Task BukuTabungan()
     {
+        Utility.WriteLog("Home condition : move to buku tabungan", "step-action");
         OnClick.InvokeAsync("bukutabungan");
     }
+
     private async Task BukaRekening()
     {
+        Utility.WriteLog("Home condition : move to buka rekening", "step-action");
         OnClick.InvokeAsync("bukarekening");
+    }
+
+    private async Task GantiPin()
+    {
+        Utility.WriteLog("Home condition : move to ganti pin", "step-action");
+        OnClick.InvokeAsync("gantipin");
     }
 }

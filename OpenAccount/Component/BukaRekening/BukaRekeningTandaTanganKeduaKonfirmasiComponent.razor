@@ -89,13 +89,23 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan konfirmasi", "step-action");
+        }
+    }
+
     private async Task TandaTangan2()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan kedua", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangankedua");
     }
 
     private async Task DataTabungan()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening data tabungan", "step-action");
         OnClick.InvokeAsync("bukarekeningdatatabungan");
     }
 }

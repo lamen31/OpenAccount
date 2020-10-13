@@ -303,7 +303,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA 2");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening input data 2", "step-action");
         }
     }
@@ -328,30 +327,35 @@
     {
         isTextField = "6";
         isTextField2 = "1";
+        Utility.WriteLog("Buka rekening condition : isTextField = 6, isTextField2 = 1", "step-action");
     }
 
     private void inputField7()
     {
         isTextField = "7";
         isTextField2 = "1";
+        Utility.WriteLog("Buka rekening condition : isTextField = 7, isTextField2 = 1", "step-action");
     }
 
     private void inputField8()
     {
         isTextField = "8";
         isTextField2 = "1";
+        Utility.WriteLog("Buka rekening condition : isTextField = 8, isTextField2 = 1", "step-action");
     }
 
     private void inputField9()
     {
         isTextField = "9";
         isTextField2 = "2";
+        Utility.WriteLog("Buka rekening condition : isTextField = 9, isTextField2 = 2", "step-action");
     }
 
     private void inputField10()
     {
         isTextField = "10";
         isTextField2 = "2";
+        Utility.WriteLog("Buka rekening condition : isTextField = 10, isTextField2 = 2", "step-action");
     }
 
     private void InputData(string strinput)
@@ -378,15 +382,15 @@
 
                 case "6":
                     if(!isNumeric)
-                    strperusahaan += strinput;
+                        strperusahaan += strinput;
                     break;
                 case "7":
                     if(isNumeric)
-                    strtelepon += strinput;
+                        strtelepon += strinput;
                     break;
                 case "8":
                     if(!isNumeric)
-                    strjabatan += strinput;
+                        strjabatan += strinput;
                     break;
             }
         }
@@ -403,11 +407,11 @@
 
                 case "9":
                     if(!isNumeric)
-                    strkota += strinput;
+                        strkota += strinput;
                     break;
                 case "10":
                     if(!isNumeric)
-                    stralamat += strinput;
+                        stralamat += strinput;
                     break;
             }
         }
@@ -483,15 +487,15 @@
         if (strperusahaan != string.Empty && strusaha != string.Empty && strtelepon != string.Empty && strjabatan != string.Empty && strkota != string.Empty && stralamat != string.Empty)
         {
             trxbaru.setNasabahBaru2(strperusahaan, strusaha, strtelepon, strjabatan, strkota, stralamat);
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+            Utility.WriteLog("Buka rekening condition : input data nasabah 2 success", "step-action");
+            Utility.WriteLog("Buka rekening condition : move to input npwp", "step-action");
             OnClick.InvokeAsync("bukarekeninginputNPWP");
         }
     }
 
     private async Task InputData()
     {
-        trxbaru.clearNasabahBaru2();
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input data", "step-action");
         OnClick.InvokeAsync("bukarekeninginputdata");
     }
 }

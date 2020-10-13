@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
 
+@inject Utility utility
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -66,9 +68,18 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Blokir kartu condition : entered into blokir kartu", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(3000);
+        Utility.WriteLog("Blokir kartu condition : move to home", "step-action");
         OnClick.InvokeAsync("ambilkartu");
     }
 }

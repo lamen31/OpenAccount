@@ -148,7 +148,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKU INPUT DATA");
             Utility.WriteLog("Buku condition : entered into buku input data", "step-action");
         }
     }
@@ -158,10 +157,11 @@
     //    await ServicePassbook();
     //}
 
-    
+
 
     private async Task Home()
     {
+        Utility.WriteLog("Buku condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 
@@ -199,6 +199,8 @@
             //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
             //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
             trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+            Utility.WriteLog("Buku condition : set data passbook success", "step-action");
+            Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
             OnClick.InvokeAsync("bukukonfirmasi");
         }
     }
@@ -206,16 +208,19 @@
     private void Inputfield1()
     {
         isTextfield = "1";
+        Utility.WriteLog("Buku condition : isTextField = 1", "step-action");
     }
 
     private void Inputfield2()
     {
         isTextfield = "2";
+        Utility.WriteLog("Buku condition : isTextField = 2", "step-action");
     }
 
     private void Inputfield3()
     {
         isTextfield = "3";
+        Utility.WriteLog("Buku condition : isTextField = 3", "step-action");
     }
     private void InputPhoneNumber(string strinput)
     {

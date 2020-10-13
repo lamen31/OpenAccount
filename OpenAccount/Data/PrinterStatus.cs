@@ -49,11 +49,13 @@ namespace OpenAccount.Data
             }
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.WorkingDirectory = workingdirectory;
-            process.Start();
             Utility.WriteLog("Printer status condition : check status printing in " + strnamaprinter, "step-action");
+            process.Start();
             process.WaitForExit();
+            Utility.WriteLog("Printer status condition : check status printing done", "step-action");
             if (process.HasExited)
             {
+                Utility.WriteLog("Printer status condition : check status printing close", "step-action");
                 process.Close();
                 process.Dispose();
             }

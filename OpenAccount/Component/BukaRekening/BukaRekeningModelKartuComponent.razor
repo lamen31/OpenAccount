@@ -117,7 +117,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING MODEL KARTU");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening model kartu", "step-action");
         }
     }
@@ -138,13 +137,14 @@
 
     private async Task Syarat()
     {
-        Console.WriteLine("SET MODEL KARTU SUCCESS");
-        Utility.WriteLog("Buka rekening condition : set model kartu success", "step-action");
+        Utility.WriteLog("Buka rekening condition : set model kartu " + modelKartu + " success", "step-action");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening syarat", "step-action");
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 
     private async Task Jenis()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening jenis", "step-action");
         OnClick.InvokeAsync("bukarekeningjenis");
     }
 }

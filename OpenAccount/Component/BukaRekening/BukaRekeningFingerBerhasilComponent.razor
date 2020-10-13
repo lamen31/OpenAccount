@@ -18,7 +18,6 @@
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <img src="../assets/img/Folder GIF/finger-print-sukses2.gif" class="img-fluid" alt=""><br>
-
             </div>
         </div>
     </div>
@@ -96,10 +95,8 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING FINGER PRINT BERHASIL");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening finger print berhasil", "step-action");
             trxbaru.setKTPNasabah(strnik, strnama, strttl, strperkawinan, stralamat, stragama, strpekerjaan);
-            Console.WriteLine("SET DATA KTP " + strnama + " SUCCESS");
             Utility.WriteLog("Buka rekening condition : set data ktp " + strnama + " success", "step-action");
         }
     }
@@ -107,20 +104,19 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(2000);
-        scanner.RadioPos();
-        Console.WriteLine("ID SCANNER RADIO POS");
         Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
+        scanner.RadioPos();
+        Utility.WriteLog("Buka rekening condition : move to buka rekening capture", "step-action");
         OnClick.InvokeAsync("bukarekeningcapturektp");
     }
 
     private async Task KTP()
     {
-        scanner.ReturnCard();
-        Console.WriteLine("ID SCANNER RETURN CARD");
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
-        Console.WriteLine("ID SCANNER CLOSE READER");
+        scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

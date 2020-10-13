@@ -76,15 +76,21 @@
     private bool isSpinner = false;
     private bool isKTPValid = true;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Ganti kartu condition : entered into ganti kartu pindai ktp", "step-action");
+        }
+    }
+
     private async Task PindaiKTP()
     {
         isSpinner = true;
         StateHasChanged();
-        Console.WriteLine("ID SCANNER FRONT SWALLOW");
-        Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
+        Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
         scanner.FrontSwallow();
-        Console.WriteLine("ID SCANNER BACK SWALLOW");
-        Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
+        Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
         scanner.BackSwallow();
         await Task.Delay(3000);
         CheckKTPValid();
@@ -95,24 +101,23 @@
         if (isKTPValid)
         {
             scanner.RadioPos();
-            Console.WriteLine("ID SCANNER RADIO POS");
-            Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
+            Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
             await Task.Delay(2000);
+            Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp berhasil", "step-action");
             OnClick.InvokeAsync("gantikartupindaiktpberhasil");
         }
         else
         {
+            Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
             scanner.ReturnCard();
-            Console.WriteLine("ID SCANNER RETURN CARD");
-            Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
+            Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
             scanner.CloseCVRReader();
-            Console.WriteLine("ID SCANNER CLOSE READER");
-            Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
         }
     }
 
     private async Task Rekening()
     {
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
         OnClick.InvokeAsync("gantikartu");
     }
 }

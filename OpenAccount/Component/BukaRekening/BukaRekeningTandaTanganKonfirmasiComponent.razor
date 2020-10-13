@@ -94,23 +94,19 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING TANDA TANGAN KONFIRMASI");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan konfirmasi", "step-action");
         }
     }
 
-    private async Task Home()
-    {
-        OnClick.InvokeAsync("home");
-    }
-
     private async Task TandaTangan()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 
     private async Task TandaTangan2()
     {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan kedua", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangankedua");
     }
 }

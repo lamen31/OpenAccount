@@ -100,13 +100,13 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING JENIS TUJUAN");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening jenis tujuan", "step-action");
         }
     }
 
     private async Task Home()
     {
+        Utility.WriteLog("Buka rekening condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 
@@ -140,8 +140,8 @@
 
     private async Task InputKTP()
     {
-        Console.WriteLine("SET TUJUAN REKENING SUCCESS");
-        Utility.WriteLog("Buka rekening condition : set tujuan rekening success", "step-action");
+        Utility.WriteLog("Buka rekening condition : set tujuan rekening " + tujuanRekening + " success", "step-action");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

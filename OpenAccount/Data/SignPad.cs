@@ -28,15 +28,14 @@ namespace OpenAccount.Data
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.WorkingDirectory = workingdirectory;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.Start();
-            Console.WriteLine("SIGN PAD: SIGN PAD PROCESS RUNNING");
             Utility.WriteLog("Signpad condition : sign pad process running", "step-action");
+            process.Start();
             process.WaitForExit();
+            Utility.WriteLog("Signpad condition : sign pad process done", "step-action");
             if (process.HasExited)
             {
-                process.Close();
-                Console.WriteLine("SIGN PAD FUNCTION: SIGN PAD PROCESS CLOSE");
                 Utility.WriteLog("Signpad condition : sign pad process close", "step-action");
+                process.Close();
                 //process.Dispose();
             }
         }
@@ -47,18 +46,17 @@ namespace OpenAccount.Data
             string path = Directory.GetCurrentDirectory();
             path = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
             File.Delete(path);
-            Console.WriteLine("FILE FROM " + path + " HAS DELETED");
-            Utility.WriteLog("Buka rekening condition : file from " + path + " has deleted", "step-action");
+            Utility.WriteLog("Sign pad condition : file from " + path + " has deleted", "step-action");
 
             pathWorking = workingdirectory + "\\hwsign.png";
             if (File.Exists(pathWorking))
             {
                 await Task.Run(() => File.Move(pathWorking, path));
-                Console.WriteLine("FILE FROM " + pathWorking + " HAS MOVED TO " + path);
-                Utility.WriteLog("Buka rekening condition : file from " + pathWorking + " has moved to " + path, "step-action");
+                Utility.WriteLog("Sign pad condition : file from " + pathWorking + " has moved to " + path, "step-action");
 
                 strBase64 = convertToBase64(path);
                 trxbaru.setImageTTD1(strBase64);
+                Utility.WriteLog("Sign pad condition : set image signpad base64 success", "step-action");
             }
         }
 
@@ -73,6 +71,7 @@ namespace OpenAccount.Data
                     image.Save(m, image.RawFormat);
                     byte[] imageBytes = m.ToArray();
                     base64String = Convert.ToBase64String(imageBytes);
+                    Utility.WriteLog("Sign pad condition : convert image to base64 success", "step-action");
                 }
             }
             return base64String;
@@ -84,19 +83,24 @@ namespace OpenAccount.Data
             string path = Directory.GetCurrentDirectory();
             path = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD2);
             File.Delete(path);
-            Console.WriteLine("FILE FROM " + path + " HAS DELETED");
-            Utility.WriteLog("Buka rekening condition : file from " + path + " has deleted", "step-action");
+            Utility.WriteLog("Sign pad condition : file from " + path + " has deleted", "step-action");
 
             pathWorking = workingdirectory + "\\hwsign.png";
             if (File.Exists(pathWorking))
             {
                 await Task.Run(() => File.Move(pathWorking, path));
-                Console.WriteLine("FILE FROM " + pathWorking + " HAS MOVED TO " + path);
-                Utility.WriteLog("Buka rekening condition : file from " + pathWorking + " has moved to " + path, "step-action");
+                Utility.WriteLog("Sign pad condition : file from " + pathWorking + " has moved to " + path, "step-action");
 
                 strBase64 = convertToBase64(path);
                 trxbaru.setImageTTD2(strBase64);
+                Utility.WriteLog("Sign pad condition : set image signpad2 base64 success", "step-action");
             }
+        }
+
+        public async Task CloseProcess()
+        {
+            process.Close();
+            Utility.WriteLog("Signpad condition : sign pad process close", "step-action");
         }
     }
 }

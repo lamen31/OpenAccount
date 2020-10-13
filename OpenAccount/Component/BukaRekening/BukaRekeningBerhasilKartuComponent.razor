@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <h3 style="color: #00529C;">ANIMASI AMBIL KARTU</h3>
+                <img src="../assets/img/Folder GIF/Ambil-Kartu.gif" class="img-fluid" alt=""><br>
             </div>
         </div>
     </div>
@@ -92,7 +92,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING BERHASIL KARTU");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening berhasil kartu", "step-action");
         }
     }
@@ -111,7 +110,10 @@
         }
         else if (modelKartu == "Britama 2")
             dispenserBox = "2";
+        Utility.WriteLog("Buka rekening condition : set dispenser box " + dispenserBox, "step-action");
+        Utility.WriteLog("Buka rekening condition : card dispenser process start", "step-action");
         dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
+        Utility.WriteLog("Buka rekening condition : move to buka rekening berhasil struk", "step-action");
         OnClick.InvokeAsync("bukarekeningberhasilstruk");
     }
 }

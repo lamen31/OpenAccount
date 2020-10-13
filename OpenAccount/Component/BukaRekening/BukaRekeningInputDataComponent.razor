@@ -336,7 +336,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening input data", "step-action");
         }
     }
@@ -361,17 +360,23 @@
     {
         isBekerja = true;
         StateHasChanged();
+        Utility.WriteLog("Buka rekening condition : boolean isBekerja change to true", "step-action");
     }
 
     private void TidakBekerja()
     {
         isBekerja = false;
         StateHasChanged();
+        Utility.WriteLog("Buka rekening condition : boolean isBekerja change to false", "step-action");
     }
 
     private async Task Syarat()
     {
         trxbaru.clearNasabahBaru();
+        Utility.WriteLog("Buka rekening condition : clear data nasabah 1 success", "step-action");
+        trxbaru.clearNasabahBaru2();
+        Utility.WriteLog("Buka rekening condition : clear data nasabah 2 success", "step-action");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening syarat", "step-action");
         OnClick.InvokeAsync("bukarekeningsyarat");
     }
 
@@ -382,8 +387,8 @@
             if (strnamaibu != string.Empty && strhandphone != string.Empty && strpekerjaan != string.Empty && strpenghasilan != string.Empty)
             {
                 trxbaru.setNasabahBaru(strnamaibu, strhandphone, stremail, strpekerjaan, strpenghasilan);
-                Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-                Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+                Utility.WriteLog("Buka rekening condition : input data nasabah 1 success", "step-action");
+                Utility.WriteLog("Buka rekening condition : move to buka rekening input data 2", "step-action");
                 OnClick.InvokeAsync("bukarekeninginputdata2");
             }
         }
@@ -393,8 +398,8 @@
             {
                 strpekerjaan = strpenghasilan = strperusahaan = strusaha = strtelepon = strjabatan = strkota = stralamat = "belum bekerja";
                 trxbaru.setNasabahBaru3(strnamaibu, strhandphone, stremail, strpekerjaan, strpenghasilan, strperusahaan, strusaha, strtelepon, strjabatan, strkota, stralamat);
-                Console.WriteLine("ENTERED INTO BUKA REKENING INPUT DATA SUCCESS");
-                Utility.WriteLog("Buka rekening condition : entered into buka rekening input data success", "step-action");
+                Utility.WriteLog("Buka rekening condition : input data nasabah 3 success", "step-action");
+                Utility.WriteLog("Buka rekening condition : move to buka rekening input npwp", "step-action");
                 OnClick.InvokeAsync("bukarekeninginputNPWP");
             }
         }
@@ -404,30 +409,35 @@
     {
         isTextField = "1";
         isTextField2 = "1";
+        Utility.WriteLog("Buka rekening condition : isTextField = 1, isTextField2 = 1", "step-action");
     }
 
     private void inputField2()
     {
         isTextField = "2";
         isTextField2 = "1";
+        Utility.WriteLog("Buka rekening condition : isTextField = 2, isTextField2 = 1", "step-action");
     }
 
     private void inputField3()
     {
         isTextField = "3";
         isTextField2 = "1";
+        Utility.WriteLog("Buka rekening condition : isTextField = 3, isTextField2 = 1", "step-action");
     }
 
     private void inputField4()
     {
         isTextField = "4";
         isTextField2 = "2";
+        Utility.WriteLog("Buka rekening condition : isTextField = 4, isTextField2 = 2", "step-action");
     }
 
     private void inputField5()
     {
         isTextField = "5";
         isTextField2 = "2";
+        Utility.WriteLog("Buka rekening condition : isTextField = 5, isTextField2 = 2", "step-action");
     }
 
     private void InputData(string strinput)
@@ -445,7 +455,7 @@
                         strhandphone += strinput;
                     break;
                 case "3":
-                        stremail += strinput;
+                    stremail += strinput;
                     break;
                     //case "4":
                     //    strpos += strinput;

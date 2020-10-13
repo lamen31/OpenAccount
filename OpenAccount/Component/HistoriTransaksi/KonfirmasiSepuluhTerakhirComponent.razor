@@ -117,6 +117,7 @@
         //nominal = new string[lines.Length];
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
 
+        Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
         await ServiceThermal();
 
         //for (int i = 0; i < lines.Length; i++)
@@ -138,10 +139,10 @@
         //        }
         //    }
         //}
-        Console.WriteLine("INPUT DATA SUCCESS");
         Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         //trx.setHistoriThermal(tanggal, kode, nominal, saldo);
         trx.setSaldoThermal(saldo);
+        Utility.WriteLog("Histori condition : set saldo thermal success", "step-action");
     }
 
     private async Task ServiceThermal()
@@ -150,18 +151,22 @@
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
         string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
         trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
+        Utility.WriteLog("Histori condition : get service start", "step-action");
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
         if (strResultGET != null)
         {
             JObject jobResult = JObject.Parse(strResultGET);
             trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+            Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
 
             if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
             {
+                Utility.WriteLog("Histori condition : hit service thermal success", "step-action");
                 foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
                 {
                     trx.AddListThermal((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
                 }
+                Utility.WriteLog("Histori condition : get list data success", "step-action");
             }
         }
     }
@@ -170,13 +175,13 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO HISTORI SEPULUH TERAKHIR");
             Utility.WriteLog("Histori condition : entered into history sepuluh terakhir", "step-action");
         }
     }
 
     private async Task PilihHistori()
     {
+        Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
         OnClick.InvokeAsync("historiPilih");
     }
 
@@ -184,11 +189,10 @@
     {
         isVisible = !isVisible;
         await Task.Delay(100);
-        Console.WriteLine("PRINT THERMAL STARTED");
         Utility.WriteLog("Histori condition : print thermal started", "step-action");
         await print.PrintThermal(trx);
-        Console.WriteLine("PRINT THERMAL FINISHED");
         Utility.WriteLog("Histori condition : print thermal finished", "step-action");
+        Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
         OnClick.InvokeAsync("historiberhasil");
     }
 }

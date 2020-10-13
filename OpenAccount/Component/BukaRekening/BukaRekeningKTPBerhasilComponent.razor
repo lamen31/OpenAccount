@@ -16,10 +16,8 @@
                 <h3 style="color: #00529C;">Proses pindai e-KTP <b style="color: rgb(50, 219, 72);">Berhasil</b></h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-
-                <img src="../assets/img/tick (2).png" style="width: 10%;">
                 <br>
-                <img src="../assets/img/ktp-sukses.gif" class="img-fluid" alt=""><br>
+                <img src="../assets/img/Folder GIF/ktp-sukses.gif" class="img-fluid" alt=""><br>
             </div>
         </div>
     </div>
@@ -88,6 +86,7 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(2000);
+        Utility.WriteLog("Buka rekening condition : move to buka rekening finger", "step-action");
         OnClick.InvokeAsync("bukarekeningfinger");
     }
 
@@ -95,19 +94,17 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING KTP BERHASIL");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening ktp berhasil", "step-action");
         }
     }
 
     private async Task KTP()
     {
-        scanner.ReturnCard();
-        Console.WriteLine("ID SCANNER RETURN CARD");
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
-        Console.WriteLine("ID SCANNER CLOSE READER");
+        scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
+        Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");
         OnClick.InvokeAsync("bukarekeningktp");
     }
 }

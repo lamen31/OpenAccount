@@ -23,7 +23,7 @@
                 }
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
-                <img src="../assets/img/insert-ktp2.gif" class="img-fluid" alt=""><br>
+                <img src="../assets/img/Folder GIF/insert-ktp2.gif" class="img-fluid" alt=""><br>
                 <button type="button" class="btn btn-primary" style="background-color: #ff2525; font-weight: 100; padding: 8px 30px;" @onclick="KTPberhasil">Pindai</button>
             </div>
         </div>
@@ -97,31 +97,27 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING KTP");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening ktp", "step-action");
         }
     }
 
     private async Task Tujuan()
     {
-        scanner.ReturnCard();
-        Console.WriteLine("ID SCANNER RETURN CARD");
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
-        Console.WriteLine("ID SCANNER CLOSE READER");
+        scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tujuan", "step-action");
         OnClick.InvokeAsync("bukarekening");
     }
 
     private async Task KTPberhasil()
     {
         isSpinner = true;
-        StateHasChanged();
-        Console.WriteLine("ID SCANNER FRONT SWALLOW");
         Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
-        scanner.FrontSwallow();
-        Console.WriteLine("ID SCANNER BACK SWALLOW");
+        StateHasChanged();
         Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
+        scanner.FrontSwallow();
         scanner.BackSwallow();
         await Task.Delay(3000);
         CheckKTPValid();
@@ -132,20 +128,18 @@
     {
         if (isKTPValid)
         {
-            scanner.RadioPos();
-            Console.WriteLine("ID SCANNER RADIO POS");
             Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
+            scanner.RadioPos();
             await Task.Delay(2000);
+            Utility.WriteLog("Buka rekening condition : move to buka rekening ktp berhasil", "step-action");
             OnClick.InvokeAsync("bukarekeningktpberhasil");
         }
         else
         {
-            scanner.ReturnCard();
-            Console.WriteLine("ID SCANNER RETURN CARD");
             Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
-            scanner.CloseCVRReader();
-            Console.WriteLine("ID SCANNER CLOSE READER");
+            scanner.ReturnCard();
             Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+            scanner.CloseCVRReader();
         }
     }
 }

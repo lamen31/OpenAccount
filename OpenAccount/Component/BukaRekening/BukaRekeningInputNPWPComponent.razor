@@ -102,7 +102,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp", "step-action");
         }
     }
@@ -149,16 +148,16 @@
         if (strnpwp.Length == 20)
         {
             trxbaru.setNomorNPWP(strnpwp);
-            Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SUCCESS");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp success", "step-action");
+            Utility.WriteLog("Buka rekening condition : input nomor npwp " + strnpwp + " success", "step-action");
+            Utility.WriteLog("Buka rekening condition : move to buka rekening capture npwp", "step-action");
             OnClick.InvokeAsync("bukarekeningcaptureNPWP");
         }
     }
 
     private async Task TandaTangan()
     {
-        Console.WriteLine("ENTERED INTO BUKA REKENING INPUT NOMOR NPWP SKIPPED");
-        Utility.WriteLog("Buka rekening condition : entered into buka rekening input nomor npwp skipped", "step-action");
+        Utility.WriteLog("Buka rekening condition : step input npwp skipped", "step-action");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 }

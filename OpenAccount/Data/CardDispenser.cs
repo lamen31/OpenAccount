@@ -49,12 +49,13 @@ namespace OpenAccount.Data
                 if (Hndl != 0)
                 {
                     p_message = "Comm. Port is Opened";
-                    Console.WriteLine("Comm. Port is Opened");
+                    Utility.WriteLog("Card dispenser condition : com port is opened", "step-action");
                 }
                 else
                 {
                     p_message = "Open Comm. Port Error [Port : " + com_serial + "]";
                     p_errorCode = "OCPE"; // Open Comm Port Error
+                    Utility.WriteLog("Card dispenser condition : open com port error [port : " + com_serial + "]" , "step-action");
                 }
 
                 if (Hndl != 0)
@@ -98,19 +99,19 @@ namespace OpenAccount.Data
                         if (Rxdata[0] == 0x50)
                         {
                             p_message = "INITIALIZE OK";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : initialize ok", "step-action");
                         }
                         else
                         {
                             p_message = "INITIALIZE ERROR";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : initialize error", "step-action");
                         }
                     }
                     else
                     {
                         p_errorCode = "CE";
                         p_message = "Communication Error";
-                        Console.WriteLine(p_message);
+                        Utility.WriteLog("Card dispenser condition : communication error", "step-action");
                     }
 
                     TxData = new byte[1024];
@@ -129,19 +130,19 @@ namespace OpenAccount.Data
                         if (Rxdata[0] == 0x50)
                         {
                             p_message = "CHECK STATUS 1 OK";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : check status 1 ok", "step-action");
                         }
                         else
                         {
                             p_message = "CHECK STATUS 1 ERROR";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : check status 1 error", "step-action");
                         }
                     }
                     else
                     {
                         p_errorCode = "CE";
                         p_message = "Communication Error";
-                        Console.WriteLine(p_message);
+                        Utility.WriteLog("Card dispenser condition : communication error", "step-action");
                     }
 
                     TxData = new byte[1024];
@@ -160,19 +161,19 @@ namespace OpenAccount.Data
                         if (Rxdata[0] == 0x50)
                         {
                             p_message = "CHECK STATUS 2 OK";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : check status 2 ok", "step-action");
                         }
                         else
                         {
                             p_message = "CHECK STATUS 2 ERROR";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : check status 2 error", "step-action");
                         }
                     }
                     else
                     {
                         p_errorCode = "CE";
                         p_message = "Communication Error";
-                        Console.WriteLine(p_message);
+                        Utility.WriteLog("Card dispenser condition : communication error", "step-action");
                     }
 
                     TxData = new byte[1024];
@@ -201,19 +202,19 @@ namespace OpenAccount.Data
                         if (Rxdata[0] == 0x50)
                         {
                             p_message = "FEEDING OK";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : feeding ok", "step-action");
                         }
                         else
                         {
                             p_message = "FEEDING ERROR";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : feeding error", "step-action");
                         }
                     }
                     else
                     {
                         p_errorCode = "CE";
                         p_message = "Communication Error";
-                        Console.WriteLine(p_message);
+                        Utility.WriteLog("Card dispenser condition : communication error", "step-action");
                     }
 
                     TxData = new byte[1024];
@@ -232,19 +233,19 @@ namespace OpenAccount.Data
                         if (Rxdata[0] == 0x50)
                         {
                             p_message = "EJECT OK";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : eject ok", "step-action");
                         }
                         else
                         {
                             p_message = "EJECT ERROR";
-                            Console.WriteLine(p_message);
+                            Utility.WriteLog("Card dispenser condition : eject error ok", "step-action");
                         }
                     }
                     else
                     {
                         p_errorCode = "CE";
                         p_message = "Communication Error";
-                        Console.WriteLine(p_message);
+                        Utility.WriteLog("Card dispenser condition : communication error", "step-action");
                     }
 
                 }
@@ -252,20 +253,20 @@ namespace OpenAccount.Data
                 {
                     p_errorCode = "CO";
                     p_message = "Comm. port is not Opened";
-                    Console.WriteLine(p_message);
+                    Utility.WriteLog("Card dispenser condition : com port is not opened", "step-action");
                 }
 
                 int i = CRT591H001RClose(Hndl);
                 if (i == 0)
-                    Console.WriteLine("CLOSE PORT OK");
+                    Utility.WriteLog("Card dispenser condition : close port ok", "step-action");
                 else
-                    Console.WriteLine("CLOSE PORT ERROR");
+                    Utility.WriteLog("Card dispenser condition : close port error", "step-action");
 
             }
             catch(Exception ex)
             {
                 p_message = ex.Message;
-                Console.WriteLine(p_message);
+                Utility.WriteLog("Card dispenser condition : " + p_message, "step-action");
             }
         }
     }

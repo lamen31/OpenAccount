@@ -71,15 +71,22 @@
     private bool FingerValid = true;
     private int trylimit = 3;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Ganti kartu condition : entered into ganti kartu finger", "step-action");
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
+        Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
         scanner.BackSwallow();
-        Console.WriteLine("ID SCANNER BACK SWALLOW");
-        Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
         loopFinger = true;
         CheckFingerValid();
-        OnClick.InvokeAsync("gantikartufingerberhasil");
+        //OnClick.InvokeAsync("gantikartufingerberhasil");
     }
 
     private async Task CheckFingerValid()
@@ -90,10 +97,10 @@
             if (FingerValid)
             {
                 loopFinger = false;
+                Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
                 scanner.RadioPos();
-                Console.WriteLine("ID SCANNER RADIO POS");
-                Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
-                OnClick.InvokeAsync("bukarekeningfingerberhasil");
+                Utility.WriteLog("Ganti kartu condition : move to ganti kartu finger berhasil", "step-action");
+                OnClick.InvokeAsync("gantikartufingerberhasil");
             }
             else
             {
@@ -102,13 +109,12 @@
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
+                    Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
-                    Console.WriteLine("ID SCANNER RETURN CARD");
-                    Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
+                    Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
                     scanner.CloseCVRReader();
-                    Console.WriteLine("ID SCANNER CLOSE READER");
-                    Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
                     loopFinger = false;
+                    Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
                     OnClick.InvokeAsync("home");
                 }
             }
@@ -119,12 +125,11 @@
     private async Task KTP()
     {
         loopFinger = false;
+        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
-        Console.WriteLine("ID SCANNER RETURN CARD");
-        Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
+        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();
-        Console.WriteLine("ID SCANNER CLOSE READER");
-        Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
         OnClick.InvokeAsync("gantikartupindaiktp");
     }
 }

@@ -73,8 +73,7 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING BERHASIL KARTU");
-            Utility.WriteLog("Buka rekening condition : entered into buka rekening berhasil kartu", "step-action");
+            Utility.WriteLog("Ganti kartu condition : entered into ganti kartu berhasil", "step-action");
         }
     }
 
@@ -86,7 +85,9 @@
         string ErrorCode = string.Empty;
         string message = string.Empty;
         dispenserBox = "1";
+        Utility.WriteLog("Ganti kartu condition : card dispenser process start", "step-action");
         dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
+        Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 }

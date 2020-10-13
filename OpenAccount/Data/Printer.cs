@@ -50,14 +50,16 @@ namespace OpenAccount.Data
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(HistoriPrintPage);
-            printdoc.Print();
             Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            printdoc.Print();
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
             printerstatus.StatusPrinting(printername);
             pathStatus = printerstatus.workingdirectory;
             pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
             textStatus = Utility.ReadLog(pathStatus);
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Console.WriteLine("Print Selesai ...");
             Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
             return _trx._HistoriSaldo;
@@ -220,16 +222,18 @@ namespace OpenAccount.Data
             //string printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
             printdoc.PrintPage += new PrintPageEventHandler(ThermalPrintPage);
+            Utility.WriteLog("Printer condition : print thermal in " + printername + " start", "step-action");
             printdoc.Print();
-            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
             printerstatus.StatusPrinting(printername);
             pathStatus = printerstatus.workingdirectory;
             pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
             textStatus = Utility.ReadLog(pathStatus);
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Console.WriteLine("Print Selesai ...");
-            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
+            Utility.WriteLog("Printer condition : print thermal in " + printername + " finished", "step-action");
         }
 
         public void ThermalPrintPage(object sender, PrintPageEventArgs e)
@@ -328,16 +332,18 @@ namespace OpenAccount.Data
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(PassbookPrintPage);
+            Utility.WriteLog("Printer condition : print passbook in " + printername + " start", "step-action");
             printdoc.Print();
-            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
             printerstatus.StatusPrinting(printername);
             pathStatus = printerstatus.workingdirectory;
             pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
             textStatus = Utility.ReadLog(pathStatus);
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Console.WriteLine("Print Selesai ...");
-            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
+            Utility.WriteLog("Printer condition : print passbook in " + printername + " finished", "step-action");
             return trx._BukuSaldo;
         }
 
@@ -443,16 +449,18 @@ namespace OpenAccount.Data
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(BukuPenuhPage);
+            Utility.WriteLog("Printer condition : print buku penuh in " + printername + " start", "step-action");
             printdoc.Print();
-            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
             printerstatus.StatusPrinting(printername);
             pathStatus = printerstatus.workingdirectory;
             pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
             textStatus = Utility.ReadLog(pathStatus);
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Console.WriteLine("Print Selesai ...");
-            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
+            Utility.WriteLog("Printer condition : print buku penuh in " + printername + " finished", "step-action");
         }
 
         private void BukuPenuhPage(object sender, PrintPageEventArgs e)
@@ -534,16 +542,18 @@ namespace OpenAccount.Data
             printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
             printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(BukaRekeningPage);
+            Utility.WriteLog("Printer condition : print buka rekening in " + printername + " start", "step-action");
             printdoc.Print();
-            Utility.WriteLog("Printer condition : print histori in " + printername + " start", "step-action");
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
             printerstatus.StatusPrinting(printername);
             pathStatus = printerstatus.workingdirectory;
             pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
             textStatus = Utility.ReadLog(pathStatus);
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Console.WriteLine("Print Selesai ...");
-            Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
+            Utility.WriteLog("Printer condition : print buka rekening in " + printername + " finished", "step-action");
         }
 
         private void BukaRekeningPage(object sender, PrintPageEventArgs e)

@@ -19,7 +19,7 @@
                 <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> yang ke-2 kali</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Signature.gif" class="img-fluid" alt=""><br>
+                <img src="../assets/img/Folder GIF/Signature.gif" class="img-fluid" alt=""><br>
             </div>
         </div>
     </div>
@@ -95,10 +95,12 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING TANDA TANGAN KEDUA");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan kedua", "step-action");
+            Utility.WriteLog("Buka rekening condition : sign pad process start", "step-action");
             await sign.signpad();
+            Utility.WriteLog("Buka rekening condition : sign pad process save image", "step-action");
             sign.saveSign2();
+            Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan kedua konfirmasi", "step-action");
             OnClick.InvokeAsync("bukarekeningtandatangankeduakonfirmasi");
         }
     }
@@ -110,6 +112,9 @@
 
     private async Task TandaTangan()
     {
+        Utility.WriteLog("Buka rekening condition : sign pad process close", "step-action");
+        sign.CloseProcess();
+        Utility.WriteLog("Buka rekening condition : move to buka rekening tanda tangan", "step-action");
         OnClick.InvokeAsync("bukarekeningtandatangan");
     }
 }

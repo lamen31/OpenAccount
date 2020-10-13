@@ -131,18 +131,18 @@
             {
                 sPort.Close();
             }
+            Utility.WriteLog("Buka rekening condition : EDC process start", "step-action");
             await EDC("14");
             if (isPin)
             {
-                Console.WriteLine("INPUT PIN E-BANKING KEDUA SUCCESS");
-                Utility.WriteLog("Buka rekening condition : input pin e-banking kedua success", "step-action");
                 trxbaru.setPinEBanking(strpinNomor, reference);
-                Console.WriteLine("SET REFERENCE ID SUCCESS");
-                Utility.WriteLog("Buka rekening condition : set reference id success", "step-action");
+                Utility.WriteLog("Buka rekening condition : set pin " + strpinNomor + " and reference success", "step-action");
+                Utility.WriteLog("Buka rekening condition : move to buka rekening setoran awal", "step-action");
                 OnClick.InvokeAsync("bukarekeningsetoranawal");
             }
             else if (isNotPin)
             {
+                Utility.WriteLog("Buka rekening condition : move to buka rekening input pin ebanking", "step-action");
                 OnClick.InvokeAsync("bukarekeninginputpinebanking");
             }
         }
@@ -161,6 +161,7 @@
         string dataRespond = string.Empty;
         serialPort = new SerialPort();
 
+        Utility.WriteLog("Buka rekening condition : EDC serial port close", "step-action");
         serialPort.Close();
 
         string request_BankFiller = string.Empty;
@@ -185,8 +186,10 @@
 
         Console.WriteLine("1");
 
+        Utility.WriteLog("Buka rekening condition : EDC serial port open", "step-action");
         serialPort.Open();
 
+        Utility.WriteLog("Buka rekening condition : EDC serial port write", "step-action");
         serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
 
         do
@@ -198,6 +201,7 @@
             //Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
+                Utility.WriteLog("Buka rekening condition : EDC serial port already open", "step-action");
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
                 //Console.WriteLine("Data Current: " + dataCurrent);
@@ -210,8 +214,6 @@
                     switch (intBuffer)
                     {
                         case 69:
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
                             if (strpin.Length == 6)
                             {
                                 if (isSesuai)
@@ -224,10 +226,12 @@
                                     isNotPin = true;
                                 }
                             }
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin enter", "step-action");
                             break;
                         case 88:
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : EDC pin cancel", "step-action");
                             InputPin();
                             isLoop = false;
                             break;
@@ -239,6 +243,7 @@
                         case 67:
                             strpin = string.Empty;
                             strpinNomor = string.Empty;
+                            Utility.WriteLog("Buka rekening condition : EDC pin clear", "step-action");
                             break;
                         case 32:
                             if (strpin.Length < 7)
@@ -246,8 +251,9 @@
                                 strpin = strpin + "0";
                                 strpinNomor += "0";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 0", "step-action");
                             break;
                         case 1:
                             if (strpin.Length < 7)
@@ -255,8 +261,9 @@
                                 strpin = strpin + "1";
                                 strpinNomor += "1";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 1", "step-action");
                             break;
                         case 2:
                             if (strpin.Length < 7)
@@ -264,8 +271,9 @@
                                 strpin = strpin + "2";
                                 strpinNomor += "2";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 2", "step-action");
                             break;
                         case 3:
                             if (strpin.Length < 7)
@@ -273,8 +281,9 @@
                                 strpin = strpin + "3";
                                 strpinNomor += "3";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 3", "step-action");
                             break;
                         case 4:
                             if (strpin.Length < 7)
@@ -282,8 +291,9 @@
                                 strpin = strpin + "4";
                                 strpinNomor += "4";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 4", "step-action");
                             break;
                         case 5:
                             if (strpin.Length < 7)
@@ -291,8 +301,9 @@
                                 strpin = strpin + "5";
                                 strpinNomor += "5";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 5", "step-action");
                             break;
                         case 6:
                             if (strpin.Length < 7)
@@ -300,8 +311,9 @@
                                 strpin = strpin + "6";
                                 strpinNomor += "6";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 6", "step-action");
                             break;
                         case 7:
                             if (strpin.Length < 7)
@@ -309,8 +321,9 @@
                                 strpin = strpin + "7";
                                 strpinNomor += "7";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 7", "step-action");
                             break;
                         case 8:
                             if (strpin.Length < 7)
@@ -318,8 +331,9 @@
                                 strpin = strpin + "8";
                                 strpinNomor += "8";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 8", "step-action");
                             break;
                         case 9:
                             if (strpin.Length < 7)
@@ -327,8 +341,9 @@
                                 strpin = strpin + "9";
                                 strpinNomor += "9";
                             }
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
+                            Utility.WriteLog("Buka rekening condition : " + strpinNomor, "step-action");
+                            Utility.WriteLog("Buka rekening condition : EDC pin 9", "step-action");
                             break;
                     }
                 }
@@ -377,6 +392,7 @@
                 {
                     isSesuai = true;
                     isNotCorrect = false;
+                    Utility.WriteLog("Buka rekening condition : pin sesuai", "step-action");
                 }
                 else if (strpinNomor != trxbaru._PinEBanking1)
                 {
@@ -388,6 +404,7 @@
                     //    trxbaru.clearPinPertama();
                     //    OnClick.InvokeAsync("bukarekeninginputpinatm");
                     //}
+                    Utility.WriteLog("Buka rekening condition : pin tidak sesuai", "step-action");
                 }
                 await Task.Delay(100);
                 StateHasChanged();
@@ -395,6 +412,7 @@
         } while (isLoop);
 
         Console.WriteLine("2");
+        Utility.WriteLog("Buka rekening condition : EDC serial port close", "step-action");
         serialPort.Close();
         //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
@@ -403,8 +421,10 @@
     {
         strpin = string.Empty;
         isLoop = false;
+        Utility.WriteLog("Buka rekening condition : EDC serial port close", "step-action");
         serialPort.Close();
-        await CancelEDC("15");
+        //await CancelEDC("15");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input pin ebanking", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinebanking");
     }
 
@@ -475,13 +495,13 @@
         }
     }
 
-    private async Task Berhasil()
-    {
-        Console.WriteLine("INPUT PIN E-BANKING KEDUA SUCCESS");
-        Utility.WriteLog("Buka rekening condition : input pin e-banking kedua success", "step-action");
-        trxbaru.setPinEBanking(strpin, reference);
-        Console.WriteLine("SET REFERENCE ID SUCCESS");
-        Utility.WriteLog("Buka rekening condition : set reference id success", "step-action");
-        OnClick.InvokeAsync("bukarekeningberhasilkartu");
-    }
+    //private async Task Berhasil()
+    //{
+    //    Console.WriteLine("INPUT PIN E-BANKING KEDUA SUCCESS");
+    //    Utility.WriteLog("Buka rekening condition : input pin e-banking kedua success", "step-action");
+    //    trxbaru.setPinEBanking(strpin, reference);
+    //    Console.WriteLine("SET REFERENCE ID SUCCESS");
+    //    Utility.WriteLog("Buka rekening condition : set reference id success", "step-action");
+    //    OnClick.InvokeAsync("bukarekeningberhasilkartu");
+    //}
 }

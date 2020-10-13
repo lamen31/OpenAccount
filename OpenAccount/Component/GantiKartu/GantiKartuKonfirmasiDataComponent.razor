@@ -96,7 +96,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO GANTI KARTU KONFIRMASI DATA");
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu konfirmasi data", "step-action");
         }
     }
@@ -104,21 +103,21 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(100);
-        scanner.ReturnCard();
-        Console.WriteLine("ID SCANNER RETURN CARD");
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
-        scanner.CloseCVRReader();
-        Console.WriteLine("ID SCANNER CLOSE READER");
+        scanner.ReturnCard();
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+        scanner.CloseCVRReader();
     }
 
     private async Task KTP()
     {
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
         OnClick.InvokeAsync("gantikartupindaiktp");
     }
 
     private async Task Berhasil()
     {
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu berhasil", "step-action");
         OnClick.InvokeAsync("gantikartuberhasil");
     }
 }

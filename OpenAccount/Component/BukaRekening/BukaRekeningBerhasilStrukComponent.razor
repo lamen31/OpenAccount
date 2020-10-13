@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <h3 style="color: #00529C;">ANIMASI AMBIL STRUK</h3>
+                <img src="../assets/img/Folder GIF/Struk.gif" class="img-fluid" alt=""><br>
             </div>
         </div>
     </div>
@@ -87,14 +87,15 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO BUKA REKENING BERHASIL STRUK");
             Utility.WriteLog("Buka rekening condition : entered into buka rekening berhasil struk", "step-action");
+            Utility.WriteLog("Buka rekening condition : print struk process start", "step-action");
             await print.PrintBukaRekening(trxbaru);
         }
     }
 
     private async Task Home()
     {
+        Utility.WriteLog("Buka rekening condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }
 }

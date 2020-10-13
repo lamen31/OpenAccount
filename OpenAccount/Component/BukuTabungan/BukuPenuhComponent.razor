@@ -65,17 +65,19 @@
 
         protected override async Task OnInitializedAsync()
         {
+            Utility.WriteLog("Buku condition : print buku penuh started", "step-action");
             await print.PrintBukuPenuh(trx);
-            await Task.Delay(8000);
-            OnClick.InvokeAsync("home");
+            Utility.WriteLog("Buku condition : print buku penuh finished", "step-action");
+            await Task.Delay(5000);
+            Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+            OnClick.InvokeAsync("ambilkartu");
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                Console.WriteLine("ENTERED INTO BUKU PENUH");
-                Utility.WriteLog("Histori condition : entered into buku penuh", "step-action");
+                Utility.WriteLog("Buku condition : entered into buku penuh", "step-action");
             }
         }
 }

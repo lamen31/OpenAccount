@@ -92,53 +92,104 @@ namespace OpenAccount.Data
                     if (iRet == 0)
                     {
                         Utility.WriteLog("ID scanner condition : ics checking success", "step-action");
-                        if (status[0] == 50)
+                        switch (status[0])
                         {
-                            Utility.WriteLog("ID scanner condition : the card is at the front card holding", "step-action");
-                            iRet = ScannerDLL.goRadioPos(0, status);
-                            if(iRet==0)
-                                Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
-                            else
-                            {
-                                Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
-                                continue;
-                            }
-                            Thread.Sleep(500);
-                            iRet = ScannerDLL.cisQuery(0, status);
-                            Thread.Sleep(200);
-                            if (status[0] == 51)
-                            {
-                                Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
-                                res = 0;
-                                break;
-                            }
+                            case 50:
+                                {
+                                    Utility.WriteLog("ID scanner condition : the card is at the front card holding", "step-action");
+                                    iRet = ScannerDLL.goRadioPos(0, status);
+                                    if (iRet == 0)
+                                        Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
+                                    else
+                                    {
+                                        Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
+                                    }
+                                    Thread.Sleep(500);
+                                    iRet = ScannerDLL.cisQuery(0, status);
+                                    Thread.Sleep(200);
+                                    if (status[0] == 51)
+                                    {
+                                        Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
+                                        res = 0;
+                                        break;
+                                    }
+                                    break;
+                                }
+                            case 51:
+                                {
+                                    Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
+                                    res = 0;
+                                    isManualStop = true;
+                                    break;
+                                }
+                            case 48:
+                                {
+                                    Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
+                                    break;
+                                }
+                            case 49:
+                                {
+                                    Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
+                                    break;
+                                }
+                            case 52:
+                                {
+                                    Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");
+                                    break;
+                                }
+                            case 53:
+                                {
+                                    Utility.WriteLog("ID scanner condition : the card is illegally positioned", "step-action");
+                                    break;
+                                }
                         }
-                        else if (status[0] == 51)
-                        {
-                            Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
-                            res = 0;
-                            break;
-                        }
-                        else if (status[0] == 48)
-                        {
-                            Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
-                            continue;
-                        }
-                        else if (status[0] == 49)
-                        {
-                            Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
-                            continue;
-                        }
-                        else if (status[0] == 52)
-                        {
-                            Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");
-                            continue;
-                        }
-                        else if (status[0] == 53)
-                        {
-                            Utility.WriteLog("ID scanner condition : the card is illegally positioned", "step-action");
-                            continue;
-                        }
+                        //if (status[0] == 50)
+                        //{
+                        //    Utility.WriteLog("ID scanner condition : the card is at the front card holding", "step-action");
+                        //    iRet = ScannerDLL.goRadioPos(0, status);
+                        //    if(iRet==0)
+                        //        Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
+                        //    else
+                        //    {
+                        //        Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
+                        //        continue;
+                        //    }
+                        //    Thread.Sleep(500);
+                        //    iRet = ScannerDLL.cisQuery(0, status);
+                        //    Thread.Sleep(200);
+                        //    if (status[0] == 51)
+                        //    {
+                        //        Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
+                        //        res = 0;
+                        //        break;
+                        //    }
+                        //}
+                        //else if (status[0] == 51)
+                        //{
+                        //    Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
+                        //    res = 0;
+                        //    break;
+                        //}
+                        //else if (status[0] == 48)
+                        //{
+                        //    Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
+                        //    continue;
+                        //}
+                        //else if (status[0] == 49)
+                        //{
+                        //    Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
+                        //    continue;
+                        //}
+                        //else if (status[0] == 52)
+                        //{
+                        //    Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");
+                        //    continue;
+                        //}
+                        //else if (status[0] == 53)
+                        //{
+                        //    Utility.WriteLog("ID scanner condition : the card is illegally positioned", "step-action");
+                        //    continue;
+                        //}
                     }
                     else
                     {
@@ -204,7 +255,7 @@ namespace OpenAccount.Data
             res = ReturnCard();
             res = CloseCVRReader();
         }
-        public void ScanKTP(string strfile)
+        public int ScanKTP(string strfile)
         {
             string strBase64 = string.Empty;
             string directori = Directory.GetCurrentDirectory();
@@ -258,6 +309,7 @@ namespace OpenAccount.Data
                 strBase64 = convertToBase64(strImageUpFile);
                 trxbaru.setImageNPWP(strBase64);
             }
+            return res;
         }
 
         private string convertToBase64(string strpath)
@@ -354,7 +406,7 @@ namespace OpenAccount.Data
             }
             buf = new byte[2];
             res = ScannerDLL.cisQuery(mDeviceId, buf);
-            if (res == 0 && (buf[0] == 51 || buf[0] == 53 || buf[0] == 52 || buf[0] == 1))
+            if (res == 0)
             {
                 Console.WriteLine("START EXITING CARD");
                 Utility.WriteLog("ID scanner condition : start exiting card", "step-action");
