@@ -20,7 +20,7 @@
                     <div class="form-row" style="margin-top: 9%;">
                         <div class="form-group col-md-6">
                             <label style="font-weight: 600; font-size: 18px;">Konfirmasi PIN ATM <b style="color: red;"> (*6 Digit)</b></label>
-                            <input type="password" class="form-control" placeholder="******">
+                            <input type="text" class="form-control" placeholder="Konfirmasi Pin Baru Anda" @bind="strpin">
                         </div>
                     </div>
                 </div>
@@ -368,7 +368,7 @@
                     //}
                     Utility.WriteLog("Ganti pin condition : pin tidak sesuai", "step-action");
                 }
-                await Task.Delay(100);
+                await Task.Delay(500);
                 StateHasChanged();
             }
         } while (isLoop);

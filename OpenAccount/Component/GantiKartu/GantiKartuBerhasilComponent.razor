@@ -79,7 +79,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(8000);
         dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
         CardDispenser.baudRate = 115200;
         string ErrorCode = string.Empty;
@@ -87,6 +86,7 @@
         dispenserBox = "1";
         Utility.WriteLog("Ganti kartu condition : card dispenser process start", "step-action");
         dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
+        await Task.Delay(3000);
         Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
     }

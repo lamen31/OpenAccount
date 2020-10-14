@@ -1,0 +1,718 @@
+20201014 11:37:55 Home condition : clear transaksi success
+20201014 11:37:55 Home condition : clear array success
+20201014 11:37:55 Home condition : clear array nasabah success
+20201014 11:37:55 Home condition : clear list success
+20201014 11:37:55 Home condition : clear transaksi baru success
+20201014 11:37:55 Home condition : clear transaksi success
+20201014 11:37:55 Home condition : clear array success
+20201014 11:37:55 Home condition : clear array nasabah success
+20201014 11:37:55 Home condition : clear list success
+20201014 11:37:55 Home condition : clear transaksi baru success
+20201014 11:37:56 Home condition : entered into home page
+20201014 11:37:58 Home condition : move to ganti pin
+20201014 11:37:58 Ganti pin condition : entered into ganti pin input kartu
+20201014 11:38:00 Ganti pin condition : input pin success
+20201014 11:38:00 Ganti pin condition : move to ganti pin input pin
+20201014 11:38:00 Ganti pin condition : entered into ganti pin input pin
+20201014 11:38:01 Ganti pin condition : EDC process start
+20201014 11:38:01 Ganti pin condition : EDC serial port close
+20201014 11:38:01 Ganti pin condition : EDC serial port open
+20201014 11:38:01 Ganti pin condition : EDC serial port write
+20201014 11:38:01 Ganti pin condition : EDC serial port already open
+20201014 11:38:01 Ganti pin condition : EDC serial port already open
+20201014 11:38:01 Ganti pin condition : EDC serial port already open
+20201014 11:38:02 Ganti pin condition : EDC serial port already open
+20201014 11:38:02 Ganti pin condition : EDC serial port already open
+20201014 11:38:02 Ganti pin condition : EDC serial port already open
+20201014 11:38:02 Ganti pin condition : EDC serial port already open
+20201014 11:38:02 Ganti pin condition : EDC serial port already open
+20201014 11:38:02 Ganti pin condition : EDC serial port already open
+20201014 11:38:03 Ganti pin condition : EDC serial port already open
+20201014 11:38:03 Ganti pin condition : EDC serial port already open
+20201014 11:38:03 Ganti pin condition : EDC serial port already open
+20201014 11:38:03 Ganti pin condition : EDC serial port already open
+20201014 11:38:03 Ganti pin condition : EDC serial port already open
+20201014 11:38:03 Ganti pin condition : EDC serial port already open
+20201014 11:38:04 Ganti pin condition : EDC serial port already open
+20201014 11:38:04 Ganti pin condition : EDC serial port already open
+20201014 11:38:04 Ganti pin condition : 1
+20201014 11:38:04 Ganti pin condition : EDC pin 1
+20201014 11:38:04 Ganti pin condition : EDC serial port already open
+20201014 11:38:04 Ganti pin condition : EDC serial port already open
+20201014 11:38:04 Ganti pin condition : EDC serial port already open
+20201014 11:38:04 Ganti pin condition : 12
+20201014 11:38:04 Ganti pin condition : EDC pin 2
+20201014 11:38:04 Ganti pin condition : EDC serial port already open
+20201014 11:38:05 Ganti pin condition : EDC serial port already open
+20201014 11:38:05 Ganti pin condition : EDC serial port already open
+20201014 11:38:05 Ganti pin condition : 123
+20201014 11:38:05 Ganti pin condition : EDC pin 3
+20201014 11:38:05 Ganti pin condition : EDC serial port already open
+20201014 11:38:05 Ganti pin condition : EDC serial port already open
+20201014 11:38:05 Ganti pin condition : EDC serial port already open
+20201014 11:38:05 Ganti pin condition : 1234
+20201014 11:38:05 Ganti pin condition : EDC pin 4
+20201014 11:38:05 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : 12345
+20201014 11:38:06 Ganti pin condition : EDC pin 5
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : 123456
+20201014 11:38:06 Ganti pin condition : EDC pin 6
+20201014 11:38:06 Ganti pin condition : EDC ACK
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:06 Ganti pin condition : EDC serial port already open
+20201014 11:38:07 Ganti pin condition : EDC serial port already open
+20201014 11:38:07 Ganti pin condition : EDC serial port already open
+20201014 11:38:07 Ganti pin condition : EDC serial port already open
+20201014 11:38:07 Ganti pin condition : EDC serial port already open
+20201014 11:38:07 Ganti pin condition : EDC serial port already open
+20201014 11:38:07 Ganti pin condition : EDC serial port already open
+20201014 11:38:08 Ganti pin condition : EDC serial port already open
+20201014 11:38:08 Ganti pin condition : EDC serial port already open
+20201014 11:38:08 Ganti pin condition : EDC serial port already open
+20201014 11:38:08 Ganti pin condition : EDC serial port already open
+20201014 11:38:08 Ganti pin condition : EDC serial port already open
+20201014 11:38:08 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:09 Ganti pin condition : EDC serial port already open
+20201014 11:38:10 Ganti pin condition : EDC serial port already open
+20201014 11:38:10 Ganti pin condition : EDC serial port already open
+20201014 11:38:10 Ganti pin condition : EDC serial port already open
+20201014 11:38:10 Ganti pin condition : EDC serial port already open
+20201014 11:38:10 Ganti pin condition : 123456
+20201014 11:38:10 Ganti pin condition : EDC pin enter
+20201014 11:38:10 Ganti pin condition : EDC serial port close
+20201014 11:38:10 Ganti pin condition : input pin success
+20201014 11:38:10 Ganti pin condition : input data Bambang Pamungkas success
+20201014 11:38:10 Ganti pin condition : move to ganti pin input pin baru
+20201014 11:38:10 Ganti pin condition : entered into ganti pin input pin baru
+20201014 11:38:10 Ganti pin condition : EDC process start
+20201014 11:38:10 Ganti pin condition : EDC serial port close
+20201014 11:38:10 Ganti pin condition : EDC serial port open
+20201014 11:38:10 Ganti pin condition : EDC serial port write
+20201014 11:38:10 Ganti pin condition : EDC serial port already open
+20201014 11:38:11 Ganti pin condition : EDC serial port already open
+20201014 11:38:11 Ganti pin condition : EDC serial port already open
+20201014 11:38:11 Ganti pin condition : EDC serial port already open
+20201014 11:38:12 Ganti pin condition : EDC serial port already open
+20201014 11:38:12 Ganti pin condition : EDC serial port already open
+20201014 11:38:12 Ganti pin condition : EDC serial port already open
+20201014 11:38:12 Ganti pin condition : EDC serial port already open
+20201014 11:38:13 Ganti pin condition : EDC serial port already open
+20201014 11:38:13 Ganti pin condition : EDC serial port already open
+20201014 11:38:13 Ganti pin condition : EDC serial port already open
+20201014 11:38:13 Ganti pin condition : EDC serial port already open
+20201014 11:38:14 Ganti pin condition : EDC serial port already open
+20201014 11:38:14 Ganti pin condition : EDC serial port already open
+20201014 11:38:14 Ganti pin condition : EDC serial port already open
+20201014 11:38:14 Ganti pin condition : EDC serial port already open
+20201014 11:38:15 Ganti pin condition : EDC serial port already open
+20201014 11:38:15 Ganti pin condition : EDC serial port already open
+20201014 11:38:15 Ganti pin condition : EDC serial port already open
+20201014 11:38:16 Ganti pin condition : EDC serial port already open
+20201014 11:38:16 Ganti pin condition : EDC serial port already open
+20201014 11:38:16 Ganti pin condition : EDC pin 3
+20201014 11:38:16 Ganti pin condition : 3
+20201014 11:38:16 Ganti pin condition : 3
+20201014 11:38:16 Ganti pin condition : EDC serial port already open
+20201014 11:38:16 Ganti pin condition : EDC serial port already open
+20201014 11:38:16 Ganti pin condition : EDC pin 2
+20201014 11:38:16 Ganti pin condition : *2
+20201014 11:38:16 Ganti pin condition : 32
+20201014 11:38:17 Ganti pin condition : EDC serial port already open
+20201014 11:38:17 Ganti pin condition : EDC serial port already open
+20201014 11:38:17 Ganti pin condition : EDC serial port already open
+20201014 11:38:17 Ganti pin condition : EDC serial port already open
+20201014 11:38:18 Ganti pin condition : EDC serial port already open
+20201014 11:38:18 Ganti pin condition : EDC pin 4
+20201014 11:38:18 Ganti pin condition : **4
+20201014 11:38:18 Ganti pin condition : 324
+20201014 11:38:18 Ganti pin condition : EDC serial port already open
+20201014 11:38:18 Ganti pin condition : EDC serial port already open
+20201014 11:38:19 Ganti pin condition : EDC serial port already open
+20201014 11:38:19 Ganti pin condition : EDC serial port already open
+20201014 11:38:19 Ganti pin condition : EDC serial port already open
+20201014 11:38:19 Ganti pin condition : EDC serial port already open
+20201014 11:38:19 Ganti pin condition : EDC pin 6
+20201014 11:38:19 Ganti pin condition : ***6
+20201014 11:38:19 Ganti pin condition : 3246
+20201014 11:38:19 Ganti pin condition : EDC ACK
+20201014 11:38:20 Ganti pin condition : EDC serial port already open
+20201014 11:38:20 Ganti pin condition : EDC serial port already open
+20201014 11:38:20 Ganti pin condition : EDC pin 7
+20201014 11:38:20 Ganti pin condition : ****7
+20201014 11:38:20 Ganti pin condition : 32467
+20201014 11:38:20 Ganti pin condition : EDC serial port already open
+20201014 11:38:20 Ganti pin condition : EDC serial port already open
+20201014 11:38:21 Ganti pin condition : EDC serial port already open
+20201014 11:38:21 Ganti pin condition : EDC pin 5
+20201014 11:38:21 Ganti pin condition : *****5
+20201014 11:38:21 Ganti pin condition : 324675
+20201014 11:38:21 Ganti pin condition : EDC serial port already open
+20201014 11:38:21 Ganti pin condition : EDC serial port already open
+20201014 11:38:22 Ganti pin condition : EDC serial port already open
+20201014 11:38:22 Ganti pin condition : EDC serial port already open
+20201014 11:38:22 Ganti pin condition : EDC serial port already open
+20201014 11:38:22 Ganti pin condition : EDC serial port already open
+20201014 11:38:23 Ganti pin condition : EDC serial port already open
+20201014 11:38:23 Ganti pin condition : EDC serial port already open
+20201014 11:38:23 Ganti pin condition : EDC serial port already open
+20201014 11:38:23 Ganti pin condition : EDC serial port already open
+20201014 11:38:24 Ganti pin condition : EDC serial port already open
+20201014 11:38:24 Ganti pin condition : EDC serial port already open
+20201014 11:38:24 Ganti pin condition : EDC serial port already open
+20201014 11:38:24 Ganti pin condition : EDC serial port already open
+20201014 11:38:25 Ganti pin condition : EDC serial port already open
+20201014 11:38:25 Ganti pin condition : EDC serial port already open
+20201014 11:38:25 Ganti pin condition : EDC serial port already open
+20201014 11:38:26 Ganti pin condition : EDC serial port already open
+20201014 11:38:26 Ganti pin condition : EDC serial port already open
+20201014 11:38:26 Ganti pin condition : EDC serial port already open
+20201014 11:38:26 Ganti pin condition : EDC serial port already open
+20201014 11:38:27 Ganti pin condition : EDC serial port already open
+20201014 11:38:27 Ganti pin condition : EDC serial port already open
+20201014 11:38:27 Ganti pin condition : EDC serial port already open
+20201014 11:38:27 Ganti pin condition : EDC serial port already open
+20201014 11:38:28 Ganti pin condition : EDC serial port already open
+20201014 11:38:28 Ganti pin condition : EDC serial port already open
+20201014 11:38:28 Ganti pin condition : EDC serial port already open
+20201014 11:38:29 Ganti pin condition : EDC serial port already open
+20201014 11:38:29 Ganti pin condition : EDC serial port already open
+20201014 11:38:29 Ganti pin condition : EDC serial port already open
+20201014 11:38:29 Ganti pin condition : EDC serial port already open
+20201014 11:38:30 Ganti pin condition : EDC serial port already open
+20201014 11:38:30 Ganti pin condition : EDC serial port already open
+20201014 11:38:30 Ganti pin condition : EDC serial port already open
+20201014 11:38:30 Ganti pin condition : EDC serial port already open
+20201014 11:42:58 Home condition : clear transaksi success
+20201014 11:42:58 Home condition : clear array success
+20201014 11:42:58 Home condition : clear array nasabah success
+20201014 11:42:58 Home condition : clear list success
+20201014 11:42:58 Home condition : clear transaksi baru success
+20201014 11:42:58 Home condition : clear transaksi success
+20201014 11:42:58 Home condition : clear array success
+20201014 11:42:58 Home condition : clear array nasabah success
+20201014 11:42:58 Home condition : clear list success
+20201014 11:42:58 Home condition : clear transaksi baru success
+20201014 11:42:58 Home condition : entered into home page
+20201014 11:43:01 Home condition : move to ganti pin
+20201014 11:43:01 Ganti pin condition : entered into ganti pin input kartu
+20201014 11:43:03 Ganti pin condition : input pin success
+20201014 11:43:03 Ganti pin condition : move to ganti pin input pin
+20201014 11:43:03 Ganti pin condition : entered into ganti pin input pin
+20201014 11:43:04 Ganti pin condition : EDC process start
+20201014 11:43:04 Ganti pin condition : EDC serial port close
+20201014 11:43:04 Ganti pin condition : EDC serial port open
+20201014 11:43:04 Ganti pin condition : EDC serial port write
+20201014 11:43:04 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:05 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : 1
+20201014 11:43:06 Ganti pin condition : EDC pin 1
+20201014 11:43:06 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : 12
+20201014 11:43:06 Ganti pin condition : EDC pin 2
+20201014 11:43:06 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : EDC serial port already open
+20201014 11:43:06 Ganti pin condition : 123
+20201014 11:43:06 Ganti pin condition : EDC pin 3
+20201014 11:43:07 Ganti pin condition : EDC serial port already open
+20201014 11:43:07 Ganti pin condition : EDC serial port already open
+20201014 11:43:07 Ganti pin condition : EDC serial port already open
+20201014 11:43:07 Ganti pin condition : 1234
+20201014 11:43:07 Ganti pin condition : EDC pin 4
+20201014 11:43:07 Ganti pin condition : EDC serial port already open
+20201014 11:43:07 Ganti pin condition : EDC serial port already open
+20201014 11:43:07 Ganti pin condition : 12345
+20201014 11:43:07 Ganti pin condition : EDC pin 5
+20201014 11:43:07 Ganti pin condition : EDC serial port already open
+20201014 11:43:08 Ganti pin condition : EDC serial port already open
+20201014 11:43:08 Ganti pin condition : 123456
+20201014 11:43:08 Ganti pin condition : EDC pin 6
+20201014 11:43:08 Ganti pin condition : EDC ACK
+20201014 11:43:08 Ganti pin condition : EDC serial port already open
+20201014 11:43:08 Ganti pin condition : EDC serial port already open
+20201014 11:43:08 Ganti pin condition : EDC serial port already open
+20201014 11:43:08 Ganti pin condition : EDC serial port already open
+20201014 11:43:08 Ganti pin condition : 123456
+20201014 11:43:08 Ganti pin condition : EDC pin enter
+20201014 11:43:08 Ganti pin condition : EDC serial port close
+20201014 11:43:08 Ganti pin condition : input pin success
+20201014 11:43:08 Ganti pin condition : input data Bambang Pamungkas success
+20201014 11:43:08 Ganti pin condition : move to ganti pin input pin baru
+20201014 11:43:08 Ganti pin condition : entered into ganti pin input pin baru
+20201014 11:43:08 Ganti pin condition : EDC process start
+20201014 11:43:08 Ganti pin condition : EDC serial port close
+20201014 11:43:08 Ganti pin condition : EDC serial port open
+20201014 11:43:08 Ganti pin condition : EDC serial port write
+20201014 11:43:09 Ganti pin condition : EDC serial port already open
+20201014 11:43:09 Ganti pin condition : EDC serial port already open
+20201014 11:43:10 Ganti pin condition : EDC serial port already open
+20201014 11:43:11 Ganti pin condition : EDC serial port already open
+20201014 11:43:11 Ganti pin condition : EDC pin 1
+20201014 11:43:11 Ganti pin condition : 1
+20201014 11:43:11 Ganti pin condition : 1
+20201014 11:43:11 Ganti pin condition : EDC serial port already open
+20201014 11:43:12 Ganti pin condition : EDC serial port already open
+20201014 11:43:12 Ganti pin condition : EDC pin 2
+20201014 11:43:12 Ganti pin condition : *2
+20201014 11:43:12 Ganti pin condition : 12
+20201014 11:43:13 Ganti pin condition : EDC serial port already open
+20201014 11:43:13 Ganti pin condition : EDC serial port already open
+20201014 11:43:14 Ganti pin condition : EDC serial port already open
+20201014 11:43:14 Ganti pin condition : EDC pin 3
+20201014 11:43:14 Ganti pin condition : **3
+20201014 11:43:14 Ganti pin condition : 123
+20201014 11:43:15 Ganti pin condition : EDC serial port already open
+20201014 11:43:15 Ganti pin condition : EDC serial port already open
+20201014 11:43:16 Ganti pin condition : EDC serial port already open
+20201014 11:43:16 Ganti pin condition : EDC pin 4
+20201014 11:43:16 Ganti pin condition : ***4
+20201014 11:43:16 Ganti pin condition : 1234
+20201014 11:43:17 Ganti pin condition : EDC serial port already open
+20201014 11:43:17 Ganti pin condition : EDC serial port already open
+20201014 11:43:17 Ganti pin condition : EDC pin 5
+20201014 11:43:17 Ganti pin condition : ****5
+20201014 11:43:17 Ganti pin condition : 12345
+20201014 11:43:18 Ganti pin condition : EDC serial port already open
+20201014 11:43:19 Ganti pin condition : EDC serial port already open
+20201014 11:43:19 Ganti pin condition : EDC serial port already open
+20201014 11:43:19 Ganti pin condition : EDC pin 6
+20201014 11:43:19 Ganti pin condition : *****6
+20201014 11:43:19 Ganti pin condition : 123456
+20201014 11:43:19 Ganti pin condition : EDC ACK
+20201014 11:43:20 Ganti pin condition : EDC serial port already open
+20201014 11:43:21 Ganti pin condition : EDC serial port already open
+20201014 11:43:21 Ganti pin condition : EDC serial port already open
+20201014 11:43:22 Ganti pin condition : EDC serial port already open
+20201014 11:43:23 Ganti pin condition : EDC serial port already open
+20201014 11:43:23 Ganti pin condition : EDC serial port already open
+20201014 11:43:24 Ganti pin condition : EDC serial port already open
+20201014 11:43:25 Ganti pin condition : EDC serial port already open
+20201014 11:43:25 Ganti pin condition : EDC serial port already open
+20201014 11:43:26 Ganti pin condition : EDC serial port already open
+20201014 11:43:26 Ganti pin condition : EDC pin clear
+20201014 11:43:27 Ganti pin condition : EDC serial port already open
+20201014 11:43:27 Ganti pin condition : EDC serial port already open
+20201014 11:43:28 Ganti pin condition : EDC serial port already open
+20201014 11:43:29 Ganti pin condition : EDC serial port already open
+20201014 11:43:29 Ganti pin condition : EDC serial port already open
+20201014 11:44:56 Home condition : clear transaksi success
+20201014 11:44:56 Home condition : clear array success
+20201014 11:44:56 Home condition : clear array nasabah success
+20201014 11:44:56 Home condition : clear list success
+20201014 11:44:56 Home condition : clear transaksi baru success
+20201014 11:44:57 Home condition : clear transaksi success
+20201014 11:44:57 Home condition : clear array success
+20201014 11:44:57 Home condition : clear array nasabah success
+20201014 11:44:57 Home condition : clear list success
+20201014 11:44:57 Home condition : clear transaksi baru success
+20201014 11:44:57 Home condition : entered into home page
+20201014 11:45:03 Home condition : move to ganti pin
+20201014 11:45:03 Ganti pin condition : entered into ganti pin input kartu
+20201014 11:45:05 Ganti pin condition : input pin success
+20201014 11:45:05 Ganti pin condition : move to ganti pin input pin
+20201014 11:45:05 Ganti pin condition : entered into ganti pin input pin
+20201014 11:45:06 Ganti pin condition : EDC process start
+20201014 11:45:06 Ganti pin condition : EDC serial port close
+20201014 11:45:06 Ganti pin condition : EDC serial port open
+20201014 11:45:06 Ganti pin condition : EDC serial port write
+20201014 11:45:06 Ganti pin condition : EDC serial port already open
+20201014 11:45:06 Ganti pin condition : EDC serial port already open
+20201014 11:45:06 Ganti pin condition : EDC serial port already open
+20201014 11:45:06 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : 1
+20201014 11:45:07 Ganti pin condition : EDC pin 1
+20201014 11:45:07 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : EDC serial port already open
+20201014 11:45:07 Ganti pin condition : 12
+20201014 11:45:07 Ganti pin condition : EDC pin 2
+20201014 11:45:08 Ganti pin condition : EDC serial port already open
+20201014 11:45:08 Ganti pin condition : EDC serial port already open
+20201014 11:45:08 Ganti pin condition : 123
+20201014 11:45:08 Ganti pin condition : EDC pin 3
+20201014 11:45:08 Ganti pin condition : EDC serial port already open
+20201014 11:45:08 Ganti pin condition : EDC serial port already open
+20201014 11:45:08 Ganti pin condition : EDC serial port already open
+20201014 11:45:08 Ganti pin condition : 1234
+20201014 11:45:08 Ganti pin condition : EDC pin 4
+20201014 11:45:08 Ganti pin condition : EDC serial port already open
+20201014 11:45:09 Ganti pin condition : EDC serial port already open
+20201014 11:45:09 Ganti pin condition : 12345
+20201014 11:45:09 Ganti pin condition : EDC pin 5
+20201014 11:45:09 Ganti pin condition : EDC serial port already open
+20201014 11:45:09 Ganti pin condition : EDC serial port already open
+20201014 11:45:09 Ganti pin condition : 123456
+20201014 11:45:09 Ganti pin condition : EDC pin 6
+20201014 11:45:09 Ganti pin condition : EDC ACK
+20201014 11:45:09 Ganti pin condition : EDC serial port already open
+20201014 11:45:09 Ganti pin condition : EDC serial port already open
+20201014 11:45:09 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:10 Ganti pin condition : EDC serial port already open
+20201014 11:45:11 Ganti pin condition : EDC serial port already open
+20201014 11:45:11 Ganti pin condition : EDC serial port already open
+20201014 11:45:11 Ganti pin condition : EDC serial port already open
+20201014 11:45:11 Ganti pin condition : EDC serial port already open
+20201014 11:45:11 Ganti pin condition : EDC serial port already open
+20201014 11:45:11 Ganti pin condition : EDC serial port already open
+20201014 11:45:12 Ganti pin condition : EDC serial port already open
+20201014 11:45:12 Ganti pin condition : EDC serial port already open
+20201014 11:45:12 Ganti pin condition : 123456
+20201014 11:45:12 Ganti pin condition : EDC pin enter
+20201014 11:45:12 Ganti pin condition : EDC serial port close
+20201014 11:45:12 Ganti pin condition : input pin success
+20201014 11:45:12 Ganti pin condition : input data Bambang Pamungkas success
+20201014 11:45:12 Ganti pin condition : move to ganti pin input pin baru
+20201014 11:45:12 Ganti pin condition : entered into ganti pin input pin baru
+20201014 11:45:12 Ganti pin condition : EDC process start
+20201014 11:45:12 Ganti pin condition : EDC serial port close
+20201014 11:45:12 Ganti pin condition : EDC serial port open
+20201014 11:45:12 Ganti pin condition : EDC serial port write
+20201014 11:45:12 Ganti pin condition : EDC serial port already open
+20201014 11:45:12 Ganti pin condition : EDC serial port already open
+20201014 11:45:13 Ganti pin condition : EDC serial port already open
+20201014 11:45:13 Ganti pin condition : EDC serial port already open
+20201014 11:45:13 Ganti pin condition : EDC serial port already open
+20201014 11:45:13 Ganti pin condition : EDC serial port already open
+20201014 11:45:14 Ganti pin condition : EDC serial port already open
+20201014 11:45:14 Ganti pin condition : EDC serial port already open
+20201014 11:45:14 Ganti pin condition : EDC serial port already open
+20201014 11:45:15 Ganti pin condition : EDC serial port already open
+20201014 11:45:15 Ganti pin condition : EDC pin 3
+20201014 11:45:15 Ganti pin condition : 3
+20201014 11:45:15 Ganti pin condition : 3
+20201014 11:45:15 Ganti pin condition : EDC serial port already open
+20201014 11:45:15 Ganti pin condition : EDC serial port already open
+20201014 11:45:15 Ganti pin condition : EDC serial port already open
+20201014 11:45:15 Ganti pin condition : EDC pin 2
+20201014 11:45:15 Ganti pin condition : *2
+20201014 11:45:15 Ganti pin condition : 32
+20201014 11:45:16 Ganti pin condition : EDC serial port already open
+20201014 11:45:16 Ganti pin condition : EDC serial port already open
+20201014 11:45:16 Ganti pin condition : EDC serial port already open
+20201014 11:45:16 Ganti pin condition : EDC pin 4
+20201014 11:45:16 Ganti pin condition : **4
+20201014 11:45:16 Ganti pin condition : 324
+20201014 11:45:16 Ganti pin condition : EDC serial port already open
+20201014 11:45:17 Ganti pin condition : EDC serial port already open
+20201014 11:45:17 Ganti pin condition : EDC serial port already open
+20201014 11:45:17 Ganti pin condition : EDC pin 6
+20201014 11:45:17 Ganti pin condition : ***6
+20201014 11:45:17 Ganti pin condition : 3246
+20201014 11:45:17 Ganti pin condition : EDC ACK
+20201014 11:45:17 Ganti pin condition : EDC serial port already open
+20201014 11:45:18 Ganti pin condition : EDC serial port already open
+20201014 11:45:18 Ganti pin condition : EDC serial port already open
+20201014 11:45:18 Ganti pin condition : EDC pin 7
+20201014 11:45:18 Ganti pin condition : ****7
+20201014 11:45:18 Ganti pin condition : 32467
+20201014 11:45:18 Ganti pin condition : EDC serial port already open
+20201014 11:45:18 Ganti pin condition : EDC serial port already open
+20201014 11:45:18 Ganti pin condition : EDC pin 5
+20201014 11:45:18 Ganti pin condition : *****5
+20201014 11:45:18 Ganti pin condition : 324675
+20201014 11:45:19 Ganti pin condition : EDC serial port already open
+20201014 11:45:19 Ganti pin condition : EDC serial port already open
+20201014 11:45:19 Ganti pin condition : EDC serial port already open
+20201014 11:45:19 Ganti pin condition : EDC serial port already open
+20201014 11:45:20 Ganti pin condition : EDC serial port already open
+20201014 11:45:20 Ganti pin condition : EDC serial port already open
+20201014 11:45:20 Ganti pin condition : ******
+20201014 11:45:20 Ganti pin condition : 324675
+20201014 11:45:20 Ganti pin condition : EDC pin enter
+20201014 11:45:20 Ganti pin condition : EDC serial port close
+20201014 11:45:20 Ganti pin condition : input pin pertama 324675 success
+20201014 11:45:20 Ganti pin condition : move to ganti pin input pin konfirmasi
+20201014 11:45:20 Ganti pin condition : entered into ganti pin input pin konfirmasi
+20201014 11:45:20 Ganti pin condition : EDC process start
+20201014 11:45:20 Ganti pin condition : EDC serial port close
+20201014 11:45:20 Ganti pin condition : EDC serial port open
+20201014 11:45:20 Ganti pin condition : EDC serial port write
+20201014 11:45:20 Ganti pin condition : EDC serial port already open
+20201014 11:45:21 Ganti pin condition : EDC serial port already open
+20201014 11:45:21 Ganti pin condition : EDC serial port already open
+20201014 11:45:21 Ganti pin condition : EDC serial port already open
+20201014 11:45:21 Ganti pin condition : EDC serial port already open
+20201014 11:45:22 Ganti pin condition : EDC serial port already open
+20201014 11:45:22 Ganti pin condition : EDC serial port already open
+20201014 11:45:22 Ganti pin condition : EDC serial port already open
+20201014 11:45:22 Ganti pin condition : 3
+20201014 11:45:22 Ganti pin condition : 3
+20201014 11:45:22 Ganti pin condition : EDC pin 3
+20201014 11:45:23 Ganti pin condition : EDC serial port already open
+20201014 11:45:23 Ganti pin condition : EDC serial port already open
+20201014 11:45:23 Ganti pin condition : *2
+20201014 11:45:23 Ganti pin condition : 32
+20201014 11:45:23 Ganti pin condition : EDC pin 2
+20201014 11:45:23 Ganti pin condition : EDC serial port already open
+20201014 11:45:23 Ganti pin condition : EDC serial port already open
+20201014 11:45:23 Ganti pin condition : **4
+20201014 11:45:23 Ganti pin condition : 324
+20201014 11:45:23 Ganti pin condition : EDC pin 4
+20201014 11:45:24 Ganti pin condition : EDC serial port already open
+20201014 11:45:24 Ganti pin condition : EDC serial port already open
+20201014 11:45:24 Ganti pin condition : EDC serial port already open
+20201014 11:45:24 Ganti pin condition : ***6
+20201014 11:45:24 Ganti pin condition : 3246
+20201014 11:45:24 Ganti pin condition : EDC pin 6
+20201014 11:45:24 Ganti pin condition : EDC ACK
+20201014 11:45:24 Ganti pin condition : EDC serial port already open
+20201014 11:45:25 Ganti pin condition : EDC serial port already open
+20201014 11:45:25 Ganti pin condition : ****7
+20201014 11:45:25 Ganti pin condition : 32467
+20201014 11:45:25 Ganti pin condition : EDC pin 7
+20201014 11:45:25 Ganti pin condition : EDC serial port already open
+20201014 11:45:25 Ganti pin condition : EDC serial port already open
+20201014 11:45:25 Ganti pin condition : *****5
+20201014 11:45:25 Ganti pin condition : 324675
+20201014 11:45:25 Ganti pin condition : EDC pin 5
+20201014 11:45:25 Ganti pin condition : pin sesuai
+20201014 11:45:26 Ganti pin condition : EDC serial port already open
+20201014 11:45:26 Ganti pin condition : pin sesuai
+20201014 11:45:26 Ganti pin condition : EDC serial port already open
+20201014 11:45:26 Ganti pin condition : pin sesuai
+20201014 11:45:26 Ganti pin condition : EDC serial port already open
+20201014 11:45:26 Ganti pin condition : pin sesuai
+20201014 11:45:27 Ganti pin condition : EDC serial port already open
+20201014 11:45:27 Ganti pin condition : pin sesuai
+20201014 11:45:27 Ganti pin condition : EDC serial port already open
+20201014 11:45:27 Ganti pin condition : ******
+20201014 11:45:27 Ganti pin condition : 324675
+20201014 11:45:27 Ganti pin condition : EDC pin enter
+20201014 11:45:27 Ganti pin condition : pin sesuai
+20201014 11:45:27 Ganti pin condition : EDC serial port close
+20201014 11:45:27 Ganti pin condition : input pin nomor rekening 324675 success
+20201014 11:45:27 Ganti pin condition : move to buka ganti pin sukses
+20201014 11:45:27 Ganti kartu condition : entered into ganti kartu sukses
+20201014 11:45:32 Ganti kartu condition : move to ambil kartu
+20201014 11:45:32 Ambil kartu condition : entered into ambil kartu
+20201014 11:45:34 Ambil kartu condition : move to home
+20201014 11:45:34 Home condition : clear transaksi success
+20201014 11:45:34 Home condition : clear array success
+20201014 11:45:34 Home condition : clear array nasabah success
+20201014 11:45:34 Home condition : clear list success
+20201014 11:45:34 Home condition : clear transaksi baru success
+20201014 11:45:34 Home condition : entered into home page
+20201014 11:47:05 Home condition : clear transaksi success
+20201014 11:47:05 Home condition : clear array success
+20201014 11:47:05 Home condition : clear array nasabah success
+20201014 11:47:05 Home condition : clear list success
+20201014 11:47:05 Home condition : clear transaksi baru success
+20201014 11:47:06 Home condition : clear transaksi success
+20201014 11:47:06 Home condition : clear array success
+20201014 11:47:06 Home condition : clear array nasabah success
+20201014 11:47:06 Home condition : clear list success
+20201014 11:47:06 Home condition : clear transaksi baru success
+20201014 11:47:06 Home condition : entered into home page
+20201014 11:47:57 Home condition : clear transaksi success
+20201014 11:47:57 Home condition : clear array success
+20201014 11:47:57 Home condition : clear array nasabah success
+20201014 11:47:57 Home condition : clear list success
+20201014 11:47:57 Home condition : clear transaksi baru success
+20201014 11:47:57 Home condition : clear transaksi success
+20201014 11:47:57 Home condition : clear array success
+20201014 11:47:57 Home condition : clear array nasabah success
+20201014 11:47:57 Home condition : clear list success
+20201014 11:47:57 Home condition : clear transaksi baru success
+20201014 11:47:57 Home condition : entered into home page
+20201014 11:48:05 Home condition : move to ganti pin
+20201014 11:48:05 Ganti pin condition : entered into ganti pin input kartu
+20201014 11:48:07 Ganti pin condition : input pin success
+20201014 11:48:07 Ganti pin condition : move to ganti pin input pin
+20201014 11:48:08 Ganti pin condition : entered into ganti pin input pin
+20201014 11:48:09 Ganti pin condition : EDC process start
+20201014 11:48:09 Ganti pin condition : EDC serial port close
+20201014 11:48:09 Ganti pin condition : EDC serial port open
+20201014 11:48:09 Ganti pin condition : EDC serial port write
+20201014 11:48:09 Ganti pin condition : EDC serial port already open
+20201014 11:48:09 Ganti pin condition : EDC serial port already open
+20201014 11:48:09 Ganti pin condition : EDC serial port already open
+20201014 11:48:09 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:10 Ganti pin condition : 1
+20201014 11:48:10 Ganti pin condition : EDC pin 1
+20201014 11:48:10 Ganti pin condition : EDC serial port already open
+20201014 11:48:11 Ganti pin condition : EDC serial port already open
+20201014 11:48:11 Ganti pin condition : EDC serial port already open
+20201014 11:48:11 Ganti pin condition : 12
+20201014 11:48:11 Ganti pin condition : EDC pin 2
+20201014 11:48:11 Ganti pin condition : EDC serial port already open
+20201014 11:48:11 Ganti pin condition : EDC serial port already open
+20201014 11:48:11 Ganti pin condition : 123
+20201014 11:48:11 Ganti pin condition : EDC pin 3
+20201014 11:48:11 Ganti pin condition : EDC serial port already open
+20201014 11:48:11 Ganti pin condition : EDC serial port already open
+20201014 11:48:12 Ganti pin condition : EDC serial port already open
+20201014 11:48:12 Ganti pin condition : 1234
+20201014 11:48:12 Ganti pin condition : EDC pin 4
+20201014 11:48:12 Ganti pin condition : EDC serial port already open
+20201014 11:48:12 Ganti pin condition : EDC serial port already open
+20201014 11:48:12 Ganti pin condition : 12345
+20201014 11:48:12 Ganti pin condition : EDC pin 5
+20201014 11:48:12 Ganti pin condition : EDC serial port already open
+20201014 11:48:12 Ganti pin condition : EDC serial port already open
+20201014 11:48:12 Ganti pin condition : 123456
+20201014 11:48:12 Ganti pin condition : EDC pin 6
+20201014 11:48:12 Ganti pin condition : EDC ACK
+20201014 11:48:12 Ganti pin condition : EDC serial port already open
+20201014 11:48:13 Ganti pin condition : EDC serial port already open
+20201014 11:48:13 Ganti pin condition : EDC serial port already open
+20201014 11:48:13 Ganti pin condition : EDC serial port already open
+20201014 11:48:13 Ganti pin condition : EDC serial port already open
+20201014 11:48:13 Ganti pin condition : EDC serial port already open
+20201014 11:48:13 Ganti pin condition : EDC serial port already open
+20201014 11:48:14 Ganti pin condition : EDC serial port already open
+20201014 11:48:14 Ganti pin condition : EDC serial port already open
+20201014 11:48:14 Ganti pin condition : EDC serial port already open
+20201014 11:48:14 Ganti pin condition : EDC serial port already open
+20201014 11:48:14 Ganti pin condition : EDC serial port already open
+20201014 11:48:14 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : EDC serial port already open
+20201014 11:48:15 Ganti pin condition : 123456
+20201014 11:48:15 Ganti pin condition : EDC pin enter
+20201014 11:48:15 Ganti pin condition : EDC serial port close
+20201014 11:48:15 Ganti pin condition : input pin success
+20201014 11:48:15 Ganti pin condition : input data Bambang Pamungkas success
+20201014 11:48:15 Ganti pin condition : move to ganti pin input pin baru
+20201014 11:48:15 Ganti pin condition : entered into ganti pin input pin baru
+20201014 11:48:15 Ganti pin condition : EDC process start
+20201014 11:48:15 Ganti pin condition : EDC serial port close
+20201014 11:48:15 Ganti pin condition : EDC serial port open
+20201014 11:48:15 Ganti pin condition : EDC serial port write
+20201014 11:48:16 Ganti pin condition : EDC serial port already open
+20201014 11:48:16 Ganti pin condition : EDC serial port already open
+20201014 11:48:17 Ganti pin condition : EDC serial port already open
+20201014 11:48:18 Ganti pin condition : EDC serial port already open
+20201014 11:48:18 Ganti pin condition : EDC serial port already open
+20201014 11:48:19 Ganti pin condition : EDC serial port already open
+20201014 11:48:19 Ganti pin condition : EDC pin 3
+20201014 11:48:19 Ganti pin condition : 3
+20201014 11:48:19 Ganti pin condition : 3
+20201014 11:48:20 Ganti pin condition : EDC serial port already open
+20201014 11:48:20 Ganti pin condition : EDC pin 2
+20201014 11:48:20 Ganti pin condition : *2
+20201014 11:48:20 Ganti pin condition : 32
+20201014 11:48:20 Ganti pin condition : EDC serial port already open
+20201014 11:48:20 Ganti pin condition : EDC pin 4
+20201014 11:48:20 Ganti pin condition : **4
+20201014 11:48:20 Ganti pin condition : 324
+20201014 11:48:21 Ganti pin condition : EDC serial port already open
+20201014 11:48:21 Ganti pin condition : EDC pin 6
+20201014 11:48:21 Ganti pin condition : ***6
+20201014 11:48:21 Ganti pin condition : 3246
+20201014 11:48:21 Ganti pin condition : EDC ACK
+20201014 11:48:22 Ganti pin condition : EDC serial port already open
+20201014 11:48:22 Ganti pin condition : EDC pin 7
+20201014 11:48:22 Ganti pin condition : ****7
+20201014 11:48:22 Ganti pin condition : 32467
+20201014 11:48:22 Ganti pin condition : EDC serial port already open
+20201014 11:48:22 Ganti pin condition : EDC pin 5
+20201014 11:48:22 Ganti pin condition : *****5
+20201014 11:48:22 Ganti pin condition : 324675
+20201014 11:48:23 Ganti pin condition : EDC serial port already open
+20201014 11:48:24 Ganti pin condition : EDC serial port already open
+20201014 11:48:24 Ganti pin condition : EDC serial port already open
+20201014 11:48:24 Ganti pin condition : ******
+20201014 11:48:24 Ganti pin condition : 324675
+20201014 11:48:24 Ganti pin condition : EDC pin enter
+20201014 11:48:25 Ganti pin condition : EDC serial port close
+20201014 11:48:25 Ganti pin condition : input pin pertama 324675 success
+20201014 11:48:25 Ganti pin condition : move to ganti pin input pin konfirmasi
+20201014 11:48:25 Ganti pin condition : entered into ganti pin input pin konfirmasi
+20201014 11:48:25 Ganti pin condition : EDC process start
+20201014 11:48:25 Ganti pin condition : EDC serial port close
+20201014 11:48:25 Ganti pin condition : EDC serial port open
+20201014 11:48:25 Ganti pin condition : EDC serial port write
+20201014 11:48:25 Ganti pin condition : EDC serial port already open
+20201014 11:48:25 Ganti pin condition : EDC serial port already open
+20201014 11:48:26 Ganti pin condition : EDC serial port already open
+20201014 11:48:26 Ganti pin condition : EDC serial port already open
+20201014 11:48:26 Ganti pin condition : EDC serial port already open
+20201014 11:48:27 Ganti pin condition : EDC serial port already open
+20201014 11:48:27 Ganti pin condition : EDC serial port already open
+20201014 11:48:27 Ganti pin condition : EDC serial port already open
+20201014 11:48:27 Ganti pin condition : 3
+20201014 11:48:27 Ganti pin condition : 3
+20201014 11:48:27 Ganti pin condition : EDC pin 3
+20201014 11:48:27 Ganti pin condition : EDC serial port already open
+20201014 11:48:27 Ganti pin condition : *2
+20201014 11:48:27 Ganti pin condition : 32
+20201014 11:48:27 Ganti pin condition : EDC pin 2
+20201014 11:48:28 Ganti pin condition : EDC serial port already open
+20201014 11:48:28 Ganti pin condition : **4
+20201014 11:48:28 Ganti pin condition : 324
+20201014 11:48:28 Ganti pin condition : EDC pin 4
+20201014 11:48:28 Ganti pin condition : EDC serial port already open
+20201014 11:48:28 Ganti pin condition : EDC serial port already open
+20201014 11:48:28 Ganti pin condition : ***6
+20201014 11:48:28 Ganti pin condition : 3246
+20201014 11:48:28 Ganti pin condition : EDC pin 6
+20201014 11:48:28 Ganti pin condition : EDC ACK
+20201014 11:48:28 Ganti pin condition : EDC serial port already open
+20201014 11:48:28 Ganti pin condition : ****7
+20201014 11:48:28 Ganti pin condition : 32467
+20201014 11:48:28 Ganti pin condition : EDC pin 7
+20201014 11:48:29 Ganti pin condition : EDC serial port already open
+20201014 11:48:29 Ganti pin condition : EDC serial port already open
+20201014 11:48:29 Ganti pin condition : EDC serial port already open
+20201014 11:48:29 Ganti pin condition : *****5
+20201014 11:48:29 Ganti pin condition : 324675
+20201014 11:48:29 Ganti pin condition : EDC pin 5
+20201014 11:48:29 Ganti pin condition : pin sesuai
+20201014 11:48:30 Ganti pin condition : EDC serial port already open
+20201014 11:48:30 Ganti pin condition : pin sesuai
+20201014 11:48:31 Ganti pin condition : EDC serial port already open
+20201014 11:48:31 Ganti pin condition : ******
+20201014 11:48:31 Ganti pin condition : 324675
+20201014 11:48:31 Ganti pin condition : EDC pin enter
+20201014 11:48:31 Ganti pin condition : pin sesuai
+20201014 11:48:31 Ganti pin condition : EDC serial port close
+20201014 11:48:32 Ganti pin condition : input pin nomor rekening 324675 success
+20201014 11:48:32 Ganti pin condition : move to buka ganti pin sukses
+20201014 11:48:32 Ganti kartu condition : entered into ganti kartu sukses
+20201014 11:48:37 Ganti kartu condition : move to ambil kartu
+20201014 11:48:37 Ambil kartu condition : entered into ambil kartu
+20201014 11:48:39 Ambil kartu condition : move to home
+20201014 11:48:39 Home condition : clear transaksi success
+20201014 11:48:39 Home condition : clear array success
+20201014 11:48:39 Home condition : clear array nasabah success
+20201014 11:48:39 Home condition : clear list success
+20201014 11:48:39 Home condition : clear transaksi baru success
+20201014 11:48:39 Home condition : entered into home page

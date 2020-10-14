@@ -98,7 +98,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(1000);
         dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
         CardDispenser.baudRate = 115200;
         string ErrorCode = string.Empty;
@@ -113,6 +112,7 @@
         Utility.WriteLog("Buka rekening condition : set dispenser box " + dispenserBox, "step-action");
         Utility.WriteLog("Buka rekening condition : card dispenser process start", "step-action");
         dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
+        await Task.Delay(3000);
         Utility.WriteLog("Buka rekening condition : move to buka rekening berhasil struk", "step-action");
         OnClick.InvokeAsync("bukarekeningberhasilstruk");
     }
