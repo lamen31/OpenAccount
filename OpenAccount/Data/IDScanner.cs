@@ -91,7 +91,7 @@ namespace OpenAccount.Data
                     iRet = ScannerDLL.cisQuery(0, status);
                     if (iRet == 0)
                     {
-                        Utility.WriteLog("ID scanner condition : ics checking success", "step-action");
+                        //Utility.WriteLog("ID scanner condition : ics checking success", "step-action");
                         switch (status[0])
                         {
                             case 50:
@@ -123,16 +123,16 @@ namespace OpenAccount.Data
                                     isManualStop = true;
                                     break;
                                 }
-                            case 48:
-                                {
-                                    Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
-                                    break;
-                                }
-                            case 49:
-                                {
-                                    Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
-                                    break;
-                                }
+                            //case 48:
+                            //    {
+                            //        Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
+                            //        break;
+                            //    }
+                            //case 49:
+                            //    {
+                            //        Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
+                            //        break;
+                            //    }
                             case 52:
                                 {
                                     Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");

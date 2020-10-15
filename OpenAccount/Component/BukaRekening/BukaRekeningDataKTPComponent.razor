@@ -130,6 +130,7 @@
     {
         await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
+        await Task.Delay(100);
         scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();

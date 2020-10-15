@@ -1,0 +1,346 @@
+20201014 17:06:02 Home condition : clear transaksi success
+20201014 17:06:02 Home condition : clear array success
+20201014 17:06:02 Home condition : clear array nasabah success
+20201014 17:06:02 Home condition : clear list success
+20201014 17:06:02 Home condition : clear transaksi baru success
+20201014 17:06:03 Home condition : clear transaksi success
+20201014 17:06:03 Home condition : clear array success
+20201014 17:06:03 Home condition : clear array nasabah success
+20201014 17:06:03 Home condition : clear list success
+20201014 17:06:03 Home condition : clear transaksi baru success
+20201014 17:06:03 Home condition : entered into home page
+20201014 17:06:05 Home condition : move to histori transaksi
+20201014 17:06:05 Histori condition : entered into histori input kartu
+20201014 17:06:06 Histori condition : input kartu success
+20201014 17:06:06 Histori condition : move to histori input pin
+20201014 17:06:06 Histori condition : entered into histori input pin
+20201014 17:06:07 Histori condition : EDC process start
+20201014 17:06:07 Histori condition : EDC serial port close
+20201014 17:06:07 Histori condition : EDC serial port open
+20201014 17:06:07 Histori condition : EDC serial port write
+20201014 17:06:07 Histori condition : EDC serial port already open
+20201014 17:06:07 Histori condition : EDC serial port already open
+20201014 17:06:08 Histori condition : EDC serial port already open
+20201014 17:06:08 Histori condition : EDC serial port already open
+20201014 17:06:08 Histori condition : EDC serial port already open
+20201014 17:06:08 Histori condition : EDC serial port already open
+20201014 17:06:08 Histori condition : EDC serial port already open
+20201014 17:06:08 Histori condition : EDC serial port already open
+20201014 17:06:09 Histori condition : EDC serial port already open
+20201014 17:06:09 Histori condition : EDC serial port already open
+20201014 17:06:09 Histori condition : EDC serial port already open
+20201014 17:06:09 Histori condition : EDC serial port already open
+20201014 17:06:09 Histori condition : EDC serial port already open
+20201014 17:06:09 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : 1
+20201014 17:06:10 Histori condition : EDC pin 1
+20201014 17:06:10 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : EDC serial port already open
+20201014 17:06:10 Histori condition : 12
+20201014 17:06:10 Histori condition : EDC pin 2
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : 123
+20201014 17:06:11 Histori condition : EDC pin 3
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : 1234
+20201014 17:06:11 Histori condition : EDC pin 4
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : EDC serial port already open
+20201014 17:06:11 Histori condition : 12345
+20201014 17:06:11 Histori condition : EDC pin 5
+20201014 17:06:12 Histori condition : EDC serial port already open
+20201014 17:06:12 Histori condition : EDC serial port already open
+20201014 17:06:12 Histori condition : 123456
+20201014 17:06:12 Histori condition : EDC pin 6
+20201014 17:06:12 Histori condition : EDC ACK
+20201014 17:06:12 Histori condition : EDC serial port already open
+20201014 17:06:12 Histori condition : EDC serial port already open
+20201014 17:06:12 Histori condition : EDC serial port already open
+20201014 17:06:12 Histori condition : EDC serial port already open
+20201014 17:06:13 Histori condition : EDC serial port already open
+20201014 17:06:13 Histori condition : 123456
+20201014 17:06:13 Histori condition : EDC pin enter
+20201014 17:06:13 Histori condition : EDC serial port close
+20201014 17:13:37 Home condition : clear transaksi success
+20201014 17:13:37 Home condition : clear array success
+20201014 17:13:37 Home condition : clear array nasabah success
+20201014 17:13:37 Home condition : clear list success
+20201014 17:13:37 Home condition : clear transaksi baru success
+20201014 17:13:38 Home condition : clear transaksi success
+20201014 17:13:38 Home condition : clear array success
+20201014 17:13:38 Home condition : clear array nasabah success
+20201014 17:13:38 Home condition : clear list success
+20201014 17:13:38 Home condition : clear transaksi baru success
+20201014 17:13:38 Home condition : entered into home page
+20201014 17:13:42 Home condition : move to histori transaksi
+20201014 17:13:42 Histori condition : entered into histori input kartu
+20201014 17:13:43 Histori condition : input kartu success
+20201014 17:13:43 Histori condition : move to histori input pin
+20201014 17:13:43 Histori condition : entered into histori input pin
+20201014 17:13:44 Histori condition : EDC process start
+20201014 17:13:44 Histori condition : EDC serial port close
+20201014 17:13:44 Histori condition : EDC serial port open
+20201014 17:13:44 Histori condition : EDC serial port write
+20201014 17:13:44 Histori condition : EDC serial port already open
+20201014 17:13:44 Histori condition : EDC serial port already open
+20201014 17:13:45 Histori condition : EDC serial port already open
+20201014 17:13:45 Histori condition : EDC serial port already open
+20201014 17:13:45 Histori condition : EDC serial port already open
+20201014 17:13:45 Histori condition : EDC serial port already open
+20201014 17:13:45 Histori condition : EDC serial port already open
+20201014 17:13:45 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:46 Histori condition : 1
+20201014 17:13:46 Histori condition : EDC pin 1
+20201014 17:13:46 Histori condition : EDC serial port already open
+20201014 17:13:47 Histori condition : EDC serial port already open
+20201014 17:13:47 Histori condition : 12
+20201014 17:13:47 Histori condition : EDC pin 2
+20201014 17:13:47 Histori condition : EDC serial port already open
+20201014 17:13:47 Histori condition : EDC serial port already open
+20201014 17:13:47 Histori condition : EDC serial port already open
+20201014 17:13:47 Histori condition : 123
+20201014 17:13:47 Histori condition : EDC pin 3
+20201014 17:13:47 Histori condition : EDC serial port already open
+20201014 17:13:47 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : 1234
+20201014 17:13:48 Histori condition : EDC pin 4
+20201014 17:13:48 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : 12345
+20201014 17:13:48 Histori condition : EDC pin 5
+20201014 17:13:48 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : EDC serial port already open
+20201014 17:13:48 Histori condition : 123456
+20201014 17:13:48 Histori condition : EDC pin 6
+20201014 17:13:48 Histori condition : EDC ACK
+20201014 17:13:49 Histori condition : EDC serial port already open
+20201014 17:13:49 Histori condition : EDC serial port already open
+20201014 17:13:49 Histori condition : EDC serial port already open
+20201014 17:13:49 Histori condition : EDC serial port already open
+20201014 17:13:49 Histori condition : EDC serial port already open
+20201014 17:13:49 Histori condition : 123456
+20201014 17:13:49 Histori condition : EDC pin enter
+20201014 17:13:49 Histori condition : EDC serial port close
+20201014 17:13:49 Histori condition : input pin success
+20201014 17:13:49 Histori condition : input data Bambang Pamungkas success
+20201014 17:13:49 Histori condition : move to histori pilih menu
+20201014 17:13:49 Histori condition : entered into histori pilih menu
+20201014 17:13:51 Histori condition : move to histori bulan berjalan
+20201014 17:13:51 Histori condition : hit service histori start
+20201014 17:13:51 Histori condition : clear list histori success
+20201014 17:13:51 Histori condition : post service start
+20201014 17:13:51 Histori condition : entered into history bulan berjalan
+20201014 17:13:52 Histori condition : set transaksi ID tes002 success
+20201014 17:13:52 Histori condition : data empty
+20201014 17:13:52 Histori condition : set data histori success
+20201014 17:13:54 Histori condition : move to histori pilih menu
+20201014 17:13:54 Histori condition : entered into histori pilih menu
+20201014 17:14:39 Home condition : clear transaksi success
+20201014 17:14:39 Home condition : clear array success
+20201014 17:14:39 Home condition : clear array nasabah success
+20201014 17:14:39 Home condition : clear list success
+20201014 17:14:39 Home condition : clear transaksi baru success
+20201014 17:14:39 Home condition : clear transaksi success
+20201014 17:14:39 Home condition : clear array success
+20201014 17:14:39 Home condition : clear array nasabah success
+20201014 17:14:39 Home condition : clear list success
+20201014 17:14:39 Home condition : clear transaksi baru success
+20201014 17:14:39 Home condition : entered into home page
+20201014 17:14:44 Home condition : move to histori transaksi
+20201014 17:14:44 Histori condition : entered into histori input kartu
+20201014 17:14:45 Histori condition : input kartu success
+20201014 17:14:45 Histori condition : move to histori input pin
+20201014 17:14:45 Histori condition : entered into histori input pin
+20201014 17:14:46 Histori condition : EDC process start
+20201014 17:14:46 Histori condition : EDC serial port close
+20201014 17:14:46 Histori condition : EDC serial port open
+20201014 17:14:46 Histori condition : EDC serial port write
+20201014 17:14:46 Histori condition : EDC serial port already open
+20201014 17:14:46 Histori condition : EDC serial port already open
+20201014 17:14:46 Histori condition : EDC serial port already open
+20201014 17:14:47 Histori condition : EDC serial port already open
+20201014 17:14:47 Histori condition : EDC serial port already open
+20201014 17:14:47 Histori condition : EDC serial port already open
+20201014 17:14:47 Histori condition : EDC serial port already open
+20201014 17:14:47 Histori condition : EDC serial port already open
+20201014 17:14:47 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : 1
+20201014 17:14:48 Histori condition : EDC pin 1
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:48 Histori condition : 12
+20201014 17:14:48 Histori condition : EDC pin 2
+20201014 17:14:48 Histori condition : EDC serial port already open
+20201014 17:14:49 Histori condition : EDC serial port already open
+20201014 17:14:49 Histori condition : EDC serial port already open
+20201014 17:14:49 Histori condition : 123
+20201014 17:14:49 Histori condition : EDC pin 3
+20201014 17:14:49 Histori condition : EDC serial port already open
+20201014 17:14:49 Histori condition : EDC serial port already open
+20201014 17:14:49 Histori condition : EDC serial port already open
+20201014 17:14:49 Histori condition : 1234
+20201014 17:14:49 Histori condition : EDC pin 4
+20201014 17:14:49 Histori condition : EDC serial port already open
+20201014 17:14:50 Histori condition : EDC serial port already open
+20201014 17:14:50 Histori condition : 12345
+20201014 17:14:50 Histori condition : EDC pin 5
+20201014 17:14:50 Histori condition : EDC serial port already open
+20201014 17:14:50 Histori condition : EDC serial port already open
+20201014 17:14:50 Histori condition : EDC serial port already open
+20201014 17:14:50 Histori condition : 123456
+20201014 17:14:50 Histori condition : EDC pin 6
+20201014 17:14:50 Histori condition : EDC ACK
+20201014 17:14:50 Histori condition : EDC serial port already open
+20201014 17:14:50 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:51 Histori condition : EDC serial port already open
+20201014 17:14:52 Histori condition : EDC serial port already open
+20201014 17:14:52 Histori condition : EDC serial port already open
+20201014 17:14:52 Histori condition : 123456
+20201014 17:14:52 Histori condition : EDC pin enter
+20201014 17:14:52 Histori condition : EDC serial port close
+20201014 17:14:52 Histori condition : input pin success
+20201014 17:14:52 Histori condition : input data Bambang Pamungkas success
+20201014 17:14:52 Histori condition : move to histori pilih menu
+20201014 17:14:52 Histori condition : entered into histori pilih menu
+20201014 17:14:54 Histori condition : move to histori bulan lalu
+20201014 17:14:54 Histori condition : hit service histori start
+20201014 17:14:54 Histori condition : clear list histori success
+20201014 17:14:54 Histori condition : post service start
+20201014 17:14:54 Histori condition : entered into history bulan lalu
+20201014 17:14:55 Histori condition : set transaksi ID tes002 success
+20201014 17:14:55 Histori condition : hit service histori success
+20201014 17:14:55 Histori condition : get list data success
+20201014 17:14:55 Histori condition : set data histori success
+20201014 17:15:02 Histori condition : modal visible appear
+20201014 17:15:02 Histori condition : temporary list created
+20201014 17:15:02 Histori condition : clear list histori success
+20201014 17:15:02 Histori condition : print halaman ke-1
+20201014 17:15:02 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201014 17:15:03 Printer condition : check status printing start
+20201014 17:15:03 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201014 17:15:03 Printer status condition : check status printing done
+20201014 17:15:03 Printer status condition : check status printing close
+20201014 17:15:03 20201014 17:15:03 Status printing in EPSOND03466 (L3150 Series) : job finish printing
+20201014 17:15:03 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201014 17:15:03 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201014 17:15:03 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202010\step-action201014-17.txt
+20201014 17:15:03 Printer condition : print histori in EPSOND03466 (L3150 Series) finished
+20201014 17:15:36 Histori condition : print history halaman ke-1 success
+20201014 17:26:41 Home condition : clear transaksi success
+20201014 17:26:41 Home condition : clear array success
+20201014 17:26:41 Home condition : clear array nasabah success
+20201014 17:26:41 Home condition : clear list success
+20201014 17:26:41 Home condition : clear transaksi baru success
+20201014 17:26:42 Home condition : clear transaksi success
+20201014 17:26:42 Home condition : clear array success
+20201014 17:26:42 Home condition : clear array nasabah success
+20201014 17:26:42 Home condition : clear list success
+20201014 17:26:42 Home condition : clear transaksi baru success
+20201014 17:26:42 Home condition : entered into home page
+20201014 17:26:52 Home condition : move to histori transaksi
+20201014 17:26:52 Histori condition : entered into histori input kartu
+20201014 17:26:53 Histori condition : input kartu success
+20201014 17:26:53 Histori condition : move to histori input pin
+20201014 17:26:53 Histori condition : entered into histori input pin
+20201014 17:26:54 Histori condition : EDC process start
+20201014 17:26:54 Histori condition : EDC serial port close
+20201014 17:26:54 Histori condition : EDC serial port open
+20201014 17:26:54 Histori condition : EDC serial port write
+20201014 17:26:54 Histori condition : EDC serial port already open
+20201014 17:26:54 Histori condition : EDC serial port already open
+20201014 17:26:54 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : EDC serial port already open
+20201014 17:26:55 Histori condition : 1
+20201014 17:26:55 Histori condition : EDC pin 1
+20201014 17:26:56 Histori condition : EDC serial port already open
+20201014 17:26:56 Histori condition : EDC serial port already open
+20201014 17:26:56 Histori condition : 12
+20201014 17:26:56 Histori condition : EDC pin 2
+20201014 17:26:56 Histori condition : EDC serial port already open
+20201014 17:26:56 Histori condition : EDC serial port already open
+20201014 17:26:56 Histori condition : 123
+20201014 17:26:56 Histori condition : EDC pin 3
+20201014 17:26:56 Histori condition : EDC serial port already open
+20201014 17:26:56 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : 1234
+20201014 17:26:57 Histori condition : EDC pin 4
+20201014 17:26:57 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : 12345
+20201014 17:26:57 Histori condition : EDC pin 5
+20201014 17:26:57 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : EDC serial port already open
+20201014 17:26:57 Histori condition : 123456
+20201014 17:26:57 Histori condition : EDC pin 6
+20201014 17:26:57 Histori condition : EDC ACK
+20201014 17:26:58 Histori condition : EDC serial port already open
+20201014 17:26:58 Histori condition : EDC serial port already open
+20201014 17:26:58 Histori condition : EDC serial port already open
+20201014 17:26:58 Histori condition : 123456
+20201014 17:26:58 Histori condition : EDC pin enter
+20201014 17:26:58 Histori condition : EDC serial port close
+20201014 17:26:58 Histori condition : input pin success
+20201014 17:26:58 Histori condition : input data Bambang Pamungkas success
+20201014 17:26:58 Histori condition : move to histori pilih menu
+20201014 17:26:58 Histori condition : entered into histori pilih menu
+20201014 17:26:59 Histori condition : move to histori bulan lalu
+20201014 17:26:59 Histori condition : hit service histori start
+20201014 17:26:59 Histori condition : clear list histori success
+20201014 17:26:59 Histori condition : post service start
+20201014 17:27:00 Histori condition : entered into history bulan lalu
+20201014 17:27:01 Histori condition : set transaksi ID tes002 success
+20201014 17:27:01 Histori condition : hit service histori success
+20201014 17:27:01 Histori condition : get list data success
+20201014 17:27:01 Histori condition : set data histori success
+20201014 17:27:02 Histori condition : modal visible appear
+20201014 17:27:02 Histori condition : temporary list created
+20201014 17:27:02 Histori condition : clear list histori success
+20201014 17:27:02 Histori condition : print halaman ke-1
+20201014 17:27:02 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201014 17:27:03 Printer condition : check status printing start
+20201014 17:27:03 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201014 17:27:03 Printer status condition : check status printing done
+20201014 17:27:03 Printer status condition : check status printing close
+20201014 17:27:03 20201014 17:24:59 Status printing in EPSOND03466 (L3150 Series) : job finish printing
+20201014 17:24:59 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201014 17:24:59 Status printing in EPSOND03466 (L3150 Series) : printing done
+20201014 17:27:03 Status printing in EPSOND03466 (L3150 Series) : job finish printing
+20201014 17:27:03 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201014 17:27:03 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201014 17:27:03 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202010\step-action201014-17.txt
+20201014 17:27:03 Printer condition : print histori in EPSOND03466 (L3150 Series) finished

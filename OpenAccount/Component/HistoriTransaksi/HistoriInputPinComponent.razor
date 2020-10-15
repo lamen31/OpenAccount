@@ -7,6 +7,7 @@
 @inject Transaksi trx
 @inject Utility utility
 @inject EDC edc
+
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -75,11 +76,13 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
     private string[] Nasabah = new string[3];
+    private string pinNasabah = string.Empty;
     private string strpin = string.Empty;
     private SerialPort sPort = new SerialPort();
     private bool isLoop = true;
     private bool isCancel = false;
     private bool isSalah = false;
+    private bool isEDC = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -90,39 +93,7 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
-        Utility.WriteLog("Histori condition : EDC process start", "step-action");
-        await EDC("14");
-        if (!isCancel)
-        {
-            if (strpin == "123456")
-            {
-                Utility.WriteLog("Histori condition : input pin success", "step-action");
-                for (int i = 0; i < Nasabah.Length; i++)
-                {
-                    if (i == 0)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-                    else if (i == 1)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-                    else if (i == 2)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
-                }
-                trx.setArrayNasabah(Nasabah);
-                Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-                Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
-                OnClick.InvokeAsync("historiPilih");
-            }
-            else
-            {
-                Utility.WriteLog("Histori condition : move to blokir kartu", "step-action");
-                OnClick.InvokeAsync("blokirkartu");
-            }
-        }
-        else
-        {
-            Utility.WriteLog("Histori condition : move to home", "step-action");
-            OnClick.InvokeAsync("home");
-        }
+
         //Console.WriteLine("INPUT PIN SUCCESS");
         //Utility.WriteLog("Histori condition : input pin success", "step-action");
         //for (int i = 0; i < Nasabah.Length; i++)
@@ -138,6 +109,69 @@
         //Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
         //trx.setArrayNasabah(Nasabah);
         //OnClick.InvokeAsync("historiPilih");
+
+        isEDC = true;
+        await InputPin();
+    }
+
+    private async Task InputPin()
+    {
+        while (isEDC)
+        {
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Histori condition : EDC process start", "step-action");
+            await Task.Delay(500);
+            await EDC("14");
+            if (!isCancel)
+            {
+                pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
+                if (strpin == pinNasabah)
+                {
+                    Utility.WriteLog("Histori condition : input pin success", "step-action");
+                    for (int i = 0; i < Nasabah.Length; i++)
+                    {
+                        if (i == 0)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                        else if (i == 1)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                        else if (i == 2)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                    }
+                    trx.setArrayNasabah(Nasabah);
+                    Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                    isEDC = false;
+                    Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
+                    OnClick.InvokeAsync("historiPilih");
+                    break;
+                }
+                else
+                {
+                    isSalah = true;
+                    tryLimit -= 1;
+                    Utility.WriteLog("Histori condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
+                    if (tryLimit == 0)
+                    {
+                        Utility.WriteLog("Histori condition : tryLimit has reached 0", "step-action");
+                        isEDC = false;
+                        Utility.WriteLog("Histori condition : move to blokir kartu", "step-action");
+                        OnClick.InvokeAsync("blokirkartu");
+                        break;
+                    }
+                    strpin = string.Empty;
+                    StateHasChanged();
+                    sPort.Close();
+                    sPort.Dispose();
+                    continue;
+                }
+            }
+            else
+            {
+                isEDC = false;
+                Utility.WriteLog("Histori condition : move to home", "step-action");
+                OnClick.InvokeAsync("home");
+                break;
+            }
+        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -147,6 +181,7 @@
             Utility.WriteLog("Histori condition : entered into histori input pin", "step-action");
         }
     }
+
     private async Task EDC(string ecrmsg)
     {
         isLoop = true;
@@ -192,7 +227,7 @@
         Utility.WriteLog("Histori condition : EDC serial port write", "step-action");
         serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
 
-        do
+        while(isLoop)
         {
             await Task.Delay(150);
 
@@ -217,7 +252,12 @@
                         case 69:
                             //Console.WriteLine(strpin);
                             if (strpin.Length == 6)
+                            {
                                 isLoop = false;
+                                await Task.Delay(100);
+                            }
+                            else
+                                continue;
                             Utility.WriteLog("Histori condition : " + strpin, "step-action");
                             Utility.WriteLog("Histori condition : EDC pin enter", "step-action");
                             break;
@@ -225,12 +265,14 @@
                             //Console.WriteLine(strpin);
                             isCancel = true;
                             isLoop = false;
+                            await Task.Delay(100);
                             Utility.WriteLog("Histori condition : EDC pin cancel", "step-action");
                             break;
                         case 84:
                             //Console.WriteLine(strpin);
                             isCancel = true;
                             isLoop = false;
+                            await Task.Delay(100);
                             break;
                         case 67:
                             strpin = string.Empty;
@@ -324,7 +366,7 @@
                 }
             }
             StateHasChanged();
-        } while (isLoop);
+        }
 
         Console.WriteLine("2");
         Utility.WriteLog("Histori condition : EDC serial port close", "step-action");

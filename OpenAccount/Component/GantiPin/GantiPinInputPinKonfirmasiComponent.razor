@@ -7,7 +7,6 @@
 @inject EDC edc
 @inject Config config
 @inject Transaksi trx
-
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -23,6 +22,19 @@
                             <input type="text" class="form-control" placeholder="Konfirmasi Pin Baru Anda" @bind="strpin">
                         </div>
                     </div>
+                    @*@if (isSesuai)
+                        {
+                            <h3 style="color:#00AF80 ; font-weight: 900; text-align: left;">PIN Sesuai</h3>
+                        }
+                        else if (isNotCorrect)
+                        {
+                            <h3 style="color:#af0000 ; font-weight: 900; text-align: left;">PIN Tidak Sesuai</h3>
+                            @if (isSalah)
+                                {
+                                    <p style="color:#af0000 ; text-align: left;">Pin yang anda masukan <b>SALAH</b></p>
+                                    <p style="color:#af0000 ; text-align: left;">Kesempatan mencoba @tryLimit.ToString()x lagi</p>
+                                }
+                        }*@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -68,6 +80,50 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isSalah)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin <b style="color: #af0000;">TIDAK SESUAI</b></h3>
+                        <h5 style="font-style:italic;">Tekan <b>Lanjut</b> untuk kembali memasukan pin</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="PinBaru">Lanjut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isSesuai)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin <b style="color: #00AF80;">SESUAI</b></h3>
+                        <h5 style="font-style:italic;">Tekan <b>Lanjut</b> untuk proses selanjutnya</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="PinSukses">Lanjut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -80,6 +136,9 @@
     private bool isNotCorrect = false;
     private bool isPin = false;
     private bool isNotPin = false;
+    private bool isEDC = false;
+    private bool isSalah = false;
+    private int tryLimit = 3;
     private SerialPort serialPort = new SerialPort();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -93,20 +152,35 @@
                 sPort.Close();
             }
             Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
+            await Task.Delay(500);
             await EDC("14");
             if (isPin)
             {
-                trx.setPinKonfirmasi(strpinNomor);
-                Utility.WriteLog("Ganti pin condition : input pin nomor rekening " + strpinNomor + " success", "step-action");
-                Utility.WriteLog("Ganti pin condition : move to buka ganti pin sukses", "step-action");
-                OnClick.InvokeAsync("gantipinsukses");
+                isSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
             }
             else if (isNotPin)
             {
-                Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
-                OnClick.InvokeAsync("gantipininputpinbaru");
+                isSalah = true;
+                await Task.Delay(100);
+                StateHasChanged();
             }
         }
+    }
+
+    private async Task PinSukses()
+    {
+        trx.setPinKonfirmasi(strpinNomor);
+        Utility.WriteLog("Ganti pin condition : input pin nomor rekening " + strpinNomor + " success", "step-action");
+        Utility.WriteLog("Ganti pin condition : move to buka ganti pin sukses", "step-action");
+        OnClick.InvokeAsync("gantipinsukses");
+    }
+
+    private async Task PinBaru()
+    {
+        Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
+        OnClick.InvokeAsync("gantipininputpinbaru");
     }
 
     private async Task EDC(string ecrmsg)
@@ -175,17 +249,19 @@
                     switch (intBuffer)
                     {
                         case 69:
-                            if (strpin.Length == 6)
+                            if (strpin.Length == 6 || strpinNomor.Length == 6)
                             {
-                                if (isSesuai)
+                                if (strpinNomor == trx._PinATM1)
                                 {
                                     isPin = true;
                                     isLoop = false;
                                 }
-                                else if (isNotCorrect)
+                                else if (strpinNomor != trx._PinATM1)
                                 {
                                     isNotPin = true;
+                                    isLoop = false;
                                 }
+                                serialPort.Close();
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
                             Utility.WriteLog("Ganti pin condition : " + strpinNomor, "step-action");
@@ -195,6 +271,7 @@
                             Utility.WriteLog("Ganti pin condition : EDC pin cancel", "step-action");
                             OnClick.InvokeAsync("gantipininputpinbaru");
                             isLoop = false;
+                            serialPort.Close();
                             break;
                         case 84:
                             Console.WriteLine(strpin);
@@ -209,7 +286,7 @@
                         case 32:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "0";
+                                strpin += "0";
                                 strpinNomor += "0";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -219,7 +296,7 @@
                         case 1:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "1";
+                                strpin += "1";
                                 strpinNomor += "1";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -229,7 +306,7 @@
                         case 2:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "2";
+                                strpin += "2";
                                 strpinNomor += "2";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -239,7 +316,7 @@
                         case 3:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "3";
+                                strpin += "3";
                                 strpinNomor += "3";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -249,7 +326,7 @@
                         case 4:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "4";
+                                strpin += "4";
                                 strpinNomor += "4";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -259,7 +336,7 @@
                         case 5:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "5";
+                                strpin += "5";
                                 strpinNomor += "5";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -269,7 +346,7 @@
                         case 6:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "6";
+                                strpin += "6";
                                 strpinNomor += "6";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -289,7 +366,7 @@
                         case 8:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "8";
+                                strpin += "8";
                                 strpinNomor += "8";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -299,7 +376,7 @@
                         case 9:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "9";
+                                strpin += "9";
                                 strpinNomor += "9";
                             }
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
@@ -348,29 +425,23 @@
             }
             await Task.Delay(100);
             StateHasChanged();
-            if (strpin.Length == 6)
-            {
-                if (strpinNomor == trx._PinATM1)
-                {
-                    isSesuai = true;
-                    isNotCorrect = false;
-                    Utility.WriteLog("Ganti pin condition : pin sesuai", "step-action");
-                }
-                else if (strpinNomor != trx._PinATM1)
-                {
-                    isSesuai = false;
-                    isNotCorrect = true;
-                    //tryLimit -= 1;
-                    //if (tryLimit == 0)
-                    //{
-                    //    trxbaru.clearPinPertama();
-                    //    OnClick.InvokeAsync("bukarekeninginputpinatm");
-                    //}
-                    Utility.WriteLog("Ganti pin condition : pin tidak sesuai", "step-action");
-                }
-                await Task.Delay(500);
-                StateHasChanged();
-            }
+            //if (strpin.Length == 6)
+            //{
+            //    if (strpinNomor == trx._PinATM1)
+            //    {
+            //        isSesuai = true;
+            //        isNotCorrect = false;
+            //        Utility.WriteLog("Ganti pin condition : pin sesuai", "step-action");
+            //    }
+            //    else if (strpinNomor != trx._PinATM1)
+            //    {
+            //        isSesuai = false;
+            //        isNotCorrect = true;
+            //        Utility.WriteLog("Ganti pin condition : pin tidak sesuai", "step-action");
+            //    }
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         } while (isLoop);
 
         Console.WriteLine("2");

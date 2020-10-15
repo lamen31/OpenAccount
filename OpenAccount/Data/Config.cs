@@ -27,6 +27,7 @@ namespace OpenAccount.Data
         public const string PARAM_REKENING_NASABAH = "param.rekening.nasabah";
         public const string PARAM_ALAMAT_NASABAH = "param.alamat.nasabah";
         public const string PARAM_SALDO_NASABAH = "param.saldo.nasabah";
+        public const string PARAM_PIN_NASABAH = "param.pin.nasabah";
         public const string PARAM_PASSBOOK_MAXBARIS = "param.passbook.maxbaris";
         public const string PARAM_PASSBOOK_MAXHALAMAN = "param.passbook.maxhalaman";
         public const string PARAM_PRINTERNAME_PRINTERCOBA = "param.printername.printercoba";

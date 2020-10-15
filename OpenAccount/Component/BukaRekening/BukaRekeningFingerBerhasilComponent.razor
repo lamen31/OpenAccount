@@ -105,7 +105,7 @@
     {
         Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
         scanner.RadioPos();
-        await Task.Delay(2000);
+        await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : move to buka rekening capture", "step-action");
         OnClick.InvokeAsync("bukarekeningcapturektp");
     }
@@ -115,6 +115,7 @@
         await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
         scanner.ReturnCard();
+        await Task.Delay(100);
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();
         Utility.WriteLog("Buka rekening condition : move to buka rekening ktp", "step-action");

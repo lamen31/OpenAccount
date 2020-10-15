@@ -75,51 +75,20 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
     private string[] Nasabah = new string[3];
+    private string pinNasabah = string.Empty;
     private string strpin = string.Empty;
     private SerialPort sPort = new SerialPort();
     private bool isLoop = true;
-    private bool isLoop2 = true;
     private bool isCancel = false;
     private bool isSalah = false;
+    private bool isEDC = false;
     private int tryLimit = 3;
     SerialPort serialPort = new SerialPort();
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
-        Utility.WriteLog("Buku condition : EDC process start", "step-action");
-        await EDC("14");
-        if (!isCancel)
-        {
-            if (strpin == "123456")
-            {
-                Utility.WriteLog("Buku condition : input pin success", "step-action");
-                for (int i = 0; i < Nasabah.Length; i++)
-                {
-                    if (i == 0)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-                    else if (i == 1)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-                    else if (i == 2)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
-                }
-                trx.setArrayNasabah(Nasabah);
-                Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-                Utility.WriteLog("Buku condition : move to buku input data", "step-action");
-                OnClick.InvokeAsync("bukuinputdata");
-            }
-            else
-            {
-                Utility.WriteLog("Buku condition : move to blokir kartu", "step-action");
-                OnClick.InvokeAsync("blokirkartu");
-            }
-        }
-        else
-        {
-            Utility.WriteLog("Buku condition : move to home", "step-action");
-            OnClick.InvokeAsync("home");
-        }
+        
         //Console.WriteLine("INPUT PIN SUCCESS");
         //Utility.WriteLog("Buku condition : input pin success", "step-action");
         //for (int i = 0; i < Nasabah.Length; i++)
@@ -135,6 +104,9 @@
         //Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
         //trx.setArrayNasabah(Nasabah);
         //OnClick.InvokeAsync("bukuinputdata");
+
+        isEDC = true;
+        await InputPin();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -142,6 +114,66 @@
         if (firstRender)
         {
             Utility.WriteLog("Buku condition : entered into buku input pin", "step-action");
+        }
+    }
+
+    private async Task InputPin()
+    {
+        while (isEDC)
+        {
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Histori condition : EDC process start", "step-action");
+            await Task.Delay(500);
+            await EDC("14");
+            if (!isCancel)
+            {
+                pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
+                if (strpin == pinNasabah)
+                {
+                    Utility.WriteLog("Histori condition : input pin success", "step-action");
+                    for (int i = 0; i < Nasabah.Length; i++)
+                    {
+                        if (i == 0)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                        else if (i == 1)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                        else if (i == 2)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                    }
+                    trx.setArrayNasabah(Nasabah);
+                    Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                    isEDC = false;
+                    Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
+                    OnClick.InvokeAsync("historiPilih");
+                    break;
+                }
+                else
+                {
+                    isSalah = true;
+                    tryLimit -= 1;
+                    Utility.WriteLog("Histori condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
+                    if (tryLimit == 0)
+                    {
+                        Utility.WriteLog("Histori condition : tryLimit has reached 0", "step-action");
+                        isEDC = false;
+                        Utility.WriteLog("Histori condition : move to blokir kartu", "step-action");
+                        OnClick.InvokeAsync("blokirkartu");
+                        break;
+                    }
+                    strpin = string.Empty;
+                    StateHasChanged();
+                    sPort.Close();
+                    sPort.Dispose();
+                    continue;
+                }
+            }
+            else
+            {
+                isEDC = false;
+                Utility.WriteLog("Histori condition : move to home", "step-action");
+                OnClick.InvokeAsync("home");
+                break;
+            }
         }
     }
 
@@ -216,6 +248,8 @@
                             //Console.WriteLine(strpin);
                             if (strpin.Length == 6)
                                 isLoop = false;
+                            else
+                                continue;
                             Utility.WriteLog("Buku condition : " + strpin, "step-action");
                             Utility.WriteLog("Buku condition : EDC pin enter", "step-action");
                             break;

@@ -33,6 +33,7 @@ namespace OpenAccount.Data
         public string[] _ThermalNominal { get; set; }
         public string[] _ThermalKode { get; set; }
         public string _ThermalSaldo { get; set; }
+        public string _StatusPrinter { get; set; }
         public string _TransaksiID { get; set; }
         public string _KTPNIK { get; set; }
         public string _KTPNama { get; set; }
@@ -210,6 +211,11 @@ namespace OpenAccount.Data
         {
             _BukuBaris = strbaris;
             _BukuHalaman = strhalaman;
+        }
+
+        public void setStatusPrinting(string strstatus)
+        {
+            _StatusPrinter = strstatus;
         }
 
         public void setKTP(string strnik, string strnama, string strttl, string strperkawinan, string stralamat, string stragama, string strpekerjaan)

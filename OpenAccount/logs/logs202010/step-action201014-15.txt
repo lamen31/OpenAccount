@@ -1,0 +1,137 @@
+20201014 15:17:48 Home condition : clear transaksi success
+20201014 15:17:48 Home condition : clear array success
+20201014 15:17:48 Home condition : clear array nasabah success
+20201014 15:17:48 Home condition : clear list success
+20201014 15:17:48 Home condition : clear transaksi baru success
+20201014 15:17:48 Home condition : clear transaksi success
+20201014 15:17:48 Home condition : clear array success
+20201014 15:17:48 Home condition : clear array nasabah success
+20201014 15:17:48 Home condition : clear list success
+20201014 15:17:48 Home condition : clear transaksi baru success
+20201014 15:17:48 Home condition : entered into home page
+20201014 15:17:50 Home condition : move to histori transaksi
+20201014 15:17:50 Histori condition : entered into histori input kartu
+20201014 15:17:51 Histori condition : input kartu success
+20201014 15:17:51 Histori condition : move to histori input pin
+20201014 15:17:52 Histori condition : entered into histori input pin
+20201014 15:17:52 Histori condition : input pin success
+20201014 15:17:53 Histori condition : input data Bambang Pamungkas success
+20201014 15:17:53 Histori condition : entered into histori pilih menu
+20201014 15:17:54 Histori condition : move to histori bulan berjalan
+20201014 15:17:54 Histori condition : hit service histori start
+20201014 15:17:54 Histori condition : clear list histori success
+20201014 15:17:54 Histori condition : post service start
+20201014 15:17:54 Histori condition : entered into history bulan berjalan
+20201014 15:17:55 Histori condition : set transaksi ID tes002 success
+20201014 15:17:55 Histori condition : data empty
+20201014 15:17:55 Histori condition : set data histori success
+20201014 15:18:21 Home condition : clear transaksi success
+20201014 15:18:21 Home condition : clear array success
+20201014 15:18:21 Home condition : clear array nasabah success
+20201014 15:18:21 Home condition : clear list success
+20201014 15:18:21 Home condition : clear transaksi baru success
+20201014 15:18:21 Home condition : clear transaksi success
+20201014 15:18:21 Home condition : clear array success
+20201014 15:18:21 Home condition : clear array nasabah success
+20201014 15:18:21 Home condition : clear list success
+20201014 15:18:21 Home condition : clear transaksi baru success
+20201014 15:18:21 Home condition : entered into home page
+20201014 15:18:23 Home condition : move to histori transaksi
+20201014 15:18:23 Histori condition : entered into histori input kartu
+20201014 15:18:24 Histori condition : input kartu success
+20201014 15:18:24 Histori condition : move to histori input pin
+20201014 15:18:24 Histori condition : entered into histori input pin
+20201014 15:18:25 Histori condition : input pin success
+20201014 15:18:25 Histori condition : input data Bambang Pamungkas success
+20201014 15:18:25 Histori condition : entered into histori pilih menu
+20201014 15:18:26 Histori condition : move to histori bulan berjalan
+20201014 15:18:26 Histori condition : hit service histori start
+20201014 15:18:26 Histori condition : clear list histori success
+20201014 15:18:26 Histori condition : post service start
+20201014 15:18:26 Histori condition : entered into history bulan berjalan
+20201014 15:18:27 Histori condition : set transaksi ID tes002 success
+20201014 15:18:27 Histori condition : data empty
+20201014 15:18:27 Histori condition : set data histori success
+20201014 15:18:55 Home condition : clear transaksi success
+20201014 15:18:55 Home condition : clear array success
+20201014 15:18:55 Home condition : clear array nasabah success
+20201014 15:18:55 Home condition : clear list success
+20201014 15:18:55 Home condition : clear transaksi baru success
+20201014 15:18:55 Home condition : clear transaksi success
+20201014 15:18:55 Home condition : clear array success
+20201014 15:18:55 Home condition : clear array nasabah success
+20201014 15:18:55 Home condition : clear list success
+20201014 15:18:55 Home condition : clear transaksi baru success
+20201014 15:18:55 Home condition : entered into home page
+20201014 15:18:56 Home condition : move to histori transaksi
+20201014 15:18:56 Histori condition : entered into histori input kartu
+20201014 15:18:57 Histori condition : input kartu success
+20201014 15:18:57 Histori condition : move to histori input pin
+20201014 15:18:58 Histori condition : entered into histori input pin
+20201014 15:18:59 Histori condition : input pin success
+20201014 15:18:59 Histori condition : input data Bambang Pamungkas success
+20201014 15:18:59 Histori condition : entered into histori pilih menu
+20201014 15:19:00 Histori condition : move to histori bulan berjalan
+20201014 15:19:00 Histori condition : hit service histori start
+20201014 15:19:02 Histori condition : clear list histori success
+20201014 15:19:02 Histori condition : post service start
+20201014 15:19:05 Histori condition : entered into history bulan berjalan
+20201014 15:19:13 Histori condition : set transaksi ID tes002 success
+20201014 15:20:23 Home condition : clear transaksi success
+20201014 15:20:23 Home condition : clear array success
+20201014 15:20:23 Home condition : clear array nasabah success
+20201014 15:20:23 Home condition : clear list success
+20201014 15:20:23 Home condition : clear transaksi baru success
+20201014 15:20:23 Home condition : clear transaksi success
+20201014 15:20:23 Home condition : clear array success
+20201014 15:20:23 Home condition : clear array nasabah success
+20201014 15:20:23 Home condition : clear list success
+20201014 15:20:23 Home condition : clear transaksi baru success
+20201014 15:20:23 Home condition : entered into home page
+20201014 15:20:25 Home condition : move to histori transaksi
+20201014 15:20:25 Histori condition : entered into histori input kartu
+20201014 15:20:26 Histori condition : input kartu success
+20201014 15:20:26 Histori condition : move to histori input pin
+20201014 15:20:26 Histori condition : entered into histori input pin
+20201014 15:20:27 Histori condition : input pin success
+20201014 15:20:27 Histori condition : input data Bambang Pamungkas success
+20201014 15:20:27 Histori condition : entered into histori pilih menu
+20201014 15:20:28 Histori condition : move to histori bulan berjalan
+20201014 15:20:28 Histori condition : hit service histori start
+20201014 15:20:28 Histori condition : clear list histori success
+20201014 15:20:28 Histori condition : post service start
+20201014 15:20:28 Histori condition : entered into history bulan berjalan
+20201014 15:20:30 Histori condition : set transaksi ID tes002 success
+20201014 15:20:30 Histori condition : data empty
+20201014 15:20:30 Histori condition : set data histori success
+20201014 15:20:36 Histori condition : move to histori pilih menu
+20201014 15:20:36 Histori condition : entered into histori pilih menu
+20201014 15:22:33 Home condition : clear transaksi success
+20201014 15:22:33 Home condition : clear array success
+20201014 15:22:33 Home condition : clear array nasabah success
+20201014 15:22:33 Home condition : clear list success
+20201014 15:22:33 Home condition : clear transaksi baru success
+20201014 15:22:34 Home condition : clear transaksi success
+20201014 15:22:34 Home condition : clear array success
+20201014 15:22:34 Home condition : clear array nasabah success
+20201014 15:22:34 Home condition : clear list success
+20201014 15:22:34 Home condition : clear transaksi baru success
+20201014 15:22:34 Home condition : entered into home page
+20201014 15:22:36 Home condition : move to histori transaksi
+20201014 15:22:36 Histori condition : entered into histori input kartu
+20201014 15:22:37 Histori condition : input kartu success
+20201014 15:22:37 Histori condition : move to histori input pin
+20201014 15:22:37 Histori condition : entered into histori input pin
+20201014 15:22:38 Histori condition : input pin success
+20201014 15:22:38 Histori condition : input data Bambang Pamungkas success
+20201014 15:22:38 Histori condition : entered into histori pilih menu
+20201014 15:22:39 Histori condition : move to histori bulan berjalan
+20201014 15:22:39 Histori condition : hit service histori start
+20201014 15:22:39 Histori condition : clear list histori success
+20201014 15:22:39 Histori condition : post service start
+20201014 15:22:39 Histori condition : entered into history bulan berjalan
+20201014 15:22:40 Histori condition : set transaksi ID tes002 success
+20201014 15:22:40 Histori condition : data empty
+20201014 15:22:40 Histori condition : set data histori success
+20201014 15:23:17 Histori condition : move to histori pilih menu
+20201014 15:23:17 Histori condition : entered into histori pilih menu

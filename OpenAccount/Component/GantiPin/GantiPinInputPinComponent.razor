@@ -17,6 +17,11 @@
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti PIN</span><br>
                     <teks>Silakan Masukkan PIN Anda</teks>
                     <h3 style="color: #00529C; font-size: 25px;">"Tekan “ENTER” jika selesai memasukkan PIN"</h3>
+                    @if (isSalah)
+                    {
+                        <h3 style="color: #ff0000; font-size: 20px; margin-top:20%;">PIN yang anda masukan <b>SALAH</b>.</h3>
+                        <h3 style="color: #ff0000; font-size: 20px; font-style:italic">Kesempatan mencoba @tryLimit.ToString()x lagi</h3>
+                    }
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -67,11 +72,15 @@
     public EventCallback<string> OnClick { get; set; }
 
     private string[] Nasabah = new string[3];
+    private string pinNasabah = string.Empty;
     private string strpin = string.Empty;
     private SerialPort sPort = new SerialPort();
     SerialPort serialPort = new SerialPort();
     private bool isCancel = false;
     private bool isLoop = true;
+    private bool isSalah = false;
+    private bool isEDC = false;
+    private int tryLimit = 3;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -84,41 +93,9 @@
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(1000);
-        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
-        Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
-        await EDC("14");
-        if (!isCancel)
-        {
-            if (strpin == "123456")
-            {
-                Utility.WriteLog("Ganti pin condition : input pin success", "step-action");
-                for (int i = 0; i < Nasabah.Length; i++)
-                {
-                    if (i == 0)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-                    else if (i == 1)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-                    else if (i == 2)
-                        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
-                }
-                trx.setArrayNasabah(Nasabah);
-                Utility.WriteLog("Ganti pin condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-                Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
-                OnClick.InvokeAsync("gantipininputpinbaru");
-            }
-            else
-            {
-                Utility.WriteLog("Ganti pin condition : move to blokir kartu", "step-action");
-                OnClick.InvokeAsync("blokirkartu");
-            }
-        }
-        else
-        {
-            Utility.WriteLog("Ganti pin condition : move to home", "step-action");
-            OnClick.InvokeAsync("home");
-        }
+
         //Console.WriteLine("INPUT PIN SUCCESS");
-        //Utility.WriteLog("Buku condition : input pin success", "step-action");
+        //Utility.WriteLog("Ganti pin condition : input pin success", "step-action");
         //for (int i = 0; i < Nasabah.Length; i++)
         //{
         //    if (i == 0)
@@ -129,9 +106,72 @@
         //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
         //}
         //Console.WriteLine("INPUT DATA SUCCESS");
-        //Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+        //Utility.WriteLog("Ganti pin condition : input data " + Nasabah[0].ToString() + " success", "step-action");
         //trx.setArrayNasabah(Nasabah);
-        //OnClick.InvokeAsync("bukuinputdata");
+        //OnClick.InvokeAsync("gantipininputpin");
+
+        isEDC = true;
+        await InputPin();
+    }
+
+    private async Task InputPin()
+    {
+        while (isEDC)
+        {
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
+            await Task.Delay(500);
+            await EDC("14");
+            if (!isCancel)
+            {
+                pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
+                if (strpin == pinNasabah)
+                {
+                    Utility.WriteLog("Ganti pin condition : input pin success", "step-action");
+                    for (int i = 0; i < Nasabah.Length; i++)
+                    {
+                        if (i == 0)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                        else if (i == 1)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                        else if (i == 2)
+                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                    }
+                    trx.setArrayNasabah(Nasabah);
+                    Utility.WriteLog("Ganti pin condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                    isEDC = false;
+                    Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
+                    OnClick.InvokeAsync("gantipininputpinbaru");
+                    break;
+                }
+                else
+                {
+                    isSalah = true;
+                    tryLimit -= 1;
+                    Utility.WriteLog("Ganti pin condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
+                    if (tryLimit == 0)
+                    {
+                        Utility.WriteLog("Ganti pin condition : tryLimit has reached 0", "step-action");
+                        isEDC = false;
+                        Utility.WriteLog("Ganti pin condition : move to blokir kartu", "step-action");
+                        OnClick.InvokeAsync("blokirkartu");
+                        break;
+                    }
+                    strpin = string.Empty;
+                    StateHasChanged();
+                    sPort.Close();
+                    sPort.Dispose();
+                    continue;
+                }
+            }
+            else
+            {
+                isEDC = false;
+                Utility.WriteLog("Ganti pin condition : move to home", "step-action");
+                OnClick.InvokeAsync("home");
+                break;
+            }
+        }
     }
 
     private async Task EDC(string ecrmsg)
@@ -205,6 +245,8 @@
                             //Console.WriteLine(strpin);
                             if (strpin.Length == 6)
                                 isLoop = false;
+                            else
+                                continue;
                             Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
                             Utility.WriteLog("Ganti pin condition : EDC pin enter", "step-action");
                             break;

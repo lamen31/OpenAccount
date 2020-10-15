@@ -85,6 +85,7 @@
             Utility.WriteLog("Ganti pin condition : entered into ganti pin input pin baru", "step-action");
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
             Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
+            await Task.Delay(1000);
             await EDC("14");
             if (isPin)
             {
@@ -164,7 +165,7 @@
                     switch (intBuffer)
                     {
                         case 69:
-                            if (strpin.Length == 6)
+                            if (strpin.Length == 6 || strpinNomor.Length == 6)
                             {
                                 isLoop = false;
                                 isPin = true;
@@ -178,6 +179,7 @@
                             Utility.WriteLog("Ganti pin condition : move to home", "step-action");
                             OnClick.InvokeAsync("home");
                             isLoop = false;
+                            serialPort.Close();
                             break;
                         case 84:
                             Console.WriteLine(strpin);
@@ -192,7 +194,7 @@
                         case 32:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "0";
+                                strpin += "0";
                                 strpinNomor += "0";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 0", "step-action");
@@ -202,7 +204,7 @@
                         case 1:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "1";
+                                strpin += "1";
                                 strpinNomor += "1";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 1", "step-action");
@@ -212,7 +214,7 @@
                         case 2:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "2";
+                                strpin += "2";
                                 strpinNomor += "2";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 2", "step-action");
@@ -222,7 +224,7 @@
                         case 3:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "3";
+                                strpin += "3";
                                 strpinNomor += "3";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 3", "step-action");
@@ -232,7 +234,7 @@
                         case 4:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "4";
+                                strpin += "4";
                                 strpinNomor += "4";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 4", "step-action");
@@ -242,7 +244,7 @@
                         case 5:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "5";
+                                strpin += "5";
                                 strpinNomor += "5";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 5", "step-action");
@@ -252,7 +254,7 @@
                         case 6:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "6";
+                                strpin += "6";
                                 strpinNomor += "6";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 6", "step-action");
@@ -262,7 +264,7 @@
                         case 7:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "7";
+                                strpin += "7";
                                 strpinNomor += "7";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 7", "step-action");
@@ -272,7 +274,7 @@
                         case 8:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "8";
+                                strpin += "8";
                                 strpinNomor += "8";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 8", "step-action");
@@ -282,7 +284,7 @@
                         case 9:
                             if (strpin.Length < 7)
                             {
-                                strpin = strpin + "9";
+                                strpin += "9";
                                 strpinNomor += "9";
                             }
                             Utility.WriteLog("Ganti pin condition : EDC pin 9", "step-action");
@@ -329,7 +331,7 @@
                     strpin = strpin.Substring(0, strpin.Length - 6) + "******";
                     break;
             }
-            await Task.Delay(500);
+            await Task.Delay(100);
             StateHasChanged();
 
         } while (isLoop);

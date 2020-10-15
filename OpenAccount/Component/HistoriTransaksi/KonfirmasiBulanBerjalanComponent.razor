@@ -9,7 +9,6 @@
 @inject Printer print
 @inject Utility utility
 @inject HitServices services
-
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -86,7 +85,29 @@
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
                         <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                        <h3>Histori Transaksi Anda sedang dicetak...</h3>
+                        <h5 style="font-style:italic;">Sedang dalam proses...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isNoTransaksi)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Tidak ada transaksi pada periode ini.</h3>
+                        <h5 style="font-style:italic;">Tekan <b>Kembali</b> untuk ke menu utama</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Home">Kembali</button>
                     </div>
                 </div>
             </div>
@@ -100,6 +121,7 @@
 
     private bool isVisible = false;
     private bool isBaris = false;
+    private bool isNoTransaksi = false;
     private string noRek = string.Empty;
     private string jenisperiode = "Periode Bulan Berjalan";
     private string startdate;
@@ -114,6 +136,7 @@
     private int tempjumlahtransaksi;
     private int sisatransaksi;
     private string saldo;
+    private string statusPrinter;
 
     protected override async Task OnInitializedAsync()
     {
@@ -194,6 +217,9 @@
             {
                 Utility.WriteLog("Histori condition : data empty", "step-action");
                 tempjumlahtransaksi = 0;
+                isNoTransaksi = true;
+                await Task.Delay(100);
+                StateHasChanged();
             }
         }
     }
@@ -269,6 +295,14 @@
                     trx.setHalamanHistori(halaman.ToString());
                     Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
+                    statusPrinter = trx._StatusPrinter;
+                    if (statusPrinter != "0")
+                    {
+                        Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " failed", "step-action");
+                        Utility.WriteLog("Histori condition : move to histori gagal", "step-action");
+                        OnClick.InvokeAsync("historigagal");
+                        break;
+                    }
                     Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " success", "step-action");
                     //await Task.Delay(20000);
                     await Task.Delay(8000);
@@ -297,6 +331,14 @@
                     trx.setHalamanHistori(halaman.ToString());
                     Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
+                    statusPrinter = trx._StatusPrinter;
+                    if (statusPrinter != "0")
+                    {
+                        Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " failed", "step-action");
+                        Utility.WriteLog("Histori condition : move to histori gagal", "step-action");
+                        OnClick.InvokeAsync("historigagal");
+                        break;
+                    }
                     Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " success", "step-action");
                     startindex += maxbaris;
                     halaman += 1;
@@ -318,7 +360,16 @@
         }
         else if (totalbaris < maxbaris)
         {
+            Utility.WriteLog("Histori condition : print history", "step-action");
             saldo = await Task.Run(() => print.PrintHistori(trx));
+            statusPrinter = trx._StatusPrinter;
+            if (statusPrinter != "0")
+            {
+                Utility.WriteLog("Histori condition : print history failed", "step-action");
+                Utility.WriteLog("Histori condition : move to histori gagal", "step-action");
+                OnClick.InvokeAsync("historigagal");
+            }
+            Utility.WriteLog("Histori condition : print history success", "step-action");
             await Task.Delay(8000);
             Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             OnClick.InvokeAsync("historiberhasil");
@@ -329,5 +380,11 @@
     {
         Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
         OnClick.InvokeAsync("historiPilih");
+    }
+
+    private async Task Home()
+    {
+        Utility.WriteLog("Histori condition : move to home", "step-action");
+        OnClick.InvokeAsync("home");
     }
 }

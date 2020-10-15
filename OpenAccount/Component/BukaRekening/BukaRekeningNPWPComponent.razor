@@ -112,7 +112,7 @@
         isSpinner = true;
         Utility.WriteLog("Buka rekening condition : id scanner front swallow", "step-action");
         scanner.FrontSwallow();
-        await Task.Delay(1000);
+        await Task.Delay(500);
         Utility.WriteLog("Buka rekening condition : id scanner scan npwp", "step-action");
         scanner.ScanKTP(captureFile);
         Utility.WriteLog("Buka rekening condition : move to buka rekening capture npwp berhasil", "step-action");

@@ -1,0 +1,3058 @@
+20201015 11:13:16 Home condition : clear transaksi success
+20201015 11:13:16 Home condition : clear array success
+20201015 11:13:16 Home condition : clear array nasabah success
+20201015 11:13:16 Home condition : clear list success
+20201015 11:13:16 Home condition : clear transaksi baru success
+20201015 11:13:17 Home condition : clear transaksi success
+20201015 11:13:17 Home condition : clear array success
+20201015 11:13:17 Home condition : clear array nasabah success
+20201015 11:13:17 Home condition : clear list success
+20201015 11:13:17 Home condition : clear transaksi baru success
+20201015 11:13:17 Home condition : entered into home page
+20201015 11:13:20 Home condition : move to histori transaksi
+20201015 11:13:20 Histori condition : entered into histori input kartu
+20201015 11:13:21 Histori condition : input kartu success
+20201015 11:13:21 Histori condition : move to histori input pin
+20201015 11:13:21 Histori condition : entered into histori input pin
+20201015 11:13:22 Histori condition : input pin success
+20201015 11:13:22 Histori condition : input data Bambang Pamungkas success
+20201015 11:13:22 Histori condition : entered into histori pilih menu
+20201015 11:13:23 Histori condition : move to histori bulan berjalan
+20201015 11:13:23 Histori condition : hit service histori start
+20201015 11:13:23 Histori condition : clear list histori success
+20201015 11:13:23 Histori condition : post service start
+20201015 11:13:23 Histori condition : entered into history bulan berjalan
+20201015 11:13:25 Histori condition : set transaksi ID tes002 success
+20201015 11:13:25 Histori condition : data empty
+20201015 11:13:25 Histori condition : set data histori success
+20201015 11:13:29 Histori condition : move to home
+20201015 11:13:29 Home condition : clear transaksi success
+20201015 11:13:29 Home condition : clear array success
+20201015 11:13:29 Home condition : clear array nasabah success
+20201015 11:13:29 Home condition : clear list success
+20201015 11:13:29 Home condition : clear transaksi baru success
+20201015 11:13:29 Home condition : entered into home page
+20201015 11:28:37 Home condition : clear transaksi success
+20201015 11:28:37 Home condition : clear array success
+20201015 11:28:37 Home condition : clear array nasabah success
+20201015 11:28:37 Home condition : clear list success
+20201015 11:28:37 Home condition : clear transaksi baru success
+20201015 11:28:37 Home condition : clear transaksi success
+20201015 11:28:37 Home condition : clear array success
+20201015 11:28:37 Home condition : clear array nasabah success
+20201015 11:28:37 Home condition : clear list success
+20201015 11:28:37 Home condition : clear transaksi baru success
+20201015 11:28:37 Home condition : entered into home page
+20201015 11:28:39 Home condition : move to histori transaksi
+20201015 11:28:39 Histori condition : entered into histori input kartu
+20201015 11:28:40 Histori condition : input kartu success
+20201015 11:28:40 Histori condition : move to histori input pin
+20201015 11:28:45 Histori condition : entered into histori input pin
+20201015 11:29:29 Home condition : clear transaksi success
+20201015 11:29:29 Home condition : clear array success
+20201015 11:29:29 Home condition : clear array nasabah success
+20201015 11:29:29 Home condition : clear list success
+20201015 11:29:29 Home condition : clear transaksi baru success
+20201015 11:29:29 Home condition : clear transaksi success
+20201015 11:29:29 Home condition : clear array success
+20201015 11:29:29 Home condition : clear array nasabah success
+20201015 11:29:29 Home condition : clear list success
+20201015 11:29:29 Home condition : clear transaksi baru success
+20201015 11:29:29 Home condition : entered into home page
+20201015 11:29:32 Home condition : move to histori transaksi
+20201015 11:29:32 Histori condition : entered into histori input kartu
+20201015 11:29:33 Histori condition : input kartu success
+20201015 11:29:33 Histori condition : move to histori input pin
+20201015 11:29:36 Histori condition : entered into histori input pin
+20201015 11:30:01 Home condition : clear transaksi success
+20201015 11:30:01 Home condition : clear array success
+20201015 11:30:01 Home condition : clear array nasabah success
+20201015 11:30:01 Home condition : clear list success
+20201015 11:30:01 Home condition : clear transaksi baru success
+20201015 11:30:01 Home condition : clear transaksi success
+20201015 11:30:01 Home condition : clear array success
+20201015 11:30:01 Home condition : clear array nasabah success
+20201015 11:30:01 Home condition : clear list success
+20201015 11:30:01 Home condition : clear transaksi baru success
+20201015 11:30:01 Home condition : entered into home page
+20201015 11:30:03 Home condition : move to histori transaksi
+20201015 11:30:03 Histori condition : entered into histori input kartu
+20201015 11:30:04 Histori condition : input kartu success
+20201015 11:30:04 Histori condition : move to histori input pin
+20201015 11:30:06 Histori condition : entered into histori input pin
+20201015 11:30:12 Histori condition : EDC process start
+20201015 11:30:12 Histori condition : EDC serial port close
+20201015 11:30:12 Histori condition : EDC serial port open
+20201015 11:30:13 Histori condition : EDC serial port write
+20201015 11:30:13 Histori condition : EDC serial port already open
+20201015 11:30:13 Histori condition : EDC serial port already open
+20201015 11:30:13 Histori condition : EDC serial port already open
+20201015 11:30:13 Histori condition : EDC serial port already open
+20201015 11:30:13 Histori condition : EDC serial port already open
+20201015 11:30:13 Histori condition : EDC serial port already open
+20201015 11:30:14 Histori condition : EDC serial port already open
+20201015 11:30:14 Histori condition : EDC serial port already open
+20201015 11:30:14 Histori condition : EDC serial port already open
+20201015 11:30:14 Histori condition : EDC serial port already open
+20201015 11:30:14 Histori condition : EDC serial port already open
+20201015 11:30:14 Histori condition : EDC serial port already open
+20201015 11:30:15 Histori condition : EDC serial port already open
+20201015 11:30:15 Histori condition : EDC serial port already open
+20201015 11:30:15 Histori condition : EDC serial port already open
+20201015 11:30:15 Histori condition : EDC serial port already open
+20201015 11:30:15 Histori condition : EDC serial port already open
+20201015 11:30:15 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:16 Histori condition : EDC serial port already open
+20201015 11:30:17 Histori condition : EDC serial port already open
+20201015 11:30:17 Histori condition : EDC serial port already open
+20201015 11:30:17 Histori condition : EDC serial port already open
+20201015 11:30:17 Histori condition : EDC serial port already open
+20201015 11:30:17 Histori condition : EDC serial port already open
+20201015 11:30:17 Histori condition : EDC serial port already open
+20201015 11:30:18 Histori condition : EDC serial port already open
+20201015 11:30:18 Histori condition : EDC serial port already open
+20201015 11:30:18 Histori condition : EDC serial port already open
+20201015 11:30:18 Histori condition : 3
+20201015 11:30:18 Histori condition : EDC pin 3
+20201015 11:30:18 Histori condition : EDC serial port already open
+20201015 11:30:18 Histori condition : EDC serial port already open
+20201015 11:30:18 Histori condition : 32
+20201015 11:30:18 Histori condition : EDC pin 2
+20201015 11:30:18 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : 324
+20201015 11:30:19 Histori condition : EDC pin 4
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : 3246
+20201015 11:30:19 Histori condition : EDC pin 6
+20201015 11:30:19 Histori condition : EDC ACK
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:19 Histori condition : EDC serial port already open
+20201015 11:30:20 Histori condition : EDC serial port already open
+20201015 11:30:20 Histori condition : 32467
+20201015 11:30:20 Histori condition : EDC pin 7
+20201015 11:30:20 Histori condition : EDC serial port already open
+20201015 11:30:20 Histori condition : EDC serial port already open
+20201015 11:30:20 Histori condition : EDC serial port already open
+20201015 11:30:20 Histori condition : 324675
+20201015 11:30:20 Histori condition : EDC pin 5
+20201015 11:30:20 Histori condition : EDC serial port already open
+20201015 11:30:20 Histori condition : EDC serial port already open
+20201015 11:30:21 Histori condition : EDC serial port already open
+20201015 11:30:21 Histori condition : EDC serial port already open
+20201015 11:30:21 Histori condition : 324675
+20201015 11:30:21 Histori condition : EDC pin enter
+20201015 11:30:21 Histori condition : EDC serial port close
+20201015 11:30:28 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:30:32 Histori condition : EDC process start
+20201015 11:30:33 Histori condition : EDC serial port close
+20201015 11:30:33 Histori condition : EDC serial port open
+20201015 11:30:33 Histori condition : EDC serial port write
+20201015 11:30:33 Histori condition : EDC serial port already open
+20201015 11:30:33 Histori condition : EDC serial port already open
+20201015 11:30:33 Histori condition : EDC serial port already open
+20201015 11:30:33 Histori condition : EDC serial port already open
+20201015 11:30:33 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:34 Histori condition : EDC serial port already open
+20201015 11:30:35 Histori condition : EDC serial port already open
+20201015 11:30:35 Histori condition : EDC serial port already open
+20201015 11:30:35 Histori condition : EDC serial port already open
+20201015 11:30:35 Histori condition : EDC serial port already open
+20201015 11:30:35 Histori condition : EDC serial port already open
+20201015 11:30:35 Histori condition : EDC serial port already open
+20201015 11:30:36 Histori condition : EDC serial port already open
+20201015 11:30:36 Histori condition : EDC serial port already open
+20201015 11:30:36 Histori condition : EDC serial port already open
+20201015 11:30:36 Histori condition : EDC serial port already open
+20201015 11:30:36 Histori condition : EDC serial port already open
+20201015 11:30:36 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:37 Histori condition : EDC serial port already open
+20201015 11:30:38 Histori condition : EDC serial port already open
+20201015 11:30:38 Histori condition : EDC serial port already open
+20201015 11:30:38 Histori condition : EDC serial port already open
+20201015 11:30:38 Histori condition : EDC serial port already open
+20201015 11:30:38 Histori condition : EDC serial port already open
+20201015 11:30:38 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:39 Histori condition : EDC serial port already open
+20201015 11:30:40 Histori condition : EDC serial port already open
+20201015 11:30:40 Histori condition : EDC serial port already open
+20201015 11:30:40 Histori condition : EDC serial port already open
+20201015 11:30:40 Histori condition : 3246753
+20201015 11:30:40 Histori condition : EDC pin 3
+20201015 11:30:40 Histori condition : EDC serial port already open
+20201015 11:30:40 Histori condition : EDC serial port already open
+20201015 11:30:40 Histori condition : 3246753
+20201015 11:30:40 Histori condition : EDC pin 2
+20201015 11:30:40 Histori condition : EDC serial port already open
+20201015 11:30:41 Histori condition : EDC serial port already open
+20201015 11:30:41 Histori condition : EDC serial port already open
+20201015 11:30:41 Histori condition : 3246753
+20201015 11:30:41 Histori condition : EDC pin 4
+20201015 11:30:41 Histori condition : EDC serial port already open
+20201015 11:30:41 Histori condition : EDC serial port already open
+20201015 11:30:41 Histori condition : 3246753
+20201015 11:30:41 Histori condition : EDC pin 6
+20201015 11:30:41 Histori condition : EDC ACK
+20201015 11:30:41 Histori condition : EDC serial port already open
+20201015 11:30:41 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : 3246753
+20201015 11:30:42 Histori condition : EDC pin 7
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : 3246753
+20201015 11:30:42 Histori condition : EDC pin 5
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:42 Histori condition : EDC serial port already open
+20201015 11:30:43 Histori condition : EDC serial port already open
+20201015 11:30:43 Histori condition : EDC serial port already open
+20201015 11:30:43 Histori condition : 3246753
+20201015 11:30:43 Histori condition : EDC pin enter
+20201015 11:30:43 Histori condition : EDC serial port already open
+20201015 11:30:43 Histori condition : EDC serial port already open
+20201015 11:30:43 Histori condition : EDC serial port already open
+20201015 11:30:43 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:44 Histori condition : EDC serial port already open
+20201015 11:30:45 Histori condition : EDC serial port already open
+20201015 11:30:45 Histori condition : EDC serial port already open
+20201015 11:30:45 Histori condition : EDC serial port already open
+20201015 11:30:45 Histori condition : EDC serial port already open
+20201015 11:30:45 Histori condition : EDC serial port already open
+20201015 11:30:45 Histori condition : EDC serial port already open
+20201015 11:30:46 Histori condition : EDC serial port already open
+20201015 11:30:46 Histori condition : EDC serial port already open
+20201015 11:30:46 Histori condition : EDC serial port already open
+20201015 11:30:46 Histori condition : EDC serial port already open
+20201015 11:30:46 Histori condition : EDC serial port already open
+20201015 11:30:46 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:47 Histori condition : EDC serial port already open
+20201015 11:30:48 Histori condition : EDC serial port already open
+20201015 11:30:48 Histori condition : EDC serial port already open
+20201015 11:30:48 Histori condition : EDC serial port already open
+20201015 11:30:48 Histori condition : EDC serial port already open
+20201015 11:30:48 Histori condition : EDC serial port already open
+20201015 11:30:48 Histori condition : EDC serial port already open
+20201015 11:30:49 Histori condition : EDC serial port already open
+20201015 11:30:49 Histori condition : EDC serial port already open
+20201015 11:30:49 Histori condition : EDC serial port already open
+20201015 11:30:49 Histori condition : EDC serial port already open
+20201015 11:30:49 Histori condition : EDC serial port already open
+20201015 11:30:49 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:50 Histori condition : EDC serial port already open
+20201015 11:30:51 Histori condition : EDC serial port already open
+20201015 11:30:51 Histori condition : EDC serial port already open
+20201015 11:30:51 Histori condition : EDC serial port already open
+20201015 11:30:51 Histori condition : EDC serial port already open
+20201015 11:30:51 Histori condition : EDC serial port already open
+20201015 11:30:51 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:52 Histori condition : EDC serial port already open
+20201015 11:30:53 Histori condition : EDC serial port already open
+20201015 11:30:53 Histori condition : EDC serial port already open
+20201015 11:30:53 Histori condition : EDC serial port already open
+20201015 11:30:53 Histori condition : EDC serial port already open
+20201015 11:30:53 Histori condition : EDC serial port already open
+20201015 11:30:53 Histori condition : EDC serial port already open
+20201015 11:30:54 Histori condition : EDC serial port already open
+20201015 11:30:54 Histori condition : EDC serial port already open
+20201015 11:30:54 Histori condition : EDC serial port already open
+20201015 11:30:54 Histori condition : EDC serial port already open
+20201015 11:30:54 Histori condition : EDC serial port already open
+20201015 11:30:54 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:55 Histori condition : EDC serial port already open
+20201015 11:30:56 Histori condition : EDC serial port already open
+20201015 11:30:56 Histori condition : EDC serial port already open
+20201015 11:30:56 Histori condition : EDC serial port already open
+20201015 11:30:56 Histori condition : EDC serial port already open
+20201015 11:30:56 Histori condition : EDC serial port already open
+20201015 11:30:56 Histori condition : EDC serial port already open
+20201015 11:30:57 Histori condition : EDC serial port already open
+20201015 11:30:57 Histori condition : EDC serial port already open
+20201015 11:30:57 Histori condition : EDC serial port already open
+20201015 11:30:57 Histori condition : EDC serial port already open
+20201015 11:30:57 Histori condition : EDC serial port already open
+20201015 11:30:57 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:58 Histori condition : EDC serial port already open
+20201015 11:30:59 Histori condition : EDC serial port already open
+20201015 11:30:59 Histori condition : EDC serial port already open
+20201015 11:30:59 Histori condition : EDC serial port already open
+20201015 11:30:59 Histori condition : EDC serial port already open
+20201015 11:30:59 Histori condition : EDC serial port already open
+20201015 11:30:59 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:00 Histori condition : EDC serial port already open
+20201015 11:31:01 Histori condition : EDC serial port already open
+20201015 11:31:01 Histori condition : EDC serial port already open
+20201015 11:31:01 Histori condition : EDC serial port already open
+20201015 11:31:01 Histori condition : EDC serial port already open
+20201015 11:31:01 Histori condition : EDC serial port already open
+20201015 11:31:01 Histori condition : EDC serial port already open
+20201015 11:31:02 Histori condition : EDC serial port already open
+20201015 11:31:02 Histori condition : EDC serial port already open
+20201015 11:31:02 Histori condition : EDC serial port already open
+20201015 11:31:02 Histori condition : EDC serial port already open
+20201015 11:31:02 Histori condition : EDC serial port already open
+20201015 11:31:02 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:03 Histori condition : EDC serial port already open
+20201015 11:31:04 Histori condition : EDC serial port already open
+20201015 11:31:04 Histori condition : EDC serial port already open
+20201015 11:31:04 Histori condition : EDC serial port already open
+20201015 11:31:04 Histori condition : EDC serial port already open
+20201015 11:31:04 Histori condition : EDC serial port already open
+20201015 11:31:04 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:05 Histori condition : EDC serial port already open
+20201015 11:31:06 Histori condition : EDC serial port already open
+20201015 11:31:06 Histori condition : EDC serial port already open
+20201015 11:31:06 Histori condition : EDC serial port already open
+20201015 11:31:06 Histori condition : EDC serial port already open
+20201015 11:31:06 Histori condition : EDC serial port already open
+20201015 11:31:06 Histori condition : EDC serial port already open
+20201015 11:31:07 Histori condition : EDC serial port already open
+20201015 11:31:07 Histori condition : EDC serial port already open
+20201015 11:31:07 Histori condition : EDC serial port already open
+20201015 11:31:07 Histori condition : EDC serial port already open
+20201015 11:31:07 Histori condition : EDC serial port already open
+20201015 11:31:07 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:08 Histori condition : EDC serial port already open
+20201015 11:31:09 Histori condition : EDC serial port already open
+20201015 11:31:09 Histori condition : EDC serial port already open
+20201015 11:31:09 Histori condition : EDC serial port already open
+20201015 11:31:09 Histori condition : EDC serial port already open
+20201015 11:31:09 Histori condition : EDC serial port already open
+20201015 11:31:09 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:10 Histori condition : EDC serial port already open
+20201015 11:31:11 Histori condition : EDC serial port already open
+20201015 11:31:11 Histori condition : EDC serial port already open
+20201015 11:31:11 Histori condition : EDC serial port already open
+20201015 11:31:11 Histori condition : EDC serial port already open
+20201015 11:31:11 Histori condition : EDC serial port already open
+20201015 11:31:11 Histori condition : EDC serial port already open
+20201015 11:31:12 Histori condition : EDC serial port already open
+20201015 11:31:12 Histori condition : EDC serial port already open
+20201015 11:31:12 Histori condition : EDC serial port already open
+20201015 11:31:12 Histori condition : EDC serial port already open
+20201015 11:31:12 Histori condition : EDC serial port already open
+20201015 11:31:12 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:13 Histori condition : EDC serial port already open
+20201015 11:31:14 Histori condition : EDC serial port already open
+20201015 11:31:14 Histori condition : EDC serial port already open
+20201015 11:31:14 Histori condition : EDC serial port already open
+20201015 11:31:14 Histori condition : EDC serial port already open
+20201015 11:31:14 Histori condition : EDC serial port already open
+20201015 11:31:14 Histori condition : EDC serial port already open
+20201015 11:31:15 Histori condition : EDC serial port already open
+20201015 11:31:15 Histori condition : EDC serial port already open
+20201015 11:31:15 Histori condition : EDC serial port already open
+20201015 11:31:15 Histori condition : EDC serial port already open
+20201015 11:31:15 Histori condition : EDC serial port already open
+20201015 11:31:15 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:16 Histori condition : EDC serial port already open
+20201015 11:31:17 Histori condition : EDC serial port already open
+20201015 11:31:17 Histori condition : EDC serial port already open
+20201015 11:31:17 Histori condition : EDC serial port already open
+20201015 11:31:17 Histori condition : EDC serial port already open
+20201015 11:31:17 Histori condition : EDC serial port already open
+20201015 11:31:17 Histori condition : EDC serial port already open
+20201015 11:31:18 Histori condition : EDC serial port already open
+20201015 11:31:18 Histori condition : EDC serial port already open
+20201015 11:31:18 Histori condition : EDC serial port already open
+20201015 11:31:18 Histori condition : EDC serial port already open
+20201015 11:31:18 Histori condition : EDC serial port already open
+20201015 11:31:18 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:19 Histori condition : EDC serial port already open
+20201015 11:31:20 Histori condition : EDC serial port already open
+20201015 11:31:20 Histori condition : EDC serial port already open
+20201015 11:31:20 Histori condition : EDC serial port already open
+20201015 11:31:20 Histori condition : EDC serial port already open
+20201015 11:31:20 Histori condition : EDC serial port already open
+20201015 11:31:20 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:21 Histori condition : EDC serial port already open
+20201015 11:31:22 Histori condition : EDC serial port already open
+20201015 11:31:22 Histori condition : EDC serial port already open
+20201015 11:31:22 Histori condition : EDC serial port already open
+20201015 11:31:22 Histori condition : EDC serial port already open
+20201015 11:31:22 Histori condition : EDC serial port already open
+20201015 11:31:22 Histori condition : EDC serial port already open
+20201015 11:31:23 Histori condition : EDC serial port already open
+20201015 11:31:23 Histori condition : EDC serial port already open
+20201015 11:31:23 Histori condition : EDC serial port already open
+20201015 11:31:23 Histori condition : EDC serial port already open
+20201015 11:31:23 Histori condition : EDC serial port already open
+20201015 11:31:23 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:24 Histori condition : EDC serial port already open
+20201015 11:31:25 Histori condition : EDC serial port already open
+20201015 11:31:25 Histori condition : EDC serial port already open
+20201015 11:31:25 Histori condition : EDC serial port already open
+20201015 11:31:25 Histori condition : EDC serial port already open
+20201015 11:31:25 Histori condition : EDC serial port already open
+20201015 11:31:25 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:26 Histori condition : EDC serial port already open
+20201015 11:31:27 Histori condition : EDC serial port already open
+20201015 11:31:27 Histori condition : EDC serial port already open
+20201015 11:31:27 Histori condition : EDC serial port already open
+20201015 11:31:27 Histori condition : EDC serial port already open
+20201015 11:31:27 Histori condition : EDC serial port already open
+20201015 11:31:27 Histori condition : EDC serial port already open
+20201015 11:31:28 Histori condition : EDC serial port already open
+20201015 11:31:28 Histori condition : EDC serial port already open
+20201015 11:31:28 Histori condition : EDC serial port already open
+20201015 11:31:28 Histori condition : EDC serial port already open
+20201015 11:31:28 Histori condition : EDC serial port already open
+20201015 11:31:28 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:29 Histori condition : EDC serial port already open
+20201015 11:31:30 Histori condition : EDC serial port already open
+20201015 11:31:30 Histori condition : EDC serial port already open
+20201015 11:31:30 Histori condition : EDC serial port already open
+20201015 11:31:30 Histori condition : EDC serial port already open
+20201015 11:31:30 Histori condition : EDC serial port already open
+20201015 11:31:30 Histori condition : EDC serial port already open
+20201015 11:31:31 Histori condition : EDC serial port already open
+20201015 11:31:31 Histori condition : EDC serial port already open
+20201015 11:31:31 Histori condition : EDC serial port already open
+20201015 11:31:31 Histori condition : EDC serial port already open
+20201015 11:31:31 Histori condition : EDC serial port already open
+20201015 11:31:31 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:32 Histori condition : EDC serial port already open
+20201015 11:31:33 Histori condition : EDC serial port already open
+20201015 11:31:33 Histori condition : EDC serial port already open
+20201015 11:31:33 Histori condition : EDC serial port already open
+20201015 11:31:33 Histori condition : EDC serial port already open
+20201015 11:31:33 Histori condition : EDC serial port already open
+20201015 11:31:33 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:34 Histori condition : EDC serial port already open
+20201015 11:31:35 Histori condition : EDC serial port already open
+20201015 11:31:35 Histori condition : EDC serial port already open
+20201015 11:31:35 Histori condition : EDC serial port already open
+20201015 11:31:35 Histori condition : EDC serial port already open
+20201015 11:31:35 Histori condition : EDC serial port already open
+20201015 11:31:35 Histori condition : EDC serial port already open
+20201015 11:31:36 Histori condition : EDC serial port already open
+20201015 11:31:36 Histori condition : EDC serial port already open
+20201015 11:31:36 Histori condition : EDC serial port already open
+20201015 11:31:36 Histori condition : EDC serial port already open
+20201015 11:31:36 Histori condition : EDC serial port already open
+20201015 11:31:36 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:37 Histori condition : EDC serial port already open
+20201015 11:31:38 Histori condition : EDC serial port already open
+20201015 11:31:38 Histori condition : EDC serial port already open
+20201015 11:31:38 Histori condition : EDC serial port already open
+20201015 11:31:38 Histori condition : EDC serial port already open
+20201015 11:31:38 Histori condition : EDC serial port already open
+20201015 11:31:38 Histori condition : EDC serial port already open
+20201015 11:31:39 Histori condition : EDC serial port already open
+20201015 11:31:39 Histori condition : EDC serial port already open
+20201015 11:31:39 Histori condition : EDC serial port already open
+20201015 11:31:39 Histori condition : EDC serial port already open
+20201015 11:31:39 Histori condition : EDC serial port already open
+20201015 11:31:39 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:40 Histori condition : EDC serial port already open
+20201015 11:31:41 Histori condition : EDC serial port already open
+20201015 11:31:41 Histori condition : EDC serial port already open
+20201015 11:31:41 Histori condition : EDC serial port already open
+20201015 11:31:41 Histori condition : EDC serial port already open
+20201015 11:31:41 Histori condition : EDC serial port already open
+20201015 11:31:41 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:42 Histori condition : EDC serial port already open
+20201015 11:31:43 Histori condition : EDC serial port already open
+20201015 11:31:43 Histori condition : EDC serial port already open
+20201015 11:31:43 Histori condition : EDC serial port already open
+20201015 11:31:43 Histori condition : EDC serial port already open
+20201015 11:31:43 Histori condition : EDC serial port already open
+20201015 11:31:43 Histori condition : EDC serial port already open
+20201015 11:31:44 Histori condition : EDC serial port already open
+20201015 11:31:44 Histori condition : EDC serial port already open
+20201015 11:31:44 Histori condition : EDC serial port already open
+20201015 11:31:44 Histori condition : EDC serial port already open
+20201015 11:31:44 Histori condition : EDC serial port already open
+20201015 11:31:44 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:45 Histori condition : EDC serial port already open
+20201015 11:31:46 Histori condition : EDC serial port already open
+20201015 11:31:46 Histori condition : EDC serial port already open
+20201015 11:31:46 Histori condition : EDC serial port already open
+20201015 11:31:46 Histori condition : EDC serial port already open
+20201015 11:31:46 Histori condition : EDC serial port already open
+20201015 11:31:46 Histori condition : EDC serial port already open
+20201015 11:31:47 Histori condition : EDC serial port already open
+20201015 11:31:47 Histori condition : EDC serial port already open
+20201015 11:31:47 Histori condition : EDC serial port already open
+20201015 11:31:47 Histori condition : EDC serial port already open
+20201015 11:31:47 Histori condition : EDC serial port already open
+20201015 11:31:47 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:48 Histori condition : EDC serial port already open
+20201015 11:31:49 Histori condition : EDC serial port already open
+20201015 11:31:49 Histori condition : EDC serial port already open
+20201015 11:31:49 Histori condition : EDC serial port already open
+20201015 11:31:49 Histori condition : EDC serial port already open
+20201015 11:31:49 Histori condition : EDC serial port already open
+20201015 11:31:49 Histori condition : EDC serial port already open
+20201015 11:31:50 Histori condition : EDC serial port already open
+20201015 11:31:50 Histori condition : EDC serial port already open
+20201015 11:31:50 Histori condition : EDC serial port already open
+20201015 11:31:50 Histori condition : EDC serial port already open
+20201015 11:31:50 Histori condition : EDC serial port already open
+20201015 11:31:50 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:51 Histori condition : EDC serial port already open
+20201015 11:31:52 Histori condition : EDC serial port already open
+20201015 11:31:52 Histori condition : EDC serial port already open
+20201015 11:31:52 Histori condition : EDC serial port already open
+20201015 11:31:52 Histori condition : EDC serial port already open
+20201015 11:31:52 Histori condition : EDC serial port already open
+20201015 11:31:52 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:53 Histori condition : EDC serial port already open
+20201015 11:31:54 Histori condition : EDC serial port already open
+20201015 11:31:54 Histori condition : EDC serial port already open
+20201015 11:31:54 Histori condition : EDC serial port already open
+20201015 11:31:54 Histori condition : EDC serial port already open
+20201015 11:31:54 Histori condition : EDC serial port already open
+20201015 11:31:54 Histori condition : EDC serial port already open
+20201015 11:31:55 Histori condition : EDC serial port already open
+20201015 11:31:55 Histori condition : EDC serial port already open
+20201015 11:31:55 Histori condition : EDC serial port already open
+20201015 11:31:55 Histori condition : EDC serial port already open
+20201015 11:31:55 Histori condition : EDC serial port already open
+20201015 11:31:55 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:56 Histori condition : EDC serial port already open
+20201015 11:31:57 Histori condition : EDC serial port already open
+20201015 11:31:57 Histori condition : EDC serial port already open
+20201015 11:31:57 Histori condition : EDC serial port already open
+20201015 11:31:57 Histori condition : EDC serial port already open
+20201015 11:31:57 Histori condition : EDC serial port already open
+20201015 11:31:57 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:58 Histori condition : EDC serial port already open
+20201015 11:31:59 Histori condition : EDC serial port already open
+20201015 11:31:59 Histori condition : EDC serial port already open
+20201015 11:31:59 Histori condition : EDC serial port already open
+20201015 11:31:59 Histori condition : EDC serial port already open
+20201015 11:31:59 Histori condition : EDC serial port already open
+20201015 11:31:59 Histori condition : EDC serial port already open
+20201015 11:32:00 Histori condition : EDC serial port already open
+20201015 11:32:00 Histori condition : EDC serial port already open
+20201015 11:32:00 Histori condition : EDC serial port already open
+20201015 11:32:00 Histori condition : EDC serial port already open
+20201015 11:32:00 Histori condition : EDC serial port already open
+20201015 11:32:00 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:01 Histori condition : EDC serial port already open
+20201015 11:32:02 Histori condition : EDC serial port already open
+20201015 11:32:02 Histori condition : EDC serial port already open
+20201015 11:32:02 Histori condition : EDC serial port already open
+20201015 11:32:02 Histori condition : EDC serial port already open
+20201015 11:32:02 Histori condition : EDC serial port already open
+20201015 11:32:02 Histori condition : EDC serial port already open
+20201015 11:32:03 Histori condition : EDC serial port already open
+20201015 11:32:03 Histori condition : EDC serial port already open
+20201015 11:32:03 Histori condition : EDC serial port already open
+20201015 11:32:03 Histori condition : EDC serial port already open
+20201015 11:32:03 Histori condition : EDC serial port already open
+20201015 11:32:03 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:04 Histori condition : EDC serial port already open
+20201015 11:32:05 Histori condition : EDC serial port already open
+20201015 11:32:05 Histori condition : EDC serial port already open
+20201015 11:32:05 Histori condition : EDC serial port already open
+20201015 11:32:05 Histori condition : EDC serial port already open
+20201015 11:32:05 Histori condition : EDC serial port already open
+20201015 11:32:05 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:06 Histori condition : EDC serial port already open
+20201015 11:32:07 Histori condition : EDC serial port already open
+20201015 11:32:07 Histori condition : EDC serial port already open
+20201015 11:32:07 Histori condition : EDC serial port already open
+20201015 11:32:07 Histori condition : EDC serial port already open
+20201015 11:32:07 Histori condition : EDC serial port already open
+20201015 11:32:07 Histori condition : EDC serial port already open
+20201015 11:32:08 Histori condition : EDC serial port already open
+20201015 11:32:08 Histori condition : EDC serial port already open
+20201015 11:32:08 Histori condition : EDC serial port already open
+20201015 11:32:08 Histori condition : EDC serial port already open
+20201015 11:32:08 Histori condition : EDC serial port already open
+20201015 11:32:08 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:09 Histori condition : EDC serial port already open
+20201015 11:32:10 Histori condition : EDC serial port already open
+20201015 11:32:10 Histori condition : EDC serial port already open
+20201015 11:32:10 Histori condition : EDC serial port already open
+20201015 11:32:10 Histori condition : EDC serial port already open
+20201015 11:32:10 Histori condition : EDC serial port already open
+20201015 11:32:10 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:11 Histori condition : EDC serial port already open
+20201015 11:32:12 Histori condition : EDC serial port already open
+20201015 11:32:12 Histori condition : EDC serial port already open
+20201015 11:32:12 Histori condition : EDC serial port already open
+20201015 11:32:12 Histori condition : EDC serial port already open
+20201015 11:32:12 Histori condition : EDC serial port already open
+20201015 11:32:12 Histori condition : EDC serial port already open
+20201015 11:32:13 Histori condition : EDC serial port already open
+20201015 11:32:13 Histori condition : EDC serial port already open
+20201015 11:32:13 Histori condition : EDC serial port already open
+20201015 11:32:13 Histori condition : EDC serial port already open
+20201015 11:32:13 Histori condition : EDC serial port already open
+20201015 11:32:13 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:14 Histori condition : EDC serial port already open
+20201015 11:32:15 Histori condition : EDC serial port already open
+20201015 11:32:15 Histori condition : EDC serial port already open
+20201015 11:32:15 Histori condition : EDC serial port already open
+20201015 11:32:15 Histori condition : EDC serial port already open
+20201015 11:32:15 Histori condition : EDC serial port already open
+20201015 11:32:15 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:16 Histori condition : EDC serial port already open
+20201015 11:32:17 Histori condition : EDC serial port already open
+20201015 11:32:17 Histori condition : EDC serial port already open
+20201015 11:32:17 Histori condition : EDC serial port already open
+20201015 11:32:17 Histori condition : EDC serial port already open
+20201015 11:32:17 Histori condition : EDC serial port already open
+20201015 11:32:17 Histori condition : EDC serial port already open
+20201015 11:32:18 Histori condition : EDC serial port already open
+20201015 11:32:18 Histori condition : EDC serial port already open
+20201015 11:32:18 Histori condition : EDC serial port already open
+20201015 11:32:18 Histori condition : EDC serial port already open
+20201015 11:32:18 Histori condition : EDC serial port already open
+20201015 11:32:18 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:19 Histori condition : EDC serial port already open
+20201015 11:32:20 Histori condition : EDC serial port already open
+20201015 11:32:20 Histori condition : EDC serial port already open
+20201015 11:32:20 Histori condition : EDC serial port already open
+20201015 11:32:20 Histori condition : EDC serial port already open
+20201015 11:32:20 Histori condition : EDC serial port already open
+20201015 11:32:20 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:21 Histori condition : EDC serial port already open
+20201015 11:32:22 Histori condition : EDC serial port already open
+20201015 11:32:22 Histori condition : EDC serial port already open
+20201015 11:32:22 Histori condition : EDC serial port already open
+20201015 11:32:22 Histori condition : EDC serial port already open
+20201015 11:32:22 Histori condition : EDC serial port already open
+20201015 11:32:22 Histori condition : EDC serial port already open
+20201015 11:32:23 Histori condition : EDC serial port already open
+20201015 11:32:23 Histori condition : EDC serial port already open
+20201015 11:32:23 Histori condition : EDC serial port already open
+20201015 11:32:23 Histori condition : EDC serial port already open
+20201015 11:32:23 Histori condition : EDC serial port already open
+20201015 11:32:23 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:24 Histori condition : EDC serial port already open
+20201015 11:32:25 Histori condition : EDC serial port already open
+20201015 11:33:28 Home condition : clear transaksi success
+20201015 11:33:28 Home condition : clear array success
+20201015 11:33:28 Home condition : clear array nasabah success
+20201015 11:33:28 Home condition : clear list success
+20201015 11:33:28 Home condition : clear transaksi baru success
+20201015 11:33:28 Home condition : clear transaksi success
+20201015 11:33:28 Home condition : clear array success
+20201015 11:33:28 Home condition : clear array nasabah success
+20201015 11:33:28 Home condition : clear list success
+20201015 11:33:28 Home condition : clear transaksi baru success
+20201015 11:33:28 Home condition : entered into home page
+20201015 11:33:40 Home condition : move to histori transaksi
+20201015 11:33:40 Histori condition : entered into histori input kartu
+20201015 11:33:41 Histori condition : input kartu success
+20201015 11:33:41 Histori condition : move to histori input pin
+20201015 11:33:43 Histori condition : entered into histori input pin
+20201015 11:33:50 Histori condition : EDC process start
+20201015 11:33:50 Histori condition : EDC serial port close
+20201015 11:33:50 Histori condition : EDC serial port open
+20201015 11:33:50 Histori condition : EDC serial port write
+20201015 11:33:50 Histori condition : EDC serial port already open
+20201015 11:33:50 Histori condition : EDC serial port already open
+20201015 11:33:51 Histori condition : EDC serial port already open
+20201015 11:33:51 Histori condition : EDC serial port already open
+20201015 11:33:51 Histori condition : EDC serial port already open
+20201015 11:33:51 Histori condition : EDC serial port already open
+20201015 11:33:51 Histori condition : EDC serial port already open
+20201015 11:33:51 Histori condition : EDC serial port already open
+20201015 11:33:52 Histori condition : EDC serial port already open
+20201015 11:33:52 Histori condition : EDC serial port already open
+20201015 11:33:52 Histori condition : EDC serial port already open
+20201015 11:33:52 Histori condition : EDC serial port already open
+20201015 11:33:52 Histori condition : EDC serial port already open
+20201015 11:33:52 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:53 Histori condition : EDC serial port already open
+20201015 11:33:54 Histori condition : EDC serial port already open
+20201015 11:33:54 Histori condition : EDC serial port already open
+20201015 11:33:54 Histori condition : EDC serial port already open
+20201015 11:33:54 Histori condition : EDC serial port already open
+20201015 11:33:54 Histori condition : EDC serial port already open
+20201015 11:33:54 Histori condition : EDC serial port already open
+20201015 11:33:55 Histori condition : EDC serial port already open
+20201015 11:33:55 Histori condition : 3
+20201015 11:33:55 Histori condition : EDC pin 3
+20201015 11:33:55 Histori condition : EDC serial port already open
+20201015 11:33:55 Histori condition : EDC serial port already open
+20201015 11:33:55 Histori condition : 32
+20201015 11:33:55 Histori condition : EDC pin 2
+20201015 11:33:55 Histori condition : EDC serial port already open
+20201015 11:33:55 Histori condition : EDC serial port already open
+20201015 11:33:55 Histori condition : 324
+20201015 11:33:55 Histori condition : EDC pin 4
+20201015 11:33:55 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : 3246
+20201015 11:33:56 Histori condition : EDC pin 6
+20201015 11:33:56 Histori condition : EDC ACK
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : EDC serial port already open
+20201015 11:33:56 Histori condition : 32467
+20201015 11:33:56 Histori condition : EDC pin 7
+20201015 11:33:57 Histori condition : EDC serial port already open
+20201015 11:33:57 Histori condition : EDC serial port already open
+20201015 11:33:57 Histori condition : 324675
+20201015 11:33:57 Histori condition : EDC pin 5
+20201015 11:33:57 Histori condition : EDC serial port already open
+20201015 11:33:57 Histori condition : EDC serial port already open
+20201015 11:33:57 Histori condition : EDC serial port already open
+20201015 11:33:57 Histori condition : EDC serial port already open
+20201015 11:33:58 Histori condition : EDC serial port already open
+20201015 11:33:58 Histori condition : EDC serial port already open
+20201015 11:33:58 Histori condition : EDC serial port already open
+20201015 11:33:58 Histori condition : EDC serial port already open
+20201015 11:33:58 Histori condition : EDC serial port already open
+20201015 11:33:58 Histori condition : 324675
+20201015 11:33:58 Histori condition : EDC pin enter
+20201015 11:33:58 Histori condition : EDC serial port close
+20201015 11:34:02 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:35:10 Home condition : clear transaksi success
+20201015 11:35:10 Home condition : clear array success
+20201015 11:35:10 Home condition : clear array nasabah success
+20201015 11:35:10 Home condition : clear list success
+20201015 11:35:10 Home condition : clear transaksi baru success
+20201015 11:35:11 Home condition : clear transaksi success
+20201015 11:35:11 Home condition : clear array success
+20201015 11:35:11 Home condition : clear array nasabah success
+20201015 11:35:11 Home condition : clear list success
+20201015 11:35:11 Home condition : clear transaksi baru success
+20201015 11:35:11 Home condition : entered into home page
+20201015 11:35:12 Home condition : move to histori transaksi
+20201015 11:35:12 Histori condition : entered into histori input kartu
+20201015 11:35:13 Histori condition : input kartu success
+20201015 11:35:13 Histori condition : move to histori input pin
+20201015 11:35:16 Histori condition : entered into histori input pin
+20201015 11:35:22 Histori condition : EDC process start
+20201015 11:35:22 Histori condition : EDC serial port close
+20201015 11:35:22 Histori condition : EDC serial port open
+20201015 11:35:22 Histori condition : EDC serial port write
+20201015 11:35:22 Histori condition : EDC serial port already open
+20201015 11:35:22 Histori condition : EDC serial port already open
+20201015 11:35:23 Histori condition : EDC serial port already open
+20201015 11:35:23 Histori condition : EDC serial port already open
+20201015 11:35:23 Histori condition : EDC serial port already open
+20201015 11:35:23 Histori condition : EDC serial port already open
+20201015 11:35:23 Histori condition : EDC serial port already open
+20201015 11:35:23 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:24 Histori condition : 3
+20201015 11:35:24 Histori condition : EDC pin 3
+20201015 11:35:24 Histori condition : EDC serial port already open
+20201015 11:35:25 Histori condition : EDC serial port already open
+20201015 11:35:25 Histori condition : EDC serial port already open
+20201015 11:35:25 Histori condition : 32
+20201015 11:35:25 Histori condition : EDC pin 2
+20201015 11:35:25 Histori condition : EDC serial port already open
+20201015 11:35:25 Histori condition : EDC serial port already open
+20201015 11:35:25 Histori condition : EDC serial port already open
+20201015 11:35:25 Histori condition : 324
+20201015 11:35:25 Histori condition : EDC pin 4
+20201015 11:35:25 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : EDC serial port already open
+20201015 11:35:26 Histori condition : 3246
+20201015 11:35:26 Histori condition : EDC pin 6
+20201015 11:35:26 Histori condition : EDC ACK
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:27 Histori condition : 32467
+20201015 11:35:27 Histori condition : EDC pin 7
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:27 Histori condition : 324675
+20201015 11:35:27 Histori condition : EDC pin 5
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:27 Histori condition : EDC serial port already open
+20201015 11:35:28 Histori condition : EDC serial port already open
+20201015 11:35:28 Histori condition : EDC serial port already open
+20201015 11:35:28 Histori condition : 324675
+20201015 11:35:28 Histori condition : EDC pin enter
+20201015 11:35:28 Histori condition : EDC serial port close
+20201015 11:35:32 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:35:37 Histori condition : EDC process start
+20201015 11:35:37 Histori condition : EDC serial port close
+20201015 11:35:37 Histori condition : EDC serial port open
+20201015 11:35:37 Histori condition : EDC serial port write
+20201015 11:35:38 Histori condition : EDC serial port already open
+20201015 11:35:38 Histori condition : EDC serial port already open
+20201015 11:35:38 Histori condition : EDC serial port already open
+20201015 11:35:38 Histori condition : EDC serial port already open
+20201015 11:35:38 Histori condition : EDC serial port already open
+20201015 11:35:38 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:39 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : 3246753
+20201015 11:35:40 Histori condition : EDC pin 3
+20201015 11:35:40 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : EDC serial port already open
+20201015 11:35:40 Histori condition : 3246753
+20201015 11:35:40 Histori condition : EDC pin 2
+20201015 11:35:41 Histori condition : EDC serial port already open
+20201015 11:35:41 Histori condition : EDC serial port already open
+20201015 11:35:41 Histori condition : EDC serial port already open
+20201015 11:35:41 Histori condition : EDC serial port already open
+20201015 11:35:41 Histori condition : 3246753
+20201015 11:35:41 Histori condition : EDC pin 4
+20201015 11:35:41 Histori condition : EDC serial port already open
+20201015 11:35:41 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : 3246753
+20201015 11:35:42 Histori condition : EDC pin 6
+20201015 11:35:42 Histori condition : EDC ACK
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : 3246753
+20201015 11:35:42 Histori condition : EDC pin 7
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : EDC serial port already open
+20201015 11:35:42 Histori condition : 3246753
+20201015 11:35:42 Histori condition : EDC pin 5
+20201015 11:35:43 Histori condition : EDC serial port already open
+20201015 11:35:43 Histori condition : EDC serial port already open
+20201015 11:35:43 Histori condition : EDC serial port already open
+20201015 11:35:43 Histori condition : EDC serial port already open
+20201015 11:35:43 Histori condition : 3246753
+20201015 11:35:43 Histori condition : EDC pin enter
+20201015 11:35:43 Histori condition : EDC serial port already open
+20201015 11:35:43 Histori condition : EDC serial port already open
+20201015 11:35:44 Histori condition : EDC serial port already open
+20201015 11:35:44 Histori condition : EDC serial port already open
+20201015 11:35:44 Histori condition : EDC serial port already open
+20201015 11:35:44 Histori condition : EDC serial port already open
+20201015 11:35:44 Histori condition : EDC serial port already open
+20201015 11:35:44 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:45 Histori condition : EDC serial port already open
+20201015 11:35:46 Histori condition : EDC serial port already open
+20201015 11:35:46 Histori condition : EDC serial port already open
+20201015 11:35:46 Histori condition : EDC serial port already open
+20201015 11:35:46 Histori condition : EDC serial port already open
+20201015 11:35:46 Histori condition : EDC serial port already open
+20201015 11:35:46 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:47 Histori condition : EDC serial port already open
+20201015 11:35:48 Histori condition : EDC serial port already open
+20201015 11:35:48 Histori condition : EDC serial port already open
+20201015 11:35:48 Histori condition : EDC serial port already open
+20201015 11:35:48 Histori condition : EDC serial port already open
+20201015 11:35:48 Histori condition : EDC serial port already open
+20201015 11:35:48 Histori condition : EDC serial port already open
+20201015 11:35:49 Histori condition : EDC serial port already open
+20201015 11:35:49 Histori condition : EDC serial port already open
+20201015 11:35:49 Histori condition : EDC serial port already open
+20201015 11:35:49 Histori condition : EDC serial port already open
+20201015 11:35:49 Histori condition : EDC serial port already open
+20201015 11:35:49 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:50 Histori condition : EDC serial port already open
+20201015 11:35:51 Histori condition : EDC serial port already open
+20201015 11:35:51 Histori condition : EDC serial port already open
+20201015 11:35:51 Histori condition : EDC serial port already open
+20201015 11:35:51 Histori condition : EDC serial port already open
+20201015 11:35:51 Histori condition : EDC serial port already open
+20201015 11:35:51 Histori condition : EDC serial port already open
+20201015 11:35:52 Histori condition : EDC serial port already open
+20201015 11:35:52 Histori condition : EDC serial port already open
+20201015 11:35:52 Histori condition : EDC serial port already open
+20201015 11:35:52 Histori condition : EDC serial port already open
+20201015 11:35:52 Histori condition : EDC serial port already open
+20201015 11:35:52 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:53 Histori condition : EDC serial port already open
+20201015 11:35:54 Histori condition : EDC serial port already open
+20201015 11:35:54 Histori condition : EDC serial port already open
+20201015 11:35:54 Histori condition : EDC serial port already open
+20201015 11:35:54 Histori condition : EDC serial port already open
+20201015 11:35:54 Histori condition : EDC serial port already open
+20201015 11:35:54 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:55 Histori condition : EDC serial port already open
+20201015 11:35:56 Histori condition : EDC serial port already open
+20201015 11:35:56 Histori condition : EDC serial port already open
+20201015 11:35:56 Histori condition : EDC serial port already open
+20201015 11:35:56 Histori condition : EDC serial port already open
+20201015 11:35:56 Histori condition : EDC serial port already open
+20201015 11:35:56 Histori condition : EDC serial port already open
+20201015 11:35:57 Histori condition : EDC serial port already open
+20201015 11:35:57 Histori condition : EDC serial port already open
+20201015 11:35:57 Histori condition : EDC serial port already open
+20201015 11:35:57 Histori condition : EDC serial port already open
+20201015 11:35:57 Histori condition : EDC serial port already open
+20201015 11:35:57 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:58 Histori condition : EDC serial port already open
+20201015 11:35:59 Histori condition : EDC serial port already open
+20201015 11:35:59 Histori condition : EDC serial port already open
+20201015 11:35:59 Histori condition : EDC serial port already open
+20201015 11:35:59 Histori condition : EDC serial port already open
+20201015 11:35:59 Histori condition : EDC serial port already open
+20201015 11:35:59 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:00 Histori condition : EDC serial port already open
+20201015 11:36:01 Histori condition : EDC serial port already open
+20201015 11:36:01 Histori condition : EDC serial port already open
+20201015 11:36:01 Histori condition : EDC serial port already open
+20201015 11:36:01 Histori condition : EDC serial port already open
+20201015 11:36:01 Histori condition : EDC serial port already open
+20201015 11:36:01 Histori condition : EDC serial port already open
+20201015 11:36:02 Histori condition : EDC serial port already open
+20201015 11:36:02 Histori condition : EDC serial port already open
+20201015 11:36:02 Histori condition : EDC serial port already open
+20201015 11:36:02 Histori condition : EDC serial port already open
+20201015 11:36:02 Histori condition : EDC serial port already open
+20201015 11:36:02 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:03 Histori condition : EDC serial port already open
+20201015 11:36:04 Histori condition : EDC serial port already open
+20201015 11:36:04 Histori condition : EDC serial port already open
+20201015 11:36:04 Histori condition : EDC serial port already open
+20201015 11:36:04 Histori condition : EDC serial port already open
+20201015 11:36:04 Histori condition : EDC serial port already open
+20201015 11:36:04 Histori condition : EDC serial port already open
+20201015 11:36:05 Histori condition : EDC serial port already open
+20201015 11:36:05 Histori condition : EDC serial port already open
+20201015 11:36:05 Histori condition : EDC serial port already open
+20201015 11:36:05 Histori condition : EDC serial port already open
+20201015 11:36:05 Histori condition : EDC serial port already open
+20201015 11:36:05 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:06 Histori condition : EDC serial port already open
+20201015 11:36:07 Histori condition : EDC serial port already open
+20201015 11:36:07 Histori condition : EDC serial port already open
+20201015 11:36:07 Histori condition : EDC serial port already open
+20201015 11:36:07 Histori condition : EDC serial port already open
+20201015 11:36:07 Histori condition : EDC serial port already open
+20201015 11:36:07 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:08 Histori condition : EDC serial port already open
+20201015 11:36:09 Histori condition : EDC serial port already open
+20201015 11:36:09 Histori condition : EDC serial port already open
+20201015 11:36:09 Histori condition : EDC serial port already open
+20201015 11:36:09 Histori condition : EDC serial port already open
+20201015 11:36:09 Histori condition : EDC serial port already open
+20201015 11:36:09 Histori condition : EDC serial port already open
+20201015 11:36:10 Histori condition : EDC serial port already open
+20201015 11:36:10 Histori condition : EDC serial port already open
+20201015 11:36:10 Histori condition : EDC serial port already open
+20201015 11:36:10 Histori condition : EDC serial port already open
+20201015 11:36:10 Histori condition : EDC serial port already open
+20201015 11:36:10 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:11 Histori condition : EDC serial port already open
+20201015 11:36:12 Histori condition : EDC serial port already open
+20201015 11:36:12 Histori condition : EDC serial port already open
+20201015 11:36:12 Histori condition : EDC serial port already open
+20201015 11:36:12 Histori condition : EDC serial port already open
+20201015 11:36:12 Histori condition : EDC serial port already open
+20201015 11:36:12 Histori condition : EDC serial port already open
+20201015 11:36:13 Histori condition : EDC serial port already open
+20201015 11:36:13 Histori condition : EDC serial port already open
+20201015 11:36:13 Histori condition : EDC serial port already open
+20201015 11:36:13 Histori condition : EDC serial port already open
+20201015 11:36:13 Histori condition : EDC serial port already open
+20201015 11:36:13 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:14 Histori condition : EDC serial port already open
+20201015 11:36:15 Histori condition : EDC serial port already open
+20201015 11:36:15 Histori condition : EDC serial port already open
+20201015 11:36:15 Histori condition : EDC serial port already open
+20201015 11:36:15 Histori condition : EDC serial port already open
+20201015 11:36:15 Histori condition : EDC serial port already open
+20201015 11:36:15 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:16 Histori condition : EDC serial port already open
+20201015 11:36:17 Histori condition : EDC serial port already open
+20201015 11:36:17 Histori condition : EDC serial port already open
+20201015 11:36:17 Histori condition : EDC serial port already open
+20201015 11:36:17 Histori condition : EDC serial port already open
+20201015 11:36:17 Histori condition : EDC serial port already open
+20201015 11:36:17 Histori condition : EDC serial port already open
+20201015 11:36:18 Histori condition : EDC serial port already open
+20201015 11:36:18 Histori condition : EDC serial port already open
+20201015 11:36:18 Histori condition : EDC serial port already open
+20201015 11:36:18 Histori condition : EDC serial port already open
+20201015 11:36:18 Histori condition : EDC serial port already open
+20201015 11:36:18 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:19 Histori condition : EDC serial port already open
+20201015 11:36:20 Histori condition : EDC serial port already open
+20201015 11:36:20 Histori condition : EDC serial port already open
+20201015 11:36:20 Histori condition : EDC serial port already open
+20201015 11:36:20 Histori condition : EDC serial port already open
+20201015 11:36:20 Histori condition : EDC serial port already open
+20201015 11:36:20 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:21 Histori condition : EDC serial port already open
+20201015 11:36:22 Histori condition : EDC serial port already open
+20201015 11:36:22 Histori condition : EDC serial port already open
+20201015 11:36:22 Histori condition : EDC serial port already open
+20201015 11:36:22 Histori condition : EDC serial port already open
+20201015 11:36:22 Histori condition : EDC serial port already open
+20201015 11:36:22 Histori condition : EDC serial port already open
+20201015 11:36:23 Histori condition : EDC serial port already open
+20201015 11:36:23 Histori condition : EDC serial port already open
+20201015 11:36:23 Histori condition : EDC serial port already open
+20201015 11:36:23 Histori condition : EDC serial port already open
+20201015 11:36:23 Histori condition : EDC serial port already open
+20201015 11:36:23 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:24 Histori condition : EDC serial port already open
+20201015 11:36:25 Histori condition : EDC serial port already open
+20201015 11:36:25 Histori condition : EDC serial port already open
+20201015 11:36:25 Histori condition : EDC serial port already open
+20201015 11:36:25 Histori condition : EDC serial port already open
+20201015 11:36:25 Histori condition : EDC serial port already open
+20201015 11:36:25 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:26 Histori condition : EDC serial port already open
+20201015 11:36:27 Histori condition : EDC serial port already open
+20201015 11:36:27 Histori condition : EDC serial port already open
+20201015 11:36:27 Histori condition : EDC serial port already open
+20201015 11:36:27 Histori condition : EDC serial port already open
+20201015 11:36:27 Histori condition : EDC serial port already open
+20201015 11:36:27 Histori condition : EDC serial port already open
+20201015 11:36:28 Histori condition : EDC serial port already open
+20201015 11:36:28 Histori condition : EDC serial port already open
+20201015 11:36:28 Histori condition : EDC serial port already open
+20201015 11:36:28 Histori condition : EDC serial port already open
+20201015 11:36:28 Histori condition : EDC serial port already open
+20201015 11:36:28 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:29 Histori condition : EDC serial port already open
+20201015 11:36:30 Histori condition : EDC serial port already open
+20201015 11:36:30 Histori condition : EDC serial port already open
+20201015 11:36:30 Histori condition : EDC serial port already open
+20201015 11:36:30 Histori condition : EDC serial port already open
+20201015 11:36:30 Histori condition : EDC serial port already open
+20201015 11:36:30 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:31 Histori condition : EDC serial port already open
+20201015 11:36:32 Histori condition : EDC serial port already open
+20201015 11:36:32 Histori condition : EDC serial port already open
+20201015 11:36:32 Histori condition : EDC serial port already open
+20201015 11:36:32 Histori condition : EDC serial port already open
+20201015 11:36:32 Histori condition : EDC serial port already open
+20201015 11:36:32 Histori condition : EDC serial port already open
+20201015 11:36:33 Histori condition : EDC serial port already open
+20201015 11:36:33 Histori condition : EDC serial port already open
+20201015 11:36:33 Histori condition : EDC serial port already open
+20201015 11:36:33 Histori condition : EDC serial port already open
+20201015 11:36:33 Histori condition : EDC serial port already open
+20201015 11:36:33 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:34 Histori condition : EDC serial port already open
+20201015 11:36:35 Histori condition : EDC serial port already open
+20201015 11:36:35 Histori condition : EDC serial port already open
+20201015 11:36:35 Histori condition : EDC serial port already open
+20201015 11:36:35 Histori condition : EDC serial port already open
+20201015 11:36:35 Histori condition : EDC serial port already open
+20201015 11:36:35 Histori condition : EDC serial port already open
+20201015 11:36:36 Histori condition : EDC serial port already open
+20201015 11:36:36 Histori condition : EDC serial port already open
+20201015 11:36:36 Histori condition : EDC serial port already open
+20201015 11:36:36 Histori condition : EDC serial port already open
+20201015 11:36:36 Histori condition : EDC serial port already open
+20201015 11:36:36 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:37 Histori condition : EDC serial port already open
+20201015 11:36:38 Histori condition : EDC serial port already open
+20201015 11:36:38 Histori condition : EDC serial port already open
+20201015 11:36:38 Histori condition : EDC serial port already open
+20201015 11:36:38 Histori condition : EDC serial port already open
+20201015 11:36:38 Histori condition : EDC serial port already open
+20201015 11:36:38 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:39 Histori condition : EDC serial port already open
+20201015 11:36:40 Histori condition : EDC serial port already open
+20201015 11:36:40 Histori condition : EDC serial port already open
+20201015 11:36:40 Histori condition : EDC serial port already open
+20201015 11:36:40 Histori condition : EDC serial port already open
+20201015 11:36:40 Histori condition : EDC serial port already open
+20201015 11:36:40 Histori condition : EDC serial port already open
+20201015 11:36:41 Histori condition : EDC serial port already open
+20201015 11:36:41 Histori condition : EDC serial port already open
+20201015 11:36:41 Histori condition : EDC serial port already open
+20201015 11:36:41 Histori condition : EDC serial port already open
+20201015 11:36:41 Histori condition : EDC serial port already open
+20201015 11:36:41 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:42 Histori condition : EDC serial port already open
+20201015 11:36:43 Histori condition : EDC serial port already open
+20201015 11:36:43 Histori condition : EDC serial port already open
+20201015 11:36:43 Histori condition : EDC serial port already open
+20201015 11:36:43 Histori condition : EDC serial port already open
+20201015 11:36:43 Histori condition : EDC serial port already open
+20201015 11:36:43 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:44 Histori condition : EDC serial port already open
+20201015 11:36:45 Histori condition : EDC serial port already open
+20201015 11:36:45 Histori condition : EDC serial port already open
+20201015 11:36:45 Histori condition : EDC serial port already open
+20201015 11:36:45 Histori condition : EDC serial port already open
+20201015 11:36:45 Histori condition : EDC serial port already open
+20201015 11:36:45 Histori condition : EDC serial port already open
+20201015 11:36:46 Histori condition : EDC serial port already open
+20201015 11:36:46 Histori condition : EDC serial port already open
+20201015 11:36:46 Histori condition : EDC serial port already open
+20201015 11:36:46 Histori condition : EDC serial port already open
+20201015 11:36:46 Histori condition : EDC serial port already open
+20201015 11:36:46 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:47 Histori condition : EDC serial port already open
+20201015 11:36:48 Histori condition : EDC serial port already open
+20201015 11:36:48 Histori condition : EDC serial port already open
+20201015 11:36:48 Histori condition : EDC serial port already open
+20201015 11:36:48 Histori condition : EDC serial port already open
+20201015 11:36:48 Histori condition : EDC serial port already open
+20201015 11:36:48 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:49 Histori condition : EDC serial port already open
+20201015 11:36:50 Histori condition : EDC serial port already open
+20201015 11:36:50 Histori condition : EDC serial port already open
+20201015 11:36:50 Histori condition : EDC serial port already open
+20201015 11:36:50 Histori condition : EDC serial port already open
+20201015 11:36:50 Histori condition : EDC serial port already open
+20201015 11:36:50 Histori condition : EDC serial port already open
+20201015 11:36:51 Histori condition : EDC serial port already open
+20201015 11:36:51 Histori condition : EDC serial port already open
+20201015 11:36:51 Histori condition : EDC serial port already open
+20201015 11:36:51 Histori condition : EDC serial port already open
+20201015 11:36:51 Histori condition : EDC serial port already open
+20201015 11:36:51 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:52 Histori condition : EDC serial port already open
+20201015 11:36:53 Histori condition : EDC serial port already open
+20201015 11:37:01 Home condition : clear transaksi success
+20201015 11:37:01 Home condition : clear array success
+20201015 11:37:01 Home condition : clear array nasabah success
+20201015 11:37:01 Home condition : clear list success
+20201015 11:37:01 Home condition : clear transaksi baru success
+20201015 11:37:02 Home condition : clear transaksi success
+20201015 11:37:02 Home condition : clear array success
+20201015 11:37:02 Home condition : clear array nasabah success
+20201015 11:37:02 Home condition : clear list success
+20201015 11:37:02 Home condition : clear transaksi baru success
+20201015 11:37:02 Home condition : entered into home page
+20201015 11:37:03 Home condition : move to histori transaksi
+20201015 11:37:03 Histori condition : entered into histori input kartu
+20201015 11:37:04 Histori condition : input kartu success
+20201015 11:37:04 Histori condition : move to histori input pin
+20201015 11:37:07 Histori condition : entered into histori input pin
+20201015 11:37:19 Histori condition : EDC process start
+20201015 11:37:20 Histori condition : EDC serial port close
+20201015 11:37:20 Histori condition : EDC serial port open
+20201015 11:37:20 Histori condition : EDC serial port write
+20201015 11:37:20 Histori condition : EDC serial port already open
+20201015 11:37:20 Histori condition : EDC serial port already open
+20201015 11:37:20 Histori condition : EDC serial port already open
+20201015 11:37:21 Histori condition : EDC serial port already open
+20201015 11:37:21 Histori condition : EDC serial port already open
+20201015 11:37:21 Histori condition : EDC serial port already open
+20201015 11:37:21 Histori condition : EDC serial port already open
+20201015 11:37:21 Histori condition : EDC serial port already open
+20201015 11:37:21 Histori condition : EDC serial port already open
+20201015 11:37:22 Histori condition : EDC serial port already open
+20201015 11:37:22 Histori condition : EDC serial port already open
+20201015 11:37:22 Histori condition : EDC serial port already open
+20201015 11:37:22 Histori condition : EDC serial port already open
+20201015 11:37:22 Histori condition : EDC serial port already open
+20201015 11:37:22 Histori condition : 1
+20201015 11:37:22 Histori condition : EDC pin 1
+20201015 11:37:22 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : 12
+20201015 11:37:23 Histori condition : EDC pin 2
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:23 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : 125
+20201015 11:37:24 Histori condition : EDC pin 5
+20201015 11:37:24 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : 1256
+20201015 11:37:24 Histori condition : EDC pin 6
+20201015 11:37:24 Histori condition : EDC ACK
+20201015 11:37:24 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : EDC serial port already open
+20201015 11:37:24 Histori condition : 12567
+20201015 11:37:24 Histori condition : EDC pin 7
+20201015 11:37:25 Histori condition : EDC serial port already open
+20201015 11:37:25 Histori condition : EDC serial port already open
+20201015 11:37:25 Histori condition : EDC serial port already open
+20201015 11:37:25 Histori condition : 125678
+20201015 11:37:25 Histori condition : EDC pin 8
+20201015 11:37:25 Histori condition : EDC serial port already open
+20201015 11:37:25 Histori condition : EDC serial port already open
+20201015 11:37:25 Histori condition : EDC serial port already open
+20201015 11:37:26 Histori condition : EDC serial port already open
+20201015 11:37:26 Histori condition : 125678
+20201015 11:37:26 Histori condition : EDC pin enter
+20201015 11:37:26 Histori condition : EDC serial port close
+20201015 11:37:32 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:37:38 Histori condition : EDC process start
+20201015 11:37:39 Histori condition : EDC serial port close
+20201015 11:37:39 Histori condition : EDC serial port open
+20201015 11:37:39 Histori condition : EDC serial port write
+20201015 11:37:39 Histori condition : EDC serial port already open
+20201015 11:37:39 Histori condition : EDC serial port already open
+20201015 11:37:39 Histori condition : EDC serial port already open
+20201015 11:37:39 Histori condition : EDC serial port already open
+20201015 11:37:39 Histori condition : EDC serial port already open
+20201015 11:37:40 Histori condition : EDC serial port already open
+20201015 11:37:40 Histori condition : EDC serial port already open
+20201015 11:37:40 Histori condition : EDC serial port already open
+20201015 11:37:40 Histori condition : EDC serial port already open
+20201015 11:37:40 Histori condition : EDC serial port already open
+20201015 11:37:40 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:41 Histori condition : 1256781
+20201015 11:37:41 Histori condition : EDC pin 1
+20201015 11:37:41 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : 1256781
+20201015 11:37:42 Histori condition : EDC pin 2
+20201015 11:37:42 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : 1256781
+20201015 11:37:42 Histori condition : EDC pin 3
+20201015 11:37:42 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : EDC serial port already open
+20201015 11:37:42 Histori condition : 1256781
+20201015 11:37:42 Histori condition : EDC pin 4
+20201015 11:37:43 Histori condition : EDC serial port already open
+20201015 11:37:43 Histori condition : EDC serial port already open
+20201015 11:37:43 Histori condition : 1256781
+20201015 11:37:43 Histori condition : EDC pin 5
+20201015 11:37:43 Histori condition : EDC serial port already open
+20201015 11:37:43 Histori condition : EDC serial port already open
+20201015 11:37:43 Histori condition : 1256781
+20201015 11:37:43 Histori condition : EDC pin 6
+20201015 11:37:43 Histori condition : EDC ACK
+20201015 11:37:43 Histori condition : EDC serial port already open
+20201015 11:37:43 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:44 Histori condition : 1256781
+20201015 11:37:44 Histori condition : EDC pin enter
+20201015 11:37:44 Histori condition : EDC serial port already open
+20201015 11:37:45 Histori condition : EDC serial port already open
+20201015 11:37:45 Histori condition : EDC serial port already open
+20201015 11:37:45 Histori condition : EDC serial port already open
+20201015 11:37:45 Histori condition : EDC serial port already open
+20201015 11:37:45 Histori condition : EDC serial port already open
+20201015 11:37:45 Histori condition : EDC serial port already open
+20201015 11:37:46 Histori condition : EDC serial port already open
+20201015 11:37:46 Histori condition : EDC serial port already open
+20201015 11:37:46 Histori condition : EDC serial port already open
+20201015 11:37:46 Histori condition : EDC serial port already open
+20201015 11:37:46 Histori condition : EDC serial port already open
+20201015 11:37:46 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:47 Histori condition : EDC serial port already open
+20201015 11:37:48 Histori condition : EDC serial port already open
+20201015 11:37:48 Histori condition : EDC serial port already open
+20201015 11:37:48 Histori condition : EDC serial port already open
+20201015 11:37:48 Histori condition : EDC serial port already open
+20201015 11:37:48 Histori condition : EDC serial port already open
+20201015 11:37:48 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:49 Histori condition : EDC serial port already open
+20201015 11:37:50 Histori condition : EDC serial port already open
+20201015 11:37:50 Histori condition : EDC serial port already open
+20201015 11:37:50 Histori condition : EDC serial port already open
+20201015 11:37:50 Histori condition : EDC serial port already open
+20201015 11:37:50 Histori condition : EDC serial port already open
+20201015 11:37:50 Histori condition : EDC serial port already open
+20201015 11:37:51 Histori condition : EDC serial port already open
+20201015 11:37:51 Histori condition : EDC serial port already open
+20201015 11:37:51 Histori condition : EDC serial port already open
+20201015 11:37:51 Histori condition : EDC serial port already open
+20201015 11:38:18 Home condition : clear transaksi success
+20201015 11:38:18 Home condition : clear array success
+20201015 11:38:18 Home condition : clear array nasabah success
+20201015 11:38:18 Home condition : clear list success
+20201015 11:38:18 Home condition : clear transaksi baru success
+20201015 11:38:18 Home condition : clear transaksi success
+20201015 11:38:18 Home condition : clear array success
+20201015 11:38:18 Home condition : clear array nasabah success
+20201015 11:38:18 Home condition : clear list success
+20201015 11:38:18 Home condition : clear transaksi baru success
+20201015 11:38:19 Home condition : entered into home page
+20201015 11:38:23 Home condition : move to histori transaksi
+20201015 11:38:23 Histori condition : entered into histori input kartu
+20201015 11:38:24 Histori condition : input kartu success
+20201015 11:38:24 Histori condition : move to histori input pin
+20201015 11:38:26 Histori condition : entered into histori input pin
+20201015 11:38:30 Histori condition : EDC process start
+20201015 11:38:30 Histori condition : EDC serial port close
+20201015 11:38:35 Histori condition : EDC serial port open
+20201015 11:38:35 Histori condition : EDC serial port write
+20201015 11:38:37 Histori condition : EDC serial port already open
+20201015 11:38:38 Histori condition : EDC serial port already open
+20201015 11:38:38 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:39 Histori condition : EDC serial port already open
+20201015 11:38:40 Histori condition : EDC serial port already open
+20201015 11:38:40 Histori condition : EDC serial port already open
+20201015 11:38:40 Histori condition : EDC serial port already open
+20201015 11:38:40 Histori condition : EDC serial port already open
+20201015 11:38:40 Histori condition : EDC serial port already open
+20201015 11:38:40 Histori condition : EDC serial port already open
+20201015 11:38:41 Histori condition : EDC serial port already open
+20201015 11:38:41 Histori condition : EDC serial port already open
+20201015 11:38:41 Histori condition : EDC serial port already open
+20201015 11:38:41 Histori condition : 3
+20201015 11:38:41 Histori condition : EDC pin 3
+20201015 11:38:41 Histori condition : EDC serial port already open
+20201015 11:38:41 Histori condition : EDC serial port already open
+20201015 11:38:41 Histori condition : 32
+20201015 11:38:41 Histori condition : EDC pin 2
+20201015 11:38:41 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : 324
+20201015 11:38:42 Histori condition : EDC pin 4
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : 3246
+20201015 11:38:42 Histori condition : EDC pin 6
+20201015 11:38:42 Histori condition : EDC ACK
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : EDC serial port already open
+20201015 11:38:42 Histori condition : 32467
+20201015 11:38:43 Histori condition : EDC pin 7
+20201015 11:38:43 Histori condition : EDC serial port already open
+20201015 11:38:43 Histori condition : EDC serial port already open
+20201015 11:38:43 Histori condition : EDC serial port already open
+20201015 11:38:43 Histori condition : 324675
+20201015 11:38:43 Histori condition : EDC pin 5
+20201015 11:38:43 Histori condition : EDC serial port already open
+20201015 11:38:43 Histori condition : EDC serial port already open
+20201015 11:38:43 Histori condition : EDC serial port already open
+20201015 11:38:43 Histori condition : 324675
+20201015 11:38:43 Histori condition : EDC pin enter
+20201015 11:38:43 Histori condition : EDC serial port close
+20201015 11:38:49 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:38:54 Histori condition : EDC process start
+20201015 11:38:55 Histori condition : EDC serial port close
+20201015 11:39:00 Histori condition : EDC serial port open
+20201015 11:39:01 Histori condition : EDC serial port write
+20201015 11:39:06 Histori condition : EDC serial port already open
+20201015 11:39:20 Histori condition : EDC serial port already open
+20201015 11:39:21 Histori condition : EDC serial port already open
+20201015 11:39:22 Histori condition : EDC serial port already open
+20201015 11:39:22 Histori condition : EDC serial port already open
+20201015 11:39:24 Histori condition : EDC serial port already open
+20201015 11:39:24 Histori condition : 3246753
+20201015 11:39:24 Histori condition : EDC pin 3
+20201015 11:39:24 Histori condition : EDC serial port already open
+20201015 11:39:25 Histori condition : EDC serial port already open
+20201015 11:39:25 Histori condition : 3246753
+20201015 11:39:25 Histori condition : EDC pin 4
+20201015 11:39:25 Histori condition : EDC serial port already open
+20201015 11:39:26 Histori condition : EDC serial port already open
+20201015 11:39:26 Histori condition : 3246753
+20201015 11:39:26 Histori condition : EDC pin 6
+20201015 11:39:26 Histori condition : EDC ACK
+20201015 11:39:26 Histori condition : EDC serial port already open
+20201015 11:39:27 Histori condition : EDC serial port already open
+20201015 11:39:27 Histori condition : 3246753
+20201015 11:39:27 Histori condition : EDC pin 7
+20201015 11:39:27 Histori condition : EDC serial port already open
+20201015 11:39:27 Histori condition : EDC serial port already open
+20201015 11:39:28 Histori condition : EDC serial port already open
+20201015 11:39:28 Histori condition : 3246753
+20201015 11:39:28 Histori condition : EDC pin 5
+20201015 11:39:29 Histori condition : EDC serial port already open
+20201015 11:39:29 Histori condition : EDC serial port already open
+20201015 11:39:31 Histori condition : EDC serial port already open
+20201015 11:39:31 Histori condition : 3246753
+20201015 11:39:31 Histori condition : EDC pin enter
+20201015 11:39:31 Histori condition : EDC serial port already open
+20201015 11:39:32 Histori condition : EDC serial port already open
+20201015 11:39:32 Histori condition : EDC serial port already open
+20201015 11:39:33 Histori condition : EDC serial port already open
+20201015 11:39:34 Histori condition : EDC serial port already open
+20201015 11:39:34 Histori condition : EDC serial port already open
+20201015 11:39:35 Histori condition : EDC serial port already open
+20201015 11:39:35 Histori condition : EDC serial port already open
+20201015 11:39:35 Histori condition : EDC serial port already open
+20201015 11:39:35 Histori condition : EDC serial port already open
+20201015 11:39:36 Histori condition : EDC serial port already open
+20201015 11:39:36 Histori condition : EDC serial port already open
+20201015 11:39:37 Histori condition : EDC serial port already open
+20201015 11:39:37 Histori condition : EDC serial port already open
+20201015 11:39:38 Histori condition : EDC serial port already open
+20201015 11:39:38 Histori condition : EDC serial port already open
+20201015 11:39:39 Histori condition : EDC serial port already open
+20201015 11:39:39 Histori condition : EDC serial port already open
+20201015 11:40:57 Home condition : clear transaksi success
+20201015 11:40:57 Home condition : clear array success
+20201015 11:40:57 Home condition : clear array nasabah success
+20201015 11:40:57 Home condition : clear list success
+20201015 11:40:57 Home condition : clear transaksi baru success
+20201015 11:40:57 Home condition : clear transaksi success
+20201015 11:40:57 Home condition : clear array success
+20201015 11:40:57 Home condition : clear array nasabah success
+20201015 11:40:57 Home condition : clear list success
+20201015 11:40:57 Home condition : clear transaksi baru success
+20201015 11:40:57 Home condition : entered into home page
+20201015 11:41:00 Home condition : move to histori transaksi
+20201015 11:41:00 Histori condition : entered into histori input kartu
+20201015 11:41:01 Histori condition : input kartu success
+20201015 11:41:01 Histori condition : move to histori input pin
+20201015 11:41:06 Histori condition : entered into histori input pin
+20201015 11:41:08 Histori condition : EDC process start
+20201015 11:41:08 Histori condition : EDC serial port close
+20201015 11:41:14 Histori condition : EDC serial port open
+20201015 11:41:15 Histori condition : EDC serial port write
+20201015 11:41:32 Histori condition : EDC serial port already open
+20201015 11:41:47 Histori condition : EDC serial port already open
+20201015 11:41:48 Histori condition : EDC serial port already open
+20201015 11:41:48 Histori condition : EDC serial port already open
+20201015 11:41:49 Histori condition : EDC serial port already open
+20201015 11:41:49 Histori condition : EDC serial port already open
+20201015 11:41:49 Histori condition : EDC serial port already open
+20201015 11:41:50 Histori condition : EDC serial port already open
+20201015 11:41:50 Histori condition : 3
+20201015 11:41:50 Histori condition : EDC pin 3
+20201015 11:41:51 Histori condition : EDC serial port already open
+20201015 11:41:51 Histori condition : 32
+20201015 11:41:51 Histori condition : EDC pin 2
+20201015 11:41:51 Histori condition : EDC serial port already open
+20201015 11:41:52 Histori condition : EDC serial port already open
+20201015 11:41:52 Histori condition : 326
+20201015 11:41:52 Histori condition : EDC pin 6
+20201015 11:41:53 Histori condition : EDC ACK
+20201015 11:41:53 Histori condition : EDC serial port already open
+20201015 11:41:53 Histori condition : 3265
+20201015 11:41:53 Histori condition : EDC pin 5
+20201015 11:41:54 Histori condition : EDC serial port already open
+20201015 11:41:55 Histori condition : EDC serial port already open
+20201015 11:41:55 Histori condition : 3265
+20201015 11:41:55 Histori condition : EDC pin enter
+20201015 11:41:56 Histori condition : EDC serial port already open
+20201015 11:41:57 Histori condition : EDC serial port already open
+20201015 11:41:58 Histori condition : EDC serial port already open
+20201015 11:41:59 Histori condition : EDC serial port already open
+20201015 11:41:59 Histori condition : EDC serial port already open
+20201015 11:42:00 Histori condition : EDC serial port already open
+20201015 11:42:00 Histori condition : EDC serial port already open
+20201015 11:42:01 Histori condition : EDC serial port already open
+20201015 11:42:01 Histori condition : EDC serial port already open
+20201015 11:42:02 Histori condition : EDC serial port already open
+20201015 11:42:02 Histori condition : EDC serial port already open
+20201015 11:42:03 Histori condition : EDC serial port already open
+20201015 11:42:03 Histori condition : EDC serial port already open
+20201015 11:42:08 Histori condition : EDC serial port already open
+20201015 11:42:08 Histori condition : EDC serial port already open
+20201015 11:42:08 Histori condition : EDC serial port already open
+20201015 11:42:09 Histori condition : EDC serial port already open
+20201015 11:42:09 Histori condition : EDC serial port already open
+20201015 11:42:09 Histori condition : EDC serial port already open
+20201015 11:42:09 Histori condition : EDC serial port already open
+20201015 11:42:10 Histori condition : EDC serial port already open
+20201015 11:42:10 Histori condition : EDC serial port already open
+20201015 11:42:10 Histori condition : EDC serial port already open
+20201015 11:42:11 Histori condition : EDC serial port already open
+20201015 11:42:15 Home condition : clear transaksi success
+20201015 11:42:15 Home condition : clear array success
+20201015 11:42:15 Home condition : clear array nasabah success
+20201015 11:42:15 Home condition : clear list success
+20201015 11:42:15 Home condition : clear transaksi baru success
+20201015 11:42:15 Home condition : clear transaksi success
+20201015 11:42:15 Home condition : clear array success
+20201015 11:42:15 Home condition : clear array nasabah success
+20201015 11:42:15 Home condition : clear list success
+20201015 11:42:15 Home condition : clear transaksi baru success
+20201015 11:42:15 Home condition : entered into home page
+20201015 11:42:17 Home condition : move to histori transaksi
+20201015 11:42:17 Histori condition : entered into histori input kartu
+20201015 11:42:18 Histori condition : input kartu success
+20201015 11:42:18 Histori condition : move to histori input pin
+20201015 11:42:20 Histori condition : entered into histori input pin
+20201015 11:42:23 Histori condition : EDC process start
+20201015 11:42:23 Histori condition : EDC serial port close
+20201015 11:42:23 Histori condition : EDC serial port open
+20201015 11:42:23 Histori condition : EDC serial port write
+20201015 11:42:24 Histori condition : EDC serial port already open
+20201015 11:42:25 Histori condition : EDC serial port already open
+20201015 11:42:26 Histori condition : EDC serial port already open
+20201015 11:42:26 Histori condition : EDC serial port already open
+20201015 11:42:26 Histori condition : EDC serial port already open
+20201015 11:42:27 Histori condition : EDC serial port already open
+20201015 11:42:27 Histori condition : EDC serial port already open
+20201015 11:42:28 Histori condition : EDC serial port already open
+20201015 11:42:28 Histori condition : 3
+20201015 11:42:28 Histori condition : EDC pin 3
+20201015 11:42:28 Histori condition : EDC serial port already open
+20201015 11:42:28 Histori condition : 32
+20201015 11:42:28 Histori condition : EDC pin 2
+20201015 11:42:28 Histori condition : EDC serial port already open
+20201015 11:42:29 Histori condition : EDC serial port already open
+20201015 11:42:29 Histori condition : 324
+20201015 11:42:29 Histori condition : EDC pin 4
+20201015 11:42:29 Histori condition : EDC serial port already open
+20201015 11:42:29 Histori condition : EDC serial port already open
+20201015 11:42:29 Histori condition : 3246
+20201015 11:42:29 Histori condition : EDC pin 6
+20201015 11:42:29 Histori condition : EDC ACK
+20201015 11:42:29 Histori condition : EDC serial port already open
+20201015 11:42:30 Histori condition : EDC serial port already open
+20201015 11:42:30 Histori condition : 32467
+20201015 11:42:30 Histori condition : EDC pin 7
+20201015 11:42:30 Histori condition : EDC serial port already open
+20201015 11:42:30 Histori condition : 324675
+20201015 11:42:30 Histori condition : EDC pin 5
+20201015 11:42:30 Histori condition : EDC serial port already open
+20201015 11:42:30 Histori condition : EDC serial port already open
+20201015 11:42:31 Histori condition : EDC serial port already open
+20201015 11:42:31 Histori condition : EDC serial port already open
+20201015 11:42:31 Histori condition : EDC serial port already open
+20201015 11:42:31 Histori condition : 324675
+20201015 11:42:31 Histori condition : EDC pin enter
+20201015 11:42:31 Histori condition : EDC serial port close
+20201015 11:42:31 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:42:32 Histori condition : EDC process start
+20201015 11:42:32 Histori condition : EDC serial port close
+20201015 11:42:34 Histori condition : EDC serial port open
+20201015 11:42:35 Histori condition : EDC serial port write
+20201015 11:42:35 Histori condition : EDC serial port already open
+20201015 11:42:36 Histori condition : EDC serial port already open
+20201015 11:42:36 Histori condition : EDC serial port already open
+20201015 11:42:37 Histori condition : EDC serial port already open
+20201015 11:42:37 Histori condition : EDC serial port already open
+20201015 11:42:37 Histori condition : EDC serial port already open
+20201015 11:42:38 Histori condition : EDC serial port already open
+20201015 11:42:38 Histori condition : EDC serial port already open
+20201015 11:42:38 Histori condition : EDC serial port already open
+20201015 11:42:38 Histori condition : EDC serial port already open
+20201015 11:42:39 Histori condition : EDC serial port already open
+20201015 11:42:39 Histori condition : EDC serial port already open
+20201015 11:42:39 Histori condition : 3246753
+20201015 11:42:39 Histori condition : EDC pin 3
+20201015 11:42:39 Histori condition : EDC serial port already open
+20201015 11:42:39 Histori condition : EDC serial port already open
+20201015 11:42:39 Histori condition : 3246753
+20201015 11:42:39 Histori condition : EDC pin 2
+20201015 11:42:40 Histori condition : EDC serial port already open
+20201015 11:42:40 Histori condition : EDC serial port already open
+20201015 11:42:40 Histori condition : EDC serial port already open
+20201015 11:42:40 Histori condition : 3246753
+20201015 11:42:40 Histori condition : EDC pin 4
+20201015 11:42:40 Histori condition : EDC serial port already open
+20201015 11:42:41 Histori condition : EDC serial port already open
+20201015 11:42:41 Histori condition : 3246753
+20201015 11:42:41 Histori condition : EDC pin 6
+20201015 11:42:41 Histori condition : EDC ACK
+20201015 11:42:41 Histori condition : EDC serial port already open
+20201015 11:42:41 Histori condition : EDC serial port already open
+20201015 11:42:41 Histori condition : 3246753
+20201015 11:42:41 Histori condition : EDC pin 7
+20201015 11:42:41 Histori condition : EDC serial port already open
+20201015 11:42:41 Histori condition : 3246753
+20201015 11:42:41 Histori condition : EDC pin 5
+20201015 11:42:42 Histori condition : EDC serial port already open
+20201015 11:42:42 Histori condition : EDC serial port already open
+20201015 11:42:42 Histori condition : EDC serial port already open
+20201015 11:42:42 Histori condition : EDC serial port already open
+20201015 11:42:43 Histori condition : EDC serial port already open
+20201015 11:42:43 Histori condition : 3246753
+20201015 11:42:43 Histori condition : EDC pin enter
+20201015 11:42:43 Histori condition : EDC serial port already open
+20201015 11:42:43 Histori condition : EDC serial port already open
+20201015 11:42:44 Histori condition : EDC serial port already open
+20201015 11:42:44 Histori condition : EDC serial port already open
+20201015 11:42:44 Histori condition : EDC serial port already open
+20201015 11:42:44 Histori condition : EDC serial port already open
+20201015 11:42:45 Histori condition : EDC serial port already open
+20201015 11:42:45 Histori condition : EDC serial port already open
+20201015 11:42:45 Histori condition : EDC serial port already open
+20201015 11:42:45 Histori condition : EDC serial port already open
+20201015 11:42:45 Histori condition : EDC serial port already open
+20201015 11:42:46 Histori condition : EDC serial port already open
+20201015 11:42:46 Histori condition : EDC serial port already open
+20201015 11:42:46 Histori condition : EDC serial port already open
+20201015 11:42:46 Histori condition : EDC serial port already open
+20201015 11:44:01 Home condition : clear transaksi success
+20201015 11:44:01 Home condition : clear array success
+20201015 11:44:01 Home condition : clear array nasabah success
+20201015 11:44:01 Home condition : clear list success
+20201015 11:44:01 Home condition : clear transaksi baru success
+20201015 11:44:02 Home condition : clear transaksi success
+20201015 11:44:02 Home condition : clear array success
+20201015 11:44:02 Home condition : clear array nasabah success
+20201015 11:44:02 Home condition : clear list success
+20201015 11:44:02 Home condition : clear transaksi baru success
+20201015 11:44:02 Home condition : entered into home page
+20201015 11:44:03 Home condition : move to histori transaksi
+20201015 11:44:03 Histori condition : entered into histori input kartu
+20201015 11:44:04 Histori condition : input kartu success
+20201015 11:44:04 Histori condition : move to histori input pin
+20201015 11:44:07 Histori condition : entered into histori input pin
+20201015 11:44:10 Histori condition : EDC process start
+20201015 11:44:10 Histori condition : EDC serial port close
+20201015 11:44:10 Histori condition : EDC serial port open
+20201015 11:44:10 Histori condition : EDC serial port write
+20201015 11:44:11 Histori condition : EDC serial port already open
+20201015 11:44:13 Histori condition : EDC serial port already open
+20201015 11:44:13 Histori condition : EDC serial port already open
+20201015 11:44:14 Histori condition : EDC serial port already open
+20201015 11:44:14 Histori condition : EDC serial port already open
+20201015 11:44:14 Histori condition : 2
+20201015 11:44:14 Histori condition : EDC pin 2
+20201015 11:44:14 Histori condition : EDC serial port already open
+20201015 11:44:14 Histori condition : 23
+20201015 11:44:14 Histori condition : EDC pin 3
+20201015 11:44:15 Histori condition : EDC serial port already open
+20201015 11:44:15 Histori condition : 234
+20201015 11:44:15 Histori condition : EDC pin 4
+20201015 11:44:15 Histori condition : EDC serial port already open
+20201015 11:44:15 Histori condition : EDC serial port already open
+20201015 11:44:15 Histori condition : 2346
+20201015 11:44:15 Histori condition : EDC pin 6
+20201015 11:44:15 Histori condition : EDC ACK
+20201015 11:44:15 Histori condition : EDC serial port already open
+20201015 11:44:15 Histori condition : 23467
+20201015 11:44:15 Histori condition : EDC pin 7
+20201015 11:44:16 Histori condition : EDC serial port already open
+20201015 11:44:19 Histori condition : EDC serial port already open
+20201015 11:44:19 Histori condition : 234675
+20201015 11:44:19 Histori condition : EDC pin 5
+20201015 11:44:21 Histori condition : EDC serial port already open
+20201015 11:44:22 Histori condition : EDC serial port already open
+20201015 11:44:23 Histori condition : EDC serial port already open
+20201015 11:44:24 Histori condition : EDC serial port already open
+20201015 11:44:25 Histori condition : EDC serial port already open
+20201015 11:44:25 Histori condition : EDC serial port already open
+20201015 11:44:26 Histori condition : EDC serial port already open
+20201015 11:44:27 Histori condition : EDC serial port already open
+20201015 11:44:27 Histori condition : EDC serial port already open
+20201015 11:44:28 Histori condition : EDC serial port already open
+20201015 11:44:29 Histori condition : EDC serial port already open
+20201015 11:44:29 Histori condition : EDC serial port already open
+20201015 11:44:29 Histori condition : EDC serial port already open
+20201015 11:44:30 Histori condition : EDC serial port already open
+20201015 11:44:48 Home condition : clear transaksi success
+20201015 11:44:48 Home condition : clear array success
+20201015 11:44:48 Home condition : clear array nasabah success
+20201015 11:44:48 Home condition : clear list success
+20201015 11:44:48 Home condition : clear transaksi baru success
+20201015 11:44:48 Home condition : clear transaksi success
+20201015 11:44:48 Home condition : clear array success
+20201015 11:44:48 Home condition : clear array nasabah success
+20201015 11:44:48 Home condition : clear list success
+20201015 11:44:48 Home condition : clear transaksi baru success
+20201015 11:44:48 Home condition : entered into home page
+20201015 11:44:50 Home condition : move to histori transaksi
+20201015 11:44:50 Histori condition : entered into histori input kartu
+20201015 11:44:51 Histori condition : input kartu success
+20201015 11:44:51 Histori condition : move to histori input pin
+20201015 11:44:54 Histori condition : entered into histori input pin
+20201015 11:44:57 Histori condition : EDC process start
+20201015 11:44:57 Histori condition : EDC serial port close
+20201015 11:44:58 Histori condition : EDC serial port open
+20201015 11:44:58 Histori condition : EDC serial port write
+20201015 11:44:58 Histori condition : EDC serial port already open
+20201015 11:44:58 Histori condition : EDC serial port already open
+20201015 11:44:58 Histori condition : EDC serial port already open
+20201015 11:44:58 Histori condition : EDC serial port already open
+20201015 11:44:59 Histori condition : EDC serial port already open
+20201015 11:44:59 Histori condition : EDC serial port already open
+20201015 11:44:59 Histori condition : EDC serial port already open
+20201015 11:44:59 Histori condition : EDC serial port already open
+20201015 11:44:59 Histori condition : EDC serial port already open
+20201015 11:44:59 Histori condition : EDC serial port already open
+20201015 11:45:00 Histori condition : EDC serial port already open
+20201015 11:45:00 Histori condition : EDC serial port already open
+20201015 11:45:00 Histori condition : EDC serial port already open
+20201015 11:45:00 Histori condition : EDC serial port already open
+20201015 11:45:00 Histori condition : EDC serial port already open
+20201015 11:45:00 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : 3
+20201015 11:45:01 Histori condition : EDC pin 3
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : 32
+20201015 11:45:01 Histori condition : EDC pin 2
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : EDC serial port already open
+20201015 11:45:01 Histori condition : 324
+20201015 11:45:01 Histori condition : EDC pin 4
+20201015 11:45:02 Histori condition : EDC serial port already open
+20201015 11:45:02 Histori condition : EDC serial port already open
+20201015 11:45:02 Histori condition : 3246
+20201015 11:45:02 Histori condition : EDC pin 6
+20201015 11:45:02 Histori condition : EDC ACK
+20201015 11:45:02 Histori condition : EDC serial port already open
+20201015 11:45:02 Histori condition : EDC serial port already open
+20201015 11:45:02 Histori condition : EDC serial port already open
+20201015 11:45:02 Histori condition : 32467
+20201015 11:45:02 Histori condition : EDC pin 7
+20201015 11:45:02 Histori condition : EDC serial port already open
+20201015 11:45:03 Histori condition : EDC serial port already open
+20201015 11:45:03 Histori condition : 324675
+20201015 11:45:03 Histori condition : EDC pin 5
+20201015 11:45:03 Histori condition : EDC serial port already open
+20201015 11:45:03 Histori condition : EDC serial port already open
+20201015 11:45:03 Histori condition : EDC serial port already open
+20201015 11:45:03 Histori condition : EDC serial port already open
+20201015 11:45:03 Histori condition : EDC serial port already open
+20201015 11:45:15 Histori condition : 324675
+20201015 11:45:15 Histori condition : EDC pin enter
+20201015 11:45:23 Histori condition : EDC serial port close
+20201015 11:45:29 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:45:35 Histori condition : EDC process start
+20201015 11:45:35 Histori condition : EDC serial port close
+20201015 11:45:37 Histori condition : EDC serial port open
+20201015 11:45:37 Histori condition : EDC serial port write
+20201015 11:45:37 Histori condition : EDC serial port already open
+20201015 11:45:37 Histori condition : EDC serial port already open
+20201015 11:45:37 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:38 Histori condition : EDC serial port already open
+20201015 11:45:39 Histori condition : EDC serial port already open
+20201015 11:45:39 Histori condition : EDC serial port already open
+20201015 11:45:39 Histori condition : EDC serial port already open
+20201015 11:45:39 Histori condition : EDC serial port already open
+20201015 11:45:39 Histori condition : EDC serial port already open
+20201015 11:45:39 Histori condition : EDC serial port already open
+20201015 11:45:40 Histori condition : EDC serial port already open
+20201015 11:45:40 Histori condition : EDC serial port already open
+20201015 11:45:40 Histori condition : EDC serial port already open
+20201015 11:45:40 Histori condition : EDC serial port already open
+20201015 11:45:40 Histori condition : EDC serial port already open
+20201015 11:45:40 Histori condition : EDC serial port already open
+20201015 11:45:41 Histori condition : EDC serial port already open
+20201015 11:45:41 Histori condition : EDC serial port already open
+20201015 11:45:41 Histori condition : EDC serial port already open
+20201015 11:45:41 Histori condition : 3246753
+20201015 11:45:41 Histori condition : EDC pin 3
+20201015 11:45:41 Histori condition : EDC serial port already open
+20201015 11:45:41 Histori condition : EDC serial port already open
+20201015 11:45:41 Histori condition : 3246753
+20201015 11:45:41 Histori condition : EDC pin 2
+20201015 11:45:41 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : 3246753
+20201015 11:45:42 Histori condition : EDC pin 4
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : 3246753
+20201015 11:45:42 Histori condition : EDC pin 6
+20201015 11:45:42 Histori condition : EDC ACK
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : EDC serial port already open
+20201015 11:45:42 Histori condition : 3246753
+20201015 11:45:42 Histori condition : EDC pin 7
+20201015 11:45:43 Histori condition : EDC serial port already open
+20201015 11:45:43 Histori condition : EDC serial port already open
+20201015 11:45:43 Histori condition : 3246753
+20201015 11:45:43 Histori condition : EDC pin 5
+20201015 11:45:43 Histori condition : EDC serial port already open
+20201015 11:45:43 Histori condition : EDC serial port already open
+20201015 11:45:43 Histori condition : EDC serial port already open
+20201015 11:46:39 Home condition : clear transaksi success
+20201015 11:46:39 Home condition : clear array success
+20201015 11:46:39 Home condition : clear array nasabah success
+20201015 11:46:39 Home condition : clear list success
+20201015 11:46:39 Home condition : clear transaksi baru success
+20201015 11:46:40 Home condition : clear transaksi success
+20201015 11:46:40 Home condition : clear array success
+20201015 11:46:40 Home condition : clear array nasabah success
+20201015 11:46:40 Home condition : clear list success
+20201015 11:46:40 Home condition : clear transaksi baru success
+20201015 11:46:40 Home condition : entered into home page
+20201015 11:46:41 Home condition : move to histori transaksi
+20201015 11:46:41 Histori condition : entered into histori input kartu
+20201015 11:46:42 Histori condition : input kartu success
+20201015 11:46:42 Histori condition : move to histori input pin
+20201015 11:46:45 Histori condition : entered into histori input pin
+20201015 11:46:48 Histori condition : EDC process start
+20201015 11:46:48 Histori condition : EDC serial port close
+20201015 11:46:48 Histori condition : EDC serial port open
+20201015 11:46:48 Histori condition : EDC serial port write
+20201015 11:46:49 Histori condition : EDC serial port already open
+20201015 11:46:49 Histori condition : EDC serial port already open
+20201015 11:46:49 Histori condition : EDC serial port already open
+20201015 11:46:49 Histori condition : EDC serial port already open
+20201015 11:46:49 Histori condition : EDC serial port already open
+20201015 11:46:49 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:50 Histori condition : EDC serial port already open
+20201015 11:46:51 Histori condition : EDC serial port already open
+20201015 11:46:51 Histori condition : EDC serial port already open
+20201015 11:46:51 Histori condition : EDC serial port already open
+20201015 11:46:51 Histori condition : 3
+20201015 11:46:51 Histori condition : EDC pin 3
+20201015 11:46:51 Histori condition : EDC serial port already open
+20201015 11:46:51 Histori condition : EDC serial port already open
+20201015 11:46:51 Histori condition : 32
+20201015 11:46:51 Histori condition : EDC pin 2
+20201015 11:46:51 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : 324
+20201015 11:46:52 Histori condition : EDC pin 4
+20201015 11:46:52 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : 3246
+20201015 11:46:52 Histori condition : EDC pin 6
+20201015 11:46:52 Histori condition : EDC ACK
+20201015 11:46:52 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : EDC serial port already open
+20201015 11:46:52 Histori condition : 32467
+20201015 11:46:52 Histori condition : EDC pin 7
+20201015 11:46:53 Histori condition : EDC serial port already open
+20201015 11:46:53 Histori condition : 324675
+20201015 11:46:53 Histori condition : EDC pin 5
+20201015 11:46:53 Histori condition : EDC serial port already open
+20201015 11:46:53 Histori condition : EDC serial port already open
+20201015 11:46:53 Histori condition : EDC serial port already open
+20201015 11:48:36 Home condition : clear transaksi success
+20201015 11:48:36 Home condition : clear array success
+20201015 11:48:36 Home condition : clear array nasabah success
+20201015 11:48:36 Home condition : clear list success
+20201015 11:48:36 Home condition : clear transaksi baru success
+20201015 11:48:36 Home condition : clear transaksi success
+20201015 11:48:36 Home condition : clear array success
+20201015 11:48:36 Home condition : clear array nasabah success
+20201015 11:48:36 Home condition : clear list success
+20201015 11:48:36 Home condition : clear transaksi baru success
+20201015 11:48:36 Home condition : entered into home page
+20201015 11:48:39 Home condition : move to histori transaksi
+20201015 11:48:39 Histori condition : entered into histori input kartu
+20201015 11:48:40 Histori condition : input kartu success
+20201015 11:48:40 Histori condition : move to histori input pin
+20201015 11:48:43 Histori condition : entered into histori input pin
+20201015 11:48:46 Histori condition : EDC process start
+20201015 11:48:46 Histori condition : EDC serial port close
+20201015 11:48:47 Histori condition : EDC serial port open
+20201015 11:48:47 Histori condition : EDC serial port write
+20201015 11:48:47 Histori condition : EDC serial port already open
+20201015 11:48:47 Histori condition : EDC serial port already open
+20201015 11:48:47 Histori condition : EDC serial port already open
+20201015 11:48:47 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:48 Histori condition : EDC serial port already open
+20201015 11:48:49 Histori condition : EDC serial port already open
+20201015 11:48:49 Histori condition : EDC serial port already open
+20201015 11:48:49 Histori condition : EDC serial port already open
+20201015 11:48:49 Histori condition : EDC serial port already open
+20201015 11:48:49 Histori condition : EDC serial port already open
+20201015 11:48:49 Histori condition : EDC serial port already open
+20201015 11:48:50 Histori condition : EDC serial port already open
+20201015 11:48:50 Histori condition : 3
+20201015 11:48:50 Histori condition : EDC pin 3
+20201015 11:48:50 Histori condition : EDC serial port already open
+20201015 11:48:50 Histori condition : EDC serial port already open
+20201015 11:48:50 Histori condition : 32
+20201015 11:48:50 Histori condition : EDC pin 2
+20201015 11:48:50 Histori condition : EDC serial port already open
+20201015 11:48:50 Histori condition : EDC serial port already open
+20201015 11:48:50 Histori condition : 324
+20201015 11:48:50 Histori condition : EDC pin 4
+20201015 11:48:50 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : 3246
+20201015 11:48:51 Histori condition : EDC pin 6
+20201015 11:48:51 Histori condition : EDC ACK
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : 32467
+20201015 11:48:51 Histori condition : EDC pin 7
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : 324675
+20201015 11:48:51 Histori condition : EDC pin 5
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:51 Histori condition : EDC serial port already open
+20201015 11:48:52 Histori condition : EDC serial port already open
+20201015 11:48:52 Histori condition : EDC serial port already open
+20201015 11:48:52 Histori condition : EDC serial port already open
+20201015 11:49:08 Histori condition : 324675
+20201015 11:49:09 Histori condition : EDC pin enter
+20201015 11:49:13 Histori condition : EDC serial port close
+20201015 11:49:19 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:49:27 Histori condition : EDC process start
+20201015 11:49:27 Histori condition : EDC serial port close
+20201015 11:49:28 Histori condition : EDC serial port open
+20201015 11:49:28 Histori condition : EDC serial port write
+20201015 11:49:28 Histori condition : EDC serial port already open
+20201015 11:49:28 Histori condition : EDC serial port already open
+20201015 11:49:28 Histori condition : EDC serial port already open
+20201015 11:49:28 Histori condition : EDC serial port already open
+20201015 11:49:28 Histori condition : EDC serial port already open
+20201015 11:49:29 Histori condition : EDC serial port already open
+20201015 11:49:29 Histori condition : EDC serial port already open
+20201015 11:49:29 Histori condition : EDC serial port already open
+20201015 11:49:29 Histori condition : EDC serial port already open
+20201015 11:49:29 Histori condition : EDC serial port already open
+20201015 11:49:29 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:30 Histori condition : EDC serial port already open
+20201015 11:49:31 Histori condition : EDC serial port already open
+20201015 11:49:31 Histori condition : EDC serial port already open
+20201015 11:49:31 Histori condition : EDC serial port already open
+20201015 11:49:31 Histori condition : 3
+20201015 11:49:31 Histori condition : EDC pin 3
+20201015 11:49:31 Histori condition : EDC serial port already open
+20201015 11:49:31 Histori condition : EDC serial port already open
+20201015 11:49:31 Histori condition : 32
+20201015 11:49:31 Histori condition : EDC pin 2
+20201015 11:49:31 Histori condition : EDC serial port already open
+20201015 11:49:32 Histori condition : EDC serial port already open
+20201015 11:49:32 Histori condition : EDC serial port already open
+20201015 11:49:32 Histori condition : 324
+20201015 11:49:32 Histori condition : EDC pin 4
+20201015 11:49:32 Histori condition : EDC serial port already open
+20201015 11:49:32 Histori condition : EDC serial port already open
+20201015 11:49:32 Histori condition : EDC serial port already open
+20201015 11:49:32 Histori condition : 3246
+20201015 11:49:32 Histori condition : EDC pin 6
+20201015 11:49:32 Histori condition : EDC ACK
+20201015 11:49:32 Histori condition : EDC serial port already open
+20201015 11:49:33 Histori condition : EDC serial port already open
+20201015 11:49:33 Histori condition : 32467
+20201015 11:49:33 Histori condition : EDC pin 7
+20201015 11:49:33 Histori condition : EDC serial port already open
+20201015 11:49:33 Histori condition : EDC serial port already open
+20201015 11:49:33 Histori condition : EDC serial port already open
+20201015 11:49:33 Histori condition : 324675
+20201015 11:49:33 Histori condition : EDC pin 5
+20201015 11:49:33 Histori condition : EDC serial port already open
+20201015 11:49:33 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:34 Histori condition : EDC serial port already open
+20201015 11:49:35 Histori condition : EDC serial port already open
+20201015 11:49:35 Histori condition : EDC serial port already open
+20201015 11:49:35 Histori condition : EDC serial port already open
+20201015 11:49:35 Histori condition : EDC serial port already open
+20201015 11:49:35 Histori condition : EDC serial port already open
+20201015 11:49:35 Histori condition : EDC serial port already open
+20201015 11:49:44 Histori condition : 324675
+20201015 11:49:46 Histori condition : EDC pin enter
+20201015 11:49:46 Histori condition : EDC serial port close
+20201015 11:49:47 Histori condition : PIN not correct, tryLimit: 1
+20201015 11:49:49 Histori condition : EDC process start
+20201015 11:49:49 Histori condition : EDC serial port close
+20201015 11:49:50 Histori condition : EDC serial port open
+20201015 11:49:50 Histori condition : EDC serial port write
+20201015 11:49:50 Histori condition : EDC serial port already open
+20201015 11:49:50 Histori condition : EDC serial port already open
+20201015 11:49:50 Histori condition : EDC serial port already open
+20201015 11:49:50 Histori condition : EDC serial port already open
+20201015 11:49:50 Histori condition : EDC serial port already open
+20201015 11:49:51 Histori condition : EDC serial port already open
+20201015 11:49:51 Histori condition : EDC serial port already open
+20201015 11:49:51 Histori condition : EDC serial port already open
+20201015 11:49:51 Histori condition : EDC serial port already open
+20201015 11:49:51 Histori condition : EDC serial port already open
+20201015 11:49:51 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:52 Histori condition : EDC serial port already open
+20201015 11:49:53 Histori condition : EDC serial port already open
+20201015 11:49:53 Histori condition : EDC serial port already open
+20201015 11:49:53 Histori condition : EDC serial port already open
+20201015 11:49:53 Histori condition : EDC serial port already open
+20201015 11:49:53 Histori condition : EDC serial port already open
+20201015 11:49:53 Histori condition : EDC serial port already open
+20201015 11:49:54 Histori condition : EDC serial port already open
+20201015 11:49:54 Histori condition : EDC serial port already open
+20201015 11:49:54 Histori condition : EDC serial port already open
+20201015 11:49:54 Histori condition : EDC serial port already open
+20201015 11:49:54 Histori condition : EDC serial port already open
+20201015 11:49:54 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : 3
+20201015 11:49:55 Histori condition : EDC pin 3
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : 32
+20201015 11:49:55 Histori condition : EDC pin 2
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:55 Histori condition : 324
+20201015 11:49:55 Histori condition : EDC pin 4
+20201015 11:49:55 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : 3246
+20201015 11:49:56 Histori condition : EDC pin 6
+20201015 11:49:56 Histori condition : EDC ACK
+20201015 11:49:56 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : EDC serial port already open
+20201015 11:49:56 Histori condition : 32467
+20201015 11:49:56 Histori condition : EDC pin 7
+20201015 11:49:57 Histori condition : EDC serial port already open
+20201015 11:49:57 Histori condition : EDC serial port already open
+20201015 11:49:57 Histori condition : 324675
+20201015 11:49:57 Histori condition : EDC pin 5
+20201015 11:49:57 Histori condition : EDC serial port already open
+20201015 11:49:57 Histori condition : EDC serial port already open
+20201015 11:49:57 Histori condition : EDC serial port already open
+20201015 11:50:03 Histori condition : 324675
+20201015 11:50:03 Histori condition : EDC pin enter
+20201015 11:50:03 Histori condition : EDC serial port close
+20201015 11:50:04 Histori condition : PIN not correct, tryLimit: 0
+20201015 11:50:04 Histori condition : tryLimit has reached 0
+20201015 11:50:04 Histori condition : move to blokir kartu
+20201015 11:50:04 Blokir kartu condition : entered into blokir kartu
+20201015 11:50:07 Blokir kartu condition : move to home
+20201015 11:50:07 Ambil kartu condition : entered into ambil kartu
+20201015 11:50:10 Ambil kartu condition : move to home
+20201015 11:50:10 Home condition : clear transaksi success
+20201015 11:50:10 Home condition : clear array success
+20201015 11:50:10 Home condition : clear array nasabah success
+20201015 11:50:10 Home condition : clear list success
+20201015 11:50:10 Home condition : clear transaksi baru success
+20201015 11:50:10 Home condition : entered into home page
+20201015 11:50:26 Home condition : clear transaksi success
+20201015 11:50:26 Home condition : clear array success
+20201015 11:50:26 Home condition : clear array nasabah success
+20201015 11:50:26 Home condition : clear list success
+20201015 11:50:26 Home condition : clear transaksi baru success
+20201015 11:50:26 Home condition : clear transaksi success
+20201015 11:50:26 Home condition : clear array success
+20201015 11:50:26 Home condition : clear array nasabah success
+20201015 11:50:26 Home condition : clear list success
+20201015 11:50:26 Home condition : clear transaksi baru success
+20201015 11:50:26 Home condition : entered into home page
+20201015 11:50:30 Home condition : move to histori transaksi
+20201015 11:50:30 Histori condition : entered into histori input kartu
+20201015 11:50:31 Histori condition : input kartu success
+20201015 11:50:31 Histori condition : move to histori input pin
+20201015 11:50:31 Histori condition : entered into histori input pin
+20201015 11:50:32 Histori condition : EDC process start
+20201015 11:50:32 Histori condition : EDC serial port close
+20201015 11:50:32 Histori condition : EDC serial port open
+20201015 11:50:33 Histori condition : EDC serial port write
+20201015 11:50:33 Histori condition : EDC serial port already open
+20201015 11:50:33 Histori condition : EDC serial port already open
+20201015 11:50:33 Histori condition : EDC serial port already open
+20201015 11:50:33 Histori condition : EDC serial port already open
+20201015 11:50:33 Histori condition : EDC serial port already open
+20201015 11:50:33 Histori condition : EDC serial port already open
+20201015 11:50:34 Histori condition : EDC serial port already open
+20201015 11:50:34 Histori condition : EDC serial port already open
+20201015 11:50:34 Histori condition : EDC serial port already open
+20201015 11:50:34 Histori condition : EDC serial port already open
+20201015 11:50:34 Histori condition : EDC serial port already open
+20201015 11:50:34 Histori condition : EDC serial port already open
+20201015 11:50:35 Histori condition : EDC serial port already open
+20201015 11:50:35 Histori condition : EDC serial port already open
+20201015 11:50:35 Histori condition : EDC serial port already open
+20201015 11:50:35 Histori condition : EDC serial port already open
+20201015 11:50:35 Histori condition : EDC serial port already open
+20201015 11:50:35 Histori condition : EDC serial port already open
+20201015 11:50:36 Histori condition : EDC serial port already open
+20201015 11:50:36 Histori condition : EDC serial port already open
+20201015 11:50:36 Histori condition : EDC serial port already open
+20201015 11:50:36 Histori condition : 2
+20201015 11:50:36 Histori condition : EDC pin 2
+20201015 11:50:36 Histori condition : EDC serial port already open
+20201015 11:50:36 Histori condition : EDC serial port already open
+20201015 11:50:36 Histori condition : 23
+20201015 11:50:36 Histori condition : EDC pin 3
+20201015 11:50:36 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : 234
+20201015 11:50:37 Histori condition : EDC pin 4
+20201015 11:50:37 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : 2346
+20201015 11:50:37 Histori condition : EDC pin 6
+20201015 11:50:37 Histori condition : EDC ACK
+20201015 11:50:37 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : EDC serial port already open
+20201015 11:50:37 Histori condition : 23467
+20201015 11:50:37 Histori condition : EDC pin 7
+20201015 11:50:38 Histori condition : EDC serial port already open
+20201015 11:50:38 Histori condition : EDC serial port already open
+20201015 11:50:38 Histori condition : EDC serial port already open
+20201015 11:50:38 Histori condition : 234679
+20201015 11:50:38 Histori condition : EDC pin 9
+20201015 11:50:38 Histori condition : EDC serial port already open
+20201015 11:50:38 Histori condition : EDC serial port already open
+20201015 11:50:38 Histori condition : EDC serial port already open
+20201015 11:50:38 Histori condition : 234679
+20201015 11:50:38 Histori condition : EDC pin enter
+20201015 11:50:38 Histori condition : EDC serial port close
+20201015 11:50:38 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:50:38 Histori condition : EDC process start
+20201015 11:50:38 Histori condition : EDC serial port close
+20201015 11:50:38 Histori condition : EDC serial port open
+20201015 11:50:39 Histori condition : EDC serial port write
+20201015 11:50:39 Histori condition : EDC serial port already open
+20201015 11:50:39 Histori condition : EDC serial port already open
+20201015 11:50:39 Histori condition : EDC serial port already open
+20201015 11:50:39 Histori condition : EDC serial port already open
+20201015 11:50:39 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:40 Histori condition : EDC serial port already open
+20201015 11:50:41 Histori condition : EDC serial port already open
+20201015 11:50:41 Histori condition : EDC serial port already open
+20201015 11:50:41 Histori condition : EDC serial port already open
+20201015 11:50:41 Histori condition : EDC serial port already open
+20201015 11:50:41 Histori condition : EDC serial port already open
+20201015 11:50:41 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : 4
+20201015 11:50:42 Histori condition : EDC pin 4
+20201015 11:50:42 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : EDC serial port already open
+20201015 11:50:42 Histori condition : 46
+20201015 11:50:42 Histori condition : EDC pin 6
+20201015 11:50:42 Histori condition : EDC ACK
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:43 Histori condition : 467
+20201015 11:50:43 Histori condition : EDC pin 7
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:43 Histori condition : 4675
+20201015 11:50:43 Histori condition : EDC pin 5
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:43 Histori condition : EDC serial port already open
+20201015 11:50:44 Histori condition : EDC serial port already open
+20201015 11:50:44 Histori condition : EDC serial port already open
+20201015 11:50:44 Histori condition : EDC serial port already open
+20201015 11:50:44 Histori condition : EDC serial port already open
+20201015 11:50:44 Histori condition : EDC serial port already open
+20201015 11:50:44 Histori condition : 46758
+20201015 11:50:44 Histori condition : EDC pin 8
+20201015 11:50:44 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : EDC serial port already open
+20201015 11:50:45 Histori condition : 46758
+20201015 11:50:45 Histori condition : EDC pin enter
+20201015 11:50:46 Histori condition : EDC serial port already open
+20201015 11:50:46 Histori condition : EDC serial port already open
+20201015 11:50:46 Histori condition : EDC serial port already open
+20201015 11:50:46 Histori condition : EDC serial port already open
+20201015 11:50:46 Histori condition : EDC serial port already open
+20201015 11:50:46 Histori condition : EDC serial port already open
+20201015 11:50:47 Histori condition : EDC serial port already open
+20201015 11:50:47 Histori condition : EDC serial port already open
+20201015 11:50:47 Histori condition : EDC serial port already open
+20201015 11:50:47 Histori condition : EDC serial port already open
+20201015 11:50:47 Histori condition : EDC serial port already open
+20201015 11:50:47 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:48 Histori condition : EDC serial port already open
+20201015 11:50:49 Histori condition : EDC serial port already open
+20201015 11:50:49 Histori condition : EDC serial port already open
+20201015 11:50:49 Histori condition : EDC serial port already open
+20201015 11:50:49 Histori condition : EDC serial port already open
+20201015 11:50:49 Histori condition : EDC serial port already open
+20201015 11:50:49 Histori condition : EDC serial port already open
+20201015 11:50:50 Histori condition : EDC serial port already open
+20201015 11:50:50 Histori condition : EDC serial port already open
+20201015 11:50:50 Histori condition : EDC serial port already open
+20201015 11:50:50 Histori condition : EDC serial port already open
+20201015 11:50:50 Histori condition : EDC serial port already open
+20201015 11:50:50 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:51 Histori condition : EDC serial port already open
+20201015 11:50:52 Histori condition : EDC serial port already open
+20201015 11:50:52 Histori condition : EDC serial port already open
+20201015 11:50:52 Histori condition : EDC serial port already open
+20201015 11:50:52 Histori condition : EDC serial port already open
+20201015 11:50:52 Histori condition : EDC serial port already open
+20201015 11:50:52 Histori condition : EDC serial port already open
+20201015 11:50:53 Histori condition : EDC serial port already open
+20201015 11:50:53 Histori condition : EDC serial port already open
+20201015 11:50:53 Histori condition : EDC serial port already open
+20201015 11:50:53 Histori condition : EDC serial port already open
+20201015 11:50:53 Histori condition : EDC serial port already open
+20201015 11:50:53 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:54 Histori condition : EDC serial port already open
+20201015 11:50:55 Histori condition : EDC serial port already open
+20201015 11:50:55 Histori condition : EDC serial port already open
+20201015 11:50:55 Histori condition : EDC serial port already open
+20201015 11:50:55 Histori condition : EDC serial port already open
+20201015 11:50:55 Histori condition : EDC serial port already open
+20201015 11:50:55 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:56 Histori condition : EDC serial port already open
+20201015 11:50:57 Histori condition : EDC serial port already open
+20201015 11:50:57 Histori condition : EDC serial port already open
+20201015 11:50:57 Histori condition : EDC serial port already open
+20201015 11:50:57 Histori condition : EDC serial port already open
+20201015 11:50:57 Histori condition : EDC serial port already open
+20201015 11:50:57 Histori condition : EDC serial port already open
+20201015 11:50:58 Histori condition : EDC serial port already open
+20201015 11:50:58 Histori condition : EDC serial port already open
+20201015 11:50:58 Histori condition : EDC serial port already open
+20201015 11:50:58 Histori condition : EDC serial port already open
+20201015 11:50:58 Histori condition : EDC serial port already open
+20201015 11:50:58 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:50:59 Histori condition : EDC serial port already open
+20201015 11:51:00 Histori condition : EDC serial port already open
+20201015 11:51:00 Histori condition : EDC serial port already open
+20201015 11:51:00 Histori condition : EDC serial port already open
+20201015 11:51:00 Histori condition : EDC serial port already open
+20201015 11:51:00 Histori condition : EDC serial port already open
+20201015 11:51:00 Histori condition : EDC serial port already open
+20201015 11:51:01 Histori condition : EDC serial port already open
+20201015 11:51:01 Histori condition : EDC serial port already open
+20201015 11:51:01 Histori condition : EDC serial port already open
+20201015 11:51:01 Histori condition : EDC serial port already open
+20201015 11:51:01 Histori condition : EDC serial port already open
+20201015 11:51:01 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:02 Histori condition : EDC serial port already open
+20201015 11:51:03 Histori condition : EDC serial port already open
+20201015 11:51:03 Histori condition : EDC serial port already open
+20201015 11:51:03 Histori condition : EDC serial port already open
+20201015 11:51:03 Histori condition : EDC serial port already open
+20201015 11:51:03 Histori condition : EDC serial port already open
+20201015 11:51:03 Histori condition : EDC serial port already open
+20201015 11:51:04 Histori condition : EDC serial port already open
+20201015 11:51:04 Histori condition : EDC serial port already open
+20201015 11:51:04 Histori condition : EDC serial port already open
+20201015 11:51:04 Histori condition : EDC serial port already open
+20201015 11:51:04 Histori condition : EDC serial port already open
+20201015 11:51:04 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:05 Histori condition : EDC serial port already open
+20201015 11:51:59 Home condition : clear transaksi success
+20201015 11:51:59 Home condition : clear array success
+20201015 11:51:59 Home condition : clear array nasabah success
+20201015 11:51:59 Home condition : clear list success
+20201015 11:51:59 Home condition : clear transaksi baru success
+20201015 11:52:00 Home condition : clear transaksi success
+20201015 11:52:00 Home condition : clear array success
+20201015 11:52:00 Home condition : clear array nasabah success
+20201015 11:52:00 Home condition : clear list success
+20201015 11:52:00 Home condition : clear transaksi baru success
+20201015 11:52:00 Home condition : entered into home page
+20201015 11:52:01 Home condition : move to histori transaksi
+20201015 11:52:01 Histori condition : entered into histori input kartu
+20201015 11:52:02 Histori condition : input kartu success
+20201015 11:52:02 Histori condition : move to histori input pin
+20201015 11:52:02 Histori condition : entered into histori input pin
+20201015 11:52:03 Histori condition : EDC process start
+20201015 11:52:04 Histori condition : EDC serial port close
+20201015 11:52:04 Histori condition : EDC serial port open
+20201015 11:52:04 Histori condition : EDC serial port write
+20201015 11:52:04 Histori condition : EDC serial port already open
+20201015 11:52:04 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:05 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : 2
+20201015 11:52:06 Histori condition : EDC pin 2
+20201015 11:52:06 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : 23
+20201015 11:52:06 Histori condition : EDC pin 3
+20201015 11:52:06 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : EDC serial port already open
+20201015 11:52:06 Histori condition : 234
+20201015 11:52:06 Histori condition : EDC pin 4
+20201015 11:52:07 Histori condition : EDC serial port already open
+20201015 11:52:07 Histori condition : EDC serial port already open
+20201015 11:52:07 Histori condition : 2346
+20201015 11:52:07 Histori condition : EDC pin 6
+20201015 11:52:07 Histori condition : EDC ACK
+20201015 11:52:07 Histori condition : EDC serial port already open
+20201015 11:52:07 Histori condition : EDC serial port already open
+20201015 11:52:07 Histori condition : EDC serial port already open
+20201015 11:52:07 Histori condition : 23467
+20201015 11:52:07 Histori condition : EDC pin 7
+20201015 11:52:07 Histori condition : EDC serial port already open
+20201015 11:52:08 Histori condition : EDC serial port already open
+20201015 11:52:08 Histori condition : 234675
+20201015 11:52:08 Histori condition : EDC pin 5
+20201015 11:52:08 Histori condition : EDC serial port already open
+20201015 11:52:08 Histori condition : EDC serial port already open
+20201015 11:52:08 Histori condition : EDC serial port already open
+20201015 11:52:08 Histori condition : 234675
+20201015 11:52:08 Histori condition : EDC pin enter
+20201015 11:52:08 Histori condition : EDC serial port close
+20201015 11:52:08 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:52:08 Histori condition : EDC process start
+20201015 11:52:09 Histori condition : EDC serial port close
+20201015 11:52:09 Histori condition : EDC serial port open
+20201015 11:52:09 Histori condition : EDC serial port write
+20201015 11:52:09 Histori condition : EDC serial port already open
+20201015 11:52:10 Histori condition : EDC serial port already open
+20201015 11:52:10 Histori condition : EDC serial port already open
+20201015 11:52:10 Histori condition : EDC serial port already open
+20201015 11:52:10 Histori condition : EDC serial port already open
+20201015 11:52:10 Histori condition : EDC serial port already open
+20201015 11:52:10 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:11 Histori condition : EDC serial port already open
+20201015 11:52:12 Histori condition : EDC serial port already open
+20201015 11:52:12 Histori condition : 5
+20201015 11:52:12 Histori condition : EDC pin 5
+20201015 11:52:12 Histori condition : EDC serial port already open
+20201015 11:52:12 Histori condition : EDC serial port already open
+20201015 11:52:12 Histori condition : 56
+20201015 11:52:12 Histori condition : EDC pin 6
+20201015 11:52:12 Histori condition : EDC ACK
+20201015 11:52:12 Histori condition : EDC serial port already open
+20201015 11:52:12 Histori condition : EDC serial port already open
+20201015 11:52:12 Histori condition : 564
+20201015 11:52:12 Histori condition : EDC pin 4
+20201015 11:52:12 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : 5647
+20201015 11:52:13 Histori condition : EDC pin 7
+20201015 11:52:13 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : 56478
+20201015 11:52:13 Histori condition : EDC pin 8
+20201015 11:52:13 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : EDC serial port already open
+20201015 11:52:13 Histori condition : 564789
+20201015 11:52:13 Histori condition : EDC pin 9
+20201015 11:52:14 Histori condition : EDC serial port already open
+20201015 11:52:14 Histori condition : EDC serial port already open
+20201015 11:52:14 Histori condition : EDC serial port already open
+20201015 11:52:14 Histori condition : EDC serial port already open
+20201015 11:52:14 Histori condition : 564789
+20201015 11:52:14 Histori condition : EDC pin enter
+20201015 11:52:14 Histori condition : EDC serial port close
+20201015 11:52:14 Histori condition : PIN not correct, tryLimit: 1
+20201015 11:52:14 Histori condition : EDC process start
+20201015 11:52:15 Histori condition : EDC serial port close
+20201015 11:52:15 Histori condition : EDC serial port open
+20201015 11:52:15 Histori condition : EDC serial port write
+20201015 11:52:15 Histori condition : EDC serial port already open
+20201015 11:52:16 Histori condition : EDC serial port already open
+20201015 11:52:16 Histori condition : EDC serial port already open
+20201015 11:52:16 Histori condition : EDC serial port already open
+20201015 11:52:16 Histori condition : EDC serial port already open
+20201015 11:52:16 Histori condition : EDC serial port already open
+20201015 11:52:16 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:17 Histori condition : 2
+20201015 11:52:17 Histori condition : EDC pin 2
+20201015 11:52:17 Histori condition : EDC serial port already open
+20201015 11:52:18 Histori condition : EDC serial port already open
+20201015 11:52:18 Histori condition : EDC serial port already open
+20201015 11:52:18 Histori condition : EDC serial port already open
+20201015 11:52:18 Histori condition : 23
+20201015 11:52:18 Histori condition : EDC pin 3
+20201015 11:52:18 Histori condition : EDC serial port already open
+20201015 11:52:18 Histori condition : EDC serial port already open
+20201015 11:52:18 Histori condition : 234
+20201015 11:52:18 Histori condition : EDC pin 4
+20201015 11:52:18 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : 2346
+20201015 11:52:19 Histori condition : EDC pin 6
+20201015 11:52:19 Histori condition : EDC ACK
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : 23467
+20201015 11:52:19 Histori condition : EDC pin 7
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:19 Histori condition : 234675
+20201015 11:52:19 Histori condition : EDC pin 5
+20201015 11:52:19 Histori condition : EDC serial port already open
+20201015 11:52:20 Histori condition : EDC serial port already open
+20201015 11:52:20 Histori condition : EDC serial port already open
+20201015 11:52:20 Histori condition : 234675
+20201015 11:52:20 Histori condition : EDC pin enter
+20201015 11:52:20 Histori condition : EDC serial port close
+20201015 11:52:20 Histori condition : PIN not correct, tryLimit: 0
+20201015 11:52:20 Histori condition : tryLimit has reached 0
+20201015 11:52:20 Histori condition : move to blokir kartu
+20201015 11:52:20 Blokir kartu condition : entered into blokir kartu
+20201015 11:52:23 Blokir kartu condition : move to home
+20201015 11:52:23 Ambil kartu condition : entered into ambil kartu
+20201015 11:52:26 Ambil kartu condition : move to home
+20201015 11:52:26 Home condition : clear transaksi success
+20201015 11:52:26 Home condition : clear array success
+20201015 11:52:26 Home condition : clear array nasabah success
+20201015 11:52:26 Home condition : clear list success
+20201015 11:52:26 Home condition : clear transaksi baru success
+20201015 11:52:26 Home condition : entered into home page
+20201015 11:59:19 Home condition : clear transaksi success
+20201015 11:59:19 Home condition : clear array success
+20201015 11:59:19 Home condition : clear array nasabah success
+20201015 11:59:19 Home condition : clear list success
+20201015 11:59:19 Home condition : clear transaksi baru success
+20201015 11:59:19 Home condition : clear transaksi success
+20201015 11:59:19 Home condition : clear array success
+20201015 11:59:19 Home condition : clear array nasabah success
+20201015 11:59:19 Home condition : clear list success
+20201015 11:59:19 Home condition : clear transaksi baru success
+20201015 11:59:19 Home condition : entered into home page
+20201015 11:59:26 Home condition : move to buku tabungan
+20201015 11:59:26 Buku condition : entered into buku input card
+20201015 11:59:27 Buku condition : input card success
+20201015 11:59:27 Buku condition : move to buku input pin
+20201015 11:59:27 Buku condition : entered into buku input pin
+20201015 11:59:28 Histori condition : EDC process start
+20201015 11:59:29 Buku condition : EDC serial port close
+20201015 11:59:29 Buku condition : EDC serial port open
+20201015 11:59:29 Buku condition : EDC serial port write
+20201015 11:59:29 Buku condition : EDC serial port already open
+20201015 11:59:29 Buku condition : EDC serial port already open
+20201015 11:59:29 Buku condition : EDC serial port already open
+20201015 11:59:30 Buku condition : EDC serial port already open
+20201015 11:59:30 Buku condition : EDC serial port already open
+20201015 11:59:30 Buku condition : EDC serial port already open
+20201015 11:59:30 Buku condition : EDC serial port already open
+20201015 11:59:30 Buku condition : EDC serial port already open
+20201015 11:59:30 Buku condition : EDC serial port already open
+20201015 11:59:31 Buku condition : EDC serial port already open
+20201015 11:59:31 Buku condition : EDC serial port already open
+20201015 11:59:31 Buku condition : EDC serial port already open
+20201015 11:59:31 Buku condition : EDC serial port already open
+20201015 11:59:31 Buku condition : EDC serial port already open
+20201015 11:59:31 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : EDC serial port already open
+20201015 11:59:32 Buku condition : 2
+20201015 11:59:32 Buku condition : EDC pin 2
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:33 Buku condition : 23
+20201015 11:59:33 Buku condition : EDC pin 3
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:33 Buku condition : 234
+20201015 11:59:33 Buku condition : EDC pin 4
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:33 Buku condition : EDC serial port already open
+20201015 11:59:34 Buku condition : EDC serial port already open
+20201015 11:59:34 Buku condition : 2346
+20201015 11:59:34 Buku condition : EDC pin 6
+20201015 11:59:34 Buku condition : EDC ACK
+20201015 11:59:34 Buku condition : EDC serial port already open
+20201015 11:59:34 Buku condition : EDC serial port already open
+20201015 11:59:34 Buku condition : EDC serial port already open
+20201015 11:59:34 Buku condition : 23467
+20201015 11:59:34 Buku condition : EDC pin 7
+20201015 11:59:34 Buku condition : EDC serial port already open
+20201015 11:59:34 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : 234675
+20201015 11:59:35 Buku condition : EDC pin 5
+20201015 11:59:35 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : EDC serial port already open
+20201015 11:59:35 Buku condition : 234675
+20201015 11:59:35 Buku condition : EDC pin enter
+20201015 11:59:35 Buku condition : EDC serial port close
+20201015 11:59:35 Histori condition : PIN not correct, tryLimit: 2
+20201015 11:59:35 Histori condition : EDC process start
+20201015 11:59:36 Buku condition : EDC serial port close
+20201015 11:59:36 Buku condition : EDC serial port open
+20201015 11:59:37 Buku condition : EDC serial port write
+20201015 11:59:37 Buku condition : EDC serial port already open
+20201015 11:59:37 Buku condition : EDC serial port already open
+20201015 11:59:37 Buku condition : EDC serial port already open
+20201015 11:59:37 Buku condition : EDC serial port already open
+20201015 11:59:37 Buku condition : EDC serial port already open
+20201015 11:59:37 Buku condition : EDC serial port already open
+20201015 11:59:38 Buku condition : EDC serial port already open
+20201015 11:59:38 Buku condition : EDC serial port already open
+20201015 11:59:38 Buku condition : EDC serial port already open
+20201015 11:59:38 Buku condition : EDC serial port already open
+20201015 11:59:38 Buku condition : EDC serial port already open
+20201015 11:59:38 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:39 Buku condition : EDC serial port already open
+20201015 11:59:40 Buku condition : EDC serial port already open
+20201015 11:59:40 Buku condition : EDC serial port already open
+20201015 11:59:40 Buku condition : EDC serial port already open
+20201015 11:59:40 Buku condition : EDC serial port already open
+20201015 11:59:40 Buku condition : EDC serial port already open
+20201015 11:59:40 Buku condition : EDC serial port already open
+20201015 11:59:41 Buku condition : EDC serial port already open
+20201015 11:59:41 Buku condition : EDC serial port already open
+20201015 11:59:41 Buku condition : EDC serial port already open
+20201015 11:59:41 Buku condition : EDC serial port already open
+20201015 11:59:41 Buku condition : EDC serial port already open
+20201015 11:59:41 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open
+20201015 11:59:42 Buku condition : EDC serial port already open

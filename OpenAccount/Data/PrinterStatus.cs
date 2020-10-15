@@ -20,6 +20,7 @@ namespace OpenAccount.Data
         PrinterSettings settings = new PrinterSettings();
         private string printername;
         public string workingdirectory;
+        public int StatusCode;
         string path;
 
         public void StatusPrinting(string strnamaprinter)
@@ -52,6 +53,7 @@ namespace OpenAccount.Data
             Utility.WriteLog("Printer status condition : check status printing in " + strnamaprinter, "step-action");
             process.Start();
             process.WaitForExit();
+            StatusCode = process.ExitCode;
             Utility.WriteLog("Printer status condition : check status printing done", "step-action");
             if (process.HasExited)
             {

@@ -1,0 +1,40 @@
+20201014 14:29:27 Histori condition : hit service histori start
+20201014 14:29:27 Histori condition : clear list histori success
+20201014 14:32:18 Home condition : clear transaksi success
+20201014 14:32:18 Home condition : clear array success
+20201014 14:32:18 Home condition : clear array nasabah success
+20201014 14:32:18 Home condition : clear list success
+20201014 14:32:18 Home condition : clear transaksi baru success
+20201014 14:32:19 Home condition : clear transaksi success
+20201014 14:32:19 Home condition : clear array success
+20201014 14:32:19 Home condition : clear array nasabah success
+20201014 14:32:19 Home condition : clear list success
+20201014 14:32:19 Home condition : clear transaksi baru success
+20201014 14:32:19 Home condition : entered into home page
+20201014 14:32:24 Home condition : move to histori transaksi
+20201014 14:32:24 Histori condition : entered into histori input kartu
+20201014 14:32:25 Histori condition : input kartu success
+20201014 14:32:25 Histori condition : move to histori input pin
+20201014 14:32:26 Histori condition : entered into histori input pin
+20201014 14:32:27 Histori condition : input pin success
+20201014 14:32:27 Histori condition : input data Bambang Pamungkas success
+20201014 14:32:27 Histori condition : entered into histori pilih menu
+20201014 14:32:28 Histori condition : move to histori bulan berjalan
+20201014 14:32:28 Histori condition : hit service histori start
+20201014 14:32:28 Histori condition : clear list histori success
+20201014 14:32:28 Histori condition : post service start
+20201014 14:32:28 Histori condition : entered into history bulan berjalan
+20201014 14:32:29 Histori condition : set transaksi ID tes002 success
+20201014 14:32:29 Histori condition : data empty
+20201014 14:32:29 Histori condition : set data histori success
+20201014 14:32:31 Histori condition : modal visible appear
+20201014 14:32:31 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201014 14:32:32 Printer condition : check status printing start
+20201014 14:32:32 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201014 14:32:49 Printer status condition : check status printing done
+20201014 14:32:50 Printer status condition : check status printing close
+20201014 14:32:56 20201014 14:32:32 Status printing in EPSOND03466 (L3150 Series) : job finish printing
+20201014 14:32:32 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201014 14:32:32 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201014 14:32:57 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202010\step-action201014-14.txt

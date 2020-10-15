@@ -42,6 +42,7 @@ namespace OpenAccount.Data
         public string _NomorRekening { get; set; }
         public string _MenuEBanking { get; set; }
         public string _ReferenceID { get; set; }
+        public string _StatusPrinter { get; set; }
 
         public void setTransaksiID(string strtransaksiid)
         {
@@ -191,6 +192,11 @@ namespace OpenAccount.Data
         public void setNomorRekening(string strnorek)
         {
             _NomorRekening = strnorek;
+        }
+
+        public void setStatusPrinting(string strstatus)
+        {
+            _StatusPrinter = strstatus;
         }
 
         public void clear()
