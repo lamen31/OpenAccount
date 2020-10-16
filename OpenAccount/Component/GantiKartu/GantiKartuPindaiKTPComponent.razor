@@ -57,10 +57,6 @@
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
                 </li>
-                <li class="todo">
-                    <em>6</em>
-                    <!-- <span>Done</span> -->
-                </li>
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
@@ -90,8 +86,8 @@
         StateHasChanged();
         Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
         scanner.FrontSwallow();
-        Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
-        scanner.BackSwallow();
+        //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
+        //scanner.BackPos();
         await Task.Delay(2000);
         CheckKTPValid();
     }
@@ -100,17 +96,18 @@
     {
         if (isKTPValid)
         {
-            Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
-            scanner.RadioPos();
-            await Task.Delay(2000);
+            //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
+            //scanner.RadioPos();
+            //await Task.Delay(2000);
             Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp berhasil", "step-action");
             OnClick.InvokeAsync("gantikartupindaiktpberhasil");
         }
         else
         {
-            await Task.Delay(1000);
+            //await Task.Delay(1000);
             Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
             scanner.ReturnCard();
+            await Task.Delay(100);
             Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
             scanner.CloseCVRReader();
         }

@@ -46,13 +46,13 @@ namespace OpenAccount.Data
             string path = Directory.GetCurrentDirectory();
             path = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
             File.Delete(path);
-            Utility.WriteLog("Sign pad condition : file from " + path + " has deleted", "step-action");
+            Utility.WriteLog("Sign pad condition : signature from " + path + " has deleted", "step-action");
 
             pathWorking = workingdirectory + "\\hwsign.png";
             if (File.Exists(pathWorking))
             {
                 await Task.Run(() => File.Move(pathWorking, path));
-                Utility.WriteLog("Sign pad condition : file from " + pathWorking + " has moved to " + path, "step-action");
+                Utility.WriteLog("Sign pad condition : signature from " + pathWorking + " has moved to " + path, "step-action");
 
                 strBase64 = convertToBase64(path);
                 trxbaru.setImageTTD1(strBase64);
@@ -83,18 +83,38 @@ namespace OpenAccount.Data
             string path = Directory.GetCurrentDirectory();
             path = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD2);
             File.Delete(path);
-            Utility.WriteLog("Sign pad condition : file from " + path + " has deleted", "step-action");
+            Utility.WriteLog("Sign pad condition : signature from " + path + " has deleted", "step-action");
 
             pathWorking = workingdirectory + "\\hwsign.png";
             if (File.Exists(pathWorking))
             {
                 await Task.Run(() => File.Move(pathWorking, path));
-                Utility.WriteLog("Sign pad condition : file from " + pathWorking + " has moved to " + path, "step-action");
+                Utility.WriteLog("Sign pad condition : signature from " + pathWorking + " has moved to " + path, "step-action");
 
                 strBase64 = convertToBase64(path);
                 trxbaru.setImageTTD2(strBase64);
                 Utility.WriteLog("Sign pad condition : set image signpad2 base64 success", "step-action");
             }
+        }
+
+        public async Task DeleteSign()
+        {
+            string path = Directory.GetCurrentDirectory();
+            string path1 = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD);
+            File.Delete(path1);
+            Utility.WriteLog("Sign pad condition : signature 1 from " + path1 + " has deleted", "step-action");
+            string path2 = path + "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD2);
+            File.Delete(path2);
+            Utility.WriteLog("Sign pad condition : signature 2 from " + path2 + " has deleted", "step-action");
+            Utility.WriteLog("Sign pad condition : all file signature has been deleted", "step-action");
+        }
+
+        public async Task DeleteSign2()
+        {
+            string path = Directory.GetCurrentDirectory();
+            path += "\\" + config.Read("PATH", Config.PARAM_PATH_IMAGE_SAVESIGNPAD2);
+            File.Delete(path);
+            Utility.WriteLog("Sign pad condition : signature 2 has been deleted", "step-action");
         }
 
         public async Task CloseProcess()

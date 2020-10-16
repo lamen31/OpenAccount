@@ -84,8 +84,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
-        scanner.RadioPos();
+        //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
+        //scanner.RadioPos();
         await Task.Delay(2000);
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu konfirmasi data", "step-action");
         OnClick.InvokeAsync("gantikartukonfirmasidata");
@@ -93,9 +93,10 @@
 
     private async Task KTP()
     {
-        await Task.Delay(1000);
+        //await Task.Delay(1000);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
+        await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");

@@ -87,7 +87,7 @@ namespace OpenAccount.Data
                         Utility.WriteLog("ID scanner condition : get status failed", "step-action");
                         continue;
                     }
-                    Utility.WriteLog("ID scanner condition : get status success", "step-action");
+                    //Utility.WriteLog("ID scanner condition : get status success", "step-action");
                     iRet = ScannerDLL.cisQuery(0, status);
                     if (iRet == 0)
                     {
@@ -110,7 +110,6 @@ namespace OpenAccount.Data
                                     {
                                         Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
                                         res = 0;
-                                        iRet = ScannerDLL.goFrontPos(0, status);
                                         isManualStop = true;
                                         break;
                                     }
@@ -128,11 +127,11 @@ namespace OpenAccount.Data
                             //        Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
                             //        break;
                             //    }
-                            //case 49:
-                            //    {
-                            //        Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
-                            //        break;
-                            //    }
+                            case 49:
+                                {
+                                    Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
+                                    break;
+                                }
                             case 52:
                                 {
                                     Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");
@@ -210,7 +209,7 @@ namespace OpenAccount.Data
             else
                 Utility.WriteLog("ID scanner condition : set front entry failed", "step-action");
         }
-        public void BackSwallow()
+        public void BackPos()
         {
             buf = new byte[6];
             res = ScannerDLL.goBackPos(0, buf);
@@ -280,10 +279,8 @@ namespace OpenAccount.Data
                 strImageBotFile = pathsaveimage + "NPWP_BOT.BMP";
             }
             File.Delete(strImageUpFile);
-            Console.WriteLine("FILE FROM " + strImageUpFile + " HAS BEEN DELETED");
             Utility.WriteLog("ID scanner condition : file from " + strImageUpFile + " has been deleted", "step-action");
             File.Delete(strImageBotFile);
-            Console.WriteLine("FILE FROM " + strImageBotFile + " HAS BEEN DELETED");
             Utility.WriteLog("ID scanner condition : file from " + strImageBotFile + " has been deleted", "step-action");
             IDCardInfo idCardInfo = new IDCardInfo();
             byte[] frontPtr = new byte[5242880];
@@ -305,11 +302,13 @@ namespace OpenAccount.Data
             {
                 strBase64 = convertToBase64(strImageUpFile);
                 trxbaru.setImageKTP(strBase64);
+                Utility.WriteLog("ID scanner condition : set image KTP base64 success", "step-action");
             }
             else if(strfile == "NPWP")
             {
                 strBase64 = convertToBase64(strImageUpFile);
                 trxbaru.setImageNPWP(strBase64);
+                Utility.WriteLog("ID scanner condition : set image NPWP base64 success", "step-action");
             }
             return res;
         }
@@ -325,6 +324,7 @@ namespace OpenAccount.Data
                     image.Save(m, image.RawFormat);
                     byte[] imageBytes = m.ToArray();
                     base64String = Convert.ToBase64String(imageBytes);
+                    Utility.WriteLog("ID scanner condition : convert image to base64 success", "step-action");
                 }
             }
             return base64String;
@@ -348,10 +348,8 @@ namespace OpenAccount.Data
                 strImageBotFile = pathsaveimage + "NPWP_BOT.BMP";
             }
             File.Delete(strImageUpFile);
-            Console.WriteLine("FILE FROM " + strImageUpFile + " HAS BEEN DELETED");
             Utility.WriteLog("ID scanner condition : file from " + strImageUpFile + " has been deleted", "step-action");
             File.Delete(strImageBotFile);
-            Console.WriteLine("FILE FROM " + strImageBotFile + " HAS BEEN DELETED");
             Utility.WriteLog("ID scanner condition : file from " + strImageBotFile + " has been deleted", "step-action");
         }
         public int ScanIDCard(byte[] frontPtr, byte[] backPtr, string frontFile, string backFile, ref CrtRect rect, ref IDcardImgOcrInfo idcardImgOcrInfo)
@@ -360,7 +358,6 @@ namespace OpenAccount.Data
             int retCode = ScannerDLL.scan(mDeviceId, 648, 1050, 10);
             if (retCode != 0)
             {
-                Console.WriteLine("SCANNING PHOTO FAILED");
                 Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
             }
             rect.height = 648;
@@ -369,25 +366,21 @@ namespace OpenAccount.Data
             retCode = ScannerDLL.readImageDataAndOcr(mDeviceId, frontPtr, backPtr, ref rect, ref idcardImgOcrInfo);
             if (retCode != 0)
             {
-                Console.WriteLine("SCANNING PHOTO FAILED");
                 Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
                 return retCode = -138;
             }
             retCode = ScannerDLL.saveBmp(frontFile, frontPtr, ref rect);
             if (retCode != 0)
             {
-                Console.WriteLine("SCANNING PHOTO FAILED");
                 Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
                 return retCode = -138;
             }
             retCode = ScannerDLL.saveBmp(backFile, backPtr, ref rect);
             if (retCode != 0)
             {
-                Console.WriteLine("SCANNING PHOTO FAILED");
                 Utility.WriteLog("ID scanner condition : scanning photo failed", "step-action");
                 return retCode = -138;
             }
-            Console.WriteLine("SCANNING PHOTO SUCCESS");
             Utility.WriteLog("ID scanner condition : scanning photo success", "step-action");
             return retCode;
         }
@@ -397,32 +390,27 @@ namespace OpenAccount.Data
             int iRet = ScannerDLL.getDeviceStatus(mDeviceId);
             if (iRet != 1)
             {
-                Console.WriteLine("QUERY DEVICE STATUS FAILED");
                 Utility.WriteLog("ID scanner condition : query device status failed", "step-action");
                 return -133;
             }
             else
             {
-                Console.WriteLine("QUERY DEVICE STATUS SUCCESS");
                 Utility.WriteLog("ID scanner condition : query device status success", "step-action");
             }
             buf = new byte[2];
             res = ScannerDLL.cisQuery(mDeviceId, buf);
             if (res == 0)
             {
-                Console.WriteLine("START EXITING CARD");
                 Utility.WriteLog("ID scanner condition : start exiting card", "step-action");
                 buf[0] = 2;
                 int retCode = ScannerDLL.goFrontPos(mDeviceId, buf);
                 Thread.Sleep(5000);
                 if (retCode != 0)
                 {
-                    Console.WriteLine("EXIT CARD FAILED");
                     Utility.WriteLog("ID scanner condition : exit card failed", "step-action");
                 }
                 else
                 {
-                    Console.WriteLine("EXIT CARD SUCCESS");
                     Utility.WriteLog("ID scanner condition : exit card success", "step-action");
                 }
             }
@@ -440,12 +428,10 @@ namespace OpenAccount.Data
                 res = ScannerDLL.closeCardRead(mDeviceId);
                 if (res == 0)
                 {
-                    Console.WriteLine("CLOSE ID CARD READER SUCCESS");
                     Utility.WriteLog("ID scanner condition : close id card reader success", "step-action");
                 }
                 else
                 {
-                    Console.WriteLine("CLOSE ID CARD READER FAILED");
                     Utility.WriteLog("ID scanner condition : close id card reader failed", "step-action");
                 }
                 return res;
@@ -453,7 +439,6 @@ namespace OpenAccount.Data
             catch
             {
                 res = -131;
-                Console.WriteLine("CLOSE ID CARD READER ERROR");
                 Utility.WriteLog("ID scanner condition : close id card reader error", "step-action");
                 return res;
             }

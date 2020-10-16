@@ -81,9 +81,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(1000);
-        Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
-        scanner.BackSwallow();
+        //await Task.Delay(2000);
+        //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
+        //scanner.BackPos();
         loopFinger = true;
         CheckFingerValid();
         //OnClick.InvokeAsync("gantikartufingerberhasil");
@@ -97,8 +97,8 @@
             if (FingerValid)
             {
                 loopFinger = false;
-                Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
-                scanner.RadioPos();
+                //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
+                //scanner.RadioPos();
                 await Task.Delay(2000);
                 Utility.WriteLog("Ganti kartu condition : move to ganti kartu finger berhasil", "step-action");
                 OnClick.InvokeAsync("gantikartufingerberhasil");
@@ -113,6 +113,7 @@
                     await Task.Delay(1000);
                     Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
+                    await Task.Delay(100);
                     Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
                     scanner.CloseCVRReader();
                     loopFinger = false;
@@ -127,9 +128,10 @@
     private async Task KTP()
     {
         loopFinger = false;
-        await Task.Delay(1000);
+        //await Task.Delay(1000);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
+        await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");

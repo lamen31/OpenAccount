@@ -32,7 +32,7 @@
             <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="TandaTangan">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
-            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+            <ol class="track-progressBR" style="margin-left: 0%; margin-bottom: 2%;">
                 <li class="done">
                     <em>1</em>
                     <!-- <span>Menu</span> -->
@@ -96,6 +96,8 @@
         if (firstRender)
         {
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan kedua", "step-action");
+            Utility.WriteLog("Buka rekening condition : sign pad delete file second signature", "step-action");
+            sign.DeleteSign2();
             Utility.WriteLog("Buka rekening condition : sign pad process start", "step-action");
             await sign.signpad();
             Utility.WriteLog("Buka rekening condition : sign pad process save image", "step-action");

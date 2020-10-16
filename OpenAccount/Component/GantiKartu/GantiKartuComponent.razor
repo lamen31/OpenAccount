@@ -18,11 +18,11 @@
                         <label style="font-weight: 600; font-size: 18px;">Nomor Rekening</label>
                         @if (strnorek == string.Empty)
                         {
-                            <input type="number" class="form-control" placeholder="nomor rekening anda">
+                            <input type="text" class="form-control" placeholder="nomor rekening anda">
                         }
                         else
                         {
-                            <input type="number" class="form-control" @bind="strnorek">
+                            <input type="text" class="form-control" @bind="strnorek">
                         }
                     </div>
                 </div>
@@ -85,8 +85,8 @@
 </footer><!-- End Footer -->
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
+        [Parameter]
+        public EventCallback<string> OnClick { get; set; }
 
     private string strnorek = string.Empty;
 
@@ -101,6 +101,14 @@
     private void InputCharData(string strinput)
     {
         strnorek += strinput;
+        if (strnorek.Length == 2)
+            strnorek += "-";
+        if (strnorek.Length == 7)
+            strnorek += "-";
+        if (strnorek.Length == 14)
+            strnorek += "-";
+        if (strnorek.Length == 17)
+            strnorek += "-";
     }
 
     private void RemoveCharData()
@@ -117,7 +125,10 @@
 
     private async Task KTP()
     {
-        Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
-        OnClick.InvokeAsync("gantikartupindaiktp");
+        if (strnorek.Length == 19)
+        {
+            Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
+            OnClick.InvokeAsync("gantikartupindaiktp");
+        }
     }
 }

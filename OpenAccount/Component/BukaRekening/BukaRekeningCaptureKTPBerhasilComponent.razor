@@ -42,7 +42,7 @@
            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="KTP">Kembali</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
-            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+            <ol class="track-progressBR" style="margin-left: 0%; margin-bottom: 2%;">
                 <li class="done">
                     <em>1</em>
                     <!-- <span>Menu</span> -->
@@ -113,7 +113,7 @@
 
     private async Task KTP()
     {
-        await Task.Delay(1000);
+        //await Task.Delay(1000);
         Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
