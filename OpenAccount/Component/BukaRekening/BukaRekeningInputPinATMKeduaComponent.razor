@@ -7,7 +7,6 @@
 @inject EDC edc
 @inject Config config
 @inject TransaksiBaru trxbaru
-
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -28,16 +27,6 @@
                         </div>
                     </div>
                 </form>
-                @if (isSesuai && !isNotCorrect)
-                {
-                    <h3 style="color:#00AF80 ; font-weight: 900; text-align: center;">PIN Sesuai</h3>
-                }
-                else if (!isSesuai && isNotCorrect)
-                {
-                    <h3 style="color:#af0000 ; font-weight: 900; text-align: center;">PIN Tidak Sesuai</h3>
-                    @*<p style="color:#af0000 ; font-weight: 900; text-align: center;">Kesempatan mencoba @tryLimit.ToString()x lagi</p>*@
-                }
-
             </div>
         </div>
     </div>
@@ -99,11 +88,54 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isSalah)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin ATM <b style="color: #af0000;">TIDAK SESUAI</b></h3>
+                        <h5 style="font-style:italic;">Tekan <b>Lanjut</b> untuk kembali memasukan pin</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="PinATM">Lanjut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isSesuai)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin ATM <b style="color: #00AF80;">SESUAI</b></h3>
+                        <h5 style="font-style:italic;">Tekan <b>Lanjut</b> untuk proses selanjutnya</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="MenuEBanking">Lanjut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private string rekening = "1323492841";
     private string strpin = string.Empty;
     private string strpinNomor = string.Empty;
     private SerialPort sPort = new SerialPort();
@@ -133,17 +165,31 @@
             await EDC("14");
             if (isPin)
             {
-                trxbaru.setPinRekening(strpinNomor);
-                Utility.WriteLog("Buka rekening condition : input pin nomor rekening " + strpinNomor + " success", "step-action");
-                Utility.WriteLog("Buka rekening condition : move to buka rekening menu ebanking", "step-action");
-                OnClick.InvokeAsync("bukarekeningmenuebanking");
+                isSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
             }
             else if (isNotPin)
             {
-                Utility.WriteLog("Buka rekening condition : move to buka rekening input atm", "step-action");
-                OnClick.InvokeAsync("bukarekeninginputpinatm");
+                isSalah = true;
+                await Task.Delay(100);
+                StateHasChanged();
             }
         }
+    }
+
+    private async Task MenuEBanking()
+    {
+        trxbaru.setPinRekening(strpinNomor);
+        Utility.WriteLog("Buka rekening condition : input pin nomor rekening " + strpinNomor + " success", "step-action");
+        Utility.WriteLog("Buka rekening condition : move to buka rekening menu ebanking", "step-action");
+        OnClick.InvokeAsync("bukarekeningmenuebanking");
+    }
+
+    private async Task PinATM()
+    {
+        Utility.WriteLog("Buka rekening condition : move to buka rekening input atm", "step-action");
+        OnClick.InvokeAsync("bukarekeninginputpinatm");
     }
 
     private async Task EDC(string ecrmsg)
@@ -192,7 +238,6 @@
 
         do
         {
-            await Task.Delay(150);
             dataRespond = string.Empty;
             dataSplit = string.Empty;
             //bool exitLoop = false;
@@ -214,14 +259,15 @@
                         case 69:
                             if (strpin.Length == 6)
                             {
-                                if (isSesuai)
+                                if (strpinNomor == trxbaru._PinATM1)
                                 {
                                     isPin = true;
                                     isLoop = false;
                                 }
-                                else if (isNotCorrect)
+                                else if (strpinNomor != trxbaru._PinATM1)
                                 {
                                     isNotPin = true;
+                                    isLoop = false;
                                 }
                             }
                             Utility.WriteLog("Buka rekening condition : " + strpin, "step-action");
@@ -385,29 +431,29 @@
             }
             await Task.Delay(100);
             StateHasChanged();
-            if (strpin.Length == 6)
-            {
-                if(strpinNomor == trxbaru._PinATM1)
-                {
-                    isSesuai = true;
-                    isNotCorrect = false;
-                    Utility.WriteLog("Buka rekening condition : pin sesuai", "step-action");
-                }
-                else if (strpinNomor != trxbaru._PinATM1)
-                {
-                    isSesuai = false;
-                    isNotCorrect = true;
-                    //tryLimit -= 1;
-                    //if (tryLimit == 0)
-                    //{
-                    //    trxbaru.clearPinPertama();
-                    //    OnClick.InvokeAsync("bukarekeninginputpinatm");
-                    //}
-                    Utility.WriteLog("Buka rekening condition : pin tidak sesuai", "step-action");
-                }
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //if (strpin.Length == 6)
+            //{
+            //    if (strpinNomor == trxbaru._PinATM1)
+            //    {
+            //        isSesuai = true;
+            //        isNotCorrect = false;
+            //        Utility.WriteLog("Buka rekening condition : pin sesuai", "step-action");
+            //    }
+            //    else if (strpinNomor != trxbaru._PinATM1)
+            //    {
+            //        isSesuai = false;
+            //        isNotCorrect = true;
+            //        //tryLimit -= 1;
+            //        //if (tryLimit == 0)
+            //        //{
+            //        //    trxbaru.clearPinPertama();
+            //        //    OnClick.InvokeAsync("bukarekeninginputpinatm");
+            //        //}
+            //        Utility.WriteLog("Buka rekening condition : pin tidak sesuai", "step-action");
+            //    }
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         } while (isLoop);
 
         Console.WriteLine("2");
@@ -425,73 +471,6 @@
         //await CancelEDC("15");
         Utility.WriteLog("Buka rekening condition : move to buka rekening input pin atm", "step-action");
         OnClick.InvokeAsync("bukarekeninginputpinatm");
-    }
-
-    private async Task CancelEDC(string ecrmsg)
-    {
-        string _statusCode = string.Empty;
-        string stx = "02";
-        string ecr = "424E49"; // BNI;
-        string ecr_messsage = string.Empty;
-        string etx = "03";
-        string lrc = "00";
-        string dataSplit = "";
-
-        string dataRespond = string.Empty;
-        SerialPort serialPort = new SerialPort();
-
-        serialPort.Close();
-
-        string request_BankFiller = string.Empty;
-
-        request_BankFiller = edc.HexaBankFiller("");
-
-        ecr_messsage = ecrmsg
-            + request_BankFiller;
-
-        string data = stx
-            + ecr
-            + ecr_messsage
-            + etx
-            + lrc;
-
-        byte[] data2 = edc.StringToByteArray(data);
-        byte[] data2_with_lrc = edc.LRC(data2);
-        //data2[56] = 0x77;
-        serialPort.PortName = sPort.PortName;
-        serialPort.BaudRate = 115200;
-        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
-
-        Console.WriteLine("1");
-
-        serialPort.Open();
-
-        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
-
-        await Task.Delay(150);
-        dataRespond = string.Empty;
-        dataSplit = string.Empty;
-        //bool exitLoop = false;
-        //Console.WriteLine(dataRespond);
-        if (serialPort.IsOpen)
-        {
-
-            string dataCurrent = serialPort.ReadExisting();
-            dataRespond += dataCurrent;
-            if (dataRespond.Contains("\x06"))
-            {
-                if (dataRespond.Length > 10)
-                {
-                    serialPort.Close();
-                    Console.WriteLine("EDC ACK");
-                }
-            }
-            else if (dataRespond.Contains("\x15"))
-            {
-                serialPort.Close();
-                Console.WriteLine("EDC NAK");
-            }
-        }
     }
 
     //private async Task MenuEbanking()

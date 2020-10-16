@@ -175,7 +175,6 @@
 
         do
         {
-            await Task.Delay(150);
             dataRespond = string.Empty;
             dataSplit = string.Empty;
             //bool exitLoop = false;
@@ -378,74 +377,6 @@
         //CancelEDC("15");
         Utility.WriteLog("Buka rekening condition : move to buka rekening menu ebanking", "step-action");
         OnClick.InvokeAsync("bukarekeningmenuebanking");
-    }
-
-    private async Task CancelEDC(string ecrmsg)
-    {
-        string _statusCode = string.Empty;
-        string stx = "02";
-        string ecr = "424E49"; // BNI;
-        string ecr_messsage = string.Empty;
-        string etx = "03";
-        string lrc = "00";
-        string dataSplit = "";
-
-        string dataRespond = string.Empty;
-        SerialPort serialPort = new SerialPort();
-
-        serialPort.Close();
-
-        string request_BankFiller = string.Empty;
-
-        request_BankFiller = edc.HexaBankFiller("");
-
-        ecr_messsage = ecrmsg
-            + request_BankFiller;
-
-        string data = stx
-            + ecr
-            + ecr_messsage
-            + etx
-            + lrc;
-
-        byte[] data2 = edc.StringToByteArray(data);
-        byte[] data2_with_lrc = edc.LRC(data2);
-        //data2[56] = 0x77;
-        serialPort.PortName = sPort.PortName;
-        serialPort.BaudRate = 115200;
-        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
-
-        Console.WriteLine("1");
-
-        serialPort.Open();
-
-        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
-
-        await Task.Delay(150);
-        dataRespond = string.Empty;
-        dataSplit = string.Empty;
-        //bool exitLoop = false;
-        //Console.WriteLine(dataRespond);
-        if (serialPort.IsOpen)
-        {
-
-            string dataCurrent = serialPort.ReadExisting();
-            dataRespond += dataCurrent;
-            if (dataRespond.Contains("\x06"))
-            {
-                if (dataRespond.Length > 10)
-                {
-                    serialPort.Close();
-                    await Task.Delay(3000);
-                    Console.WriteLine("EDC ACK");
-                }
-            }
-            else if (dataRespond.Contains("\x15"))
-            {
-                serialPort.Close();
-                Console.WriteLine("EDC NAK");
-            }
-        }
     }
 
     //private async Task InputPinKedua()

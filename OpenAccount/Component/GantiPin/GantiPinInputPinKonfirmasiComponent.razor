@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin <b style="color: #af0000;">TIDAK SESUAI</b></h3>
+                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin baru <b style="color: #af0000;">TIDAK SESUAI</b></h3>
                         <h5 style="font-style:italic;">Tekan <b>Lanjut</b> untuk kembali memasukan pin</h5>
                         <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="PinBaru">Lanjut</button>
                     </div>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin <b style="color: #00AF80;">SESUAI</b></h3>
+                        <h3 class="teks" style="margin-top: 5%;">Konfirmasi pin baru <b style="color: #00AF80;">SESUAI</b></h3>
                         <h5 style="font-style:italic;">Tekan <b>Lanjut</b> untuk proses selanjutnya</h5>
                         <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="PinSukses">Lanjut</button>
                     </div>
@@ -229,7 +229,6 @@
 
         do
         {
-            await Task.Delay(150);
             dataRespond = string.Empty;
             dataSplit = string.Empty;
             //bool exitLoop = false;
