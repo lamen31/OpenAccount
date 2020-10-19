@@ -19,10 +19,10 @@
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
                     <teks>Hello, @trx._Nasabah[0]</teks>
                     <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @jumlahtransaksi Histori Transaksi pada</h3><br>
-                    <p>
+                    <div style="margin-top:5%;">
                         <h3 style="color: #00529C;"><b>@jenisperiode</b></h3>
                         <h3 style="color: #F15A23;"><b>@startdate s/d @enddate</b></h3>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -70,7 +70,7 @@
 
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog">
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -91,7 +91,7 @@
 
 @if (isNoTransaksi)
 {
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -258,6 +258,7 @@
             }
             halaman = 1;
             sisatransaksi = totalbaris;
+            int tempmaxbaris = maxbaris;
             for (int i = 0; i < n; i++)
             {
                 string TransactionID = string.Empty;
@@ -337,6 +338,7 @@
                     }
                     Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " success", "step-action");
                     startindex += maxbaris;
+                    tempmaxbaris += maxbaris;
                     halaman += 1;
                     maxhalaman -= 1;
                     sisatransaksi -= maxbaris;

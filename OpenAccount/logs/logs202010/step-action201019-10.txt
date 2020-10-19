@@ -1,0 +1,49 @@
+20201019 10:22:07 Home condition : clear transaksi success
+20201019 10:22:07 Home condition : clear array success
+20201019 10:22:07 Home condition : clear array nasabah success
+20201019 10:22:07 Home condition : clear list success
+20201019 10:22:07 Home condition : clear transaksi baru success
+20201019 10:22:08 Home condition : clear transaksi success
+20201019 10:22:08 Home condition : clear array success
+20201019 10:22:08 Home condition : clear array nasabah success
+20201019 10:22:08 Home condition : clear list success
+20201019 10:22:08 Home condition : clear transaksi baru success
+20201019 10:22:08 Home condition : entered into home page
+20201019 10:22:12 Home condition : move to histori transaksi
+20201019 10:22:12 Histori condition : entered into histori input kartu
+20201019 10:22:13 Histori condition : input kartu success
+20201019 10:22:13 Histori condition : move to histori input pin
+20201019 10:22:13 Histori condition : entered into histori input pin
+20201019 10:22:14 Histori condition : EDC process start
+20201019 10:22:14 Histori condition : EDC serial port close
+20201019 10:22:14 Histori condition : EDC serial port open
+20201019 10:56:16 Home condition : clear transaksi success
+20201019 10:56:16 Home condition : clear array success
+20201019 10:56:16 Home condition : clear array nasabah success
+20201019 10:56:16 Home condition : clear list success
+20201019 10:56:16 Home condition : clear transaksi baru success
+20201019 10:56:16 Home condition : clear transaksi success
+20201019 10:56:16 Home condition : clear array success
+20201019 10:56:16 Home condition : clear array nasabah success
+20201019 10:56:16 Home condition : clear list success
+20201019 10:56:16 Home condition : clear transaksi baru success
+20201019 10:56:16 Home condition : entered into home page
+20201019 10:57:52 Home condition : move to buku tabungan
+20201019 10:57:53 Buku condition : entered into buku input card
+20201019 10:57:54 Buku condition : input card success
+20201019 10:57:54 Buku condition : move to buku input pin
+20201019 10:57:54 Buku condition : entered into buku input pin
+20201019 10:57:55 Histori condition : EDC process start
+20201019 10:57:55 Buku condition : EDC serial port close
+20201019 10:57:55 Buku condition : EDC serial port open
+20201019 10:59:20 Home condition : clear transaksi success
+20201019 10:59:20 Home condition : clear array success
+20201019 10:59:20 Home condition : clear array nasabah success
+20201019 10:59:20 Home condition : clear list success
+20201019 10:59:20 Home condition : clear transaksi baru success
+20201019 10:59:21 Home condition : clear transaksi success
+20201019 10:59:21 Home condition : clear array success
+20201019 10:59:21 Home condition : clear array nasabah success
+20201019 10:59:21 Home condition : clear list success
+20201019 10:59:21 Home condition : clear transaksi baru success
+20201019 10:59:21 Home condition : entered into home page

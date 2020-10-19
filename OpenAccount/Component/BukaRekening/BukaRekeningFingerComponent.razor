@@ -2,6 +2,7 @@
 @using OpenAccount.Data
 
 @inject IDScanner scanner
+@inject FingerPrint finger
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -80,7 +81,7 @@
 
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -99,9 +100,30 @@
     </div>
 }
 
+@if (isSalah)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Pindai Jari <b style="color: #af0000;">TIDAK SESUAI</b></h3>
+                        <h5 style="font-style:italic;">Kesempatan untuk mencoba @trylimit x lagi. Pastikan alat pemindai dalam keadaan bersih</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @if (isFingerNotValid)
 {
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -125,19 +147,20 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isDeviceOpen = false;
     private bool isFingerValid = true;
     private bool isVisible = false;
     private bool loopFinger = false;
+    private bool isSalah = false;
     private bool isFingerNotValid = false;
-    private int trylimit = 1;
+    private int trylimit = 3;
 
     protected override async Task OnInitializedAsync()
     {
         //await Task.Delay(1000);
         //Utility.WriteLog("Buka rekening condition : id scanner back swallow", "step-action");
         //scanner.BackPos();
-        loopFinger = true;
-        CheckFingerValid();
+
         //OnClick.InvokeAsync("bukarekeningfingerberhasil");
     }
 
@@ -146,17 +169,29 @@
         if (firstRender)
         {
             Utility.WriteLog("Buka rekening condition : entered into buka rekening finger print", "step-action");
+            isDeviceOpen = finger.OpenDevice();
+            if (isDeviceOpen)
+            {
+                loopFinger = true;
+                CheckFingerValid();
+            }
+            else
+            {
+                Utility.WriteLog("Ganti kartu condition : open device finger print error", "step-action");
+                Console.WriteLine("Open device finger print error");
+            }
         }
     }
 
     private async Task CheckFingerValid()
     {
-        isVisible = true;
-        await Task.Delay(100);
-        StateHasChanged();
         await Task.Delay(2000);
         do
         {
+            isFingerValid = finger.MatchFinger();
+            isVisible = true;
+            await Task.Delay(100);
+            StateHasChanged();
             await Task.Delay(100);
             if (isFingerValid)
             {
@@ -169,12 +204,15 @@
             }
             else
             {
+                isVisible = false;
+                isSalah = true;
                 await Task.Delay(100);
                 StateHasChanged();
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
                     isVisible = false;
+                    isSalah = false;
                     isFingerNotValid = true;
                     await Task.Delay(100);
                     StateHasChanged();
@@ -186,7 +224,7 @@
                     scanner.CloseCVRReader();
                 }
             }
-            await Task.Delay(1000);
+            await Task.Delay(2000);
         } while (loopFinger);
     }
 

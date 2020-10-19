@@ -20,11 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
     <PackageReference Include="System.IO.Ports" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Aratek.TrustFinger">
+      <HintPath>folder dll\Aratek.TrustFinger.dll</HintPath>
+    </Reference>
     <Reference Include="INIFileParser">
       <HintPath>bin\Debug\netcoreapp3.1\INIFileParser.dll</HintPath>
     </Reference>

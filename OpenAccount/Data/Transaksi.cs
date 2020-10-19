@@ -301,4 +301,34 @@ namespace OpenAccount.Data
             _listthermal.Clear();
         }
     }
+
+    public class EKTP
+    {
+        public string strBio { get; set; } = "";
+        public byte[] bytePhoto { get; set; } = new byte[65536];
+        public int photolen { get; set; } = 0;
+        public byte[] byteBio { get; set; } = new byte[65536];
+        public int biolen { get; set; } = 0;
+        public byte[] byteSignature { get; set; } = new byte[65536];
+        public int signlen { get; set; } = 0;
+        public byte[] byteMinu1 { get; set; } = new byte[65536];
+        public int minu1len { get; set; } = 0;
+        public byte[] byteMinu2 { get; set; } = new byte[65536];
+        public int minu2len { get; set; } = 0;
+        public List<byte[]> lbPhoto = new List<byte[]>();
+        public byte[] UID { get; set; } = new byte[8];
+        public byte[] CC { get; set; } = { };
+        public UInt16 CC_LEN { get; set; } = 0;
+        public byte[] GETCHAL { get; set; } = { };
+        public UInt16 GETCHAL_LEN { get; set; } = 0;
+        public byte[] CALCHAL { get; set; } = { };
+        public UInt16 CALCHAL_LEN { get; set; } = 0;
+        public byte[] EXTAUTH { get; set; } = { };
+        public UInt16 EXTAUTH_LEN { get; set; } = 0;
+        public byte[] INTAUTH { get; set; } = { };
+        public UInt16 INTAUTH_LEN { get; set; } = 0;
+        public byte[] RETDS { get; set; } = { };
+        public UInt16 RETDS_LEN { get; set; } = 0;
+        public byte[] FPR { get; set; } = { };
+    }
 }

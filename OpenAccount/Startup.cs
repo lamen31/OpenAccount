@@ -40,6 +40,8 @@ namespace OpenAccount
             services.AddScoped<EDC>();
             services.AddSingleton<CardDispenser>();
             services.AddSingleton<HitServices>();
+            services.AddScoped<EKtp>();
+            services.AddSingleton<FingerPrint>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

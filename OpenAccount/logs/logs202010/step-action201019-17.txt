@@ -1,0 +1,21 @@
+20201019 17:32:49 Ganti kartu condition : entered into ganti kartu finger
+20201019 17:33:05 Ganti kartu condition : move to ganti kartu finger berhasil
+20201019 17:33:05 Ganti kartu condition : entered into buka rekening finger print berhasil
+20201019 17:33:05 Ganti kartu condition : set data ktp Bambang Pamungkas success
+20201019 17:33:06 Ganti kartu condition : move to ganti kartu finger berhasil
+20201019 17:33:07 Ganti kartu condition : move to ganti kartu konfirmasi data
+20201019 17:33:08 Ganti kartu condition : entered into ganti kartu konfirmasi data
+20201019 17:33:08 Ganti kartu condition : id scanner return card
+20201019 17:33:08 ID scanner condition : query device status failed
+20201019 17:33:08 Ganti kartu condition : id scanner close reader
+20201019 17:36:16 Ganti kartu condition : entered into ganti kartu finger
+20201019 17:36:54 Ganti kartu condition : entered into ganti kartu finger
+20201019 17:41:25 Ganti kartu condition : entered into ganti kartu finger
+20201019 17:42:54 Ganti kartu condition : move to ganti kartu finger berhasil
+20201019 17:42:54 Ganti kartu condition : entered into buka rekening finger print berhasil
+20201019 17:42:54 Ganti kartu condition : set data ktp Bambang Pamungkas success
+20201019 17:42:56 Ganti kartu condition : move to ganti kartu konfirmasi data
+20201019 17:42:56 Ganti kartu condition : entered into ganti kartu konfirmasi data
+20201019 17:42:56 Ganti kartu condition : id scanner return card
+20201019 17:42:56 ID scanner condition : query device status failed
+20201019 17:42:56 Ganti kartu condition : id scanner close reader

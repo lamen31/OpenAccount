@@ -18,11 +18,11 @@
                         <label style="font-weight: 600; font-size: 18px;">Nomor Rekening</label>
                         @if (strnorek == string.Empty)
                         {
-                            <input type="text" class="form-control" placeholder="nomor rekening anda">
+                            <input type="text" class="form-control num-field" placeholder="nomor rekening anda">
                         }
                         else
                         {
-                            <input type="text" class="form-control" @bind="strnorek">
+                            <input type="text" class="form-control num-field" @bind="strnorek">
                         }
                     </div>
                 </div>

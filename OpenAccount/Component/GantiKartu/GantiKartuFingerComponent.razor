@@ -3,6 +3,7 @@
 
 @inject IDScanner scanner
 @inject Utility utility
+@inject FingerPrint finger
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -64,7 +65,7 @@
 
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -74,8 +75,29 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Proses Pindai Jari Sedang Berlangsung.</h3>
-                        <h5 style="font-style:italic;">Pastikan alat pemindai dalam keadaan bersih</h5>
+                        <h3 class="teks" style="margin-top: 5%;">Mohon Tunggu...</h3>
+                        <h5 style="font-style:italic;">Proses pemindaian jari sedang berlangsung</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isSalah)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Pindai Jari <b style="color: #af0000;">TIDAK SESUAI</b></h3>
+                        <h5 style="font-style:italic;">Kesempatan untuk mencoba @trylimit x lagi. Pastikan alat pemindai dalam keadaan bersih</h5>
                     </div>
                 </div>
             </div>
@@ -85,7 +107,7 @@
 
 @if (isFingerNotValid)
 {
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -109,17 +131,30 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isDeviceOpen = false;
     private bool loopFinger = false;
     private bool isFingerValid = true;
     private bool isVisible = false;
+    private bool isSalah = false;
     private bool isFingerNotValid = false;
-    private int trylimit = 1;
+    private int trylimit = 3;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu finger", "step-action");
+            isDeviceOpen = finger.OpenDevice();
+            if (isDeviceOpen)
+            {
+                loopFinger = true;
+                CheckFingerValid();
+            }
+            else
+            {
+                Utility.WriteLog("Ganti kartu condition : open device finger print error", "step-action");
+                Console.WriteLine("Open device finger print error");
+            }
         }
     }
 
@@ -128,19 +163,19 @@
         //await Task.Delay(2000);
         //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
         //scanner.BackPos();
-        loopFinger = true;
-        CheckFingerValid();
+
         //OnClick.InvokeAsync("gantikartufingerberhasil");
     }
 
     private async Task CheckFingerValid()
     {
-        isVisible = true;
-        await Task.Delay(100);
-        StateHasChanged();
         await Task.Delay(2000);
         do
         {
+            isFingerValid = finger.MatchFinger();
+            isVisible = true;
+            await Task.Delay(100);
+            StateHasChanged();
             await Task.Delay(100);
             if (isFingerValid)
             {
@@ -150,15 +185,19 @@
                 await Task.Delay(2000);
                 Utility.WriteLog("Ganti kartu condition : move to ganti kartu finger berhasil", "step-action");
                 OnClick.InvokeAsync("gantikartufingerberhasil");
+                break;
             }
             else
             {
+                isVisible = false;
+                isSalah = true;
                 await Task.Delay(100);
                 StateHasChanged();
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
                     isVisible = false;
+                    isSalah = true;
                     isFingerNotValid = true;
                     await Task.Delay(100);
                     StateHasChanged();
@@ -168,6 +207,7 @@
                     await Task.Delay(100);
                     Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
                     scanner.CloseCVRReader();
+                    break;
                 }
             }
             await Task.Delay(2000);

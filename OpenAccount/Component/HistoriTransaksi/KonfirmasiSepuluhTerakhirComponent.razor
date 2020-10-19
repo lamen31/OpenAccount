@@ -18,7 +18,7 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
                     <teks>Hello, @trx._Nasabah[0]</teks>
-                    <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak Histori Transaksi pada</h3><br>
+                    <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @jumlahtransaksi  Histori Transaksi pada</h3><br>
                     <p>
                         <h3 style="color: #00529C;"><b>Sepuluh Transaksi Terakhir</b></h3>
                         <h3 style="color: #00529C;"><b>Sampai Dengan</b></h3>
@@ -70,7 +70,7 @@
 </footer><!-- End Footer -->
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -101,6 +101,8 @@
     private string saldo;
     private string path;
     private string[] lines;
+    private string jumlahtransaksi;
+    private int tempjumlahtransaksi;
 
     protected override async Task OnInitializedAsync()
     {
@@ -136,6 +138,7 @@
         //    }
         //}
         Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
+        jumlahtransaksi = tempjumlahtransaksi.ToString();
         //trx.setHistoriThermal(tanggal, kode, nominal, saldo);
         trx.setSaldoThermal(saldo);
         Utility.WriteLog("Histori condition : set saldo thermal success", "step-action");

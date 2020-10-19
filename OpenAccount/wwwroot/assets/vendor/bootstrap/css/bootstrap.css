@@ -2095,8 +2095,10 @@ pre code {
 }
 
 .form-control::placeholder {
-  color: #6c757d;
-  opacity: 1;
+    color: #6c757d;
+    opacity: 1;
+    font-size: 0.8em;
+    font-weight: 300;
 }
 
 .form-control:disabled, .form-control[readonly] {
