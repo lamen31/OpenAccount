@@ -3,7 +3,6 @@
 
 @inject IDScanner scanner
 @inject Utility utility
-
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -65,12 +64,34 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isKTPNotValid)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">KTP <b style="color: #af0000;">TIDAK VALID</b></h3>
+                        <h5 style="font-style:italic;">Silahkan Masukan KTP yang Valid</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
     private bool isSpinner = false;
     private bool isKTPValid = true;
+    private bool isKTPNotValid = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -104,6 +125,9 @@
         }
         else
         {
+            isKTPNotValid = true;
+            await Task.Delay(100);
+            StateHasChanged();
             //await Task.Delay(1000);
             Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
             scanner.ReturnCard();

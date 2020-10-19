@@ -1,8 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject IDScanner scanner 
-
+@inject IDScanner scanner
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -15,10 +14,6 @@
                 <h3 style="color: #00529C;">Letakkan <b>Telunjuk Kanan/Kiri</b> Anda pada alat pemindai Sidik Jari</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                @if (!isFingerValid)
-                {
-                    <h5 style="color: #00529C;">Pindai Jari Gagal, Kesempatan untuk mencoba @trylimit.ToString()x lagi</h5>
-                }
                 <br>
                 <img src="../assets/img/Folder GIF/finger-print.gif" class="img-fluid" alt=""><br>
 
@@ -83,14 +78,58 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isVisible)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Proses Pindai Jari Sedang Berlangsung.</h3>
+                        <h5 style="font-style:italic;">Pastikan alat pemindai dalam keadaan bersih</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isFingerNotValid)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Pindai Jari Tidak Sesuai dengan KTP</h3>
+                        <h5 style="font-style:italic;">Tekan <b>Kembali</b> untuk ke menu utama</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Home">Kembali</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
     private bool isFingerValid = true;
-    private bool FingerValid = true;
+    private bool isVisible = false;
     private bool loopFinger = false;
-    private int trylimit = 3;
+    private bool isFingerNotValid = false;
+    private int trylimit = 1;
 
     protected override async Task OnInitializedAsync()
     {
@@ -112,10 +151,14 @@
 
     private async Task CheckFingerValid()
     {
+        isVisible = true;
+        await Task.Delay(100);
+        StateHasChanged();
+        await Task.Delay(2000);
         do
         {
             await Task.Delay(100);
-            if (FingerValid)
+            if (isFingerValid)
             {
                 loopFinger = false;
                 //Utility.WriteLog("Buka rekening condition : id scanner radio pos", "step-action");
@@ -131,19 +174,27 @@
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
-                    //await Task.Delay(1000);
+                    isVisible = false;
+                    isFingerNotValid = true;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    await Task.Delay(1000);
                     Utility.WriteLog("Buka rekening condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
                     await Task.Delay(100);
                     Utility.WriteLog("Buka rekening condition : id scanner close reader", "step-action");
                     scanner.CloseCVRReader();
-                    loopFinger = false;
-                    Utility.WriteLog("Buka rekening condition : move to home", "step-action");
-                    OnClick.InvokeAsync("home");
                 }
             }
             await Task.Delay(1000);
         } while (loopFinger);
+    }
+
+    private async Task Home()
+    {
+        loopFinger = false;
+        Utility.WriteLog("Buka rekening condition : move to home", "step-action");
+        OnClick.InvokeAsync("home");
     }
 
     private async Task KTP()

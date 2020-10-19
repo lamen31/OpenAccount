@@ -2,8 +2,7 @@
 @using OpenAccount.Data
 
 @inject IDScanner scanner
-@inject Utility utility 
-
+@inject Utility utility
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -63,13 +62,58 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isVisible)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Proses Pindai Jari Sedang Berlangsung.</h3>
+                        <h5 style="font-style:italic;">Pastikan alat pemindai dalam keadaan bersih</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isFingerNotValid)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Pindai Jari Tidak Sesuai dengan KTP</h3>
+                        <h5 style="font-style:italic;">Tekan <b>Kembali</b> untuk ke menu utama</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Home">Kembali</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
     private bool loopFinger = false;
-    private bool FingerValid = true;
-    private int trylimit = 3;
+    private bool isFingerValid = true;
+    private bool isVisible = false;
+    private bool isFingerNotValid = false;
+    private int trylimit = 1;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -91,10 +135,14 @@
 
     private async Task CheckFingerValid()
     {
+        isVisible = true;
+        await Task.Delay(100);
+        StateHasChanged();
+        await Task.Delay(2000);
         do
         {
             await Task.Delay(100);
-            if (FingerValid)
+            if (isFingerValid)
             {
                 loopFinger = false;
                 //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
@@ -110,19 +158,27 @@
                 trylimit -= 1;
                 if (trylimit == 0)
                 {
+                    isVisible = false;
+                    isFingerNotValid = true;
+                    await Task.Delay(100);
+                    StateHasChanged();
                     await Task.Delay(1000);
                     Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
                     await Task.Delay(100);
                     Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
                     scanner.CloseCVRReader();
-                    loopFinger = false;
-                    Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
-                    OnClick.InvokeAsync("home");
                 }
             }
             await Task.Delay(2000);
         } while (loopFinger);
+    }
+
+    private async Task Home()
+    {
+        loopFinger = false;
+        Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
+        OnClick.InvokeAsync("home");
     }
 
     private async Task KTP()
