@@ -392,9 +392,8 @@ namespace OpenAccount.Data
                 sisabaris = sisabaris + (12 * 5);
             }
             ypoint += sisabaris;
-            int batastrx = _trx._listbuku.Count - 15;
 
-            for (int i = batastrx; i < _trx._listbuku.Count; i++)
+            for (int i = 0; i < _trx._listbuku.Count; i++)
             {
                 string keterangan = _trx._listbuku[i]._JenisTransaksi;
                 int nominal = Convert.ToInt32(_trx._listbuku[i]._Nominal);

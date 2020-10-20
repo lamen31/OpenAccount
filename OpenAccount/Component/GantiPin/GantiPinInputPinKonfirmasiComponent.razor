@@ -152,7 +152,7 @@
                 sPort.Close();
             }
             Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
-            await Task.Delay(500);
+            await Task.Delay(100);
             await EDC("14");
             if (isPin)
             {

@@ -301,8 +301,8 @@
                         break;
                     }
                     Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " success", "step-action");
-                    //await Task.Delay(20000);
-                    await Task.Delay(8000);
+                    await Task.Delay(21000);
+                    //await Task.Delay(8000);
                     isVisible = false;
                     await Task.Delay(100);
                     StateHasChanged();
@@ -342,7 +342,7 @@
                     halaman += 1;
                     maxhalaman -= 1;
                     sisatransaksi -= maxbaris;
-                    await Task.Delay(8000);
+                    //await Task.Delay(8000);
                 }
                 //isVisible = false;
                 //if (maxhalaman >= 1)
@@ -368,7 +368,7 @@
                 OnClick.InvokeAsync("historigagal");
             }
             Utility.WriteLog("Histori condition : print history success", "step-action");
-            await Task.Delay(8000);
+            await Task.Delay(19000);
             Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             OnClick.InvokeAsync("historiberhasil");
         }

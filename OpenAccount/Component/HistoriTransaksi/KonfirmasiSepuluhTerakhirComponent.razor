@@ -149,7 +149,7 @@
         string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
         string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
-        trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
+        //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         Utility.WriteLog("Histori condition : get service start", "step-action");
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
         if (strResultGET != null)
@@ -166,6 +166,11 @@
                     trx.AddListThermal((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
                 }
                 Utility.WriteLog("Histori condition : get list data success", "step-action");
+                tempjumlahtransaksi = trx._listthermal.Count;
+            }
+            else
+            {
+                Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
             }
         }
     }

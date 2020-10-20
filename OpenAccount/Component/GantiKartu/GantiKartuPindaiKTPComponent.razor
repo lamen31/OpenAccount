@@ -15,10 +15,6 @@
                 <h3 style="color: #00529C;">Masukkan <b>e-KTP</b> Anda pada alat pemindai</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                @if (isSpinner)
-                {
-                    <img src="../assets/img/Folder GIF/Spinner.gif" style="width: 10%;">
-                }
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
                 <br>
                 <img src="../assets/img/Folder GIF/insert-ktp3.gif" class="img-fluid" alt=""><br>
@@ -63,6 +59,27 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+
+@if (isSpinner)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon Menunggu...</h3>
+                        <h5 style="font-style:italic;">Proses pindai KTP sedang berlangsung</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 @if (isKTPNotValid)
 {

@@ -1,0 +1,30 @@
+20201020 10:36:06 Histori condition : hit service thermal start
+20201020 10:37:11 Histori condition : hit service thermal start
+20201020 10:37:48 Histori condition : hit service thermal start
+20201020 10:37:54 Histori condition : get service start
+20201020 10:38:40 Histori condition : hit service thermal start
+20201020 10:39:09 Histori condition : get service start
+20201020 10:39:43 Histori condition : hit service thermal start
+20201020 10:39:47 Histori condition : get service start
+20201020 10:51:31 Home condition : clear transaksi success
+20201020 10:51:31 Home condition : clear array success
+20201020 10:51:31 Home condition : clear array nasabah success
+20201020 10:51:31 Home condition : clear list success
+20201020 10:51:31 Home condition : clear transaksi baru success
+20201020 10:51:31 Home condition : clear transaksi success
+20201020 10:51:31 Home condition : clear array success
+20201020 10:51:31 Home condition : clear array nasabah success
+20201020 10:51:31 Home condition : clear list success
+20201020 10:51:31 Home condition : clear transaksi baru success
+20201020 10:51:31 Home condition : entered into home page
+20201020 10:53:06 Home condition : clear transaksi success
+20201020 10:53:06 Home condition : clear array success
+20201020 10:53:06 Home condition : clear array nasabah success
+20201020 10:53:06 Home condition : clear list success
+20201020 10:53:06 Home condition : clear transaksi baru success
+20201020 10:53:07 Home condition : clear transaksi success
+20201020 10:53:07 Home condition : clear array success
+20201020 10:53:07 Home condition : clear array nasabah success
+20201020 10:53:07 Home condition : clear list success
+20201020 10:53:07 Home condition : clear transaksi baru success
+20201020 10:53:07 Home condition : entered into home page

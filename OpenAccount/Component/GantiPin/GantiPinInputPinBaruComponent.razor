@@ -85,7 +85,7 @@
             Utility.WriteLog("Ganti pin condition : entered into ganti pin input pin baru", "step-action");
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
             Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
-            await Task.Delay(1000);
+            await Task.Delay(100);
             await EDC("14");
             if (isPin)
             {

@@ -19,9 +19,12 @@
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Transaksi Buku Tabungan</span><br>
                     <teks style="line-height: 45px;">Masukkan Buku Tabungan Anda pada bagian bawah Mesin</teks><br><br>
                     <h3 style="color: #00529C; font-size: 25px; line-height: 40px;">
-                        Pastikan buku yang Anda masukkan
-                        adalah buku tabungan yang
-                        ingin dicetak mutasinya kemudian tekan<b>“Cetak”</b>
+                        Anda akan mencetak mutasi @jumlahtransaksi transaksi
+                    </h3>
+                    <h3 style="color: #00529C; font-size: 25px; line-height: 40px;">
+                        Pastikan buku Anda masukkan
+                        dalam keadaan rapi dan sesuai.
+                        Kemudian tekan<b>“Cetak”</b>
                     </h3>
                 </div>
             </div>
@@ -127,11 +130,14 @@
     private int totalbaris;
     private int halaman;
     private string saldo;
+    private string jumlahtransaksi;
+    private int tempjumlahtransaksi;
 
     protected override async Task OnInitializedAsync()
     {
         Utility.WriteLog("Buku condition : hit service passbook start", "step-action");
         await ServicePassbook();
+        jumlahtransaksi = tempjumlahtransaksi.ToString();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -166,6 +172,7 @@
                     trx.AddListBuku((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
                 }
                 Utility.WriteLog("Buku condition : get list data success", "step-action");
+                tempjumlahtransaksi = trx._listbuku.Count;
             }
         }
     }

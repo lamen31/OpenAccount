@@ -118,15 +118,15 @@
         while (isEDC)
         {
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
-            Utility.WriteLog("Histori condition : EDC process start", "step-action");
-            await Task.Delay(500);
+            Utility.WriteLog("Buku condition : EDC process start", "step-action");
+            await Task.Delay(100);
             await EDC("14");
             if (!isCancel)
             {
                 pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
                 if (strpin == pinNasabah)
                 {
-                    Utility.WriteLog("Histori condition : input pin success", "step-action");
+                    Utility.WriteLog("Buku condition : input pin success", "step-action");
                     for (int i = 0; i < Nasabah.Length; i++)
                     {
                         if (i == 0)
@@ -137,22 +137,22 @@
                             Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
                     }
                     trx.setArrayNasabah(Nasabah);
-                    Utility.WriteLog("Histori condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                    Utility.WriteLog("Buku condition : input data " + Nasabah[0].ToString() + " success", "step-action");
                     isEDC = false;
-                    Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
-                    OnClick.InvokeAsync("historiPilih");
+                    Utility.WriteLog("Buku condition : move to histori pilih menu", "step-action");
+                    OnClick.InvokeAsync("bukuinputdata");
                     break;
                 }
                 else
                 {
                     isSalah = true;
                     tryLimit -= 1;
-                    Utility.WriteLog("Histori condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
+                    Utility.WriteLog("Buku condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
                     if (tryLimit == 0)
                     {
-                        Utility.WriteLog("Histori condition : tryLimit has reached 0", "step-action");
+                        Utility.WriteLog("Buku condition : tryLimit has reached 0", "step-action");
                         isEDC = false;
-                        Utility.WriteLog("Histori condition : move to blokir kartu", "step-action");
+                        Utility.WriteLog("Buku condition : move to blokir kartu", "step-action");
                         OnClick.InvokeAsync("blokirkartu");
                         break;
                     }
@@ -166,7 +166,7 @@
             else
             {
                 isEDC = false;
-                Utility.WriteLog("Histori condition : move to home", "step-action");
+                Utility.WriteLog("Buku condition : move to home", "step-action");
                 OnClick.InvokeAsync("home");
                 break;
             }

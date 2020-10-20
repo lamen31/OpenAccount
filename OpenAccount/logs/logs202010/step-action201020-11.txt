@@ -1,0 +1,33 @@
+20201020 11:13:43 Home condition : clear transaksi success
+20201020 11:13:43 Home condition : clear array success
+20201020 11:13:43 Home condition : clear array nasabah success
+20201020 11:13:43 Home condition : clear list success
+20201020 11:13:43 Home condition : clear transaksi baru success
+20201020 11:13:43 Home condition : clear transaksi success
+20201020 11:13:43 Home condition : clear array success
+20201020 11:13:43 Home condition : clear array nasabah success
+20201020 11:13:43 Home condition : clear list success
+20201020 11:13:43 Home condition : clear transaksi baru success
+20201020 11:13:43 Home condition : entered into home page
+20201020 11:31:14 Home condition : clear transaksi success
+20201020 11:31:14 Home condition : clear array success
+20201020 11:31:14 Home condition : clear array nasabah success
+20201020 11:31:14 Home condition : clear list success
+20201020 11:31:14 Home condition : clear transaksi baru success
+20201020 11:31:15 Home condition : clear transaksi success
+20201020 11:31:15 Home condition : clear array success
+20201020 11:31:15 Home condition : clear array nasabah success
+20201020 11:31:15 Home condition : clear list success
+20201020 11:31:15 Home condition : clear transaksi baru success
+20201020 11:31:15 Home condition : entered into home page
+20201020 11:37:15 Home condition : clear transaksi success
+20201020 11:37:15 Home condition : clear array success
+20201020 11:37:15 Home condition : clear array nasabah success
+20201020 11:37:15 Home condition : clear list success
+20201020 11:37:15 Home condition : clear transaksi baru success
+20201020 11:37:16 Home condition : clear transaksi success
+20201020 11:37:16 Home condition : clear array success
+20201020 11:37:16 Home condition : clear array nasabah success
+20201020 11:37:16 Home condition : clear list success
+20201020 11:37:16 Home condition : clear transaksi baru success
+20201020 11:37:16 Home condition : entered into home page
