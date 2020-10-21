@@ -8,7 +8,6 @@
 @inject Config config
 @inject Printer print
 @inject HitServices services
-
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -18,7 +17,7 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
                     <teks>Hello, @trx._Nasabah[0]</teks>
-                    <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @jumlahtransaksi  Histori Transaksi pada</h3><br>
+                    <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak  Histori Transaksi pada</h3><br>
                     <p>
                         <h3 style="color: #00529C;"><b>Sepuluh Transaksi Terakhir</b></h3>
                         <h3 style="color: #00529C;"><b>Sampai Dengan</b></h3>
@@ -81,7 +80,28 @@
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
                         <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                        <h3>Sedang dalam proses...</h3>
+                        <h5 style="font-style:italic;">Sedang dalam proses...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isRead)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
                     </div>
                 </div>
             </div>
@@ -93,7 +113,8 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private bool isVisible;
+    private bool isVisible = false;
+    private bool isRead = false;
     private string date;
     private string[] tanggal;
     private string[] nominal;
@@ -115,6 +136,10 @@
         //nominal = new string[lines.Length];
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
 
+        await Task.Delay(500);
+        isRead = true;
+        await Task.Delay(100);
+        StateHasChanged();
         Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
         await ServiceThermal();
 
@@ -167,6 +192,9 @@
                 }
                 Utility.WriteLog("Histori condition : get list data success", "step-action");
                 tempjumlahtransaksi = trx._listthermal.Count;
+                isRead = false;
+                await Task.Delay(100);
+                StateHasChanged();
             }
             else
             {

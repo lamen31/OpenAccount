@@ -1,10 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject Transaksi trx  
+@inject Transaksi trx
 @inject Utility utility
 @inject IDScanner scanner
-
+@inject Config config
+@inject CardDispenser dispenser
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -88,9 +89,34 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isVisible)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h5 style="font-style:italic;">Sedang dalam proses...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private bool isVisible = false;
+    private string dispenserPort = string.Empty;
+    private string dispenserBox = string.Empty;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -118,6 +144,16 @@
 
     private async Task Berhasil()
     {
+        isVisible = true;
+        await Task.Delay(100);
+        StateHasChanged();
+        dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
+        CardDispenser.baudRate = 115200;
+        string ErrorCode = string.Empty;
+        string message = string.Empty;
+        dispenserBox = "1";
+        Utility.WriteLog("Ganti kartu condition : card dispenser process start", "step-action");
+        dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu berhasil", "step-action");
         OnClick.InvokeAsync("gantikartuberhasil");
     }

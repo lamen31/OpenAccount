@@ -19,7 +19,7 @@
                     <div class="form-row" style="margin-top: 9%;">
                         <div class="form-group col-md-6">
                             <label style="font-weight: 600; font-size: 18px;">Konfirmasi PIN ATM <b style="color: red;"> (*6 Digit)</b></label>
-                            <input type="text" class="form-control" placeholder="Konfirmasi Pin Baru Anda" @bind="strpin">
+                            <input type="password" class="form-control" placeholder="Konfirmasi Pin Baru Anda" @bind="strpin">
                         </div>
                     </div>
                     @*@if (isSesuai)
@@ -401,29 +401,29 @@
                 }
             }
             StateHasChanged();
-            switch (strpin.Length)
-            {
-                case 1:
-                    strpin = strpin.Substring(0, strpin.Length - 1) + "*";
-                    break;
-                case 2:
-                    strpin = strpin.Substring(0, strpin.Length - 2) + "**";
-                    break;
-                case 3:
-                    strpin = strpin.Substring(0, strpin.Length - 3) + "***";
-                    break;
-                case 4:
-                    strpin = strpin.Substring(0, strpin.Length - 4) + "****";
-                    break;
-                case 5:
-                    strpin = strpin.Substring(0, strpin.Length - 5) + "*****";
-                    break;
-                case 6:
-                    strpin = strpin.Substring(0, strpin.Length - 6) + "******";
-                    break;
-            }
-            await Task.Delay(100);
-            StateHasChanged();
+            //switch (strpin.Length)
+            //{
+            //    case 1:
+            //        strpin = strpin.Substring(0, strpin.Length - 1) + "*";
+            //        break;
+            //    case 2:
+            //        strpin = strpin.Substring(0, strpin.Length - 2) + "**";
+            //        break;
+            //    case 3:
+            //        strpin = strpin.Substring(0, strpin.Length - 3) + "***";
+            //        break;
+            //    case 4:
+            //        strpin = strpin.Substring(0, strpin.Length - 4) + "****";
+            //        break;
+            //    case 5:
+            //        strpin = strpin.Substring(0, strpin.Length - 5) + "*****";
+            //        break;
+            //    case 6:
+            //        strpin = strpin.Substring(0, strpin.Length - 6) + "******";
+            //        break;
+            //}
+            //await Task.Delay(100);
+            //StateHasChanged();
             //if (strpin.Length == 6)
             //{
             //    if (strpinNomor == trx._PinATM1)

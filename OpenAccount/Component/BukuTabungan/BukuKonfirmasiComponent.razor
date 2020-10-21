@@ -90,6 +90,7 @@
         </div>
     </div>
 }
+
 @if (isBaris)
 {
     <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
@@ -112,6 +113,27 @@
     </div>
 }
 
+@if (isRead)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -119,6 +141,7 @@
     private bool isVisible = false;
     private bool isBaris = false;
     private bool isEmpty = false;
+    private bool isRead = false;
     private bool cetak = true;
     private bool bukuhabis = false;
     private int maxbaris;
@@ -135,6 +158,10 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(500);
+        isRead = true;
+        await Task.Delay(100);
+        StateHasChanged();
         Utility.WriteLog("Buku condition : hit service passbook start", "step-action");
         await ServicePassbook();
         jumlahtransaksi = tempjumlahtransaksi.ToString();
@@ -173,6 +200,9 @@
                 }
                 Utility.WriteLog("Buku condition : get list data success", "step-action");
                 tempjumlahtransaksi = trx._listbuku.Count;
+                isRead = false;
+                await Task.Delay(100);
+                StateHasChanged();
             }
         }
     }

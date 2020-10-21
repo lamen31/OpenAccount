@@ -2,8 +2,6 @@
 @using OpenAccount.Data
 
 @inject Utility utility
-@inject Config config
-@inject CardDispenser dispenser
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -66,8 +64,6 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private string dispenserPort = string.Empty;
-    private string dispenserBox = string.Empty;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -79,13 +75,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
-        CardDispenser.baudRate = 115200;
-        string ErrorCode = string.Empty;
-        string message = string.Empty;
-        dispenserBox = "1";
-        Utility.WriteLog("Ganti kartu condition : card dispenser process start", "step-action");
-        dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
         await Task.Delay(3000);
         Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
         OnClick.InvokeAsync("home");
