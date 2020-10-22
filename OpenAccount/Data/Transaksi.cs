@@ -37,11 +37,22 @@ namespace OpenAccount.Data
         public string _TransaksiID { get; set; }
         public string _KTPNIK { get; set; }
         public string _KTPNama { get; set; }
-        public string _KTPTTL { get; set; }
-        public string _KTPPerkawinan { get; set; }
+        public string _KTPTempatLahir { get; set; }
+        public string _KTPTanggalLahir { get; set; }
         public string _KTPAlamat { get; set; }
+        public string _KTPRT { get; set; }
+        public string _KTPRW { get; set; }
+        public string _KTPKecamatan { get; set; }
+        public string _KTPKelurahan { get; set; }
+        public string _KTPKabupaten { get; set; }
+        public string _KTPJenisKelamin { get; set; }
+        public string _KTPGolonganDarah { get; set; }
         public string _KTPAgama { get; set; }
+        public string _KTPStatusPerkawinan { get; set; }
         public string _KTPPekerjaan { get; set; }
+        public string _KTPKewarganegaraan { get; set; }
+        public string _KTPMinutiae1 { get; set; }
+        public string _KTPMinutiae2 { get; set; }
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
 
@@ -218,15 +229,32 @@ namespace OpenAccount.Data
             _StatusPrinter = strstatus;
         }
 
-        public void setKTP(string strnik, string strnama, string strttl, string strperkawinan, string stralamat, string stragama, string strpekerjaan)
+        public void setDataKTP(string strnik, string strnama, string strtempatlahir, string strtanggallahir, string stralamat, string strrt, string strrw, 
+            string strkecamatan, string strkelurahan, string strkabupaten, string strkelamin, string strgoldarah, string stragama, string strperkawinan,
+            string strpekerjaan, string strkewarganegaraan)
         {
             _KTPNIK = strnik;
             _KTPNama = strnama;
-            _KTPTTL = strttl;
-            _KTPPerkawinan = strperkawinan;
+            _KTPTempatLahir = strtempatlahir;
+            _KTPTanggalLahir = strtanggallahir;
             _KTPAlamat = stralamat;
+            _KTPRT = strrt;
+            _KTPRW = strrw;
+            _KTPKecamatan = strkecamatan;
+            _KTPKelurahan = strkelurahan;
+            _KTPKabupaten = strkabupaten;
+            _KTPJenisKelamin = strkelamin;
+            _KTPGolonganDarah = strgoldarah;
             _KTPAgama = stragama;
+            _KTPStatusPerkawinan = strperkawinan;
             _KTPPekerjaan = strpekerjaan;
+            _KTPKewarganegaraan = strkewarganegaraan;
+        }
+
+        public void setMinutiae(string strminutiae1, string strminutiae2)
+        {
+            _KTPMinutiae1 = strminutiae1;
+            _KTPMinutiae2 = strminutiae2;
         }
 
         public void setPinPertama(string strpin)
@@ -252,13 +280,24 @@ namespace OpenAccount.Data
             _BukuHalaman = string.Empty;
             _BukuDate = string.Empty;
             _BukuSaldo = string.Empty;
-            _KTPAgama = string.Empty;
-            _KTPAlamat = string.Empty;
-            _KTPNama = string.Empty;
             _KTPNIK = string.Empty;
+            _KTPNama = string.Empty;
+            _KTPTempatLahir = string.Empty;
+            _KTPTanggalLahir = string.Empty;
+            _KTPAlamat = string.Empty;
+            _KTPRT = string.Empty;
+            _KTPRW = string.Empty;
+            _KTPKecamatan = string.Empty;
+            _KTPKelurahan = string.Empty;
+            _KTPKabupaten = string.Empty;
+            _KTPJenisKelamin = string.Empty;
+            _KTPGolonganDarah = string.Empty;
+            _KTPAgama = string.Empty;
+            _KTPStatusPerkawinan = string.Empty;
             _KTPPekerjaan = string.Empty;
-            _KTPPerkawinan = string.Empty;
-            _KTPTTL = string.Empty;
+            _KTPKewarganegaraan = string.Empty;
+            _KTPMinutiae1 = string.Empty;
+            _KTPMinutiae2 = string.Empty;
         }
 
 
@@ -330,5 +369,16 @@ namespace OpenAccount.Data
         public byte[] RETDS { get; set; } = { };
         public UInt16 RETDS_LEN { get; set; } = 0;
         public byte[] FPR { get; set; } = { };
+
+        public String[] SplitBio(string strBio)
+        {
+            String[] strSplit;
+            String[] strSeparator = new String[] { "\",\"" };
+            strSplit = strBio.Split(strSeparator, StringSplitOptions.None);
+
+            strSplit[0] = strSplit[0].Remove(0, 1);
+            strSplit[20] = strSplit[20].Remove(strSplit[20].Length - 1, 1);
+            return strSplit;
+        }
     }
 }

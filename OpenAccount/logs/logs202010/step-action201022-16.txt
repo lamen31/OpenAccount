@@ -1,0 +1,25 @@
+20201022 16:04:38 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:05:09 Ganti kartu condition : id scanner front swallow
+20201022 16:06:33 Ganti kartu condition : move to ganti kartu pindai ktp berhasil
+20201022 16:06:33 Ganti kartu condition : entered into ganti kartu pindai ktp berhasil
+20201022 16:06:54 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:07:01 Ganti kartu condition : id scanner front swallow
+20201022 16:08:44 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:08:47 Ganti kartu condition : id scanner front swallow
+20201022 16:12:42 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:12:47 Ganti kartu condition : id scanner front swallow
+20201022 16:15:40 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:15:45 Ganti kartu condition : id scanner front swallow
+20201022 16:16:13 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:16:18 Ganti kartu condition : id scanner front swallow
+20201022 16:19:20 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:19:24 Ganti kartu condition : id scanner front swallow
+20201022 16:20:47 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:20:53 Ganti kartu condition : id scanner front swallow
+20201022 16:32:26 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:37:48 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:37:54 Ganti kartu condition : id scanner front swallow
+20201022 16:54:29 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201022 16:54:35 Ganti kartu condition : id scanner front swallow
+20201022 16:55:18 Ganti kartu condition : move to ganti kartu pindai ktp berhasil
+20201022 16:55:18 Ganti kartu condition : entered into ganti kartu pindai ktp berhasil

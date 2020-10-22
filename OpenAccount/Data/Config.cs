@@ -91,6 +91,9 @@ namespace OpenAccount.Data
         public static int PARAM_INT_AUTH_LEN = 0;
         public static string PARAM_RETRIEVE_DS = string.Empty;
 
+        public static string PARAM_READER_SLOT1 = "01";
+        public static string PARAM_READER_SLOT2 = "02";
+
         private FileIniDataParser iniFile = new FileIniDataParser();
         private IniData iniData = new IniData();
 

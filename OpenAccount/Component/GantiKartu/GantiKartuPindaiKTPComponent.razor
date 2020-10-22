@@ -3,6 +3,8 @@
 
 @inject IDScanner scanner
 @inject Utility utility
+@inject EKtp ktp
+@inject Transaksi trx
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -123,10 +125,20 @@
         isSpinner = true;
         StateHasChanged();
         Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
-        scanner.FrontSwallow();
+        //scanner.FrontSwallow();
+        await Task.Delay(100);
+        ktp.EKtpInitialize();
+        await Task.Delay(500);
+        isKTPValid = ktp.EKtpReader();
+        trx.setMinutiae(ktp.minutiae1, ktp.minutiae2);
+        await Task.Delay(100);
+        ktp.ReadBio();
+        trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
+            ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
+            ktp.Pekerjaan, ktp.Kewarganegaraan);
+        await Task.Delay(100);
         //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
         //scanner.BackPos();
-        await Task.Delay(15000);
         CheckKTPValid();
     }
 
@@ -147,15 +159,23 @@
             StateHasChanged();
             //await Task.Delay(1000);
             Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
-            scanner.ReturnCard();
+            //scanner.ReturnCard();
             await Task.Delay(100);
             Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
-            scanner.CloseCVRReader();
+            //scanner.CloseCVRReader();
         }
     }
 
     private async Task Rekening()
     {
+        await Task.Delay(100);
+        StateHasChanged();
+        //await Task.Delay(1000);
+        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
+        //scanner.ReturnCard();
+        await Task.Delay(100);
+        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+        //scanner.CloseCVRReader();
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
         OnClick.InvokeAsync("gantikartu");
     }
