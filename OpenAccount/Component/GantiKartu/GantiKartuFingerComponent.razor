@@ -4,6 +4,7 @@
 @inject IDScanner scanner
 @inject Utility utility
 @inject FingerPrint finger
+@inject Transaksi trx
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -63,6 +64,26 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isSesuai)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Pindai Jari <b style="color: #00AF80;">SESUAI</b></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @if (isVisible)
 {
     <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
@@ -76,7 +97,7 @@
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
                         <h3 class="teks" style="margin-top: 5%;">Mohon Tunggu...</h3>
-                        <h5 style="font-style:italic;">Proses pemindaian jari sedang berlangsung</h5>
+                        <h5 style="font-style:italic;">Sedang dalam proses</h5>
                     </div>
                 </div>
             </div>
@@ -133,27 +154,33 @@
 
     private bool isDeviceOpen = false;
     private bool loopFinger = false;
-    private bool isFingerValid = true;
+    private bool isFingerValid = false;
+    private bool isSesuai = false;
     private bool isVisible = false;
     private bool isSalah = false;
     private bool isFingerNotValid = false;
+    private bool isDeviceClose = false;
     private int trylimit = 3;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            //
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu finger", "step-action");
+            Utility.WriteLog("Ganti kartu condition : close finger print device", "step-action");
+            finger.CloseDevice();
+            Utility.WriteLog("Ganti kartu condition : open finger print device", "step-action");
             isDeviceOpen = finger.OpenDevice();
             if (isDeviceOpen)
             {
+                Utility.WriteLog("Ganti kartu condition : open device finger print success", "step-action");
                 loopFinger = true;
                 CheckFingerValid();
             }
             else
             {
                 Utility.WriteLog("Ganti kartu condition : open device finger print error", "step-action");
-                Console.WriteLine("Open device finger print error");
             }
         }
     }
@@ -172,41 +199,54 @@
         await Task.Delay(2000);
         do
         {
-            isFingerValid = finger.MatchFinger();
+            Utility.WriteLog("Ganti kartu condition : device finger print match finger", "step-action");
+            isFingerValid = finger.MatchFinger(trx._KTPMinutiae1, trx._KTPMinutiae2);
+            isSalah = false;
+            isSesuai = false;
             isVisible = true;
             await Task.Delay(100);
             StateHasChanged();
-            await Task.Delay(100);
+            await Task.Delay(1000);
             if (isFingerValid)
             {
+                isVisible = false;
+                isSalah = false;
+                isSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
                 loopFinger = false;
                 //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
                 //scanner.RadioPos();
                 await Task.Delay(2000);
                 Utility.WriteLog("Ganti kartu condition : move to ganti kartu finger berhasil", "step-action");
                 OnClick.InvokeAsync("gantikartufingerberhasil");
+                finger.CloseDevice();
                 break;
             }
             else
             {
+                trylimit -= 1;
+                isSesuai = false;
                 isVisible = false;
                 isSalah = true;
                 await Task.Delay(100);
                 StateHasChanged();
-                trylimit -= 1;
+
                 if (trylimit == 0)
                 {
+                    isSesuai = false;
                     isVisible = false;
-                    isSalah = true;
+                    isSalah = false;
                     isFingerNotValid = true;
                     await Task.Delay(100);
                     StateHasChanged();
-                    await Task.Delay(1000);
+                    await Task.Delay(100);
                     Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
                     scanner.ReturnCard();
                     await Task.Delay(100);
                     Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
                     scanner.CloseCVRReader();
+                    finger.CloseDevice();
                     break;
                 }
             }
@@ -224,12 +264,14 @@
     private async Task KTP()
     {
         loopFinger = false;
-        //await Task.Delay(1000);
+        await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
         scanner.CloseCVRReader();
+        Utility.WriteLog("Ganti kartu condition : close finger print device", "step-action");
+        finger.CloseDevice();
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
         OnClick.InvokeAsync("gantikartupindaiktp");
     }

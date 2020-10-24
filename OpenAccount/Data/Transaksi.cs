@@ -300,7 +300,27 @@ namespace OpenAccount.Data
             _KTPMinutiae2 = string.Empty;
         }
 
-
+        public void clearKTP()
+        {
+            _KTPNIK = string.Empty;
+            _KTPNama = string.Empty;
+            _KTPTempatLahir = string.Empty;
+            _KTPTanggalLahir = string.Empty;
+            _KTPAlamat = string.Empty;
+            _KTPRT = string.Empty;
+            _KTPRW = string.Empty;
+            _KTPKecamatan = string.Empty;
+            _KTPKelurahan = string.Empty;
+            _KTPKabupaten = string.Empty;
+            _KTPJenisKelamin = string.Empty;
+            _KTPGolonganDarah = string.Empty;
+            _KTPAgama = string.Empty;
+            _KTPStatusPerkawinan = string.Empty;
+            _KTPPekerjaan = string.Empty;
+            _KTPKewarganegaraan = string.Empty;
+            _KTPMinutiae1 = string.Empty;
+            _KTPMinutiae2 = string.Empty;
+        }
 
         public void clearArray()
         {

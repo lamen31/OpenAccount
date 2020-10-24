@@ -14,7 +14,7 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti Kartu</span><br>
                 </div>
-                <h3 style="color: #00529C;">Masukkan <b>e-KTP</b> Anda pada alat pemindai</h3>
+                <h3 style="color: #00529C;">Tekan <b>Pindai</b> Kemudian Masukkan <b>e-KTP</b> Anda pada alat pemindai</h3>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <!-- <img src="../assets/img/tick (2).png" style="width: 10%;"> //image sukses -->
@@ -116,6 +116,7 @@
     {
         if (firstRender)
         {
+            trx.clearKTP();
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu pindai ktp", "step-action");
         }
     }
@@ -125,7 +126,7 @@
         isSpinner = true;
         StateHasChanged();
         Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
-        //scanner.FrontSwallow();
+        scanner.FrontSwallow();
         await Task.Delay(100);
         ktp.EKtpInitialize();
         await Task.Delay(500);
@@ -157,12 +158,12 @@
             isKTPNotValid = true;
             await Task.Delay(100);
             StateHasChanged();
-            //await Task.Delay(1000);
+            await Task.Delay(100);
             Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
-            //scanner.ReturnCard();
+            scanner.ReturnCard();
             await Task.Delay(100);
             Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
-            //scanner.CloseCVRReader();
+            scanner.CloseCVRReader();
         }
     }
 
@@ -170,12 +171,12 @@
     {
         await Task.Delay(100);
         StateHasChanged();
-        //await Task.Delay(1000);
+        await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
-        //scanner.ReturnCard();
+        scanner.ReturnCard();
         await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
-        //scanner.CloseCVRReader();
+        scanner.CloseCVRReader();
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
         OnClick.InvokeAsync("gantikartu");
     }

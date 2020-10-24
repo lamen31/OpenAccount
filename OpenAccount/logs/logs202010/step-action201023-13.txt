@@ -1,0 +1,59 @@
+20201023 13:07:20 Home condition : clear transaksi success
+20201023 13:07:20 Home condition : clear array success
+20201023 13:07:20 Home condition : clear array nasabah success
+20201023 13:07:20 Home condition : clear list success
+20201023 13:07:20 Home condition : clear transaksi baru success
+20201023 13:08:53 Home condition : clear transaksi success
+20201023 13:08:53 Home condition : clear array success
+20201023 13:08:53 Home condition : clear array nasabah success
+20201023 13:08:53 Home condition : clear list success
+20201023 13:08:53 Home condition : clear transaksi baru success
+20201023 13:08:54 Home condition : clear transaksi success
+20201023 13:08:54 Home condition : clear array success
+20201023 13:08:54 Home condition : clear array nasabah success
+20201023 13:08:54 Home condition : clear list success
+20201023 13:08:54 Home condition : clear transaksi baru success
+20201023 13:08:54 Home condition : entered into home page
+20201023 13:10:19 Home condition : clear transaksi success
+20201023 13:10:19 Home condition : clear array success
+20201023 13:10:19 Home condition : clear array nasabah success
+20201023 13:10:19 Home condition : clear list success
+20201023 13:10:19 Home condition : clear transaksi baru success
+20201023 13:10:19 Home condition : clear transaksi success
+20201023 13:10:19 Home condition : clear array success
+20201023 13:10:19 Home condition : clear array nasabah success
+20201023 13:10:19 Home condition : clear list success
+20201023 13:10:19 Home condition : clear transaksi baru success
+20201023 13:10:19 Home condition : entered into home page
+20201023 13:11:40 Home condition : clear transaksi success
+20201023 13:11:40 Home condition : clear array success
+20201023 13:11:40 Home condition : clear array nasabah success
+20201023 13:11:40 Home condition : clear list success
+20201023 13:11:40 Home condition : clear transaksi baru success
+20201023 13:11:40 Home condition : clear transaksi success
+20201023 13:11:40 Home condition : clear array success
+20201023 13:11:40 Home condition : clear array nasabah success
+20201023 13:11:40 Home condition : clear list success
+20201023 13:11:40 Home condition : clear transaksi baru success
+20201023 13:11:40 Home condition : entered into home page
+20201023 13:11:47 Home condition : move to ganti pin
+20201023 13:11:47 Ganti pin condition : entered into ganti pin input kartu
+20201023 13:11:49 Ganti pin condition : input pin success
+20201023 13:11:49 Ganti pin condition : move to ganti pin input pin
+20201023 13:11:49 Ganti pin condition : entered into ganti pin input pin
+20201023 13:11:50 Ganti pin condition : EDC process start
+20201023 13:11:50 Ganti pin condition : EDC serial port close
+20201023 13:11:50 Ganti pin condition : EDC serial port open
+20201023 13:12:01 Home condition : clear transaksi success
+20201023 13:12:01 Home condition : clear array success
+20201023 13:12:01 Home condition : clear array nasabah success
+20201023 13:12:01 Home condition : clear list success
+20201023 13:12:01 Home condition : clear transaksi baru success
+20201023 13:12:01 Home condition : clear transaksi success
+20201023 13:12:01 Home condition : clear array success
+20201023 13:12:01 Home condition : clear array nasabah success
+20201023 13:12:01 Home condition : clear list success
+20201023 13:12:01 Home condition : clear transaksi baru success
+20201023 13:12:01 Home condition : entered into home page
+20201023 13:12:03 Home condition : move to ganti kartu
+20201023 13:12:03 Ganti kartu condition : entered into ganti kartu input rekening

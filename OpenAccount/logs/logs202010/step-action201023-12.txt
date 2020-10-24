@@ -1,0 +1,55 @@
+20201023 12:54:53 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201023 12:54:57 Ganti kartu condition : id scanner front swallow
+20201023 12:55:11 Ganti kartu condition : move to ganti kartu pindai ktp berhasil
+20201023 12:55:11 Ganti kartu condition : entered into ganti kartu pindai ktp berhasil
+20201023 12:55:13 Ganti kartu condition : move to ganti kartu finger
+20201023 12:55:13 Ganti kartu condition : entered into ganti kartu finger
+20201023 12:55:28 Ganti kartu condition : id scanner return card
+20201023 12:55:28 Ganti kartu condition : id scanner close reader
+20201023 12:55:31 Ganti kartu condition : move to home
+20201023 12:55:31 Home condition : clear transaksi success
+20201023 12:55:31 Home condition : clear array success
+20201023 12:55:31 Home condition : clear array nasabah success
+20201023 12:55:31 Home condition : clear list success
+20201023 12:55:31 Home condition : clear transaksi baru success
+20201023 12:55:31 Home condition : entered into home page
+20201023 12:55:57 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201023 12:56:01 Ganti kartu condition : id scanner front swallow
+20201023 12:56:15 Ganti kartu condition : move to ganti kartu pindai ktp berhasil
+20201023 12:56:15 Ganti kartu condition : entered into ganti kartu pindai ktp berhasil
+20201023 12:56:17 Ganti kartu condition : move to ganti kartu finger
+20201023 12:56:17 Ganti kartu condition : entered into ganti kartu finger
+20201023 12:56:23 Ganti kartu condition : move to ganti kartu finger berhasil
+20201023 12:56:23 Ganti kartu condition : entered into buka rekening finger print berhasil
+20201023 12:56:23 Ganti kartu condition : set data ktp Bambang Pamungkas success
+20201023 12:56:25 Ganti kartu condition : move to ganti kartu konfirmasi data
+20201023 12:56:25 Ganti kartu condition : entered into ganti kartu konfirmasi data
+20201023 12:56:25 Ganti kartu condition : id scanner return card
+20201023 12:56:25 ID scanner condition : query device status failed
+20201023 12:56:25 Ganti kartu condition : id scanner close reader
+20201023 12:57:13 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201023 12:57:17 Ganti kartu condition : id scanner front swallow
+20201023 12:57:31 Ganti kartu condition : move to ganti kartu pindai ktp berhasil
+20201023 12:57:31 Ganti kartu condition : entered into ganti kartu pindai ktp berhasil
+20201023 12:57:33 Ganti kartu condition : move to ganti kartu finger
+20201023 12:57:33 Ganti kartu condition : entered into ganti kartu finger
+20201023 12:57:42 Ganti kartu condition : move to ganti kartu finger berhasil
+20201023 12:57:42 Ganti kartu condition : entered into buka rekening finger print berhasil
+20201023 12:57:42 Ganti kartu condition : set data ktp Bambang Pamungkas success
+20201023 12:57:44 Ganti kartu condition : move to ganti kartu konfirmasi data
+20201023 12:57:44 Ganti kartu condition : entered into ganti kartu konfirmasi data
+20201023 12:57:44 Ganti kartu condition : id scanner return card
+20201023 12:57:45 Ganti kartu condition : id scanner close reader
+20201023 12:58:12 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201023 12:58:17 Ganti kartu condition : id scanner front swallow
+20201023 12:58:31 Ganti kartu condition : move to ganti kartu pindai ktp berhasil
+20201023 12:58:31 Ganti kartu condition : entered into ganti kartu pindai ktp berhasil
+20201023 12:58:33 Ganti kartu condition : move to ganti kartu finger
+20201023 12:58:33 Ganti kartu condition : entered into ganti kartu finger
+20201023 12:58:56 Ganti kartu condition : move to ganti kartu finger berhasil
+20201023 12:58:56 Ganti kartu condition : entered into buka rekening finger print berhasil
+20201023 12:58:56 Ganti kartu condition : set data ktp Bambang Pamungkas success
+20201023 12:58:58 Ganti kartu condition : move to ganti kartu konfirmasi data
+20201023 12:58:58 Ganti kartu condition : entered into ganti kartu konfirmasi data
+20201023 12:58:58 Ganti kartu condition : id scanner return card
+20201023 12:58:58 Ganti kartu condition : id scanner close reader

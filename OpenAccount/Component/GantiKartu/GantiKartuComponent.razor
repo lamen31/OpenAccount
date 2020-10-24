@@ -2,7 +2,7 @@
 @using OpenAccount.Data
 
 @inject Utility utility 
-
+@inject Transaksi trx
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -127,6 +127,7 @@
     {
         if (strnorek.Length == 19)
         {
+            trx.clearKTP();
             Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
             OnClick.InvokeAsync("gantikartupindaiktp");
         }

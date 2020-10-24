@@ -93,7 +93,7 @@
 
     private async Task KTP()
     {
-        //await Task.Delay(1000);
+        await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
         scanner.ReturnCard();
         await Task.Delay(100);

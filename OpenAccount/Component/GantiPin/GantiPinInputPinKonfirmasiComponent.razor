@@ -273,8 +273,8 @@
                             serialPort.Close();
                             break;
                         case 84:
-                            Console.WriteLine(strpin);
-                            Console.WriteLine(strpinNomor);
+                            Utility.WriteLog("Ganti pin condition : " + strpin, "step-action");
+                            Utility.WriteLog("Ganti pin condition : " + strpinNomor, "step-action");
                             isLoop = false;
                             break;
                         case 67:

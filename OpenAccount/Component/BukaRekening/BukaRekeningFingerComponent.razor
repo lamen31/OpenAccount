@@ -3,6 +3,7 @@
 
 @inject IDScanner scanner
 @inject FingerPrint finger
+@inject Transaksi trx
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
 
@@ -178,7 +179,6 @@
             else
             {
                 Utility.WriteLog("Ganti kartu condition : open device finger print error", "step-action");
-                Console.WriteLine("Open device finger print error");
             }
         }
     }
@@ -188,7 +188,7 @@
         await Task.Delay(2000);
         do
         {
-            isFingerValid = finger.MatchFinger();
+            isFingerValid = finger.MatchFinger(trx._KTPMinutiae1, trx._KTPMinutiae2);
             isVisible = true;
             await Task.Delay(100);
             StateHasChanged();

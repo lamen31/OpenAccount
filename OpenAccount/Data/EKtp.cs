@@ -57,7 +57,7 @@ namespace OpenAccount.Data
             catch
             {
                 pMessage = "Initialize Configuration Error.";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
             InitializeContext();
             ListReaders();
@@ -66,7 +66,7 @@ namespace OpenAccount.Data
 
         private void InitializeContext()
         {
-            Console.WriteLine("Initialize Context");
+            Utility.WriteLog("EKTP condition : initialize context", "step-action");
             try
             {
                 int rc = -1;
@@ -77,24 +77,24 @@ namespace OpenAccount.Data
                 if (rc == 0 && n > 0)
                 {
                     pMessage = "Find " + n.ToString("G") + " Reader";
-                    Console.WriteLine(pMessage);
+                    Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 }
                 else
                 {
                     pMessage = "No Reader is Found";
-                    Console.WriteLine(pMessage);
+                    Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 }
             }
             catch
             {
                 pMessage = "Error = Initialize Card Reader";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
         }
 
         private void ListReaders()
         {
-            Console.WriteLine("List Readers");
+            Utility.WriteLog("EKTP condition : list readers", "step-action");
             int indx, rc = -1;
             string rName = "";
             try
@@ -117,21 +117,21 @@ namespace OpenAccount.Data
 
                         // Add reader name to list
                         pMessage = rName;
-                        Console.WriteLine(pMessage);
+                        Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                     }
                 }
             }
             catch
             {
                 pMessage = "Error = Listing Card Reader";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 return;
             }
         }
 
         private void SAMActivation()
         {
-            Console.WriteLine("SAM Activation");
+            Utility.WriteLog("EKTP condition : SAM activation", "step-action");
             string SLOT_1 = Config.PARAM_READER_SLOT1;
             string SLOT_2 = Config.PARAM_READER_SLOT2;
             //Cek SAM Slot 1
@@ -141,18 +141,18 @@ namespace OpenAccount.Data
                 if (SAMStatus1)
                 {
                     pMessage = "SAM Slot 1 OK";
-                    Console.WriteLine(pMessage);
+                    Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 }
                 else
                 {
                     pMessage = "SAM Slot 1 NOT OK";
-                    Console.WriteLine(pMessage);
+                    Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 }
             }
             catch (Exception ex)
             {
                 pMessage = "Error = SAM Slot 1";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 return;
             }
 
@@ -163,18 +163,18 @@ namespace OpenAccount.Data
                 if (SAMStatus2)
                 {
                     pMessage = "SAM Slot 2 OK";
-                    Console.WriteLine(pMessage);
+                    Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 }
                 else
                 {
                     pMessage = "SAM Slot 2 NOT OK";
-                    Console.WriteLine(pMessage);
+                    Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 }
             }
             catch (Exception ex)
             {
                 pMessage = "Error = SAM Slot 2";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 return;
             }
 
@@ -182,18 +182,18 @@ namespace OpenAccount.Data
             {
                 SAMReaderSlot(SLOT_1);
                 pMessage = "SAM Card Slot 1 Open";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
             else if (SAMStatus2)
             {
                 SAMReaderSlot(SLOT_2);
                 pMessage = "SAM Card Slot 2 Open";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
             else
             {
                 pMessage = "Cannot Open SAM Card. Please Insert SAM Card.";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
         }
 
@@ -234,7 +234,7 @@ namespace OpenAccount.Data
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Utility.WriteLog("EKTP condition : " + ex.Message, "step-action");
                 SAMStatus = false;
             }
             return SAMStatus;
@@ -246,53 +246,32 @@ namespace OpenAccount.Data
             int RFreader = Convert.ToInt32(config.Read("EKTP", Config.PARAM_READER_RF));
             bool result = false;
 
-            Stopwatch sw = Stopwatch.StartNew();
             ConnectRF();
-            Console.WriteLine("Time taken ALL1: {0}ms", sw.Elapsed.TotalMilliseconds);
             ConnectSAM();
-            Console.WriteLine("Time taken ALL2: {0}ms", sw.Elapsed.TotalMilliseconds);
             UIDA();
-            Console.WriteLine("Time taken ALL3: {0}ms", sw.Elapsed.TotalMilliseconds);
             SelDF();
-            Console.WriteLine("Time taken ALL4: {0}ms", sw.Elapsed.TotalMilliseconds);
             //EFPhoto();
-            Console.WriteLine("Time taken ALL5: {0}ms", sw.Elapsed.TotalMilliseconds);
             //ReadPhoto();
-            Console.WriteLine("Time taken ALL6: {0}ms", sw.Elapsed.TotalMilliseconds);
             UIDB();
-            Console.WriteLine("Time taken ALL7: {0}ms", sw.Elapsed.TotalMilliseconds);
             EFCC();
-            Console.WriteLine("Time taken ALL8: {0}ms", sw.Elapsed.TotalMilliseconds);
             READCC();
-            Console.WriteLine("Time taken ALL9: {0}ms", sw.Elapsed.TotalMilliseconds);
             RESETSAM();
-            Console.WriteLine("Time taken ALL10: {0}ms", sw.Elapsed.TotalMilliseconds);
             GETCHALLENGE();
-            Console.WriteLine("Time taken ALL11: {0}ms", sw.Elapsed.TotalMilliseconds);
             CALCCHALLENGE();
-            Console.WriteLine("Time taken ALL12: {0}ms", sw.Elapsed.TotalMilliseconds);
             EXTAUTH();
-            Console.WriteLine("Time taken ALL13: {0}ms", sw.Elapsed.TotalMilliseconds);
             INTAUTH();
-            Console.WriteLine("Time taken ALL14: {0}ms", sw.Elapsed.TotalMilliseconds);
             SELECTEFDS();
-            Console.WriteLine("Time taken ALL15: {0}ms", sw.Elapsed.TotalMilliseconds);
             DIGITALSIGNATURE();
-            Console.WriteLine("Time taken ALL16: {0}ms", sw.Elapsed.TotalMilliseconds);
             BIODATA();
-            Console.WriteLine("Time taken ALL17: {0}ms", sw.Elapsed.TotalMilliseconds);
             //RETPHOTO();
-            Console.WriteLine("Time taken ALL18: {0}ms", sw.Elapsed.TotalMilliseconds);
             AutoDecip();
-            Console.WriteLine("Time taken ALL19: {0}ms", sw.Elapsed.TotalMilliseconds);
             Signature();
-            Console.WriteLine("Time taken ALL20: {0}ms", sw.Elapsed.TotalMilliseconds);
             Minutiae1();
-            Console.WriteLine("Time taken ALL21: {0}ms", sw.Elapsed.TotalMilliseconds);
-            result = Minutiae2();
-            Console.WriteLine("Time taken ALL22: {0}ms", sw.Elapsed.TotalMilliseconds);
+            Minutiae2();
             EKtpDLL.DisconnectSCardReader((UInt16)SAMreader);
             EKtpDLL.DisconnectSCardReader((UInt16)RFreader);
+            if (ektp.biolen > 25)
+                result = true;
             return result;
         }
 
@@ -306,19 +285,19 @@ namespace OpenAccount.Data
             catch
             {
                 pMessage = "Error = Cannot Connect to Card Reader";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 return;
             }
 
             if (RFStatus)
             {
                 pMessage = "RF Reader Connected";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
             else
             {
                 pMessage = "RF Reader Error";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
             }
         }
 
@@ -340,7 +319,7 @@ namespace OpenAccount.Data
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Utility.WriteLog("EKTP condition : " + ex.ToString(), "step-action");
                 RFStatus = false;
             }
             return RFStatus;
@@ -348,7 +327,6 @@ namespace OpenAccount.Data
 
         private void ConnectSAM()
         {
-            Stopwatch sw = Stopwatch.StartNew();
             byte[] byteSAM = NEW_XOR(strIns(txtbxSAMPCID, ","), strIns(txtbxSAMCONF, ","));
             UInt16 RxDataLen = 0;
             byte[] RxData = new byte[1024];
@@ -361,24 +339,22 @@ namespace OpenAccount.Data
             {
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
-                sw.Stop();
                 msg = "Open SAM KTP-el";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
             {
                 pMessage = "Error = Cannot Open SAM KTP-el";
-                Console.WriteLine(pMessage);
+                Utility.WriteLog("EKTP condition : " + pMessage, "step-action");
                 return;
             }
-            Console.WriteLine("Time taken SAM: {0}ms", sw.Elapsed.TotalMilliseconds);
         }
 
         public static byte[] NEW_XOR(string strpcid, string strconf)
@@ -425,7 +401,7 @@ namespace OpenAccount.Data
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Utility.WriteLog("EKTP condition : " + ex.ToString(), "step-action");
                 result = null;
             }
 
@@ -445,7 +421,7 @@ namespace OpenAccount.Data
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Utility.WriteLog("EKTP condition : " + ex.ToString(), "step-action");
             }
 
             return result;
@@ -464,7 +440,7 @@ namespace OpenAccount.Data
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Utility.WriteLog("EKTP condition : " + ex.ToString(), "step-action");
             }
             return strRet;
         }
@@ -486,15 +462,15 @@ namespace OpenAccount.Data
                 }
 
                 msg = "Get UID Type A";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Get UID Type A");
+                Utility.WriteLog("EKTP condition : cannot get UID type A", "step-action");
                 return;
             }
         }
@@ -516,15 +492,15 @@ namespace OpenAccount.Data
                 }
 
                 msg = "Select DF KTP-el";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Select DF KTP-el");
+                Utility.WriteLog("EKTP condition : cannot select DF KTP-el", "step-action");
                 return;
             }
         }
@@ -540,15 +516,15 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Select EF Photograph";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Select EF Photograph");
+                Utility.WriteLog("EKTP condition : cannot select EF Photograph", "step-action");
                 return;
             }
         }
@@ -571,11 +547,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Read Photograph #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byte[] bytePhoto = new byte[RxDataLen - 1];
                 bytePhoto[0] = 0x08;
@@ -607,11 +583,11 @@ namespace OpenAccount.Data
                     k = (UInt16)(k + a);
 
                     msg = "Read Photograph #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     l += 1;
                 }
@@ -620,7 +596,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Read Photo");
+                Utility.WriteLog("EKTP condition : cannot read photo", "step-action");
                 return;
             }
         }
@@ -636,11 +612,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Get UID Type B";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 if (RxData[RxDataLen - 2] == 0x90 && RxData[RxDataLen - 1] == 0x00)
                 {
@@ -649,7 +625,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Get UID Type B");
+                Utility.WriteLog("EKTP condition : cannot get UID type B", "step-action");
             }
         }
         private void EFCC()
@@ -664,16 +640,16 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Select EF Card Control";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Select EF Card Cotrol");
+                Utility.WriteLog("EKTP condition : cannot select EF Card Control", "step-action");
                 return;
             }
         }
@@ -689,11 +665,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Card Contol";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 ektp.CC_LEN = (UInt16)((RxData[0] * 256) + RxData[1]);
                 ektp.CC = new byte[ektp.CC_LEN];
@@ -701,7 +677,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Get Card Control");
+                Utility.WriteLog("EKTP condition : cannot get Card Control", "step-action");
                 return;
             }
         }
@@ -717,16 +693,16 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Reset SAM";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Reset SAM");
+                Utility.WriteLog("EKTP condition : cannot reset SAM", "step-action");
                 return;
             }
         }
@@ -742,11 +718,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Get Challenge";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 ektp.GETCHAL_LEN = (UInt16)(RxDataLen - 2);
                 ektp.GETCHAL = new byte[ektp.GETCHAL_LEN];
@@ -754,7 +730,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Get Challenge");
+                Utility.WriteLog("EKTP condition : cannot get challenge", "step-action");
                 return;
             }
         }
@@ -781,11 +757,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Calculate Challenge";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 Config.PARAM_EXT_AUTH = ByteArrayToString(RxData, RxDataLen - 2);
                 Config.PARAM_EXT_AUTH_LEN = RxDataLen - 2;
@@ -797,7 +773,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Calculate Challenge");
+                Utility.WriteLog("EKTP condition : cannot calculate challenge", "step-action");
                 return;
             }
         }
@@ -815,11 +791,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "External Authenticate";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 Config.PARAM_INT_AUTH = ByteArrayToString(RxData, RxDataLen - 2);
                 Config.PARAM_INT_AUTH_LEN = RxDataLen - 2;
@@ -830,7 +806,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot External Authenticate");
+                Utility.WriteLog("EKTP condition : cannot External Authenticate", "step-action");
                 return;
             }
         }
@@ -849,16 +825,16 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Internal Authenticate";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Internal Authenticate");
+                Utility.WriteLog("EKTP condition : cannot Internal Authenticate", "step-action");
                 return;
             }
         }
@@ -875,11 +851,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Encrypt Select EF Digital Signature";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -888,11 +864,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek (Select EF Digital Signature)";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -903,16 +879,16 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Status #1))";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Select EF Digital Signature");
+                Utility.WriteLog("EKTP condition : cannot select EF Digital Signature", "step-action");
                 return;
             }
         }
@@ -929,11 +905,11 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Encrypt Digital Signature";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -942,11 +918,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Digital Signature)";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -957,11 +933,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Digital Signature))";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 ektp.RETDS_LEN = (UInt16)(RxDataLen - 4);
                 ektp.RETDS = new byte[ektp.RETDS_LEN];
@@ -989,16 +965,16 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Retrieve Digital Signature";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Retrieve Digital Signature");
+                Utility.WriteLog("EKTP condition : cannot retrieve Digital Signature", "step-action");
                 return;
             }
         }
@@ -1018,11 +994,11 @@ namespace OpenAccount.Data
                 int len_total;
 
                 msg = "SAM Encrypt Select EF Biodata";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
                 msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1031,11 +1007,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Select EF Biodata)";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1046,11 +1022,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Status #2))";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byte[] byteCOMRead = new byte[Config.ENCRYPT.Length + Config.SAMREAD.Length + 3];
                 Buffer.BlockCopy(Config.ENCRYPT, 0, byteCOMRead, 0, Config.ENCRYPT.Length);
@@ -1063,11 +1039,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOMRead.Length, byteCOMRead, ref RxDataLen, RxData);
 
                 msg = "SAM Encrypt Biodata #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1076,11 +1052,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Biodata) #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1091,11 +1067,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Biodata)) #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 UInt16 a = 0;
                 Buffer.BlockCopy(RxData, 2, ektp.byteBio, 0, RxDataLen - 6);
@@ -1119,11 +1095,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOMRead.Length, byteCOMRead, ref RxDataLen, RxData);
 
                     msg = "SAM Encrypt Biodata #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     k = k + a;
 
@@ -1134,11 +1110,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "Ek(Biodata) #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                     Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1149,11 +1125,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "SAM Decrypt(Ek(Biodata)) #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     Array.Copy(RxData, 0, ektp.byteBio, ektp.biolen, RxDataLen - 4);
                     ektp.biolen = ektp.biolen + RxDataLen - 4;
@@ -1165,7 +1141,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Retrieve Biodata");
+                Utility.WriteLog("EKTP condition : cannot retrieve biodata", "step-action");
                 return;
             }
         }
@@ -1192,17 +1168,17 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "SAM Retrieve Photograph #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
                 }
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Retrieve Photo");
+                Utility.WriteLog("EKTP condition : cannot retrieve photo", "step-action");
                 return;
             }
         }
@@ -1218,16 +1194,16 @@ namespace OpenAccount.Data
                 int rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Perform Automatic Deciphering";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Perform Automatic Deciphering");
+                Utility.WriteLog("EKTP condition : cannot perform Automatic Deciphering", "step-action");
                 return;
             }
         }
@@ -1247,11 +1223,11 @@ namespace OpenAccount.Data
                 int len_total;
 
                 msg = "SAM Encrypt Select EF Signature";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1260,11 +1236,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Select EF Signature)";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1275,11 +1251,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Status #3))";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byte[] byteCOMRead = new byte[Config.ENCRYPT.Length + Config.SAMREAD.Length + 3];
                 Buffer.BlockCopy(Config.ENCRYPT, 0, byteCOMRead, 0, Config.ENCRYPT.Length);
@@ -1292,11 +1268,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOMRead.Length, byteCOMRead, ref RxDataLen, RxData);
 
                 msg = "SAM Encrypt Read Signature #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1305,11 +1281,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Read Signature) #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1320,11 +1296,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Signature)) #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 Array.Copy(RxData, 2, ektp.byteSignature, 0, RxDataLen - 6);
                 ektp.signlen = RxDataLen - 6;
@@ -1352,11 +1328,11 @@ namespace OpenAccount.Data
                     k = k + a;
 
                     msg = "SAM Encrypt Read Signature #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[RxDataLen - 2];
                     Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1365,11 +1341,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "Ek(Read Signature) #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                     Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1380,11 +1356,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "SAM Decrypt(Ek(Signature)) #" + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     Array.Copy(RxData, 0, ektp.byteSignature, ektp.signlen, RxDataLen - 4);
                     ektp.signlen = ektp.signlen + RxDataLen - 4;
@@ -1396,7 +1372,7 @@ namespace OpenAccount.Data
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Read Signature");
+                Utility.WriteLog("EKTP condition : cannot read signature", "step-action");
                 return;
             }
         }
@@ -1416,11 +1392,11 @@ namespace OpenAccount.Data
                 int len_total;
 
                 msg = "SAM Encrypt Select EF Minutiae #1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1429,11 +1405,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Select EF Minutiae #1)";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1444,11 +1420,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Status #4))";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byte[] byteCOMRead = new byte[Config.ENCRYPT.Length + Config.SAMREAD.Length + 3];
                 Buffer.BlockCopy(Config.ENCRYPT, 0, byteCOMRead, 0, Config.ENCRYPT.Length);
@@ -1461,11 +1437,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOMRead.Length, byteCOMRead, ref RxDataLen, RxData);
 
                 msg = "SAM Encrypt Read Minutiae #1 - 1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1474,11 +1450,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Read Minutiae #1) - 1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1489,11 +1465,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Minutiae #1)) - 1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 Array.Copy(RxData, 2, ektp.byteMinu1, 0, RxDataLen - 6);
                 ektp.minu1len = ektp.minu1len + RxDataLen - 6;
@@ -1521,11 +1497,11 @@ namespace OpenAccount.Data
                     k = k + a;
 
                     msg = "SAM Encrypt Read Minutiae #1 - " + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[RxDataLen - 2];
                     Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1534,11 +1510,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "Ek(Read Minutiae #1) - " + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                     Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1549,11 +1525,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "SAM Decrypt(Ek(Minutiae #1) - " + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     Array.Copy(RxData, 0, ektp.byteMinu1, ektp.minu1len, RxDataLen - 4);
                     ektp.minu1len = ektp.minu1len + RxDataLen - 4;
@@ -1562,19 +1538,18 @@ namespace OpenAccount.Data
                 }
                 minutiae1 = strIns(ByteArrayToString(ektp.byteMinu1, ektp.minu1len), " ");
                 msg = ("Minutiae 1 = " + minutiae1);
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Read Minutiae 1");
+                Utility.WriteLog("EKTP condition : cannot read Minutiae 1", "step-action");
                 return;
             }
         }
-        private bool Minutiae2()
+        private void Minutiae2()
         {
             int SAMreader = Convert.ToInt32(config.Read("EKTP", Config.PARAM_READER_SAM));
             int RFreader = Convert.ToInt32(config.Read("EKTP", Config.PARAM_READER_RF));
-            bool result = false;
             try
             {
                 UInt16 RxDataLen = 0;
@@ -1587,11 +1562,11 @@ namespace OpenAccount.Data
                 int len_total;
 
                 msg = "SAM Encrypt Select EF Minutiae #2";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1600,11 +1575,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Select EF Minutiae #2)";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1615,11 +1590,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Status #5))";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byte[] byteCOMRead = new byte[Config.ENCRYPT.Length + Config.SAMREAD.Length + 3];
                 Buffer.BlockCopy(Config.ENCRYPT, 0, byteCOMRead, 0, Config.ENCRYPT.Length);
@@ -1632,11 +1607,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOMRead.Length, byteCOMRead, ref RxDataLen, RxData);
 
                 msg = "SAM Encrypt Read Minutiae #2 - 1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[RxDataLen - 2];
                 Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1645,11 +1620,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "Ek(Read Minutiae #2) - 1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                 Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1660,11 +1635,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Decrypt(Ek(Minutiae #2)) - 1";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 Array.Copy(RxData, 2, ektp.byteMinu2, 0, RxDataLen - 6);
                 ektp.minu2len = ektp.minu2len + RxDataLen - 6;
@@ -1690,11 +1665,11 @@ namespace OpenAccount.Data
                         rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                         msg = "SAM Stop Digital Signature Automatic Verification";
-                        Console.WriteLine(msg);
-                        msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                        Console.WriteLine(msg);
-                        msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                        Console.WriteLine(msg);
+                        Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                        msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                        Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                        msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                        Utility.WriteLog("EKTP condition : " + msg, "step-action");
                     }
                     else
                         a = (UInt16)loopData2;
@@ -1705,11 +1680,11 @@ namespace OpenAccount.Data
                     k = k + a;
 
                     msg = "SAM Encrypt Read Minutiae #2 - " + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOMRead, byteCOMRead.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[RxDataLen - 2];
                     Buffer.BlockCopy(RxData, 0, byteCOM, 0, RxDataLen - 2);
@@ -1718,11 +1693,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)RFreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "Ek(Read Minutiae #2) - " + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     byteCOM = new byte[Config.DECRYPT.Length + 1 + RxDataLen - 2];
                     Buffer.BlockCopy(Config.DECRYPT, 0, byteCOM, 0, Config.DECRYPT.Length);
@@ -1733,11 +1708,11 @@ namespace OpenAccount.Data
                     rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                     msg = "SAM Decrypt(Ek(Minutiae #2) - " + l;
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                    Console.WriteLine(msg);
-                    msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                    Console.WriteLine(msg);
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                    msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                    Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                     Array.Copy(RxData, 0, ektp.byteMinu2, ektp.minu2len, RxDataLen - 4);
                     ektp.minu2len = ektp.minu2len + RxDataLen - 4;
@@ -1746,7 +1721,7 @@ namespace OpenAccount.Data
                 }
                 minutiae2 = strIns(ByteArrayToString(ektp.byteMinu2, ektp.minu2len), " ");
                 msg = ("Minutiae 2 = " + minutiae2);
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.VERIFYDF.Length];
                 byteCOM = Config.VERIFYDF;
@@ -1755,38 +1730,16 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Verify Digital Signature";
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
-                string verify1 = strIns(ByteArrayToString(RxData, RxDataLen), " ");
-                if(verify1=="00 01")
-                {
-                    result = true;
-                }
-                else
-                {
-                    result = false;
-                }
-                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
-                string verify2 = strIns(ByteArrayToString(RxData, RxDataLen), " ");
-                if(verify2=="00 01")
-                {
-                    result = true;
-                }
-                else
-                {
-                    result = false;
-                }
-
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
+                msg = (" SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
             {
-                Console.WriteLine("Error = Cannot Read Minutiae 2");
+                Utility.WriteLog("EKTP condition : cannot read Minutiae 2", "step-action");
             }
-            return result;
         }
         public void ReadBio()
         {
@@ -1799,7 +1752,7 @@ namespace OpenAccount.Data
             Transaksi trx = new Transaksi();
             byte[] bio = new byte[ektp.biolen];
             Array.Copy(ektp.byteBio, 0, bio, 0, ektp.biolen);
-            Console.WriteLine(Encoding.ASCII.GetString(bio));
+            //Console.WriteLine(Encoding.ASCII.GetString(bio));
             ektp.strBio = Encoding.ASCII.GetString(bio);
 
             String[] strBio = ektp.SplitBio(ektp.strBio);
@@ -1820,50 +1773,50 @@ namespace OpenAccount.Data
             TanggalLahir = strBio[14];
             TempatLahir = strBio[4];
             //strbio = strbio.Replace('"',' ');
-            strMSG = "NIK = " + NIK;
-            Console.WriteLine(strMSG);
+            //strMSG = "NIK = " + NIK;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Nama = " + Nama;
-            Console.WriteLine(strMSG);
+            //strMSG = "Nama = " + Nama;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Tempat/Tgl Lahir = " + TempatLahir + "," + TanggalLahir;
-            Console.WriteLine(strMSG);
+            //strMSG = "Tempat/Tgl Lahir = " + TempatLahir + "," + TanggalLahir;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Alamat = " + Alamat;
-            Console.WriteLine(strMSG);
+            //strMSG = "Alamat = " + Alamat;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "RT = " + RT;
-            Console.WriteLine(strMSG);
+            //strMSG = "RT = " + RT;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "RW = " + RW;
-            Console.WriteLine(strMSG);
+            //strMSG = "RW = " + RW;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Kecamatan = " + Kecamatan;
-            Console.WriteLine(strMSG);
+            //strMSG = "Kecamatan = " + Kecamatan;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Kelurahan = " + Kelurahan;
-            Console.WriteLine(strMSG);
+            //strMSG = "Kelurahan = " + Kelurahan;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Kabupaten = " + Kabupaten;
-            Console.WriteLine(strMSG);
+            //strMSG = "Kabupaten = " + Kabupaten;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Jenis Kelamin = " + JenisKelamin;
-            Console.WriteLine(strMSG);
+            //strMSG = "Jenis Kelamin = " + JenisKelamin;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Golongan Darah = " + GolonganDarah;
-            Console.WriteLine(strMSG);
+            //strMSG = "Golongan Darah = " + GolonganDarah;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Agama = " + Agama;
-            Console.WriteLine(strMSG);
+            //strMSG = "Agama = " + Agama;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Status Perkawinan = " + StatusPerkawinan;
-            Console.WriteLine(strMSG);
+            //strMSG = "Status Perkawinan = " + StatusPerkawinan;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Pekerjaan = " + Pekerjaan;
-            Console.WriteLine(strMSG);
+            //strMSG = "Pekerjaan = " + Pekerjaan;
+            //Console.WriteLine(strMSG);
 
-            strMSG = "Kewarganegaraan = " + Kewarganegaraan;
-            Console.WriteLine(strMSG);
+            //strMSG = "Kewarganegaraan = " + Kewarganegaraan;
+            //Console.WriteLine(strMSG);
         }
     }
 }
