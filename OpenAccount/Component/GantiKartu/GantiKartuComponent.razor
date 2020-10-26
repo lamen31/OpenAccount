@@ -100,15 +100,18 @@
 
     private void InputCharData(string strinput)
     {
-        strnorek += strinput;
-        if (strnorek.Length == 2)
-            strnorek += "-";
-        if (strnorek.Length == 7)
-            strnorek += "-";
-        if (strnorek.Length == 14)
-            strnorek += "-";
-        if (strnorek.Length == 17)
-            strnorek += "-";
+        if (strnorek.Length < 19)
+        {
+            strnorek += strinput;
+            if (strnorek.Length == 2)
+                strnorek += "-";
+            if (strnorek.Length == 7)
+                strnorek += "-";
+            if (strnorek.Length == 14)
+                strnorek += "-";
+            if (strnorek.Length == 17)
+                strnorek += "-";
+        }
     }
 
     private void RemoveCharData()

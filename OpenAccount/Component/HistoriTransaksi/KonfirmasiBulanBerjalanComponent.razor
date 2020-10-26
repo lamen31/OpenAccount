@@ -388,6 +388,10 @@
         }
         else if (totalbaris < maxbaris)
         {
+            halaman = 1;
+            maxhalaman = 1;
+            trx.setHalamanHistori(halaman.ToString());
+            trx.setMaxHalamanHistoriTransaksi(maxhalaman.ToString());
             Utility.WriteLog("Histori condition : print history", "step-action");
             saldo = await Task.Run(() => print.PrintHistori(trx));
             statusPrinter = trx._StatusPrinter;

@@ -48,6 +48,7 @@ namespace OpenAccount.Data
         public const string PARAM_READER_RF = "param.reader.rf";
         public const string PARAM_READER_LOOP = "param.reader.loop";
         public const string PARAM_READER_LOOP2 = "param.reader.loop2";
+        public const string PARAM_DISPENSER_BOX = "param.dispenser.box";
 
         public static readonly byte[] OPENSAM = { 0x00, 0xF0, 0x00, 0x00, 0x20 };
         public static readonly byte[] UIDA = { 0xFF, 0xCA, 0x00, 0x00, 0x00 };

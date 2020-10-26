@@ -1818,5 +1818,28 @@ namespace OpenAccount.Data
             //strMSG = "Kewarganegaraan = " + Kewarganegaraan;
             //Console.WriteLine(strMSG);
         }
+
+        public void clear()
+        {
+            minutiae1 = string.Empty;
+            minutiae2 = string.Empty;
+            NIK = string.Empty;
+            Nama = string.Empty;
+            TempatLahir = string.Empty;
+            TanggalLahir = string.Empty;
+            Alamat = string.Empty;
+            RT = string.Empty;
+            RW = string.Empty;
+            Kecamatan = string.Empty;
+            Kelurahan = string.Empty;
+            Kabupaten = string.Empty;
+            JenisKelamin = string.Empty;
+            GolonganDarah = string.Empty;
+            Agama = string.Empty;
+            StatusPerkawinan = string.Empty;
+            Pekerjaan = string.Empty;
+            Kewarganegaraan = string.Empty;
+            ektp.ClearData();
+    }
     }
 }

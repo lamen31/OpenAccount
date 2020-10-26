@@ -92,7 +92,7 @@ namespace OpenAccount.Data
                 }
                 //byteminutiae1 = StringToByteArray(strIns(minutiae1[0], ","));
                 //byteminutiae2 = StringToByteArray(strminutiae2);
-                int SafeLevel = 2;
+                int SafeLevel = 1;
                 while (loopFinger)
                 {
                     lRV = FingerDLL.FpStdP41M1_GetImage(0, MatchImgBuf);
@@ -107,7 +107,7 @@ namespace OpenAccount.Data
                     else
                     {
                         int AreaScore = FingerDLL.FpStdP41M1_IsFinger(0, MatchImgBuf);
-                        if (AreaScore < 60)
+                        if (AreaScore < 75)
                         {
                             continue;
                         }

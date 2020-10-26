@@ -30,7 +30,10 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
+            @if (!isBaca)
+            {
             <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Rekening">Kembali</button>
+            }   
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
@@ -62,7 +65,7 @@
     </div>
 </footer><!-- End Footer -->
 
-@if (isSpinner)
+@if (isBaca)
 {
     <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -108,39 +111,56 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isBaca = false;
     private bool isSpinner = false;
     private bool isKTPValid = true;
     private bool isKTPNotValid = false;
+    private bool isPindaiKTP = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             trx.clearKTP();
+            ktp.clear();
+
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu pindai ktp", "step-action");
         }
     }
 
     private async Task PindaiKTP()
     {
-        isSpinner = true;
+        isPindaiKTP = true;
+        await Task.Delay(100);
         StateHasChanged();
+        await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
-        scanner.FrontSwallow();
-        await Task.Delay(100);
-        ktp.EKtpInitialize();
-        await Task.Delay(500);
-        isKTPValid = ktp.EKtpReader();
-        trx.setMinutiae(ktp.minutiae1, ktp.minutiae2);
-        await Task.Delay(100);
-        ktp.ReadBio();
-        trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
-            ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
-            ktp.Pekerjaan, ktp.Kewarganegaraan);
-        await Task.Delay(100);
-        //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
-        //scanner.BackPos();
-        CheckKTPValid();
+        await scanner.FrontSwallow().ConfigureAwait(false);
+        isSpinner = scanner.test;
+        if (!isSpinner)
+        {
+            return;
+        }
+        else
+        {
+            isBaca = true;
+            await Task.Delay(100);
+            StateHasChanged();
+            await Task.Delay(100);
+            ktp.EKtpInitialize();
+            await Task.Delay(500);
+            isKTPValid = ktp.EKtpReader();
+            trx.setMinutiae(ktp.minutiae1, ktp.minutiae2);
+            await Task.Delay(100);
+            ktp.ReadBio();
+            trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
+                ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
+                ktp.Pekerjaan, ktp.Kewarganegaraan);
+            await Task.Delay(100);
+            //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
+            //scanner.BackPos();
+            CheckKTPValid();
+        }
     }
 
     private async Task CheckKTPValid()
@@ -169,15 +189,20 @@
 
     private async Task Rekening()
     {
-        await Task.Delay(100);
-        StateHasChanged();
-        await Task.Delay(100);
-        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
-        scanner.ReturnCard();
-        await Task.Delay(100);
-        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
-        scanner.CloseCVRReader();
-        Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
-        OnClick.InvokeAsync("gantikartu");
+        if (!isSpinner && isPindaiKTP)
+        {
+            await Task.Delay(100);
+            scanner.isManualStop = true;
+            Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+            scanner.CloseCVRReader();
+            Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
+            OnClick.InvokeAsync("gantikartu");
+            return;
+        }
+        else if (!isPindaiKTP)
+        {
+            Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
+            OnClick.InvokeAsync("gantikartu");
+        }
     }
 }

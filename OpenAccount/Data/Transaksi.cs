@@ -400,5 +400,28 @@ namespace OpenAccount.Data
             strSplit[20] = strSplit[20].Remove(strSplit[20].Length - 1, 1);
             return strSplit;
         }
+
+        public void ClearData()
+        {
+            strBio = "";
+            bytePhoto = new byte[65536];
+            photolen = 0;
+            byteBio = new byte[65536];
+            biolen = 0;
+            byteSignature = new byte[65536];
+            signlen = 0;
+            byteMinu1 = new byte[65536];
+            minu1len = 0;
+            byteMinu2 = new byte[65536];
+            minu2len = 0;
+            lbPhoto.Clear();
+            UID = new byte[8];
+            CC_LEN = 0;
+            GETCHAL_LEN = 0;
+            CALCHAL_LEN = 0;
+            EXTAUTH_LEN = 0;
+            INTAUTH_LEN = 0;
+            RETDS_LEN = 0;
+        }
     }
 }

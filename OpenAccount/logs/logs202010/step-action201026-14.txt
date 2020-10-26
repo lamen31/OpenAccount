@@ -1,0 +1,334 @@
+20201026 14:07:27 Home condition : clear transaksi success
+20201026 14:07:27 Home condition : clear array success
+20201026 14:07:27 Home condition : clear array nasabah success
+20201026 14:07:27 Home condition : clear list success
+20201026 14:07:27 Home condition : clear transaksi baru success
+20201026 14:07:29 Home condition : clear transaksi success
+20201026 14:07:29 Home condition : clear array success
+20201026 14:07:29 Home condition : clear array nasabah success
+20201026 14:07:29 Home condition : clear list success
+20201026 14:07:29 Home condition : clear transaksi baru success
+20201026 14:07:29 Home condition : entered into home page
+20201026 14:18:13 Home condition : clear transaksi success
+20201026 14:18:13 Home condition : clear array success
+20201026 14:18:13 Home condition : clear array nasabah success
+20201026 14:18:13 Home condition : clear list success
+20201026 14:18:13 Home condition : clear transaksi baru success
+20201026 14:18:15 Home condition : clear transaksi success
+20201026 14:18:15 Home condition : clear array success
+20201026 14:18:15 Home condition : clear array nasabah success
+20201026 14:18:15 Home condition : clear list success
+20201026 14:18:15 Home condition : clear transaksi baru success
+20201026 14:18:15 Home condition : entered into home page
+20201026 14:26:17 Home condition : clear transaksi success
+20201026 14:26:17 Home condition : clear array success
+20201026 14:26:17 Home condition : clear array nasabah success
+20201026 14:26:17 Home condition : clear list success
+20201026 14:26:17 Home condition : clear transaksi baru success
+20201026 14:26:19 Home condition : clear transaksi success
+20201026 14:26:19 Home condition : clear array success
+20201026 14:26:19 Home condition : clear array nasabah success
+20201026 14:26:19 Home condition : clear list success
+20201026 14:26:19 Home condition : clear transaksi baru success
+20201026 14:26:19 Home condition : entered into home page
+20201026 14:29:07 Home condition : move to ganti kartu
+20201026 14:29:07 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:29:12 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:29:12 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:29:16 Ganti kartu condition : id scanner front swallow
+20201026 14:29:16 ID scanner condition : open device list success
+20201026 14:29:16 ID scanner condition : open device success
+20201026 14:29:16 ID scanner condition : get status success
+20201026 14:29:16 ID scanner condition : set back entry success
+20201026 14:29:16 ID scanner condition : set front entry success
+20201026 14:32:35 Home condition : clear transaksi success
+20201026 14:32:35 Home condition : clear array success
+20201026 14:32:35 Home condition : clear array nasabah success
+20201026 14:32:35 Home condition : clear list success
+20201026 14:32:35 Home condition : clear transaksi baru success
+20201026 14:32:37 Home condition : clear transaksi success
+20201026 14:32:37 Home condition : clear array success
+20201026 14:32:37 Home condition : clear array nasabah success
+20201026 14:32:37 Home condition : clear list success
+20201026 14:32:37 Home condition : clear transaksi baru success
+20201026 14:32:37 Home condition : entered into home page
+20201026 14:32:38 Home condition : move to ganti kartu
+20201026 14:32:38 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:32:45 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:32:45 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:32:47 Ganti kartu condition : id scanner front swallow
+20201026 14:32:47 ID scanner condition : open device list success
+20201026 14:32:47 ID scanner condition : open device success
+20201026 14:32:47 ID scanner condition : get status success
+20201026 14:32:47 ID scanner condition : set back entry success
+20201026 14:32:47 ID scanner condition : set front entry success
+20201026 14:32:50 Ganti kartu condition : id scanner close reader
+20201026 14:32:50 ID scanner condition : set front entry success
+20201026 14:32:50 ID scanner condition : close id card reader success
+20201026 14:32:50 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:32:50 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:32:50 EKTP condition : initialize context
+20201026 14:32:50 EKTP condition : No Reader is Found
+20201026 14:32:50 EKTP condition : list readers
+20201026 14:32:50 EKTP condition : SAM activation
+20201026 14:32:50 EKTP condition : Index was outside the bounds of the array.
+20201026 14:32:50 EKTP condition : SAM Slot 1 NOT OK
+20201026 14:32:50 EKTP condition : Index was outside the bounds of the array.
+20201026 14:32:50 EKTP condition : SAM Slot 2 NOT OK
+20201026 14:32:50 EKTP condition : Cannot Open SAM Card. Please Insert SAM Card.
+20201026 14:32:51 EKTP condition : RF Reader Error
+20201026 14:32:51 EKTP condition :  SAM --> MC : 
+20201026 14:32:51 EKTP condition : Open SAM KTP-el
+20201026 14:32:51 EKTP condition :  MC --> SAM : 00 F0 00 00 20 1B 96 51 4A D4 92 D9 73 BB FF 4B E7 18 0B 4E 7F 9C 43 CE 82 C1 80 CE 89 2F 25 3F 9B 62 6E FD 7A
+20201026 14:32:51 EKTP condition :  SAM --> MC : 
+20201026 14:32:51 EKTP condition : cannot get UID type A
+20201026 14:32:51 EKTP condition : cannot select DF KTP-el
+20201026 14:32:51 EKTP condition : Get UID Type B
+20201026 14:32:51 EKTP condition :  MC --> KTP-el : 00 DD 00 00 08
+20201026 14:32:51 EKTP condition :  KTP-el --> MC : 
+20201026 14:32:51 EKTP condition : cannot get UID type B
+20201026 14:32:51 EKTP condition : Select EF Card Control
+20201026 14:32:51 EKTP condition :  MC --> KTP-el : 00 A4 00 00 02 6F F0
+20201026 14:32:51 EKTP condition :  KTP-el --> MC : 
+20201026 14:32:51 EKTP condition : Card Contol
+20201026 14:32:51 EKTP condition :  MC --> KTP-el : 00 B0 00 00 35
+20201026 14:32:51 EKTP condition :  KTP-el --> MC : 
+20201026 14:32:51 EKTP condition : Reset SAM
+20201026 14:32:51 EKTP condition :  MC --> SAM : 00 FF 00 00 00
+20201026 14:32:51 EKTP condition :  SAM --> MC : 
+20201026 14:32:51 EKTP condition : Get Challenge
+20201026 14:32:51 EKTP condition :  MC --> KTP-el : 00 84 00 00 08
+20201026 14:32:51 EKTP condition :  KTP-el --> MC : 
+20201026 14:32:51 EKTP condition : cannot get challenge
+20201026 14:32:51 EKTP condition : cannot calculate challenge
+20201026 14:32:51 EKTP condition : External Authenticate
+20201026 14:32:51 EKTP condition :  MC --> KTP-el : 00 82 00 00 28
+20201026 14:32:51 EKTP condition :  KTP-el --> MC : 
+20201026 14:32:51 EKTP condition : cannot External Authenticate
+20201026 14:32:51 EKTP condition : Internal Authenticate
+20201026 14:34:11 Home condition : clear transaksi success
+20201026 14:34:11 Home condition : clear array success
+20201026 14:34:11 Home condition : clear array nasabah success
+20201026 14:34:11 Home condition : clear list success
+20201026 14:34:11 Home condition : clear transaksi baru success
+20201026 14:34:12 Home condition : clear transaksi success
+20201026 14:34:12 Home condition : clear array success
+20201026 14:34:12 Home condition : clear array nasabah success
+20201026 14:34:12 Home condition : clear list success
+20201026 14:34:12 Home condition : clear transaksi baru success
+20201026 14:34:12 Home condition : entered into home page
+20201026 14:34:14 Home condition : move to ganti kartu
+20201026 14:34:14 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:34:18 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:34:18 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:34:20 Ganti kartu condition : id scanner front swallow
+20201026 14:34:20 ID scanner condition : open device list success
+20201026 14:34:20 ID scanner condition : open device success
+20201026 14:34:20 ID scanner condition : get status success
+20201026 14:34:20 ID scanner condition : set back entry success
+20201026 14:34:20 ID scanner condition : set front entry success
+20201026 14:34:59 Ganti kartu condition : id scanner close reader
+20201026 14:34:59 ID scanner condition : set front entry success
+20201026 14:34:59 ID scanner condition : close id card reader success
+20201026 14:37:09 Home condition : clear transaksi success
+20201026 14:37:09 Home condition : clear array success
+20201026 14:37:09 Home condition : clear array nasabah success
+20201026 14:37:09 Home condition : clear list success
+20201026 14:37:09 Home condition : clear transaksi baru success
+20201026 14:37:10 Home condition : clear transaksi success
+20201026 14:37:10 Home condition : clear array success
+20201026 14:37:10 Home condition : clear array nasabah success
+20201026 14:37:10 Home condition : clear list success
+20201026 14:37:10 Home condition : clear transaksi baru success
+20201026 14:37:11 Home condition : entered into home page
+20201026 14:37:12 Home condition : move to ganti kartu
+20201026 14:37:12 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:37:17 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:37:17 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:37:19 Ganti kartu condition : id scanner front swallow
+20201026 14:37:19 ID scanner condition : open device list success
+20201026 14:37:19 ID scanner condition : open device success
+20201026 14:37:19 ID scanner condition : get status success
+20201026 14:37:19 ID scanner condition : set back entry success
+20201026 14:37:19 ID scanner condition : set front entry success
+20201026 14:37:27 ID scanner condition : set front entry success
+20201026 14:37:31 ID scanner condition : close id card reader success
+20201026 14:37:31 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:37:35 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:37:41 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:37:41 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:37:42 Ganti kartu condition : id scanner front swallow
+20201026 14:37:42 ID scanner condition : open device list success
+20201026 14:37:42 ID scanner condition : open device success
+20201026 14:37:42 ID scanner condition : get status success
+20201026 14:37:42 ID scanner condition : set back entry success
+20201026 14:37:42 ID scanner condition : set front entry success
+20201026 14:37:48 ID scanner condition : set front entry success
+20201026 14:37:49 Ganti kartu condition : id scanner close reader
+20201026 14:37:56 ID scanner condition : close id card reader success
+20201026 14:37:56 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:37:59 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:38:05 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:38:05 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:38:06 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:38:06 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:38:16 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:38:16 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:38:17 Ganti kartu condition : id scanner front swallow
+20201026 14:38:17 ID scanner condition : open device list success
+20201026 14:38:17 ID scanner condition : open device success
+20201026 14:38:17 ID scanner condition : get status success
+20201026 14:38:17 ID scanner condition : set back entry success
+20201026 14:38:17 ID scanner condition : set front entry success
+20201026 14:38:21 ID scanner condition : set front entry success
+20201026 14:38:24 Ganti kartu condition : id scanner close reader
+20201026 14:38:42 ID scanner condition : close id card reader success
+20201026 14:38:42 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:38:48 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:47:59 Home condition : clear transaksi success
+20201026 14:47:59 Home condition : clear array success
+20201026 14:47:59 Home condition : clear array nasabah success
+20201026 14:47:59 Home condition : clear list success
+20201026 14:47:59 Home condition : clear transaksi baru success
+20201026 14:48:01 Home condition : clear transaksi success
+20201026 14:48:01 Home condition : clear array success
+20201026 14:48:01 Home condition : clear array nasabah success
+20201026 14:48:01 Home condition : clear list success
+20201026 14:48:01 Home condition : clear transaksi baru success
+20201026 14:48:01 Home condition : entered into home page
+20201026 14:48:03 Home condition : move to ganti kartu
+20201026 14:48:04 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:48:09 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:48:09 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:48:11 Ganti kartu condition : id scanner front swallow
+20201026 14:48:11 ID scanner condition : open device list failed
+20201026 14:48:11 ID scanner condition : open device failed
+20201026 14:48:11 ID scanner condition : get status failed
+20201026 14:48:38 Home condition : clear transaksi success
+20201026 14:48:38 Home condition : clear array success
+20201026 14:48:38 Home condition : clear array nasabah success
+20201026 14:48:38 Home condition : clear list success
+20201026 14:48:38 Home condition : clear transaksi baru success
+20201026 14:48:40 Home condition : clear transaksi success
+20201026 14:48:40 Home condition : clear array success
+20201026 14:48:40 Home condition : clear array nasabah success
+20201026 14:48:40 Home condition : clear list success
+20201026 14:48:40 Home condition : clear transaksi baru success
+20201026 14:48:40 Home condition : entered into home page
+20201026 14:48:41 Home condition : move to ganti kartu
+20201026 14:48:41 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:48:46 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:48:46 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:48:48 Ganti kartu condition : id scanner front swallow
+20201026 14:48:48 ID scanner condition : open device list failed
+20201026 14:48:48 ID scanner condition : open device failed
+20201026 14:48:48 ID scanner condition : get status failed
+20201026 14:50:07 Home condition : clear transaksi success
+20201026 14:50:07 Home condition : clear array success
+20201026 14:50:07 Home condition : clear array nasabah success
+20201026 14:50:07 Home condition : clear list success
+20201026 14:50:07 Home condition : clear transaksi baru success
+20201026 14:50:08 Home condition : clear transaksi success
+20201026 14:50:08 Home condition : clear array success
+20201026 14:50:08 Home condition : clear array nasabah success
+20201026 14:50:08 Home condition : clear list success
+20201026 14:50:08 Home condition : clear transaksi baru success
+20201026 14:50:09 Home condition : entered into home page
+20201026 14:50:10 Home condition : move to ganti kartu
+20201026 14:50:10 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:50:15 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:50:15 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:50:18 Ganti kartu condition : id scanner front swallow
+20201026 14:50:18 ID scanner condition : open device list failed
+20201026 14:50:18 ID scanner condition : open device failed
+20201026 14:50:18 ID scanner condition : get status failed
+20201026 14:51:28 Home condition : clear transaksi success
+20201026 14:51:28 Home condition : clear array success
+20201026 14:51:28 Home condition : clear array nasabah success
+20201026 14:51:28 Home condition : clear list success
+20201026 14:51:28 Home condition : clear transaksi baru success
+20201026 14:51:30 Home condition : clear transaksi success
+20201026 14:51:30 Home condition : clear array success
+20201026 14:51:30 Home condition : clear array nasabah success
+20201026 14:51:30 Home condition : clear list success
+20201026 14:51:30 Home condition : clear transaksi baru success
+20201026 14:51:30 Home condition : entered into home page
+20201026 14:51:31 Home condition : move to ganti kartu
+20201026 14:51:31 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:51:36 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:51:37 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:51:40 Ganti kartu condition : id scanner front swallow
+20201026 14:51:40 ID scanner condition : open device list failed
+20201026 14:51:40 ID scanner condition : open device failed
+20201026 14:51:40 ID scanner condition : get status failed
+20201026 14:52:59 Home condition : clear transaksi success
+20201026 14:52:59 Home condition : clear array success
+20201026 14:52:59 Home condition : clear array nasabah success
+20201026 14:52:59 Home condition : clear list success
+20201026 14:52:59 Home condition : clear transaksi baru success
+20201026 14:53:00 Home condition : clear transaksi success
+20201026 14:53:00 Home condition : clear array success
+20201026 14:53:00 Home condition : clear array nasabah success
+20201026 14:53:00 Home condition : clear list success
+20201026 14:53:00 Home condition : clear transaksi baru success
+20201026 14:53:01 Home condition : entered into home page
+20201026 14:53:02 Home condition : move to ganti kartu
+20201026 14:53:02 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:53:06 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:53:06 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:53:08 Ganti kartu condition : id scanner front swallow
+20201026 14:53:09 ID scanner condition : open device list failed
+20201026 14:53:09 ID scanner condition : open device failed
+20201026 14:53:09 ID scanner condition : get status failed
+20201026 14:54:06 Home condition : clear transaksi success
+20201026 14:54:06 Home condition : clear array success
+20201026 14:54:06 Home condition : clear array nasabah success
+20201026 14:54:06 Home condition : clear list success
+20201026 14:54:06 Home condition : clear transaksi baru success
+20201026 14:54:08 Home condition : clear transaksi success
+20201026 14:54:08 Home condition : clear array success
+20201026 14:54:08 Home condition : clear array nasabah success
+20201026 14:54:08 Home condition : clear list success
+20201026 14:54:08 Home condition : clear transaksi baru success
+20201026 14:54:08 Home condition : entered into home page
+20201026 14:54:09 Home condition : move to ganti kartu
+20201026 14:54:09 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:54:15 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:54:15 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:54:17 Ganti kartu condition : id scanner front swallow
+20201026 14:54:17 ID scanner condition : open device list success
+20201026 14:54:17 ID scanner condition : open device success
+20201026 14:54:17 ID scanner condition : get status success
+20201026 14:54:17 ID scanner condition : set back entry success
+20201026 14:54:17 ID scanner condition : set front entry success
+20201026 14:54:20 Ganti kartu condition : id scanner close reader
+20201026 14:54:20 ID scanner condition : set front entry success
+20201026 14:54:20 ID scanner condition : close id card reader success
+20201026 14:54:20 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:54:20 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:54:45 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:54:45 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:54:47 Ganti kartu condition : id scanner front swallow
+20201026 14:54:47 ID scanner condition : open device list success
+20201026 14:54:48 ID scanner condition : open device success
+20201026 14:54:48 ID scanner condition : get status success
+20201026 14:54:48 ID scanner condition : set back entry success
+20201026 14:54:48 ID scanner condition : set front entry success
+20201026 14:54:48 Ganti kartu condition : id scanner close reader
+20201026 14:54:48 ID scanner condition : set front entry success
+20201026 14:54:48 ID scanner condition : close id card reader success
+20201026 14:54:48 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:54:48 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 14:54:56 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 14:54:57 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 14:54:58 Ganti kartu condition : id scanner front swallow
+20201026 14:54:58 ID scanner condition : open device list success
+20201026 14:54:58 ID scanner condition : open device success
+20201026 14:54:58 ID scanner condition : get status success
+20201026 14:54:58 ID scanner condition : set back entry success
+20201026 14:54:58 ID scanner condition : set front entry success
+20201026 14:54:59 Ganti kartu condition : id scanner close reader
+20201026 14:54:59 ID scanner condition : set front entry success
+20201026 14:54:59 ID scanner condition : close id card reader success
+20201026 14:54:59 Ganti kartu condition : move to ganti kartu input rekening
+20201026 14:54:59 Ganti kartu condition : entered into ganti kartu input rekening

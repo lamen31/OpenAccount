@@ -156,12 +156,12 @@ namespace OpenAccount.Data
                 ypoint1 += 40;
                 g.DrawString(_trx._listhistori[i]._JenisTransaksi, font, blackBrush, new Point(350, ypoint));
                 g.DrawString(nominal.ToString("N0"), font, blackBrush, new Point(450, ypoint));
-                g.DrawString(saldo.ToString("N0"), font, blackBrush, new Point(600, ypoint));
-                ypoint = ypoint1;
-                if (_trx._listhistori[i]._JenisTransaksi == "D")
+                if (_trx._listhistori[i]._JenisTransaksi == "Debit")
                     saldo -= nominal;
                 else
                     saldo += nominal;
+                g.DrawString(saldo.ToString("N0"), font, blackBrush, new Point(600, ypoint));
+                ypoint = ypoint1;
             }
             ypoint += 10;
             string halaman = "halaman ke " + _trx._HistoriHalaman + " dari " + _trx._HistoriMaxHalaman;

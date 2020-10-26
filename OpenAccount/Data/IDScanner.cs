@@ -15,7 +15,8 @@ namespace OpenAccount.Data
     {
         private byte[] buf;
         private bool isTimeOut;
-        private bool isManualStop = false;
+        public bool isManualStop = false;
+        public bool test = false;
         private bool isOpen = false;
         private bool mIsRunning;
         private int deviceNum;
@@ -28,12 +29,13 @@ namespace OpenAccount.Data
         Config config = new Config();
         byte[] status;
 
-        public void FrontSwallow()
+        public async Task FrontSwallow()
         {
             buf = new byte[6];
             isTimeOut = false;
             isManualStop = false;
             mIsRunning = false;
+            bool result = false;
 
             deviceNum = 0;
             res = -1;
@@ -58,7 +60,7 @@ namespace OpenAccount.Data
             else
                 Utility.WriteLog("ID scanner condition : get status failed", "step-action");
             res = ScannerDLL.backSwallow(0, 0, buf);
-            if(res == 0)
+            if (res == 0)
                 Utility.WriteLog("ID scanner condition : set back entry success", "step-action");
             else
                 Utility.WriteLog("ID scanner condition : set back entry failed", "step-action");
@@ -111,6 +113,8 @@ namespace OpenAccount.Data
                                         Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
                                         res = 0;
                                         isManualStop = true;
+                                        test = true;
+                                        result = isManualStop;
                                         break;
                                     }
                                     break;
@@ -120,6 +124,8 @@ namespace OpenAccount.Data
                                     Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
                                     res = 0;
                                     isManualStop = true;
+                                    test = true;
+                                    result = isManualStop;
                                     break;
                                 }
                             //case 48:
@@ -143,53 +149,6 @@ namespace OpenAccount.Data
                                     break;
                                 }
                         }
-                        //if (status[0] == 50)
-                        //{
-                        //    Utility.WriteLog("ID scanner condition : the card is at the front card holding", "step-action");
-                        //    iRet = ScannerDLL.goRadioPos(0, status);
-                        //    if(iRet==0)
-                        //        Utility.WriteLog("ID scanner condition : move to the RF card holding success", "step-action");
-                        //    else
-                        //    {
-                        //        Utility.WriteLog("ID scanner condition : move to the RF card holding failed", "step-action");
-                        //        continue;
-                        //    }
-                        //    Thread.Sleep(500);
-                        //    iRet = ScannerDLL.cisQuery(0, status);
-                        //    Thread.Sleep(200);
-                        //    if (status[0] == 51)
-                        //    {
-                        //        Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
-                        //        res = 0;
-                        //        break;
-                        //    }
-                        //}
-                        //else if (status[0] == 51)
-                        //{
-                        //    Utility.WriteLog("ID scanner condition : the card is at RF card reading", "step-action");
-                        //    res = 0;
-                        //    break;
-                        //}
-                        //else if (status[0] == 48)
-                        //{
-                        //    Utility.WriteLog("ID scanner condition : no card and no card inserted", "step-action");
-                        //    continue;
-                        //}
-                        //else if (status[0] == 49)
-                        //{
-                        //    Utility.WriteLog("ID scanner condition : the card movement needs to be detected according to the state of optical sensor", "step-action");
-                        //    continue;
-                        //}
-                        //else if (status[0] == 52)
-                        //{
-                        //    Utility.WriteLog("ID scanner condition : the card is at the rear card holding", "step-action");
-                        //    continue;
-                        //}
-                        //else if (status[0] == 53)
-                        //{
-                        //    Utility.WriteLog("ID scanner condition : the card is illegally positioned", "step-action");
-                        //    continue;
-                        //}
                     }
                     else
                     {
@@ -208,6 +167,7 @@ namespace OpenAccount.Data
                 Utility.WriteLog("ID scanner condition : set front entry success", "step-action");
             else
                 Utility.WriteLog("ID scanner condition : set front entry failed", "step-action");
+            //return result;
         }
         public void BackPos()
         {
