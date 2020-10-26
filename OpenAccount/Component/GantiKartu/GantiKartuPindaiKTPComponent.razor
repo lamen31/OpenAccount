@@ -135,7 +135,7 @@
         StateHasChanged();
         await Task.Delay(100);
         Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
-        await scanner.FrontSwallow().ConfigureAwait(false);
+        await scanner.FrontSwallow();
         isSpinner = scanner.test;
         if (!isSpinner)
         {
@@ -189,10 +189,10 @@
 
     private async Task Rekening()
     {
-        if (!isSpinner && isPindaiKTP)
+        scanner.isManualStop = true;
+        if (isPindaiKTP)
         {
             await Task.Delay(100);
-            scanner.isManualStop = true;
             Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
             scanner.CloseCVRReader();
             Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");

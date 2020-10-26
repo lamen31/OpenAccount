@@ -74,6 +74,7 @@ namespace OpenAccount.Data
             {
                 try
                 {
+                    await Task.Delay(100);
                     span = DateTime.Now - startTime;
                     if (overTime > 0 && span.TotalMilliseconds > overTime)
                     {

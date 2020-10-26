@@ -1905,3 +1905,1340 @@
 20201026 15:26:10 EKTP condition :  KTP-el --> MC : 
 20201026 15:26:10 EKTP condition : cannot External Authenticate
 20201026 15:26:10 EKTP condition : Internal Authenticate
+20201026 15:33:17 Home condition : clear transaksi success
+20201026 15:33:17 Home condition : clear array success
+20201026 15:33:17 Home condition : clear array nasabah success
+20201026 15:33:17 Home condition : clear list success
+20201026 15:33:17 Home condition : clear transaksi baru success
+20201026 15:33:19 Home condition : clear transaksi success
+20201026 15:33:19 Home condition : clear array success
+20201026 15:33:19 Home condition : clear array nasabah success
+20201026 15:33:19 Home condition : clear list success
+20201026 15:33:19 Home condition : clear transaksi baru success
+20201026 15:33:19 Home condition : entered into home page
+20201026 15:33:21 Home condition : move to ganti kartu
+20201026 15:33:21 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:33:26 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:33:26 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:33:28 Ganti kartu condition : id scanner front swallow
+20201026 15:33:28 ID scanner condition : open device list failed
+20201026 15:33:28 ID scanner condition : open device failed
+20201026 15:33:28 ID scanner condition : get status failed
+20201026 15:33:49 Home condition : clear transaksi success
+20201026 15:33:49 Home condition : clear array success
+20201026 15:33:49 Home condition : clear array nasabah success
+20201026 15:33:49 Home condition : clear list success
+20201026 15:33:49 Home condition : clear transaksi baru success
+20201026 15:33:51 Home condition : clear transaksi success
+20201026 15:33:51 Home condition : clear array success
+20201026 15:33:51 Home condition : clear array nasabah success
+20201026 15:33:51 Home condition : clear list success
+20201026 15:33:51 Home condition : clear transaksi baru success
+20201026 15:33:51 Home condition : entered into home page
+20201026 15:33:54 Home condition : move to ganti kartu
+20201026 15:33:54 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:34:00 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:34:00 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:34:02 Ganti kartu condition : id scanner front swallow
+20201026 15:34:02 ID scanner condition : open device list success
+20201026 15:34:02 ID scanner condition : open device success
+20201026 15:34:02 ID scanner condition : get status success
+20201026 15:34:02 ID scanner condition : set back entry success
+20201026 15:34:02 ID scanner condition : set front entry success
+20201026 15:36:00 Home condition : clear transaksi success
+20201026 15:36:00 Home condition : clear array success
+20201026 15:36:00 Home condition : clear array nasabah success
+20201026 15:36:00 Home condition : clear list success
+20201026 15:36:00 Home condition : clear transaksi baru success
+20201026 15:36:01 Home condition : clear transaksi success
+20201026 15:36:01 Home condition : clear array success
+20201026 15:36:01 Home condition : clear array nasabah success
+20201026 15:36:01 Home condition : clear list success
+20201026 15:36:01 Home condition : clear transaksi baru success
+20201026 15:36:02 Home condition : entered into home page
+20201026 15:36:12 Home condition : move to ganti kartu
+20201026 15:36:12 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:36:18 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:36:18 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:36:20 Ganti kartu condition : id scanner front swallow
+20201026 15:36:38 ID scanner condition : open device list success
+20201026 15:36:38 ID scanner condition : open device success
+20201026 15:36:38 ID scanner condition : get status success
+20201026 15:36:38 ID scanner condition : set back entry success
+20201026 15:36:38 ID scanner condition : set front entry success
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:53 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:37:54 ID scanner condition : the card is at RF card reading
+20201026 15:37:54 ID scanner condition : set front entry success
+20201026 15:38:57 Home condition : clear transaksi success
+20201026 15:38:57 Home condition : clear array success
+20201026 15:38:57 Home condition : clear array nasabah success
+20201026 15:38:57 Home condition : clear list success
+20201026 15:38:57 Home condition : clear transaksi baru success
+20201026 15:38:59 Home condition : clear transaksi success
+20201026 15:38:59 Home condition : clear array success
+20201026 15:38:59 Home condition : clear array nasabah success
+20201026 15:38:59 Home condition : clear list success
+20201026 15:38:59 Home condition : clear transaksi baru success
+20201026 15:38:59 Home condition : entered into home page
+20201026 15:39:00 Home condition : move to ganti kartu
+20201026 15:39:00 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:39:04 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:39:05 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:39:06 Ganti kartu condition : id scanner front swallow
+20201026 15:39:06 ID scanner condition : open device list success
+20201026 15:39:06 ID scanner condition : open device success
+20201026 15:39:06 ID scanner condition : get status success
+20201026 15:39:06 ID scanner condition : set back entry success
+20201026 15:39:06 ID scanner condition : set front entry success
+20201026 15:39:06 ID scanner condition : the card is at RF card reading
+20201026 15:39:06 ID scanner condition : set front entry success
+20201026 15:39:06 EKTP condition : initialize context
+20201026 15:39:07 EKTP condition : No Reader is Found
+20201026 15:39:07 EKTP condition : list readers
+20201026 15:39:07 EKTP condition : SAM activation
+20201026 15:39:07 EKTP condition : Index was outside the bounds of the array.
+20201026 15:39:07 EKTP condition : SAM Slot 1 NOT OK
+20201026 15:39:07 EKTP condition : Index was outside the bounds of the array.
+20201026 15:39:07 EKTP condition : SAM Slot 2 NOT OK
+20201026 15:39:07 EKTP condition : Cannot Open SAM Card. Please Insert SAM Card.
+20201026 15:39:07 EKTP condition : RF Reader Error
+20201026 15:39:07 EKTP condition :  SAM --> MC : 
+20201026 15:39:07 EKTP condition : Open SAM KTP-el
+20201026 15:39:07 EKTP condition :  MC --> SAM : 00 F0 00 00 20 1B 96 51 4A D4 92 D9 73 BB FF 4B E7 18 0B 4E 7F 9C 43 CE 82 C1 80 CE 89 2F 25 3F 9B 62 6E FD 7A
+20201026 15:39:07 EKTP condition :  SAM --> MC : 
+20201026 15:39:07 EKTP condition : cannot get UID type A
+20201026 15:39:07 EKTP condition : cannot select DF KTP-el
+20201026 15:39:07 EKTP condition : Get UID Type B
+20201026 15:39:07 EKTP condition :  MC --> KTP-el : 00 DD 00 00 08
+20201026 15:39:07 EKTP condition :  KTP-el --> MC : 
+20201026 15:39:07 EKTP condition : cannot get UID type B
+20201026 15:39:07 EKTP condition : Select EF Card Control
+20201026 15:39:07 EKTP condition :  MC --> KTP-el : 00 A4 00 00 02 6F F0
+20201026 15:39:07 EKTP condition :  KTP-el --> MC : 
+20201026 15:39:07 EKTP condition : Card Contol
+20201026 15:39:07 EKTP condition :  MC --> KTP-el : 00 B0 00 00 35
+20201026 15:39:07 EKTP condition :  KTP-el --> MC : 
+20201026 15:39:07 EKTP condition : Reset SAM
+20201026 15:39:07 EKTP condition :  MC --> SAM : 00 FF 00 00 00
+20201026 15:39:07 EKTP condition :  SAM --> MC : 
+20201026 15:39:07 EKTP condition : Get Challenge
+20201026 15:39:07 EKTP condition :  MC --> KTP-el : 00 84 00 00 08
+20201026 15:39:07 EKTP condition :  KTP-el --> MC : 
+20201026 15:39:08 EKTP condition : cannot get challenge
+20201026 15:39:08 EKTP condition : cannot calculate challenge
+20201026 15:39:08 EKTP condition : External Authenticate
+20201026 15:39:08 EKTP condition :  MC --> KTP-el : 00 82 00 00 28
+20201026 15:39:08 EKTP condition :  KTP-el --> MC : 
+20201026 15:39:08 EKTP condition : cannot External Authenticate
+20201026 15:39:08 EKTP condition : Internal Authenticate
+20201026 15:39:33 Home condition : clear transaksi success
+20201026 15:39:33 Home condition : clear array success
+20201026 15:39:33 Home condition : clear array nasabah success
+20201026 15:39:33 Home condition : clear list success
+20201026 15:39:33 Home condition : clear transaksi baru success
+20201026 15:39:35 Home condition : clear transaksi success
+20201026 15:39:35 Home condition : clear array success
+20201026 15:39:35 Home condition : clear array nasabah success
+20201026 15:39:35 Home condition : clear list success
+20201026 15:39:35 Home condition : clear transaksi baru success
+20201026 15:39:36 Home condition : entered into home page
+20201026 15:39:41 Home condition : move to ganti kartu
+20201026 15:39:41 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:39:46 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:39:46 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:39:48 Ganti kartu condition : id scanner front swallow
+20201026 15:39:48 ID scanner condition : open device list success
+20201026 15:39:48 ID scanner condition : open device success
+20201026 15:39:48 ID scanner condition : get status success
+20201026 15:39:48 ID scanner condition : set back entry success
+20201026 15:39:48 ID scanner condition : set front entry success
+20201026 15:44:54 Home condition : clear transaksi success
+20201026 15:44:54 Home condition : clear array success
+20201026 15:44:54 Home condition : clear array nasabah success
+20201026 15:44:54 Home condition : clear list success
+20201026 15:44:54 Home condition : clear transaksi baru success
+20201026 15:44:56 Home condition : clear transaksi success
+20201026 15:44:56 Home condition : clear array success
+20201026 15:44:56 Home condition : clear array nasabah success
+20201026 15:44:56 Home condition : clear list success
+20201026 15:44:56 Home condition : clear transaksi baru success
+20201026 15:44:56 Home condition : entered into home page
+20201026 15:44:59 Home condition : move to ganti kartu
+20201026 15:44:59 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:45:03 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:45:03 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:45:05 Ganti kartu condition : id scanner front swallow
+20201026 15:45:05 ID scanner condition : open device list success
+20201026 15:45:05 ID scanner condition : open device success
+20201026 15:45:05 ID scanner condition : get status success
+20201026 15:45:05 ID scanner condition : set back entry success
+20201026 15:45:05 ID scanner condition : set front entry success
+20201026 15:45:13 Ganti kartu condition : id scanner close reader
+20201026 15:45:13 ID scanner condition : set front entry success
+20201026 15:45:13 ID scanner condition : close id card reader success
+20201026 15:45:13 Ganti kartu condition : move to ganti kartu input rekening
+20201026 15:45:13 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:45:25 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:45:25 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:45:26 Ganti kartu condition : id scanner front swallow
+20201026 15:45:26 ID scanner condition : open device list success
+20201026 15:45:26 ID scanner condition : open device success
+20201026 15:45:26 ID scanner condition : get status success
+20201026 15:45:26 ID scanner condition : set back entry success
+20201026 15:45:26 ID scanner condition : set front entry success
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:29 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:45:30 ID scanner condition : the card is at RF card reading
+20201026 15:45:30 ID scanner condition : set front entry success
+20201026 15:52:13 Home condition : clear transaksi success
+20201026 15:52:13 Home condition : clear array success
+20201026 15:52:13 Home condition : clear array nasabah success
+20201026 15:52:13 Home condition : clear list success
+20201026 15:52:13 Home condition : clear transaksi baru success
+20201026 15:52:14 Home condition : clear transaksi success
+20201026 15:52:14 Home condition : clear array success
+20201026 15:52:14 Home condition : clear array nasabah success
+20201026 15:52:14 Home condition : clear list success
+20201026 15:52:14 Home condition : clear transaksi baru success
+20201026 15:52:14 Home condition : entered into home page
+20201026 15:52:18 Home condition : move to ganti kartu
+20201026 15:52:18 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:52:23 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:52:23 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:52:25 Ganti kartu condition : id scanner front swallow
+20201026 15:52:25 ID scanner condition : open device list success
+20201026 15:52:25 ID scanner condition : open device success
+20201026 15:52:25 ID scanner condition : get status success
+20201026 15:52:25 ID scanner condition : set back entry success
+20201026 15:52:25 ID scanner condition : set front entry success
+20201026 15:52:25 ID scanner condition : the card is at RF card reading
+20201026 15:52:25 ID scanner condition : set front entry success
+20201026 15:53:59 Home condition : clear transaksi success
+20201026 15:53:59 Home condition : clear array success
+20201026 15:53:59 Home condition : clear array nasabah success
+20201026 15:53:59 Home condition : clear list success
+20201026 15:53:59 Home condition : clear transaksi baru success
+20201026 15:54:01 Home condition : clear transaksi success
+20201026 15:54:01 Home condition : clear array success
+20201026 15:54:01 Home condition : clear array nasabah success
+20201026 15:54:01 Home condition : clear list success
+20201026 15:54:01 Home condition : clear transaksi baru success
+20201026 15:54:01 Home condition : entered into home page
+20201026 15:54:09 Home condition : move to ganti kartu
+20201026 15:54:09 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:54:16 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:54:16 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:54:19 Ganti kartu condition : id scanner front swallow
+20201026 15:54:19 ID scanner condition : open device list success
+20201026 15:54:19 ID scanner condition : open device success
+20201026 15:54:19 ID scanner condition : get status success
+20201026 15:54:19 ID scanner condition : set back entry success
+20201026 15:54:19 ID scanner condition : set front entry success
+20201026 15:55:09 Home condition : clear transaksi success
+20201026 15:55:09 Home condition : clear array success
+20201026 15:55:09 Home condition : clear array nasabah success
+20201026 15:55:09 Home condition : clear list success
+20201026 15:55:09 Home condition : clear transaksi baru success
+20201026 15:55:11 Home condition : clear transaksi success
+20201026 15:55:11 Home condition : clear array success
+20201026 15:55:11 Home condition : clear array nasabah success
+20201026 15:55:11 Home condition : clear list success
+20201026 15:55:11 Home condition : clear transaksi baru success
+20201026 15:55:11 Home condition : entered into home page
+20201026 15:55:12 Home condition : move to ganti kartu
+20201026 15:55:12 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:55:18 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:55:18 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:55:20 Ganti kartu condition : id scanner front swallow
+20201026 15:55:20 ID scanner condition : open device list success
+20201026 15:55:20 ID scanner condition : open device success
+20201026 15:55:20 ID scanner condition : get status success
+20201026 15:55:20 ID scanner condition : set back entry success
+20201026 15:55:20 ID scanner condition : set front entry success
+20201026 15:56:20 Home condition : clear transaksi success
+20201026 15:56:20 Home condition : clear array success
+20201026 15:56:20 Home condition : clear array nasabah success
+20201026 15:56:20 Home condition : clear list success
+20201026 15:56:20 Home condition : clear transaksi baru success
+20201026 15:56:21 Home condition : clear transaksi success
+20201026 15:56:21 Home condition : clear array success
+20201026 15:56:21 Home condition : clear array nasabah success
+20201026 15:56:21 Home condition : clear list success
+20201026 15:56:21 Home condition : clear transaksi baru success
+20201026 15:56:21 Home condition : entered into home page
+20201026 15:56:27 Home condition : move to ganti kartu
+20201026 15:56:27 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:56:33 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:56:33 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:56:36 Ganti kartu condition : id scanner front swallow
+20201026 15:56:36 ID scanner condition : open device list success
+20201026 15:56:36 ID scanner condition : open device success
+20201026 15:56:36 ID scanner condition : get status success
+20201026 15:56:36 ID scanner condition : set back entry success
+20201026 15:56:36 ID scanner condition : set front entry success
+20201026 15:56:42 ID scanner condition : set front entry success
+20201026 15:56:42 Ganti kartu condition : id scanner close reader
+20201026 15:56:42 ID scanner condition : close id card reader success
+20201026 15:56:42 Ganti kartu condition : move to ganti kartu input rekening
+20201026 15:56:42 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:56:48 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:56:48 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:56:51 Ganti kartu condition : id scanner front swallow
+20201026 15:56:51 ID scanner condition : open device list success
+20201026 15:56:51 ID scanner condition : open device success
+20201026 15:56:51 ID scanner condition : get status success
+20201026 15:56:51 ID scanner condition : set back entry success
+20201026 15:56:51 ID scanner condition : set front entry success
+20201026 15:56:54 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:56:55 ID scanner condition : the card is at RF card reading
+20201026 15:56:55 ID scanner condition : set front entry success
+20201026 15:58:06 Home condition : clear transaksi success
+20201026 15:58:06 Home condition : clear array success
+20201026 15:58:06 Home condition : clear array nasabah success
+20201026 15:58:06 Home condition : clear list success
+20201026 15:58:06 Home condition : clear transaksi baru success
+20201026 15:58:08 Home condition : clear transaksi success
+20201026 15:58:08 Home condition : clear array success
+20201026 15:58:08 Home condition : clear array nasabah success
+20201026 15:58:08 Home condition : clear list success
+20201026 15:58:08 Home condition : clear transaksi baru success
+20201026 15:58:08 Home condition : entered into home page
+20201026 15:58:10 Home condition : move to ganti kartu
+20201026 15:58:10 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:58:16 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:58:16 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:58:20 Ganti kartu condition : id scanner front swallow
+20201026 15:58:20 ID scanner condition : open device list success
+20201026 15:58:20 ID scanner condition : open device success
+20201026 15:58:20 ID scanner condition : get status success
+20201026 15:58:20 ID scanner condition : set back entry success
+20201026 15:58:20 ID scanner condition : set front entry success
+20201026 15:58:21 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:58:21 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:58:21 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:58:21 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:58:21 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:58:21 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:58:21 ID scanner condition : the card is at RF card reading
+20201026 15:58:21 ID scanner condition : set front entry success
+20201026 15:58:22 EKTP condition : initialize context
+20201026 15:58:22 EKTP condition : No Reader is Found
+20201026 15:58:22 EKTP condition : list readers
+20201026 15:58:22 EKTP condition : SAM activation
+20201026 15:58:22 EKTP condition : Index was outside the bounds of the array.
+20201026 15:58:22 EKTP condition : SAM Slot 1 NOT OK
+20201026 15:58:22 EKTP condition : Index was outside the bounds of the array.
+20201026 15:58:22 EKTP condition : SAM Slot 2 NOT OK
+20201026 15:58:22 EKTP condition : Cannot Open SAM Card. Please Insert SAM Card.
+20201026 15:58:22 EKTP condition : RF Reader Error
+20201026 15:58:22 EKTP condition :  SAM --> MC : 
+20201026 15:58:22 EKTP condition : Open SAM KTP-el
+20201026 15:58:22 EKTP condition :  MC --> SAM : 00 F0 00 00 20 1B 96 51 4A D4 92 D9 73 BB FF 4B E7 18 0B 4E 7F 9C 43 CE 82 C1 80 CE 89 2F 25 3F 9B 62 6E FD 7A
+20201026 15:58:22 EKTP condition :  SAM --> MC : 
+20201026 15:58:23 EKTP condition : cannot get UID type A
+20201026 15:58:23 EKTP condition : cannot select DF KTP-el
+20201026 15:58:23 EKTP condition : Get UID Type B
+20201026 15:58:23 EKTP condition :  MC --> KTP-el : 00 DD 00 00 08
+20201026 15:58:23 EKTP condition :  KTP-el --> MC : 
+20201026 15:58:23 EKTP condition : cannot get UID type B
+20201026 15:58:23 EKTP condition : Select EF Card Control
+20201026 15:58:23 EKTP condition :  MC --> KTP-el : 00 A4 00 00 02 6F F0
+20201026 15:58:23 EKTP condition :  KTP-el --> MC : 
+20201026 15:58:23 EKTP condition : Card Contol
+20201026 15:58:23 EKTP condition :  MC --> KTP-el : 00 B0 00 00 35
+20201026 15:58:23 EKTP condition :  KTP-el --> MC : 
+20201026 15:58:23 EKTP condition : Reset SAM
+20201026 15:58:23 EKTP condition :  MC --> SAM : 00 FF 00 00 00
+20201026 15:58:23 EKTP condition :  SAM --> MC : 
+20201026 15:58:23 EKTP condition : Get Challenge
+20201026 15:58:23 EKTP condition :  MC --> KTP-el : 00 84 00 00 08
+20201026 15:58:23 EKTP condition :  KTP-el --> MC : 
+20201026 15:58:23 EKTP condition : cannot get challenge
+20201026 15:58:23 EKTP condition : cannot calculate challenge
+20201026 15:58:23 EKTP condition : External Authenticate
+20201026 15:58:23 EKTP condition :  MC --> KTP-el : 00 82 00 00 28
+20201026 15:58:23 EKTP condition :  KTP-el --> MC : 
+20201026 15:58:23 EKTP condition : cannot External Authenticate
+20201026 15:58:23 EKTP condition : Internal Authenticate
+20201026 15:58:43 Home condition : clear transaksi success
+20201026 15:58:43 Home condition : clear array success
+20201026 15:58:43 Home condition : clear array nasabah success
+20201026 15:58:43 Home condition : clear list success
+20201026 15:58:43 Home condition : clear transaksi baru success
+20201026 15:58:45 Home condition : clear transaksi success
+20201026 15:58:45 Home condition : clear array success
+20201026 15:58:45 Home condition : clear array nasabah success
+20201026 15:58:45 Home condition : clear list success
+20201026 15:58:45 Home condition : clear transaksi baru success
+20201026 15:58:45 Home condition : entered into home page
+20201026 15:58:46 Home condition : move to ganti kartu
+20201026 15:58:46 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:58:53 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:58:53 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:58:56 Ganti kartu condition : id scanner front swallow
+20201026 15:58:56 ID scanner condition : open device list success
+20201026 15:58:56 ID scanner condition : open device success
+20201026 15:58:56 ID scanner condition : get status success
+20201026 15:58:56 ID scanner condition : set back entry success
+20201026 15:58:56 ID scanner condition : set front entry success
+20201026 15:59:02 ID scanner condition : set front entry success
+20201026 15:59:02 Ganti kartu condition : id scanner close reader
+20201026 15:59:02 ID scanner condition : close id card reader success
+20201026 15:59:02 Ganti kartu condition : move to ganti kartu input rekening
+20201026 15:59:02 Ganti kartu condition : entered into ganti kartu input rekening
+20201026 15:59:11 Ganti kartu condition : move to ganti kartu pindai ktp
+20201026 15:59:11 Ganti kartu condition : entered into ganti kartu pindai ktp
+20201026 15:59:22 Ganti kartu condition : id scanner front swallow
+20201026 15:59:22 ID scanner condition : open device list success
+20201026 15:59:22 ID scanner condition : open device success
+20201026 15:59:22 ID scanner condition : get status success
+20201026 15:59:22 ID scanner condition : set back entry success
+20201026 15:59:22 ID scanner condition : set front entry success
+20201026 15:59:24 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:24 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:25 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:25 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:25 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:25 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:25 ID scanner condition : the card movement needs to be detected according to the state of optical sensor
+20201026 15:59:25 ID scanner condition : the card is at RF card reading
+20201026 15:59:25 ID scanner condition : set front entry success
+20201026 15:59:25 EKTP condition : initialize context
+20201026 15:59:25 EKTP condition : No Reader is Found
+20201026 15:59:25 EKTP condition : list readers
+20201026 15:59:25 EKTP condition : SAM activation
+20201026 15:59:25 EKTP condition : Index was outside the bounds of the array.
+20201026 15:59:25 EKTP condition : SAM Slot 1 NOT OK
+20201026 15:59:26 EKTP condition : Index was outside the bounds of the array.
+20201026 15:59:26 EKTP condition : SAM Slot 2 NOT OK
+20201026 15:59:26 EKTP condition : Cannot Open SAM Card. Please Insert SAM Card.
+20201026 15:59:26 EKTP condition : RF Reader Error
+20201026 15:59:26 EKTP condition :  SAM --> MC : 
+20201026 15:59:26 EKTP condition : Open SAM KTP-el
+20201026 15:59:26 EKTP condition :  MC --> SAM : 00 F0 00 00 20 1B 96 51 4A D4 92 D9 73 BB FF 4B E7 18 0B 4E 7F 9C 43 CE 82 C1 80 CE 89 2F 25 3F 9B 62 6E FD 7A
+20201026 15:59:26 EKTP condition :  SAM --> MC : 
+20201026 15:59:26 EKTP condition : cannot get UID type A
+20201026 15:59:26 EKTP condition : cannot select DF KTP-el
+20201026 15:59:26 EKTP condition : Get UID Type B
+20201026 15:59:26 EKTP condition :  MC --> KTP-el : 00 DD 00 00 08
+20201026 15:59:26 EKTP condition :  KTP-el --> MC : 
+20201026 15:59:26 EKTP condition : cannot get UID type B
+20201026 15:59:26 EKTP condition : Select EF Card Control
+20201026 15:59:26 EKTP condition :  MC --> KTP-el : 00 A4 00 00 02 6F F0
+20201026 15:59:26 EKTP condition :  KTP-el --> MC : 
+20201026 15:59:26 EKTP condition : Card Contol
+20201026 15:59:26 EKTP condition :  MC --> KTP-el : 00 B0 00 00 35
+20201026 15:59:26 EKTP condition :  KTP-el --> MC : 
+20201026 15:59:26 EKTP condition : Reset SAM
+20201026 15:59:26 EKTP condition :  MC --> SAM : 00 FF 00 00 00
+20201026 15:59:26 EKTP condition :  SAM --> MC : 
+20201026 15:59:26 EKTP condition : Get Challenge
+20201026 15:59:26 EKTP condition :  MC --> KTP-el : 00 84 00 00 08
+20201026 15:59:26 EKTP condition :  KTP-el --> MC : 
+20201026 15:59:26 EKTP condition : cannot get challenge
+20201026 15:59:26 EKTP condition : cannot calculate challenge
+20201026 15:59:26 EKTP condition : External Authenticate
+20201026 15:59:26 EKTP condition :  MC --> KTP-el : 00 82 00 00 28
+20201026 15:59:26 EKTP condition :  KTP-el --> MC : 
+20201026 15:59:26 EKTP condition : cannot External Authenticate
+20201026 15:59:26 EKTP condition : Internal Authenticate
