@@ -45,6 +45,8 @@ namespace OpenAccount.Data
         public string Pekerjaan = string.Empty;
         public string Kewarganegaraan = string.Empty;
 
+        public string DFresponse = string.Empty;
+
         public void EKtpInitialize()
         {
             string SAMCONF = config.Read("EKTP", Config.PARAM_READER_SAMPCONF);
@@ -52,7 +54,9 @@ namespace OpenAccount.Data
             try
             {
                 txtbxSAMCONF = SAMCONF;
+                Utility.WriteLog("EKTP condition : SAMCONF => " + txtbxSAMCONF, "step-action");
                 txtbxSAMPCID = SAMPCID;
+                Utility.WriteLog("EKTP condition : SAMPCID => " + txtbxSAMPCID, "step-action");
             }
             catch
             {
@@ -265,7 +269,7 @@ namespace OpenAccount.Data
             BIODATA();
             //RETPHOTO();
             AutoDecip();
-            Signature();
+            //Signature();
             Minutiae1();
             Minutiae2();
             EKtpDLL.DisconnectSCardReader((UInt16)SAMreader);
@@ -496,6 +500,7 @@ namespace OpenAccount.Data
                 msg = (" MC --> KTP-el : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
                 Utility.WriteLog("EKTP condition : " + msg, "step-action");
                 msg = (" KTP-el --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                DFresponse = strIns(ByteArrayToString(RxData, RxDataLen), " ");
                 Utility.WriteLog("EKTP condition : " + msg, "step-action");
             }
             catch
@@ -946,20 +951,20 @@ namespace OpenAccount.Data
                 byteCOM = new byte[Config.AUTOVERIF.Length];
                 Buffer.BlockCopy(Config.AUTOVERIF, 0, byteCOM, 0, Config.AUTOVERIF.Length);
 
-                //Array.Clear(RxData, 0, RxData.Length);
-                //rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
+                Array.Clear(RxData, 0, RxData.Length);
+                rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
-                //msg = "SAM Start Digital Signature Automatic Verification";
-                //Console.WriteLine(msg);
-                //msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                //Console.WriteLine(msg);
-                //msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                //Console.WriteLine(msg);
+                msg = "SAM Start Digital Signature Automatic Verification";
+                Console.WriteLine(msg);
+                msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
+                Console.WriteLine(msg);
+                msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
+                Console.WriteLine(msg);
 
-                //byteCOM = new byte[Config.RETDS.Length + 1 + ektp.RETDS_LEN];
-                //Buffer.BlockCopy(Config.RETDS, 0, byteCOM, 0, Config.RETDS.Length);
-                //byteCOM[Config.RETDS.Length] = (byte)ektp.RETDS_LEN;
-                //Buffer.BlockCopy(ektp.RETDS, 0, byteCOM, Config.RETDS.Length + 1, ektp.RETDS_LEN);
+                byteCOM = new byte[Config.RETDS.Length + 1 + ektp.RETDS_LEN];
+                Buffer.BlockCopy(Config.RETDS, 0, byteCOM, 0, Config.RETDS.Length);
+                byteCOM[Config.RETDS.Length] = (byte)ektp.RETDS_LEN;
+                Buffer.BlockCopy(ektp.RETDS, 0, byteCOM, Config.RETDS.Length + 1, ektp.RETDS_LEN);
 
                 Array.Clear(RxData, 0, RxData.Length);
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
@@ -1839,6 +1844,7 @@ namespace OpenAccount.Data
             StatusPerkawinan = string.Empty;
             Pekerjaan = string.Empty;
             Kewarganegaraan = string.Empty;
+            DFresponse = string.Empty;
             ektp.ClearData();
     }
     }

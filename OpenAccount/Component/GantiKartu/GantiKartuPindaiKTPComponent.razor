@@ -205,6 +205,7 @@
         Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
         await scanner.FrontSwallow();
         isSpinner = scanner.test;
+        //isSpinner = true;
         if (!isSpinner)
         {
             return;
@@ -220,11 +221,11 @@
             isKTPValid = ktp.EKtpReader();
             trx.setMinutiae(ktp.minutiae1, ktp.minutiae2);
             await Task.Delay(100);
-            ktp.ReadBio();
-            trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
-                ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
-                ktp.Pekerjaan, ktp.Kewarganegaraan);
-            await Task.Delay(100);
+            //ktp.ReadBio();
+            //trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
+            //    ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
+            //    ktp.Pekerjaan, ktp.Kewarganegaraan);
+            //await Task.Delay(100);
             //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
             //scanner.BackPos();
             CheckKTPValid();
@@ -233,11 +234,16 @@
 
     private async Task CheckKTPValid()
     {
-        if (isKTPValid)
+        if (ktp.DFresponse == "90 00")
         {
             //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
             //scanner.RadioPos();
             //await Task.Delay(2000);
+            ktp.ReadBio();
+            trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
+                ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
+                ktp.Pekerjaan, ktp.Kewarganegaraan);
+            await Task.Delay(100);
             Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp berhasil", "step-action");
             OnClick.InvokeAsync("gantikartupindaiktpberhasil");
         }
