@@ -1,0 +1,59 @@
+20201102 13:15:21 Home condition : clear transaksi success
+20201102 13:15:21 Home condition : clear array success
+20201102 13:15:21 Home condition : clear array nasabah success
+20201102 13:15:21 Home condition : clear list success
+20201102 13:15:21 Home condition : clear transaksi baru success
+20201102 13:15:23 Home condition : clear transaksi success
+20201102 13:15:23 Home condition : clear array success
+20201102 13:15:23 Home condition : clear array nasabah success
+20201102 13:15:23 Home condition : clear list success
+20201102 13:15:23 Home condition : clear transaksi baru success
+20201102 13:15:23 Home condition : entered into home page
+20201102 13:15:27 Home condition : move to buku tabungan
+20201102 13:15:27 Buku condition : entered into buku input card
+20201102 13:15:28 Buku condition : input card success
+20201102 13:15:28 Buku condition : move to buku input pin
+20201102 13:15:28 Buku condition : entered into buku input pin
+20201102 13:15:28 Buku condition : input pin success
+20201102 13:15:28 Buku condition : input data Bambang Pamungkas success
+20201102 13:15:28 Buku condition : entered into buku input data
+20201102 13:15:33 Buku condition : isTextField = 2
+20201102 13:15:35 Buku condition : isTextField = 3
+20201102 13:16:28 Home condition : clear transaksi success
+20201102 13:16:28 Home condition : clear array success
+20201102 13:16:28 Home condition : clear array nasabah success
+20201102 13:16:28 Home condition : clear list success
+20201102 13:16:28 Home condition : clear transaksi baru success
+20201102 13:16:30 Home condition : clear transaksi success
+20201102 13:16:30 Home condition : clear array success
+20201102 13:16:30 Home condition : clear array nasabah success
+20201102 13:16:30 Home condition : clear list success
+20201102 13:16:30 Home condition : clear transaksi baru success
+20201102 13:16:30 Home condition : entered into home page
+20201102 13:16:34 Home condition : move to buku tabungan
+20201102 13:16:35 Buku condition : entered into buku input card
+20201102 13:16:35 Buku condition : input card success
+20201102 13:16:35 Buku condition : move to buku input pin
+20201102 13:16:36 Buku condition : entered into buku input pin
+20201102 13:16:36 Buku condition : input pin success
+20201102 13:16:36 Buku condition : input data Bambang Pamungkas success
+20201102 13:16:36 Buku condition : entered into buku input data
+20201102 13:16:40 Buku condition : isTextField = 2
+20201102 13:16:42 Buku condition : isTextField = 3
+20201102 13:16:45 Buku condition : set data passbook success
+20201102 13:16:45 Buka rekening condition : move to buku konfirmasi
+20201102 13:16:51 Buku condition : entered into buku konfirmasi
+20201102 13:16:51 Buku condition : hit service passbook start
+20201102 13:16:51 Buku condition : clear list buku success
+20201102 13:16:51 Buku condition : get service start
+20201102 13:49:23 Home condition : clear transaksi success
+20201102 13:49:23 Home condition : clear array success
+20201102 13:49:23 Home condition : clear array nasabah success
+20201102 13:49:23 Home condition : clear list success
+20201102 13:49:23 Home condition : clear transaksi baru success
+20201102 13:49:25 Home condition : clear transaksi success
+20201102 13:49:25 Home condition : clear array success
+20201102 13:49:25 Home condition : clear array nasabah success
+20201102 13:49:25 Home condition : clear list success
+20201102 13:49:25 Home condition : clear transaksi baru success
+20201102 13:49:25 Home condition : entered into home page

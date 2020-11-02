@@ -1,9 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject Transaksi trx 
+@inject Transaksi trx
 @inject Utility utility
-
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -71,9 +70,42 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isTime)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
+                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Home">TIDAK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -81,31 +113,69 @@
         {
             Console.WriteLine("ENTERED INTO HISTORI PILIH MENU");
             Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                await Task.Delay(100);
+                StateHasChanged();
+            }
         }
+    }
+
+    private async Task ChangeIsTime()
+    {
+        isTime = !isTime;
+        await Task.Delay(100);
+        StateHasChanged();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
     }
 
     private async Task HistoriBulanBerjalan()
     {
+        isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori bulan berjalan", "step-action");
         OnClick.InvokeAsync("historiBulanBerjalan");
     }
     private async Task HistoriBulanTerakhir()
     {
+        isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori bulan terakhir", "step-action");
         OnClick.InvokeAsync("historiBulanTerakhir");
     }
     private async Task HistoriBulanLalu()
     {
+        isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori bulan lalu", "step-action");
         OnClick.InvokeAsync("historiBulanLalu");
     }
     private async Task HistoriSepuluhTerakhir()
     {
+        isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori sepuluh terakhir", "step-action");
         OnClick.InvokeAsync("historiSepuluhTerakhir");
     }
     private async Task Home()
     {
+        isTimeOut = true;
         Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         OnClick.InvokeAsync("ambilkartu");
     }

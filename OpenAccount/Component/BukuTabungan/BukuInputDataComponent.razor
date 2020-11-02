@@ -4,11 +4,10 @@
 @using Newtonsoft.Json.Linq
 @using OpenAccount.Data
 
-@inject Transaksi trx 
+@inject Transaksi trx
 @inject Config config
-@inject Utility utility 
+@inject Utility utility
 @inject HitServices services
-
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -125,6 +124,33 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isTime)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
+                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="AmbilKartu">TIDAK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -139,13 +165,46 @@
     private string[] sandi;
     private string[] nominal;
     private string[] pengesahan;
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Buku condition : entered into buku input data", "step-action");
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                await Task.Delay(100);
+                StateHasChanged();
+            }
         }
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    private async Task ChangeIsTime()
+    {
+        isTime = !isTime;
+        await Task.Delay(100);
+        StateHasChanged();
     }
 
     //protected override async Task OnInitializedAsync()
@@ -157,13 +216,14 @@
 
     private async Task AmbilKartu()
     {
+        isTimeOut = true;
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
         OnClick.InvokeAsync("ambilkartu");
     }
 
     private async Task BukuKonfirmasi()
     {
-
+        isTimeOut = true;
         trx.clearArray();
         if (saldorekening != string.Empty && int.Parse(barisbuku) <= 41 && int.Parse(halamanbuku) < 9)
         {
@@ -223,29 +283,17 @@
         switch (isTextfield)
         {
             case "1":
-                if(barisbuku.Length < 2)
-                barisbuku += strinput;
+                if (barisbuku.Length < 2)
+                    barisbuku += strinput;
                 break;
             case "2":
-                if(halamanbuku.Length < 1)
-                halamanbuku += strinput;
+                if (halamanbuku.Length < 1)
+                    halamanbuku += strinput;
                 break;
             case "3":
                 saldorekening += strinput;
                 break;
         }
-        //if (isTextfield == "1")
-        //{
-        //    barisbuku += strinput;
-        //}
-        //if (isTextfield == "2")
-        //{
-        //    halamanbuku += strinput;
-        //}
-        //if (isTextfield == "3")
-        //{
-        //    saldorekening += strinput;
-        //}
     }
 
     private void RemovePhoneNumber()
@@ -265,40 +313,5 @@
                     saldorekening = saldorekening.Substring(0, saldorekening.Length - 1);
                 break;
         }
-        //if (isTextfield == "1")
-        //{
-        //    if (barisbuku.Length <= 0)
-        //    {
-        //        barisbuku = "";
-        //    }
-        //    else
-        //    {
-        //        barisbuku = barisbuku.Substring(0, barisbuku.Length - 1);
-        //    }
-        //}
-
-        //if (isTextfield == "2")
-        //{
-        //    if (halamanbuku.Length <= 0)
-        //    {
-        //        halamanbuku = "";
-        //    }
-        //    else
-        //    {
-        //        halamanbuku = halamanbuku.Substring(0, halamanbuku.Length - 1);
-        //    }
-        //}
-
-        //if (isTextfield == "3")
-        //{
-        //    if (saldorekening.Length <= 0)
-        //    {
-        //        saldorekening = "";
-        //    }
-        //    else
-        //    {
-        //        saldorekening = saldorekening.Substring(0, saldorekening.Length - 1);
-        //    }
-        //}
     }
 }

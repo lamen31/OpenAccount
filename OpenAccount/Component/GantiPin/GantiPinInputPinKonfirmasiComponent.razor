@@ -124,6 +124,8 @@
     </div>
 }
 
+
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -140,12 +142,24 @@
     private bool isSalah = false;
     private int tryLimit = 3;
     private SerialPort serialPort = new SerialPort();
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Ganti pin condition : entered into ganti pin input pin konfirmasi", "step-action");
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                await Task.Delay(100);
+                StateHasChanged();
+            }
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
             if (sPort.IsOpen)
             {
@@ -169,6 +183,27 @@
         }
     }
 
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    private async Task ChangeIsTime()
+    {
+        isTime = !isTime;
+        await Task.Delay(100);
+        StateHasChanged();
+    }
+
     private async Task PinSukses()
     {
         trx.setPinKonfirmasi(strpinNomor);
@@ -179,6 +214,7 @@
 
     private async Task PinBaru()
     {
+        isTimeOut = true;
         Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
         OnClick.InvokeAsync("gantipininputpinbaru");
     }
@@ -267,6 +303,7 @@
                             Utility.WriteLog("Ganti pin condition : EDC pin enter", "step-action");
                             break;
                         case 88:
+                            isTimeOut = true;
                             Utility.WriteLog("Ganti pin condition : EDC pin cancel", "step-action");
                             OnClick.InvokeAsync("gantipininputpinbaru");
                             isLoop = false;

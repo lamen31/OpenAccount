@@ -1,0 +1,370 @@
+20201102 11:03:35 Home condition : clear transaksi success
+20201102 11:03:35 Home condition : clear array success
+20201102 11:03:35 Home condition : clear array nasabah success
+20201102 11:03:35 Home condition : clear list success
+20201102 11:03:35 Home condition : clear transaksi baru success
+20201102 11:03:37 Home condition : clear transaksi success
+20201102 11:03:37 Home condition : clear array success
+20201102 11:03:37 Home condition : clear array nasabah success
+20201102 11:03:37 Home condition : clear list success
+20201102 11:03:37 Home condition : clear transaksi baru success
+20201102 11:03:37 Home condition : entered into home page
+20201102 11:03:39 Home condition : move to histori transaksi
+20201102 11:03:40 Histori condition : entered into histori input kartu
+20201102 11:03:40 Histori condition : input kartu success
+20201102 11:03:40 Histori condition : move to histori input pin
+20201102 11:03:41 Histori condition : entered into histori input pin
+20201102 11:03:41 Histori condition : input pin success
+20201102 11:03:41 Histori condition : input data Bambang Pamungkas success
+20201102 11:03:41 Histori condition : entered into histori pilih menu
+20201102 11:05:09 Home condition : clear transaksi success
+20201102 11:05:09 Home condition : clear array success
+20201102 11:05:09 Home condition : clear array nasabah success
+20201102 11:05:09 Home condition : clear list success
+20201102 11:05:09 Home condition : clear transaksi baru success
+20201102 11:05:11 Home condition : clear transaksi success
+20201102 11:05:11 Home condition : clear array success
+20201102 11:05:11 Home condition : clear array nasabah success
+20201102 11:05:11 Home condition : clear list success
+20201102 11:05:11 Home condition : clear transaksi baru success
+20201102 11:05:11 Home condition : entered into home page
+20201102 11:05:49 Home condition : clear transaksi success
+20201102 11:05:49 Home condition : clear array success
+20201102 11:05:49 Home condition : clear array nasabah success
+20201102 11:05:49 Home condition : clear list success
+20201102 11:05:49 Home condition : clear transaksi baru success
+20201102 11:05:51 Home condition : clear transaksi success
+20201102 11:05:51 Home condition : clear array success
+20201102 11:05:51 Home condition : clear array nasabah success
+20201102 11:05:51 Home condition : clear list success
+20201102 11:05:51 Home condition : clear transaksi baru success
+20201102 11:05:51 Home condition : entered into home page
+20201102 11:05:53 Home condition : move to histori transaksi
+20201102 11:05:53 Histori condition : entered into histori input kartu
+20201102 11:05:54 Histori condition : input kartu success
+20201102 11:05:54 Histori condition : move to histori input pin
+20201102 11:05:54 Histori condition : entered into histori input pin
+20201102 11:05:54 Histori condition : input pin success
+20201102 11:05:54 Histori condition : input data Bambang Pamungkas success
+20201102 11:05:55 Histori condition : entered into histori pilih menu
+20201102 11:07:23 Home condition : clear transaksi success
+20201102 11:07:23 Home condition : clear array success
+20201102 11:07:23 Home condition : clear array nasabah success
+20201102 11:07:23 Home condition : clear list success
+20201102 11:07:23 Home condition : clear transaksi baru success
+20201102 11:07:25 Home condition : clear transaksi success
+20201102 11:07:25 Home condition : clear array success
+20201102 11:07:25 Home condition : clear array nasabah success
+20201102 11:07:25 Home condition : clear list success
+20201102 11:07:25 Home condition : clear transaksi baru success
+20201102 11:07:25 Home condition : entered into home page
+20201102 11:07:26 Home condition : move to histori transaksi
+20201102 11:07:26 Histori condition : entered into histori input kartu
+20201102 11:07:27 Histori condition : input kartu success
+20201102 11:07:27 Histori condition : move to histori input pin
+20201102 11:07:27 Histori condition : entered into histori input pin
+20201102 11:07:28 Histori condition : input pin success
+20201102 11:07:28 Histori condition : input data Bambang Pamungkas success
+20201102 11:07:28 Histori condition : entered into histori pilih menu
+20201102 11:08:20 Home condition : clear transaksi success
+20201102 11:08:20 Home condition : clear array success
+20201102 11:08:20 Home condition : clear array nasabah success
+20201102 11:08:20 Home condition : clear list success
+20201102 11:08:20 Home condition : clear transaksi baru success
+20201102 11:08:22 Home condition : clear transaksi success
+20201102 11:08:22 Home condition : clear array success
+20201102 11:08:22 Home condition : clear array nasabah success
+20201102 11:08:22 Home condition : clear list success
+20201102 11:08:22 Home condition : clear transaksi baru success
+20201102 11:08:22 Home condition : entered into home page
+20201102 11:08:24 Home condition : move to histori transaksi
+20201102 11:08:24 Histori condition : entered into histori input kartu
+20201102 11:08:25 Histori condition : input kartu success
+20201102 11:08:25 Histori condition : move to histori input pin
+20201102 11:08:26 Histori condition : entered into histori input pin
+20201102 11:08:26 Histori condition : input pin success
+20201102 11:08:26 Histori condition : input data Bambang Pamungkas success
+20201102 11:08:26 Histori condition : entered into histori pilih menu
+20201102 11:10:45 Home condition : clear transaksi success
+20201102 11:10:45 Home condition : clear array success
+20201102 11:10:45 Home condition : clear array nasabah success
+20201102 11:10:45 Home condition : clear list success
+20201102 11:10:45 Home condition : clear transaksi baru success
+20201102 11:10:46 Home condition : clear transaksi success
+20201102 11:10:46 Home condition : clear array success
+20201102 11:10:46 Home condition : clear array nasabah success
+20201102 11:10:46 Home condition : clear list success
+20201102 11:10:46 Home condition : clear transaksi baru success
+20201102 11:10:47 Home condition : entered into home page
+20201102 11:10:48 Home condition : move to histori transaksi
+20201102 11:10:48 Histori condition : entered into histori input kartu
+20201102 11:10:49 Histori condition : input kartu success
+20201102 11:10:49 Histori condition : move to histori input pin
+20201102 11:10:49 Histori condition : entered into histori input pin
+20201102 11:10:49 Histori condition : input pin success
+20201102 11:10:49 Histori condition : input data Bambang Pamungkas success
+20201102 11:10:49 Histori condition : entered into histori pilih menu
+20201102 11:11:53 Home condition : clear transaksi success
+20201102 11:11:53 Home condition : clear array success
+20201102 11:11:53 Home condition : clear array nasabah success
+20201102 11:11:53 Home condition : clear list success
+20201102 11:11:53 Home condition : clear transaksi baru success
+20201102 11:11:55 Home condition : clear transaksi success
+20201102 11:11:55 Home condition : clear array success
+20201102 11:11:55 Home condition : clear array nasabah success
+20201102 11:11:55 Home condition : clear list success
+20201102 11:11:55 Home condition : clear transaksi baru success
+20201102 11:11:55 Home condition : entered into home page
+20201102 11:11:56 Home condition : move to histori transaksi
+20201102 11:11:56 Histori condition : entered into histori input kartu
+20201102 11:11:57 Histori condition : input kartu success
+20201102 11:11:57 Histori condition : move to histori input pin
+20201102 11:11:57 Histori condition : entered into histori input pin
+20201102 11:11:57 Histori condition : input pin success
+20201102 11:11:57 Histori condition : input data Bambang Pamungkas success
+20201102 11:11:57 Histori condition : entered into histori pilih menu
+20201102 11:13:37 Home condition : clear transaksi success
+20201102 11:13:37 Home condition : clear array success
+20201102 11:13:37 Home condition : clear array nasabah success
+20201102 11:13:37 Home condition : clear list success
+20201102 11:13:38 Home condition : clear transaksi baru success
+20201102 11:13:39 Home condition : clear transaksi success
+20201102 11:13:39 Home condition : clear array success
+20201102 11:13:39 Home condition : clear array nasabah success
+20201102 11:13:39 Home condition : clear list success
+20201102 11:13:39 Home condition : clear transaksi baru success
+20201102 11:13:39 Home condition : entered into home page
+20201102 11:13:41 Home condition : move to histori transaksi
+20201102 11:13:41 Histori condition : entered into histori input kartu
+20201102 11:13:42 Histori condition : input kartu success
+20201102 11:13:42 Histori condition : move to histori input pin
+20201102 11:13:42 Histori condition : entered into histori input pin
+20201102 11:13:42 Histori condition : input pin success
+20201102 11:13:42 Histori condition : input data Bambang Pamungkas success
+20201102 11:13:42 Histori condition : entered into histori pilih menu
+20201102 11:15:11 Home condition : clear transaksi success
+20201102 11:15:11 Home condition : clear array success
+20201102 11:15:11 Home condition : clear array nasabah success
+20201102 11:15:11 Home condition : clear list success
+20201102 11:15:11 Home condition : clear transaksi baru success
+20201102 11:15:13 Home condition : clear transaksi success
+20201102 11:15:13 Home condition : clear array success
+20201102 11:15:13 Home condition : clear array nasabah success
+20201102 11:15:13 Home condition : clear list success
+20201102 11:15:13 Home condition : clear transaksi baru success
+20201102 11:15:13 Home condition : entered into home page
+20201102 11:15:27 Home condition : move to histori transaksi
+20201102 11:15:27 Histori condition : entered into histori input kartu
+20201102 11:15:28 Histori condition : input kartu success
+20201102 11:15:28 Histori condition : move to histori input pin
+20201102 11:15:28 Histori condition : entered into histori input pin
+20201102 11:15:28 Histori condition : input pin success
+20201102 11:15:28 Histori condition : input data Bambang Pamungkas success
+20201102 11:15:28 Histori condition : entered into histori pilih menu
+20201102 11:16:31 Home condition : clear transaksi success
+20201102 11:16:31 Home condition : clear array success
+20201102 11:16:31 Home condition : clear array nasabah success
+20201102 11:16:31 Home condition : clear list success
+20201102 11:16:31 Home condition : clear transaksi baru success
+20201102 11:16:33 Home condition : clear transaksi success
+20201102 11:16:33 Home condition : clear array success
+20201102 11:16:33 Home condition : clear array nasabah success
+20201102 11:16:33 Home condition : clear list success
+20201102 11:16:33 Home condition : clear transaksi baru success
+20201102 11:16:33 Home condition : entered into home page
+20201102 11:16:34 Home condition : move to histori transaksi
+20201102 11:16:34 Histori condition : entered into histori input kartu
+20201102 11:16:35 Histori condition : input kartu success
+20201102 11:16:35 Histori condition : move to histori input pin
+20201102 11:16:35 Histori condition : entered into histori input pin
+20201102 11:16:35 Histori condition : input pin success
+20201102 11:16:35 Histori condition : input data Bambang Pamungkas success
+20201102 11:16:35 Histori condition : entered into histori pilih menu
+20201102 11:17:13 Home condition : clear transaksi success
+20201102 11:17:13 Home condition : clear array success
+20201102 11:17:13 Home condition : clear array nasabah success
+20201102 11:17:13 Home condition : clear list success
+20201102 11:17:13 Home condition : clear transaksi baru success
+20201102 11:17:15 Home condition : clear transaksi success
+20201102 11:17:15 Home condition : clear array success
+20201102 11:17:15 Home condition : clear array nasabah success
+20201102 11:17:15 Home condition : clear list success
+20201102 11:17:15 Home condition : clear transaksi baru success
+20201102 11:17:15 Home condition : entered into home page
+20201102 11:17:16 Home condition : move to histori transaksi
+20201102 11:17:16 Histori condition : entered into histori input kartu
+20201102 11:17:17 Histori condition : input kartu success
+20201102 11:17:17 Histori condition : move to histori input pin
+20201102 11:17:18 Histori condition : entered into histori input pin
+20201102 11:17:18 Histori condition : input pin success
+20201102 11:17:18 Histori condition : input data Bambang Pamungkas success
+20201102 11:17:18 Histori condition : entered into histori pilih menu
+20201102 11:18:02 Home condition : clear transaksi success
+20201102 11:18:02 Home condition : clear array success
+20201102 11:18:02 Home condition : clear array nasabah success
+20201102 11:18:02 Home condition : clear list success
+20201102 11:18:02 Home condition : clear transaksi baru success
+20201102 11:18:03 Home condition : clear transaksi success
+20201102 11:18:03 Home condition : clear array success
+20201102 11:18:03 Home condition : clear array nasabah success
+20201102 11:18:03 Home condition : clear list success
+20201102 11:18:03 Home condition : clear transaksi baru success
+20201102 11:18:04 Home condition : entered into home page
+20201102 11:18:13 Home condition : move to histori transaksi
+20201102 11:18:13 Histori condition : entered into histori input kartu
+20201102 11:18:14 Histori condition : input kartu success
+20201102 11:18:14 Histori condition : move to histori input pin
+20201102 11:18:14 Histori condition : entered into histori input pin
+20201102 11:18:14 Histori condition : input pin success
+20201102 11:18:14 Histori condition : input data Bambang Pamungkas success
+20201102 11:18:14 Histori condition : entered into histori pilih menu
+20201102 11:19:39 Home condition : clear transaksi success
+20201102 11:19:39 Home condition : clear array success
+20201102 11:19:39 Home condition : clear array nasabah success
+20201102 11:19:39 Home condition : clear list success
+20201102 11:19:39 Home condition : clear transaksi baru success
+20201102 11:19:41 Home condition : clear transaksi success
+20201102 11:19:41 Home condition : clear array success
+20201102 11:19:41 Home condition : clear array nasabah success
+20201102 11:19:41 Home condition : clear list success
+20201102 11:19:41 Home condition : clear transaksi baru success
+20201102 11:19:41 Home condition : entered into home page
+20201102 11:19:42 Home condition : move to histori transaksi
+20201102 11:19:42 Histori condition : entered into histori input kartu
+20201102 11:19:43 Histori condition : input kartu success
+20201102 11:19:43 Histori condition : move to histori input pin
+20201102 11:19:43 Histori condition : entered into histori input pin
+20201102 11:19:43 Histori condition : input pin success
+20201102 11:19:43 Histori condition : input data Bambang Pamungkas success
+20201102 11:19:43 Histori condition : entered into histori pilih menu
+20201102 11:21:08 Home condition : clear transaksi success
+20201102 11:21:08 Home condition : clear array success
+20201102 11:21:08 Home condition : clear array nasabah success
+20201102 11:21:08 Home condition : clear list success
+20201102 11:21:08 Home condition : clear transaksi baru success
+20201102 11:21:09 Home condition : clear transaksi success
+20201102 11:21:09 Home condition : clear array success
+20201102 11:21:09 Home condition : clear array nasabah success
+20201102 11:21:09 Home condition : clear list success
+20201102 11:21:09 Home condition : clear transaksi baru success
+20201102 11:21:09 Home condition : entered into home page
+20201102 11:21:11 Home condition : move to histori transaksi
+20201102 11:21:11 Histori condition : entered into histori input kartu
+20201102 11:21:12 Histori condition : input kartu success
+20201102 11:21:12 Histori condition : move to histori input pin
+20201102 11:21:12 Histori condition : entered into histori input pin
+20201102 11:21:12 Histori condition : input pin success
+20201102 11:21:12 Histori condition : input data Bambang Pamungkas success
+20201102 11:21:12 Histori condition : entered into histori pilih menu
+20201102 11:22:17 Home condition : clear transaksi success
+20201102 11:22:17 Home condition : clear array success
+20201102 11:22:17 Home condition : clear array nasabah success
+20201102 11:22:17 Home condition : clear list success
+20201102 11:22:17 Home condition : clear transaksi baru success
+20201102 11:22:19 Home condition : clear transaksi success
+20201102 11:22:19 Home condition : clear array success
+20201102 11:22:19 Home condition : clear array nasabah success
+20201102 11:22:19 Home condition : clear list success
+20201102 11:22:19 Home condition : clear transaksi baru success
+20201102 11:22:19 Home condition : entered into home page
+20201102 11:22:22 Home condition : move to histori transaksi
+20201102 11:22:22 Histori condition : entered into histori input kartu
+20201102 11:22:23 Histori condition : input kartu success
+20201102 11:22:23 Histori condition : move to histori input pin
+20201102 11:22:23 Histori condition : entered into histori input pin
+20201102 11:22:23 Histori condition : input pin success
+20201102 11:22:23 Histori condition : input data Bambang Pamungkas success
+20201102 11:22:23 Histori condition : entered into histori pilih menu
+20201102 11:26:25 Home condition : clear transaksi success
+20201102 11:26:25 Home condition : clear array success
+20201102 11:26:25 Home condition : clear array nasabah success
+20201102 11:26:25 Home condition : clear list success
+20201102 11:26:25 Home condition : clear transaksi baru success
+20201102 11:26:26 Home condition : clear transaksi success
+20201102 11:26:26 Home condition : clear array success
+20201102 11:26:26 Home condition : clear array nasabah success
+20201102 11:26:26 Home condition : clear list success
+20201102 11:26:26 Home condition : clear transaksi baru success
+20201102 11:26:26 Home condition : entered into home page
+20201102 11:26:29 Home condition : move to histori transaksi
+20201102 11:26:29 Histori condition : entered into histori input kartu
+20201102 11:26:30 Histori condition : input kartu success
+20201102 11:26:30 Histori condition : move to histori input pin
+20201102 11:26:30 Histori condition : entered into histori input pin
+20201102 11:26:30 Histori condition : input pin success
+20201102 11:26:30 Histori condition : input data Bambang Pamungkas success
+20201102 11:26:31 Histori condition : entered into histori pilih menu
+20201102 11:26:37 Histori condition : move to ambil kartu
+20201102 11:26:37 Ambil kartu condition : entered into ambil kartu
+20201102 11:26:40 Ambil kartu condition : move to home
+20201102 11:26:40 Home condition : clear transaksi success
+20201102 11:26:40 Home condition : clear array success
+20201102 11:26:40 Home condition : clear array nasabah success
+20201102 11:26:40 Home condition : clear list success
+20201102 11:26:40 Home condition : clear transaksi baru success
+20201102 11:26:40 Home condition : entered into home page
+20201102 11:26:43 Home condition : move to histori transaksi
+20201102 11:26:43 Histori condition : entered into histori input kartu
+20201102 11:26:44 Histori condition : input kartu success
+20201102 11:26:44 Histori condition : move to histori input pin
+20201102 11:26:44 Histori condition : entered into histori input pin
+20201102 11:26:44 Histori condition : input pin success
+20201102 11:26:44 Histori condition : input data Bambang Pamungkas success
+20201102 11:26:44 Histori condition : entered into histori pilih menu
+20201102 11:28:25 Home condition : clear transaksi success
+20201102 11:28:25 Home condition : clear array success
+20201102 11:28:25 Home condition : clear array nasabah success
+20201102 11:28:25 Home condition : clear list success
+20201102 11:28:25 Home condition : clear transaksi baru success
+20201102 11:28:27 Home condition : clear transaksi success
+20201102 11:28:27 Home condition : clear array success
+20201102 11:28:27 Home condition : clear array nasabah success
+20201102 11:28:27 Home condition : clear list success
+20201102 11:28:27 Home condition : clear transaksi baru success
+20201102 11:28:27 Home condition : entered into home page
+20201102 11:28:29 Home condition : move to histori transaksi
+20201102 11:28:29 Histori condition : entered into histori input kartu
+20201102 11:28:30 Histori condition : input kartu success
+20201102 11:28:30 Histori condition : move to histori input pin
+20201102 11:28:31 Histori condition : entered into histori input pin
+20201102 11:28:31 Histori condition : input pin success
+20201102 11:28:31 Histori condition : input data Bambang Pamungkas success
+20201102 11:28:31 Histori condition : entered into histori pilih menu
+20201102 11:29:50 Home condition : clear transaksi success
+20201102 11:29:50 Home condition : clear array success
+20201102 11:29:50 Home condition : clear array nasabah success
+20201102 11:29:50 Home condition : clear list success
+20201102 11:29:50 Home condition : clear transaksi baru success
+20201102 11:29:51 Home condition : clear transaksi success
+20201102 11:29:51 Home condition : clear array success
+20201102 11:29:51 Home condition : clear array nasabah success
+20201102 11:29:51 Home condition : clear list success
+20201102 11:29:51 Home condition : clear transaksi baru success
+20201102 11:29:52 Home condition : entered into home page
+20201102 11:29:56 Home condition : move to histori transaksi
+20201102 11:29:56 Histori condition : entered into histori input kartu
+20201102 11:29:57 Histori condition : input kartu success
+20201102 11:29:57 Histori condition : move to histori input pin
+20201102 11:29:57 Histori condition : entered into histori input pin
+20201102 11:29:57 Histori condition : input pin success
+20201102 11:29:57 Histori condition : input data Bambang Pamungkas success
+20201102 11:29:57 Histori condition : entered into histori pilih menu
+20201102 11:32:06 Home condition : clear transaksi success
+20201102 11:32:06 Home condition : clear array success
+20201102 11:32:06 Home condition : clear array nasabah success
+20201102 11:32:06 Home condition : clear list success
+20201102 11:32:06 Home condition : clear transaksi baru success
+20201102 11:32:08 Home condition : clear transaksi success
+20201102 11:32:08 Home condition : clear array success
+20201102 11:32:08 Home condition : clear array nasabah success
+20201102 11:32:08 Home condition : clear list success
+20201102 11:32:08 Home condition : clear transaksi baru success
+20201102 11:32:08 Home condition : entered into home page
+20201102 11:32:09 Home condition : move to histori transaksi
+20201102 11:32:09 Histori condition : entered into histori input kartu
+20201102 11:32:10 Histori condition : input kartu success
+20201102 11:32:10 Histori condition : move to histori input pin
+20201102 11:32:10 Histori condition : entered into histori input pin
+20201102 11:32:10 Histori condition : input pin success
+20201102 11:32:10 Histori condition : input data Bambang Pamungkas success
+20201102 11:32:11 Histori condition : entered into histori pilih menu

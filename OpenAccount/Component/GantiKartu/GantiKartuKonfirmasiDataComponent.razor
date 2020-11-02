@@ -105,6 +105,33 @@
     </div>
 }
 
+@if (isTime)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
+                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Home">TIDAK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -112,13 +139,53 @@
     private bool isVisible = false;
     private string dispenserPort = string.Empty;
     private string dispenserBox = string.Empty;
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu konfirmasi data", "step-action");
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                await Task.Delay(100);
+                StateHasChanged();
+            }
         }
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    private async Task ChangeIsTime()
+    {
+        isTime = !isTime;
+        await Task.Delay(100);
+        StateHasChanged();
+    }
+
+    private async Task Home()
+    {
+        isTimeOut = true;
+        Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
+        OnClick.InvokeAsync("home");
     }
 
     protected override async Task OnInitializedAsync()
@@ -133,12 +200,14 @@
 
     private async Task KTP()
     {
+        isTimeOut = true;
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
         OnClick.InvokeAsync("gantikartupindaiktp");
     }
 
     private async Task Berhasil()
     {
+        isTimeOut = true;
         isVisible = true;
         await Task.Delay(50);
         StateHasChanged();
