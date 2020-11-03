@@ -46,6 +46,7 @@ namespace OpenAccount.Data
         public string Kewarganegaraan = string.Empty;
 
         public string DFresponse = string.Empty;
+        public bool isKTPValid = false;
 
         public void EKtpInitialize()
         {
@@ -274,7 +275,7 @@ namespace OpenAccount.Data
             Minutiae2();
             EKtpDLL.DisconnectSCardReader((UInt16)SAMreader);
             EKtpDLL.DisconnectSCardReader((UInt16)RFreader);
-            if (ektp.biolen > 25)
+            if (isKTPValid)
                 result = true;
             return result;
         }
@@ -955,11 +956,11 @@ namespace OpenAccount.Data
                 rc = EKtpDLL.APDU_Transmit((UInt16)SAMreader, (UInt16)byteCOM.Length, byteCOM, ref RxDataLen, RxData);
 
                 msg = "SAM Start Digital Signature Automatic Verification";
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
                 msg = (DateTime.Now.ToString() + " MC --> SAM : " + strIns(ByteArrayToString(byteCOM, byteCOM.Length), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
                 msg = (DateTime.Now.ToString() + " SAM --> MC : " + strIns(ByteArrayToString(RxData, RxDataLen), " "));
-                Console.WriteLine(msg);
+                Utility.WriteLog("EKTP condition : " + msg, "step-action");
 
                 byteCOM = new byte[Config.RETDS.Length + 1 + ektp.RETDS_LEN];
                 Buffer.BlockCopy(Config.RETDS, 0, byteCOM, 0, Config.RETDS.Length);
@@ -1138,6 +1139,9 @@ namespace OpenAccount.Data
 
                     Array.Copy(RxData, 0, ektp.byteBio, ektp.biolen, RxDataLen - 4);
                     ektp.biolen = ektp.biolen + RxDataLen - 4;
+
+                    if (RxData[RxDataLen - 4] == 0x90 && RxData[RxDataLen - 3] == 0x00)
+                        isKTPValid = true;
 
                     l += 1;
                 }

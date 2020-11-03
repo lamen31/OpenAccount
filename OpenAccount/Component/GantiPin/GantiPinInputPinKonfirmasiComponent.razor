@@ -206,6 +206,7 @@
 
     private async Task PinSukses()
     {
+        isTimeOut = true;
         trx.setPinKonfirmasi(strpinNomor);
         Utility.WriteLog("Ganti pin condition : input pin nomor rekening " + strpinNomor + " success", "step-action");
         Utility.WriteLog("Ganti pin condition : move to buka ganti pin sukses", "step-action");

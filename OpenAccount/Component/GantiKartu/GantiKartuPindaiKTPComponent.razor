@@ -234,7 +234,7 @@
 
     private async Task CheckKTPValid()
     {
-        if (ktp.DFresponse == "90 00")
+        if (isKTPValid)
         {
             //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
             //scanner.RadioPos();
