@@ -103,9 +103,15 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Silahkan ke halaman selanjutnya..</h3>
-                        <h5 style="font-style:italic;">Kemudian tekan <b>Cetak</b></h5>
+                        <h3 class="teks" style="margin-top: 5%;">Apakah anda ingin lanjut cetak ke halaman berikutnya?</h3>
+                        <h5 style="font-style:italic;">Tekan <b style="color: #00AF80;">Cetak</b> untuk melanjutkan cetak</h5>
+                        <h5 style="font-style:italic;">Tekan <b style="color: #af0000;">Berhenti</b> untuk berhenti cetak</h5>
+                        <div>
                         <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="change">Cetak</button>
+                            </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Berhenti">Berhenti</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,6 +192,7 @@
     private int overtime = 60000;
     private bool isTimeOut = false;
     private bool isTime = false;
+    private bool isBerhenti = false;
     private DateTime starttime;
 
     protected override async Task OnInitializedAsync()
@@ -204,13 +211,13 @@
         if (firstRender)
         {
             Utility.WriteLog("Buku condition : entered into buku konfirmasi", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         }
     }
 
@@ -458,6 +465,12 @@
                     {
                         await Task.Delay(100);
                     } while (isBaris);
+                    if (isBerhenti)
+                    {
+                        Utility.WriteLog("Buku condition : print buku stop", "step-action");
+                        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+                        OnClick.InvokeAsync("ambilkartu");
+                    }
                 }
             }
         }
@@ -471,7 +484,16 @@
 
     private void change()
     {
+        Utility.WriteLog("Buku condition : click Cetak button", "step-action");
         isVisible = true;
         isBaris = false;
+    }
+
+    private void Berhenti()
+    {
+        Utility.WriteLog("Buku condition : click Berhenti button", "step-action");
+        isBerhenti = true;
+        isBaris = false;
+        isVisible = false;
     }
 }

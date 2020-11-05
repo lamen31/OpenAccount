@@ -98,8 +98,12 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">KTP <b style="color: #af0000;">TIDAK VALID</b></h3>
-                        <h5 style="font-style:italic;">Silahkan Masukan KTP yang Valid</h5>
+                        <h3 class="teks" style="margin-top: 5%;">KTP Anda <b style="color: #af0000;">TIDAK VALID</b></h3>
+                        <h5 style="font-style:italic;">Silahkan Masukan KTP yang Valid Kemudian Tekan <b>Pindai</b></h5>
+                        <div>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Change">Pindai</button>
+                        </div>
+                        <p style="color: #ff0000; font-size: 20px; font-style:italic">Kesempatan mencoba @TryLimit.ToString()x lagi</p>
                     </div>
                 </div>
             </div>
@@ -147,6 +151,9 @@
     private int overtime = 60000;
     private bool isTimeOut = false;
     private bool isTime = false;
+    private bool isKTPSuccess = false;
+    private bool isLoopKTP = false;
+    private int TryLimit = 2;
     private DateTime starttime;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -157,13 +164,13 @@
             ktp.clear();
 
             Utility.WriteLog("Ganti kartu condition : entered into ganti kartu pindai ktp", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         }
     }
 
@@ -197,45 +204,96 @@
 
     private async Task PindaiKTP()
     {
-        isTimeOut = true;
-        isPindaiKTP = true;
-        await Task.Delay(100);
-        StateHasChanged();
-        await Task.Delay(100);
-        Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
-        await scanner.FrontSwallow();
-        isSpinner = scanner.test;
-        //isSpinner = true;
-        if (!isSpinner)
+        isLoopKTP = true;
+        do
         {
-            return;
-        }
-        else
-        {
-            isBaca = true;
+            isTimeOut = true;
+            isPindaiKTP = true;
             await Task.Delay(100);
             StateHasChanged();
             await Task.Delay(100);
-            ktp.EKtpInitialize();
-            await Task.Delay(500);
-            isKTPValid = ktp.EKtpReader();
-            trx.setMinutiae(ktp.minutiae1, ktp.minutiae2);
-            await Task.Delay(100);
-            //ktp.ReadBio();
-            //trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
-            //    ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
-            //    ktp.Pekerjaan, ktp.Kewarganegaraan);
-            //await Task.Delay(100);
-            //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
-            //scanner.BackPos();
-            CheckKTPValid();
+            Utility.WriteLog("Ganti kartu condition : id scanner front swallow", "step-action");
+            await scanner.FrontSwallow();
+            isSpinner = scanner.test;
+            //isSpinner = true;
+            if (!isSpinner)
+            {
+                return;
+            }
+            else
+            {
+                isBaca = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(100);
+                Utility.WriteLog("Ganti kartu condition : EKTP reader initialize", "step-action");
+                ktp.EKtpInitialize();
+                try
+                {
+                    await Task.Delay(500);
+                    Utility.WriteLog("Ganti kartu condition : EKTP reader read data", "step-action");
+                    isKTPValid = ktp.EKtpReader();
+                    trx.setMinutiae(ktp.minutiae1, ktp.minutiae2);
+                    Utility.WriteLog("Ganti kartu condition : set minutiae 1 and minutiae 2 success", "step-action");
+                    await Task.Delay(100);
+                    //ktp.ReadBio();
+                    //trx.setDataKTP(ktp.NIK, ktp.Nama, ktp.TempatLahir, ktp.TanggalLahir, ktp.Alamat, ktp.RT, ktp.RW, ktp.Kecamatan,
+                    //    ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
+                    //    ktp.Pekerjaan, ktp.Kewarganegaraan);
+                    //await Task.Delay(100);
+                    //Utility.WriteLog("Ganti kartu condition : id scanner back swallow", "step-action");
+                    //scanner.BackPos();
+                    CheckKTPValid();
+                }
+                catch
+                {
+                    Utility.WriteLog("Ganti kartu condition : EKTP reader cannot read data", "step-action");
+                    isKTPNotValid = true;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
+                    scanner.ReturnCard();
+                    await Task.Delay(100);
+                    Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+                    scanner.CloseCVRReader();
+                }
+                if (isKTPNotValid)
+                    TryLimit -= 1;
+                else
+                    break;
+                do
+                {
+                    if (TryLimit == 0)
+                    {
+                        isLoopKTP = false;
+                        isKTPNotValid = false;
+                        Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
+                        OnClick.InvokeAsync("home");
+                    }
+                    else
+                        await Task.Delay(100);
+                } while (isKTPNotValid);
+            }
+        } while (isLoopKTP);
+        if (isKTPSuccess)
+        {
+            Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp berhasil", "step-action");
+            OnClick.InvokeAsync("gantikartupindaiktpberhasil");
         }
+    }
+
+    private async Task Change()
+    {
+        isKTPNotValid = false;
+        await Task.Delay(100);
     }
 
     private async Task CheckKTPValid()
     {
         if (isKTPValid)
         {
+            isLoopKTP = false;
+            isKTPSuccess = true;
             //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
             //scanner.RadioPos();
             //await Task.Delay(2000);
@@ -244,8 +302,6 @@
                 ktp.Kelurahan, ktp.Kabupaten, ktp.JenisKelamin, ktp.GolonganDarah, ktp.Agama, ktp.StatusPerkawinan,
                 ktp.Pekerjaan, ktp.Kewarganegaraan);
             await Task.Delay(100);
-            Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp berhasil", "step-action");
-            OnClick.InvokeAsync("gantikartupindaiktpberhasil");
         }
         else
         {
@@ -270,12 +326,14 @@
             await Task.Delay(100);
             Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
             scanner.CloseCVRReader();
+            isLoopKTP = false;
             Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
             OnClick.InvokeAsync("gantikartu");
             return;
         }
         else if (!isPindaiKTP)
         {
+            isLoopKTP = false;
             Utility.WriteLog("Ganti kartu condition : move to ganti kartu input rekening", "step-action");
             OnClick.InvokeAsync("gantikartu");
         }

@@ -205,7 +205,7 @@
     {
         string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
-        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL) + "/" + trx._Nasabah[1];
         //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         Utility.WriteLog("Histori condition : get service start", "step-action");
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
@@ -240,13 +240,13 @@
         if (firstRender)
         {
             Utility.WriteLog("Histori condition : entered into history sepuluh terakhir", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         }
     }
 

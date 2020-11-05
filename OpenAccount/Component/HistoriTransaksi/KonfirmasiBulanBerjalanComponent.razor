@@ -192,6 +192,10 @@
     {
         startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy-MM-dd");
         enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy-MM-dd");
+
+        //startdate = "2020-09-01";
+        //enddate = "2020-09-30";
+
         hourdate = DateTime.Now.ToString("HH:mm:ss");
         //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
 
@@ -235,13 +239,13 @@
         if (firstRender)
         {
             Utility.WriteLog("Histori condition : entered into history bulan berjalan", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         }
     }
 
@@ -411,7 +415,7 @@
                     //Array.Copy(tempuraian, startindex, uraian, 0, maxbaris);
                     //Array.Copy(temptipe, startindex, tipe, 0, maxbaris);
                     //Array.Copy(tempnominal, startindex, nominal, 0, maxbaris);
-                    for (int j = startindex; j < maxbaris; j++)
+                    for (int j = startindex; j < tempmaxbaris; j++)
                     {
                         trx.AddListHistori(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
                     }

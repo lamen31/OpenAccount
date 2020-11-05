@@ -1,0 +1,454 @@
+20201103 11:03:54 Home condition : clear transaksi success
+20201103 11:03:54 Home condition : clear array success
+20201103 11:03:54 Home condition : clear array nasabah success
+20201103 11:03:54 Home condition : clear list success
+20201103 11:03:54 Home condition : clear transaksi baru success
+20201103 11:03:56 Home condition : clear transaksi success
+20201103 11:03:56 Home condition : clear array success
+20201103 11:03:56 Home condition : clear array nasabah success
+20201103 11:03:56 Home condition : clear list success
+20201103 11:03:56 Home condition : clear transaksi baru success
+20201103 11:03:56 Home condition : entered into home page
+20201103 11:03:58 Home condition : move to histori transaksi
+20201103 11:03:58 Histori condition : entered into histori input kartu
+20201103 11:03:59 Histori condition : input kartu success
+20201103 11:03:59 Histori condition : move to histori input pin
+20201103 11:03:59 Histori condition : entered into histori input pin
+20201103 11:03:59 Histori condition : input pin success
+20201103 11:03:59 Histori condition : input data Bambang Pamungkas success
+20201103 11:03:59 Histori condition : entered into histori pilih menu
+20201103 11:04:00 Histori condition : move to histori bulan berjalan
+20201103 11:04:00 Histori condition : entered into history bulan berjalan
+20201103 11:04:01 Histori condition : hit service histori start
+20201103 11:04:01 Histori condition : clear list histori success
+20201103 11:04:01 Histori condition : post service start
+20201103 11:04:03 Histori condition : set transaksi ID tes002 success
+20201103 11:04:03 Histori condition : hit service histori success
+20201103 11:04:03 Histori condition : get list data success
+20201103 11:04:03 Histori condition : set data histori success
+20201103 11:04:05 Histori condition : modal visible appear
+20201103 11:04:05 Histori condition : temporary list created
+20201103 11:04:05 Histori condition : clear list histori success
+20201103 11:04:05 Histori condition : print halaman ke-1
+20201103 11:04:05 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:04:07 Printer condition : check status printing start
+20201103 11:04:07 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:04:24 Printer status condition : check status printing done
+20201103 11:04:24 Printer status condition : check status printing close
+20201103 11:04:24 20201103 11:02:07 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+20201103 11:04:07 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:04:24 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:11:05 Home condition : clear transaksi success
+20201103 11:11:05 Home condition : clear array success
+20201103 11:11:05 Home condition : clear array nasabah success
+20201103 11:11:05 Home condition : clear list success
+20201103 11:11:05 Home condition : clear transaksi baru success
+20201103 11:11:07 Home condition : clear transaksi success
+20201103 11:11:07 Home condition : clear array success
+20201103 11:11:07 Home condition : clear array nasabah success
+20201103 11:11:07 Home condition : clear list success
+20201103 11:11:07 Home condition : clear transaksi baru success
+20201103 11:11:07 Home condition : entered into home page
+20201103 11:11:10 Home condition : move to histori transaksi
+20201103 11:11:10 Histori condition : entered into histori input kartu
+20201103 11:11:11 Histori condition : input kartu success
+20201103 11:11:11 Histori condition : move to histori input pin
+20201103 11:11:11 Histori condition : entered into histori input pin
+20201103 11:11:12 Histori condition : input pin success
+20201103 11:11:12 Histori condition : input data Bambang Pamungkas success
+20201103 11:11:12 Histori condition : entered into histori pilih menu
+20201103 11:15:04 Home condition : clear transaksi success
+20201103 11:15:04 Home condition : clear array success
+20201103 11:15:04 Home condition : clear array nasabah success
+20201103 11:15:04 Home condition : clear list success
+20201103 11:15:04 Home condition : clear transaksi baru success
+20201103 11:15:06 Home condition : clear transaksi success
+20201103 11:15:06 Home condition : clear array success
+20201103 11:15:06 Home condition : clear array nasabah success
+20201103 11:15:06 Home condition : clear list success
+20201103 11:15:06 Home condition : clear transaksi baru success
+20201103 11:15:06 Home condition : entered into home page
+20201103 11:15:08 Home condition : move to histori transaksi
+20201103 11:15:08 Histori condition : entered into histori input kartu
+20201103 11:15:09 Histori condition : input kartu success
+20201103 11:15:09 Histori condition : move to histori input pin
+20201103 11:15:09 Histori condition : entered into histori input pin
+20201103 11:15:09 Histori condition : input pin success
+20201103 11:15:09 Histori condition : input data Bambang Pamungkas success
+20201103 11:15:09 Histori condition : entered into histori pilih menu
+20201103 11:15:10 Histori condition : move to histori bulan berjalan
+20201103 11:15:10 Histori condition : entered into history bulan berjalan
+20201103 11:15:11 Histori condition : hit service histori start
+20201103 11:15:11 Histori condition : clear list histori success
+20201103 11:15:11 Histori condition : post service start
+20201103 11:15:13 Histori condition : set transaksi ID tes002 success
+20201103 11:15:13 Histori condition : hit service histori success
+20201103 11:15:14 Histori condition : get list data success
+20201103 11:15:14 Histori condition : set data histori success
+20201103 11:15:17 Histori condition : modal visible appear
+20201103 11:15:17 Histori condition : temporary list created
+20201103 11:15:17 Histori condition : clear list histori success
+20201103 11:15:17 Histori condition : print halaman ke-1
+20201103 11:15:17 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:15:19 Printer condition : check status printing start
+20201103 11:15:19 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:15:26 Printer status condition : check status printing done
+20201103 11:15:26 Printer status condition : check status printing close
+20201103 11:15:26 20201103 11:15:19 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:15:26 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:16:32 Home condition : clear transaksi success
+20201103 11:16:32 Home condition : clear array success
+20201103 11:16:32 Home condition : clear array nasabah success
+20201103 11:16:32 Home condition : clear list success
+20201103 11:16:32 Home condition : clear transaksi baru success
+20201103 11:16:34 Home condition : clear transaksi success
+20201103 11:16:34 Home condition : clear array success
+20201103 11:16:34 Home condition : clear array nasabah success
+20201103 11:16:34 Home condition : clear list success
+20201103 11:16:34 Home condition : clear transaksi baru success
+20201103 11:16:34 Home condition : entered into home page
+20201103 11:16:35 Home condition : move to histori transaksi
+20201103 11:16:35 Histori condition : entered into histori input kartu
+20201103 11:16:36 Histori condition : input kartu success
+20201103 11:16:36 Histori condition : move to histori input pin
+20201103 11:16:36 Histori condition : entered into histori input pin
+20201103 11:16:36 Histori condition : input pin success
+20201103 11:16:36 Histori condition : input data Bambang Pamungkas success
+20201103 11:16:36 Histori condition : entered into histori pilih menu
+20201103 11:16:37 Histori condition : move to histori bulan berjalan
+20201103 11:16:38 Histori condition : entered into history bulan berjalan
+20201103 11:16:38 Histori condition : hit service histori start
+20201103 11:16:39 Histori condition : clear list histori success
+20201103 11:16:39 Histori condition : post service start
+20201103 11:16:41 Histori condition : set transaksi ID tes002 success
+20201103 11:16:41 Histori condition : hit service histori success
+20201103 11:16:41 Histori condition : get list data success
+20201103 11:16:41 Histori condition : set data histori success
+20201103 11:16:43 Histori condition : modal visible appear
+20201103 11:16:43 Histori condition : temporary list created
+20201103 11:16:43 Histori condition : clear list histori success
+20201103 11:16:43 Histori condition : print halaman ke-1
+20201103 11:16:43 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:16:44 Printer condition : check status printing start
+20201103 11:16:44 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:16:50 Printer status condition : check status printing done
+20201103 11:16:50 Printer status condition : check status printing close
+20201103 11:16:50 20201103 11:02:07 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+20201103 11:15:53 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+20201103 11:16:45 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:16:50 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:16:56 Histori condition : print history halaman ke-1 failed
+20201103 11:16:56 Histori condition : move to histori gagal
+20201103 11:16:56 Histori condition : entered into histori gagal
+20201103 11:16:59 Histori condition : move to ambil kartu
+20201103 11:16:59 Ambil kartu condition : entered into ambil kartu
+20201103 11:17:02 Ambil kartu condition : move to home
+20201103 11:17:02 Home condition : clear transaksi success
+20201103 11:17:02 Home condition : clear array success
+20201103 11:17:02 Home condition : clear array nasabah success
+20201103 11:17:02 Home condition : clear list success
+20201103 11:17:02 Home condition : clear transaksi baru success
+20201103 11:17:02 Home condition : entered into home page
+20201103 11:18:13 Home condition : clear transaksi success
+20201103 11:18:13 Home condition : clear array success
+20201103 11:18:13 Home condition : clear array nasabah success
+20201103 11:18:13 Home condition : clear list success
+20201103 11:18:14 Home condition : clear transaksi baru success
+20201103 11:18:15 Home condition : clear transaksi success
+20201103 11:18:15 Home condition : clear array success
+20201103 11:18:15 Home condition : clear array nasabah success
+20201103 11:18:15 Home condition : clear list success
+20201103 11:18:15 Home condition : clear transaksi baru success
+20201103 11:18:15 Home condition : entered into home page
+20201103 11:18:17 Home condition : move to histori transaksi
+20201103 11:18:17 Histori condition : entered into histori input kartu
+20201103 11:18:18 Histori condition : input kartu success
+20201103 11:18:18 Histori condition : move to histori input pin
+20201103 11:18:19 Histori condition : entered into histori input pin
+20201103 11:18:19 Histori condition : input pin success
+20201103 11:18:19 Histori condition : input data Bambang Pamungkas success
+20201103 11:18:19 Histori condition : entered into histori pilih menu
+20201103 11:18:20 Histori condition : move to histori bulan berjalan
+20201103 11:18:20 Histori condition : entered into history bulan berjalan
+20201103 11:18:21 Histori condition : hit service histori start
+20201103 11:18:21 Histori condition : clear list histori success
+20201103 11:18:21 Histori condition : post service start
+20201103 11:18:23 Histori condition : set transaksi ID tes002 success
+20201103 11:18:23 Histori condition : hit service histori success
+20201103 11:18:23 Histori condition : get list data success
+20201103 11:18:24 Histori condition : set data histori success
+20201103 11:18:25 Histori condition : modal visible appear
+20201103 11:18:25 Histori condition : temporary list created
+20201103 11:18:25 Histori condition : clear list histori success
+20201103 11:18:25 Histori condition : print halaman ke-1
+20201103 11:18:25 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:18:26 Printer condition : check status printing start
+20201103 11:18:26 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:18:27 Printer status condition : check status printing done
+20201103 11:18:27 Printer status condition : check status printing close
+20201103 11:18:27 20201103 11:18:27 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:18:27 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:18:27 Histori condition : print history halaman ke-1 failed
+20201103 11:18:27 Histori condition : move to histori gagal
+20201103 11:18:27 Histori condition : entered into histori gagal
+20201103 11:18:30 Histori condition : move to ambil kartu
+20201103 11:18:30 Ambil kartu condition : entered into ambil kartu
+20201103 11:18:33 Ambil kartu condition : move to home
+20201103 11:18:33 Home condition : clear transaksi success
+20201103 11:18:33 Home condition : clear array success
+20201103 11:18:33 Home condition : clear array nasabah success
+20201103 11:18:33 Home condition : clear list success
+20201103 11:18:33 Home condition : clear transaksi baru success
+20201103 11:18:33 Home condition : entered into home page
+20201103 11:21:54 Home condition : clear transaksi success
+20201103 11:21:54 Home condition : clear array success
+20201103 11:21:54 Home condition : clear array nasabah success
+20201103 11:21:54 Home condition : clear list success
+20201103 11:21:54 Home condition : clear transaksi baru success
+20201103 11:21:56 Home condition : clear transaksi success
+20201103 11:21:56 Home condition : clear array success
+20201103 11:21:56 Home condition : clear array nasabah success
+20201103 11:21:56 Home condition : clear list success
+20201103 11:21:56 Home condition : clear transaksi baru success
+20201103 11:21:56 Home condition : entered into home page
+20201103 11:21:58 Home condition : move to histori transaksi
+20201103 11:21:58 Histori condition : entered into histori input kartu
+20201103 11:21:59 Histori condition : input kartu success
+20201103 11:21:59 Histori condition : move to histori input pin
+20201103 11:21:59 Histori condition : entered into histori input pin
+20201103 11:22:00 Histori condition : input pin success
+20201103 11:22:00 Histori condition : input data Bambang Pamungkas success
+20201103 11:22:00 Histori condition : entered into histori pilih menu
+20201103 11:22:01 Histori condition : move to histori bulan berjalan
+20201103 11:22:01 Histori condition : entered into history bulan berjalan
+20201103 11:22:02 Histori condition : hit service histori start
+20201103 11:22:02 Histori condition : clear list histori success
+20201103 11:22:02 Histori condition : post service start
+20201103 11:22:05 Histori condition : set transaksi ID tes002 success
+20201103 11:22:05 Histori condition : hit service histori success
+20201103 11:22:05 Histori condition : get list data success
+20201103 11:22:05 Histori condition : set data histori success
+20201103 11:22:06 Histori condition : modal visible appear
+20201103 11:22:06 Histori condition : temporary list created
+20201103 11:22:06 Histori condition : clear list histori success
+20201103 11:22:06 Histori condition : print halaman ke-1
+20201103 11:22:06 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:22:08 Printer condition : check status printing start
+20201103 11:22:08 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:22:08 Printer status condition : check status printing done
+20201103 11:22:08 Printer status condition : check status printing close
+20201103 11:22:08 20201103 11:22:08 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:22:08 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:22:08 Printer condition : printer is out of paper
+20201103 11:22:08 Histori condition : print history halaman ke-1 failed
+20201103 11:22:08 Histori condition : move to histori gagal
+20201103 11:22:08 Histori condition : entered into histori gagal
+20201103 11:22:11 Histori condition : move to ambil kartu
+20201103 11:22:11 Ambil kartu condition : entered into ambil kartu
+20201103 11:22:14 Ambil kartu condition : move to home
+20201103 11:22:14 Home condition : clear transaksi success
+20201103 11:22:14 Home condition : clear array success
+20201103 11:22:14 Home condition : clear array nasabah success
+20201103 11:22:14 Home condition : clear list success
+20201103 11:22:14 Home condition : clear transaksi baru success
+20201103 11:22:14 Home condition : entered into home page
+20201103 11:23:14 Home condition : move to histori transaksi
+20201103 11:23:14 Histori condition : entered into histori input kartu
+20201103 11:23:15 Histori condition : input kartu success
+20201103 11:23:15 Histori condition : move to histori input pin
+20201103 11:23:15 Histori condition : entered into histori input pin
+20201103 11:23:15 Histori condition : input pin success
+20201103 11:23:15 Histori condition : input data Bambang Pamungkas success
+20201103 11:23:15 Histori condition : entered into histori pilih menu
+20201103 11:23:16 Histori condition : move to histori bulan berjalan
+20201103 11:23:16 Histori condition : entered into history bulan berjalan
+20201103 11:23:17 Histori condition : hit service histori start
+20201103 11:23:17 Histori condition : clear list histori success
+20201103 11:23:17 Histori condition : post service start
+20201103 11:23:18 Histori condition : set transaksi ID tes002 success
+20201103 11:23:18 Histori condition : hit service histori success
+20201103 11:23:18 Histori condition : get list data success
+20201103 11:23:18 Histori condition : set data histori success
+20201103 11:23:21 Histori condition : modal visible appear
+20201103 11:23:21 Histori condition : temporary list created
+20201103 11:23:21 Histori condition : clear list histori success
+20201103 11:23:21 Histori condition : print halaman ke-1
+20201103 11:23:21 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:23:22 Printer condition : check status printing start
+20201103 11:23:22 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:23:22 Printer status condition : check status printing done
+20201103 11:23:22 Printer status condition : check status printing close
+20201103 11:23:22 20201103 11:23:22 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:23:22 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:23:22 Printer condition : printer is out of paper
+20201103 11:23:22 Histori condition : print history halaman ke-1 failed
+20201103 11:23:22 Histori condition : move to histori gagal
+20201103 11:23:22 Histori condition : entered into histori gagal
+20201103 11:23:25 Histori condition : move to ambil kartu
+20201103 11:23:25 Ambil kartu condition : entered into ambil kartu
+20201103 11:23:28 Ambil kartu condition : move to home
+20201103 11:23:28 Home condition : clear transaksi success
+20201103 11:23:28 Home condition : clear array success
+20201103 11:23:28 Home condition : clear array nasabah success
+20201103 11:23:28 Home condition : clear list success
+20201103 11:23:28 Home condition : clear transaksi baru success
+20201103 11:23:28 Home condition : entered into home page
+20201103 11:24:47 Home condition : move to histori transaksi
+20201103 11:24:47 Histori condition : entered into histori input kartu
+20201103 11:24:48 Histori condition : input kartu success
+20201103 11:24:48 Histori condition : move to histori input pin
+20201103 11:24:48 Histori condition : entered into histori input pin
+20201103 11:24:48 Histori condition : input pin success
+20201103 11:24:48 Histori condition : input data Bambang Pamungkas success
+20201103 11:24:48 Histori condition : entered into histori pilih menu
+20201103 11:24:49 Histori condition : move to histori bulan berjalan
+20201103 11:24:49 Histori condition : entered into history bulan berjalan
+20201103 11:24:50 Histori condition : hit service histori start
+20201103 11:24:50 Histori condition : clear list histori success
+20201103 11:24:50 Histori condition : post service start
+20201103 11:24:52 Histori condition : set transaksi ID tes002 success
+20201103 11:24:52 Histori condition : hit service histori success
+20201103 11:24:52 Histori condition : get list data success
+20201103 11:24:52 Histori condition : set data histori success
+20201103 11:24:53 Histori condition : modal visible appear
+20201103 11:24:53 Histori condition : temporary list created
+20201103 11:24:53 Histori condition : clear list histori success
+20201103 11:24:53 Histori condition : print halaman ke-1
+20201103 11:24:53 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:24:54 Printer condition : check status printing start
+20201103 11:24:54 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:24:55 Printer status condition : check status printing done
+20201103 11:24:55 Printer status condition : check status printing close
+20201103 11:24:55 20201103 11:24:55 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+
+20201103 11:24:55 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:24:55 Printer condition : printer is out of paper
+20201103 11:24:55 Histori condition : print history halaman ke-1 failed
+20201103 11:24:55 Histori condition : move to histori gagal
+20201103 11:24:55 Histori condition : entered into histori gagal
+20201103 11:24:58 Histori condition : move to ambil kartu
+20201103 11:24:58 Ambil kartu condition : entered into ambil kartu
+20201103 11:25:01 Ambil kartu condition : move to home
+20201103 11:25:01 Home condition : clear transaksi success
+20201103 11:25:01 Home condition : clear array success
+20201103 11:25:01 Home condition : clear array nasabah success
+20201103 11:25:01 Home condition : clear list success
+20201103 11:25:01 Home condition : clear transaksi baru success
+20201103 11:25:01 Home condition : entered into home page
+20201103 11:27:07 Home condition : clear transaksi success
+20201103 11:27:07 Home condition : clear array success
+20201103 11:27:07 Home condition : clear array nasabah success
+20201103 11:27:07 Home condition : clear list success
+20201103 11:27:07 Home condition : clear transaksi baru success
+20201103 11:27:09 Home condition : clear transaksi success
+20201103 11:27:09 Home condition : clear array success
+20201103 11:27:09 Home condition : clear array nasabah success
+20201103 11:27:09 Home condition : clear list success
+20201103 11:27:09 Home condition : clear transaksi baru success
+20201103 11:27:09 Home condition : entered into home page
+20201103 11:27:12 Home condition : move to histori transaksi
+20201103 11:27:12 Histori condition : entered into histori input kartu
+20201103 11:27:13 Histori condition : input kartu success
+20201103 11:27:13 Histori condition : move to histori input pin
+20201103 11:27:13 Histori condition : entered into histori input pin
+20201103 11:27:13 Histori condition : input pin success
+20201103 11:27:13 Histori condition : input data Bambang Pamungkas success
+20201103 11:27:14 Histori condition : entered into histori pilih menu
+20201103 11:27:15 Histori condition : move to histori bulan berjalan
+20201103 11:27:15 Histori condition : entered into history bulan berjalan
+20201103 11:27:16 Histori condition : hit service histori start
+20201103 11:27:16 Histori condition : clear list histori success
+20201103 11:27:16 Histori condition : post service start
+20201103 11:27:18 Histori condition : set transaksi ID tes002 success
+20201103 11:27:18 Histori condition : hit service histori success
+20201103 11:27:18 Histori condition : get list data success
+20201103 11:27:18 Histori condition : set data histori success
+20201103 11:27:20 Histori condition : modal visible appear
+20201103 11:27:20 Histori condition : temporary list created
+20201103 11:27:20 Histori condition : clear list histori success
+20201103 11:27:20 Histori condition : print halaman ke-1
+20201103 11:27:21 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:27:22 Printer condition : check status printing start
+20201103 11:27:22 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:27:25 Printer status condition : check status printing done
+20201103 11:27:25 Printer status condition : check status printing close
+20201103 11:27:25 20201103 11:27:24 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201103 11:27:25 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201103 11:27:25 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201103 11:27:25 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:27:25 Printer condition : print success
+20201103 11:27:25 Histori condition : print history halaman ke-1 success
+20201103 11:27:25 Histori condition : clear list histori success
+20201103 11:27:25 Histori condition : print halaman ke-2
+20201103 11:27:25 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:27:26 Printer condition : check status printing start
+20201103 11:27:26 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:27:26 Printer status condition : check status printing done
+20201103 11:27:26 Printer status condition : check status printing close
+20201103 11:27:26 20201103 11:27:26 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201103 11:27:26 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201103 11:27:26 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201103 11:27:26 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:27:26 Printer condition : print success
+20201103 11:27:26 Histori condition : print history halaman ke-2 success
+20201103 11:27:26 Histori condition : clear list histori success
+20201103 11:27:26 Histori condition : print halaman ke-3
+20201103 11:27:26 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:27:27 Printer condition : check status printing start
+20201103 11:27:27 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:27:27 Printer status condition : check status printing done
+20201103 11:27:27 Printer status condition : check status printing close
+20201103 11:27:27 20201103 11:27:27 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201103 11:27:27 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201103 11:27:27 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201103 11:27:27 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:27:27 Printer condition : print success
+20201103 11:27:27 Histori condition : print history halaman ke-3 success
+20201103 11:27:27 Histori condition : clear list histori success
+20201103 11:27:27 Histori condition : print halaman ke-4
+20201103 11:27:27 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:27:28 Printer condition : check status printing start
+20201103 11:27:28 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:27:29 Printer status condition : check status printing done
+20201103 11:27:29 Printer status condition : check status printing close
+20201103 11:27:29 20201103 11:27:29 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201103 11:27:29 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201103 11:27:29 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201103 11:27:29 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:27:29 Printer condition : print success
+20201103 11:27:29 Histori condition : print history halaman ke-4 success
+20201103 11:27:29 Histori condition : clear list histori success
+20201103 11:27:29 Histori condition : print halaman ke-5
+20201103 11:27:29 Printer condition : print histori in EPSOND03466 (L3150 Series) start
+20201103 11:27:30 Printer condition : check status printing start
+20201103 11:27:30 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201103 11:27:30 Printer status condition : check status printing done
+20201103 11:27:30 Printer status condition : check status printing close
+20201103 11:27:30 20201103 11:27:30 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201103 11:27:30 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201103 11:27:30 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201103 11:27:30 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201103-11.txt
+20201103 11:27:30 Printer condition : print success
+20201103 11:27:30 Histori condition : print history halaman ke-5 success
+20201103 11:27:51 Histori condition : move to histori berhasil
+20201103 11:27:51 Histori condition : entered into histori berhasil
+20201103 11:27:54 Histori condition : move to ambil kartu
+20201103 11:27:54 Ambil kartu condition : entered into ambil kartu
+20201103 11:27:57 Ambil kartu condition : move to home
+20201103 11:27:57 Home condition : clear transaksi success
+20201103 11:27:57 Home condition : clear array success
+20201103 11:27:57 Home condition : clear array nasabah success
+20201103 11:27:57 Home condition : clear list success
+20201103 11:27:57 Home condition : clear transaksi baru success
+20201103 11:27:57 Home condition : entered into home page

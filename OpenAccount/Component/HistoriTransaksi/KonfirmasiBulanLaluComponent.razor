@@ -233,13 +233,13 @@
         if (firstRender)
         {
             Utility.WriteLog("Histori condition : entered into history bulan lalu", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         }
     }
 

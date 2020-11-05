@@ -111,15 +111,14 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("ENTERED INTO HISTORI PILIH MENU");
             Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
         }
     }
 

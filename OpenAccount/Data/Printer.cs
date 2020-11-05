@@ -62,15 +62,53 @@ namespace OpenAccount.Data
             Utility.ClearLog(pathStatus);
             Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Status = printerstatus.StatusCode;
-            if (Status == 0)
+            switch (Status)
             {
-                Console.WriteLine("Print Selesai ...");
-                Utility.WriteLog("Printer condition : print histori in " + printername + " finished", "step-action");
-            }
-            else
-            {
-                Console.WriteLine("Print Gagal ...");
-                Utility.WriteLog("Printer condition : print histori in " + printername + " failed", "step-action");
+                case 0:
+                    {
+                        Utility.WriteLog("Printer condition : print success", "step-action");
+                        break;
+                    }
+                case 1:
+                    {
+                        Utility.WriteLog("Printer condition : printer has a paper problem", "step-action");
+                        break;
+                    }
+                case 2:
+                    {
+                        Utility.WriteLog("Printer condition : printer is out of toner", "step-action");
+                        break;
+                    }
+                case 3:
+                    {
+                        Utility.WriteLog("Printer condition : printer is in an error state", "step-action");
+                        break;
+                    }
+                case 4:
+                    {
+                        Utility.WriteLog("Printer condition : printer has a paper jam", "step-action");
+                        break;
+                    }
+                case 5:
+                    {
+                        Utility.WriteLog("Printer condition : printer is out of paper", "step-action");
+                        break;
+                    }
+                case 6:
+                    {
+                        Utility.WriteLog("Printer condition : printer is off line", "step-action");
+                        break;
+                    }
+                case 7:
+                    {
+                        Utility.WriteLog("Printer condition : printer is out of memory", "step-action");
+                        break;
+                    }
+                case 8:
+                    {
+                        Utility.WriteLog("Printer condition : printer is low on toner", "step-action");
+                        break;
+                    }
             }
             trx.setStatusPrinting(Status.ToString());
             return _trx._HistoriSaldo;

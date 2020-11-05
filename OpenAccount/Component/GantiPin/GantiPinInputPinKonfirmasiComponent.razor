@@ -153,13 +153,13 @@
         if (firstRender)
         {
             Utility.WriteLog("Ganti pin condition : entered into ganti pin input pin konfirmasi", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                await Task.Delay(100);
-                StateHasChanged();
-            }
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime)
+            //{
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //}
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
             if (sPort.IsOpen)
             {
