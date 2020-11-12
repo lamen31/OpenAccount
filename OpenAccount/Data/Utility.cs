@@ -8,6 +8,8 @@ namespace OpenAccount.Data
 {
     public class Utility
     {
+        Config config = new Config();
+
         public static string ReadLog(string strdatapath)
         {
             string result;
@@ -80,5 +82,47 @@ namespace OpenAccount.Data
             }
             return result;
         }
+
+        //public static async Task AuditTrail()
+        //{
+        //    Config config = new Config();
+        //    Transaksi trx = new Transaksi();
+        //    string _myURL = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+        //    string saveURL = config.Read("LINK", Config.PARAM_SERVICES_SAVE);
+
+        //    //trans.endTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+
+        //    string auditTrail = string.Empty;
+        //    int stepTrail = 1;
+        //    auditTrail = auditTrail + "[ ";
+        //    foreach (dynamic at in trx._auditTrail)
+        //    {
+        //        auditTrail = auditTrail +
+        //            "{ \"step\" : \"" + stepTrail + "\"," +
+        //            "\"action\" : \"" + at._action + "\"," +
+        //            "\"data\" : \"" + at._data + "\"," +
+        //            "\"result\" : \"" + at._result + "\"" +
+        //            "},";
+        //        stepTrail += 1;
+        //    }
+        //    auditTrail = auditTrail.Remove(auditTrail.Length - 1);
+
+        //    string myJson2 = "{ \"transaction\" : " +
+        //        "{ \"transactionId\" : \"" + trx._TransaksiID + "\"," +
+        //        "\"terminalId\" : \"" + trans.termID + "\"," +
+        //        "\"transactionType\" : \"" + trans.jenisTrans + "\"," +
+        //            "\"noHp\" : \"" + cst.PhoneNumber + "\"," +
+        //            "\"startTime\" : \"" + trans.startTime.ToString() + "\"," +
+        //            "\"endTime\" : \"" + trans.endTime.ToString() + "\"," +
+        //            "\"status\" : \"" + trans.status + "\"," +
+        //            "\"description\" : \"" + trans.errorCode + "\"," +
+        //            "\"jumlahKartu\" : \"" + trans.jumlah_kartu + "\"" +
+        //            "}, \"auditTrail\" : " + auditTrail + "]}";
+        //    string myURL2 = _myURL + saveURL;
+
+        //    //OurUtility.Write_Log("== Request API : " + myJson2, "step-action");
+        //    string strResult2 = await OurUtility.PostCallAPI(myURL2, myJson2, menu);
+        //    //OurUtility.Write_Log("== Response API : " + strResult2, "step-action");
+        //}
     }
 }

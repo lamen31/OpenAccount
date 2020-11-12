@@ -1,0 +1,393 @@
+@import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:400,700);
+body {
+  background: #6699CC;
+  padding-top: 20px;
+}
+
+.track-progress {
+  margin: 0;
+  /* padding: 10px 10px 0 10px; */
+  background: transparent;
+  height: 50px;
+  border-radius: 10px;
+  
+  /* -moz-box-shadow: 0 4px 6px -5px black; */
+  /* -webkit-box-shadow: 0 4px 6px -5px black; */
+  /* box-shadow: 0 4px 6px -5px black; */
+}
+.track-progress li {
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+  font: 14px/14px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #bbb;
+  border-bottom: 2px #bbb solid;
+  line-height: 3em;
+  width: 20%;
+  float: left;
+}
+.track-progress li:after {
+  content: "\00a0\00a0";
+  /*non-breaking space */
+}
+.track-progress li:before {
+  position: relative;
+  bottom: -2.5em;
+  float: left;
+  left: 50%;
+  line-height: 1em;
+}
+@media (max-width: 800px) {
+  .track-progress li {
+    font-size: 0.7em;
+  }
+}
+.track-progress li span {
+  padding-left: 0.75em;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+@media (max-width: 640px) {
+  .track-progress li span {
+    display: none;
+  }
+}
+.track-progress li.done {
+  color: #5498FF;
+  font-weight: bold;
+  border-bottom: 2px #5498FF solid;
+}
+.track-progress li.done:before {
+  content: "";
+  background: #5498FF;
+  height: 1.2em;
+  width: 1.2em;
+  line-height: 1.2em;
+  border: none;
+  border-radius: 1.2em;
+}
+.track-progress li.todo:before {
+  content: "";
+  background: white;
+  border: 0.25em solid #bbb;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 0.8em;
+}
+.track-progress em {
+  display: none;
+  font-weight: 700;
+  padding-left: 0.75em;
+}
+@media (max-width: 640px) {
+  .track-progress em {
+    display: inline;
+  }
+}
+
+p {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 75%;
+  margin-top: 25px;
+  font: 18px/28px;
+  color: #eee;
+}
+p em {
+  display: block;
+  font-size: 23px;
+  font-weight: 700;
+  font-style: normal;
+  color: white;
+}
+
+/* Tracker GK */
+
+.track-progressGK {
+    margin: 0;
+    /* padding: 10px 10px 0 10px; */
+    background: transparent;
+    height: 50px;
+    border-radius: 10px;
+    /* -moz-box-shadow: 0 4px 6px -5px black; */
+    /* -webkit-box-shadow: 0 4px 6px -5px black; */
+    /* box-shadow: 0 4px 6px -5px black; */
+}
+
+    .track-progressGK li {
+        list-style-type: none;
+        display: inline-block;
+        position: relative;
+        font: 14px/14px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #bbb;
+        border-bottom: 2px #bbb solid;
+        line-height: 3em;
+        /* width: 7.1%; */
+        width: 20%;
+        float: left;
+    }
+
+        .track-progressGK li:after {
+            content: "\00a0\00a0";
+            /*non-breaking space */
+        }
+
+        .track-progressGK li:before {
+            position: relative;
+            bottom: -2.5em;
+            float: left;
+            left: 50%;
+            line-height: 1em;
+        }
+
+@media (max-width: 800px) {
+    .track-progressGK li {
+        font-size: 0.7em;
+    }
+}
+
+.track-progressGK li span {
+    padding-left: 0.75em;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+@media (max-width: 640px) {
+    .track-progressGK li span {
+        display: none;
+    }
+}
+
+.track-progressGK li.done {
+    color: #5498FF;
+    font-weight: bold;
+    border-bottom: 2px #5498FF solid;
+}
+
+    .track-progressGK li.done:before {
+        content: "";
+        background: #5498FF;
+        height: 1.2em;
+        width: 1.2em;
+        line-height: 1.2em;
+        border: none;
+        border-radius: 1.2em;
+    }
+
+.track-progressGK li.todo:before {
+    content: "";
+    background: white;
+    border: 0.25em solid #bbb;
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 0.8em;
+}
+
+.track-progressGK em {
+    display: none;
+    font-weight: 700;
+    padding-left: 0.75em;
+}
+
+@media (max-width: 640px) {
+    .track-progressGK em {
+        display: inline;
+    }
+}
+
+
+/* Tracker Ganti PIN */
+
+.track-progressGP {
+    margin: 0;
+    /* padding: 10px 10px 0 10px; */
+    background: transparent;
+    height: 50px;
+    border-radius: 10px;
+    /* -moz-box-shadow: 0 4px 6px -5px black; */
+    /* -webkit-box-shadow: 0 4px 6px -5px black; */
+    /* box-shadow: 0 4px 6px -5px black; */
+}
+
+    .track-progressGP li {
+        list-style-type: none;
+        display: inline-block;
+        position: relative;
+        font: 14px/14px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #bbb;
+        border-bottom: 2px #bbb solid;
+        line-height: 3em;
+        /* width: 7.1%; */
+        width: 20%;
+        float: left;
+    }
+
+        .track-progressGP li:after {
+            content: "\00a0\00a0";
+            /*non-breaking space */
+        }
+
+        .track-progressGP li:before {
+            position: relative;
+            bottom: -2.5em;
+            float: left;
+            left: 50%;
+            line-height: 1em;
+        }
+
+@media (max-width: 800px) {
+    .track-progressGP li {
+        font-size: 0.7em;
+    }
+}
+
+.track-progressGP li span {
+    padding-left: 0.75em;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+@media (max-width: 640px) {
+    .track-progressGP li span {
+        display: none;
+    }
+}
+
+.track-progressGP li.done {
+    color: #5498FF;
+    font-weight: bold;
+    border-bottom: 2px #5498FF solid;
+}
+
+    .track-progressGP li.done:before {
+        content: "";
+        background: #5498FF;
+        height: 1.2em;
+        width: 1.2em;
+        line-height: 1.2em;
+        border: none;
+        border-radius: 1.2em;
+    }
+
+.track-progressGP li.todo:before {
+    content: "";
+    background: white;
+    border: 0.25em solid #bbb;
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 0.8em;
+}
+
+.track-progressGP em {
+    display: none;
+    font-weight: 700;
+    padding-left: 0.75em;
+}
+
+@media (max-width: 640px) {
+    .track-progressGP em {
+        display: inline;
+    }
+}
+
+/* Tracker Buka Rekening */
+
+.track-progressBR {
+    margin: 0;
+    /* padding: 10px 10px 0 10px; */
+    background: transparent;
+    height: 50px;
+    border-radius: 10px;
+    /* -moz-box-shadow: 0 4px 6px -5px black; */
+    /* -webkit-box-shadow: 0 4px 6px -5px black; */
+    /* box-shadow: 0 4px 6px -5px black; */
+}
+
+    .track-progressBR li {
+        list-style-type: none;
+        display: inline-block;
+        position: relative;
+        font: 14px/14px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #bbb;
+        border-bottom: 2px #bbb solid;
+        line-height: 3em;
+        /* width: 7.1%; */
+        width: 10%;
+        float: left;
+    }
+
+        .track-progressBR li:after {
+            content: "\00a0\00a0";
+            /*non-breaking space */
+        }
+
+        .track-progressBR li:before {
+            position: relative;
+            bottom: -2.5em;
+            float: left;
+            left: 50%;
+            line-height: 1em;
+        }
+
+@media (max-width: 800px) {
+    .track-progressBR li {
+        font-size: 0.7em;
+    }
+}
+
+.track-progressBR li span {
+    padding-left: 0.75em;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+@media (max-width: 640px) {
+    .track-progressBR li span {
+        display: none;
+    }
+}
+
+.track-progressBR li.done {
+    color: #5498FF;
+    font-weight: bold;
+    border-bottom: 2px #5498FF solid;
+}
+
+    .track-progressBR li.done:before {
+        content: "";
+        background: #5498FF;
+        height: 1.2em;
+        width: 1.2em;
+        line-height: 1.2em;
+        border: none;
+        border-radius: 1.2em;
+    }
+
+.track-progressBR li.todo:before {
+    content: "";
+    background: white;
+    border: 0.25em solid #bbb;
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 0.8em;
+}
+
+.track-progressBR em {
+    display: none;
+    font-weight: 700;
+    padding-left: 0.75em;
+}
+
+@media (max-width: 640px) {
+    .track-progressBR em {
+        display: inline;
+    }
+}

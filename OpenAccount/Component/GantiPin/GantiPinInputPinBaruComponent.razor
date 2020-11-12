@@ -125,14 +125,22 @@
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
             Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
             await Task.Delay(100);
-            await EDC("14");
-            if (isPin)
+            try
             {
-                isTimeOut = true;
-                trx.setPinPertama(strpinNomor);
-                Utility.WriteLog("Ganti pin condition : input pin pertama " + strpinNomor + " success", "step-action");
-                Utility.WriteLog("Ganti pin condition : move to ganti pin input pin konfirmasi", "step-action");
-                OnClick.InvokeAsync("gantipininputpinkonfirmasi");
+                await EDC("14");
+                if (isPin)
+                {
+                    isTimeOut = true;
+                    trx.setPinPertama(strpinNomor);
+                    Utility.WriteLog("Ganti pin condition : input pin pertama " + strpinNomor + " success", "step-action");
+                    Utility.WriteLog("Ganti pin condition : move to ganti pin input pin konfirmasi", "step-action");
+                    OnClick.InvokeAsync("gantipininputpinkonfirmasi");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Histori condition : EDC error --> " + ex.Message, "step-action");
             }
         }
     }
@@ -205,8 +213,16 @@
 
         Console.WriteLine("1");
 
-        Utility.WriteLog("Ganti pin condition : EDC serial port open", "step-action");
-        serialPort.Open();
+        try
+        {
+            Utility.WriteLog("Ganti pin condition : EDC serial port open", "step-action");
+            serialPort.Open();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Histori condition : EDC error --> " + ex.Message, "step-action");
+        }
 
         Utility.WriteLog("Ganti pin condition : EDC serial port write", "step-action");
         serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
@@ -378,6 +394,7 @@
                     Utility.WriteLog("Ganti pin condition : EDC NAK", "step-action");
                 }
             }
+            await Task.Delay(100);
             StateHasChanged();
             //switch (strpin.Length)
             //{

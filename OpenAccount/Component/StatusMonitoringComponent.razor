@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO.Ports  
+
+@inject IDScanner scanner 
+@inject EKtp ktp
+@inject EDC edc
+@inject Config config
+@inject PrinterStatus printerstatus
+@inject Transaksi trx
+
+<div>
+    <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="CheckStatus">Check Status</button>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private bool isScannerOK = false;
+    private bool isEKTPOnline = false;
+    private int SAMCardStatus = 0;
+    private string statusPrinter = string.Empty;
+
+    private async Task CheckStatus()
+    {
+        isScannerOK = scanner.Initialize();
+        if (isScannerOK)
+        {
+            Console.WriteLine("ID SCANNER CONNECTED");
+            scanner.CloseCVRReader();
+        }
+        else
+        {
+            Console.WriteLine("ID SCANNER NOT CONNECTED");
+        }
+
+        isEKTPOnline = ktp.CheckStatusIn();
+
+        if (isEKTPOnline)
+        {
+            SAMCardStatus = ktp.CheckSAM();
+            switch (SAMCardStatus)
+            {
+                case 1:
+                    Console.WriteLine("SAM SLOT 1 OK");
+                    break;
+                case 2:
+                    Console.WriteLine("SAM SLOT 1 NOT OK");
+                    break;
+                case 3:
+                    Console.WriteLine("SAM SLOT 2 OK");
+                    break;
+                case 4:
+                    Console.WriteLine("SAM SLOT 2 NOT OK");
+                    break;
+                case 5:
+                    Console.WriteLine("CANNOT READ SAM CARD");
+                    break;
+            }
+
+            if(SAMCardStatus==1||SAMCardStatus==3)
+                ktp.CloseDevice();
+        }
+        else
+            Console.WriteLine("EKTP READER OFF LINE");
+
+        edc.serialPort = new SerialPort();
+        edc.serialPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        edc.SendCommandLoop(edc.serialPort, "15");
+        if (edc.EDCStatus == "EDC ACK")
+            Console.WriteLine("EDC CONNECTED");
+        else if (edc.EDCStatus == "EDC NAK")
+            Console.WriteLine("EDC NOT CONNECTED");
+
+
+        printerstatus.checkPrinterA4();
+        await Task.Delay(100);
+        statusPrinter = printerstatus.StatusCode.ToString();
+        if (statusPrinter == "0")
+            Console.WriteLine("PRINTER A4 CONNECTED");
+        else if (statusPrinter == "6")
+            Console.WriteLine("PRINTER A4 OFF LINE");
+        else
+            Console.WriteLine("PRINTER HAS PROBLEM");
+    }
+}

@@ -6,6 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Dynamic;
 
 namespace OpenAccount.Data
 {
@@ -21,7 +22,40 @@ namespace OpenAccount.Data
         private string printername;
         public string workingdirectory;
         public int StatusCode;
-        string path;
+        private string path = string.Empty;
+
+        private string pathStatus = string.Empty;
+        private string strfilename = "step-action";
+        private string textStatus = string.Empty;
+        Transaksi trx = new Transaksi();
+
+        public void checkPrinterA4()
+        {
+            printername = settings.PrinterName;
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
+            StatusPrinting(printername);
+            pathStatus = workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
+            trx.setStatusPrinting(StatusCode.ToString());
+        }
+
+        public void checkPrinterPassbook()
+        {
+            printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
+            StatusPrinting(printername);
+            pathStatus = workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
+            trx.setStatusPrinting(StatusCode.ToString());
+        }
 
         public void StatusPrinting(string strnamaprinter)
         {

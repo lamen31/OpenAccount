@@ -25,6 +25,8 @@ namespace OpenAccount.Data
         string dataSplit = string.Empty;
         public AutoResetEvent mre = new AutoResetEvent(false);
 
+        public string EDCStatus = string.Empty;
+
         public int intTry = 0;
 
         public void Clear()
@@ -155,7 +157,8 @@ namespace OpenAccount.Data
                     if (dataRespond.Length > 10)
                     {
                         serialPort.Close();
-                        Console.WriteLine("EDC ACK");
+                        EDCStatus = "EDC ACK";
+                        Console.WriteLine(EDCStatus);
                         dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
                         Console.WriteLine("Data Split: " + dataSplit);
                         _statusCode = dataSplit.Substring(4, 2);
@@ -165,7 +168,8 @@ namespace OpenAccount.Data
                 else if (dataRespond.Contains("\x15"))
                 {
                     serialPort.Close();
-                    Console.WriteLine("EDC NAK");
+                    EDCStatus = "EDC NAK";
+                    Console.WriteLine(EDCStatus);
 
                 }
             }
@@ -213,7 +217,7 @@ namespace OpenAccount.Data
             string ecr = "424E49"; // BNI;
             string ecr_messsage = string.Empty;
             string etx = "03";
-            string lrc = "00";
+            string lrc = "53";
 
             dataRespond = string.Empty;
 
@@ -237,15 +241,56 @@ namespace OpenAccount.Data
             //data2[56] = 0x77;
             serialPort.PortName = port.PortName;
             serialPort.BaudRate = 115200;
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+            //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 
             Console.WriteLine("1");
-            serialPort.Open();
+            try
+            {
+                serialPort.Open();
+            }
+            catch
+            {
+                EDCStatus = "EDC NAK";
+                return;
+            }
 
             serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
             Console.WriteLine("2");
 
             //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+
+            dataSplit = string.Empty;
+            _respondCode = string.Empty;
+            _statusCode = string.Empty;
+            _approvalCode = string.Empty;
+            Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                Console.WriteLine("Data Current: " + dataCurrent);
+                Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        serialPort.Close();
+                        EDCStatus = "EDC ACK";
+                        Console.WriteLine(EDCStatus);
+                        dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                        Console.WriteLine("Data Split: " + dataSplit);
+                        _statusCode = dataSplit.Substring(4, 2);
+                        Console.WriteLine("Status : " + _statusCode);
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    EDCStatus = "EDC NAK";
+                    Console.WriteLine(EDCStatus);
+
+                }
+            }
         }
     }
 }

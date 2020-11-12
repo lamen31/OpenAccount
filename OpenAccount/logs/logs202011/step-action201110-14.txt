@@ -1,0 +1,36 @@
+20201110 14:01:56 Printer condition : check status printing start
+20201110 14:01:57 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201110 14:01:58 Printer status condition : check status printing done
+20201110 14:01:58 Printer status condition : check status printing close
+20201110 14:01:58 20201110 14:01:58 Status printing in EPSOND03466 (L3150 Series) : job queue is empty
+20201110 14:01:58 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201110 14:01:58 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201110 14:01:58 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201110-14.txt
+20201110 14:02:41 Printer condition : check status printing start
+20201110 14:02:42 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201110 14:02:42 Printer status condition : check status printing done
+20201110 14:02:42 Printer status condition : check status printing close
+20201110 14:02:42 20201110 14:02:42 Status printing in EPSOND03466 (L3150 Series) : job queue is empty
+20201110 14:02:42 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201110 14:02:42 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201110 14:02:42 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201110-14.txt
+20201110 14:04:13 Printer condition : check status printing start
+20201110 14:04:14 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201110 14:04:15 Printer status condition : check status printing done
+20201110 14:04:15 Printer status condition : check status printing close
+20201110 14:04:15 20201110 14:04:15 Status printing in EPSOND03466 (L3150 Series) : job queue is empty
+20201110 14:04:15 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201110 14:04:15 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201110 14:04:15 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201110-14.txt
+20201110 14:07:45 Printer condition : check status printing start
+20201110 14:07:46 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201110 14:07:47 Printer status condition : check status printing done
+20201110 14:07:47 Printer status condition : check status printing close
+20201110 14:07:47 20201110 14:07:46 Status printing in EPSOND03466 (L3150 Series) : job queue is empty
+20201110 14:07:46 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201110 14:07:46 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201110 14:07:47 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201110-14.txt

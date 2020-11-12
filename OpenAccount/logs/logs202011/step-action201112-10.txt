@@ -1,0 +1,45 @@
+20201112 10:29:08 Home condition : clear transaksi success
+20201112 10:29:08 Home condition : clear array success
+20201112 10:29:08 Home condition : clear array nasabah success
+20201112 10:29:08 Home condition : clear list success
+20201112 10:29:08 Home condition : clear transaksi baru success
+20201112 10:29:11 Home condition : clear transaksi success
+20201112 10:29:11 Home condition : clear array success
+20201112 10:29:11 Home condition : clear array nasabah success
+20201112 10:29:11 Home condition : clear list success
+20201112 10:29:11 Home condition : clear transaksi baru success
+20201112 10:29:12 Home condition : entered into landing page
+20201112 10:29:23 Home condition : move to insert debit
+20201112 10:29:23 Home condition : entered into insert debit
+20201112 10:29:24 Home condition : input kartu success
+20201112 10:29:24 Home condition : move to input pin
+20201112 10:29:24 Home condition : entered into histori input pin
+20201112 10:29:25 Home condition : input pin success
+20201112 10:29:25 Home condition : input data Bambang Pamungkas success
+20201112 10:29:25 Home condition : entered into new home
+20201112 10:29:30 Home condition : move to buku input data
+20201112 10:29:30 Buku condition : entered into buku input data
+20201112 10:30:33 Home condition : clear transaksi success
+20201112 10:30:33 Home condition : clear array success
+20201112 10:30:33 Home condition : clear array nasabah success
+20201112 10:30:33 Home condition : clear list success
+20201112 10:30:33 Home condition : clear transaksi baru success
+20201112 10:30:35 Home condition : clear transaksi success
+20201112 10:30:35 Home condition : clear array success
+20201112 10:30:35 Home condition : clear array nasabah success
+20201112 10:30:35 Home condition : clear list success
+20201112 10:30:35 Home condition : clear transaksi baru success
+20201112 10:30:35 Home condition : entered into landing page
+20201112 10:30:38 Home condition : move to insert debit
+20201112 10:30:38 Home condition : entered into insert debit
+20201112 10:30:39 Home condition : input kartu success
+20201112 10:30:39 Home condition : move to input pin
+20201112 10:30:39 Home condition : entered into histori input pin
+20201112 10:30:40 Home condition : input pin success
+20201112 10:30:40 Home condition : input data Bambang Pamungkas success
+20201112 10:30:40 Home condition : entered into new home
+20201112 10:30:45 Home condition : move to buku input data
+20201112 10:30:46 Buku condition : entered into buku input data
+20201112 10:30:49 Buku condition : move to ambil kartu
+20201112 10:30:49 Ambil kartu condition : entered into ambil kartu
+20201112 10:30:52 Ambil kartu condition : move to landing page

@@ -62,7 +62,7 @@ namespace OpenAccount.Data
             Utility.ClearLog(pathStatus);
             Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Status = printerstatus.StatusCode;
-            switch (Status)
+            switch (printerstatus.StatusCode)
             {
                 case 0:
                     {
@@ -281,17 +281,19 @@ namespace OpenAccount.Data
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
             Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
-            Status = printerstatus.StatusCode;
-            if (Status == 0)
-            {
-                Console.WriteLine("Print Selesai ...");
-                Utility.WriteLog("Printer condition : print thermal in " + printername + " finished", "step-action");
-            }
-            else
-            {
-                Console.WriteLine("Print Gagal ...");
-                Utility.WriteLog("Printer condition : print thermal in " + printername + " failed", "step-action");
-            }
+            //Status = printerstatus.StatusCode;
+            //if (printerstatus.StatusCode == 0)
+            //{
+            //    Console.WriteLine("Print Selesai ...");
+            //    Utility.WriteLog("Printer condition : print thermal in " + printername + " finished", "step-action");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Print Gagal ...");
+            //    Utility.WriteLog("Printer condition : print thermal in " + printername + " failed", "step-action");
+            //}
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print thermal in " + printername + " finished", "step-action");
             trx.setStatusPrinting(Status.ToString());
         }
 
@@ -402,7 +404,7 @@ namespace OpenAccount.Data
             Utility.ClearLog(pathStatus);
             Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
             Status = printerstatus.StatusCode;
-            if (Status == 0)
+            if (printerstatus.StatusCode == 0)
             {
                 Console.WriteLine("Print Selesai ...");
                 Utility.WriteLog("Printer condition : print passbook in " + printername + " finished", "step-action");
@@ -528,17 +530,19 @@ namespace OpenAccount.Data
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
             Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
-            Status = printerstatus.StatusCode;
-            if (Status == 0)
-            {
-                Console.WriteLine("Print Selesai ...");
-                Utility.WriteLog("Printer condition : print buku penuh in " + printername + " finished", "step-action");
-            }
-            else
-            {
-                Console.WriteLine("Print Gagal ...");
-                Utility.WriteLog("Printer condition : print buku penuh in " + printername + " failed", "step-action");
-            }
+            //Status = printerstatus.StatusCode;
+            //if (printerstatus.StatusCode == 0)
+            //{
+            //    Console.WriteLine("Print Selesai ...");
+            //    Utility.WriteLog("Printer condition : print buku penuh in " + printername + " finished", "step-action");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Print Gagal ...");
+            //    Utility.WriteLog("Printer condition : print buku penuh in " + printername + " failed", "step-action");
+            //}
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print buku penuh in " + printername + " finished", "step-action");
             trx.setStatusPrinting(Status.ToString());
         }
 
@@ -631,17 +635,19 @@ namespace OpenAccount.Data
             Utility.WriteLog(textStatus, "step-action");
             Utility.ClearLog(pathStatus);
             Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
-            Status = printerstatus.StatusCode;
-            if (Status == 0)
-            {
-                Console.WriteLine("Print Selesai ...");
-                Utility.WriteLog("Printer condition : print buka rekening in " + printername + " finished", "step-action");
-            }
-            else
-            {
-                Console.WriteLine("Print Gagal ...");
-                Utility.WriteLog("Printer condition : print buka rekening in " + printername + " failed", "step-action");
-            }
+            //Status = printerstatus.StatusCode;
+            //if (Status == 0)
+            //{
+            //    Console.WriteLine("Print Selesai ...");
+            //    Utility.WriteLog("Printer condition : print buka rekening in " + printername + " finished", "step-action");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Print Gagal ...");
+            //    Utility.WriteLog("Printer condition : print buka rekening in " + printername + " failed", "step-action");
+            //}
+            Console.WriteLine("Print Selesai ...");
+            Utility.WriteLog("Printer condition : print buka rekening in " + printername + " finished", "step-action");
             trxbaru.setStatusPrinting(Status.ToString());
         }
 

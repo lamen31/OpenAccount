@@ -9,6 +9,7 @@
 @inject Printer print
 @inject Utility utility
 @inject HitServices services
+@inject PrinterStatus printerstatus
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -395,7 +396,7 @@
                     trx.setHalamanHistori(halaman.ToString());
                     Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
-                    statusPrinter = trx._StatusPrinter;
+                    statusPrinter = printerstatus.StatusCode.ToString();
                     if (statusPrinter != "0")
                     {
                         Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " failed", "step-action");
@@ -431,7 +432,7 @@
                     trx.setHalamanHistori(halaman.ToString());
                     Utility.WriteLog("Histori condition : print halaman ke-" + halaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintHistori(trx));
-                    statusPrinter = trx._StatusPrinter;
+                    statusPrinter = printerstatus.StatusCode.ToString();
                     if (statusPrinter != "0")
                     {
                         Utility.WriteLog("Histori condition : print history halaman ke-" + halaman.ToString() + " failed", "step-action");
@@ -467,7 +468,7 @@
             trx.setMaxHalamanHistoriTransaksi(maxhalaman.ToString());
             Utility.WriteLog("Histori condition : print history", "step-action");
             saldo = await Task.Run(() => print.PrintHistori(trx));
-            statusPrinter = trx._StatusPrinter;
+            statusPrinter = printerstatus.StatusCode.ToString();
             if (statusPrinter != "0")
             {
                 Utility.WriteLog("Histori condition : print history failed", "step-action");

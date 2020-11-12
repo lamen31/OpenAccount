@@ -1,0 +1,95 @@
+20201110 10:11:35 Home condition : clear transaksi success
+20201110 10:11:35 Home condition : clear array success
+20201110 10:11:35 Home condition : clear array nasabah success
+20201110 10:11:35 Home condition : clear list success
+20201110 10:11:35 Home condition : clear transaksi baru success
+20201110 10:11:37 Home condition : clear transaksi success
+20201110 10:11:37 Home condition : clear array success
+20201110 10:11:37 Home condition : clear array nasabah success
+20201110 10:11:37 Home condition : clear list success
+20201110 10:11:37 Home condition : clear transaksi baru success
+20201110 10:11:37 Home condition : entered into home page
+20201110 10:11:39 Home condition : move to buku tabungan
+20201110 10:11:39 Buku condition : entered into buku input card
+20201110 10:11:40 Buku condition : input card success
+20201110 10:11:40 Buku condition : move to buku input pin
+20201110 10:11:40 Buku condition : entered into buku input pin
+20201110 10:11:40 Buku condition : input pin success
+20201110 10:11:40 Buku condition : input data Bambang Pamungkas success
+20201110 10:11:40 Buku condition : entered into buku input data
+20201110 10:11:45 Buku condition : isTextField = 2
+20201110 10:11:47 Buku condition : isTextField = 3
+20201110 10:11:50 Buku condition : set data passbook success
+20201110 10:11:50 Buka rekening condition : move to buku konfirmasi
+20201110 10:11:50 Buku condition : entered into buku konfirmasi
+20201110 10:11:51 Buku condition : hit service passbook start
+20201110 10:11:51 Buku condition : clear list buku success
+20201110 10:11:51 Buku condition : get service start
+20201110 10:11:53 Buku condition : set transaksi ID tes002 success
+20201110 10:11:53 Buku condition : hit service passbook success
+20201110 10:11:53 Buku condition : get list data success
+20201110 10:11:55 Buku condition : modal visible appear
+20201110 10:11:55 Buku condition : temporary list created
+20201110 10:11:55 Buku condition : clear list buku success
+20201110 10:11:55 Buku condition : print halaman ke-1
+20201110 10:11:55 Printer condition : print passbook in PsiPR-OLI start
+20201110 10:11:56 Printer condition : check status printing start
+20201110 10:11:56 Printer status condition : check status printing in PsiPR-OLI
+20201110 10:13:11 Home condition : clear transaksi success
+20201110 10:13:11 Home condition : clear array success
+20201110 10:13:11 Home condition : clear array nasabah success
+20201110 10:13:11 Home condition : clear list success
+20201110 10:13:11 Home condition : clear transaksi baru success
+20201110 10:13:12 Home condition : clear transaksi success
+20201110 10:13:12 Home condition : clear array success
+20201110 10:13:12 Home condition : clear array nasabah success
+20201110 10:13:12 Home condition : clear list success
+20201110 10:13:12 Home condition : clear transaksi baru success
+20201110 10:13:13 Home condition : entered into home page
+20201110 10:13:31 Home condition : move to buku tabungan
+20201110 10:13:31 Buku condition : entered into buku input card
+20201110 10:13:32 Buku condition : input card success
+20201110 10:13:32 Buku condition : move to buku input pin
+20201110 10:13:32 Buku condition : entered into buku input pin
+20201110 10:13:33 Buku condition : input pin success
+20201110 10:13:33 Buku condition : input data Bambang Pamungkas success
+20201110 10:13:33 Buku condition : entered into buku input data
+20201110 10:13:36 Buku condition : isTextField = 2
+20201110 10:13:38 Buku condition : isTextField = 3
+20201110 10:13:53 Buku condition : set data passbook success
+20201110 10:13:53 Buka rekening condition : move to buku konfirmasi
+20201110 10:13:53 Buku condition : entered into buku konfirmasi
+20201110 10:13:53 Buku condition : hit service passbook start
+20201110 10:13:53 Buku condition : clear list buku success
+20201110 10:13:53 Buku condition : get service start
+20201110 10:13:55 Buku condition : set transaksi ID tes002 success
+20201110 10:13:55 Buku condition : hit service passbook success
+20201110 10:13:55 Buku condition : get list data success
+20201110 10:13:58 Buku condition : modal visible appear
+20201110 10:13:58 Buku condition : temporary list created
+20201110 10:13:58 Buku condition : clear list buku success
+20201110 10:13:58 Buku condition : print halaman ke-1
+20201110 10:13:59 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201110 10:14:00 Printer condition : check status printing start
+20201110 10:14:00 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201110 10:14:03 Printer status condition : check status printing done
+20201110 10:14:03 Printer status condition : check status printing close
+20201110 10:14:03 20201110 10:14:03 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201110 10:14:03 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201110 10:14:03 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201110 10:14:03 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201110-10.txt
+20201110 10:14:03 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201110 10:14:03 Buku condition : print history halaman ke-1 success
+20201110 10:14:04 Buku condition : modal baris appear
+20201110 10:14:14 Buku condition : click Berhenti button
+20201110 10:14:14 Buku condition : print buku stop
+20201110 10:14:14 Buku condition : move to ambil kartu
+20201110 10:14:14 Ambil kartu condition : entered into ambil kartu
+20201110 10:14:17 Ambil kartu condition : move to home
+20201110 10:14:17 Home condition : clear transaksi success
+20201110 10:14:17 Home condition : clear array success
+20201110 10:14:17 Home condition : clear array nasabah success
+20201110 10:14:17 Home condition : clear list success
+20201110 10:14:17 Home condition : clear transaksi baru success
+20201110 10:14:17 Home condition : entered into home page

@@ -121,55 +121,63 @@
             sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
             Utility.WriteLog("Ganti pin condition : EDC process start", "step-action");
             await Task.Delay(100);
-            await EDC("14");
-            if (!isCancel)
+            try
             {
-                pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
-                if (strpin == pinNasabah)
+                await EDC("14");
+                if (!isCancel)
                 {
-                    Utility.WriteLog("Ganti pin condition : input pin success", "step-action");
-                    for (int i = 0; i < Nasabah.Length; i++)
+                    pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
+                    if (strpin == pinNasabah)
                     {
-                        if (i == 0)
-                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-                        else if (i == 1)
-                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-                        else if (i == 2)
-                            Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                        Utility.WriteLog("Ganti pin condition : input pin success", "step-action");
+                        for (int i = 0; i < Nasabah.Length; i++)
+                        {
+                            if (i == 0)
+                                Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                            else if (i == 1)
+                                Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                            else if (i == 2)
+                                Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+                        }
+                        trx.setArrayNasabah(Nasabah);
+                        Utility.WriteLog("Ganti pin condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+                        isEDC = false;
+                        Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
+                        OnClick.InvokeAsync("gantipininputpinbaru");
+                        break;
                     }
-                    trx.setArrayNasabah(Nasabah);
-                    Utility.WriteLog("Ganti pin condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-                    isEDC = false;
-                    Utility.WriteLog("Ganti pin condition : move to ganti pin input pin baru", "step-action");
-                    OnClick.InvokeAsync("gantipininputpinbaru");
-                    break;
+                    else
+                    {
+                        isSalah = true;
+                        tryLimit -= 1;
+                        Utility.WriteLog("Ganti pin condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
+                        if (tryLimit == 0)
+                        {
+                            Utility.WriteLog("Ganti pin condition : tryLimit has reached 0", "step-action");
+                            isEDC = false;
+                            Utility.WriteLog("Ganti pin condition : move to blokir kartu", "step-action");
+                            OnClick.InvokeAsync("blokirkartu");
+                            break;
+                        }
+                        strpin = string.Empty;
+                        StateHasChanged();
+                        sPort.Close();
+                        sPort.Dispose();
+                        continue;
+                    }
                 }
                 else
                 {
-                    isSalah = true;
-                    tryLimit -= 1;
-                    Utility.WriteLog("Ganti pin condition : PIN not correct, tryLimit: " + tryLimit, "step-action");
-                    if (tryLimit == 0)
-                    {
-                        Utility.WriteLog("Ganti pin condition : tryLimit has reached 0", "step-action");
-                        isEDC = false;
-                        Utility.WriteLog("Ganti pin condition : move to blokir kartu", "step-action");
-                        OnClick.InvokeAsync("blokirkartu");
-                        break;
-                    }
-                    strpin = string.Empty;
-                    StateHasChanged();
-                    sPort.Close();
-                    sPort.Dispose();
-                    continue;
+                    isEDC = false;
+                    Utility.WriteLog("Ganti pin condition : move to ambil kartu", "step-action");
+                    OnClick.InvokeAsync("ambilkartu");
+                    break;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                isEDC = false;
-                Utility.WriteLog("Ganti pin condition : move to ambil kartu", "step-action");
-                OnClick.InvokeAsync("ambilkartu");
-                break;
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Histori condition : EDC error --> " + ex.Message, "step-action");
             }
         }
     }
@@ -213,8 +221,16 @@
 
         Console.WriteLine("1");
 
-        Utility.WriteLog("Ganti pin condition : EDC serial port open", "step-action");
-        serialPort.Open();
+        try
+        {
+            Utility.WriteLog("Ganti pin condition : EDC serial port open", "step-action");
+            serialPort.Open();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Histori condition : EDC error --> " + ex.Message, "step-action");
+        }
 
         Utility.WriteLog("Ganti pin condition : EDC serial port write", "step-action");
         serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
@@ -352,6 +368,7 @@
                     Utility.WriteLog("Ganti pin condition : EDC NAK", "step-action");
                 }
             }
+            await Task.Delay(100);
             StateHasChanged();
         } while (isLoop);
 

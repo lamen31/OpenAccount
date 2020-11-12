@@ -103,9 +103,9 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Apakah anda ingin lanjut cetak ke halaman berikutnya?</h3>
-                        <h5 style="font-style:italic;">Tekan <b style="color: #00AF80;">Cetak</b> untuk melanjutkan cetak</h5>
-                        <h5 style="font-style:italic;">Tekan <b style="color: #af0000;">Berhenti</b> untuk berhenti cetak</h5>
+                        <h3 class="teks" style="margin-top: 5%;">Apakah anda ingin lanjut mencetak pada halaman buku berikutnya?</h3>
+                        <h5 style="font-style:italic;">Silahkan Tekan <b style="color: #00AF80;">Cetak</b> untuk lanjut mencetak pada halaman berikut</h5>
+                        <h5 style="font-style:italic;">Atau Tekan <b style="color: #af0000;">Berhenti</b> untuk berhenti mencetak</h5>
                         <div>
                         <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="change">Cetak</button>
                             </div>
@@ -255,7 +255,7 @@
         Utility.WriteLog("Buku condition : clear list buku success", "step-action");
         string myJson = "{\"name\":\"asd\"," + "\"job\":\"warrior\"}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
-        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK) + "/" + trx._Nasabah[1];
         trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         Utility.WriteLog("Buku condition : get service start", "step-action");
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
@@ -467,9 +467,11 @@
                     } while (isBaris);
                     if (isBerhenti)
                     {
+                        i = n;
                         Utility.WriteLog("Buku condition : print buku stop", "step-action");
                         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
                         OnClick.InvokeAsync("ambilkartu");
+                        break;
                     }
                 }
             }

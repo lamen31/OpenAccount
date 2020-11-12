@@ -48,6 +48,103 @@ namespace OpenAccount.Data
         public string DFresponse = string.Empty;
         public bool isKTPValid = false;
 
+        public bool CheckStatusIn()
+        {
+            bool result = false;
+
+            try
+            {
+                int rc = -1;
+                UInt16 n = 0;
+
+                rc = EKtpDLL.InitializeContext(ref n);
+
+                if (rc == 0 && n > 0)
+                {
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        public int CheckSAM()
+        {
+            int result = 0;
+
+            string SLOT_1 = Config.PARAM_READER_SLOT1;
+            string SLOT_2 = Config.PARAM_READER_SLOT2;
+
+            try
+            {
+                SAMStatus1 = SAMReaderSlot(SLOT_1);
+                if (SAMStatus1)
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = 2;
+                }
+            }
+            catch (Exception ex)
+            {
+                result = 2;
+            }
+
+            try
+            {
+                SAMStatus2 = SAMReaderSlot(SLOT_2);
+                if (SAMStatus2)
+                {
+                    result = 3;
+                }
+                else
+                {
+                    result = 4;
+                }
+            }
+            catch (Exception ex)
+            {
+                result = 4;
+            }
+
+            if (SAMStatus1)
+            {
+                SAMReaderSlot(SLOT_1);
+                Console.WriteLine("SAM CARD SLOT 1 OPEN");
+            }
+            else if (SAMStatus2)
+            {
+                SAMReaderSlot(SLOT_2);
+                Console.WriteLine("SAM CARD SLOT 2 OPEN");
+            }
+            else
+            {
+                Console.WriteLine("CANNOT OPEN SAM CARD");
+                result = 5;
+            }
+
+            return result;
+        }
+
+        public void CloseDevice()
+        {
+            int SAMreader = Convert.ToInt32(config.Read("EKTP", Config.PARAM_READER_SAM));
+            int RFreader = Convert.ToInt32(config.Read("EKTP", Config.PARAM_READER_RF));
+
+            EKtpDLL.DisconnectSCardReader((UInt16)SAMreader);
+            EKtpDLL.DisconnectSCardReader((UInt16)RFreader);
+        }
+
         public void EKtpInitialize()
         {
             string SAMCONF = config.Read("EKTP", Config.PARAM_READER_SAMPCONF);

@@ -29,6 +29,27 @@ namespace OpenAccount.Data
         Config config = new Config();
         byte[] status;
 
+        public bool Initialize()
+        {
+            bool result = false;
+
+            deviceNum = 0;
+            res = -1;
+
+            res = ScannerDLL.openDeviceList(ref deviceNum);
+            if (res == 0)
+                result = true;
+            else
+                result = false;
+            res = ScannerDLL.openDevice(0);
+            if (res == 0)
+                result = true;
+            else
+                result = false;
+            
+            return result;
+        }
+
         public async Task FrontSwallow()
         {
             buf = new byte[6];

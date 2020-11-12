@@ -42,6 +42,7 @@ namespace OpenAccount.Data
         public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
         public const string PARAM_SERVICES_POST_HISTORI = "param.services.post.histori";
         public const string PARAM_SERVICES_NASABAH = "param.service.nasabah";
+        public const string PARAM_SERVICES_SAVE = "param.service.save";
         public const string PARAM_READER_SAMPCID = "param.reader.sampcid";
         public const string PARAM_READER_SAMPCONF = "param.reader.sampconf";
         public const string PARAM_READER_SAM = "param.reader.sam";

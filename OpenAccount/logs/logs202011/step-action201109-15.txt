@@ -1,0 +1,2 @@
+20201109 15:09:32 ID scanner condition : close id card reader success
+20201109 15:56:11 ID scanner condition : close id card reader success

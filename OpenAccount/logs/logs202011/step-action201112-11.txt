@@ -1,0 +1,11 @@
+20201112 11:03:58 Home condition : clear transaksi success
+20201112 11:03:58 Home condition : clear array success
+20201112 11:03:58 Home condition : clear array nasabah success
+20201112 11:03:58 Home condition : clear list success
+20201112 11:03:58 Home condition : clear transaksi baru success
+20201112 11:04:00 Home condition : clear transaksi success
+20201112 11:04:00 Home condition : clear array success
+20201112 11:04:00 Home condition : clear array nasabah success
+20201112 11:04:00 Home condition : clear list success
+20201112 11:04:00 Home condition : clear transaksi baru success
+20201112 11:04:00 Home condition : entered into home page

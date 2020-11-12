@@ -1,0 +1,386 @@
+20201112 09:43:25 Home condition : clear transaksi success
+20201112 09:43:25 Home condition : clear array success
+20201112 09:43:25 Home condition : clear array nasabah success
+20201112 09:43:25 Home condition : clear list success
+20201112 09:43:25 Home condition : clear transaksi baru success
+20201112 09:43:27 Home condition : clear transaksi success
+20201112 09:43:27 Home condition : clear array success
+20201112 09:43:27 Home condition : clear array nasabah success
+20201112 09:43:27 Home condition : clear list success
+20201112 09:43:27 Home condition : clear transaksi baru success
+20201112 09:43:27 Home condition : entered into home page
+20201112 09:43:30 Home condition : move to buku tabungan
+20201112 09:43:30 Buku condition : entered into buku input card
+20201112 09:43:31 Buku condition : input card success
+20201112 09:43:31 Buku condition : move to buku input pin
+20201112 09:43:31 Buku condition : entered into buku input pin
+20201112 09:43:32 Buku condition : EDC process start
+20201112 09:43:32 Buku condition : EDC serial port close
+20201112 09:43:32 Buku condition : EDC serial port open
+20201112 09:43:32 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:32 Buku condition : EDC serial port write
+20201112 09:43:32 Histori condition : EDC error --> The port is closed.
+20201112 09:43:32 Buku condition : EDC process start
+20201112 09:43:32 Buku condition : EDC serial port close
+20201112 09:43:32 Buku condition : EDC serial port open
+20201112 09:43:32 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:32 Buku condition : EDC serial port write
+20201112 09:43:32 Histori condition : EDC error --> The port is closed.
+20201112 09:43:32 Buku condition : EDC process start
+20201112 09:43:32 Buku condition : EDC serial port close
+20201112 09:43:32 Buku condition : EDC serial port open
+20201112 09:43:32 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:32 Buku condition : EDC serial port write
+20201112 09:43:33 Histori condition : EDC error --> The port is closed.
+20201112 09:43:33 Buku condition : EDC process start
+20201112 09:43:33 Buku condition : EDC serial port close
+20201112 09:43:33 Buku condition : EDC serial port open
+20201112 09:43:33 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:33 Buku condition : EDC serial port write
+20201112 09:43:33 Histori condition : EDC error --> The port is closed.
+20201112 09:43:33 Buku condition : EDC process start
+20201112 09:43:33 Buku condition : EDC serial port close
+20201112 09:43:33 Buku condition : EDC serial port open
+20201112 09:43:33 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:33 Buku condition : EDC serial port write
+20201112 09:43:33 Histori condition : EDC error --> The port is closed.
+20201112 09:43:33 Buku condition : EDC process start
+20201112 09:43:33 Buku condition : EDC serial port close
+20201112 09:43:33 Buku condition : EDC serial port open
+20201112 09:43:33 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:33 Buku condition : EDC serial port write
+20201112 09:43:34 Histori condition : EDC error --> The port is closed.
+20201112 09:43:34 Buku condition : EDC process start
+20201112 09:43:34 Buku condition : EDC serial port close
+20201112 09:43:34 Buku condition : EDC serial port open
+20201112 09:43:34 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:34 Buku condition : EDC serial port write
+20201112 09:43:34 Histori condition : EDC error --> The port is closed.
+20201112 09:43:34 Buku condition : EDC process start
+20201112 09:43:34 Buku condition : EDC serial port close
+20201112 09:43:34 Buku condition : EDC serial port open
+20201112 09:43:34 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:34 Buku condition : EDC serial port write
+20201112 09:43:34 Histori condition : EDC error --> The port is closed.
+20201112 09:43:34 Buku condition : EDC process start
+20201112 09:43:34 Buku condition : EDC serial port close
+20201112 09:43:34 Buku condition : EDC serial port open
+20201112 09:43:34 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:34 Buku condition : EDC serial port write
+20201112 09:43:35 Histori condition : EDC error --> The port is closed.
+20201112 09:43:35 Buku condition : EDC process start
+20201112 09:43:35 Buku condition : EDC serial port close
+20201112 09:43:35 Buku condition : EDC serial port open
+20201112 09:43:35 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:35 Buku condition : EDC serial port write
+20201112 09:43:35 Histori condition : EDC error --> The port is closed.
+20201112 09:43:35 Buku condition : EDC process start
+20201112 09:43:35 Buku condition : EDC serial port close
+20201112 09:43:35 Buku condition : EDC serial port open
+20201112 09:43:35 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:35 Buku condition : EDC serial port write
+20201112 09:43:35 Histori condition : EDC error --> The port is closed.
+20201112 09:43:35 Buku condition : EDC process start
+20201112 09:43:35 Buku condition : EDC serial port close
+20201112 09:43:35 Buku condition : EDC serial port open
+20201112 09:43:35 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:35 Buku condition : EDC serial port write
+20201112 09:43:36 Histori condition : EDC error --> The port is closed.
+20201112 09:43:36 Buku condition : EDC process start
+20201112 09:43:36 Buku condition : EDC serial port close
+20201112 09:43:36 Buku condition : EDC serial port open
+20201112 09:43:36 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:36 Buku condition : EDC serial port write
+20201112 09:43:36 Histori condition : EDC error --> The port is closed.
+20201112 09:43:36 Buku condition : EDC process start
+20201112 09:43:36 Buku condition : EDC serial port close
+20201112 09:43:36 Buku condition : EDC serial port open
+20201112 09:43:36 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:36 Buku condition : EDC serial port write
+20201112 09:43:36 Histori condition : EDC error --> The port is closed.
+20201112 09:43:36 Buku condition : EDC process start
+20201112 09:43:36 Buku condition : EDC serial port close
+20201112 09:43:36 Buku condition : EDC serial port open
+20201112 09:43:36 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:36 Buku condition : EDC serial port write
+20201112 09:43:36 Histori condition : EDC error --> The port is closed.
+20201112 09:43:36 Buku condition : EDC process start
+20201112 09:43:37 Buku condition : EDC serial port close
+20201112 09:43:37 Buku condition : EDC serial port open
+20201112 09:43:37 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:37 Buku condition : EDC serial port write
+20201112 09:43:37 Histori condition : EDC error --> The port is closed.
+20201112 09:43:37 Buku condition : EDC process start
+20201112 09:43:37 Buku condition : EDC serial port close
+20201112 09:43:37 Buku condition : EDC serial port open
+20201112 09:43:37 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:37 Buku condition : EDC serial port write
+20201112 09:43:37 Histori condition : EDC error --> The port is closed.
+20201112 09:43:37 Buku condition : EDC process start
+20201112 09:43:37 Buku condition : EDC serial port close
+20201112 09:43:37 Buku condition : EDC serial port open
+20201112 09:43:37 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:37 Buku condition : EDC serial port write
+20201112 09:43:37 Histori condition : EDC error --> The port is closed.
+20201112 09:43:37 Buku condition : EDC process start
+20201112 09:43:37 Buku condition : EDC serial port close
+20201112 09:43:37 Buku condition : EDC serial port open
+20201112 09:43:37 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:37 Buku condition : EDC serial port write
+20201112 09:43:37 Histori condition : EDC error --> The port is closed.
+20201112 09:43:37 Buku condition : EDC process start
+20201112 09:43:38 Buku condition : EDC serial port close
+20201112 09:43:38 Buku condition : EDC serial port open
+20201112 09:43:38 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:38 Buku condition : EDC serial port write
+20201112 09:43:38 Histori condition : EDC error --> The port is closed.
+20201112 09:43:38 Buku condition : EDC process start
+20201112 09:43:38 Buku condition : EDC serial port close
+20201112 09:43:38 Buku condition : EDC serial port open
+20201112 09:43:38 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:38 Buku condition : EDC serial port write
+20201112 09:43:38 Histori condition : EDC error --> The port is closed.
+20201112 09:43:38 Buku condition : EDC process start
+20201112 09:43:38 Buku condition : EDC serial port close
+20201112 09:43:38 Buku condition : EDC serial port open
+20201112 09:43:38 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:38 Buku condition : EDC serial port write
+20201112 09:43:38 Histori condition : EDC error --> The port is closed.
+20201112 09:43:38 Buku condition : EDC process start
+20201112 09:43:38 Buku condition : EDC serial port close
+20201112 09:43:38 Buku condition : EDC serial port open
+20201112 09:43:38 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:38 Buku condition : EDC serial port write
+20201112 09:43:39 Histori condition : EDC error --> The port is closed.
+20201112 09:43:39 Buku condition : EDC process start
+20201112 09:43:39 Buku condition : EDC serial port close
+20201112 09:43:39 Buku condition : EDC serial port open
+20201112 09:43:39 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:39 Buku condition : EDC serial port write
+20201112 09:43:39 Histori condition : EDC error --> The port is closed.
+20201112 09:43:39 Buku condition : EDC process start
+20201112 09:43:39 Buku condition : EDC serial port close
+20201112 09:43:39 Buku condition : EDC serial port open
+20201112 09:43:39 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:39 Buku condition : EDC serial port write
+20201112 09:43:39 Histori condition : EDC error --> The port is closed.
+20201112 09:43:39 Buku condition : EDC process start
+20201112 09:43:39 Buku condition : EDC serial port close
+20201112 09:43:39 Buku condition : EDC serial port open
+20201112 09:43:39 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:39 Buku condition : EDC serial port write
+20201112 09:43:39 Histori condition : EDC error --> The port is closed.
+20201112 09:43:39 Buku condition : EDC process start
+20201112 09:43:40 Buku condition : EDC serial port close
+20201112 09:43:40 Buku condition : EDC serial port open
+20201112 09:43:40 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:40 Buku condition : EDC serial port write
+20201112 09:43:40 Histori condition : EDC error --> The port is closed.
+20201112 09:43:40 Buku condition : EDC process start
+20201112 09:43:40 Buku condition : EDC serial port close
+20201112 09:43:40 Buku condition : EDC serial port open
+20201112 09:43:40 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:40 Buku condition : EDC serial port write
+20201112 09:43:40 Histori condition : EDC error --> The port is closed.
+20201112 09:43:40 Buku condition : EDC process start
+20201112 09:43:40 Buku condition : EDC serial port close
+20201112 09:43:40 Buku condition : EDC serial port open
+20201112 09:43:40 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:40 Buku condition : EDC serial port write
+20201112 09:43:40 Histori condition : EDC error --> The port is closed.
+20201112 09:43:40 Buku condition : EDC process start
+20201112 09:43:40 Buku condition : EDC serial port close
+20201112 09:43:40 Buku condition : EDC serial port open
+20201112 09:43:40 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:40 Buku condition : EDC serial port write
+20201112 09:43:41 Histori condition : EDC error --> The port is closed.
+20201112 09:43:41 Buku condition : EDC process start
+20201112 09:43:41 Buku condition : EDC serial port close
+20201112 09:43:41 Buku condition : EDC serial port open
+20201112 09:43:41 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:41 Buku condition : EDC serial port write
+20201112 09:43:41 Histori condition : EDC error --> The port is closed.
+20201112 09:43:41 Buku condition : EDC process start
+20201112 09:43:41 Buku condition : EDC serial port close
+20201112 09:43:41 Buku condition : EDC serial port open
+20201112 09:43:41 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:41 Buku condition : EDC serial port write
+20201112 09:43:41 Histori condition : EDC error --> The port is closed.
+20201112 09:43:41 Buku condition : EDC process start
+20201112 09:43:41 Buku condition : EDC serial port close
+20201112 09:43:41 Buku condition : EDC serial port open
+20201112 09:43:41 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:41 Buku condition : EDC serial port write
+20201112 09:43:41 Histori condition : EDC error --> The port is closed.
+20201112 09:43:41 Buku condition : EDC process start
+20201112 09:43:42 Buku condition : EDC serial port close
+20201112 09:43:42 Buku condition : EDC serial port open
+20201112 09:43:42 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:42 Buku condition : EDC serial port write
+20201112 09:43:42 Histori condition : EDC error --> The port is closed.
+20201112 09:43:42 Buku condition : EDC process start
+20201112 09:43:42 Buku condition : EDC serial port close
+20201112 09:43:42 Buku condition : EDC serial port open
+20201112 09:43:42 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:43:42 Buku condition : EDC serial port write
+20201112 09:43:42 Histori condition : EDC error --> The port is closed.
+20201112 09:43:42 Buku condition : EDC process start
+20201112 09:43:42 Buku condition : EDC serial port close
+20201112 09:43:42 Buku condition : EDC serial port open
+20201112 09:44:14 Home condition : clear transaksi success
+20201112 09:44:14 Home condition : clear array success
+20201112 09:44:14 Home condition : clear array nasabah success
+20201112 09:44:14 Home condition : clear list success
+20201112 09:44:14 Home condition : clear transaksi baru success
+20201112 09:44:16 Home condition : clear transaksi success
+20201112 09:44:16 Home condition : clear array success
+20201112 09:44:16 Home condition : clear array nasabah success
+20201112 09:44:16 Home condition : clear list success
+20201112 09:44:16 Home condition : clear transaksi baru success
+20201112 09:44:16 Home condition : entered into home page
+20201112 09:44:17 Home condition : move to histori transaksi
+20201112 09:44:17 Histori condition : entered into histori input kartu
+20201112 09:44:18 Histori condition : input kartu success
+20201112 09:44:18 Histori condition : move to histori input pin
+20201112 09:44:18 Histori condition : entered into histori input pin
+20201112 09:44:18 Histori condition : EDC process start
+20201112 09:44:18 Histori condition : EDC serial port close
+20201112 09:44:18 Histori condition : EDC serial port open
+20201112 09:44:18 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:18 Histori condition : EDC serial port write
+20201112 09:44:18 Histori condition : EDC error --> The port is closed.
+20201112 09:44:18 Histori condition : EDC process start
+20201112 09:44:18 Histori condition : EDC serial port close
+20201112 09:44:18 Histori condition : EDC serial port open
+20201112 09:44:18 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:18 Histori condition : EDC serial port write
+20201112 09:44:19 Histori condition : EDC error --> The port is closed.
+20201112 09:44:19 Histori condition : EDC process start
+20201112 09:44:19 Histori condition : EDC serial port close
+20201112 09:44:19 Histori condition : EDC serial port open
+20201112 09:44:19 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:19 Histori condition : EDC serial port write
+20201112 09:44:19 Histori condition : EDC error --> The port is closed.
+20201112 09:44:19 Histori condition : EDC process start
+20201112 09:44:19 Histori condition : EDC serial port close
+20201112 09:44:19 Histori condition : EDC serial port open
+20201112 09:44:19 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:19 Histori condition : EDC serial port write
+20201112 09:44:19 Histori condition : EDC error --> The port is closed.
+20201112 09:44:19 Histori condition : EDC process start
+20201112 09:44:19 Histori condition : EDC serial port close
+20201112 09:44:19 Histori condition : EDC serial port open
+20201112 09:44:19 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:19 Histori condition : EDC serial port write
+20201112 09:44:19 Histori condition : EDC error --> The port is closed.
+20201112 09:44:19 Histori condition : EDC process start
+20201112 09:44:19 Histori condition : EDC serial port close
+20201112 09:44:19 Histori condition : EDC serial port open
+20201112 09:44:19 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:19 Histori condition : EDC serial port write
+20201112 09:44:20 Histori condition : EDC error --> The port is closed.
+20201112 09:44:20 Histori condition : EDC process start
+20201112 09:44:20 Histori condition : EDC serial port close
+20201112 09:44:20 Histori condition : EDC serial port open
+20201112 09:44:20 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:20 Histori condition : EDC serial port write
+20201112 09:44:20 Histori condition : EDC error --> The port is closed.
+20201112 09:44:20 Histori condition : EDC process start
+20201112 09:44:20 Histori condition : EDC serial port close
+20201112 09:44:20 Histori condition : EDC serial port open
+20201112 09:44:20 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:20 Histori condition : EDC serial port write
+20201112 09:44:20 Histori condition : EDC error --> The port is closed.
+20201112 09:44:20 Histori condition : EDC process start
+20201112 09:44:20 Histori condition : EDC serial port close
+20201112 09:44:20 Histori condition : EDC serial port open
+20201112 09:44:20 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:20 Histori condition : EDC serial port write
+20201112 09:44:20 Histori condition : EDC error --> The port is closed.
+20201112 09:44:20 Histori condition : EDC process start
+20201112 09:44:20 Histori condition : EDC serial port close
+20201112 09:44:20 Histori condition : EDC serial port open
+20201112 09:44:21 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:21 Histori condition : EDC serial port write
+20201112 09:44:21 Histori condition : EDC error --> The port is closed.
+20201112 09:44:21 Histori condition : EDC process start
+20201112 09:44:21 Histori condition : EDC serial port close
+20201112 09:44:21 Histori condition : EDC serial port open
+20201112 09:44:21 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:21 Histori condition : EDC serial port write
+20201112 09:44:21 Histori condition : EDC error --> The port is closed.
+20201112 09:44:21 Histori condition : EDC process start
+20201112 09:44:21 Histori condition : EDC serial port close
+20201112 09:44:21 Histori condition : EDC serial port open
+20201112 09:44:21 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:21 Histori condition : EDC serial port write
+20201112 09:44:21 Histori condition : EDC error --> The port is closed.
+20201112 09:44:21 Histori condition : EDC process start
+20201112 09:44:21 Histori condition : EDC serial port close
+20201112 09:44:21 Histori condition : EDC serial port open
+20201112 09:44:21 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:21 Histori condition : EDC serial port write
+20201112 09:44:21 Histori condition : EDC error --> The port is closed.
+20201112 09:44:21 Histori condition : EDC process start
+20201112 09:44:21 Histori condition : EDC serial port close
+20201112 09:44:21 Histori condition : EDC serial port open
+20201112 09:44:22 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:22 Histori condition : EDC serial port write
+20201112 09:44:22 Histori condition : EDC error --> The port is closed.
+20201112 09:44:22 Histori condition : EDC process start
+20201112 09:44:22 Histori condition : EDC serial port close
+20201112 09:44:22 Histori condition : EDC serial port open
+20201112 09:44:22 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:22 Histori condition : EDC serial port write
+20201112 09:44:22 Histori condition : EDC error --> The port is closed.
+20201112 09:44:22 Histori condition : EDC process start
+20201112 09:44:22 Histori condition : EDC serial port close
+20201112 09:44:22 Histori condition : EDC serial port open
+20201112 09:44:22 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:22 Histori condition : EDC serial port write
+20201112 09:44:22 Histori condition : EDC error --> The port is closed.
+20201112 09:44:22 Histori condition : EDC process start
+20201112 09:44:22 Histori condition : EDC serial port close
+20201112 09:44:22 Histori condition : EDC serial port open
+20201112 09:44:22 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:22 Histori condition : EDC serial port write
+20201112 09:44:22 Histori condition : EDC error --> The port is closed.
+20201112 09:44:22 Histori condition : EDC process start
+20201112 09:44:23 Histori condition : EDC serial port close
+20201112 09:44:23 Histori condition : EDC serial port open
+20201112 09:44:23 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:23 Histori condition : EDC serial port write
+20201112 09:44:23 Histori condition : EDC error --> The port is closed.
+20201112 09:44:23 Histori condition : EDC process start
+20201112 09:44:23 Histori condition : EDC serial port close
+20201112 09:44:23 Histori condition : EDC serial port open
+20201112 09:44:23 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:23 Histori condition : EDC serial port write
+20201112 09:44:23 Histori condition : EDC error --> The port is closed.
+20201112 09:44:23 Histori condition : EDC process start
+20201112 09:44:23 Histori condition : EDC serial port close
+20201112 09:44:23 Histori condition : EDC serial port open
+20201112 09:44:23 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:23 Histori condition : EDC serial port write
+20201112 09:44:23 Histori condition : EDC error --> The port is closed.
+20201112 09:44:23 Histori condition : EDC process start
+20201112 09:44:23 Histori condition : EDC serial port close
+20201112 09:44:23 Histori condition : EDC serial port open
+20201112 09:44:23 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:23 Histori condition : EDC serial port write
+20201112 09:44:23 Histori condition : EDC error --> The port is closed.
+20201112 09:44:23 Histori condition : EDC process start
+20201112 09:44:24 Histori condition : EDC serial port close
+20201112 09:44:24 Histori condition : EDC serial port open
+20201112 09:44:24 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:24 Histori condition : EDC serial port write
+20201112 09:44:24 Histori condition : EDC error --> The port is closed.
+20201112 09:44:24 Histori condition : EDC process start
+20201112 09:44:24 Histori condition : EDC serial port close
+20201112 09:44:24 Histori condition : EDC serial port open
+20201112 09:44:24 Histori condition : EDC error --> Could not find file 'COM5'.
+20201112 09:44:24 Histori condition : EDC serial port write
+20201112 09:44:24 Histori condition : EDC error --> The port is closed.
+20201112 09:44:24 Histori condition : EDC process start
+20201112 09:44:24 Histori condition : EDC serial port close
+20201112 09:44:24 Histori condition : EDC serial port open

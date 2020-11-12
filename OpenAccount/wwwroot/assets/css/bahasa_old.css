@@ -2,7 +2,7 @@
     --accent: #00529C;
     --border-width: 3px;
     --border-radius: 10px;
-    --font-size: 17px;
+    --font-size: 20px;
 }
 /* 
 body {
@@ -46,10 +46,9 @@ body {
 
 .toggle>label {
     display: inline-block;
-    min-width: 70px;
-    max-height: 23px;
+    min-width: 100px;
     padding: 0px;
-    margin-top: 4%;
+    margin-top: 2%;
     font-size: var(--font-size);
     text-align: center;
     color: var(--accent);

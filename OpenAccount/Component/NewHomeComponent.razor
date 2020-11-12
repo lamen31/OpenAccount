@@ -1,0 +1,107 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="position:fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div style="text-align: center;">
+                    <h2 style="font-weight: bold;">Get <b style="color: #F37024;">Easy</b>, Simply Use</h2>
+                    <h5 style="color: #00529C; margin-top: -1rem; margin-bottom: 2em;">Silakan pilih menu yang Anda inginkan</h5>
+                </div>
+                <div class="card-deck" style="float: left; margin-top: 1%; margin-bottom: 1%; padding-left: 20%; padding-right: 20%;" data-aos="fade-up">
+                    <div class="card" style="height: 90%; background-color: #00509B; text-align: center; border-radius: 15px;" @onclick="PrintBuku">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="../assets/img/Folder SVG/bukutabungan.svg" class="card-img-top" style="width: 70%; padding: 65px;" alt="...">
+                        </div>
+                        <div class="card-body2">
+                            <small class="text-muted" style="font-size: 17px; color: #ffffff; font-weight: 600;">Print Buku Tabungan</small>
+                        </div>
+                    </div>
+                    <div class="card" style="height: 90%; background-color: #00509B; text-align: center; border-radius: 15px;" @onclick="PrintHistori">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="../assets/img/Folder SVG/printhistori.svg" class="card-img-top" style="width: 70%; padding: 65px;" alt="...">
+                        </div>
+                        <div class="card-body2">
+                            <small class="text-muted" style="font-size: 17px; color: #ffffff; font-weight: 600;">Print Histori Transaksi</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="color: #007BFF; background-color: transparent;" @onclick="AmbilKartu">Batal</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressHome" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <a href="term-condition.html"><button type="button" class="btn btn-primary" style="float: right;">Continue</button></a> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+        }
+    }
+
+    private async Task PrintBuku()
+    {
+        Utility.WriteLog("Home condition : move to buku input data", "step-action");
+        OnClick.InvokeAsync("bukuinputdata");
+    }
+
+    private async Task PrintHistori()
+    {
+        Utility.WriteLog("Home condition : move to histori pilih menu", "step-action");
+        OnClick.InvokeAsync("historiPilih");
+    }
+
+    private async Task AmbilKartu()
+    {
+        Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
+        OnClick.InvokeAsync("ambilkartu");
+    }
+}

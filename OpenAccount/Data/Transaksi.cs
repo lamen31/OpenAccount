@@ -35,6 +35,10 @@ namespace OpenAccount.Data
         public string _ThermalSaldo { get; set; }
         public string _StatusPrinter { get; set; }
         public string _TransaksiID { get; set; }
+        public string _TerminalID { get; set; }
+        public string _JenisTransaksi { get; set; }
+        public string _StatusTransaksi { get; set; }
+        public string _ErrorCodeTransaksi { get; set; }
         public string _KTPNIK { get; set; }
         public string _KTPNama { get; set; }
         public string _KTPTempatLahir { get; set; }
@@ -266,6 +270,31 @@ namespace OpenAccount.Data
         {
             _PinATM2 = strpin;
         }
+
+        public void setTransaksi(string strtermid, string strjenistransaksi)
+        {
+            _TerminalID = strtermid;
+            _JenisTransaksi = strjenistransaksi;
+        }
+
+        public class AuditTrail
+        {
+            public string _action { get; set; }
+            public string _data { get; set; }
+            public string _result { get; set; }
+        }
+
+        public List<AuditTrail> _auditTrail = new List<AuditTrail>();
+
+        public void AddTrail(string strAction, string strData, string strResult)
+        {
+            AuditTrail at = new AuditTrail();
+            at._action = strAction;
+            at._data = strData;
+            at._result = strResult;
+            _auditTrail.Add(at);
+        }
+
 
         public void clear()
         {

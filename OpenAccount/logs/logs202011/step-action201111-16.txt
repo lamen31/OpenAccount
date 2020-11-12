@@ -1,0 +1,47 @@
+20201111 16:45:21 Home condition : clear transaksi success
+20201111 16:45:21 Home condition : clear array success
+20201111 16:45:21 Home condition : clear array nasabah success
+20201111 16:45:21 Home condition : clear list success
+20201111 16:45:21 Home condition : clear transaksi baru success
+20201111 16:45:23 Home condition : clear transaksi success
+20201111 16:45:23 Home condition : clear array success
+20201111 16:45:23 Home condition : clear array nasabah success
+20201111 16:45:23 Home condition : clear list success
+20201111 16:45:23 Home condition : clear transaksi baru success
+20201111 16:45:23 Home condition : entered into landing page
+20201111 16:46:58 Home condition : clear transaksi success
+20201111 16:46:58 Home condition : clear array success
+20201111 16:46:58 Home condition : clear array nasabah success
+20201111 16:46:58 Home condition : clear list success
+20201111 16:46:58 Home condition : clear transaksi baru success
+20201111 16:47:00 Home condition : clear transaksi success
+20201111 16:47:00 Home condition : clear array success
+20201111 16:47:00 Home condition : clear array nasabah success
+20201111 16:47:00 Home condition : clear list success
+20201111 16:47:00 Home condition : clear transaksi baru success
+20201111 16:47:00 Home condition : entered into landing page
+20201111 16:47:04 Home condition : move to insert debit
+20201111 16:48:25 Home condition : clear transaksi success
+20201111 16:48:25 Home condition : clear array success
+20201111 16:48:25 Home condition : clear array nasabah success
+20201111 16:48:25 Home condition : clear list success
+20201111 16:48:25 Home condition : clear transaksi baru success
+20201111 16:48:27 Home condition : clear transaksi success
+20201111 16:48:27 Home condition : clear array success
+20201111 16:48:27 Home condition : clear array nasabah success
+20201111 16:48:27 Home condition : clear list success
+20201111 16:48:27 Home condition : clear transaksi baru success
+20201111 16:48:27 Home condition : entered into landing page
+20201111 16:48:30 Home condition : move to insert debit
+20201111 16:49:42 Home condition : clear transaksi success
+20201111 16:49:42 Home condition : clear array success
+20201111 16:49:42 Home condition : clear array nasabah success
+20201111 16:49:42 Home condition : clear list success
+20201111 16:49:42 Home condition : clear transaksi baru success
+20201111 16:49:43 Home condition : clear transaksi success
+20201111 16:49:43 Home condition : clear array success
+20201111 16:49:43 Home condition : clear array nasabah success
+20201111 16:49:43 Home condition : clear list success
+20201111 16:49:43 Home condition : clear transaksi baru success
+20201111 16:49:43 Home condition : entered into landing page
+20201111 16:49:47 Home condition : move to insert debit
