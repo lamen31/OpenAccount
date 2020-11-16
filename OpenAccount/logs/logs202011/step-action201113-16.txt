@@ -1,0 +1,242 @@
+20201113 16:00:00 Buku condition : isTextField = 2
+20201113 16:00:02 Buku condition : isTextField = 3
+20201113 16:00:05 Buku condition : set data passbook success
+20201113 16:00:05 Buka rekening condition : move to buku konfirmasi
+20201113 16:00:05 Buku condition : entered into buku konfirmasi
+20201113 16:00:06 Buku condition : hit service passbook start
+20201113 16:00:06 Buku condition : clear list buku success
+20201113 16:00:06 Buku condition : get service start
+20201113 16:00:08 Buku condition : set transaksi ID tes002 success
+20201113 16:00:08 Buku condition : hit service passbook success
+20201113 16:00:08 Buku condition : get list data success
+20201113 16:00:10 Buku condition : modal visible appear
+20201113 16:00:10 Buku condition : temporary list created
+20201113 16:00:10 Buku condition : clear list buku success
+20201113 16:00:10 Buku condition : print halaman ke-1
+20201113 16:00:11 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201113 16:00:11 Printer condition : check status printing start
+20201113 16:00:11 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201113 16:00:14 Printer status condition : check status printing done
+20201113 16:00:14 Printer status condition : check status printing close
+20201113 16:00:14 20201113 16:00:14 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201113 16:00:14 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201113 16:00:14 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201113 16:00:14 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201113-16.txt
+20201113 16:00:14 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201113 16:00:14 Buku condition : print history halaman ke-1 success
+20201113 16:00:14 Buku condition : modal baris appear
+20201113 16:00:59 Buku condition : click Cetak button
+20201113 16:00:59 Buku condition : clear list buku success
+20201113 16:00:59 Buku condition : print halaman ke-2
+20201113 16:00:59 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201113 16:01:00 Printer condition : check status printing start
+20201113 16:01:00 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201113 16:01:02 Printer status condition : check status printing done
+20201113 16:01:02 Printer status condition : check status printing close
+20201113 16:01:02 20201113 16:01:02 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201113 16:01:02 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201113 16:01:02 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201113 16:01:02 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201113-16.txt
+20201113 16:01:02 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201113 16:01:02 Buku condition : print history halaman ke-2 success
+20201113 16:01:12 Buku condition : modal baris appear
+20201113 16:04:06 Home condition : clear transaksi success
+20201113 16:04:06 Home condition : clear transaction log success
+20201113 16:04:06 Home condition : clear array success
+20201113 16:04:06 Home condition : clear array nasabah success
+20201113 16:04:06 Home condition : clear list success
+20201113 16:04:06 Home condition : clear transaksi baru success
+20201113 16:04:08 Home condition : clear transaksi success
+20201113 16:04:08 Home condition : clear transaction log success
+20201113 16:04:08 Home condition : clear array success
+20201113 16:04:08 Home condition : clear array nasabah success
+20201113 16:04:08 Home condition : clear list success
+20201113 16:04:08 Home condition : clear transaksi baru success
+20201113 16:04:08 Home condition : entered into home page
+20201113 16:04:23 Home condition : move to buku tabungan
+20201113 16:04:23 Buku condition : entered into buku input card
+20201113 16:04:24 Buku condition : input card success
+20201113 16:04:24 Buku condition : move to buku input pin
+20201113 16:04:24 Buku condition : entered into buku input pin
+20201113 16:04:24 Buku condition : input pin success
+20201113 16:04:24 Buku condition : input data Bambang Pamungkas success
+20201113 16:04:24 Buku condition : entered into buku input data
+20201113 16:04:25 Buku condition : isTextField = 1
+20201113 16:04:27 Buku condition : isTextField = 2
+20201113 16:04:28 Buku condition : isTextField = 3
+20201113 16:04:30 Buku condition : set data passbook success
+20201113 16:04:30 Buka rekening condition : move to buku konfirmasi
+20201113 16:04:30 Buku condition : entered into buku konfirmasi
+20201113 16:04:30 Buku condition : hit service passbook start
+20201113 16:04:31 Buku condition : clear list buku success
+20201113 16:04:31 Buku condition : get service start
+20201113 16:04:32 Buku condition : set transaksi ID tes002 success
+20201113 16:04:32 Buku condition : hit service passbook success
+20201113 16:04:32 Buku condition : get list data success
+20201113 16:04:42 Buku condition : modal visible appear
+20201113 16:04:42 Buku condition : temporary list created
+20201113 16:04:42 Buku condition : clear list buku success
+20201113 16:04:42 Buku condition : print halaman ke-1
+20201113 16:04:42 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201113 16:04:43 Printer condition : check status printing start
+20201113 16:04:43 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201113 16:04:46 Printer status condition : check status printing done
+20201113 16:04:46 Printer status condition : check status printing close
+20201113 16:04:46 20201113 16:04:46 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201113 16:04:46 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201113 16:04:46 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201113 16:04:46 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201113-16.txt
+20201113 16:04:46 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201113 16:04:46 Buku condition : print history halaman ke-1 success
+20201113 16:04:46 Buku condition : modal baris appear
+20201113 16:10:05 Home condition : clear transaksi success
+20201113 16:10:05 Home condition : clear transaction log success
+20201113 16:10:05 Home condition : clear array success
+20201113 16:10:05 Home condition : clear array nasabah success
+20201113 16:10:05 Home condition : clear list success
+20201113 16:10:05 Home condition : clear transaksi baru success
+20201113 16:10:07 Home condition : clear transaksi success
+20201113 16:10:07 Home condition : clear transaction log success
+20201113 16:10:07 Home condition : clear array success
+20201113 16:10:07 Home condition : clear array nasabah success
+20201113 16:10:07 Home condition : clear list success
+20201113 16:10:07 Home condition : clear transaksi baru success
+20201113 16:10:07 Home condition : entered into home page
+20201113 16:10:09 Home condition : move to buku tabungan
+20201113 16:10:09 Buku condition : entered into buku input card
+20201113 16:10:10 Buku condition : input card success
+20201113 16:10:10 Buku condition : move to buku input pin
+20201113 16:10:10 Buku condition : entered into buku input pin
+20201113 16:10:10 Buku condition : input pin success
+20201113 16:10:11 Buku condition : input data Bambang Pamungkas success
+20201113 16:10:11 Buku condition : entered into buku input data
+20201113 16:10:13 Buku condition : isTextField = 1
+20201113 16:10:15 Buku condition : isTextField = 2
+20201113 16:10:16 Buku condition : isTextField = 3
+20201113 16:10:18 Buku condition : set data passbook success
+20201113 16:10:18 Buka rekening condition : move to buku konfirmasi
+20201113 16:10:18 Buku condition : entered into buku konfirmasi
+20201113 16:10:19 Buku condition : hit service passbook start
+20201113 16:10:19 Buku condition : clear list buku success
+20201113 16:10:19 Buku condition : get service start
+20201113 16:10:21 Buku condition : set transaksi ID tes002 success
+20201113 16:10:21 Buku condition : hit service passbook success
+20201113 16:10:21 Buku condition : get list data success
+20201113 16:10:22 Buku condition : modal visible appear
+20201113 16:10:22 Buku condition : temporary list created
+20201113 16:10:22 Buku condition : clear list buku success
+20201113 16:10:22 Buku condition : print halaman ke-1
+20201113 16:10:22 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201113 16:10:23 Printer condition : check status printing start
+20201113 16:10:23 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201113 16:10:27 Printer status condition : check status printing done
+20201113 16:10:27 Printer status condition : check status printing close
+20201113 16:10:27 20201113 16:10:27 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201113 16:10:27 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201113 16:10:27 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201113 16:10:27 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201113-16.txt
+20201113 16:10:27 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201113 16:10:27 Buku condition : print history halaman ke-1 success
+20201113 16:10:27 Buku condition : modal baris appear
+20201113 16:38:16 Home condition : clear transaksi success
+20201113 16:38:16 Home condition : clear transaction log success
+20201113 16:38:16 Home condition : clear array success
+20201113 16:38:16 Home condition : clear array nasabah success
+20201113 16:38:16 Home condition : clear list success
+20201113 16:38:16 Home condition : clear transaksi baru success
+20201113 16:38:18 Home condition : clear transaksi success
+20201113 16:38:18 Home condition : clear transaction log success
+20201113 16:38:18 Home condition : clear array success
+20201113 16:38:18 Home condition : clear array nasabah success
+20201113 16:38:18 Home condition : clear list success
+20201113 16:38:18 Home condition : clear transaksi baru success
+20201113 16:38:19 Home condition : entered into home page
+20201113 16:38:20 Home condition : move to buku tabungan
+20201113 16:38:20 Buku condition : entered into buku input card
+20201113 16:38:21 Buku condition : input card success
+20201113 16:38:21 Buku condition : move to buku input pin
+20201113 16:38:21 Buku condition : entered into buku input pin
+20201113 16:38:21 Buku condition : input pin success
+20201113 16:38:21 Buku condition : input data Bambang Pamungkas success
+20201113 16:38:21 Buku condition : entered into buku input data
+20201113 16:38:24 Buku condition : isTextField = 2
+20201113 16:38:25 Buku condition : isTextField = 3
+20201113 16:38:27 Buku condition : set data passbook success
+20201113 16:38:27 Buka rekening condition : move to buku konfirmasi
+20201113 16:38:28 Buku condition : entered into buku konfirmasi
+20201113 16:38:28 Buku condition : hit service passbook start
+20201113 16:38:28 Buku condition : clear list buku success
+20201113 16:38:28 Buku condition : get service start
+20201113 16:38:31 Buku condition : set transaksi ID tes002 success
+20201113 16:38:31 Buku condition : hit service passbook success
+20201113 16:38:31 Buku condition : get list data success
+20201113 16:38:32 Buku condition : modal visible appear
+20201113 16:39:46 Buku condition : temporary list created
+20201113 16:39:46 Buku condition : clear list buku success
+20201113 16:39:46 Buku condition : print halaman ke-1
+20201113 16:39:48 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201113 16:39:49 Printer condition : check status printing start
+20201113 16:39:49 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201113 16:39:52 Printer status condition : check status printing done
+20201113 16:39:52 Printer status condition : check status printing close
+20201113 16:39:52 20201113 16:39:52 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201113 16:39:52 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201113 16:39:52 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201113 16:39:52 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201113-16.txt
+20201113 16:39:52 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201113 16:39:52 Buku condition : print history halaman ke-1 success
+20201113 16:39:52 Buku condition : modal baris appear
+20201113 16:41:30 Home condition : clear transaksi success
+20201113 16:41:30 Home condition : clear transaction log success
+20201113 16:41:30 Home condition : clear array success
+20201113 16:41:30 Home condition : clear array nasabah success
+20201113 16:41:30 Home condition : clear list success
+20201113 16:41:30 Home condition : clear transaksi baru success
+20201113 16:41:32 Home condition : clear transaksi success
+20201113 16:41:32 Home condition : clear transaction log success
+20201113 16:41:32 Home condition : clear array success
+20201113 16:41:32 Home condition : clear array nasabah success
+20201113 16:41:32 Home condition : clear list success
+20201113 16:41:32 Home condition : clear transaksi baru success
+20201113 16:41:32 Home condition : entered into home page
+20201113 16:41:34 Home condition : move to buku tabungan
+20201113 16:41:34 Buku condition : entered into buku input card
+20201113 16:41:35 Buku condition : input card success
+20201113 16:41:35 Buku condition : move to buku input pin
+20201113 16:41:35 Buku condition : entered into buku input pin
+20201113 16:41:35 Buku condition : input pin success
+20201113 16:41:35 Buku condition : input data Bambang Pamungkas success
+20201113 16:41:36 Buku condition : entered into buku input data
+20201113 16:41:38 Buku condition : isTextField = 2
+20201113 16:41:39 Buku condition : isTextField = 3
+20201113 16:41:41 Buku condition : set data passbook success
+20201113 16:41:41 Buka rekening condition : move to buku konfirmasi
+20201113 16:41:41 Buku condition : entered into buku konfirmasi
+20201113 16:41:42 Buku condition : hit service passbook start
+20201113 16:41:42 Buku condition : clear list buku success
+20201113 16:41:42 Buku condition : get service start
+20201113 16:41:43 Buku condition : set transaksi ID tes002 success
+20201113 16:41:43 Buku condition : hit service passbook success
+20201113 16:41:43 Buku condition : get list data success
+20201113 16:41:45 Buku condition : modal visible appear
+20201113 16:41:45 Buku condition : temporary list created
+20201113 16:41:45 Buku condition : clear list buku success
+20201113 16:41:45 Buku condition : print halaman ke-1
+20201113 16:41:45 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201113 16:41:46 Printer condition : check status printing start
+20201113 16:41:46 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201113 16:41:49 Printer status condition : check status printing done
+20201113 16:41:49 Printer status condition : check status printing close
+20201113 16:41:49 20201113 16:41:49 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201113 16:41:49 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201113 16:41:49 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201113 16:41:49 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201113-16.txt
+20201113 16:41:49 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201113 16:41:49 Buku condition : print history halaman ke-1 success
+20201113 16:41:49 Buku condition : modal baris appear

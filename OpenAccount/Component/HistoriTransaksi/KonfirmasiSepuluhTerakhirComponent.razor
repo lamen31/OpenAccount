@@ -225,12 +225,14 @@
                 Utility.WriteLog("Histori condition : get list data success", "step-action");
                 tempjumlahtransaksi = trx._listthermal.Count;
                 isRead = false;
+                trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
                 await Task.Delay(100);
                 StateHasChanged();
             }
             else
             {
                 Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
+                trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
             }
         }
     }

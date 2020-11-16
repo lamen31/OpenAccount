@@ -170,6 +170,8 @@
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
+    private bool isBisnis = false;
+    private bool isSimpedes = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -225,39 +227,79 @@
     {
         isTimeOut = true;
         trx.clearArray();
-        if (saldorekening != string.Empty && int.Parse(barisbuku) <= 41 && int.Parse(halamanbuku) < 9)
+        if (!isBisnis || isSimpedes)
         {
-            //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
-            //string[] lines = System.IO.File.ReadAllLines(path);
-            //tipe = new string[lines.Length];
-            //sandi = new string[lines.Length];
-            //nominal = new string[lines.Length];
-            //pengesahan = new string[lines.Length];
-            //for (int i = 0; i < lines.Length; i++)
-            //{
-            //    string[] column = lines[i].Split(";");
-            //    for (int j = 0; j < column.Length; j++)
-            //    {
-            //        if (j == 0)
-            //            tipe[i] = column[j];
+            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 31 && int.Parse(halamanbuku) < 9)
+            {
+                //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
+                //string[] lines = System.IO.File.ReadAllLines(path);
+                //tipe = new string[lines.Length];
+                //sandi = new string[lines.Length];
+                //nominal = new string[lines.Length];
+                //pengesahan = new string[lines.Length];
+                //for (int i = 0; i < lines.Length; i++)
+                //{
+                //    string[] column = lines[i].Split(";");
+                //    for (int j = 0; j < column.Length; j++)
+                //    {
+                //        if (j == 0)
+                //            tipe[i] = column[j];
 
-            //        else if (j == 1)
-            //            sandi[i] = column[j];
+                //        else if (j == 1)
+                //            sandi[i] = column[j];
 
-            //        else if (j == 2)
-            //            nominal[i] = column[j];
+                //        else if (j == 2)
+                //            nominal[i] = column[j];
 
-            //        else if (j == 3)
-            //            pengesahan[i] = column[j];
-            //    }
-            //}
-            //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
-            //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
-            //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
-            trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
-            Utility.WriteLog("Buku condition : set data passbook success", "step-action");
-            Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
-            OnClick.InvokeAsync("bukukonfirmasi");
+                //        else if (j == 3)
+                //            pengesahan[i] = column[j];
+                //    }
+                //}
+                //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
+                //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
+                //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
+                trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+                Utility.WriteLog("Buku condition : set data passbook success", "step-action");
+                Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
+                OnClick.InvokeAsync("bukukonfirmasi");
+            }
+        }
+        else if(isBisnis && !isSimpedes)
+        {
+            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 16 && int.Parse(halamanbuku) < 9)
+            {
+                //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
+                //string[] lines = System.IO.File.ReadAllLines(path);
+                //tipe = new string[lines.Length];
+                //sandi = new string[lines.Length];
+                //nominal = new string[lines.Length];
+                //pengesahan = new string[lines.Length];
+                //for (int i = 0; i < lines.Length; i++)
+                //{
+                //    string[] column = lines[i].Split(";");
+                //    for (int j = 0; j < column.Length; j++)
+                //    {
+                //        if (j == 0)
+                //            tipe[i] = column[j];
+
+                //        else if (j == 1)
+                //            sandi[i] = column[j];
+
+                //        else if (j == 2)
+                //            nominal[i] = column[j];
+
+                //        else if (j == 3)
+                //            pengesahan[i] = column[j];
+                //    }
+                //}
+                //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
+                //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
+                //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
+                trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+                Utility.WriteLog("Buku condition : set data passbook success", "step-action");
+                Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
+                OnClick.InvokeAsync("bukukonfirmasi");
+            }
         }
     }
 

@@ -35,10 +35,13 @@ namespace OpenAccount.Data
         public string _ThermalSaldo { get; set; }
         public string _StatusPrinter { get; set; }
         public string _TransaksiID { get; set; }
+        public string _BUID { get; set; }
         public string _TerminalID { get; set; }
         public string _JenisTransaksi { get; set; }
+        public long startTime { get; set; }
+        public long endTime { get; set; }
         public string _StatusTransaksi { get; set; }
-        public string _ErrorCodeTransaksi { get; set; }
+        public string _ErrorCode { get; set; }
         public string _KTPNIK { get; set; }
         public string _KTPNama { get; set; }
         public string _KTPTempatLahir { get; set; }
@@ -139,6 +142,13 @@ namespace OpenAccount.Data
         public void setTransaksiID(string strtransaksiid)
         {
             _TransaksiID = strtransaksiid;
+        }
+
+        public void SetTransaction(string strTerminalID, string strJenisTransaksi)
+        {
+            //_BUID = strBUID;
+            _TerminalID = strTerminalID;
+            _JenisTransaksi = strJenisTransaksi;
         }
 
         public void setArrayNasabah(string[] strnasabah)
@@ -271,12 +281,6 @@ namespace OpenAccount.Data
             _PinATM2 = strpin;
         }
 
-        public void setTransaksi(string strtermid, string strjenistransaksi)
-        {
-            _TerminalID = strtermid;
-            _JenisTransaksi = strjenistransaksi;
-        }
-
         public class AuditTrail
         {
             public string _action { get; set; }
@@ -327,6 +331,22 @@ namespace OpenAccount.Data
             _KTPKewarganegaraan = string.Empty;
             _KTPMinutiae1 = string.Empty;
             _KTPMinutiae2 = string.Empty;
+            _TransaksiID = string.Empty;
+            //_BUID = string.Empty;
+            _TerminalID = string.Empty;
+            _JenisTransaksi = string.Empty;
+            _StatusTransaksi = string.Empty;
+            _ErrorCode = string.Empty;
+        }
+
+        public void clearTransactionLog()
+        {
+            _TransaksiID = string.Empty;
+            //_BUID = string.Empty;
+            _TerminalID = string.Empty;
+            _JenisTransaksi = string.Empty;
+            _StatusTransaksi = string.Empty;
+            _ErrorCode = string.Empty;
         }
 
         public void clearKTP()

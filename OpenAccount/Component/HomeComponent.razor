@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card" @onclick="GantiPin">
+                                <div class="card" @onclick="BukuTabungan">
                                     <div class="text-center" style="align-items: center; height: 70%;">
                                         <img src="assets/img/icon-menu/ganti-pin.png" class="card-img-top" style="width: 80%; margin-top: 3rem;" alt="...">
                                     </div>
@@ -107,19 +107,13 @@
     public EventCallback<string> OnClick { get; set; }
     private bool isVisible = false;
 
-    protected override async Task OnInitializedAsync()
+    private async Task Change()
     {
-        trx.clear();
-        Utility.WriteLog("Home condition : clear transaksi success", "step-action");
-        trx.clearArray();
-        Utility.WriteLog("Home condition : clear array success", "step-action");
-        trx.clearArrayNasabah();
-        Utility.WriteLog("Home condition : clear array nasabah success", "step-action");
-        trx.ClearList();
-        Utility.WriteLog("Home condition : clear list success", "step-action");
-        trxbaru.clear();
-        Utility.WriteLog("Home condition : clear transaksi baru success", "step-action");
+        isVisible = true;
+        await Task.Delay(100);
+        StateHasChanged();
     }
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

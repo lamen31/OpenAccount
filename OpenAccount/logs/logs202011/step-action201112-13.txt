@@ -1,0 +1,76 @@
+20201112 13:26:44 Home condition : clear transaksi success
+20201112 13:26:44 Home condition : clear transaction log success
+20201112 13:26:44 Home condition : clear array success
+20201112 13:26:44 Home condition : clear array nasabah success
+20201112 13:26:44 Home condition : clear list success
+20201112 13:26:44 Home condition : clear transaksi baru success
+20201112 13:26:46 Home condition : clear transaksi success
+20201112 13:26:46 Home condition : clear transaction log success
+20201112 13:26:46 Home condition : clear array success
+20201112 13:26:46 Home condition : clear array nasabah success
+20201112 13:26:46 Home condition : clear list success
+20201112 13:26:46 Home condition : clear transaksi baru success
+20201112 13:26:46 Home condition : entered into home page
+20201112 13:27:56 Home condition : clear transaksi success
+20201112 13:27:56 Home condition : clear transaction log success
+20201112 13:27:56 Home condition : clear array success
+20201112 13:27:56 Home condition : clear array nasabah success
+20201112 13:27:56 Home condition : clear list success
+20201112 13:27:56 Home condition : clear transaksi baru success
+20201112 13:27:56 Home condition : clear transaksi success
+20201112 13:27:56 Home condition : clear array success
+20201112 13:27:56 Home condition : clear array nasabah success
+20201112 13:27:56 Home condition : clear list success
+20201112 13:27:56 Home condition : clear transaksi baru success
+20201112 13:27:58 Home condition : clear transaksi success
+20201112 13:27:58 Home condition : clear transaction log success
+20201112 13:27:58 Home condition : clear array success
+20201112 13:27:58 Home condition : clear array nasabah success
+20201112 13:27:58 Home condition : clear list success
+20201112 13:27:58 Home condition : clear transaksi baru success
+20201112 13:27:58 Home condition : clear transaksi success
+20201112 13:27:58 Home condition : clear array success
+20201112 13:27:58 Home condition : clear array nasabah success
+20201112 13:27:58 Home condition : clear list success
+20201112 13:27:58 Home condition : clear transaksi baru success
+20201112 13:27:58 Home condition : entered into landing page
+20201112 13:28:03 Home condition : move to insert debit
+20201112 13:28:03 Home condition : entered into insert debit
+20201112 13:28:04 Home condition : input kartu success
+20201112 13:28:04 Home condition : move to input pin
+20201112 13:28:04 Home condition : entered into histori input pin
+20201112 13:28:05 Home condition : input pin success
+20201112 13:28:06 Home condition : input data Bambang Pamungkas success
+20201112 13:28:06 Home condition : entered into new home
+20201112 13:28:59 Home condition : clear transaksi success
+20201112 13:28:59 Home condition : clear transaction log success
+20201112 13:28:59 Home condition : clear array success
+20201112 13:28:59 Home condition : clear array nasabah success
+20201112 13:28:59 Home condition : clear list success
+20201112 13:28:59 Home condition : clear transaksi baru success
+20201112 13:29:00 Home condition : clear transaksi success
+20201112 13:29:00 Home condition : clear array success
+20201112 13:29:00 Home condition : clear array nasabah success
+20201112 13:29:00 Home condition : clear list success
+20201112 13:29:00 Home condition : clear transaksi baru success
+20201112 13:29:01 Home condition : clear transaksi success
+20201112 13:29:01 Home condition : clear transaction log success
+20201112 13:29:01 Home condition : clear array success
+20201112 13:29:01 Home condition : clear array nasabah success
+20201112 13:29:01 Home condition : clear list success
+20201112 13:29:01 Home condition : clear transaksi baru success
+20201112 13:29:01 Home condition : clear transaksi success
+20201112 13:29:01 Home condition : clear array success
+20201112 13:29:01 Home condition : clear array nasabah success
+20201112 13:29:01 Home condition : clear list success
+20201112 13:29:01 Home condition : clear transaksi baru success
+20201112 13:29:02 Home condition : entered into landing page
+20201112 13:29:04 Home condition : move to insert debit
+20201112 13:29:04 Home condition : entered into insert debit
+20201112 13:29:05 Home condition : input kartu success
+20201112 13:29:05 Home condition : move to input pin
+20201112 13:29:05 Home condition : entered into histori input pin
+20201112 13:29:05 Home condition : EDC process start
+20201112 13:29:05 Home condition : EDC serial port close
+20201112 13:29:05 Home condition : EDC serial port open
+20201112 13:29:05 Home condition : EDC error --> Could not find file 'COM5'.

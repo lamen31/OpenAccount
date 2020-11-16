@@ -6,6 +6,10 @@
 @using OpenAccount.Component.BukaRekening
 @using OpenAccount.Component.GantiKartu
 @using OpenAccount.Component.GantiPin 
+@using OpenAccount.Data
+
+@inject Transaksi trx
+@inject TransaksiBaru trxbaru
 
 <div class="wrapper">
     <div class="main-panel">
@@ -429,6 +433,22 @@
 @code{
     private string message = string.Empty;
     private string language = "ID";
+
+    protected override async Task OnInitializedAsync()
+    {
+        trx.clear();
+        Utility.WriteLog("Home condition : clear transaksi success", "step-action");
+        trx.clearTransactionLog();
+        Utility.WriteLog("Home condition : clear transaction log success", "step-action");
+        trx.clearArray();
+        Utility.WriteLog("Home condition : clear array success", "step-action");
+        trx.clearArrayNasabah();
+        Utility.WriteLog("Home condition : clear array nasabah success", "step-action");
+        trx.ClearList();
+        Utility.WriteLog("Home condition : clear list success", "step-action");
+        trxbaru.clear();
+        Utility.WriteLog("Home condition : clear transaksi baru success", "step-action");
+    }
 
     void ClickHandler(string strmessage)
     {

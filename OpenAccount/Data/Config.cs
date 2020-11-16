@@ -30,6 +30,7 @@ namespace OpenAccount.Data
         public const string PARAM_PIN_NASABAH = "param.pin.nasabah";
         public const string PARAM_PASSBOOK_MAXBARIS = "param.passbook.maxbaris";
         public const string PARAM_PASSBOOK_MAXHALAMAN = "param.passbook.maxhalaman";
+        public const string PARAM_PASSBOOK_MAXBARISBISNIS = "param.passbook.maxbarisbisnis";
         public const string PARAM_PRINTERNAME_PRINTERCOBA = "param.printername.printercoba";
         public const string PARAM_PRINTERNAME_A4 = "param.printername.a4";
         public const string PARAM_PRINTERNAME_PASSBOOK = "param.printername.passbook";

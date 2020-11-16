@@ -294,6 +294,7 @@
                 Utility.WriteLog("Histori condition : get list data success", "step-action");
                 tempjumlahtransaksi = trx._listhistori.Count;
                 isRead = false;
+                trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
                 await Task.Delay(100);
                 StateHasChanged();
             }
@@ -303,6 +304,7 @@
                 tempjumlahtransaksi = 0;
                 isRead = false;
                 isNoTransaksi = true;
+                trx.AddTrail("GET DATA HISTORI", "NO DATA BULAN TERAKHIR", "FAILED");
                 await Task.Delay(100);
                 StateHasChanged();
             }

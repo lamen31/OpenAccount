@@ -1,0 +1,140 @@
+20201112 16:26:06 Home condition : clear transaksi success
+20201112 16:26:06 Home condition : clear transaction log success
+20201112 16:26:06 Home condition : clear array success
+20201112 16:26:06 Home condition : clear array nasabah success
+20201112 16:26:06 Home condition : clear list success
+20201112 16:26:06 Home condition : clear transaksi baru success
+20201112 16:26:08 Home condition : clear transaksi success
+20201112 16:26:08 Home condition : clear transaction log success
+20201112 16:26:08 Home condition : clear array success
+20201112 16:26:08 Home condition : clear array nasabah success
+20201112 16:26:08 Home condition : clear list success
+20201112 16:26:08 Home condition : clear transaksi baru success
+20201112 16:26:51 Home condition : clear transaksi success
+20201112 16:26:51 Home condition : clear transaction log success
+20201112 16:26:51 Home condition : clear array success
+20201112 16:26:51 Home condition : clear array nasabah success
+20201112 16:26:51 Home condition : clear list success
+20201112 16:26:51 Home condition : clear transaksi baru success
+20201112 16:43:46 Home condition : clear transaksi success
+20201112 16:43:46 Home condition : clear transaction log success
+20201112 16:43:46 Home condition : clear array success
+20201112 16:43:46 Home condition : clear array nasabah success
+20201112 16:43:46 Home condition : clear list success
+20201112 16:43:46 Home condition : clear transaksi baru success
+20201112 16:43:48 Home condition : clear transaksi success
+20201112 16:43:48 Home condition : clear transaction log success
+20201112 16:43:48 Home condition : clear array success
+20201112 16:43:48 Home condition : clear array nasabah success
+20201112 16:43:48 Home condition : clear list success
+20201112 16:43:48 Home condition : clear transaksi baru success
+20201112 16:43:48 Home condition : entered into home page
+20201112 16:44:23 Home condition : clear transaksi success
+20201112 16:44:23 Home condition : clear transaction log success
+20201112 16:44:23 Home condition : clear array success
+20201112 16:44:23 Home condition : clear array nasabah success
+20201112 16:44:23 Home condition : clear list success
+20201112 16:44:23 Home condition : clear transaksi baru success
+20201112 16:44:25 Home condition : clear transaksi success
+20201112 16:44:25 Home condition : clear transaction log success
+20201112 16:44:25 Home condition : clear array success
+20201112 16:44:25 Home condition : clear array nasabah success
+20201112 16:44:25 Home condition : clear list success
+20201112 16:44:25 Home condition : clear transaksi baru success
+20201112 16:44:25 Home condition : entered into home page
+20201112 16:44:30 Home condition : move to buku tabungan
+20201112 16:44:30 Buku condition : entered into buku input card
+20201112 16:44:31 Buku condition : input card success
+20201112 16:44:31 Buku condition : move to buku input pin
+20201112 16:44:31 Buku condition : entered into buku input pin
+20201112 16:44:31 Buku condition : input pin success
+20201112 16:44:31 Buku condition : input data Bambang Pamungkas success
+20201112 16:44:31 Buku condition : entered into buku input data
+20201112 16:44:35 Buku condition : isTextField = 1
+20201112 16:48:06 Home condition : clear transaksi success
+20201112 16:48:06 Home condition : clear transaction log success
+20201112 16:48:06 Home condition : clear array success
+20201112 16:48:06 Home condition : clear array nasabah success
+20201112 16:48:06 Home condition : clear list success
+20201112 16:48:06 Home condition : clear transaksi baru success
+20201112 16:48:09 Home condition : clear transaksi success
+20201112 16:48:09 Home condition : clear transaction log success
+20201112 16:48:09 Home condition : clear array success
+20201112 16:48:09 Home condition : clear array nasabah success
+20201112 16:48:09 Home condition : clear list success
+20201112 16:48:09 Home condition : clear transaksi baru success
+20201112 16:48:09 Home condition : entered into home page
+20201112 16:48:12 Home condition : move to buku tabungan
+20201112 16:48:12 Buku condition : entered into buku input card
+20201112 16:48:13 Buku condition : input card success
+20201112 16:48:13 Buku condition : move to buku input pin
+20201112 16:48:13 Buku condition : entered into buku input pin
+20201112 16:48:13 Buku condition : input pin success
+20201112 16:48:13 Buku condition : input data Bambang Pamungkas success
+20201112 16:48:13 Buku condition : entered into buku input data
+20201112 16:48:23 Buku condition : isTextField = 2
+20201112 16:48:25 Buku condition : isTextField = 3
+20201112 16:48:30 Buku condition : isTextField = 1
+20201112 16:48:39 Buku condition : set data passbook success
+20201112 16:48:39 Buka rekening condition : move to buku konfirmasi
+20201112 16:48:39 Buku condition : entered into buku konfirmasi
+20201112 16:48:40 Buku condition : hit service passbook start
+20201112 16:48:40 Buku condition : clear list buku success
+20201112 16:48:40 Buku condition : get service start
+20201112 16:48:42 Buku condition : set transaksi ID tes002 success
+20201112 16:48:42 Buku condition : hit service passbook success
+20201112 16:48:42 Buku condition : get list data success
+20201112 16:48:48 Buku condition : modal visible appear
+20201112 16:48:54 Buku condition : temporary list created
+20201112 16:48:54 Buku condition : clear list buku success
+20201112 16:48:54 Buku condition : print halaman ke-1
+20201112 16:48:56 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201112 16:55:01 Home condition : clear transaksi success
+20201112 16:55:01 Home condition : clear transaction log success
+20201112 16:55:01 Home condition : clear array success
+20201112 16:55:01 Home condition : clear array nasabah success
+20201112 16:55:01 Home condition : clear list success
+20201112 16:55:01 Home condition : clear transaksi baru success
+20201112 16:55:04 Home condition : clear transaksi success
+20201112 16:55:04 Home condition : clear transaction log success
+20201112 16:55:04 Home condition : clear array success
+20201112 16:55:04 Home condition : clear array nasabah success
+20201112 16:55:04 Home condition : clear list success
+20201112 16:55:04 Home condition : clear transaksi baru success
+20201112 16:55:04 Home condition : entered into home page
+20201112 16:55:07 Home condition : move to buku tabungan
+20201112 16:55:07 Buku condition : entered into buku input card
+20201112 16:55:08 Buku condition : input card success
+20201112 16:55:08 Buku condition : move to buku input pin
+20201112 16:55:08 Buku condition : entered into buku input pin
+20201112 16:55:08 Buku condition : input pin success
+20201112 16:55:08 Buku condition : input data Bambang Pamungkas success
+20201112 16:55:08 Buku condition : entered into buku input data
+20201112 16:55:13 Buku condition : isTextField = 2
+20201112 16:55:15 Buku condition : isTextField = 3
+20201112 16:55:21 Buku condition : set data passbook success
+20201112 16:55:21 Buka rekening condition : move to buku konfirmasi
+20201112 16:55:22 Buku condition : entered into buku konfirmasi
+20201112 16:55:22 Buku condition : hit service passbook start
+20201112 16:55:22 Buku condition : clear list buku success
+20201112 16:55:22 Buku condition : get service start
+20201112 16:55:24 Buku condition : set transaksi ID tes002 success
+20201112 16:55:24 Buku condition : hit service passbook success
+20201112 16:55:24 Buku condition : get list data success
+20201112 16:55:29 Buku condition : modal visible appear
+20201112 16:55:35 Buku condition : temporary list created
+20201112 16:55:35 Buku condition : clear list buku success
+20201112 16:55:35 Buku condition : print halaman ke-1
+20201112 16:55:39 Printer condition : print passbook in EPSOND03466 (L3150 Series) start
+20201112 16:55:40 Printer condition : check status printing start
+20201112 16:55:40 Printer status condition : check status printing in EPSOND03466 (L3150 Series)
+20201112 16:55:43 Printer status condition : check status printing done
+20201112 16:55:43 Printer status condition : check status printing close
+20201112 16:55:43 20201112 16:55:43 Status printing in EPSOND03466 (L3150 Series) : no pages left
+20201112 16:55:43 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201112 16:55:43 Status printing in EPSOND03466 (L3150 Series) : printing done
+
+20201112 16:55:43 Printer condition : log has been moved from C:\Users\TRILOGI\Documents\Trilogi Persada project\Percobaan\Percobaan Open Account\OpenAccount\OpenAccount\ServerPrinting\printA4\logs\logs202011\step-action201112-16.txt
+20201112 16:55:43 Printer condition : print passbook in EPSOND03466 (L3150 Series) finished
+20201112 16:55:43 Buku condition : print history halaman ke-1 success
+20201112 16:55:44 Buku condition : modal baris appear

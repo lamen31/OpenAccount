@@ -364,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  background-image: url("../img/hero-bg.png");
+  /* background-image: url("../img/hero-bg.png"); */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
@@ -1943,18 +1943,7 @@ fieldset:disabled a.btn4 {
   pointer-events: none;
 }
 
-.num-field {
-    font-size: 2em;
-    padding: 15px;
-    width: 150%;
-    height: 60px;
-    text-align: left;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0.3rem;
-    font-weight: bold;
-}
+
 
 .num-button2 {
   position: relative;
@@ -2063,4 +2052,18 @@ fieldset:disabled a.btn4 {
   height: 53px;
   font-size: 13pt;
   font-weight: 500;
+}
+
+
+.num-field{
+  font-size: 2em;    
+  padding: 15px;
+  width: 150%;
+  height: 60px;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.3rem ;
+  font-weight: bold;
 }
