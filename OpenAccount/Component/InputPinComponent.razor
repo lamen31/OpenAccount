@@ -8,7 +8,7 @@
 @inject Utility utility
 @inject EDC edc
 <!-- ======= Hero Section ======= -->
-<section id="hero">
+<section id="hero" style="position: fixed;">
 
     <div class="container">
         <div class="row">
@@ -94,25 +94,25 @@
     {
         await Task.Delay(100);
 
-        //await Task.Delay(1000);
-        //Console.WriteLine("INPUT PIN SUCCESS");
-        //Utility.WriteLog("Home condition : input pin success", "step-action");
-        //for (int i = 0; i < Nasabah.Length; i++)
-        //{
-        //    if (i == 0)
-        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-        //    else if (i == 1)
-        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-        //    else if (i == 2)
-        //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
-        //}
-        //Console.WriteLine("INPUT DATA SUCCESS");
-        //Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-        //trx.setArrayNasabah(Nasabah);
-        //OnClick.InvokeAsync("newhome");
+        await Task.Delay(1000);
+        Console.WriteLine("INPUT PIN SUCCESS");
+        Utility.WriteLog("Home condition : input pin success", "step-action");
+        for (int i = 0; i < Nasabah.Length; i++)
+        {
+            if (i == 0)
+                Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+            else if (i == 1)
+                Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+            else if (i == 2)
+                Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+        }
+        Console.WriteLine("INPUT DATA SUCCESS");
+        Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+        trx.setArrayNasabah(Nasabah);
+        OnClick.InvokeAsync("newhome");
 
-        isEDC = true;
-        await InputPin();
+        //isEDC = true;
+        //await InputPin();
     }
 
     private async Task InputPin()

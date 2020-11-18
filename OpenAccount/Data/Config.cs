@@ -38,9 +38,12 @@ namespace OpenAccount.Data
         public const string PARAM_PORT_EDC = "param.port.edc";
         public const string PARAM_PORT_CARD_DISPENSER = "param.port.card.dispenser";
         public const string PARAM_SERVICES_LINK = "param.services.link";
+        public const string PARAM_SERVICES_LINK2 = "param.services.link2";
+        public const string PARAM_SERVICES_REKENING = "param.services.rekening";
         public const string PARAM_SERVICES_PASSBOOK = "param.services.passbook";
         public const string PARAM_SERVICES_HISTORI = "param.services.histori";
         public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
+
         public const string PARAM_SERVICES_POST_HISTORI = "param.services.post.histori";
         public const string PARAM_SERVICES_NASABAH = "param.service.nasabah";
         public const string PARAM_SERVICES_SAVE = "param.service.save";

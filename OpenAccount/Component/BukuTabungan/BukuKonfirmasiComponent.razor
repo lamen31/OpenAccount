@@ -16,20 +16,19 @@
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Transaksi Buku Tabungan</span><br>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem;">Cetak Transaksi Buku Tabungan</span><br>
                     <teks style="line-height: 45px;">Masukkan Buku Tabungan Anda pada bagian bawah Mesin</teks><br><br>
                     <h3 style="color: #00529C; font-size: 25px; line-height: 40px;">
-                        Anda akan mencetak mutasi @jumlahtransaksi transaksi
+                        Pastikan buku yang Anda masukkan
+                        <b>Menghadap ke Atas</b>
                     </h3>
                     <h3 style="color: #00529C; font-size: 25px; line-height: 40px;">
-                        Pastikan buku Anda masukkan
-                        dalam keadaan rapi dan sesuai.
-                        Kemudian tekan<b>“Cetak”</b>
+                        Anda akan mencetak mutasi @jumlahtransaksi transaksi
                     </h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Folder GIF/Print-Buku.gif" class="img-fluid" alt="" style="margin-top: 5%;">
+                <img src="../assets/img/Folder GIF/masukkan-Buku.gif" class="img-fluid" style="float: right; margin-top: 5%;">
             </div>
         </div>
     </div>
@@ -98,19 +97,22 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="d-flex justify-content-center">
-                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        @*<div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
                             <span class="sr-only">Loading...</span>
+                        </div>*@
+                        <div>
+                            <img src="../assets/img/Folder GIF/Ganti-Halaman-Butab.gif" class="img-fluid" style="float: right; margin-top: 5%;">
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
                         <h3 class="teks" style="margin-top: 5%;">Apakah anda ingin lanjut mencetak pada halaman buku berikutnya?</h3>
                         <h5 style="font-style:italic;">Silahkan Tekan <b style="color: #00AF80;">Cetak</b> untuk lanjut mencetak pada halaman berikut</h5>
-                        <h5 style="font-style:italic;">Atau Tekan <b style="color: #af0000;">Berhenti</b> untuk berhenti mencetak</h5>
+                        <h5 style="font-style:italic;">Atau Tekan <b style="color: #af0000;">Buku Habis</b> jika halaman buku sudah habis</h5>
                         <div>
                         <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="change">Cetak</button>
                             </div>
                         <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Berhenti">Berhenti</button>
+                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="Berhenti">Buku Habis</button>
                         </div>
                     </div>
                 </div>
@@ -152,14 +154,8 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
-                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="AmbilKartu">TIDAK</button>
-                        </div>
+                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                        <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
                     </div>
                 </div>
             </div>
@@ -191,7 +187,7 @@
     private string jumlahtransaksi;
     private int tempjumlahtransaksi;
     private TimeSpan span;
-    private int overtime = 60000;
+    private int overtime = 30000;
     private bool isTimeOut = false;
     private bool isTime = false;
     private bool isBerhenti = false;
@@ -215,13 +211,16 @@
         if (firstRender)
         {
             Utility.WriteLog("Buku condition : entered into buku konfirmasi", "step-action");
-            //starttime = DateTime.Now;
-            //await Task.Run(() => IdleTime());
-            //if (isTime)
-            //{
-            //    await Task.Delay(100);
-            //    StateHasChanged();
-            //}
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                OnClick.InvokeAsync("ambilkartu");
+            }
         }
     }
 
@@ -258,8 +257,8 @@
         trx.clearListBuku();
         Utility.WriteLog("Buku condition : clear list buku success", "step-action");
         string myJson = "{\"name\":\"asd\"," + "\"job\":\"warrior\"}";
-        string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
-        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK) + "/" + trx._Nasabah[1];
+        string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK2);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK) + "/528492231789813";
         trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         Utility.WriteLog("Buku condition : get service start", "step-action");
         string strResultGET = await services.GetCallAPI(myUrl, myJson);
@@ -289,6 +288,7 @@
     {
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to buku input data", "step-action");
+        trx.ClearList();
         OnClick.InvokeAsync("bukuinputdata");
     }
 
@@ -455,33 +455,33 @@
                     isVisible = false;
                     await Task.Delay(100);
                     StateHasChanged();
-                    if (halaman > maxhalaman)
+                    //if (halaman > maxhalaman)
+                    //{
+                    //    cetak = false;
+                    //    bukuhabis = true;
+                    //    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
+                    //    OnClick.InvokeAsync("bukupenuh");
+                    //    break;
+                    //}
+                    //else
+                    //{
+                    isBaris = !isBaris;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    Utility.WriteLog("Buku condition : modal baris appear", "step-action");
+                    do
                     {
-                        cetak = false;
-                        bukuhabis = true;
-                        Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-                        OnClick.InvokeAsync("bukupenuh");
+                        await Task.Delay(100);
+                    } while (isBaris);
+                    if (isBerhenti)
+                    {
+                        i = n;
+                        Utility.WriteLog("Buku condition : print buku stop", "step-action");
+                        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+                        OnClick.InvokeAsync("ambilkartu");
                         break;
                     }
-                    else
-                    {
-                        isBaris = !isBaris;
-                        await Task.Delay(100);
-                        StateHasChanged();
-                        Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-                        do
-                        {
-                            await Task.Delay(100);
-                        } while (isBaris);
-                        if (isBerhenti)
-                        {
-                            i = n;
-                            Utility.WriteLog("Buku condition : print buku stop", "step-action");
-                            Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-                            OnClick.InvokeAsync("ambilkartu");
-                            break;
-                        }
-                    }
+                    //}
                 }
             }
             else if (totalbaris < maxbaris)
@@ -632,33 +632,33 @@
                     isVisible = false;
                     await Task.Delay(100);
                     StateHasChanged();
-                    if (halaman > maxhalaman)
+                    //if (halaman > maxhalaman)
+                    //{
+                    //    cetak = false;
+                    //    bukuhabis = true;
+                    //    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
+                    //    OnClick.InvokeAsync("bukupenuh");
+                    //    break;
+                    //}
+                    //else
+                    //{
+                    isBaris = !isBaris;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    Utility.WriteLog("Buku condition : modal baris appear", "step-action");
+                    do
                     {
-                        cetak = false;
-                        bukuhabis = true;
-                        Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-                        OnClick.InvokeAsync("bukupenuh");
+                        await Task.Delay(100);
+                    } while (isBaris);
+                    if (isBerhenti)
+                    {
+                        i = n;
+                        Utility.WriteLog("Buku condition : print buku stop", "step-action");
+                        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+                        OnClick.InvokeAsync("ambilkartu");
                         break;
                     }
-                    else
-                    {
-                        isBaris = !isBaris;
-                        await Task.Delay(100);
-                        StateHasChanged();
-                        Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-                        do
-                        {
-                            await Task.Delay(100);
-                        } while (isBaris);
-                        if (isBerhenti)
-                        {
-                            i = n;
-                            Utility.WriteLog("Buku condition : print buku stop", "step-action");
-                            Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-                            OnClick.InvokeAsync("ambilkartu");
-                            break;
-                        }
-                    }
+                    //}
                 }
             }
             else if (totalbaris < maxbaris)
@@ -809,33 +809,33 @@
                     isVisible = false;
                     await Task.Delay(100);
                     StateHasChanged();
-                    if (halaman > maxhalaman)
+                    //if (halaman > maxhalaman)
+                    //{
+                    //    cetak = false;
+                    //    bukuhabis = true;
+                    //    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
+                    //    OnClick.InvokeAsync("bukupenuh");
+                    //    break;
+                    //}
+                    //else
+                    //{
+                    isBaris = !isBaris;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                    Utility.WriteLog("Buku condition : modal baris appear", "step-action");
+                    do
                     {
-                        cetak = false;
-                        bukuhabis = true;
-                        Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-                        OnClick.InvokeAsync("bukupenuh");
+                        await Task.Delay(100);
+                    } while (isBaris);
+                    if (isBerhenti)
+                    {
+                        i = n;
+                        Utility.WriteLog("Buku condition : print buku stop", "step-action");
+                        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+                        OnClick.InvokeAsync("ambilkartu");
                         break;
                     }
-                    else
-                    {
-                        isBaris = !isBaris;
-                        await Task.Delay(100);
-                        StateHasChanged();
-                        Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-                        do
-                        {
-                            await Task.Delay(100);
-                        } while (isBaris);
-                        if (isBerhenti)
-                        {
-                            i = n;
-                            Utility.WriteLog("Buku condition : print buku stop", "step-action");
-                            Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-                            OnClick.InvokeAsync("ambilkartu");
-                            break;
-                        }
-                    }
+                    //}
                 }
             }
             else if (totalbaris < maxbaris)

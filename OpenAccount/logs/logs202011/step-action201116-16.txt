@@ -1,0 +1,85 @@
+20201116 16:00:18 Home condition : clear transaksi success
+20201116 16:00:18 Home condition : clear transaction log success
+20201116 16:00:18 Home condition : clear array success
+20201116 16:00:18 Home condition : clear array nasabah success
+20201116 16:00:18 Home condition : clear list success
+20201116 16:00:18 Home condition : clear transaksi baru success
+20201116 16:00:20 Home condition : clear transaksi success
+20201116 16:00:20 Home condition : clear transaction log success
+20201116 16:00:20 Home condition : clear array success
+20201116 16:00:20 Home condition : clear array nasabah success
+20201116 16:00:20 Home condition : clear list success
+20201116 16:00:20 Home condition : clear transaksi baru success
+20201116 16:00:28 Home condition : input data Bambang Pamungkas success
+20201116 16:00:28 Home condition : entered into new home
+20201116 16:00:31 Home condition : move to histori pilih menu
+20201116 16:00:31 Histori condition : entered into histori pilih menu
+20201116 16:00:32 Histori condition : move to histori sepuluh terakhir
+20201116 16:00:32 Histori condition : entered into history sepuluh terakhir
+20201116 16:00:33 Histori condition : hit service thermal start
+20201116 16:00:33 Histori condition : get service start
+20201116 16:04:14 Home condition : clear transaksi success
+20201116 16:04:14 Home condition : clear transaction log success
+20201116 16:04:14 Home condition : clear array success
+20201116 16:04:14 Home condition : clear array nasabah success
+20201116 16:04:14 Home condition : clear list success
+20201116 16:04:14 Home condition : clear transaksi baru success
+20201116 16:04:16 Home condition : clear transaksi success
+20201116 16:04:16 Home condition : clear transaction log success
+20201116 16:04:16 Home condition : clear array success
+20201116 16:04:16 Home condition : clear array nasabah success
+20201116 16:04:16 Home condition : clear list success
+20201116 16:04:16 Home condition : clear transaksi baru success
+20201116 16:04:23 Home condition : input data Bambang Pamungkas success
+20201116 16:04:23 Home condition : entered into new home
+20201116 16:04:25 Home condition : move to histori pilih menu
+20201116 16:04:25 Histori condition : entered into histori pilih menu
+20201116 16:04:26 Histori condition : move to histori sepuluh terakhir
+20201116 16:04:26 Histori condition : entered into history sepuluh terakhir
+20201116 16:04:26 Histori condition : hit service thermal start
+20201116 16:04:27 Histori condition : get service start
+20201116 16:04:58 Ambil kartu condition : entered into ambil kartu
+20201116 16:07:04 Home condition : clear transaksi success
+20201116 16:07:04 Home condition : clear transaction log success
+20201116 16:07:04 Home condition : clear array success
+20201116 16:07:04 Home condition : clear array nasabah success
+20201116 16:07:04 Home condition : clear list success
+20201116 16:07:04 Home condition : clear transaksi baru success
+20201116 16:07:06 Home condition : clear transaksi success
+20201116 16:07:06 Home condition : clear transaction log success
+20201116 16:07:06 Home condition : clear array success
+20201116 16:07:06 Home condition : clear array nasabah success
+20201116 16:07:06 Home condition : clear list success
+20201116 16:07:06 Home condition : clear transaksi baru success
+20201116 16:07:16 Home condition : input data Bambang Pamungkas success
+20201116 16:07:16 Home condition : entered into new home
+20201116 16:07:18 Home condition : move to histori pilih menu
+20201116 16:07:19 Histori condition : entered into histori pilih menu
+20201116 16:07:19 Histori condition : move to histori sepuluh terakhir
+20201116 16:07:20 Histori condition : entered into history sepuluh terakhir
+20201116 16:07:20 Histori condition : hit service thermal start
+20201116 16:07:20 Histori condition : get service start
+20201116 16:24:49 Home condition : clear transaksi success
+20201116 16:24:49 Home condition : clear transaction log success
+20201116 16:24:49 Home condition : clear array success
+20201116 16:24:49 Home condition : clear array nasabah success
+20201116 16:24:49 Home condition : clear list success
+20201116 16:24:49 Home condition : clear transaksi baru success
+20201116 16:24:51 Home condition : clear transaksi success
+20201116 16:24:51 Home condition : clear transaction log success
+20201116 16:24:51 Home condition : clear array success
+20201116 16:24:51 Home condition : clear array nasabah success
+20201116 16:24:51 Home condition : clear list success
+20201116 16:24:51 Home condition : clear transaksi baru success
+20201116 16:54:26 Home condition : clear transaksi success
+20201116 16:54:26 Home condition : clear transaction log success
+20201116 16:54:26 Home condition : clear array success
+20201116 16:54:26 Home condition : clear array nasabah success
+20201116 16:54:26 Home condition : clear list success
+20201116 16:54:26 Home condition : clear transaksi baru success
+20201116 16:54:28 Home condition : clear transaksi success
+20201116 16:54:28 Home condition : clear transaction log success
+20201116 16:54:28 Home condition : clear array success
+20201116 16:54:28 Home condition : clear array nasabah success
+20201116 16:54:28 Home condition : clear list success
+20201116 16:54:28 Home condition : clear transaksi baru success

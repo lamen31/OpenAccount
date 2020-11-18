@@ -473,7 +473,6 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
-  /* animation-iteration-count: infinite; */
 }
 
 .img-thumbnail {
@@ -2096,10 +2095,10 @@ pre code {
 }
 
 .form-control::placeholder {
-  color: #96BBDD;
+  color: #6c757d;
   opacity: 1;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: 0.8em;
+  font-weight: 300;
 }
 
 .form-control:disabled, .form-control[readonly] {
@@ -5178,10 +5177,10 @@ input[type="button"].btn-block {
 
 .badge {
   display: inline-block;
-  padding: 0.25em 0.9em;
-  font-size: 100%;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
   font-weight: 700;
-  line-height: 2;
+  line-height: 1;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;

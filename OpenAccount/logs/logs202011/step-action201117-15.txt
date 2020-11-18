@@ -1,0 +1,67 @@
+20201117 15:00:07 Histori condition : hit service thermal success
+20201117 15:04:19 Home condition : clear transaksi success
+20201117 15:04:19 Home condition : clear transaction log success
+20201117 15:04:19 Home condition : clear array success
+20201117 15:04:19 Home condition : clear array nasabah success
+20201117 15:04:19 Home condition : clear list success
+20201117 15:04:19 Home condition : clear transaksi baru success
+20201117 15:04:21 Home condition : clear transaksi success
+20201117 15:04:21 Home condition : clear transaction log success
+20201117 15:04:21 Home condition : clear array success
+20201117 15:04:21 Home condition : clear array nasabah success
+20201117 15:04:21 Home condition : clear list success
+20201117 15:04:21 Home condition : clear transaksi baru success
+20201117 15:05:58 Home condition : clear transaksi success
+20201117 15:05:58 Home condition : clear transaction log success
+20201117 15:05:58 Home condition : clear array success
+20201117 15:05:58 Home condition : clear array nasabah success
+20201117 15:05:58 Home condition : clear list success
+20201117 15:05:58 Home condition : clear transaksi baru success
+20201117 15:06:00 Home condition : clear transaksi success
+20201117 15:06:00 Home condition : clear transaction log success
+20201117 15:06:00 Home condition : clear array success
+20201117 15:06:00 Home condition : clear array nasabah success
+20201117 15:06:00 Home condition : clear list success
+20201117 15:06:00 Home condition : clear transaksi baru success
+20201117 15:06:12 Histori condition : post service start
+20201117 15:06:13 Home condition : entered into new home
+20201117 15:06:15 Home condition : move to histori pilih menu
+20201117 15:06:15 Histori condition : entered into histori pilih menu
+20201117 15:06:16 Histori condition : move to histori sepuluh terakhir
+20201117 15:06:16 Histori condition : entered into history sepuluh terakhir
+20201117 15:06:16 Histori condition : hit service thermal start
+20201117 15:06:22 Histori condition : get service start
+20201117 15:06:49 Histori condition : hit service thermal success
+20201117 15:42:28 Home condition : clear transaksi success
+20201117 15:42:28 Home condition : clear transaction log success
+20201117 15:42:28 Home condition : clear array success
+20201117 15:42:28 Home condition : clear array nasabah success
+20201117 15:42:28 Home condition : clear list success
+20201117 15:42:28 Home condition : clear transaksi baru success
+20201117 15:42:30 Home condition : clear transaksi success
+20201117 15:42:30 Home condition : clear transaction log success
+20201117 15:42:30 Home condition : clear array success
+20201117 15:42:30 Home condition : clear array nasabah success
+20201117 15:42:30 Home condition : clear list success
+20201117 15:42:30 Home condition : clear transaksi baru success
+20201117 15:43:28 Home condition : clear transaksi success
+20201117 15:43:28 Home condition : clear transaction log success
+20201117 15:43:28 Home condition : clear array success
+20201117 15:43:28 Home condition : clear array nasabah success
+20201117 15:43:28 Home condition : clear list success
+20201117 15:43:28 Home condition : clear transaksi baru success
+20201117 15:43:30 Home condition : clear transaksi success
+20201117 15:43:30 Home condition : clear transaction log success
+20201117 15:43:30 Home condition : clear array success
+20201117 15:43:30 Home condition : clear array nasabah success
+20201117 15:43:30 Home condition : clear list success
+20201117 15:43:30 Home condition : clear transaksi baru success
+20201117 15:43:37 Home condition : input data Bambang Pamungkas success
+20201117 15:43:37 Home condition : entered into new home
+20201117 15:43:39 Home condition : move to buku input data
+20201117 15:43:39 Buku condition : entered into buku input data
+20201117 15:43:52 Buku condition : isTextField = 3
+20201117 15:43:56 Buku condition : set data passbook success
+20201117 15:43:56 Buka rekening condition : move to buku konfirmasi
+20201117 15:43:57 Buku condition : entered into buku konfirmasi
+20201117 15:43:57 Buku condition : hit service passbook start

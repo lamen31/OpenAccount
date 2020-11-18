@@ -21,24 +21,24 @@
                 </div>
                 <form>
                     <div class="form-row" style="padding: 2rem 0rem;">
-                        <div class="form-group col-md-6">
+                        @*<div class="form-group col-md-6">
                             <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
                             <input type="text" class="form-control" @bind="trx._Nasabah[1]">
-                        </div>
+                        </div>*@
                         <div class="form-group col-md-6">
-                            <label for="input_field_1" style="font-weight: 600; font-size: 18px;">Nomor Baris</label>
+                            <label  style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris</label>
                             @if (barisbuku == string.Empty)
                             {
-                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris yang akan dicetak" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
+                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris yang akan dicetak" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                             else
                             {
-                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" @bind="barisbuku" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
+                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" @bind="barisbuku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    @*<div class="form-row">*@
+                        @*<div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Nomor Halaman</label>
                             @if (halamanbuku == string.Empty)
                             {
@@ -48,24 +48,24 @@
                             {
                                 <input type="text" class="form-control" id="input_field_2" @bind="halamanbuku" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
                             }
-                        </div>
+                        </div>*@
                         <div class="form-group col-md-6">
-                            <label for="input_field_3" style="font-weight: 600; font-size: 18px;">Saldo Terakhir</label>
+                            <label for="input_field_3" style="font-weight: 600; font-size: 18px; color: #007BFF;">Saldo Terakhir</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend2">Rp</span>
+                                    <span class="input-group-text" style="background-color: #007BFF; border: 1.5px solid #007BFF; font-weight: 700; color: white;">Rp</span>
                                 </div>
                                 @if (saldorekening == string.Empty)
                                 {
-                                    <input type="text" class="form-control" id="input_field_3" placeholder="saldo terakhir pada buku" required="required" @onclick="@(() => Inputfield3())">
+                                    <input type="text" class="form-control num-field2" id="input_field_3" placeholder="saldo terakhir pada buku" required="required" style="border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
                                 }
                                 else
                                 {
-                                    <input type="text" class="form-control" id="input_field_3" @bind="saldorekening" required="required" @onclick="@(() => Inputfield3())">
+                                    <input type="text" class="form-control num-field2" id="input_field_3" @bind="saldorekening" required="required" style="border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
                                 }
                             </div>
                         </div>
-                    </div>
+                    @*</div>*@
                 </form>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
@@ -80,7 +80,7 @@
                     <button class="block" value="7" @onclick="@(() => InputPhoneNumber("7"))">7</button>
                     <button class="block" value="8" @onclick="@(() => InputPhoneNumber("8"))">8</button>
                     <button class="block" value="9" @onclick="@(() => InputPhoneNumber("9"))">9</button>
-                    <button class="block" h2="" value="Hapus" @onclick="RemovePhoneNumber">Delete</button>
+                    <button class="block" h2="" value="Hapus" @onclick="RemovePhoneNumber"><img src="../assets/img/backspace.png" style="width: 20%;"></button>
                     <button class="block" ck value="0" id="myBtnUndefine" @onclick="@(() => InputPhoneNumber("0"))">0</button>
                 </container>
             </div>
@@ -136,14 +136,8 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
-                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="AmbilKartu">TIDAK</button>
-                        </div>
+                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                        <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
                     </div>
                 </div>
             </div>
@@ -166,7 +160,7 @@
     private string[] nominal;
     private string[] pengesahan;
     private TimeSpan span;
-    private int overtime = 60000;
+    private int overtime = 30000;
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
@@ -178,13 +172,16 @@
         if (firstRender)
         {
             Utility.WriteLog("Buku condition : entered into buku input data", "step-action");
-            //starttime = DateTime.Now;
-            //await Task.Run(() => IdleTime());
-            //if (isTime)
-            //{
-            //    await Task.Delay(100);
-            //    StateHasChanged();
-            //}
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                OnClick.InvokeAsync("ambilkartu");
+            }
         }
     }
 
@@ -229,7 +226,7 @@
         trx.clearArray();
         if (!isBisnis || isSimpedes)
         {
-            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 31 && int.Parse(halamanbuku) < 9)
+            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 31)
             {
                 //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
                 //string[] lines = System.IO.File.ReadAllLines(path);
@@ -266,7 +263,7 @@
         }
         else if(isBisnis && !isSimpedes)
         {
-            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 16 && int.Parse(halamanbuku) < 9)
+            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 16)
             {
                 //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
                 //string[] lines = System.IO.File.ReadAllLines(path);

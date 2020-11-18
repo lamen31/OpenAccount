@@ -1,0 +1,326 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
+@inject Utility utility
+@inject Transaksi trx
+@inject Config config
+@inject HitServices services
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="margin-top: 50px; position:fixed;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                @*<div>
+                        <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti Kartu</span><br>
+                    </div>*@
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem;">Cetak Transaksi Buku Tabungan</span><br>
+                    <!-- <teks>Hello, BAMBANG PAMUNGKAS</teks> -->
+                    <h3 style="color: #00529C;">Silakan Masukkan <b>Nomor Rekening</b></h3>
+                </div>
+                <form>
+                    <div class="form-row" style="margin-top: 9%;">
+                        <div class="form-group col-md-10">
+                            @*<label style="font-weight: 600; font-size: 18px;">Nomor Rekening</label>*@
+                            @if (strnorek == string.Empty)
+                            {
+                                <input type="text" class="form-control num-field" placeholder="nomor rekening anda" style="border: 1.5px solid #007BFF;">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control num-field" @bind="strnorek" style="border: 1.5px solid #007BFF;">
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
+                @*<div id="keyboard">*@
+                <container>
+                    <button class="block" value="1" @onclick="@(() => InputCharData("1"))">1</button>
+                    <button class="block" value="2" @onclick="@(() => InputCharData("2"))">2</button>
+                    <button class="block" value="3" @onclick="@(() => InputCharData("3"))">3</button>
+                    <button class="block" value="4" @onclick="@(() => InputCharData("4"))">4</button>
+                    <button class="block" value="5" @onclick="@(() => InputCharData("5"))">5</button>
+                    <button class="block" value="6" @onclick="@(() => InputCharData("6"))">6</button>
+                    <button class="block" value="7" @onclick="@(() => InputCharData("7"))">7</button>
+                    <button class="block" value="8" @onclick="@(() => InputCharData("8"))">8</button>
+                    <button class="block" value="9" @onclick="@(() => InputCharData("9"))">9</button>
+                    <button class="block" h2="" value="Hapus" @onclick="RemoveCharData"><img src="../assets/img/backspace.png" style="width: 20%;"></button>
+                    <button class="block" ck value="0" id="myBtnUndefine" @onclick="@(() => InputCharData("0"))">0</button>
+                </container>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            @*<button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="Home">Batal</button>*@
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="HistoriPilih">Lanjut</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+@if (isFalse)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                        <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (isRead)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (isError)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
+                        <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string[] Nasabah = new string[5];
+    private string pinNasabah = string.Empty;
+    private string strpin = string.Empty;
+    private string strnorek = string.Empty;
+    private string strnorek2 = string.Empty;
+    private bool isTrue = false;
+    private bool isFalse = false;
+    private bool isRead = false;
+    private bool isError = false;
+
+    private void InputCharData(string strinput)
+    {
+        //if (strnorek2.Length < 19)
+        //{
+        //    strnorek2 += strinput;
+        //    if (strnorek2.Length == 4)
+        //        strnorek2 += "-";
+        //    if (strnorek2.Length == 7)
+        //        strnorek2 += "-";
+        //    if (strnorek2.Length == 14)
+        //        strnorek2 += "-";
+        //    if (strnorek2.Length == 17)
+        //        strnorek2 += "-";
+        //}
+        if (strnorek.Length < 15)
+            strnorek += strinput;
+    }
+
+    private void RemoveCharData()
+    {
+        if (strnorek.Length > 0)
+            strnorek = strnorek.Substring(0, strnorek.Length - 1);
+        //if (strnorek2.Length > 0)
+        //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 1);
+        //if(strnorek2.Length==18)
+        //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
+        //if(strnorek2.Length==15)
+        //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
+        //if(strnorek2.Length==8)
+        //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
+        //if(strnorek2.Length==5)
+        //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
+    }
+
+    private async Task HistoriPilih()
+    {
+        if (strnorek.Length == 15)
+        {
+            //trx.clearKTP();
+            //Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
+
+            for (int i = 0; i < Nasabah.Length; i++)
+            {
+                if (i == 0)
+                    Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+                else if (i == 1)
+                    Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
+                else if (i == 2)
+                    Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+            }
+            Console.WriteLine("INPUT DATA SUCCESS");
+            Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+            trx.setArrayNasabah(Nasabah);
+
+            //isRead = true;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            //await ServiceRekening();
+            //if (isTrue)
+            OnClick.InvokeAsync("newhome");
+        }
+    }
+
+    private async Task ServiceRekening()
+    {
+        try
+        {
+            string myJson = "{" +
+                "\"remark2\":\"" + "inquiryAccountTest2" + "\"," +
+            "\"acct_no\":\"" + strnorek + "\"" +
+            "}";
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
+            ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
+            Utility.WriteLog("Histori condition : post service start", "step-action");
+            try
+            {
+                string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                if (strResult != null)
+                {
+                    JObject jobResult = JObject.Parse(strResult);
+
+                    trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
+
+                    if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                    {
+                        Nasabah[0] = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
+                        Nasabah[1] = (string)jobResult["RESPONSE"].SelectToken("ACCT_NO");
+                        Nasabah[2] = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
+                        Nasabah[3] = (string)jobResult["RESPONSE"].SelectToken("AVAILABLE_BAL");
+                        Nasabah[4] = (string)jobResult["RESPONSE"].SelectToken("STATUS");
+                        trx.setArrayNasabah(Nasabah);
+                        isTrue = true;
+                        isRead = false;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
+                    {
+                        Console.WriteLine("Unknown Account Type");
+                        isFalse = true;
+                        isRead = false;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                        await Task.Delay(2000);
+                        isFalse = false;
+                        strnorek = string.Empty;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-92" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "92")
+                    {
+                        Console.WriteLine("No servers available for EE_CORE");
+                        isRead = false;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-999" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "999")
+                    {
+                        Console.WriteLine("General Error");
+                        isRead = false;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                isError = true;
+                isRead = false;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isError = false;
+                strnorek = string.Empty;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            isError = true;
+            isRead = false;
+            await Task.Delay(100);
+            StateHasChanged();
+            await Task.Delay(2000);
+            isError = false;
+            strnorek = string.Empty;
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+    }
+}

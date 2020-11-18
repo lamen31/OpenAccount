@@ -145,14 +145,8 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
-                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="AmbilKartu">TIDAK</button>
-                        </div>
+                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                        <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
                     </div>
                 </div>
             </div>
@@ -200,6 +194,7 @@
         hourdate = DateTime.Now.ToString("HH:mm:ss");
         //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
 
+        Console.WriteLine("1");
         await Task.Delay(500);
         isRead = true;
         await Task.Delay(100);
@@ -240,13 +235,16 @@
         if (firstRender)
         {
             Utility.WriteLog("Histori condition : entered into history bulan berjalan", "step-action");
-            //starttime = DateTime.Now;
-            //await Task.Run(() => IdleTime());
-            //if (isTime)
-            //{
-            //    await Task.Delay(100);
-            //    StateHasChanged();
-            //}
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                OnClick.InvokeAsync("home");
+            }
         }
     }
 
@@ -257,6 +255,7 @@
             span = DateTime.Now - starttime;
             if (overtime > 0 && span.TotalMilliseconds > overtime)
             {
+                isRead = false;
                 isTime = true;
                 isTimeOut = true;
                 break;
@@ -271,14 +270,60 @@
         StateHasChanged();
     }
 
+    //private async Task ServiceHistori()
+    //{
+    //    trx.clearListHistori();
+    //    Utility.WriteLog("Histori condition : clear list histori success", "step-action");
+    //    string myJson = "{" +
+    //    "\"noRekening\":\"" + trx._Nasabah[1] + "\"," +
+    //    "\"tanggalAwal\":\"" + startdate + "\"," +
+    //    "\"tanggalAkhir\":\"" + enddate + "\"" +
+    //    "}";
+    //    string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+    //    string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_POST_HISTORI);
+    //    Utility.WriteLog("Histori condition : post service start", "step-action");
+    //    string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+    //    if (strResult != null)
+    //    {
+    //        JObject jobResult = JObject.Parse(strResult);
+    //        trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+    //        Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
+
+    //        if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
+    //        {
+    //            Utility.WriteLog("Histori condition : hit service histori success", "step-action");
+    //            foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
+    //            {
+    //                trx.AddListHistori((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
+    //            }
+    //            Utility.WriteLog("Histori condition : get list data success", "step-action");
+    //            tempjumlahtransaksi = trx._listhistori.Count;
+    //            isRead = false;
+    //            trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
+    //            await Task.Delay(100);
+    //            StateHasChanged();
+    //        }
+    //        else if ((string)jobResult["transaction"].SelectToken("responseCode") == "0001")
+    //        {
+    //            Utility.WriteLog("Histori condition : data empty", "step-action");
+    //            tempjumlahtransaksi = 0;
+    //            isRead = false;
+    //            isNoTransaksi = true;
+    //            trx.AddTrail("GET DATA HISTORI", "NO DATA BULAN BERJALAN", "FAILED");
+    //            await Task.Delay(100);
+    //            StateHasChanged();
+    //        }
+    //    }
+    //}
+
     private async Task ServiceHistori()
     {
         trx.clearListHistori();
         Utility.WriteLog("Histori condition : clear list histori success", "step-action");
-        string myJson = "{" +
-        "\"noRekening\":\"" + trx._Nasabah[1] + "\"," +
-        "\"tanggalAwal\":\"" + startdate + "\"," +
-        "\"tanggalAkhir\":\"" + enddate + "\"" +
+        string myJson = "\"REQUEST\":\"" + "{" +
+        "\"ACCT_NO\":\"" + trx._Nasabah[1] + "\"," +
+        "\"START_DATE\":\"" + new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyyMMdd") + "\"," +
+        "\"END_DATE\":\"" + new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyyMMdd") + "\"" +
         "}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
         string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_POST_HISTORI);
@@ -287,15 +332,21 @@
         if (strResult != null)
         {
             JObject jobResult = JObject.Parse(strResult);
-            trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
-            Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
+            //trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+            //Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
 
-            if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
+            trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
+
+            if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
             {
                 Utility.WriteLog("Histori condition : hit service histori success", "step-action");
-                foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
+                foreach (var response in jobResult.SelectToken("listTransaction").Select((response) => (response)))
                 {
-                    trx.AddListHistori((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
+                    trx.AddListHistori2((string)response.SelectToken("SEQ"), (string)response.SelectToken("ID_NUM"), (string)response.SelectToken("ID_NUM_2"), (string)response.SelectToken("ID_NUM_3"), (string)response.SelectToken("NO_REK"),
+                        (string)response.SelectToken("TGL_TRAN"), (string)response.SelectToken("TGL_EFEKTIF"), (string)response.SelectToken("JAM_TRAN"), (string)response.SelectToken("KODE_TRAN"), (string)response.SelectToken("DESK_TRAN"),
+                        (string)response.SelectToken("SALDO_AWAL_MUTASI"), (string)response.SelectToken("MUTASI_DEBET"), (string)response.SelectToken("MUTASI_KREDIT"), (string)response.SelectToken("SALDO_AKHIR_MUTASI"), (string)response.SelectToken("TRUSER"),
+                        (string)response.SelectToken("GLSIGN"), (string)response.SelectToken("TERBILANG"), (string)response.SelectToken("TRREMK"), (string)response.SelectToken("AUXTRC"), (string)response.SelectToken("SERIAL"), (string)response.SelectToken("TLBDS1"), 
+                        (string)response.SelectToken("TLBDS2"));
                 }
                 Utility.WriteLog("Histori condition : get list data success", "step-action");
                 tempjumlahtransaksi = trx._listhistori.Count;

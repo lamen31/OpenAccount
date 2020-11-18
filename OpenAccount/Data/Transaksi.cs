@@ -62,6 +62,7 @@ namespace OpenAccount.Data
         public string _KTPMinutiae2 { get; set; }
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
+        public string _AccountNumber { get; set; }
 
         public class HistoriTransaksi
         {
@@ -72,6 +73,28 @@ namespace OpenAccount.Data
             public string _KodeTransaksi { get; set; }
             public string _Tanggal { get; set; }
             public string _SecurityCode { get; set; }
+            public string _SEQ { get; set; }
+            public string _IDNUM { get; set; }
+            public string _IDNUM2 { get; set; }
+            public string _IDNUM3 { get; set; }
+            public string _NOREK { get; set; }
+            public string _TGLTRAN { get; set; }
+            public string _TGLEFEKTIF { get; set; }
+            public string _JAMTRAN { get; set; }
+            public string _KODETRAN { get; set; }
+            public string _DESKTRAN { get; set; }
+            public string _SALDOAWALMUTASI { get; set; }
+            public string _MUTASIDEBET { get; set; }
+            public string _MUTASIKREDIT { get; set; }
+            public string _SALDOAKHIRMUTASI { get; set; }
+            public string _TRUSER { get; set; }
+            public string _GLSIGN { get; set; }
+            public string _TERBILANG { get; set; }
+            public string _TRREMK { get; set; }
+            public string _AUXTRC { get; set; }
+            public string _SERIAL { get; set; }
+            public string _TLBDS1 { get; set; }
+            public string _TLBDS2 { get; set; }
         }
 
         public class printBuku
@@ -94,11 +117,36 @@ namespace OpenAccount.Data
             public string _KodeTransaksi { get; set; }
             public string _Tanggal { get; set; }
             public string _SecurityCode { get; set; }
+            public string _Account { get; set; }
+            public string _Date { get; set; }
+            public string _Date2 { get; set; }
+            public string _TIMENT { get; set; }
+            public string _DORC { get; set; }
+            public string _AMT { get; set; }
+            public string _REMK { get; set; }
+        }
+
+        public class Account
+        {
+            public string _SHORTNAME { get; set; }
+            public string _ACCTCURR { get; set; }
+            public string _AVAILABLEBAL { get; set; }
+            public string _STATUS { get; set; }
         }
 
         public List<HistoriTransaksi> _listhistori = new List<HistoriTransaksi>();
         public List<printBuku> _listbuku = new List<printBuku>();
         public List<printThermal> _listthermal = new List<printThermal>();
+        public List<Account> _listaccount = new List<Account>();
+
+        public void AddListAccount(string strshortname, string stracctcurr, string stravailablebal, string strstatus)
+        {
+            Account akun = new Account();
+            akun._SHORTNAME = strshortname;
+            akun._ACCTCURR = stracctcurr;
+            akun._AVAILABLEBAL = stravailablebal;
+            akun._STATUS = strstatus;
+        }
 
         public void AddListHistori(string strid, string strjenis, string strnominal, string strketerangan, string strkodetransaksi, string strtanggal, string strsecurity)
         {
@@ -111,6 +159,35 @@ namespace OpenAccount.Data
             histori._Tanggal = strtanggal;
             histori._SecurityCode = strsecurity;
             _listhistori.Add(histori);
+        }
+
+        public void AddListHistori2(string strseq, string stridnum, string stridnum2, string stridnum3, string strnorek, string strtgltran, string strtglefektif, string strjamtran, 
+            string strkodetran, string strdesktran, string strsaldoawalmutasi, string strmutasidebet, string strmutasikredit, string strsaldoakhirmutasi, string strtruser, string strglsign, 
+            string strterbilang, string strtrremk, string strauxtrc, string strserial, string strtlbds1, string strtlbds2)
+        {
+            HistoriTransaksi histori = new HistoriTransaksi();
+            histori._SEQ = strseq;
+            histori._IDNUM = stridnum;
+            histori._IDNUM2 = stridnum2;
+            histori._IDNUM3 = stridnum3;
+            histori._NOREK = strnorek;
+            histori._TGLTRAN = strtgltran;
+            histori._TGLEFEKTIF = strtglefektif;
+            histori._JAMTRAN = strjamtran;
+            histori._KODETRAN = strkodetran;
+            histori._DESKTRAN = strdesktran;
+            histori._SALDOAWALMUTASI = strsaldoawalmutasi;
+            histori._MUTASIDEBET = strmutasidebet;
+            histori._MUTASIKREDIT = strmutasikredit;
+            histori._SALDOAKHIRMUTASI = strmutasikredit;
+            histori._TRUSER = strtruser;
+            histori._GLSIGN = strglsign;
+            histori._TERBILANG = strterbilang;
+            histori._TRREMK = strtrremk;
+            histori._AUXTRC = strauxtrc;
+            histori._SERIAL = strserial;
+            histori._TLBDS1 = strtlbds1;
+            histori._TLBDS2 = strtlbds2;
         }
 
         public void AddListBuku(string strid, string strjenis, string strnominal, string strketerangan, string strkodetransaksi, string strtanggal, string strsecurity)
@@ -137,6 +214,24 @@ namespace OpenAccount.Data
             thermal._Tanggal = strtanggal;
             thermal._SecurityCode = strsecurity;
             _listthermal.Add(thermal);
+        }
+
+        public void AddListThermal2(string stracct, string strdate, string strdate2, string strtiment, string strdorc, string stramt, string strremk)
+        {
+            printThermal thermal = new printThermal();
+            thermal._Account = stracct;
+            thermal._Date = strdate;
+            thermal._Date2 = strdate2;
+            thermal._TIMENT = strtiment;
+            thermal._DORC = strdorc;
+            thermal._AMT = stramt;
+            thermal._REMK = strremk;
+            _listthermal.Add(thermal);
+        }
+
+        public void setAccountNumber(string straccount)
+        {
+            _AccountNumber = straccount;
         }
 
         public void setTransaksiID(string strtransaksiid)
@@ -407,6 +502,7 @@ namespace OpenAccount.Data
             _listhistori.Clear();
             _listbuku.Clear();
             _listthermal.Clear();
+            _listaccount.Clear();
         }
     }
 

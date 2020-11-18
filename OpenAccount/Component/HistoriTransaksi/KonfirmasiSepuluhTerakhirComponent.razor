@@ -121,14 +121,8 @@
                         </div>
                     </div>
                     <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Waktu Habis</h3>
-                        <h5 style="font-style:italic;">Apakah Anda Ingin Melanjutkan Proses?</h5>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="ChangeIsTime">YA</button>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 2%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="AmbilKartu">TIDAK</button>
-                        </div>
+                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                        <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
                     </div>
                 </div>
             </div>
@@ -143,14 +137,19 @@
     private bool isVisible = false;
     private bool isRead = false;
     private string date;
-    private string[] tanggal;
-    private string[] nominal;
-    private string[] kode;
+    private string[] TRACCT;
+    private string[] TRDATE;
+    private string[] TRDATE2;
+    private string[] TIMENT;
+    private string[] DORC;
+    private string[] AMT;
+    private string[] TRREMK;
     private string saldo;
     private string path;
     private string[] lines;
     private string jumlahtransaksi;
     private int tempjumlahtransaksi;
+    private string noRekening = "008301031142500";
     private TimeSpan span;
     private int overtime = 60000;
     private bool isTimeOut = false;
@@ -159,41 +158,65 @@
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("1");
         date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy/MM/dd");
         trx.clearArray();
-        //path = config.Read("PATH", Config.PARAM_PATH_THERMAL);
-        //lines = File.ReadAllLines(path);
-        //tanggal = new string[lines.Length];
-        //kode = new string[lines.Length];
-        //nominal = new string[lines.Length];
+        path = Directory.GetCurrentDirectory();
+        path += config.Read("PATH", Config.PARAM_PATH_THERMAL);
+        lines = File.ReadAllLines(path);
+        TRACCT = new string[lines.Length];
+        TRDATE = new string[lines.Length];
+        TRDATE2 = new string[lines.Length];
+        TIMENT = new string[lines.Length];
+        DORC = new string[lines.Length];
+        AMT = new string[lines.Length];
+        TRREMK = new string[lines.Length];
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
 
-        await Task.Delay(500);
-        isRead = true;
-        await Task.Delay(100);
-        StateHasChanged();
-        Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
-        await ServiceThermal();
+        //await Task.Delay(500);
+        //isRead = true;
+        //await Task.Delay(100);
+        //StateHasChanged();
+        //Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
+        //await ServiceThermal();
 
-        //for (int i = 0; i < lines.Length; i++)
-        //{
-        //    string[] column = lines[i].Split(";");
-        //    for (int j = 0; j < column.Length; j++)
-        //    {
-        //        if (j == 0)
-        //        {
-        //            tanggal[i] = column[j];
-        //        }
-        //        else if (j == 1)
-        //        {
-        //            kode[i] = column[j];
-        //        }
-        //        else if (j == 2)
-        //        {
-        //            nominal[i] = column[j];
-        //        }
-        //    }
-        //}
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string[] column = lines[i].Split(";");
+            for (int j = 0; j < column.Length; j++)
+            {
+                if (j == 0)
+                {
+                    TRACCT[i] = column[j];
+                }
+                else if (j == 1)
+                {
+                    TRDATE[i] = column[j];
+                }
+                else if (j == 2)
+                {
+                    TRDATE2[i] = column[j];
+                }
+                else if (j == 3)
+                {
+                    TIMENT[i] = column[j];
+                }
+                else if (j == 4)
+                {
+                    DORC[i] = column[j];
+                }
+                else if (j == 5)
+                {
+                    AMT[i] = column[j];
+                }
+                else if (j == 6)
+                {
+                    TRREMK[i] = column[j];
+                    trx.AddListThermal2(TRACCT[i], TRDATE[i], TRDATE2[i], TIMENT[i], DORC[i], AMT[i], TRREMK[i]);
+                }
+            }
+        }
+        
         Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         jumlahtransaksi = tempjumlahtransaksi.ToString();
         //trx.setHistoriThermal(tanggal, kode, nominal, saldo);
@@ -201,54 +224,110 @@
         Utility.WriteLog("Histori condition : set saldo thermal success", "step-action");
     }
 
+    //private async Task ServiceThermal()
+    //{
+    //    string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
+    //    string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+    //    string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL) + "/" + trx._Nasabah[1];
+    //    //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
+    //    Utility.WriteLog("Histori condition : get service start", "step-action");
+    //    string strResultGET = await services.GetCallAPI(myUrl, myJson);
+    //    if (strResultGET != null)
+    //    {
+    //        JObject jobResult = JObject.Parse(strResultGET);
+    //        trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+    //        Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
+
+    //        if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
+    //        {
+    //            Utility.WriteLog("Histori condition : hit service thermal success", "step-action");
+    //            foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
+    //            {
+    //                trx.AddListThermal((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
+    //            }
+    //            Utility.WriteLog("Histori condition : get list data success", "step-action");
+    //            tempjumlahtransaksi = trx._listthermal.Count;
+    //            isRead = false;
+    //            trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
+    //            await Task.Delay(100);
+    //            StateHasChanged();
+    //        }
+    //        else
+    //        {
+    //            Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
+    //            trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
+    //        }
+    //    }
+    //}
+
     private async Task ServiceThermal()
     {
-        string myJson = "{\"name\":\"name\"," + "\"job\":\"job\"}";
+        string myJson ="{" +
+        "\"acct_no\":\"" + trx._Nasabah[1] + "\"" +
+        "}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
-        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL) + "/" + trx._Nasabah[1];
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
+        //string myUrl = "http://172.18.136.207:6001/invoke/bri.core.services.v1:fiveMutation";
         //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
         Utility.WriteLog("Histori condition : get service start", "step-action");
-        string strResultGET = await services.GetCallAPI(myUrl, myJson);
-        if (strResultGET != null)
+        try
         {
-            JObject jobResult = JObject.Parse(strResultGET);
-            trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
-            Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
+            string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+            if (strResult != null)
+            {
+                JObject jobResult = JObject.Parse(strResult);
+                //trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+                //Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
 
-            if ((string)jobResult["transaction"].SelectToken("responseCode") == "0000")
-            {
-                Utility.WriteLog("Histori condition : hit service thermal success", "step-action");
-                foreach (var transaksi in jobResult.SelectToken("listTransaction").Select((transaksi) => (transaksi)))
+                trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
+
+                if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                 {
-                    trx.AddListThermal((string)transaksi.SelectToken("transactionId"), (string)transaksi.SelectToken("jenisTransaksi"), (string)transaksi.SelectToken("nominal"), (string)transaksi.SelectToken("keterangan"), (string)transaksi.SelectToken("kodeTransaksi"), (string)transaksi.SelectToken("tanggal"), (string)transaksi.SelectToken("securityCode"));
+                    Utility.WriteLog("Histori condition : hit service thermal success", "step-action");
+                    foreach (var response in jobResult["RESPONSE"].SelectToken("DATA"))
+                    {
+                        trx.AddListThermal2((string)response.SelectToken("TRACCT"), (string)response.SelectToken("TRDATE"), (string)response.SelectToken("TRDATE2"), (string)response.SelectToken("TIMENT"), (string)response.SelectToken("DORC"), (string)response.SelectToken("AMT"), (string)response.SelectToken("TRREMK"));
+                    }
+                    Utility.WriteLog("Histori condition : get list data success", "step-action");
+                    tempjumlahtransaksi = trx._listthermal.Count;
+                    isRead = false;
+                    trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
+                    await Task.Delay(100);
+                    StateHasChanged();
                 }
-                Utility.WriteLog("Histori condition : get list data success", "step-action");
-                tempjumlahtransaksi = trx._listthermal.Count;
-                isRead = false;
-                trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
-                await Task.Delay(100);
-                StateHasChanged();
-            }
-            else
-            {
-                Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
-                trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
+                else
+                {
+                    Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
+                    trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
+                    isRead = false;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                }
             }
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            Console.WriteLine("2");
             Utility.WriteLog("Histori condition : entered into history sepuluh terakhir", "step-action");
-            //starttime = DateTime.Now;
-            //await Task.Run(() => IdleTime());
-            //if (isTime)
-            //{
-            //    await Task.Delay(100);
-            //    StateHasChanged();
-            //}
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                OnClick.InvokeAsync("home");
+            }
         }
     }
 
@@ -259,6 +338,7 @@
             span = DateTime.Now - starttime;
             if (overtime > 0 && span.TotalMilliseconds > overtime)
             {
+                isRead = false;
                 isTime = true;
                 isTimeOut = true;
                 break;
