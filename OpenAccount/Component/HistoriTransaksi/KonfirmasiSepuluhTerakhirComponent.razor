@@ -173,50 +173,50 @@
         TRREMK = new string[lines.Length];
         saldo = config.Read("NASABAH", Config.PARAM_SALDO_NASABAH);
 
-        //await Task.Delay(500);
-        //isRead = true;
-        //await Task.Delay(100);
-        //StateHasChanged();
-        //Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
-        //await ServiceThermal();
+        await Task.Delay(500);
+        isRead = true;
+        await Task.Delay(100);
+        StateHasChanged();
+        Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
+        await ServiceThermal();
 
-        for (int i = 0; i < lines.Length; i++)
-        {
-            string[] column = lines[i].Split(";");
-            for (int j = 0; j < column.Length; j++)
-            {
-                if (j == 0)
-                {
-                    TRACCT[i] = column[j];
-                }
-                else if (j == 1)
-                {
-                    TRDATE[i] = column[j];
-                }
-                else if (j == 2)
-                {
-                    TRDATE2[i] = column[j];
-                }
-                else if (j == 3)
-                {
-                    TIMENT[i] = column[j];
-                }
-                else if (j == 4)
-                {
-                    DORC[i] = column[j];
-                }
-                else if (j == 5)
-                {
-                    AMT[i] = column[j];
-                }
-                else if (j == 6)
-                {
-                    TRREMK[i] = column[j];
-                    trx.AddListThermal2(TRACCT[i], TRDATE[i], TRDATE2[i], TIMENT[i], DORC[i], AMT[i], TRREMK[i]);
-                }
-            }
-        }
-        
+        //for (int i = 0; i < lines.Length; i++)
+        //{
+        //    string[] column = lines[i].Split(";");
+        //    for (int j = 0; j < column.Length; j++)
+        //    {
+        //        if (j == 0)
+        //        {
+        //            TRACCT[i] = column[j];
+        //        }
+        //        else if (j == 1)
+        //        {
+        //            TRDATE[i] = column[j];
+        //        }
+        //        else if (j == 2)
+        //        {
+        //            TRDATE2[i] = column[j];
+        //        }
+        //        else if (j == 3)
+        //        {
+        //            TIMENT[i] = column[j];
+        //        }
+        //        else if (j == 4)
+        //        {
+        //            DORC[i] = column[j];
+        //        }
+        //        else if (j == 5)
+        //        {
+        //            AMT[i] = column[j];
+        //        }
+        //        else if (j == 6)
+        //        {
+        //            TRREMK[i] = column[j];
+        //            trx.AddListThermal2(TRACCT[i], TRDATE[i], TRDATE2[i], TIMENT[i], DORC[i], AMT[i], TRREMK[i]);
+        //        }
+        //    }
+        //}
+
         Utility.WriteLog("Histori condition : input data from " + path + " success", "step-action");
         jumlahtransaksi = tempjumlahtransaksi.ToString();
         //trx.setHistoriThermal(tanggal, kode, nominal, saldo);

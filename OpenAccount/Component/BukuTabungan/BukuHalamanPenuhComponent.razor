@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem;">Cetak Transaksi Buku Tabungan</span><br>
+                    <teks style="line-height: 45px; font-size: 35px; font-weight: 900;">Halaman Buku Penuh</teks><br><br>
+                    <h3 style="color: #00529C; font-size: 23px; line-height: 40px;">
+                        Untuk melanjutkan silakan buka halaman baru,
+                        masukan buku tabungan dan tekan<b>"Lanjut Cetak"</b>
+                    </h3>
+                </div>
+                <div style="margin-top: 5%;">
+                    <button type="button" class="btn btn-primary" style="width: 40%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832;">Buku Habis</button>
+                    <button type="button" class="btn btn-primary" style="width: 40%; background-color: #FF8832; font-weight: 600; margin-left: 2%;">Lanjut Cetak</button>
+                </div>
+
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder GIF/Ganti-Halaman-Butab.gif" class="img-fluid" style="float: right; margin-top: 5%;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            @*<button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem;">Batal</button>*@
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter">Cetak</button> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+}

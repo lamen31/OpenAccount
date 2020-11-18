@@ -20,7 +20,7 @@
                     <h3 style="color: #00529C;">Masukkan data buku tabungan Anda</h3>
                 </div>
                 <form>
-                    <div class="form-row" style="padding: 2rem 0rem;">
+                    <div class="form-row">
                         @*<div class="form-group col-md-6">
                             <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
                             <input type="text" class="form-control" @bind="trx._Nasabah[1]">
@@ -36,7 +36,7 @@
                                 <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" @bind="barisbuku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                         </div>
-                    </div>
+                    @*</div>*@
                     @*<div class="form-row">*@
                         @*<div class="form-group col-md-6">
                             <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Nomor Halaman</label>
@@ -65,7 +65,7 @@
                                 }
                             </div>
                         </div>
-                    @*</div>*@
+                    </div>
                 </form>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
@@ -255,8 +255,11 @@
                 //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
                 //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
-                trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+
+                //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+                trx.setPassbookTransaksi(barisbuku, saldorekening);
                 Utility.WriteLog("Buku condition : set data passbook success", "step-action");
+
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
                 OnClick.InvokeAsync("bukukonfirmasi");
             }
@@ -292,8 +295,11 @@
                 //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
                 //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
-                trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+
+                //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+                trx.setPassbookTransaksi(barisbuku, saldorekening);
                 Utility.WriteLog("Buku condition : set data passbook success", "step-action");
+
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
                 OnClick.InvokeAsync("bukukonfirmasi");
             }

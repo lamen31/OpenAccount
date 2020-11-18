@@ -320,10 +320,27 @@ namespace OpenAccount.Data
             _BukuPengesahan = strpengesahan;
         }
 
+        public void setPassbookTransaksi(string strbaris, string strdate, string[] strtipe, string[] strsandi, string[] strnominal, string strsaldo, string[] strpengesahan)
+        {
+            _BukuBaris = strbaris;
+            _BukuDate = strdate;
+            _BukuTipe = strtipe;
+            _BukuSandi = strsandi;
+            _BukuNominal = strnominal;
+            _BukuSaldo = strsaldo;
+            _BukuPengesahan = strpengesahan;
+        }
+
         public void setPassbookTransaksi(string strbaris, string strhalaman, string strsaldo)
         {
             _BukuBaris = strbaris;
             _BukuHalaman = strhalaman;
+            _BukuSaldo = strsaldo;
+        }
+
+        public void setPassbookTransaksi(string strbaris, string strsaldo)
+        {
+            _BukuBaris = strbaris;
             _BukuSaldo = strsaldo;
         }
 

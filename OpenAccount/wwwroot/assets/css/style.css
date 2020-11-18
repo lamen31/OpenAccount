@@ -16,15 +16,15 @@ body {
 }
 
 .bg-home {
-
-  /* font-family: "poppins", Helvetica; */
-  font-family: "Poppins", Poppins;
-  /* background-image: url(../img/team-bg.jpg); */
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+    /* font-family: "poppins", Helvetica; */
+    font-family: "Poppins", Poppins;
+    src: url('../font/Poppins-LightItalic.ttf');
+    /* background-image: url(../img/team-bg.jpg); */
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 a {

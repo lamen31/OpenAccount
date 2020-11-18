@@ -380,8 +380,8 @@ namespace OpenAccount.Data
 
             string joint = string.Empty;
 
-            sizex = 30;
-            layoutsize = new SizeF(220, lineheight);
+            sizex = 10;
+            layoutsize = new SizeF(260, lineheight);
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
 
             string date = DateTime.Now.ToString("dd/MM/yy");
@@ -404,7 +404,8 @@ namespace OpenAccount.Data
                 + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi 
                 + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi 
                 + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi
-                + doublespasi + doublespasi + doublespasi + "WAKTU   : " + hour;
+                + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi
+                + "WAKTU   : " + hour;
             g.DrawString(joint, font, blackBrush, layout, formatLeft);
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
@@ -414,7 +415,8 @@ namespace OpenAccount.Data
                 + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi
                 + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi
                 + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi
-                + doublespasi + doublespasi + doublespasi + "NO. REF : " + noref;
+                + doublespasi + doublespasi + doublespasi + doublespasi + doublespasi
+                + "NO. REF : " + noref;
             g.DrawString(joint, font, blackBrush, layout, formatLeft);
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
@@ -605,7 +607,7 @@ namespace OpenAccount.Data
 
         public void PassbookPrintPage(object sender, PrintPageEventArgs e)
         {
-            font = new Font("Calibri", 7.5F, FontStyle.Regular);
+            font = new Font("Arial", 8, FontStyle.Regular);
             SolidBrush blackbrush = new SolidBrush(Color.Black);
             Graphics g = e.Graphics;
             long saldo = Convert.ToInt64(_trx._BukuSaldo);
