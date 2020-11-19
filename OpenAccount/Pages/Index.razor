@@ -425,9 +425,19 @@
                     <NewHomeComponent OnClick="ClickHandler"></NewHomeComponent>
                     break;
                 }
-            default:
+            case "error":
+                {
+                    <ErrorComponent OnClick="ClickHandler"></ErrorComponent>
+                    break;
+                }
+            case "inputrekening":
                 {
                     <InputRekeningComponent OnClick="ClickHandler"></InputRekeningComponent>
+                    break;
+                }
+            default:
+                {
+                    <LandingPage2Component OnClick="ClickHandler"></LandingPage2Component>
                     break;
                 }
         }

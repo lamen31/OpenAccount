@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="position: fixed;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" style="text-align: center;">
+                <div>
+                    <img src="./assets/img/Folder SVG/error-page.svg" style="width: 30%;"><br>
+                    <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                        "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
+                        Silahkan menghubungi Petugas Bank / Customer Service"
+                    </teks>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+}

@@ -1,31 +1,67 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
+@using System.IO
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 
 @inject Transaksi trx
 @inject Utility utility
+@inject Config config
+@inject Printer print
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
     <div class="container">
-        <div class="row">
-            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+        <div class="row" style="margin-top: 8%;">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
                     <teks>Hello, @trx._Nasabah[0]</teks>
-                    <h3 style="color: #00529C;">Pilih Periode Transaksi yang Anda Inginkan</h3>
+                    <h3 style="color: #00529C; font-weight: 400;">Silakan pilih periode transaksi</h3><br>
                 </div>
             </div>
-
-            <div class="col-xl-12 order-3 order-lg-3 hero-img" data-aos="fade-left" style=" padding: 3rem;">
-                <div class="form-input-data">
-                    <div id="btn-periode" class="col-md-12" style="text-align: center;">
-                        <div class="form-group">
-                            <button type="button" class="btn2 btn-histori" @onclick="HistoriBulanBerjalan">Periode Bulan Berjalan</button>
-                            <button type="button" class="btn2 btn-histori" style="margin-left: 1rem;" @onclick="HistoriBulanTerakhir">Periode 1 Bulan Terakhir</button>
+            @*<div class="col-xl-12 order-3 order-lg-3 hero-img" data-aos="fade-left">
+                    <div class="form-input-data">
+                        <div id="btn-periode" class="col-md-12" style="text-align: center;">
+                            <div class="form-group">
+                                <button type="button" class="btn2 btn-histori" @onclick="HistoriBulanBerjalan">Periode Bulan Berjalan</button>
+                                <button type="button" class="btn2 btn-histori" style="margin-left: 1rem;" @onclick="HistoriBulanTerakhir">Periode 1 Bulan Terakhir</button>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn2 btn-histori" @onclick="HistoriBulanLalu">Periode Bulan Lalu</button>
+                                <button type="button" class="btn2 btn-histori" style="margin-left: 1rem;" @onclick="HistoriSepuluhTerakhir">5 Transaksi Terakhir</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <button type="button" class="btn2 btn-histori" @onclick="HistoriBulanLalu">Periode Bulan Lalu</button>
-                            <button type="button" class="btn2 btn-histori" style="margin-left: 1rem;" @onclick="HistoriSepuluhTerakhir">5 Transaksi Terakhir</button>
+                    </div>
+                </div>*@
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <div>
+                    <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4" style="text-align: center;">
+                                <img src="../assets/img/full-statement.png" style="padding: 25px; width: 80%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" style="text-align:left;  margin-left: -1.5rem; margin-top: 2%;">
+                                    <h5 class="card-title">Full Statement</h5>
+                                    <b class="card-text" style="color: #3D80BC;">Mencetak 1 periode penuh</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right; margin-top: 3%;" @onclick="HistoriSepuluhTerakhir">
+
+                        <div class="row no-gutters">
+                            <div class="col-md-4" style="text-align: center;">
+                                <img src="../assets/img/10-transaksi.png" style="padding: 25px; width: 80%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" style="text-align:left;  margin-left: -1.5rem; margin-top: 2%;">
+                                    <h5 class="card-title">5 Transaksi Terakhir</h5>
+                                    <b class="card-text" style="color: #3D80BC;">Mencetak 5 transaksi terakhir</b>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,6 +106,44 @@
     </div>
 </footer><!-- End Footer -->
 
+@if (isVisible)
+{
+    @*<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                            <h5 style="font-style:italic;">Sedang dalam proses...</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h5 style="font-style:italic;">Sedang dalam proses...</h5>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
 @if (isTime)
 {
     <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
@@ -91,6 +165,82 @@
     </div>
 }
 
+@if (isRead)
+{
+    @*<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                            <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@if (isError)
+{
+    @*<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
+                            <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
+                    <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -100,6 +250,11 @@
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
+    private bool isRead = false;
+    private string jumlahtransaksi;
+    private int tempjumlahtransaksi;
+    private bool isError = false;
+    private bool isVisible = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -145,6 +300,65 @@
         } while (isTimeOut == false);
     }
 
+    private async Task ServiceThermal()
+    {
+        string myJson = "{" +
+        "\"acct_no\":\"" + trx._Nasabah[1] + "\"" +
+        "}";
+        string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+        string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
+        //string myUrl = "http://172.18.136.207:6001/invoke/bri.core.services.v1:fiveMutation";
+        //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
+        Utility.WriteLog("Histori condition : get service start", "step-action");
+        try
+        {
+            string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+            if (strResult != null)
+            {
+                JObject jobResult = JObject.Parse(strResult);
+                //trx.setTransaksiID((string)jobResult["transaction"].SelectToken("transactionId"));
+                //Utility.WriteLog("Histori condition : set transaksi ID " + trx._TransaksiID + " success", "step-action");
+
+                trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
+
+                if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                {
+                    Utility.WriteLog("Histori condition : hit service thermal success", "step-action");
+                    foreach (var response in jobResult["RESPONSE"].SelectToken("DATA"))
+                    {
+                        trx.AddListThermal2((string)response.SelectToken("TRACCT"), (string)response.SelectToken("TRDATE"), (string)response.SelectToken("TRDATE2"), (string)response.SelectToken("TIMENT"), (string)response.SelectToken("DORC"), (string)response.SelectToken("AMT"), (string)response.SelectToken("TRREMK"));
+                    }
+                    Utility.WriteLog("Histori condition : get list data success", "step-action");
+                    tempjumlahtransaksi = trx._listthermal.Count;
+                    isRead = false;
+                    trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
+                    await Task.Delay(100);
+                    StateHasChanged();
+                }
+                else
+                {
+                    Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
+                    trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
+                    isRead = false;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            isError = true;
+            isRead = false;
+            await Task.Delay(100);
+            StateHasChanged();
+            await Task.Delay(2000);
+            isError = false;
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+    }
+
     private async Task HistoriBulanBerjalan()
     {
         isTimeOut = true;
@@ -166,8 +380,24 @@
     private async Task HistoriSepuluhTerakhir()
     {
         isTimeOut = true;
-        Utility.WriteLog("Histori condition : move to histori sepuluh terakhir", "step-action");
-        OnClick.InvokeAsync("historiSepuluhTerakhir");
+
+        //Utility.WriteLog("Histori condition : move to histori sepuluh terakhir", "step-action");
+        //OnClick.InvokeAsync("historiSepuluhTerakhir");
+
+        await Task.Delay(500);
+        isRead = true;
+        await Task.Delay(100);
+        StateHasChanged();
+        Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
+        await ServiceThermal();
+
+        isVisible = !isVisible;
+        await Task.Delay(100);
+        Utility.WriteLog("Histori condition : print thermal started", "step-action");
+        await print.PrintThermal(trx);
+        Utility.WriteLog("Histori condition : print thermal finished", "step-action");
+        Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
+        OnClick.InvokeAsync("historiberhasil");
     }
     private async Task Home()
     {

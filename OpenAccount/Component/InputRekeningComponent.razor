@@ -8,11 +8,12 @@
 @inject Transaksi trx
 @inject Config config
 @inject HitServices services
+@inject TransaksiBaru trxbaru
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px; position:fixed;">
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top:5%;">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 @*<div>
                         <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti Kartu</span><br>
@@ -96,60 +97,111 @@
 </footer><!-- End Footer -->
 @if (isFalse)
 {
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center">
-                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
-                            <span class="sr-only">Loading...</span>
+    @*<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                            <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
                         </div>
                     </div>
-                    <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
-                        <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
-                    </div>
                 </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon Maaf,</h3>
+                    <h3>Nomor Rekening Tidak Diketahui</h3>
+                </div>
+
             </div>
         </div>
     </div>
 }
 @if (isRead)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center">
-                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
-                            <span class="sr-only">Loading...</span>
+    @*<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                            <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
                         </div>
                     </div>
-                    <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                        <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
-                    </div>
                 </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Sistem sedang membaca data tabungan anda</h3>
+                </div>
+
             </div>
         </div>
     </div>
 }
 @if (isError)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center">
-                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
-                            <span class="sr-only">Loading...</span>
+    @*<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
+                            <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
                         </div>
                     </div>
-                    <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
-                        <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
-                    </div>
                 </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
+                    <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
+                </div>
+
             </div>
         </div>
     </div>
@@ -168,6 +220,22 @@
     private bool isFalse = false;
     private bool isRead = false;
     private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        trx.clear();
+        Utility.WriteLog("Home condition : clear transaksi success", "step-action");
+        trx.clearTransactionLog();
+        Utility.WriteLog("Home condition : clear transaction log success", "step-action");
+        trx.clearArray();
+        Utility.WriteLog("Home condition : clear array success", "step-action");
+        trx.clearArrayNasabah();
+        Utility.WriteLog("Home condition : clear array nasabah success", "step-action");
+        trx.ClearList();
+        Utility.WriteLog("Home condition : clear list success", "step-action");
+        trxbaru.clear();
+        Utility.WriteLog("Home condition : clear transaksi baru success", "step-action");
+    }
 
     private void InputCharData(string strinput)
     {
@@ -210,25 +278,25 @@
             //trx.clearKTP();
             //Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
 
-            for (int i = 0; i < Nasabah.Length; i++)
-            {
-                if (i == 0)
-                    Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
-                else if (i == 1)
-                    Nasabah[i] = config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
-                else if (i == 2)
-                    Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
-            }
-            Console.WriteLine("INPUT DATA SUCCESS");
-            Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-            trx.setArrayNasabah(Nasabah);
+            //for (int i = 0; i < Nasabah.Length; i++)
+            //{
+            //    if (i == 0)
+            //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_NAMA_NASABAH);
+            //    else if (i == 1)
+            //        Nasabah[i] = strnorek;
+            //    else if (i == 2)
+            //        Nasabah[i] = config.Read("NASABAH", Config.PARAM_ALAMAT_NASABAH);
+            //}
+            //Console.WriteLine("INPUT DATA SUCCESS");
+            //Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+            //trx.setArrayNasabah(Nasabah);
 
-            //isRead = true;
-            //await Task.Delay(100);
-            //StateHasChanged();
-            //await ServiceRekening();
-            //if (isTrue)
-            OnClick.InvokeAsync("newhome");
+            isRead = true;
+            await Task.Delay(100);
+            StateHasChanged();
+            await ServiceRekening();
+            if (isTrue)
+                OnClick.InvokeAsync("newhome");
         }
     }
 

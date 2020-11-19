@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/printer.png" class="img-fluid" alt="" style="margin-top: 5%;">
+                <img src="../assets/img/10-transaksi.png" class="img-fluid" alt="" style="margin-top: 5%;">
             </div>
         </div>
     </div>
@@ -129,6 +129,26 @@
         </div>
     </div>
 }
+@if (isError)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">SISTEM ERROR</h3>
+                        <h5 style="font-style:italic;">Silahkan Hubungi Customer Service.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
@@ -155,6 +175,7 @@
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
+    private bool isError = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -262,7 +283,7 @@
 
     private async Task ServiceThermal()
     {
-        string myJson ="{" +
+        string myJson = "{" +
         "\"acct_no\":\"" + trx._Nasabah[1] + "\"" +
         "}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
@@ -308,6 +329,14 @@
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            isError = true;
+            isRead = false;
+            await Task.Delay(100);
+            StateHasChanged();
+            await Task.Delay(2000);
+            isError = false;
+            await Task.Delay(100);
+            StateHasChanged();
         }
     }
 

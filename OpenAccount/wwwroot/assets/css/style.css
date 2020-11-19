@@ -12,19 +12,46 @@
 body {
   /* font-family: "Open Sans", sans-serif; */
   font-family: "Poppins", Poppins;
+  /* src: url('../font/Poppins-Medium.ttf'); */
   color: #444444;
 }
 
 .bg-home {
+
+  /* font-family: "poppins", Helvetica; */
+  font-family: "Poppins", Poppins;
+  /* src: url('../font/Poppins-Medium.ttf'); */
+  /* background-image: url(../img/team-bg.jpg); */
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.bg-home2 {
     /* font-family: "poppins", Helvetica; */
     font-family: "Poppins", Poppins;
-    src: url('../font/Poppins-LightItalic.ttf');
-    /* background-image: url(../img/team-bg.jpg); */
+    /* src: url('../font/Poppins-Medium.ttf'); */
+    background-image: url('../img/Folder SVG/bg-landing.svg');
     background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+}
+
+.bg-landing {
+
+  /* font-family: "poppins", Helvetica; */
+  font-family: "Poppins", Poppins;
+  /* src: url('../font/Poppins-Medium.ttf'); */
+  background-image: url(../img/bg-landing.svg);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 a {
@@ -39,6 +66,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   /* font-family: "Raleway", sans-serif; */
   font-family: "Poppins", Poppins;
+  /* src: url('../font/Poppins-Medium.ttf'); */
 }
 
 /*--------------------------------------------------------------
@@ -464,6 +492,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 0;
   font-family: "Poppins", sans-serif;
+  /* src: url('../font/Poppins-Medium.ttf'); */
   color: #627680;
 }
 
