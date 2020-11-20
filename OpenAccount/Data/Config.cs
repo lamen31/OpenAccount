@@ -41,6 +41,7 @@ namespace OpenAccount.Data
         public const string PARAM_SERVICES_LINK2 = "param.services.link2";
         public const string PARAM_SERVICES_REKENING = "param.services.rekening";
         public const string PARAM_SERVICES_PASSBOOK = "param.services.passbook";
+        public const string PARAM_SERVICES_PASSBOOK1 = "param.services.passbook1";
         public const string PARAM_SERVICES_HISTORI = "param.services.histori";
         public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
 

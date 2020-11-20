@@ -10,7 +10,7 @@
                     <img src="./assets/img/Folder SVG/error-page.svg" style="width: 30%;"><br>
                     <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                         "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
-                        Silahkan menghubungi Petugas Bank / Customer Service"
+                        Waktu Anda telah habis."
                     </teks>
                 </div>
             </div>
@@ -26,7 +26,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(8000);
+        await Task.Delay(5000);
         OnClick.InvokeAsync("inputrekening");
     }
 }

@@ -75,6 +75,40 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private TimeSpan span;
+    private int overtime = 30000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
+
+    protected override async Task OnInitializedAsync()
+    {
+        starttime = DateTime.Now;
+        await Task.Run(() => IdleTime());
+        if (isTime)
+        {
+            //isTimeOut = true;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            //await Task.Delay(2000);
+            OnClick.InvokeAsync("timeout");
+        }
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -85,19 +119,22 @@
 
     private async Task PrintBuku()
     {
+        isTimeOut = true;
         Utility.WriteLog("Home condition : move to buku input data", "step-action");
         OnClick.InvokeAsync("bukuinputdata");
     }
 
     private async Task PrintHistori()
     {
+        isTimeOut = true;
         Utility.WriteLog("Home condition : move to histori pilih menu", "step-action");
         OnClick.InvokeAsync("historiPilih");
     }
 
     private async Task AmbilKartu()
     {
+        isTimeOut = true;
         Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("ambilkartu");
+        OnClick.InvokeAsync("inputrekening");
     }
 }

@@ -220,6 +220,11 @@
     private bool isFalse = false;
     private bool isRead = false;
     private bool isError = false;
+    private TimeSpan span;
+    private int overtime = 30000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
 
     protected override async Task OnInitializedAsync()
     {
@@ -235,6 +240,31 @@
         Utility.WriteLog("Home condition : clear list success", "step-action");
         trxbaru.clear();
         Utility.WriteLog("Home condition : clear transaksi baru success", "step-action");
+
+        starttime = DateTime.Now;
+        await Task.Run(() => IdleTime());
+        if (isTime)
+        {
+            isTimeOut = true;
+            await Task.Delay(100);
+            StateHasChanged();
+            await Task.Delay(2000);
+            OnClick.InvokeAsync("Home");
+        }
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
     }
 
     private void InputCharData(string strinput)
@@ -251,12 +281,14 @@
         //    if (strnorek2.Length == 17)
         //        strnorek2 += "-";
         //}
+        isTimeOut = true ;
         if (strnorek.Length < 15)
             strnorek += strinput;
     }
 
     private void RemoveCharData()
     {
+        isTimeOut = true;
         if (strnorek.Length > 0)
             strnorek = strnorek.Substring(0, strnorek.Length - 1);
         //if (strnorek2.Length > 0)
@@ -291,12 +323,16 @@
             //Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
             //trx.setArrayNasabah(Nasabah);
 
+
             isRead = true;
             await Task.Delay(100);
             StateHasChanged();
             await ServiceRekening();
             if (isTrue)
+            {
+                isTimeOut = true;
                 OnClick.InvokeAsync("newhome");
+            }
         }
     }
 
@@ -337,15 +373,16 @@
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
                     {
                         Console.WriteLine("Unknown Account Type");
-                        isFalse = true;
-                        isRead = false;
-                        await Task.Delay(100);
-                        StateHasChanged();
-                        await Task.Delay(2000);
-                        isFalse = false;
-                        strnorek = string.Empty;
-                        await Task.Delay(100);
-                        StateHasChanged();
+                        //isFalse = true;
+                        //isRead = false;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        //await Task.Delay(2000);
+                        //isFalse = false;
+                        //strnorek = string.Empty;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        OnClick.InvokeAsync("rekeningnotfound");
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-92" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "92")
                     {
@@ -365,30 +402,34 @@
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                isError = true;
-                isRead = false;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isError = false;
-                strnorek = string.Empty;
-                await Task.Delay(100);
-                StateHasChanged();
+                //Console.WriteLine(ex.Message);
+                //isError = true;
+                //isRead = false;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                //await Task.Delay(2000);
+                //isError = false;
+                //strnorek = string.Empty;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
-            isError = true;
-            isRead = false;
-            await Task.Delay(100);
-            StateHasChanged();
-            await Task.Delay(2000);
-            isError = false;
-            strnorek = string.Empty;
-            await Task.Delay(100);
-            StateHasChanged();
+            //Console.WriteLine(ex.Message);
+            //isError = true;
+            //isRead = false;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            //await Task.Delay(2000);
+            //isError = false;
+            //strnorek = string.Empty;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            isTimeOut = true;
+            OnClick.InvokeAsync("error");
         }
     }
 }

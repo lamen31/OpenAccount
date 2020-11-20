@@ -29,6 +29,8 @@ namespace OpenAccount.Data
         public string[] _BukuNominal { get; set; }
         public string _BukuSaldo { get; set; }
         public string[] _BukuPengesahan { get; set; }
+        public string _BukuHalamanPrint { get; set; }
+        public string _BukuIndex { get; set; }
         public string[] _ThermalDate { get; set; }
         public string[] _ThermalNominal { get; set; }
         public string[] _ThermalKode { get; set; }
@@ -106,6 +108,28 @@ namespace OpenAccount.Data
             public string _KodeTransaksi { get; set; }
             public string _Tanggal { get; set; }
             public string _SecurityCode { get; set; }
+            public string _Sandi { get; set; }
+            public string _PassbookBalance { get; set; }
+            public string _PassbookTellerID { get; set; }
+            public string _PassbookDate { get; set; }
+            public string _PassbookMNECode { get; set; }
+            public string _PassbookCreditAmount { get; set; }
+            public string _PassbookDebitAmount { get; set; }
+            public string _PassbookLine { get; set; }
+            public string _PassbookBranch { get; set; }
+        }
+
+        public class tempPrintBuku
+        {
+            public string _Sandi { get; set; }
+            public string _PassbookBalance { get; set; }
+            public string _PassbookTellerID { get; set; }
+            public string _PassbookDate { get; set; }
+            public string _PassbookMNECode { get; set; }
+            public string _PassbookCreditAmount { get; set; }
+            public string _PassbookDebitAmount { get; set; }
+            public string _PassbookLine { get; set; }
+            public string _PassbookBranch { get; set; }
         }
 
         public class printThermal
@@ -136,6 +160,7 @@ namespace OpenAccount.Data
 
         public List<HistoriTransaksi> _listhistori = new List<HistoriTransaksi>();
         public List<printBuku> _listbuku = new List<printBuku>();
+        public List<tempPrintBuku> _listtempbuku = new List<tempPrintBuku>();
         public List<printThermal> _listthermal = new List<printThermal>();
         public List<Account> _listaccount = new List<Account>();
 
@@ -201,6 +226,36 @@ namespace OpenAccount.Data
             buku._Tanggal = strtanggal;
             buku._SecurityCode = strsecurity;
             _listbuku.Add(buku);
+        }
+
+        public void AddListBuku2(string strsandi, string strbalance, string strtellerid, string strdate, string strmnecode, string strcredit, string strdebit, string strline, string strbranch)
+        {
+            printBuku buku = new printBuku();
+            buku._Sandi = strsandi;
+            buku._PassbookBalance = strbalance;
+            buku._PassbookTellerID = strtellerid;
+            buku._PassbookDate = strdate;
+            buku._PassbookMNECode = strmnecode;
+            buku._PassbookCreditAmount = strcredit;
+            buku._PassbookDebitAmount = strdebit;
+            buku._PassbookLine = strline;
+            buku._PassbookBranch = strbranch;
+            _listbuku.Add(buku);
+        }
+
+        public void AddListTempBuku(string strsandi, string strbalance, string strtellerid, string strdate, string strmnecode, string strcredit, string strdebit, string strline, string strbranch)
+        {
+            tempPrintBuku buku = new tempPrintBuku();
+            buku._Sandi = strsandi;
+            buku._PassbookBalance = strbalance;
+            buku._PassbookTellerID = strtellerid;
+            buku._PassbookDate = strdate;
+            buku._PassbookMNECode = strmnecode;
+            buku._PassbookCreditAmount = strcredit;
+            buku._PassbookDebitAmount = strdebit;
+            buku._PassbookLine = strline;
+            buku._PassbookBranch = strbranch;
+            _listtempbuku.Add(buku);
         }
 
         public void AddListThermal(string strid, string strjenis, string strnominal, string strketerangan, string strkodetransaksi, string strtanggal, string strsecurity)
@@ -342,6 +397,16 @@ namespace OpenAccount.Data
         {
             _BukuBaris = strbaris;
             _BukuSaldo = strsaldo;
+        }
+        public void setPassbookTransaksi2(string strindex, string strsaldo)
+        {
+            _BukuIndex = strindex;
+            _BukuSaldo = strsaldo;
+        }
+
+        public void setHalamanPrint(string strhalaman)
+        {
+            _BukuHalamanPrint = strhalaman;
         }
 
         public void setBuku(string strbaris, string strhalaman)
@@ -507,6 +572,11 @@ namespace OpenAccount.Data
         public void clearListBuku()
         {
             _listbuku.Clear();
+        }
+
+        public void clearListTempBuku()
+        {
+            _listtempbuku.Clear();
         }
 
         public void clearListThermal()

@@ -176,11 +176,11 @@
             await Task.Run(() => IdleTime());
             if (isTime)
             {
-                isTimeOut = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                OnClick.InvokeAsync("ambilkartu");
+                //isTimeOut = true;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                //await Task.Delay(2000);
+                OnClick.InvokeAsync("timeout");
             }
         }
     }
@@ -217,7 +217,7 @@
     {
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("ambilkartu");
+        OnClick.InvokeAsync("inputrekening");
     }
 
     private async Task BukuKonfirmasi()
