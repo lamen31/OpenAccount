@@ -23,6 +23,7 @@ namespace OpenAccount.Data
         public string _HistoriMaxHalaman { get; set; }
         public string _BukuBaris { get; set; }
         public string _BukuHalaman { get; set; }
+        public string _BukuSerial { get; set; }
         public string _BukuDate { get; set; }
         public string[] _BukuTipe { get; set; }
         public string[] _BukuSandi { get; set; }
@@ -65,6 +66,8 @@ namespace OpenAccount.Data
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _AccountNumber { get; set; }
+        public string _ServiceErrorCode { get; set; }
+        public string _ServicesErrorMessage { get; set; }
 
         public class HistoriTransaksi
         {
@@ -398,6 +401,14 @@ namespace OpenAccount.Data
             _BukuBaris = strbaris;
             _BukuSaldo = strsaldo;
         }
+
+        public void setPassbookTransaksi2(string strbaris, string strsaldo, string strserial)
+        {
+            _BukuBaris = strbaris;
+            _BukuSaldo = strsaldo;
+            _BukuSerial = strserial;
+        }
+
         public void setPassbookTransaksi2(string strindex, string strsaldo)
         {
             _BukuIndex = strindex;
@@ -456,6 +467,12 @@ namespace OpenAccount.Data
         public void setPinKonfirmasi(string strpin)
         {
             _PinATM2 = strpin;
+        }
+
+        public void setErrorService(string strcode, string strmessage)
+        {
+            _ServiceErrorCode = strcode;
+            _ServicesErrorMessage = strmessage;
         }
 
         public class AuditTrail

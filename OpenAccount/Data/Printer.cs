@@ -1019,7 +1019,120 @@ namespace OpenAccount.Data
             //_trx._BukuSaldo = saldo.ToString();
         }
 
-        public async Task PrintBukuPenuh(Transaksi trx)
+        public async Task PrintBukuHabis(Transaksi trx)
+        {
+            bool result = false;
+            int nol = 0;
+            printdoc = new PrintDocument();
+            _trx = trx;
+            string pathStatus;
+            string strfilename = "step-action";
+            string textStatus;
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
+            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
+            //PrinterSettings settings = new PrinterSettings();
+            //string printername = settings.PrinterName;
+            printdoc.PrinterSettings.PrinterName = printername;
+            printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
+            printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
+            printdoc.PrintPage += new PrintPageEventHandler(PassbookBukuHabis);
+            Utility.WriteLog("Printer condition : print passbook in " + printername + " start", "step-action");
+            printdoc.Print();
+            Utility.WriteLog("Printer condition : check status printing start", "step-action");
+            printerstatus.StatusPrinting(printername);
+            pathStatus = printerstatus.workingdirectory;
+            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            textStatus = Utility.ReadLog(pathStatus);
+            Utility.WriteLog(textStatus, "step-action");
+            Utility.ClearLog(pathStatus);
+            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
+            Status = printerstatus.StatusCode;
+            if (printerstatus.StatusCode == 0)
+            {
+                Console.WriteLine("Print Selesai ...");
+                Utility.WriteLog("Printer condition : print passbook in " + printername + " finished", "step-action");
+            }
+            else
+            {
+                Console.WriteLine("Print Gagal ...");
+                Utility.WriteLog("Printer condition : print passbook in " + printername + " failed", "step-action");
+            }
+            trx.setStatusPrinting(Status.ToString());
+            //return trx._BukuSaldo;
+        }
+
+        public void PassbookBukuHabis(object sender, PrintPageEventArgs e)
+        {
+            font = new Font("Arial", 8, FontStyle.Regular);
+            SolidBrush blackbrush = new SolidBrush(Color.Black);
+            Graphics g = e.Graphics;
+            string saldo;
+            int baris = Convert.ToInt32(_trx._BukuBaris);
+            int ypoint = 95;
+            int sisabaris = 13 * baris;
+            if (baris > 15)
+            {
+                sisabaris = sisabaris + (12 * 5);
+            }
+            ypoint += sisabaris;
+
+            for (int i = 0; i < _trx._listbuku.Count; i++)
+            {
+                string keterangan;
+                //int nominal = Convert.ToInt32(_trx._listbuku[i]._Nominal.Substring(0,_trx._listbuku[i]._Nominal.Length - 2));
+                //if(keterangan == "DBT")
+                //{
+                //    string sandi = _trx._listbuku[i]._KodeTransaksi;
+                //    saldo -= nominal;
+                //    string debetprint = "-" + nominal.ToString("N0") + ",00";
+                //    g.DrawString(sandi, font, blackbrush, new Point(57, ypoint));
+                //    g.DrawString(debetprint, font, blackbrush, new Point(95, ypoint));
+                //    g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(306, ypoint));
+                //}
+                //else if(keterangan == "KRT")
+                //{
+                //    string sandi = _trx._listbuku[i]._KodeTransaksi;
+                //    saldo += nominal;
+                //    string kreditprint = nominal.ToString("N0") + ",00";
+                //    g.DrawString(sandi, font, blackbrush, new Point(57, ypoint));
+                //    g.DrawString(kreditprint, font, blackbrush, new Point(189, ypoint));
+                //    g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(306, ypoint));
+                //}
+                string sandi = _trx._listbuku[i]._Sandi;
+                //saldo = checkZero(_trx._listbuku[i]._PassbookBalance);
+                saldo = _trx._listbuku[i]._PassbookBalance;
+                saldo = checkZero(saldo);
+                //string debetprint = checkZero(_trx._listbuku[i]._PassbookDebitAmount);
+                string debetprint = _trx._listbuku[i]._PassbookDebitAmount;
+                debetprint = checkZero(debetprint);
+                //string kreditprint = checkZero(_trx._listbuku[i]._PassbookCreditAmount);
+                string kreditprint = _trx._listbuku[i]._PassbookCreditAmount;
+                kreditprint = checkZero(kreditprint);
+                g.DrawString(sandi, font, blackbrush, new Point(57 - 11, ypoint));
+                g.DrawString(debetprint, font, blackbrush, new Point(95 - 11, ypoint));
+                g.DrawString(kreditprint, font, blackbrush, new Point(189 - 11, ypoint));
+                g.DrawString(saldo, font, blackbrush, new Point(306 - 11, ypoint));
+                //g.DrawString(baris.ToString(), font, blackbrush, new Point(0, ypoint));
+                string bukuDate = _trx._listbuku[i]._PassbookDate;
+                //bukuDate = bukuDate.Substring(0, 10);
+                g.DrawString(bukuDate, font, blackbrush, new Point(0, ypoint));
+                //g.DrawString(_trx._listbuku[i]._SecurityCode, font, blackbrush, new Point(442, ypoint));
+                //string line = _trx._listbuku[i]._PassbookLine.Substring(1, _trx._listbuku[i]._PassbookLine.Length);
+                string line = _trx._listbuku[i]._PassbookLine;
+                line = line.Substring(1, line.Length - 1);
+                g.DrawString(line, font, blackbrush, new Point(268 - 11, ypoint));
+                keterangan = _trx._listbuku[i]._PassbookMNECode + " " + _trx._listbuku[i]._PassbookTellerID;
+                g.DrawString(keterangan, font, blackbrush, new Point(420 - 11, ypoint));
+                baris += 1;
+                ypoint += 13;
+                if (baris == 16)
+                {
+                    ypoint = ypoint + (12 * 5);
+                }
+            }
+        }
+
+        public string PrintBukuPenuh(Transaksi trx)
         {
             printdoc = new PrintDocument();
             _trx = trx;
@@ -1058,6 +1171,7 @@ namespace OpenAccount.Data
             Console.WriteLine("Print Selesai ...");
             Utility.WriteLog("Printer condition : print buku penuh in " + printername + " finished", "step-action");
             trx.setStatusPrinting(Status.ToString());
+            return trx._BukuSaldo;
         }
 
         private void BukuPenuhPage(object sender, PrintPageEventArgs e)

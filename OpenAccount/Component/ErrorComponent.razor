@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="position: fixed;">
@@ -8,10 +11,28 @@
             <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" style="text-align: center;">
                 <div>
                     <img src="./assets/img/Folder SVG/error-page.svg" style="width: 30%;"><br>
-                    <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                        "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
-                        Silahkan menghubungi Petugas Bank / Customer Service"
-                    </teks>
+
+                    @if (isError)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
+                            Silahkan menghubungi Petugas Bank / Customer Service"
+                        </teks>
+                    }
+                    else if (isNoTransaction)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
+                            Tidak ada transaksi lagi untuk di print"
+                        </teks>
+                    }
+                    else if (isRekeningNotFound)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Rekening tidak ditemukan"
+                        </teks>
+                    }
                 </div>
             </div>
         </div>
@@ -24,8 +45,39 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isNoTransaction = false;
+    private bool isRekeningNotFound = false;
+    private bool isError = false;
+
+    private string errorcode = string.Empty;
+    private string errormessage = string.Empty;
+
     protected override async Task OnInitializedAsync()
     {
+        errorcode = trx._ServiceErrorCode;
+        errormessage = trx._ServicesErrorMessage;
+
+        if(errorcode == "ES-001")
+        {
+            isRekeningNotFound = true;
+            isError = false;
+            isNoTransaction = false;
+        }
+        else if(errorcode == "AS-260")
+        {
+            isNoTransaction = true;
+            isRekeningNotFound = false;
+            isError = false;
+        }
+        else
+        {
+            isError = true;
+            isNoTransaction = false;
+            isRekeningNotFound = false;
+        }
+        await Task.Delay(100);
+        StateHasChanged();
+
         await Task.Delay(8000);
         OnClick.InvokeAsync("inputrekening");
     }

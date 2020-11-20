@@ -331,13 +331,15 @@
             if (isTrue)
             {
                 isTimeOut = true;
-                OnClick.InvokeAsync("newhome");
+                OnClick.InvokeAsync("konfirmasirekening");
             }
         }
     }
 
     private async Task ServiceRekening()
     {
+        string errorcode;
+        string errormessage;
         try
         {
             string myJson = "{" +
@@ -382,21 +384,43 @@
                         //strnorek = string.Empty;
                         //await Task.Delay(100);
                         //StateHasChanged();
-                        OnClick.InvokeAsync("rekeningnotfound");
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-92" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "92")
                     {
                         Console.WriteLine("No servers available for EE_CORE");
-                        isRead = false;
-                        await Task.Delay(100);
-                        StateHasChanged();
+                        //isRead = false;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-999" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "999")
                     {
                         Console.WriteLine("General Error");
-                        isRead = false;
-                        await Task.Delay(100);
-                        StateHasChanged();
+                        //isRead = false;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+                    else
+                    {
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
                     }
                 }
             }
@@ -413,6 +437,9 @@
                 //await Task.Delay(100);
                 //StateHasChanged();
                 isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
                 OnClick.InvokeAsync("error");
             }
         }
@@ -429,6 +456,9 @@
             //await Task.Delay(100);
             //StateHasChanged();
             isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
             OnClick.InvokeAsync("error");
         }
     }

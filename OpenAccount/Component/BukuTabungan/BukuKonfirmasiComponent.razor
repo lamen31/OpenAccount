@@ -254,13 +254,15 @@
 
     private async Task ServicePassbook()
     {
+        string errorcode;
+        string errormessage;
         try
         {
             trx.clearListBuku();
             Utility.WriteLog("Buku condition : clear list buku success", "step-action");
             string myJson = "{" +
             "\"debit_account\":\"" + trx._Nasabah[1] + "\"," +
-            "\"passbook_serialno\":\"" + "1111111" + "\"," +
+            "\"passbook_serialno\":\"" + trx._BukuSerial + "\"," +
             "\"passbook_balance\":\"" + "63805054417.36" + "\"," +
             "\"passbook_rowno\":\"" + "01" + "\"," +
             "\"debit_currency\":\"" + "IDR" + "\"," +
@@ -300,23 +302,57 @@
                     else if((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-260" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "NI")
                     {
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
-                        OnClick.InvokeAsync("notransaction");
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "03")
                     {
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
                         OnClick.InvokeAsync("error");
                     }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-287" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "77")
+                    {
+                        Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+                    else
+                    {
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("HIT SERVICES ERROR");
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
                 OnClick.InvokeAsync("error");
             }
         }
         catch(Exception ex)
         {
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
             OnClick.InvokeAsync("error");
         }
     }
@@ -704,6 +740,7 @@
                     //{
                     //    await Task.Delay(100);
                     //} while (isBaris);
+                    isTimeOut = true;
                     OnClick.InvokeAsync("bukuhalamanpenuh");
                     //if (isBerhenti)
                     //{
@@ -719,6 +756,7 @@
             else if (totalbaris < maxbaris)
             {
                 saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+                isTimeOut = true;
                 Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
                 OnClick.InvokeAsync("bukuberhasil");
             }

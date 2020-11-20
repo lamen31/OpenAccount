@@ -242,8 +242,8 @@
 }
 
 @code {
-        [Parameter]
-        public EventCallback<string> OnClick { get; set; }
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
     private int overtime = 30000;
@@ -303,6 +303,8 @@
 
     private async Task ServiceThermal()
     {
+        string errorcode;
+        string errormessage;
         try
         {
             string myJson = "{" +
@@ -347,6 +349,10 @@
                         //isRead = false;
                         //await Task.Delay(100);
                         //StateHasChanged();
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -362,11 +368,19 @@
                 //isError = false;
                 //await Task.Delay(100);
                 //StateHasChanged();
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
                 OnClick.InvokeAsync("error");
             }
         }
         catch (Exception ex)
         {
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
             OnClick.InvokeAsync("error");
         }
     }
@@ -410,6 +424,7 @@
             Utility.WriteLog("Histori condition : print thermal started", "step-action");
             await print.PrintThermal(trx);
             Utility.WriteLog("Histori condition : print thermal finished", "step-action");
+            isTimeOut = true;
             Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             OnClick.InvokeAsync("historiberhasil");
         }

@@ -22,11 +22,11 @@
                 <form>
                     <div class="form-row">
                         @*<div class="form-group col-md-6">
-                            <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
-                            <input type="text" class="form-control" @bind="trx._Nasabah[1]">
-                        </div>*@
+                <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
+                <input type="text" class="form-control" @bind="trx._Nasabah[1]">
+            </div>*@
                         <div class="form-group col-md-6">
-                            <label  style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris</label>
+                            <label style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris</label>
                             @if (barisbuku == string.Empty)
                             {
                                 <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris yang akan dicetak" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
@@ -36,19 +36,19 @@
                                 <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" @bind="barisbuku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                         </div>
-                    @*</div>*@
-                    @*<div class="form-row">*@
+                        @*</div>*@
+                        @*<div class="form-row">*@
                         @*<div class="form-group col-md-6">
-                            <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Nomor Halaman</label>
-                            @if (halamanbuku == string.Empty)
-                            {
-                                <input type="text" class="form-control" id="input_field_2" placeholder="No. halaman yang akan dicetak" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
-                            }
-                            else
-                            {
-                                <input type="text" class="form-control" id="input_field_2" @bind="halamanbuku" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
-                            }
-                        </div>*@
+                <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Nomor Halaman</label>
+                @if (halamanbuku == string.Empty)
+                {
+                    <input type="text" class="form-control" id="input_field_2" placeholder="No. halaman yang akan dicetak" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
+                }
+                else
+                {
+                    <input type="text" class="form-control" id="input_field_2" @bind="halamanbuku" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
+                }
+            </div>*@
                         <div class="form-group col-md-6">
                             <label for="input_field_3" style="font-weight: 600; font-size: 18px; color: #007BFF;">Saldo Terakhir</label>
                             <div class="input-group">
@@ -64,6 +64,19 @@
                                     <input type="text" class="form-control num-field2" id="input_field_3" @bind="saldorekening" required="required" style="border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
                                 }
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight: 600; font-size: 18px; color: #007BFF;">Nomor Serial Buku</label>
+                            @if (serialbuku == string.Empty)
+                            {
+                                <input type="text" class="form-control num-field2" pattern="[1 -8]*" placeholder="No. serial pada buku" style="border: 1.5px solid #007BFF;" required="required" @onclick="@(() => Inputfield2())">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control num-field2" pattern="[1 -8]*" @bind="serialbuku" style="border: 1.5px solid #007BFF;" required="required" @onclick="@(() => Inputfield2())">
+                            }
                         </div>
                     </div>
                 </form>
@@ -153,6 +166,7 @@
     private string barisbuku = string.Empty;
     private string halamanbuku = string.Empty;
     private string saldorekening = string.Empty;
+    private string serialbuku = string.Empty;
     private string isTextfield = "1";
     private string Date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("dd/MM/yy");
     private string[] tipe;
@@ -222,7 +236,6 @@
 
     private async Task BukuKonfirmasi()
     {
-        isTimeOut = true;
         trx.clearArray();
         if (!isBisnis || isSimpedes)
         {
@@ -257,9 +270,11 @@
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
 
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
-                trx.setPassbookTransaksi(barisbuku, saldorekening);
+                trx.setPassbookTransaksi(barisbuku, saldorekening, serialbuku);
                 Utility.WriteLog("Buku condition : set data passbook success", "step-action");
 
+
+                isTimeOut = true;
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
                 OnClick.InvokeAsync("bukukonfirmasi");
             }
@@ -300,6 +315,8 @@
                 trx.setPassbookTransaksi(barisbuku, saldorekening);
                 Utility.WriteLog("Buku condition : set data passbook success", "step-action");
 
+
+                isTimeOut = true;
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
                 OnClick.InvokeAsync("bukukonfirmasi");
             }
@@ -332,8 +349,8 @@
                     barisbuku += strinput;
                 break;
             case "2":
-                if (halamanbuku.Length < 1)
-                    halamanbuku += strinput;
+                if (serialbuku.Length < 7)
+                    serialbuku += strinput;
                 break;
             case "3":
                 saldorekening += strinput;
@@ -350,8 +367,8 @@
                     barisbuku = barisbuku.Substring(0, barisbuku.Length - 1);
                 break;
             case "2":
-                if (halamanbuku.Length > 0)
-                    halamanbuku = halamanbuku.Substring(0, halamanbuku.Length - 1);
+                if (serialbuku.Length > 0)
+                    serialbuku = halamanbuku.Substring(0, halamanbuku.Length - 1);
                 break;
             case "3":
                 if (saldorekening.Length > 0)

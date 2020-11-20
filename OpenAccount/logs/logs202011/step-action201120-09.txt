@@ -52,3 +52,35 @@
 20201120 09:22:20 Buku condition : clear list buku success
 20201120 09:22:20 Buku condition : get service start
 20201120 09:22:28 Buku condition : set transaksi ID 2422 success
+20201120 09:47:31 Home condition : clear transaksi success
+20201120 09:47:31 Home condition : clear transaction log success
+20201120 09:47:31 Home condition : clear array success
+20201120 09:47:31 Home condition : clear array nasabah success
+20201120 09:47:31 Home condition : clear list success
+20201120 09:47:31 Home condition : clear transaksi baru success
+20201120 09:47:33 Home condition : clear transaksi success
+20201120 09:47:33 Home condition : clear transaction log success
+20201120 09:47:33 Home condition : clear array success
+20201120 09:47:33 Home condition : clear array nasabah success
+20201120 09:47:33 Home condition : clear list success
+20201120 09:47:33 Home condition : clear transaksi baru success
+20201120 09:47:36 Home condition : clear transaksi success
+20201120 09:47:36 Home condition : clear transaction log success
+20201120 09:47:36 Home condition : clear array success
+20201120 09:47:36 Home condition : clear array nasabah success
+20201120 09:47:36 Home condition : clear list success
+20201120 09:47:36 Home condition : clear transaksi baru success
+20201120 09:48:11 Histori condition : post service start
+20201120 09:48:12 Home condition : entered into new home
+20201120 09:48:13 Home condition : move to buku input data
+20201120 09:48:13 Buku condition : entered into buku input data
+20201120 09:48:17 Buku condition : isTextField = 1
+20201120 09:48:18 Buku condition : isTextField = 3
+20201120 09:48:20 Buku condition : isTextField = 2
+20201120 09:48:24 Buku condition : set data passbook success
+20201120 09:48:24 Buka rekening condition : move to buku konfirmasi
+20201120 09:48:24 Buku condition : entered into buku konfirmasi
+20201120 09:48:24 Buku condition : hit service passbook start
+20201120 09:48:25 Buku condition : clear list buku success
+20201120 09:48:25 Buku condition : get service start
+20201120 09:48:31 Buku condition : set transaksi ID 2422 success

@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx 
+
+<section id="hero" style="margin-top: 50px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                
+                <h3 style="color: #00529C;">Harap konfirmasi data <b>Rekening</b> Anda</h3>
+                <table style="margin-top: 5%; line-height: 9px;">
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Name </h4></td>
+                        <td><h4 style="font-weight: 600;">:&emsp;</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._Nasabah[0]</h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Account Number </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@trx._Nasabah[1]</h4><br></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+
+                @*<div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
+                    <div class="text-center">
+                        <img class="card-img-top" src="../assets/capture/KTP_UP.BMP" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hasil Capture e-KTP Anda</h5>
+                    </div>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="InputRekening">Batal</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="NewHome">Lanjut</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private async Task InputRekening()
+    {
+        OnClick.InvokeAsync("inputrekening");
+    }
+
+    private async Task NewHome()
+    {
+        OnClick.InvokeAsync("newhome");
+    }
+}
