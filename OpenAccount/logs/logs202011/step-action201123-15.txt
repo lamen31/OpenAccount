@@ -1,0 +1,67 @@
+20201123 15:22:51 Home condition : clear transaksi success
+20201123 15:22:51 Home condition : clear transaction log success
+20201123 15:22:51 Home condition : clear array success
+20201123 15:22:51 Home condition : clear array nasabah success
+20201123 15:22:51 Home condition : clear list success
+20201123 15:22:51 Home condition : clear transaksi baru success
+20201123 15:22:53 Home condition : clear transaksi success
+20201123 15:22:53 Home condition : clear transaction log success
+20201123 15:22:53 Home condition : clear array success
+20201123 15:22:53 Home condition : clear array nasabah success
+20201123 15:22:53 Home condition : clear list success
+20201123 15:22:53 Home condition : clear transaksi baru success
+20201123 15:30:06 Home condition : clear transaksi success
+20201123 15:30:06 Home condition : clear transaction log success
+20201123 15:30:06 Home condition : clear array success
+20201123 15:30:06 Home condition : clear array nasabah success
+20201123 15:30:06 Home condition : clear list success
+20201123 15:30:06 Home condition : clear transaksi baru success
+20201123 15:30:08 Home condition : clear transaksi success
+20201123 15:30:08 Home condition : clear transaction log success
+20201123 15:30:08 Home condition : clear array success
+20201123 15:30:08 Home condition : clear array nasabah success
+20201123 15:30:08 Home condition : clear list success
+20201123 15:30:08 Home condition : clear transaksi baru success
+20201123 15:30:42 Home condition : clear transaksi success
+20201123 15:30:42 Home condition : clear transaction log success
+20201123 15:30:42 Home condition : clear array success
+20201123 15:30:42 Home condition : clear array nasabah success
+20201123 15:30:42 Home condition : clear list success
+20201123 15:30:42 Home condition : clear transaksi baru success
+20201123 15:30:43 Home condition : clear transaksi success
+20201123 15:30:43 Home condition : clear transaction log success
+20201123 15:30:43 Home condition : clear array success
+20201123 15:30:43 Home condition : clear array nasabah success
+20201123 15:30:43 Home condition : clear list success
+20201123 15:30:43 Home condition : clear transaksi baru success
+20201123 15:31:33 Home condition : clear transaksi success
+20201123 15:31:33 Home condition : clear transaction log success
+20201123 15:31:33 Home condition : clear array success
+20201123 15:31:33 Home condition : clear array nasabah success
+20201123 15:31:33 Home condition : clear list success
+20201123 15:31:33 Home condition : clear transaksi baru success
+20201123 15:31:35 Home condition : clear transaksi success
+20201123 15:31:35 Home condition : clear transaction log success
+20201123 15:31:35 Home condition : clear array success
+20201123 15:31:35 Home condition : clear array nasabah success
+20201123 15:31:35 Home condition : clear list success
+20201123 15:31:35 Home condition : clear transaksi baru success
+20201123 15:31:40 Home condition : clear transaksi success
+20201123 15:31:40 Home condition : clear transaction log success
+20201123 15:31:40 Home condition : clear array success
+20201123 15:31:40 Home condition : clear array nasabah success
+20201123 15:31:40 Home condition : clear list success
+20201123 15:31:40 Home condition : clear transaksi baru success
+20201123 15:32:02 Histori condition : post service start
+20201123 15:48:04 Home condition : clear transaksi success
+20201123 15:48:04 Home condition : clear transaction log success
+20201123 15:48:04 Home condition : clear array success
+20201123 15:48:04 Home condition : clear array nasabah success
+20201123 15:48:04 Home condition : clear list success
+20201123 15:48:04 Home condition : clear transaksi baru success
+20201123 15:48:07 Home condition : clear transaksi success
+20201123 15:48:07 Home condition : clear transaction log success
+20201123 15:48:07 Home condition : clear array success
+20201123 15:48:07 Home condition : clear array nasabah success
+20201123 15:48:07 Home condition : clear list success
+20201123 15:48:07 Home condition : clear transaksi baru success

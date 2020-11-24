@@ -33,7 +33,7 @@
                             }
                             else
                             {
-                                <input type="text" class="form-control num-field" @bind="strnorek" style="border: 1.5px solid #007BFF;">
+                                <input type="text" class="form-control num-field" @bind="strnorek2" style="border: 1.5px solid #007BFF;">
                             }
                         </div>
                     </div>
@@ -206,6 +206,43 @@
         </div>
     </div>
 }
+@if (isWrongFormat)
+{
+    @*<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                            <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon Maaf,</h3>
+                    <h3>Nomor rekening yang Anda masukan kurang.</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
@@ -224,6 +261,7 @@
     private int overtime = 30000;
     private bool isTimeOut = false;
     private bool isTime = false;
+    private bool isWrongFormat = false;
     private DateTime starttime;
 
     protected override async Task OnInitializedAsync()
@@ -269,19 +307,19 @@
 
     private void InputCharData(string strinput)
     {
-        //if (strnorek2.Length < 19)
-        //{
-        //    strnorek2 += strinput;
-        //    if (strnorek2.Length == 4)
-        //        strnorek2 += "-";
-        //    if (strnorek2.Length == 7)
-        //        strnorek2 += "-";
-        //    if (strnorek2.Length == 14)
-        //        strnorek2 += "-";
-        //    if (strnorek2.Length == 17)
-        //        strnorek2 += "-";
-        //}
-        isTimeOut = true ;
+        isTimeOut = true;
+        if (strnorek2.Length < 19)
+        {
+            strnorek2 += strinput;
+            if (strnorek2.Length == 4 || strnorek2.Length == 7 || strnorek2.Length == 14 || strnorek2.Length == 17)
+                strnorek2 += "-";
+            //if (strnorek2.Length == 7)
+            //    strnorek2 += "-";
+            //if (strnorek2.Length == 14)
+            //    strnorek2 += "-";
+            //if (strnorek2.Length == 17)
+            //    strnorek2 += "-";
+        }
         if (strnorek.Length < 15)
             strnorek += strinput;
     }
@@ -293,13 +331,16 @@
             strnorek = strnorek.Substring(0, strnorek.Length - 1);
         //if (strnorek2.Length > 0)
         //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 1);
-        //if(strnorek2.Length==18)
+        if (strnorek2.Length == 18 || strnorek2.Length == 15 || strnorek2.Length == 8 || strnorek2.Length == 5)
+            strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
+        else if (strnorek2.Length > 0)
+            strnorek2 = strnorek2.Substring(0, strnorek2.Length - 1);
+
+        //if (strnorek2.Length == 15)
         //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
-        //if(strnorek2.Length==15)
+        //if (strnorek2.Length == 8)
         //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
-        //if(strnorek2.Length==8)
-        //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
-        //if(strnorek2.Length==5)
+        //if (strnorek2.Length == 5)
         //    strnorek2 = strnorek2.Substring(0, strnorek2.Length - 2);
     }
 
@@ -333,6 +374,16 @@
                 isTimeOut = true;
                 OnClick.InvokeAsync("konfirmasirekening");
             }
+        }
+        else if (strnorek.Length < 15)
+        {
+            isWrongFormat = true;
+            await Task.Delay(100);
+            StateHasChanged();
+            await Task.Delay(2000);
+            isWrongFormat = false;
+            await Task.Delay(100);
+            StateHasChanged();
         }
     }
 
@@ -375,6 +426,24 @@
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
                     {
                         Console.WriteLine("Unknown Account Type");
+                        //isFalse = true;
+                        //isRead = false;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        //await Task.Delay(2000);
+                        //isFalse = false;
+                        //strnorek = string.Empty;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "53")
+                    {
+                        Console.WriteLine("Nomor Rekening Tidak Dikenal");
                         //isFalse = true;
                         //isRead = false;
                         //await Task.Delay(100);

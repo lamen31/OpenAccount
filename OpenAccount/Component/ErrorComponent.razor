@@ -33,6 +33,20 @@
                             Rekening tidak ditemukan"
                         </teks>
                     }
+                    else if (isNotSerial)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Nomor serial yang Anda masukan salah."
+                        </teks>
+                    }
+                    else if (isGiro)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Rekening tidak bisa melakukan layanan ini."
+                        </teks>
+                    }
                 </div>
             </div>
         </div>
@@ -48,6 +62,8 @@
     private bool isNoTransaction = false;
     private bool isRekeningNotFound = false;
     private bool isError = false;
+    private bool isNotSerial = false;
+    private bool isGiro = false;
 
     private string errorcode = string.Empty;
     private string errormessage = string.Empty;
@@ -57,16 +73,36 @@
         errorcode = trx._ServiceErrorCode;
         errormessage = trx._ServicesErrorMessage;
 
-        if(errorcode == "ES-001")
+        if(errorcode == "ES-001" || errorcode == "AS-001")
         {
             isRekeningNotFound = true;
             isError = false;
             isNoTransaction = false;
+            isNotSerial = false;
+            isGiro = false;
         }
         else if(errorcode == "AS-260")
         {
             isNoTransaction = true;
             isRekeningNotFound = false;
+            isError = false;
+            isNotSerial = false;
+            isGiro = false;
+        }
+        else if(errorcode== "AS-287")
+        {
+            isNotSerial = true;
+            isRekeningNotFound = false;
+            isNoTransaction = false;
+            isError = false;
+            isGiro = false;
+        }
+        else if (errorcode == "GIRO")
+        {
+            isGiro = true;
+            isNotSerial = false;
+            isRekeningNotFound = false;
+            isNoTransaction = false;
             isError = false;
         }
         else
@@ -74,11 +110,20 @@
             isError = true;
             isNoTransaction = false;
             isRekeningNotFound = false;
+            isGiro = false;
         }
         await Task.Delay(100);
         StateHasChanged();
 
-        await Task.Delay(8000);
-        OnClick.InvokeAsync("inputrekening");
+        if (isNotSerial)
+        {
+            await Task.Delay(8000);
+            OnClick.InvokeAsync("bukuinputdata");
+        }
+        else
+        {
+            await Task.Delay(8000);
+            OnClick.InvokeAsync("inputrekening");
+        }
     }
 }

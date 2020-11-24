@@ -612,11 +612,11 @@ namespace OpenAccount.Data
             Graphics g = e.Graphics;
             string saldo;
             int baris = Convert.ToInt32(_trx._BukuBaris);
-            int ypoint = 95;
-            int sisabaris = 13 * baris;
-            if (baris > 15)
+            int ypoint = 87;
+            int sisabaris = 16 * baris;
+            if (baris > 14)
             {
-                sisabaris = sisabaris + (12 * 5);
+                sisabaris = sisabaris + (12 * 4);
             }
             ypoint += sisabaris;
 
@@ -658,20 +658,24 @@ namespace OpenAccount.Data
                 g.DrawString(saldo, font, blackbrush, new Point(306-11, ypoint));
                 //g.DrawString(baris.ToString(), font, blackbrush, new Point(0, ypoint));
                 string bukuDate = _trx._listbuku[i]._PassbookDate;
+                bukuDate = bukuDate.Substring(1, bukuDate.Length - 1);
                 //bukuDate = bukuDate.Substring(0, 10);
                 g.DrawString(bukuDate, font, blackbrush, new Point(0, ypoint));
                 //g.DrawString(_trx._listbuku[i]._SecurityCode, font, blackbrush, new Point(442, ypoint));
                 //string line = _trx._listbuku[i]._PassbookLine.Substring(1, _trx._listbuku[i]._PassbookLine.Length);
-                string line = _trx._listbuku[i]._PassbookLine;
-                line = line.Substring(1, line.Length - 1);
+                //string line = _trx._listbuku[i]._PassbookLine;
+                //line = line.Substring(1, line.Length - 1);
+                string line = baris.ToString();
+                if (line.Length < 2)
+                    line = "0" + line;
                 g.DrawString(line, font, blackbrush, new Point(268-11, ypoint));
                 keterangan = _trx._listbuku[i]._PassbookMNECode + " " + _trx._listbuku[i]._PassbookTellerID;
                 g.DrawString(keterangan, font, blackbrush, new Point(420-11, ypoint));
                 baris += 1;
-                ypoint += 13;
-                if (baris == 16)
+                ypoint += 16;
+                if (baris == 15)
                 {
-                    ypoint = ypoint + (12 * 5);
+                    ypoint = ypoint + (12 * 4);
                 }
             }
             //for(int i = 0; i < _trx._BukuTipe.Length; i++)

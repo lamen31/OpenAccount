@@ -25,11 +25,11 @@
                 <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
                 <input type="text" class="form-control" @bind="trx._Nasabah[1]">
             </div>*@
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-5">
                             <label style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris</label>
                             @if (barisbuku == string.Empty)
                             {
-                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris yang akan dicetak" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
+                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris pada buku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                             else
                             {
@@ -49,25 +49,33 @@
                     <input type="text" class="form-control" id="input_field_2" @bind="halamanbuku" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
                 }
             </div>*@
-                        <div class="form-group col-md-6">
-                            <label for="input_field_3" style="font-weight: 600; font-size: 18px; color: #007BFF;">Saldo Terakhir</label>
+                        <div class="form-group col-md-7">
+                            <label style="font-weight: 600; font-size: 18px; color: #007BFF;">Saldo Terakhir</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="background-color: #007BFF; border: 1.5px solid #007BFF; font-weight: 700; color: white;">Rp</span>
                                 </div>
                                 @if (saldorekening == string.Empty)
                                 {
-                                    <input type="text" class="form-control num-field2" id="input_field_3" placeholder="saldo terakhir pada buku" required="required" style="border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
+                                    <input type="text" class="form-control num-field2" id="input_field_3" placeholder="saldo terakhir" required="required" style="width:60%; border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
                                 }
                                 else
                                 {
-                                    <input type="text" class="form-control num-field2" id="input_field_3" @bind="saldorekening" required="required" style="border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
+                                    <input type="text" class="form-control num-field2" id="input_field_3" @bind="saldorekening" required="required" style="width:60%; border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
+                                }
+                                @if (belakangkoma == string.Empty)
+                                {
+                                    <input type="text" class="form-control num-field2" placeholder="," required="required" style="border: 1.5px solid #007BFF; margin-right: -20%; z-index: 99999;" @onclick="@(() => Inputfield4())">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control num-field2" @bind="belakangkoma" required="required" style="border: 1.5px solid #007BFF; margin-right: -20%; z-index: 99999;" @onclick="@(() => Inputfield4())">
                                 }
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-5">
                             <label style="font-weight: 600; font-size: 18px; color: #007BFF;">Nomor Serial Buku</label>
                             @if (serialbuku == string.Empty)
                             {
@@ -166,6 +174,7 @@
     private string barisbuku = string.Empty;
     private string halamanbuku = string.Empty;
     private string saldorekening = string.Empty;
+    private string belakangkoma = string.Empty;
     private string serialbuku = string.Empty;
     private string isTextfield = "1";
     private string Date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("dd/MM/yy");
@@ -174,12 +183,13 @@
     private string[] nominal;
     private string[] pengesahan;
     private TimeSpan span;
-    private int overtime = 30000;
+    private int overtime = 90000;
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
     private bool isBisnis = false;
     private bool isSimpedes = false;
+    private bool isGrio = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -196,6 +206,45 @@
                 //await Task.Delay(2000);
                 OnClick.InvokeAsync("timeout");
             }
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        string errorcode;
+        string errormessage;
+        await CheckRekening();
+        if (isGrio)
+        {
+            isTimeOut = true;
+            errorcode = "GIRO";
+            errormessage = "This Account is GIRO";
+            trx.setErrorService(errorcode, errormessage);
+            OnClick.InvokeAsync("error");
+        }
+    }
+
+    private async Task CheckRekening()
+    {
+        string norek = trx._Nasabah[1];
+        string idrek = norek.Substring(12, 2);
+        switch (idrek)
+        {
+            case "50":
+                isBisnis = false;
+                isSimpedes = false;
+                break;
+            case "56":
+                isBisnis = true;
+                isSimpedes = false;
+                break;
+            case "53":
+                isSimpedes = true;
+                isBisnis = false;
+                break;
+            case "30":
+                isGrio = true;
+                break;
         }
     }
 
@@ -270,7 +319,8 @@
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
 
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
-                trx.setPassbookTransaksi(barisbuku, saldorekening, serialbuku);
+                saldorekening += "," + belakangkoma;
+                trx.setPassbookTransaksi2(barisbuku, saldorekening, serialbuku);
                 Utility.WriteLog("Buku condition : set data passbook success", "step-action");
 
 
@@ -340,6 +390,13 @@
         isTextfield = "3";
         Utility.WriteLog("Buku condition : isTextField = 3", "step-action");
     }
+
+    private void Inputfield4()
+    {
+        isTextfield = "4";
+        Utility.WriteLog("Buku condition : isTextField = 3", "step-action");
+    }
+
     private void InputPhoneNumber(string strinput)
     {
         switch (isTextfield)
@@ -355,6 +412,10 @@
             case "3":
                 saldorekening += strinput;
                 break;
+            case "4":
+                if (belakangkoma.Length < 2)
+                    belakangkoma += strinput;
+                break;
         }
     }
 
@@ -368,11 +429,15 @@
                 break;
             case "2":
                 if (serialbuku.Length > 0)
-                    serialbuku = halamanbuku.Substring(0, halamanbuku.Length - 1);
+                    serialbuku = serialbuku.Substring(0, serialbuku.Length - 1);
                 break;
             case "3":
                 if (saldorekening.Length > 0)
                     saldorekening = saldorekening.Substring(0, saldorekening.Length - 1);
+                break;
+            case "4":
+                if (belakangkoma.Length > 0)
+                    belakangkoma = belakangkoma.Substring(0, belakangkoma.Length - 1);
                 break;
         }
     }

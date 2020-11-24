@@ -1,0 +1,76 @@
+20201120 18:13:05 Home condition : clear transaksi success
+20201120 18:13:05 Home condition : clear transaction log success
+20201120 18:13:05 Home condition : clear array success
+20201120 18:13:05 Home condition : clear array nasabah success
+20201120 18:13:05 Home condition : clear list success
+20201120 18:13:05 Home condition : clear transaksi baru success
+20201120 18:13:08 Home condition : clear transaksi success
+20201120 18:13:08 Home condition : clear transaction log success
+20201120 18:13:08 Home condition : clear array success
+20201120 18:13:08 Home condition : clear array nasabah success
+20201120 18:13:08 Home condition : clear list success
+20201120 18:13:08 Home condition : clear transaksi baru success
+20201120 18:13:17 Home condition : clear transaksi success
+20201120 18:13:17 Home condition : clear transaction log success
+20201120 18:13:17 Home condition : clear array success
+20201120 18:13:17 Home condition : clear array nasabah success
+20201120 18:13:17 Home condition : clear list success
+20201120 18:13:17 Home condition : clear transaksi baru success
+20201120 18:13:29 Home condition : input data Bambang Pamungkas success
+20201120 18:15:04 Home condition : entered into new home
+20201120 18:15:05 Home condition : move to buku input data
+20201120 18:15:05 Buku condition : entered into buku input data
+20201120 18:15:40 Home condition : clear transaksi success
+20201120 18:15:40 Home condition : clear transaction log success
+20201120 18:15:40 Home condition : clear array success
+20201120 18:15:40 Home condition : clear array nasabah success
+20201120 18:15:40 Home condition : clear list success
+20201120 18:15:40 Home condition : clear transaksi baru success
+20201120 18:16:25 Home condition : input data Bambang Pamungkas success
+20201120 18:16:27 Home condition : entered into new home
+20201120 18:16:29 Home condition : move to buku input data
+20201120 18:16:29 Buku condition : entered into buku input data
+20201120 18:26:17 Home condition : clear transaksi success
+20201120 18:26:17 Home condition : clear transaction log success
+20201120 18:26:17 Home condition : clear array success
+20201120 18:26:17 Home condition : clear array nasabah success
+20201120 18:26:17 Home condition : clear list success
+20201120 18:26:17 Home condition : clear transaksi baru success
+20201120 18:26:19 Home condition : clear transaksi success
+20201120 18:26:19 Home condition : clear transaction log success
+20201120 18:26:19 Home condition : clear array success
+20201120 18:26:19 Home condition : clear array nasabah success
+20201120 18:26:19 Home condition : clear list success
+20201120 18:26:19 Home condition : clear transaksi baru success
+20201120 18:26:32 Home condition : clear transaksi success
+20201120 18:26:32 Home condition : clear transaction log success
+20201120 18:26:32 Home condition : clear array success
+20201120 18:26:32 Home condition : clear array nasabah success
+20201120 18:26:32 Home condition : clear list success
+20201120 18:26:32 Home condition : clear transaksi baru success
+20201120 18:27:05 Home condition : input data Bambang Pamungkas success
+20201120 18:27:08 Home condition : entered into new home
+20201120 18:27:10 Home condition : move to histori pilih menu
+20201120 18:27:10 Histori condition : entered into histori pilih menu
+20201120 18:31:13 Home condition : clear transaksi success
+20201120 18:31:13 Home condition : clear transaction log success
+20201120 18:31:13 Home condition : clear array success
+20201120 18:31:13 Home condition : clear array nasabah success
+20201120 18:31:13 Home condition : clear list success
+20201120 18:31:13 Home condition : clear transaksi baru success
+20201120 18:31:15 Home condition : clear transaksi success
+20201120 18:31:15 Home condition : clear transaction log success
+20201120 18:31:15 Home condition : clear array success
+20201120 18:31:15 Home condition : clear array nasabah success
+20201120 18:31:15 Home condition : clear list success
+20201120 18:31:15 Home condition : clear transaksi baru success
+20201120 18:31:17 Home condition : clear transaksi success
+20201120 18:31:17 Home condition : clear transaction log success
+20201120 18:31:17 Home condition : clear array success
+20201120 18:31:17 Home condition : clear array nasabah success
+20201120 18:31:17 Home condition : clear list success
+20201120 18:31:17 Home condition : clear transaksi baru success
+20201120 18:31:24 Home condition : input data Bambang Pamungkas success
+20201120 18:31:25 Home condition : entered into new home
+20201120 18:31:27 Home condition : move to histori pilih menu
+20201120 18:31:27 Histori condition : entered into histori pilih menu

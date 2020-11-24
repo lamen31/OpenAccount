@@ -1,11 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject Utility utility 
+@inject Utility utility
 @inject Transaksi trx
 @inject Printer print
 @inject Config config
-
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -40,30 +39,26 @@
             @*<button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem;">Batal</button>*@
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
-            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
                 <li class="done">
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>3</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="todo">
+                <li class="done">
                     <em>4</em>
                     <!-- <span>Verification</span> -->
                 </li>
                 <li class="todo">
                     <em>5</em>
                     <!-- <span>Insert Money</span> -->
-                </li>
-                <li class="todo">
-                    <em>6</em>
-                    <!-- <span>Done</span> -->
                 </li>
             </ol>
         </div>
@@ -75,20 +70,37 @@
 
 @if (isVisible)
 {
-    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center">
-                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
-                            <span class="sr-only">Loading...</span>
+    @*<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                            <h5 style="font-style:italic;">Sedang dalam proses...</h5>
                         </div>
                     </div>
-                    <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                        <h5 style="font-style:italic;">Sedang dalam proses...</h5>
-                    </div>
                 </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Sedang dalam proses...</h3>
+                </div>
+
             </div>
         </div>
     </div>
@@ -110,6 +122,32 @@
     private bool isBaris = false;
     private int ClickCount = 0;
 
+    protected override async Task OnInitializedAsync()
+    {
+        await CheckRekening();
+    }
+
+    private async Task CheckRekening()
+    {
+        string norek = trx._Nasabah[1];
+        string idrek = norek.Substring(12, 2);
+        switch (idrek)
+        {
+            case "50":
+                isBisnis = false;
+                isSimpedes = false;
+                break;
+            case "56":
+                isBisnis = true;
+                isSimpedes = false;
+                break;
+            case "53":
+                isSimpedes = true;
+                isBisnis = false;
+                break;
+        }
+    }
+
     private async Task LanjutCetak()
     {
         tempmaxbaris = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARIS);
@@ -129,11 +167,11 @@
         {
             int startindex = Convert.ToInt32(trx._BukuIndex);
             List<Transaksi.tempPrintBuku> tempList = new List<Transaksi.tempPrintBuku>();
-            foreach(var buku in trx._listtempbuku)
+            foreach (var buku in trx._listtempbuku)
             {
                 tempList.Add(buku);
             }
-            for(int i =1; i < n; i++)
+            for (int i = 1; i < n; i++)
             {
                 if (i == n - 1)
                 {
@@ -187,6 +225,7 @@
                     }
                     //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
                     //trx.setPassbookTransaksi(baris.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
                     startindex = startindex + maxbaris;
                     Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintPassbook(trx));
@@ -206,11 +245,161 @@
         }
         else if (isBisnis && !isSimpedes)
         {
-
+            int startindex = Convert.ToInt32(trx._BukuIndex);
+            List<Transaksi.tempPrintBuku> tempList = new List<Transaksi.tempPrintBuku>();
+            foreach (var buku in trx._listtempbuku)
+            {
+                tempList.Add(buku);
+            }
+            for (int i = 1; i < n; i++)
+            {
+                if (i == n - 1)
+                {
+                    trx.clearListBuku();
+                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+                    int sisabaris = tempList.Count - startindex;
+                    baris = 1;
+                    //tipe = new string[sisabaris];
+                    //sandi = new string[sisabaris];
+                    //nominal = new string[sisabaris];
+                    //pengesahan = new string[sisabaris];
+                    //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
+                    //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
+                    //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
+                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
+                    for (int j = startindex; j < tempList.Count; j++)
+                    {
+                        trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
+                                tempList[j]._PassbookDate, tempList[j]._PassbookMNECode, tempList[j]._PassbookCreditAmount, tempList[j]._PassbookDebitAmount,
+                                tempList[j]._PassbookLine, tempList[j]._PassbookBranch);
+                    }
+                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
+                    trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
+                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+                    saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                    //await Task.Delay(10000);
+                    Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+                    OnClick.InvokeAsync("bukuberhasil");
+                    break;
+                }
+                else
+                {
+                    trx.clearListBuku();
+                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+                    baris = 1;
+                    //tipe = new string[40];
+                    //sandi = new string[40];
+                    //nominal = new string[40];
+                    //pengesahan = new string[40];
+                    //Array.Copy(temptipe, startindex, tipe, 0, 40);
+                    //Array.Copy(tempsandi, startindex, sandi, 0, 40);
+                    //Array.Copy(tempnominal, startindex, nominal, 0, 40);
+                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
+                    for (int j = startindex; j < startindex + maxbaris; j++)
+                    {
+                        trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
+                                tempList[j]._PassbookDate, tempList[j]._PassbookMNECode, tempList[j]._PassbookCreditAmount, tempList[j]._PassbookDebitAmount,
+                                tempList[j]._PassbookLine, tempList[j]._PassbookBranch);
+                    }
+                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    //trx.setPassbookTransaksi(baris.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    startindex = startindex + maxbaris;
+                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+                    saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                    jmlhalaman += 1;
+                    //await Task.Delay(10000);
+                }
+                isVisible = false;
+                isBaris = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                do
+                {
+                    await Task.Delay(100);
+                } while (isBaris);
+            }
         }
         else if (!isBisnis && isSimpedes)
         {
-
+            int startindex = Convert.ToInt32(trx._BukuIndex);
+            List<Transaksi.tempPrintBuku> tempList = new List<Transaksi.tempPrintBuku>();
+            foreach (var buku in trx._listtempbuku)
+            {
+                tempList.Add(buku);
+            }
+            for (int i = 1; i < n; i++)
+            {
+                if (i == n - 1)
+                {
+                    trx.clearListBuku();
+                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+                    int sisabaris = tempList.Count - startindex;
+                    baris = 1;
+                    //tipe = new string[sisabaris];
+                    //sandi = new string[sisabaris];
+                    //nominal = new string[sisabaris];
+                    //pengesahan = new string[sisabaris];
+                    //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
+                    //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
+                    //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
+                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
+                    for (int j = startindex; j < tempList.Count; j++)
+                    {
+                        trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
+                                tempList[j]._PassbookDate, tempList[j]._PassbookMNECode, tempList[j]._PassbookCreditAmount, tempList[j]._PassbookDebitAmount,
+                                tempList[j]._PassbookLine, tempList[j]._PassbookBranch);
+                    }
+                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
+                    trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
+                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+                    saldo = await Task.Run(() => print.PrintPassbookSimpedes(trx));
+                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                    //await Task.Delay(10000);
+                    Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+                    OnClick.InvokeAsync("bukuberhasil");
+                    break;
+                }
+                else
+                {
+                    trx.clearListBuku();
+                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+                    baris = 1;
+                    //tipe = new string[40];
+                    //sandi = new string[40];
+                    //nominal = new string[40];
+                    //pengesahan = new string[40];
+                    //Array.Copy(temptipe, startindex, tipe, 0, 40);
+                    //Array.Copy(tempsandi, startindex, sandi, 0, 40);
+                    //Array.Copy(tempnominal, startindex, nominal, 0, 40);
+                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
+                    for (int j = startindex; j < startindex + maxbaris; j++)
+                    {
+                        trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
+                                tempList[j]._PassbookDate, tempList[j]._PassbookMNECode, tempList[j]._PassbookCreditAmount, tempList[j]._PassbookDebitAmount,
+                                tempList[j]._PassbookLine, tempList[j]._PassbookBranch);
+                    }
+                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    //trx.setPassbookTransaksi(baris.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+                    startindex = startindex + maxbaris;
+                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+                    saldo = await Task.Run(() => print.PrintPassbookSimpedes(trx));
+                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                    jmlhalaman += 1;
+                    //await Task.Delay(10000);
+                }
+                isVisible = false;
+                isBaris = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                do
+                {
+                    await Task.Delay(100);
+                } while (isBaris);
+            }
         }
     }
 
