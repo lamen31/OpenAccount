@@ -3,7 +3,41 @@
 
 @inject Transaksi trx 
 
-<section id="hero" style="margin-top: 50px;">
+<section id="hero" style="margin-top: 150px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Konfirmasi Nomor Rekening</span><br>
+                </div>
+                <h3 style="color: #00529C;">Harap konfirmasi <b>Data Rekening</b> Anda</h3>
+                <table style="margin-top: 5%; line-height: 7px;">
+                    <tr>
+                        <td><h4 style="font-weight: 600; color:#00529C;"> Name </h4></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;">:&emsp;</h4></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@trx._Nasabah[0]</b></h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;color:#00529C;"> Account Number </h4></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;">:</h4></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@trx._Nasabah[1]</b></h4><br></td>
+                    </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;color:#00529C;"> Product Type </h4></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;">:</h4></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@producttype</b></h4><br></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img class="card-img-top" src="../assets/img/Folder SVG/card.svg" alt="Card image cap" style="float:right;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section id="hero" style="margin-top: 50px;">
 
     <div class="container">
         <div class="row">
@@ -21,9 +55,14 @@
                         <td><h4 style="font-weight: 600;">:</h4></td>
                         <td><h4 style="font-weight: 600;">@trx._Nasabah[1]</h4><br></td>
                     </tr>
+                    <tr>
+                        <td><h4 style="font-weight: 600;"> Product Type </h4></td>
+                        <td><h4 style="font-weight: 600;">:</h4></td>
+                        <td><h4 style="font-weight: 600;">@producttype</h4><br></td>
+                    </tr>
                 </table>
             </div>
-            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">-->
 
                 @*<div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
                     <div class="text-center">
@@ -34,10 +73,10 @@
                     </div>
                 </div>*@
 
-            </div>
+            <!--</div>
         </div>
     </div>
-</section>
+</section>-->
 <!-- End Hero -->
 <!-- ======= Footer ======= -->
 <footer id="footer" class="fixed-bottom">
@@ -79,13 +118,73 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private string producttype = string.Empty;
+    private TimeSpan span;
+    private int overtime = 90000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private DateTime starttime;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CheckRekening();
+        trx.setProductType(producttype);
+        starttime = DateTime.Now;
+        await Task.Run(() => IdleTime());
+        if (isTime)
+        {
+            //isTimeOut = true;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            //await Task.Delay(2000);
+            OnClick.InvokeAsync("timeout");
+        }
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    private async Task CheckRekening()
+    {
+        string norek = trx._Nasabah[1];
+        string idrek = norek.Substring(12, 2);
+        switch (idrek)
+        {
+            case "50":
+                producttype = "Britama";
+                break;
+            case "56":
+                producttype = "Britama Bisnis";
+                break;
+            case "53":
+                producttype = "Simpedes";
+                break;
+            case "30":
+                producttype = "Giro";
+                break;
+        }
+    }
+
     private async Task InputRekening()
     {
+        isTimeOut = true;
         OnClick.InvokeAsync("inputrekening");
     }
 
     private async Task NewHome()
     {
+        isTimeOut = true;
         OnClick.InvokeAsync("newhome");
     }
 }

@@ -284,7 +284,65 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(1000);
+        await CheckStatus();
+    }
+
+    private async Task CheckStatus()
+    {
+        string errorcode;
+        string errormessage;
+        string status = trx._Nasabah[4];
+        switch (status)
+        {
+            case "1":
+                break;
+            case "2":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Closed";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "3":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Matured but Not Closed";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "4":
+                break;
+            case "5":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Zero Actual";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "6":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Restricted";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "7":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Frozen with No Actual";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "8":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Charge Off";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "9":
+                break;
+        }
     }
 
     private async Task IdleTime()
@@ -342,8 +400,18 @@
                         await Task.Delay(100);
                         StateHasChanged();
                     }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-001" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
+                    {
+                        Console.WriteLine("No Data Found");
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
                     else
                     {
+                        Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
                         Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         //trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
                         //isRead = false;

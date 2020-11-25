@@ -307,7 +307,7 @@
 
     private void InputCharData(string strinput)
     {
-        isTimeOut = true;
+        starttime = DateTime.Now;
         if (strnorek2.Length < 19)
         {
             strnorek2 += strinput;
@@ -326,7 +326,7 @@
 
     private void RemoveCharData()
     {
-        isTimeOut = true;
+        starttime = DateTime.Now;
         if (strnorek.Length > 0)
             strnorek = strnorek.Substring(0, strnorek.Length - 1);
         //if (strnorek2.Length > 0)
@@ -423,6 +423,19 @@
                         await Task.Delay(100);
                         StateHasChanged();
                     }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-008" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "NH")
+                    {
+                        Nasabah[0] = " - ";
+                        Nasabah[1] = strnorek;
+                        Nasabah[2] = " - ";
+                        Nasabah[3] = " - ";
+                        Nasabah[4] = "9";
+                        trx.setArrayNasabah(Nasabah);
+                        isTrue = true;
+                        isRead = false;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                    }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
                     {
                         Console.WriteLine("Unknown Account Type");
@@ -474,6 +487,30 @@
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-999" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "999")
                     {
                         Console.WriteLine("General Error");
+                        //isRead = false;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-007" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "NF")
+                    {
+                        Console.WriteLine("Rekening Sudah Ditutup");
+                        //isRead = false;
+                        //await Task.Delay(100);
+                        //StateHasChanged();
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-009" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "76")
+                    {
+                        Console.WriteLine("Rekening Tidak Bisa Ditarik");
                         //isRead = false;
                         //await Task.Delay(100);
                         //StateHasChanged();

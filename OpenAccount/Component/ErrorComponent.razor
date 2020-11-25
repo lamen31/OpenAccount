@@ -44,7 +44,36 @@
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
-                            Rekening tidak bisa melakukan layanan ini."
+                            Rekening ini tidak bisa melakukan layanan ini."
+                        </teks>
+                    }
+                    else if (isTutup)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Rekening ini sudah ditutup."
+                        </teks>
+                    }
+                    else if (isDataNotFound)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Data pada rekening ini tidak ditemukan."
+                        </teks>
+                    }
+                    else if (isNotStatus)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Rekening ini tidak bisa melakukan layanan ini."<br />
+                            @errormessage
+                        </teks>
+                    }
+                    else if (isTidakDitarik)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Rekening ini tidak bisa melakukan layanan ini."
                         </teks>
                     }
                 </div>
@@ -59,58 +88,69 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private bool isNoTransaction = false;
-    private bool isRekeningNotFound = false;
-    private bool isError = false;
-    private bool isNotSerial = false;
-    private bool isGiro = false;
+    private bool isNoTransaction;
+    private bool isRekeningNotFound;
+    private bool isError;
+    private bool isNotSerial;
+    private bool isGiro;
+    private bool isTutup;
+    private bool isDataNotFound;
+    private bool isNotStatus;
+    private bool isTidakDitarik;
 
     private string errorcode = string.Empty;
     private string errormessage = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
+        isNoTransaction = false;
+        isRekeningNotFound = false;
+        isError = false;
+        isNotSerial = false;
+        isGiro = false;
+        isTutup = false;
+        isDataNotFound = false;
+        isNotStatus = false;
+        isTidakDitarik = false;
+
         errorcode = trx._ServiceErrorCode;
         errormessage = trx._ServicesErrorMessage;
 
         if(errorcode == "ES-001" || errorcode == "AS-001")
         {
             isRekeningNotFound = true;
-            isError = false;
-            isNoTransaction = false;
-            isNotSerial = false;
-            isGiro = false;
         }
         else if(errorcode == "AS-260")
         {
             isNoTransaction = true;
-            isRekeningNotFound = false;
-            isError = false;
-            isNotSerial = false;
-            isGiro = false;
         }
         else if(errorcode== "AS-287")
         {
             isNotSerial = true;
-            isRekeningNotFound = false;
-            isNoTransaction = false;
-            isError = false;
-            isGiro = false;
         }
-        else if (errorcode == "GIRO")
+        else if (errorcode == "GIRO" || errorcode == "BISNIS")
         {
             isGiro = true;
-            isNotSerial = false;
-            isRekeningNotFound = false;
-            isNoTransaction = false;
-            isError = false;
+        }
+        else if(errorcode == "AS-007")
+        {
+            isTutup = true;
+        }
+        else if (errorcode == "DW-001")
+        {
+            isDataNotFound = true;
+        }
+        else if(errorcode == "NotStatus")
+        {
+            isNotStatus = true;
+        }
+        else if(errorcode== "AS-009")
+        {
+            isTidakDitarik = true;
         }
         else
         {
             isError = true;
-            isNoTransaction = false;
-            isRekeningNotFound = false;
-            isGiro = false;
         }
         await Task.Delay(100);
         StateHasChanged();

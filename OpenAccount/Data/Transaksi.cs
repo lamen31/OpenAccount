@@ -66,6 +66,8 @@ namespace OpenAccount.Data
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _AccountNumber { get; set; }
+        public string _AccountProductType { get; set; }
+        public string _AccountStatus { get; set; }
         public string _ServiceErrorCode { get; set; }
         public string _ServicesErrorMessage { get; set; }
 
@@ -475,6 +477,15 @@ namespace OpenAccount.Data
             _ServicesErrorMessage = strmessage;
         }
 
+        public void setProductType(string strproduct)
+        {
+            _AccountProductType = strproduct;
+        }
+        public void setStatus(string strstatus)
+        {
+            _AccountStatus = strstatus;
+        }
+
         public class AuditTrail
         {
             public string _action { get; set; }
@@ -531,6 +542,11 @@ namespace OpenAccount.Data
             _JenisTransaksi = string.Empty;
             _StatusTransaksi = string.Empty;
             _ErrorCode = string.Empty;
+            _ServiceErrorCode = string.Empty;
+            _ServicesErrorMessage = string.Empty;
+            _AccountProductType = string.Empty;
+            _AccountNumber = string.Empty;
+            _AccountStatus = string.Empty;
         }
 
         public void clearTransactionLog()

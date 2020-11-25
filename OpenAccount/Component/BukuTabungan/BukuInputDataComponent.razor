@@ -11,7 +11,7 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
-    <div class="container">
+    <div class="container" style="margin-top:-4%;">
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
@@ -22,14 +22,14 @@
                 <form>
                     <div class="form-row">
                         @*<div class="form-group col-md-6">
-                <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
-                <input type="text" class="form-control" @bind="trx._Nasabah[1]">
-            </div>*@
+                                <label for="inputEmail4" style="font-weight: 600; font-size: 18px;">Nomor Rekening Anda</label>
+                                <input type="text" class="form-control" @bind="trx._Nasabah[1]">
+                            </div>*@
                         <div class="form-group col-md-5">
-                            <label style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris</label>
+                            <label style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris Selanjutnya</label>
                             @if (barisbuku == string.Empty)
                             {
-                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris pada buku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
+                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris buku selanjutnya" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                             else
                             {
@@ -39,16 +39,16 @@
                         @*</div>*@
                         @*<div class="form-row">*@
                         @*<div class="form-group col-md-6">
-                <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Nomor Halaman</label>
-                @if (halamanbuku == string.Empty)
-                {
-                    <input type="text" class="form-control" id="input_field_2" placeholder="No. halaman yang akan dicetak" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
-                }
-                else
-                {
-                    <input type="text" class="form-control" id="input_field_2" @bind="halamanbuku" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
-                }
-            </div>*@
+                                <label for="input_field_2" style="font-weight: 600; font-size: 18px;">Nomor Halaman</label>
+                                @if (halamanbuku == string.Empty)
+                                {
+                                    <input type="text" class="form-control" id="input_field_2" placeholder="No. halaman yang akan dicetak" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" id="input_field_2" @bind="halamanbuku" maxlength="1" required="required" @onclick="@(() => Inputfield2())">
+                                }
+                            </div>*@
                         <div class="form-group col-md-7">
                             <label style="font-weight: 600; font-size: 18px; color: #007BFF;">Saldo Terakhir</label>
                             <div class="input-group">
@@ -61,7 +61,7 @@
                                 }
                                 else
                                 {
-                                    <input type="text" class="form-control num-field2" id="input_field_3" @bind="saldorekening" required="required" style="width:60%; border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
+                                    <input type="text" class="form-control num-field2" id="input_field_3" @bind="saldorekening2" required="required" style="width:60%; border: 1.5px solid #007BFF;" @onclick="@(() => Inputfield3())">
                                 }
                                 @if (belakangkoma == string.Empty)
                                 {
@@ -90,6 +90,7 @@
                 </form>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
+                <img src="../assets/img/Folder GIF/Pesanan-Datang.gif" style="width: 60%; float: right; margin-bottom: 2%;">
                 <div id="keyboard" style="margin-top:12%"></div>
                 <container>
                     <button class="block" value="1" @onclick="@(() => InputPhoneNumber("1"))">1</button>
@@ -165,6 +166,117 @@
         </div>
     </div>
 }
+@if (isBarisLebih)
+{
+    @*<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                            <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon Maaf,</h3>
+                    <h3>Nomor baris yang Anda masukan melebihi format buku.</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+@if (isTidakSesuai)
+{
+    @*<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                            <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon Maaf,</h3>
+                    <h3>Data yang Anda masukan tidak sesuai format.</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+@if (isSerialKurang)
+{
+    @*<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                            <h5 style="font-style:italic;">Nomor Rekening Tidak Diketahui</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon Maaf,</h3>
+                    <h3>Jumlah serial buku yang Anda masukan kurang.</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
@@ -174,6 +286,7 @@
     private string barisbuku = string.Empty;
     private string halamanbuku = string.Empty;
     private string saldorekening = string.Empty;
+    private string saldorekening2 = string.Empty;
     private string belakangkoma = string.Empty;
     private string serialbuku = string.Empty;
     private string isTextfield = "1";
@@ -190,6 +303,10 @@
     private bool isBisnis = false;
     private bool isSimpedes = false;
     private bool isGrio = false;
+    private bool isBarisLebih = false;
+    private bool isTidakSesuai = false;
+    private bool isSerialKurang = false;
+    private bool isBukanStatus = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -213,6 +330,7 @@
     {
         string errorcode;
         string errormessage;
+        await CheckStatus();
         await CheckRekening();
         if (isGrio)
         {
@@ -220,30 +338,97 @@
             errorcode = "GIRO";
             errormessage = "This Account is GIRO";
             trx.setErrorService(errorcode, errormessage);
+            isTimeOut = true;
+            OnClick.InvokeAsync("error");
+        }
+        else if (isBisnis)
+        {
+            isTimeOut = true;
+            errorcode = "BISNIS";
+            errormessage = "This Account is BISNIS";
+            trx.setErrorService(errorcode, errormessage);
+            isTimeOut = true;
             OnClick.InvokeAsync("error");
         }
     }
 
     private async Task CheckRekening()
     {
-        string norek = trx._Nasabah[1];
-        string idrek = norek.Substring(12, 2);
-        switch (idrek)
+        string producttype = trx._AccountProductType;
+        switch (producttype)
         {
-            case "50":
+            case "Britama":
                 isBisnis = false;
                 isSimpedes = false;
                 break;
-            case "56":
+            case "Britama Bisnis":
                 isBisnis = true;
                 isSimpedes = false;
                 break;
-            case "53":
+            case "Simpedes":
                 isSimpedes = true;
                 isBisnis = false;
                 break;
-            case "30":
+            case "Giro":
                 isGrio = true;
+                break;
+        }
+    }
+
+    private async Task CheckStatus()
+    {
+        string errorcode;
+        string errormessage;
+        string status = trx._Nasabah[4];
+        switch (status)
+        {
+            case "1":
+                break;
+            case "2":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Closed";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "3":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Matured but Not Closed";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "4":
+                break;
+            case "5":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Zero Actual";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "6":
+                //errorcode = "NotStatus";
+                //errormessage = "Account Status Restricted";
+                //trx.setErrorService(errorcode, errormessage);
+                //isTimeOut = true;
+                //OnClick.InvokeAsync("error");
+                break;
+            case "7":
+                //errorcode = "NotStatus";
+                //errormessage = "Account Status Frozen with No Actual";
+                //trx.setErrorService(errorcode, errormessage);
+                //isTimeOut = true;
+                //OnClick.InvokeAsync("error");
+                break;
+            case "8":
+                errorcode = "NotStatus";
+                errormessage = "Account Status Charge Off";
+                trx.setErrorService(errorcode, errormessage);
+                isTimeOut = true;
+                OnClick.InvokeAsync("error");
+                break;
+            case "9":
                 break;
         }
     }
@@ -288,7 +473,17 @@
         trx.clearArray();
         if (!isBisnis || isSimpedes)
         {
-            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 31)
+            if (barisbuku == "0" || barisbuku == "00")
+            {
+                isTidakSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTidakSesuai = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else if (saldorekening != string.Empty && Convert.ToInt32(barisbuku) <= 29 && serialbuku.Length == 7)
             {
                 //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
                 //string[] lines = System.IO.File.ReadAllLines(path);
@@ -319,6 +514,8 @@
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
 
                 //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+                if (belakangkoma == string.Empty)
+                    belakangkoma = "00";
                 saldorekening += "," + belakangkoma;
                 trx.setPassbookTransaksi2(barisbuku, saldorekening, serialbuku);
                 Utility.WriteLog("Buku condition : set data passbook success", "step-action");
@@ -328,10 +525,50 @@
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
                 OnClick.InvokeAsync("bukukonfirmasi");
             }
+            else if (saldorekening == string.Empty || barisbuku == string.Empty || serialbuku == string.Empty)
+            {
+                isTidakSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTidakSesuai = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else if (Convert.ToInt32(barisbuku) > 29)
+            {
+                isBarisLebih = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isBarisLebih = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else if (serialbuku.Length < 7)
+            {
+                isSerialKurang = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isSerialKurang = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else
+            {
+                isTidakSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTidakSesuai = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
         }
-        else if(isBisnis && !isSimpedes)
+        else if (isBisnis && !isSimpedes)
         {
-            if (saldorekening != string.Empty && int.Parse(barisbuku) <= 16)
+            if (saldorekening != string.Empty && Convert.ToInt32(barisbuku) <= 15)
             {
                 //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
                 //string[] lines = System.IO.File.ReadAllLines(path);
@@ -369,6 +606,46 @@
                 isTimeOut = true;
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
                 OnClick.InvokeAsync("bukukonfirmasi");
+            }
+            else if (Convert.ToInt32(barisbuku) > 15)
+            {
+                isBarisLebih = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isBarisLebih = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else if (serialbuku.Length < 7)
+            {
+                isSerialKurang = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isSerialKurang = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else if(Convert.ToInt32(barisbuku) == 0 || Convert.ToInt32(barisbuku) == 00)
+            {
+                isTidakSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTidakSesuai = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
+            else
+            {
+                isTidakSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTidakSesuai = false;
+                await Task.Delay(100);
+                StateHasChanged();
             }
         }
     }
@@ -411,12 +688,21 @@
                 break;
             case "3":
                 saldorekening += strinput;
+                CheckSaldo(saldorekening);
                 break;
             case "4":
                 if (belakangkoma.Length < 2)
                     belakangkoma += strinput;
                 break;
         }
+    }
+
+    private async Task CheckSaldo(string strsaldo)
+    {
+        long saldo = Convert.ToInt64(strsaldo);
+        saldorekening2 = saldo.ToString("N0");
+        Task.Delay(100);
+        StateHasChanged();
     }
 
     private void RemovePhoneNumber()
@@ -433,7 +719,9 @@
                 break;
             case "3":
                 if (saldorekening.Length > 0)
-                    saldorekening = saldorekening.Substring(0, saldorekening.Length - 1);
+                    saldorekening = saldorekening.Substring(0, saldorekening.Length - 1); 
+                if (saldorekening2.Length > 0)
+                    saldorekening2 = saldorekening2.Substring(0, saldorekening2.Length - 1);
                 break;
             case "4":
                 if (belakangkoma.Length > 0)
