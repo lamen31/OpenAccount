@@ -65,7 +65,10 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" @onclick="BukuBerhasil">Cetak</button>
+            @if (isHidden)
+            {
+                <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" @onclick="BukuBerhasil">Cetak</button>
+            }
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -229,6 +232,7 @@
     private bool isBisnis = false;
     private bool isSimpedes = false;
     private bool isGrio = false;
+    private bool isHidden = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -241,6 +245,9 @@
         StateHasChanged();
         Utility.WriteLog("Buku condition : hit service passbook start", "step-action");
         await ServicePassbook();
+        isHidden = true;
+        await Task.Delay(100);
+        StateHasChanged();
         jumlahtransaksi = tempjumlahtransaksi.ToString();
     }
 

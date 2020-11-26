@@ -44,28 +44,28 @@
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
-                            Rekening ini tidak bisa melakukan layanan ini."
+                            Rekening Anda tidak bisa melakukan layanan ini."
                         </teks>
                     }
                     else if (isTutup)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
-                            Rekening ini sudah ditutup."
+                            Rekening Anda sudah ditutup."
                         </teks>
                     }
                     else if (isDataNotFound)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
-                            Data pada rekening ini tidak ditemukan."
+                            Data pada rekening Anda tidak ditemukan."
                         </teks>
                     }
                     else if (isNotStatus)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
-                            Rekening ini tidak bisa melakukan layanan ini."<br />
+                            Rekening Anda tidak bisa melakukan layanan ini."<br />
                             @errormessage
                         </teks>
                     }
@@ -73,7 +73,7 @@
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
-                            Rekening ini tidak bisa melakukan layanan ini."
+                            Rekening Anda tidak bisa melakukan layanan ini."
                         </teks>
                     }
                 </div>
@@ -113,7 +113,8 @@
         isNotStatus = false;
         isTidakDitarik = false;
 
-        errorcode = trx._ServiceErrorCode;
+        //errorcode = trx._ServiceErrorCode;
+        errorcode = "AS-009";
         errormessage = trx._ServicesErrorMessage;
 
         if(errorcode == "ES-001" || errorcode == "AS-001")

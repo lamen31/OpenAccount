@@ -623,6 +623,7 @@ namespace OpenAccount.Data
             _listbuku.Clear();
             _listthermal.Clear();
             _listaccount.Clear();
+            _listtempbuku.Clear();
         }
     }
 

@@ -187,6 +187,7 @@
                     //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
                     //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
                     //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
+                    await Task.Delay(500);
                     for (int j = startindex; j < tempList.Count; j++)
                     {
                         trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
@@ -217,6 +218,7 @@
                     //Array.Copy(tempsandi, startindex, sandi, 0, 40);
                     //Array.Copy(tempnominal, startindex, nominal, 0, 40);
                     //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
+                    await Task.Delay(500);
                     for (int j = startindex; j < startindex + maxbaris; j++)
                     {
                         trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,

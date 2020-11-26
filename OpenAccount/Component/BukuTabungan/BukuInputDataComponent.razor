@@ -29,11 +29,11 @@
                             <label style="font-weight: 600; font-size: 18px; color: #007BFF; ">Nomor Baris Selanjutnya</label>
                             @if (barisbuku == string.Empty)
                             {
-                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris buku selanjutnya" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
+                                <input type="text" class="form-control num-field2" id="input_field_1" pattern="[1 -8]*" placeholder="No. baris buku selanjutnya" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                             else
                             {
-                                <input type="text" class="form-control" id="input_field_1" pattern="[1 -8]*" @bind="barisbuku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
+                                <input type="text" class="form-control num-field2" id="input_field_1" pattern="[1 -8]*" @bind="barisbuku" style="border: 1.5px solid #007BFF;" maxlength="2" required="required" @onclick="@(() => Inputfield1())">
                             }
                         </div>
                         @*</div>*@
@@ -483,6 +483,16 @@
                 await Task.Delay(100);
                 StateHasChanged();
             }
+            else if (barisbuku == string.Empty)
+            {
+                isTidakSesuai = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTidakSesuai = false;
+                await Task.Delay(100);
+                StateHasChanged();
+            }
             else if (saldorekening != string.Empty && Convert.ToInt32(barisbuku) <= 29 && serialbuku.Length == 7)
             {
                 //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
@@ -719,7 +729,7 @@
                 break;
             case "3":
                 if (saldorekening.Length > 0)
-                    saldorekening = saldorekening.Substring(0, saldorekening.Length - 1); 
+                    saldorekening = saldorekening.Substring(0, saldorekening.Length - 1);
                 if (saldorekening2.Length > 0)
                     saldorekening2 = saldorekening2.Substring(0, saldorekening2.Length - 1);
                 break;

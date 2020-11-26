@@ -577,11 +577,11 @@ namespace OpenAccount.Data
             //PrinterSettings settings = new PrinterSettings();
             //string printername = settings.PrinterName;
             printdoc.PrinterSettings.PrinterName = printername;
-            printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
-            printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
+            //printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
+            //printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
             printdoc.PrintPage += new PrintPageEventHandler(PassbookPrintPage);
             Utility.WriteLog("Printer condition : print passbook in " + printername + " start", "step-action");
-            //printdoc.Print();
+            printdoc.Print();
             Utility.WriteLog("Printer condition : check status printing start", "step-action");
             printerstatus.StatusPrinting(printername);
             pathStatus = printerstatus.workingdirectory;
@@ -607,7 +607,7 @@ namespace OpenAccount.Data
 
         public void PassbookPrintPage(object sender, PrintPageEventArgs e)
         {
-            font = new Font("Arial", 7.5F, FontStyle.Regular);
+            font = new Font("Calibri", 7.5F, FontStyle.Regular);
             SolidBrush blackbrush = new SolidBrush(Color.Black);
             Graphics g = e.Graphics;
             StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
@@ -663,10 +663,13 @@ namespace OpenAccount.Data
                 kreditprint = checkZero(kreditprint);
                 long kredit = Convert.ToInt64(kreditprint.Substring(0, kreditprint.Length - 3));
                 if (kredit > 1000)
-                    kreditprint = kredit.ToString("N0") + ".00";
-                g.DrawString(sandi, font, blackbrush, new Point(57-7, ypoint));
-                SizeF layoutsize = new SizeF(162-4, ypoint);
-                RectangleF layout = new RectangleF(new PointF(0, ypoint), layoutsize);
+                    kreditprint = kredit.ToString("N0") + ".00"; 
+                SizeF layoutsize = new SizeF(321, ypoint);
+                RectangleF layout = new RectangleF(new PointF(57-7, ypoint), layoutsize);
+                g.DrawString(sandi, font, blackbrush, layout, formatLeft);
+                //g.DrawString(sandi, font, blackbrush, new Point(57-7, ypoint));
+                layoutsize = new SizeF(162-4, ypoint);
+                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
                 g.DrawString(debetprint, font, blackbrush, layout, formatRight);
                 //g.DrawString(debetprint, font, blackbrush, new Point(95-11, ypoint));
                 layoutsize = new SizeF(249+4, ypoint);
@@ -681,7 +684,10 @@ namespace OpenAccount.Data
                 string bukuDate = _trx._listbuku[i]._PassbookDate;
                 bukuDate = bukuDate.Substring(1, bukuDate.Length - 1);
                 //bukuDate = bukuDate.Substring(0, 10);
-                g.DrawString(bukuDate, font, blackbrush, new Point(0, ypoint));
+                layoutsize = new SizeF(321, ypoint);
+                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
+                g.DrawString(bukuDate, font, blackbrush, layout, formatLeft);
+                //g.DrawString(bukuDate, font, blackbrush, new Point(0, ypoint));
                 //g.DrawString(_trx._listbuku[i]._SecurityCode, font, blackbrush, new Point(442, ypoint));
                 //string line = _trx._listbuku[i]._PassbookLine.Substring(1, _trx._listbuku[i]._PassbookLine.Length);
                 //string line = _trx._listbuku[i]._PassbookLine;
@@ -689,11 +695,17 @@ namespace OpenAccount.Data
                 string line = baris.ToString();
                 if (line.Length < 2)
                     line = "0" + line;
-                g.DrawString(line, font, blackbrush, new Point(268-7, ypoint));
+                layoutsize = new SizeF(321, ypoint);
+                layout = new RectangleF(new PointF(268 - 7, ypoint), layoutsize);
+                g.DrawString(line, font, blackbrush, layout, formatLeft);
+                //g.DrawString(line, font, blackbrush, new Point(268-7, ypoint));
                 keterangan = _trx._listbuku[i]._PassbookMNECode;
                 //keterangan = _trx._listbuku[i]._PassbookMNECode + " " + _trx._listbuku[i]._PassbookTellerID;
                 string tellerID = _trx._listbuku[i]._PassbookTellerID;
-                g.DrawString(keterangan, font, blackbrush, new Point(400+4, ypoint));
+                layoutsize = new SizeF(321, ypoint);
+                layout = new RectangleF(new PointF(400 + 4, ypoint), layoutsize);
+                g.DrawString(keterangan, font, blackbrush, layout, formatLeft);
+                //g.DrawString(keterangan, font, blackbrush, new Point(400+4, ypoint));
                 layoutsize = new SizeF(468 + 8, ypoint);
                 layout = new RectangleF(new PointF(0, ypoint), layoutsize);
                 g.DrawString(tellerID, font, blackbrush, layout, formatRight);

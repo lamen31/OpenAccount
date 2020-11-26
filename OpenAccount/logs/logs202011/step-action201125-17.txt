@@ -1,0 +1,48 @@
+20201125 17:06:13 Home condition : clear transaksi success
+20201125 17:06:13 Home condition : clear transaction log success
+20201125 17:06:13 Home condition : clear array success
+20201125 17:06:13 Home condition : clear array nasabah success
+20201125 17:06:13 Home condition : clear list success
+20201125 17:06:13 Home condition : clear transaksi baru success
+20201125 17:06:14 Home condition : clear transaksi success
+20201125 17:06:14 Home condition : clear transaction log success
+20201125 17:06:14 Home condition : clear array success
+20201125 17:06:14 Home condition : clear array nasabah success
+20201125 17:06:14 Home condition : clear list success
+20201125 17:06:14 Home condition : clear transaksi baru success
+20201125 17:20:59 Home condition : clear transaksi success
+20201125 17:20:59 Home condition : clear transaction log success
+20201125 17:20:59 Home condition : clear array success
+20201125 17:20:59 Home condition : clear array nasabah success
+20201125 17:20:59 Home condition : clear list success
+20201125 17:20:59 Home condition : clear transaksi baru success
+20201125 17:21:09 Home condition : clear transaksi success
+20201125 17:21:09 Home condition : clear transaction log success
+20201125 17:21:09 Home condition : clear array success
+20201125 17:21:09 Home condition : clear array nasabah success
+20201125 17:21:09 Home condition : clear list success
+20201125 17:21:09 Home condition : clear transaksi baru success
+20201125 17:21:20 Home condition : clear transaksi success
+20201125 17:21:20 Home condition : clear transaction log success
+20201125 17:21:20 Home condition : clear array success
+20201125 17:21:20 Home condition : clear array nasabah success
+20201125 17:21:20 Home condition : clear list success
+20201125 17:21:20 Home condition : clear transaksi baru success
+20201125 17:21:31 Histori condition : post service start
+20201125 17:21:32 Home condition : entered into new home
+20201125 17:21:33 Home condition : move to buku input data
+20201125 17:21:33 Buku condition : entered into buku input data
+20201125 17:21:35 Buku condition : isTextField = 3
+20201125 17:21:37 Buku condition : isTextField = 2
+20201125 17:51:09 Home condition : clear transaksi success
+20201125 17:51:09 Home condition : clear transaction log success
+20201125 17:51:09 Home condition : clear array success
+20201125 17:51:09 Home condition : clear array nasabah success
+20201125 17:51:09 Home condition : clear list success
+20201125 17:51:09 Home condition : clear transaksi baru success
+20201125 17:51:11 Home condition : clear transaksi success
+20201125 17:51:11 Home condition : clear transaction log success
+20201125 17:51:11 Home condition : clear array success
+20201125 17:51:11 Home condition : clear array nasabah success
+20201125 17:51:11 Home condition : clear list success
+20201125 17:51:11 Home condition : clear transaksi baru success

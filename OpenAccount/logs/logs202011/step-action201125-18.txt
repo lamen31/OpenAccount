@@ -1,0 +1,12 @@
+20201125 18:10:28 Home condition : clear transaksi success
+20201125 18:10:28 Home condition : clear transaction log success
+20201125 18:10:28 Home condition : clear array success
+20201125 18:10:28 Home condition : clear array nasabah success
+20201125 18:10:28 Home condition : clear list success
+20201125 18:10:28 Home condition : clear transaksi baru success
+20201125 18:10:30 Home condition : clear transaksi success
+20201125 18:10:30 Home condition : clear transaction log success
+20201125 18:10:30 Home condition : clear array success
+20201125 18:10:30 Home condition : clear array nasabah success
+20201125 18:10:30 Home condition : clear list success
+20201125 18:10:30 Home condition : clear transaksi baru success
