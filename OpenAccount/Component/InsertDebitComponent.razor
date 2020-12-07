@@ -1,8 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
+@using System.IO.Ports
+@using System.Text;
 
-@inject Utility utility 
-
+@inject Config config
+@inject Transaksi trx
+@inject Utility utility
+@inject EDC edc
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="position: fixed;">
 
@@ -10,12 +14,12 @@
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span>
+                    @*<span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span>*@
                     <h3 style="color: #00529C; font-size: 30px;">Silakan Masukkan Kartu ATM Anda</h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Folder GIF/Insert-Debit.gif" class="img-fluid" alt="" style="margin-top: 19%;">
+                <img src="../assets/img/Folder GIF/insert-card.gif" class="img-fluid" alt="" style="margin-top: 19%;">
             </div>
         </div>
     </div>
@@ -64,20 +68,254 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+    private bool isEDC = true;
+    private bool isLoop = false;
+    private bool isCancel = false;
+    private bool isComplete = false;
+    private SerialPort sPort = new SerialPort();
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(1000);
+        //await Task.Delay(5000);
+        StateHasChanged();
         Utility.WriteLog("Home condition : input kartu success", "step-action");
         Utility.WriteLog("Home condition : move to input pin", "step-action");
-        OnClick.InvokeAsync("inputpin");
+        //OnClick.InvokeAsync("inputpin");
+        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        await GetCard();
+        if(isComplete)
+        {
+            OnClick.InvokeAsync("inputpin");
+        }else if(isCancel)
+        {
+            OnClick.InvokeAsync("default");
+        }
     }
-
+    private async Task GetCard()
+    {
+        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        Utility.WriteLog("Home condition : EDC process start", "step-action");
+        await Task.Delay(100);
+        try
+        {
+            await EDCClearBuffer("1200");
+            await EDC("11");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+        }
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Home condition : entered into insert debit", "step-action");
         }
+    }
+    private async Task EDC(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port open", "step-action");
+            serialPort.Open();
+            trx.AddTrail("OPEN SERIAL EDC", "", "SUCCESS");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            isLoop = false;
+        }
+
+        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        while (isLoop)
+        {
+            await Task.Delay(150);
+
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+                Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                Console.WriteLine("Data Current: " + dataCurrent);
+                Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    if(buffer[4] == 0x30 && buffer[5] == 0x30 && buffer[6] == 0x30 && buffer[7] == 0x30)
+                    {
+                        trx.nomerKartu = dataSplit.Substring(10, 16);
+                        Console.WriteLine(trx.nomerKartu);
+                        isComplete = true;
+                        break;
+                    }else
+                    {
+                        isCancel = true;
+                        break;
+                    }
+                }
+                Console.WriteLine("Data Split: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Utility.WriteLog("Home condition : EDC ACK", "step-action");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    Utility.WriteLog("Home condition : EDC NAK", "step-action");
+                }
+            }
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+
+        Console.WriteLine("2");
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+    }
+    private async Task EDCClearBuffer(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port open", "step-action");
+            serialPort.Open();
+            trx.AddTrail("OPEN SERIAL EDC", "", "SUCCESS");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            isLoop = false;
+        }
+
+        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        await Task.Delay(150);
+
+        dataRespond = string.Empty;
+        dataSplit = string.Empty;
+        //bool exitLoop = false;
+        //Console.WriteLine(dataRespond);
+        if (serialPort.IsOpen)
+        {
+            Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+            string dataCurrent = serialPort.ReadExisting();
+            dataRespond += dataCurrent;
+            Console.WriteLine("Data Current Pin: " + dataCurrent);
+            Console.WriteLine("Data Respond Pin: " + dataRespond);
+            Console.WriteLine("Data Split Pin: " + dataSplit);
+            if (dataRespond.Contains("\x06"))
+            {
+                if (dataRespond.Length > 10)
+                {
+                    //serialPort.Close();
+                    Utility.WriteLog("Home condition : EDC ACK", "step-action");
+                }
+            }
+            else if (dataRespond.Contains("\x15"))
+            {
+                serialPort.Close();
+                Utility.WriteLog("Home condition : EDC NAK", "step-action");
+            }
+        }
+        await Task.Delay(100);
+        StateHasChanged();
+
+        Console.WriteLine("2");
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
 }

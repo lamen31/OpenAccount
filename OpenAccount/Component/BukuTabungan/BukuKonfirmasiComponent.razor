@@ -306,12 +306,12 @@
             trx.clearListBuku();
             Utility.WriteLog("Buku condition : clear list buku success", "step-action");
             string myJson = "{" +
-            "\"debit_account\":\"" + trx._Nasabah[1] + "\"," +
+            "\"debit_account\":\"" + trx._AccountNumber + "\"," + //MnoPQR
             "\"passbook_serialno\":\"" + trx._BukuSerial + "\"," +
             "\"passbook_balance\":\"" + trx._BukuSaldo + "\"," +
             "\"passbook_rowno\":\"" + trx._BukuBaris + "\"," +
-            "\"debit_currency\":\"" + trx._Nasabah[2] + "\"," +
-            "\"credit_currency\":\"" + trx._Nasabah[2] + "\"," +
+            "\"debit_currency\":\"" + trx.acctCurr + "\"," +
+            "\"credit_currency\":\"" + trx.acctCurr + "\"," +
             "\"remark2\":\"" + "" + "\"," +
             "\"remark3\":\"" + "" + "\"" +
             "}";
@@ -535,6 +535,12 @@
                         startindex = maxbaris - baris;
                         Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                         saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                        //loading by nana
+                        isVisible = !isVisible;
+                        await Task.Delay(7000);
+                        StateHasChanged();
+
                         Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                         jmlhalaman += 1;
                         trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
@@ -638,6 +644,12 @@
             else if (totalbaris <= maxbaris)
             {
                 saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                //loading by nana
+                isVisible = !isVisible;
+                await Task.Delay(7000);
+                StateHasChanged();
+
                 isTimeOut = true;
                 Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
                 OnClick.InvokeAsync("bukuberhasil");
@@ -723,6 +735,12 @@
                         startindex = maxbaris - baris;
                         Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                         saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+
+                        //loading by nana
+                        isVisible = !isVisible;
+                        await Task.Delay(7000);
+                        StateHasChanged();
+
                         Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                         jmlhalaman += 1;
                         trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
@@ -826,6 +844,12 @@
             else if (totalbaris < maxbaris)
             {
                 saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+
+                //loading by nana
+                isVisible = !isVisible;
+                await Task.Delay(7000);
+                StateHasChanged();
+
                 isTimeOut = true;
                 Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
                 OnClick.InvokeAsync("bukuberhasil");

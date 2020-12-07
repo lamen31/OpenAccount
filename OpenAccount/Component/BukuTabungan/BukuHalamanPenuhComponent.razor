@@ -206,6 +206,12 @@
                     trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
                     Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                    //loading by nana
+                    isVisible = !isVisible;
+                    await Task.Delay(7000);
+                    StateHasChanged();
+
                     Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                     //await Task.Delay(10000);
                     Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
@@ -238,6 +244,12 @@
                     startindex = startindex + maxbaris;
                     Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                    //loading by nana
+                    isVisible = !isVisible;
+                    await Task.Delay(7000);
+                    StateHasChanged();
+
                     Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                     jmlhalaman += 1;
                     //await Task.Delay(10000);

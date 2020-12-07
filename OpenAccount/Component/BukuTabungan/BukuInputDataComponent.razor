@@ -16,7 +16,7 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Transaksi Buku Tabungan</span><br>
-                    <teks>Hello, @trx._Nasabah[0]</teks>
+                    <teks>Hello, @trx.namaNasabah</teks>
                     <h3 style="color: #00529C;">Masukkan data buku tabungan Anda</h3>
                 </div>
                 <form>
@@ -379,7 +379,7 @@
     {
         string errorcode;
         string errormessage;
-        string status = trx._Nasabah[4];
+        string status = trx.mbStatus;
         switch (status)
         {
             case "1":
@@ -465,7 +465,7 @@
     {
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("inputrekening");
+        OnClick.InvokeAsync("default");
     }
 
     private async Task BukuKonfirmasi()

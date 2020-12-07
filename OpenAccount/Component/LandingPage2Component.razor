@@ -1,5 +1,14 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO.Ports
+@using System.Text;
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 
+@inject Config config
+@inject Transaksi trx
+@inject Utility utility
+@inject EDC edc
 <!-- ======= Hero Section ======= -->
 <body oncontextmenu="return false" class="bg-home2" style="background-image:url('../assets/img/Folder SVG/bg-landing.svg')">
     <section id="hero" style="position: fixed;">
@@ -68,6 +77,9 @@
 
     private bool isNotHour = false;
     private string TimeNow = string.Empty;
+    private bool isTrue = false;
+    private bool isRead = false;
+    private bool isTimeOut = false;
 
     //private async Task Test()
     //{
@@ -99,19 +111,74 @@
     private async Task InputRekening()
     {
         TimeNow = DateTime.Now.ToString("HH:mm:ss");
-        if (DateTime.Now.Hour > 16 || DateTime.Now.Hour < 6)
+        //if (DateTime.Now.Hour > 22 || DateTime.Now.Hour < 6)
+        //{
+        //isNotHour = true;
+        //await Task.Delay(100);
+        //StateHasChanged();
+        //await Task.Delay(5000);
+        //isNotHour = false;
+        //await Task.Delay(100);
+        //StateHasChanged();
+        //Console.WriteLine(TimeNow);
+        //    OnClick.InvokeAsync("nothour");
+        //}
+        //else
+        OnClick.InvokeAsync("historiPilih");
+    }
+    private async Task MonthlyStatement()
+    {
+        string errorcode;
+        string errormessage;
+        try
         {
-            //isNotHour = true;
-            //await Task.Delay(100);
-            //StateHasChanged();
-            //await Task.Delay(5000);
-            //isNotHour = false;
-            //await Task.Delay(100);
-            //StateHasChanged();
-            //Console.WriteLine(TimeNow);
-            OnClick.InvokeAsync("nothour");
+            string myJson = "{" +
+                "\"acct_no\":\"" + "008301031142500" + "\"," +
+            "\"start_date\":\"" + "20191102" + "\"," +
+            "\"end_date\":\"" + "20201102" + "\"" +
+                "}";
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + "monthly/statement";
+            ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
+            Utility.WriteLog("Histori condition : post service start", "step-action");
+            try
+            {
+                string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                if (strResult != null)
+                {
+                    JObject jobResult = JObject.Parse(strResult);
+
+                    if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                    {
+                        await Task.Delay(100);
+                        StateHasChanged();
+                    }
+                    else
+                    {
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        OnClick.InvokeAsync("error");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
+                OnClick.InvokeAsync("error");
+            }
         }
-        else
-            OnClick.InvokeAsync("inputrekening");
+        catch (Exception ex)
+        {
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
+            OnClick.InvokeAsync("error");
+        }
     }
 }

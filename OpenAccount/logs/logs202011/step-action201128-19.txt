@@ -1,0 +1,258 @@
+20201128 19:04:06 Home condition : clear transaksi success
+20201128 19:04:06 Home condition : clear transaction log success
+20201128 19:04:06 Home condition : clear array success
+20201128 19:04:06 Home condition : clear array nasabah success
+20201128 19:04:06 Home condition : clear list success
+20201128 19:04:06 Home condition : clear transaksi baru success
+20201128 19:04:07 Home condition : clear transaksi success
+20201128 19:04:07 Home condition : clear transaction log success
+20201128 19:04:07 Home condition : clear array success
+20201128 19:04:07 Home condition : clear array nasabah success
+20201128 19:04:07 Home condition : clear list success
+20201128 19:04:07 Home condition : clear transaksi baru success
+20201128 19:04:10 Home condition : clear transaksi success
+20201128 19:04:10 Home condition : clear transaction log success
+20201128 19:04:10 Home condition : clear array success
+20201128 19:04:10 Home condition : clear array nasabah success
+20201128 19:04:10 Home condition : clear list success
+20201128 19:04:10 Home condition : clear transaksi baru success
+20201128 19:04:18 Histori condition : post service start
+20201128 19:04:23 Home condition : entered into new home
+20201128 19:04:24 Home condition : move to buku input data
+20201128 19:04:24 Buku condition : entered into buku input data
+20201128 19:04:25 Buku condition : isTextField = 1
+20201128 19:04:31 Buku condition : isTextField = 1
+20201128 19:04:34 Buku condition : isTextField = 3
+20201128 19:04:36 Buku condition : isTextField = 2
+20201128 19:04:40 Buku condition : set data passbook success
+20201128 19:04:40 Buka rekening condition : move to buku konfirmasi
+20201128 19:04:40 Buku condition : entered into buku konfirmasi
+20201128 19:04:40 Buku condition : hit service passbook start
+20201128 19:04:40 Buku condition : clear list buku success
+20201128 19:04:40 Buku condition : get service start
+20201128 19:04:41 Buku condition : set transaksi ID 2422 success
+20201128 19:04:41 Buku condition : hit service passbook success
+20201128 19:04:41 Buku condition : get list data success
+20201128 19:04:44 Buku condition : modal visible appear
+20201128 19:04:45 Printer condition : print passbook in  finished
+20201128 19:04:45 Buku condition : move to buku berhasil
+20201128 19:04:45 Buku condition : entered into buku berhasil
+20201128 19:04:53 Buku condition : move to ambil kartu
+20201128 19:05:49 Home condition : clear transaksi success
+20201128 19:05:49 Home condition : clear transaction log success
+20201128 19:05:49 Home condition : clear array success
+20201128 19:05:49 Home condition : clear array nasabah success
+20201128 19:05:49 Home condition : clear list success
+20201128 19:05:49 Home condition : clear transaksi baru success
+20201128 19:05:58 Histori condition : post service start
+20201128 19:06:02 Home condition : entered into new home
+20201128 19:06:03 Home condition : move to buku input data
+20201128 19:06:03 Buku condition : entered into buku input data
+20201128 19:06:06 Buku condition : isTextField = 3
+20201128 19:06:07 Buku condition : isTextField = 2
+20201128 19:06:10 Buku condition : set data passbook success
+20201128 19:06:10 Buka rekening condition : move to buku konfirmasi
+20201128 19:06:10 Buku condition : entered into buku konfirmasi
+20201128 19:06:11 Buku condition : hit service passbook start
+20201128 19:06:11 Buku condition : clear list buku success
+20201128 19:06:11 Buku condition : get service start
+20201128 19:06:11 Buku condition : set transaksi ID 2422 success
+20201128 19:06:11 Buku condition : hit service passbook success
+20201128 19:06:11 Buku condition : get list data success
+20201128 19:06:13 Buku condition : modal visible appear
+20201128 19:06:13 Printer condition : print passbook in  finished
+20201128 19:06:13 Buku condition : move to buku berhasil
+20201128 19:06:13 Buku condition : entered into buku berhasil
+20201128 19:06:21 Buku condition : move to ambil kartu
+20201128 19:22:41 Home condition : clear transaksi success
+20201128 19:22:41 Home condition : clear transaction log success
+20201128 19:22:41 Home condition : clear array success
+20201128 19:22:41 Home condition : clear array nasabah success
+20201128 19:22:41 Home condition : clear list success
+20201128 19:22:41 Home condition : clear transaksi baru success
+20201128 19:22:42 Home condition : clear transaksi success
+20201128 19:22:42 Home condition : clear transaction log success
+20201128 19:22:42 Home condition : clear array success
+20201128 19:22:42 Home condition : clear array nasabah success
+20201128 19:22:42 Home condition : clear list success
+20201128 19:22:42 Home condition : clear transaksi baru success
+20201128 19:22:57 Home condition : clear transaksi success
+20201128 19:22:57 Home condition : clear transaction log success
+20201128 19:22:57 Home condition : clear array success
+20201128 19:22:57 Home condition : clear array nasabah success
+20201128 19:22:57 Home condition : clear list success
+20201128 19:22:57 Home condition : clear transaksi baru success
+20201128 19:23:03 Histori condition : post service start
+20201128 19:23:08 Home condition : entered into new home
+20201128 19:23:09 Home condition : move to buku input data
+20201128 19:23:09 Buku condition : entered into buku input data
+20201128 19:23:10 Buku condition : isTextField = 1
+20201128 19:23:12 Buku condition : isTextField = 3
+20201128 19:23:13 Buku condition : isTextField = 2
+20201128 19:23:18 Buku condition : set data passbook success
+20201128 19:23:18 Buka rekening condition : move to buku konfirmasi
+20201128 19:23:18 Buku condition : entered into buku konfirmasi
+20201128 19:23:18 Buku condition : hit service passbook start
+20201128 19:23:18 Buku condition : clear list buku success
+20201128 19:23:18 Buku condition : get service start
+20201128 19:23:20 Buku condition : set transaksi ID 2422 success
+20201128 19:23:20 Buku condition : hit service passbook success
+20201128 19:23:20 Buku condition : get list data success
+20201128 19:23:22 Buku condition : modal visible appear
+20201128 19:23:23 Printer condition : print passbook in  finished
+20201128 19:23:23 Buku condition : move to buku berhasil
+20201128 19:23:23 Buku condition : entered into buku berhasil
+20201128 19:23:31 Buku condition : move to ambil kartu
+20201128 19:24:46 Home condition : clear transaksi success
+20201128 19:24:46 Home condition : clear transaction log success
+20201128 19:24:46 Home condition : clear array success
+20201128 19:24:46 Home condition : clear array nasabah success
+20201128 19:24:46 Home condition : clear list success
+20201128 19:24:46 Home condition : clear transaksi baru success
+20201128 19:24:59 Histori condition : post service start
+20201128 19:25:04 Home condition : entered into new home
+20201128 19:25:08 Home condition : move to buku input data
+20201128 19:25:08 Buku condition : entered into buku input data
+20201128 19:25:10 Buku condition : isTextField = 1
+20201128 19:25:11 Buku condition : isTextField = 3
+20201128 19:25:13 Buku condition : isTextField = 2
+20201128 19:25:14 Buku condition : isTextField = 1
+20201128 19:25:16 Buku condition : isTextField = 1
+20201128 19:25:18 Buku condition : isTextField = 2
+20201128 19:25:22 Buku condition : set data passbook success
+20201128 19:25:22 Buka rekening condition : move to buku konfirmasi
+20201128 19:25:22 Buku condition : entered into buku konfirmasi
+20201128 19:25:22 Buku condition : hit service passbook start
+20201128 19:25:22 Buku condition : clear list buku success
+20201128 19:25:22 Buku condition : get service start
+20201128 19:25:24 Buku condition : set transaksi ID 2422 success
+20201128 19:25:24 Buku condition : hit service passbook success
+20201128 19:25:24 Buku condition : get list data success
+20201128 19:25:30 Buku condition : modal visible appear
+20201128 19:25:30 Printer condition : print passbook in  finished
+20201128 19:25:30 Buku condition : move to buku berhasil
+20201128 19:25:30 Buku condition : entered into buku berhasil
+20201128 19:25:38 Buku condition : move to ambil kartu
+20201128 19:32:17 Home condition : clear transaksi success
+20201128 19:32:17 Home condition : clear transaction log success
+20201128 19:32:17 Home condition : clear array success
+20201128 19:32:17 Home condition : clear array nasabah success
+20201128 19:32:17 Home condition : clear list success
+20201128 19:32:17 Home condition : clear transaksi baru success
+20201128 19:32:18 Home condition : clear transaksi success
+20201128 19:32:18 Home condition : clear transaction log success
+20201128 19:32:18 Home condition : clear array success
+20201128 19:32:18 Home condition : clear array nasabah success
+20201128 19:32:18 Home condition : clear list success
+20201128 19:32:18 Home condition : clear transaksi baru success
+20201128 19:32:22 Home condition : clear transaksi success
+20201128 19:32:22 Home condition : clear transaction log success
+20201128 19:32:22 Home condition : clear array success
+20201128 19:32:22 Home condition : clear array nasabah success
+20201128 19:32:22 Home condition : clear list success
+20201128 19:32:22 Home condition : clear transaksi baru success
+20201128 19:32:30 Histori condition : post service start
+20201128 19:32:35 Home condition : entered into new home
+20201128 19:32:36 Home condition : move to buku input data
+20201128 19:32:36 Buku condition : entered into buku input data
+20201128 19:32:37 Buku condition : isTextField = 1
+20201128 19:32:39 Buku condition : isTextField = 3
+20201128 19:32:41 Buku condition : isTextField = 2
+20201128 19:32:46 Buku condition : set data passbook success
+20201128 19:32:46 Buka rekening condition : move to buku konfirmasi
+20201128 19:32:46 Buku condition : entered into buku konfirmasi
+20201128 19:32:47 Buku condition : hit service passbook start
+20201128 19:32:47 Buku condition : clear list buku success
+20201128 19:32:47 Buku condition : get service start
+20201128 19:32:50 Buku condition : set transaksi ID 2422 success
+20201128 19:32:50 Buku condition : hit service passbook success
+20201128 19:32:50 Buku condition : get list data success
+20201128 19:32:51 Buku condition : modal visible appear
+20201128 19:32:52 Printer condition : print passbook in  finished
+20201128 19:32:52 Buku condition : move to buku berhasil
+20201128 19:32:52 Buku condition : entered into buku berhasil
+20201128 19:33:00 Buku condition : move to ambil kartu
+20201128 19:49:47 Home condition : clear transaksi success
+20201128 19:49:47 Home condition : clear transaction log success
+20201128 19:49:47 Home condition : clear array success
+20201128 19:49:47 Home condition : clear array nasabah success
+20201128 19:49:47 Home condition : clear list success
+20201128 19:49:47 Home condition : clear transaksi baru success
+20201128 19:49:48 Home condition : clear transaksi success
+20201128 19:49:48 Home condition : clear transaction log success
+20201128 19:49:48 Home condition : clear array success
+20201128 19:49:48 Home condition : clear array nasabah success
+20201128 19:49:48 Home condition : clear list success
+20201128 19:49:48 Home condition : clear transaksi baru success
+20201128 19:49:50 Home condition : clear transaksi success
+20201128 19:49:50 Home condition : clear transaction log success
+20201128 19:49:50 Home condition : clear array success
+20201128 19:49:50 Home condition : clear array nasabah success
+20201128 19:49:50 Home condition : clear list success
+20201128 19:49:50 Home condition : clear transaksi baru success
+20201128 19:49:56 Histori condition : post service start
+20201128 19:50:06 Home condition : entered into new home
+20201128 19:50:07 Home condition : move to buku input data
+20201128 19:50:07 Buku condition : entered into buku input data
+20201128 19:50:08 Buku condition : isTextField = 1
+20201128 19:50:17 Buku condition : isTextField = 3
+20201128 19:50:18 Buku condition : isTextField = 2
+20201128 19:50:20 Buku condition : isTextField = 1
+20201128 19:50:23 Buku condition : isTextField = 1
+20201128 19:50:24 Buku condition : isTextField = 3
+20201128 19:50:26 Buku condition : isTextField = 1
+20201128 19:50:27 Buku condition : isTextField = 3
+20201128 19:50:29 Buku condition : isTextField = 2
+20201128 19:50:33 Buku condition : set data passbook success
+20201128 19:50:33 Buka rekening condition : move to buku konfirmasi
+20201128 19:50:33 Buku condition : entered into buku konfirmasi
+20201128 19:50:34 Buku condition : hit service passbook start
+20201128 19:50:34 Buku condition : clear list buku success
+20201128 19:50:34 Buku condition : get service start
+20201128 19:50:36 Buku condition : set transaksi ID 2422 success
+20201128 19:50:36 Buku condition : hit service passbook success
+20201128 19:50:36 Buku condition : get list data success
+20201128 19:50:46 Buku condition : modal visible appear
+20201128 19:50:46 Printer condition : print passbook in  finished
+20201128 19:50:46 Buku condition : move to buku berhasil
+20201128 19:50:46 Buku condition : entered into buku berhasil
+20201128 19:50:54 Buku condition : move to ambil kartu
+20201128 19:54:44 Home condition : clear transaksi success
+20201128 19:54:44 Home condition : clear transaction log success
+20201128 19:54:44 Home condition : clear array success
+20201128 19:54:44 Home condition : clear array nasabah success
+20201128 19:54:44 Home condition : clear list success
+20201128 19:54:44 Home condition : clear transaksi baru success
+20201128 19:54:45 Home condition : clear transaksi success
+20201128 19:54:45 Home condition : clear transaction log success
+20201128 19:54:45 Home condition : clear array success
+20201128 19:54:45 Home condition : clear array nasabah success
+20201128 19:54:45 Home condition : clear list success
+20201128 19:54:45 Home condition : clear transaksi baru success
+20201128 19:54:47 Home condition : clear transaksi success
+20201128 19:54:47 Home condition : clear transaction log success
+20201128 19:54:47 Home condition : clear array success
+20201128 19:54:47 Home condition : clear array nasabah success
+20201128 19:54:47 Home condition : clear list success
+20201128 19:54:47 Home condition : clear transaksi baru success
+20201128 19:54:53 Histori condition : post service start
+20201128 19:54:58 Home condition : entered into new home
+20201128 19:54:59 Home condition : move to buku input data
+20201128 19:54:59 Buku condition : entered into buku input data
+20201128 19:55:00 Buku condition : isTextField = 1
+20201128 19:55:02 Buku condition : isTextField = 3
+20201128 19:55:08 Buku condition : isTextField = 2
+20201128 19:55:11 Buku condition : set data passbook success
+20201128 19:55:11 Buka rekening condition : move to buku konfirmasi
+20201128 19:55:11 Buku condition : entered into buku konfirmasi
+20201128 19:55:12 Buku condition : hit service passbook start
+20201128 19:55:12 Buku condition : clear list buku success
+20201128 19:55:12 Buku condition : get service start
+20201128 19:55:12 Buku condition : set transaksi ID 2422 success
+20201128 19:55:12 Buku condition : hit service passbook success
+20201128 19:55:12 Buku condition : get list data success
+20201128 19:55:15 Buku condition : modal visible appear
+20201128 19:55:15 Printer condition : print passbook in  finished
+20201128 19:55:15 Buku condition : move to buku berhasil
+20201128 19:55:15 Buku condition : entered into buku berhasil
+20201128 19:55:23 Buku condition : move to ambil kartu

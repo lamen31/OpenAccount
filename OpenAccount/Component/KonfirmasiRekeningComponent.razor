@@ -16,12 +16,12 @@
                     <tr>
                         <td><h4 style="font-weight: 600; color:#00529C;"> Name </h4></td>
                         <td><h4 style="font-weight: 600;color:#00529C;">:&emsp;</h4></td>
-                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@trx._Nasabah[0]</b></h4><br></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@trx.namaNasabah</b></h4><br></td>
                     </tr>
                     <tr>
                         <td><h4 style="font-weight: 600;color:#00529C;"> Account Number </h4></td>
                         <td><h4 style="font-weight: 600;color:#00529C;">:</h4></td>
-                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@trx._Nasabah[1]</b></h4><br></td>
+                        <td><h4 style="font-weight: 600;color:#00529C;"><b>@trx._AccountNumber</b></h4><br></td>
                     </tr>
                     <tr>
                         <td><h4 style="font-weight: 600;color:#00529C;"> Product Type </h4></td>
@@ -157,7 +157,7 @@
 
     private async Task CheckRekening()
     {
-        string norek = trx._Nasabah[1];
+        string norek = trx._AccountNumber;
         string idrek = norek.Substring(12, 2);
         switch (idrek)
         {

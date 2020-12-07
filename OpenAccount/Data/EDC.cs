@@ -133,10 +133,48 @@ namespace OpenAccount.Data
 
             return p_data;
         }
+        public void SendCommand(SerialPort port, string ecrmsg)
+        {
+            string stx = "02";
+            string ecr = "424E49"; // BNI;
+            string ecr_messsage = string.Empty;
+            string etx = "03";
+            string lrc = "00";
+
+            dataRespond = string.Empty;
+
+            serialPort.Close();
+            string request_BankFiller = string.Empty;
+
+            request_BankFiller = HexaBankFiller("");
+
+            ecr_messsage = ecrmsg
+                            + request_BankFiller;
+
+            string data = stx
+                + ecr
+                + ecr_messsage
+                + etx
+                + lrc;
+
+            byte[] data2 = StringToByteArray(data);
+            byte[] data2_with_lrc = LRC(data2);
+
+            serialPort.PortName = port.PortName;
+            serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+
+            Console.WriteLine("1");
+            serialPort.Open();
+
+            serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+            Console.WriteLine("2");
+
+            //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+        }
 
         public string HexaBankFiller(string data_filler)
         {
-            return "20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020";
+            return "202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020";
         }
 
         public void port_DataReceived(object sender, SerialDataReceivedEventArgs e)

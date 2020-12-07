@@ -9,6 +9,15 @@ namespace OpenAccount.Data
 {
     public class Transaksi
     {
+        public string startDate { get; set; }
+        public string endDate { get; set; }
+        public string mbStatus { get; set; }
+        public string nomerKartu { get; set; }
+        public string namaNasabah { get; set; }
+        public string debitCurr { get; set; }
+        public string kreditCurr { get; set; }
+        public string acctCurr { get; set; }
+        public string pinBlock { get; set; }
         public string[] _Nasabah { get; set; }
         public string _HistoriJenisPeriode { get; set; }
         public string _HistoriStartDate { get; set; }
@@ -63,6 +72,10 @@ namespace OpenAccount.Data
         public string _KTPKewarganegaraan { get; set; }
         public string _KTPMinutiae1 { get; set; }
         public string _KTPMinutiae2 { get; set; }
+        public class KTP
+        { 
+        }
+
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _AccountNumber { get; set; }

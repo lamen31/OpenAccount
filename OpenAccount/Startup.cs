@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OpenAccount.Data;
+using Syncfusion.Blazor;
 
 namespace OpenAccount
 {
@@ -42,6 +43,7 @@ namespace OpenAccount
             services.AddSingleton<HitServices>();
             services.AddScoped<EKtp>();
             services.AddSingleton<FingerPrint>();
+            services.AddSyncfusionBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

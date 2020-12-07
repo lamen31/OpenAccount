@@ -1,0 +1,257 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO.Ports
+@using System.Text;
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using System;
+
+@inject Config config
+@inject Transaksi trx
+@inject Utility utility
+@inject EDC edc
+@inject IJSRuntime JsRuntime;
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
+                    <teks>Hello, @trx.namaNasabah</teks>
+                    <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Cetak Transaksi</h5>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input checked="@(periodeCode == "1")" value="1" @onchange="PeriodePick" type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline1" style="color: darkorange; font-weight: 700;">Cetak Per Bulan</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input checked="@(periodeCode == "2")" value="2" @onchange="PeriodePick" type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2" style="color: darkorange; font-weight: 700;">Cetak Per Tanggal</label>
+                    </div>
+
+                    @if (periodeCode == "1")
+                    {
+                        <div class="">
+                            <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Bulan Transaksi</h5>
+                            <div class="form-group">
+                                <RadzenDropDown @bind-Value="valueDD" Style="font-weight: 700; font-size: 18px;" Placeholder="Select month" AllowClear="true" TValue="string"
+                                Data=@listMonthly TextProperty="stringDT" ValueProperty="valueDT" />
+                            </div>
+                        </div>
+                    }
+
+                    @if (periodeCode == "2")
+                    {
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
+                                <div class="form-group">
+                                    <RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value1 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender YearRange="@yearRange" Change="OnChange" />
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
+
+                                <div class="form-group">
+                                    <RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value2 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender2 YearRange="@yearRange" Change="OnChange" />
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="button" style="float: left; margin-top: 9%; font-weight: 700;" @onclick="ClearDate">CLEAR</button>
+                    }
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder SVG/monthly2.svg" style="float: right;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" @onclick="Kembali" class="btn btn-primary" style="background-color: #4E4E4E;">Kembali</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button @onclick="Cetak" type="button" class="btn btn-primary" style="float: right;">Cetak</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+@code {
+    string valueDD = string.Empty;
+    private async Task Kembali()
+    {
+        OnClick.InvokeAsync("historiPilih");
+    }
+
+    private async Task Cetak()
+    {
+        if(periodeCode=="1")
+        {
+            PerBulan();
+        }else if(periodeCode=="2")
+        {
+            PerTanggal();
+        }
+    }
+
+    private async Task PerBulan()
+    {
+        trx.startDate = "01/"+valueDD;
+        string month = valueDD.Substring(0, 2);
+        string year = valueDD.Substring(3, 4);
+        if (month=="02")
+        {
+            if(Int32.Parse(year)%4==0)
+            {
+                trx.endDate = "29/" + valueDD;
+            }
+            else
+            {
+                trx.endDate = "28/" + valueDD;
+            }
+        }else if (month == "01" || month == "03" || month == "05" || month == "07" || month == "08" || month == "10" || month == "12" )
+        {
+            trx.endDate = "31/" + valueDD;
+        }
+        else if (month == "04" || month == "06" || month == "09" || month == "11")
+        {
+            trx.endDate = "30/" + valueDD;
+        }
+    }
+
+    private async Task PerTanggal()
+    {
+        trx.startDate = value1.Value.ToString("dd'/'MM'/'yyyy");
+        trx.endDate = value2.Value.ToString("dd'/'MM'/'yyyy");
+    }
+
+    public DateTime? DateValue { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+    public DateTime MinDate { get; set; }
+    public DateTime MaxDate { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string periodeCode = "1";
+
+    private async Task PeriodePick(ChangeEventArgs args)
+    {
+        periodeCode = args.Value.ToString();
+        StateHasChanged();
+    }
+
+    DateTime? value1;
+    DateTime? value2;
+
+    string yearRange = DateTime.Today.AddYears(-10).Year.ToString() + ":" + DateTime.Now.Year.ToString();
+    List<DateTime> dateEnd = new List<DateTime>();
+    List<DateTime> dateEnd2 = new List<DateTime>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        OnChange();
+        AddMonthly();
+    }
+
+    async Task dateEndAdd()
+    {
+        for (int i = 1; i < 366; i++)
+        {
+            dateEnd.Add(DateTime.Today.AddDays(i));
+            if (value2.HasValue)
+            {
+                dateEnd.Add(value2.Value.AddDays(i));
+                dateEnd.Add(value2.Value.AddDays(-30 - i));
+            }
+        }
+    }
+    async Task ClearDate()
+    {
+        value1 = null;
+        value2 = null;
+        OnChange();
+    }
+    async Task dateEndAdd2()
+    {
+        for (int i = 1; i < 366; i++)
+        {
+            dateEnd2.Add(DateTime.Today.AddDays(i));
+            if (value1.HasValue)
+            {
+                dateEnd2.Add(value1.Value.AddDays(29 + i));
+                dateEnd2.Add(value1.Value.AddDays(0 - i));
+            }
+        }
+
+    }
+    async Task OnChange()
+    {
+        dateEnd.Clear();
+        await dateEndAdd();
+        dateEnd2.Clear();
+        await dateEndAdd2();
+    }
+    void DateRender(DateRenderEventArgs args)
+    {
+        args.Disabled = dateEnd.Contains(args.Date);
+    }
+    void DateRender2(DateRenderEventArgs args)
+    {
+        args.Disabled = dateEnd2.Contains(args.Date);
+    }
+
+    class Monthly
+    {
+        public string valueDT { get; set; }
+        public string stringDT { get; set; }
+    }
+
+    List<Monthly> listMonthly = new List<Monthly>();
+
+    async Task AddMonthly()
+    {
+        listMonthly.Clear();
+        for (int i = 0; i < 24; i++)
+        {
+            Monthly temp = new Monthly();
+            temp.valueDT = DateTime.Now.AddMonths(0 - i).ToString("MM'/'yyyy");
+            temp.stringDT = DateTime.Now.AddMonths(0 - i).ToString("MMMM yyyy");
+            listMonthly.Add(temp);
+        }
+    }
+}

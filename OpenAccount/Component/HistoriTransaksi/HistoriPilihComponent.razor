@@ -16,7 +16,7 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
-                    <teks>Hello, @trx._Nasabah[0]</teks>
+                    <teks>Hello, @trx.namaNasabah</teks>
                     <h3 style="color: #00529C; font-weight: 400;">Silakan pilih periode transaksi</h3><br>
                 </div>
             </div>
@@ -36,8 +36,8 @@
                 </div>*@
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <div>
-                    <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right;">
-                        <div class="row no-gutters" style="opacity:30%;">
+                    <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right;" @onclick="HistoriMonthly">
+                        <div class="row no-gutters" style="opacity:100%;">
                             <div class="col-md-4" style="text-align: center;">
                                 <img src="../assets/img/full-statement.png" style="padding: 25px; width: 80%;">
                             </div>
@@ -291,7 +291,7 @@
     {
         string errorcode;
         string errormessage;
-        string status = trx._Nasabah[4];
+        string status = trx.mbStatus;
         switch (status)
         {
             case "1":
@@ -366,7 +366,7 @@
         try
         {
             string myJson = "{" +
-            "\"acct_no\":\"" + trx._Nasabah[1] + "\"" +
+            "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
@@ -452,7 +452,12 @@
             OnClick.InvokeAsync("error");
         }
     }
-
+    private async Task HistoriMonthly()
+    {
+        isTimeOut = true;
+        Utility.WriteLog("Histori condition : move to histori Monthly Statement", "step-action");
+        OnClick.InvokeAsync("monthlystatement");
+    }
     private async Task HistoriBulanBerjalan()
     {
         isTimeOut = true;

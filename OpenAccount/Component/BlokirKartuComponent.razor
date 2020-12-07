@@ -39,8 +39,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(3000);
+        await Task.Delay(5000);
         Utility.WriteLog("Blokir kartu condition : move to landing page", "step-action");
-        OnClick.InvokeAsync("ambilkartu");
+        OnClick.InvokeAsync("default");
     }
 }

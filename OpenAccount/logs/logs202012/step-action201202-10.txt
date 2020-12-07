@@ -1,0 +1,401 @@
+20201202 10:26:14 Home condition : clear transaksi success
+20201202 10:26:14 Home condition : clear transaction log success
+20201202 10:26:14 Home condition : clear array success
+20201202 10:26:14 Home condition : clear array nasabah success
+20201202 10:26:14 Home condition : clear list success
+20201202 10:26:14 Home condition : clear transaksi baru success
+20201202 10:26:14 Home condition : clear transaksi success
+20201202 10:26:14 Home condition : clear transaction log success
+20201202 10:26:14 Home condition : clear array success
+20201202 10:26:14 Home condition : clear array nasabah success
+20201202 10:26:14 Home condition : clear list success
+20201202 10:26:14 Home condition : clear transaksi baru success
+20201202 10:26:27 Home condition : entered into insert debit
+20201202 10:26:32 Home condition : input kartu success
+20201202 10:26:32 Home condition : move to input pin
+20201202 10:27:14 Home condition : clear transaksi success
+20201202 10:27:14 Home condition : clear transaction log success
+20201202 10:27:14 Home condition : clear array success
+20201202 10:27:14 Home condition : clear array nasabah success
+20201202 10:27:14 Home condition : clear list success
+20201202 10:27:14 Home condition : clear transaksi baru success
+20201202 10:27:15 Home condition : clear transaksi success
+20201202 10:27:15 Home condition : clear transaction log success
+20201202 10:27:15 Home condition : clear array success
+20201202 10:27:15 Home condition : clear array nasabah success
+20201202 10:27:15 Home condition : clear list success
+20201202 10:27:15 Home condition : clear transaksi baru success
+20201202 10:27:58 Home condition : entered into insert debit
+20201202 10:28:03 Home condition : input kartu success
+20201202 10:28:03 Home condition : move to input pin
+20201202 10:28:44 Home condition : clear transaksi success
+20201202 10:28:44 Home condition : clear transaction log success
+20201202 10:28:44 Home condition : clear array success
+20201202 10:28:44 Home condition : clear array nasabah success
+20201202 10:28:44 Home condition : clear list success
+20201202 10:28:44 Home condition : clear transaksi baru success
+20201202 10:28:44 Home condition : clear transaksi success
+20201202 10:28:44 Home condition : clear transaction log success
+20201202 10:28:44 Home condition : clear array success
+20201202 10:28:44 Home condition : clear array nasabah success
+20201202 10:28:44 Home condition : clear list success
+20201202 10:28:44 Home condition : clear transaksi baru success
+20201202 10:28:47 Home condition : input kartu success
+20201202 10:28:47 Home condition : move to input pin
+20201202 10:28:49 Home condition : entered into insert debit
+20201202 10:29:31 Home condition : clear transaksi success
+20201202 10:29:31 Home condition : clear transaction log success
+20201202 10:29:32 Home condition : clear array success
+20201202 10:29:32 Home condition : clear array nasabah success
+20201202 10:29:32 Home condition : clear list success
+20201202 10:29:32 Home condition : clear transaksi baru success
+20201202 10:29:32 Home condition : clear transaksi success
+20201202 10:29:32 Home condition : clear transaction log success
+20201202 10:29:32 Home condition : clear array success
+20201202 10:29:32 Home condition : clear array nasabah success
+20201202 10:29:32 Home condition : clear list success
+20201202 10:29:32 Home condition : clear transaksi baru success
+20201202 10:29:33 Home condition : input kartu success
+20201202 10:29:33 Home condition : move to input pin
+20201202 10:29:36 Home condition : EDC process start
+20201202 10:29:36 Home condition : entered into insert debit
+20201202 10:29:38 Home condition : EDC serial port close
+20201202 10:29:38 Home condition : EDC serial port open
+20201202 10:29:39 Home condition : EDC serial port write
+20201202 10:29:39 Home condition : EDC serial port already open
+20201202 10:29:39 Home condition : EDC serial port already open
+20201202 10:29:39 Home condition : EDC serial port already open
+20201202 10:29:40 Home condition : EDC serial port already open
+20201202 10:29:40 Home condition : EDC serial port already open
+20201202 10:29:40 Home condition : EDC serial port already open
+20201202 10:29:40 Home condition : EDC serial port already open
+20201202 10:29:41 Home condition : EDC serial port already open
+20201202 10:29:41 Home condition : EDC serial port already open
+20201202 10:29:41 Home condition : EDC serial port already open
+20201202 10:29:42 Home condition : EDC serial port already open
+20201202 10:29:42 Home condition : EDC serial port already open
+20201202 10:29:42 Home condition : EDC serial port already open
+20201202 10:29:42 Home condition : EDC serial port already open
+20201202 10:29:43 Home condition : EDC serial port already open
+20201202 10:29:43 Home condition : EDC serial port already open
+20201202 10:29:43 Home condition : EDC serial port already open
+20201202 10:29:43 Home condition : EDC serial port already open
+20201202 10:29:44 Home condition : EDC serial port already open
+20201202 10:29:44 Home condition : EDC serial port already open
+20201202 10:29:44 Home condition : EDC serial port already open
+20201202 10:29:45 Home condition : EDC serial port already open
+20201202 10:29:45 Home condition : EDC serial port already open
+20201202 10:29:45 Home condition : EDC serial port already open
+20201202 10:29:45 Home condition : EDC serial port already open
+20201202 10:29:46 Home condition : EDC serial port already open
+20201202 10:29:46 Home condition : EDC serial port already open
+20201202 10:29:46 Home condition : EDC serial port already open
+20201202 10:29:46 Home condition : EDC serial port already open
+20201202 10:29:47 Home condition : EDC serial port already open
+20201202 10:29:47 Home condition : EDC serial port already open
+20201202 10:29:47 Home condition : EDC serial port already open
+20201202 10:29:48 Home condition : EDC serial port already open
+20201202 10:29:48 Home condition : EDC serial port already open
+20201202 10:29:48 Home condition : EDC serial port already open
+20201202 10:29:48 Home condition : EDC serial port already open
+20201202 10:29:49 Home condition : EDC serial port already open
+20201202 10:29:49 Home condition : EDC serial port already open
+20201202 10:29:49 Home condition : EDC serial port already open
+20201202 10:29:50 Home condition : EDC serial port already open
+20201202 10:29:50 Home condition : EDC serial port already open
+20201202 10:29:50 Home condition : EDC serial port already open
+20201202 10:29:50 Home condition : EDC serial port already open
+20201202 10:29:51 Home condition : EDC serial port already open
+20201202 10:29:51 Home condition : EDC serial port already open
+20201202 10:29:51 Home condition : EDC serial port already open
+20201202 10:29:51 Home condition : EDC serial port already open
+20201202 10:29:52 Home condition : EDC serial port already open
+20201202 10:29:52 Home condition : EDC serial port already open
+20201202 10:29:52 Home condition : EDC serial port already open
+20201202 10:29:53 Home condition : EDC serial port already open
+20201202 10:29:53 Home condition : EDC serial port already open
+20201202 10:29:53 Home condition : EDC serial port already open
+20201202 10:29:53 Home condition : EDC serial port already open
+20201202 10:29:54 Home condition : EDC serial port already open
+20201202 10:29:54 Home condition : EDC serial port already open
+20201202 10:29:54 Home condition : EDC serial port already open
+20201202 10:29:54 Home condition : EDC serial port already open
+20201202 10:29:55 Home condition : EDC serial port already open
+20201202 10:29:55 Home condition : EDC serial port already open
+20201202 10:29:55 Home condition : EDC serial port already open
+20201202 10:29:56 Home condition : EDC serial port already open
+20201202 10:29:56 Home condition : EDC serial port already open
+20201202 10:29:56 Home condition : EDC serial port already open
+20201202 10:29:56 Home condition : EDC serial port already open
+20201202 10:29:57 Home condition : EDC serial port already open
+20201202 10:29:57 Home condition : EDC serial port already open
+20201202 10:29:57 Home condition : EDC serial port already open
+20201202 10:29:58 Home condition : EDC serial port already open
+20201202 10:29:58 Home condition : EDC serial port already open
+20201202 10:29:58 Home condition : EDC serial port already open
+20201202 10:29:58 Home condition : EDC serial port already open
+20201202 10:29:59 Home condition : EDC serial port already open
+20201202 10:29:59 Home condition : EDC serial port already open
+20201202 10:29:59 Home condition : EDC serial port already open
+20201202 10:29:59 Home condition : EDC serial port already open
+20201202 10:30:00 Home condition : EDC serial port already open
+20201202 10:30:00 Home condition : EDC serial port already open
+20201202 10:30:00 Home condition : EDC serial port already open
+20201202 10:30:01 Home condition : EDC serial port already open
+20201202 10:30:01 Home condition : EDC serial port already open
+20201202 10:30:01 Home condition : EDC serial port already open
+20201202 10:30:01 Home condition : EDC serial port already open
+20201202 10:30:02 Home condition : EDC serial port already open
+20201202 10:30:02 Home condition : EDC serial port already open
+20201202 10:30:02 Home condition : EDC serial port already open
+20201202 10:30:02 Home condition : EDC serial port already open
+20201202 10:30:03 Home condition : EDC serial port already open
+20201202 10:30:03 Home condition : EDC serial port already open
+20201202 10:30:03 Home condition : EDC serial port already open
+20201202 10:30:04 Home condition : EDC serial port already open
+20201202 10:30:04 Home condition : EDC serial port already open
+20201202 10:30:04 Home condition : EDC serial port already open
+20201202 10:30:04 Home condition : EDC serial port already open
+20201202 10:30:05 Home condition : EDC serial port already open
+20201202 10:30:05 Home condition : EDC serial port already open
+20201202 10:30:05 Home condition : EDC serial port already open
+20201202 10:30:05 Home condition : EDC serial port already open
+20201202 10:30:06 Home condition : EDC serial port already open
+20201202 10:30:06 Home condition : EDC serial port already open
+20201202 10:30:06 Home condition : EDC serial port already open
+20201202 10:30:07 Home condition : EDC serial port already open
+20201202 10:30:07 Home condition : EDC serial port already open
+20201202 10:30:07 Home condition : EDC serial port already open
+20201202 10:30:07 Home condition : EDC serial port already open
+20201202 10:30:08 Home condition : EDC serial port already open
+20201202 10:30:08 Home condition : EDC serial port already open
+20201202 10:30:08 Home condition : EDC serial port already open
+20201202 10:30:08 Home condition : EDC serial port already open
+20201202 10:30:09 Home condition : EDC serial port already open
+20201202 10:30:09 Home condition : EDC serial port already open
+20201202 10:30:09 Home condition : EDC serial port already open
+20201202 10:30:10 Home condition : EDC serial port already open
+20201202 10:30:10 Home condition : EDC serial port already open
+20201202 10:30:10 Home condition : EDC serial port already open
+20201202 10:30:10 Home condition : EDC serial port already open
+20201202 10:30:11 Home condition : EDC serial port already open
+20201202 10:30:11 Home condition : EDC serial port already open
+20201202 10:30:11 Home condition : EDC serial port already open
+20201202 10:30:11 Home condition : EDC serial port already open
+20201202 10:30:12 Home condition : EDC serial port already open
+20201202 10:30:12 Home condition : EDC serial port already open
+20201202 10:30:12 Home condition : EDC serial port already open
+20201202 10:30:13 Home condition : EDC serial port already open
+20201202 10:30:13 Home condition : EDC serial port already open
+20201202 10:30:13 Home condition : EDC serial port already open
+20201202 10:30:13 Home condition : EDC serial port already open
+20201202 10:30:14 Home condition : EDC serial port already open
+20201202 10:30:14 Home condition : EDC serial port already open
+20201202 10:30:14 Home condition : EDC serial port already open
+20201202 10:30:14 Home condition : EDC serial port already open
+20201202 10:30:15 Home condition : EDC serial port already open
+20201202 10:30:15 Home condition : EDC serial port already open
+20201202 10:30:15 Home condition : EDC serial port already open
+20201202 10:30:16 Home condition : EDC serial port already open
+20201202 10:30:16 Home condition : EDC serial port already open
+20201202 10:30:16 Home condition : EDC serial port already open
+20201202 10:30:16 Home condition : EDC serial port already open
+20201202 10:30:17 Home condition : EDC serial port already open
+20201202 10:30:17 Home condition : EDC serial port already open
+20201202 10:30:17 Home condition : EDC serial port already open
+20201202 10:30:17 Home condition : EDC serial port already open
+20201202 10:30:18 Home condition : EDC serial port already open
+20201202 10:30:18 Home condition : EDC serial port already open
+20201202 10:30:18 Home condition : EDC serial port already open
+20201202 10:30:19 Home condition : EDC serial port already open
+20201202 10:30:19 Home condition : EDC serial port already open
+20201202 10:33:54 Home condition : clear transaksi success
+20201202 10:33:54 Home condition : clear transaction log success
+20201202 10:33:54 Home condition : clear array success
+20201202 10:33:54 Home condition : clear array nasabah success
+20201202 10:33:54 Home condition : clear list success
+20201202 10:33:54 Home condition : clear transaksi baru success
+20201202 10:33:55 Home condition : clear transaksi success
+20201202 10:33:55 Home condition : clear transaction log success
+20201202 10:33:55 Home condition : clear array success
+20201202 10:33:55 Home condition : clear array nasabah success
+20201202 10:33:55 Home condition : clear list success
+20201202 10:33:55 Home condition : clear transaksi baru success
+20201202 10:34:07 Home condition : input kartu success
+20201202 10:34:07 Home condition : move to input pin
+20201202 10:34:11 Home condition : EDC process start
+20201202 10:34:11 Home condition : entered into insert debit
+20201202 10:34:13 Home condition : EDC serial port close
+20201202 10:34:13 Home condition : EDC serial port write
+20201202 10:35:20 Home condition : clear transaksi success
+20201202 10:35:20 Home condition : clear transaction log success
+20201202 10:35:20 Home condition : clear array success
+20201202 10:35:20 Home condition : clear array nasabah success
+20201202 10:35:20 Home condition : clear list success
+20201202 10:35:20 Home condition : clear transaksi baru success
+20201202 10:35:21 Home condition : clear transaksi success
+20201202 10:35:21 Home condition : clear transaction log success
+20201202 10:35:21 Home condition : clear array success
+20201202 10:35:21 Home condition : clear array nasabah success
+20201202 10:35:21 Home condition : clear list success
+20201202 10:35:21 Home condition : clear transaksi baru success
+20201202 10:35:23 Home condition : input kartu success
+20201202 10:35:23 Home condition : move to input pin
+20201202 10:35:25 Home condition : EDC process start
+20201202 10:35:25 Home condition : entered into insert debit
+20201202 10:35:26 Home condition : EDC serial port close
+20201202 10:35:26 Home condition : EDC serial port write
+20201202 10:37:06 Home condition : clear transaksi success
+20201202 10:37:06 Home condition : clear transaction log success
+20201202 10:37:06 Home condition : clear array success
+20201202 10:37:06 Home condition : clear array nasabah success
+20201202 10:37:06 Home condition : clear list success
+20201202 10:37:06 Home condition : clear transaksi baru success
+20201202 10:37:07 Home condition : clear transaksi success
+20201202 10:37:07 Home condition : clear transaction log success
+20201202 10:37:07 Home condition : clear array success
+20201202 10:37:07 Home condition : clear array nasabah success
+20201202 10:37:07 Home condition : clear list success
+20201202 10:37:07 Home condition : clear transaksi baru success
+20201202 10:37:08 Home condition : input kartu success
+20201202 10:37:08 Home condition : move to input pin
+20201202 10:37:11 Home condition : EDC process start
+20201202 10:37:11 Home condition : entered into insert debit
+20201202 10:37:12 Home condition : EDC serial port close
+20201202 10:37:12 Home condition : EDC serial port write
+20201202 10:38:13 Home condition : clear transaksi success
+20201202 10:38:13 Home condition : clear transaction log success
+20201202 10:38:13 Home condition : clear array success
+20201202 10:38:13 Home condition : clear array nasabah success
+20201202 10:38:13 Home condition : clear list success
+20201202 10:38:13 Home condition : clear transaksi baru success
+20201202 10:38:14 Home condition : clear transaksi success
+20201202 10:38:14 Home condition : clear transaction log success
+20201202 10:38:14 Home condition : clear array success
+20201202 10:38:14 Home condition : clear array nasabah success
+20201202 10:38:14 Home condition : clear list success
+20201202 10:38:14 Home condition : clear transaksi baru success
+20201202 10:38:21 Home condition : input kartu success
+20201202 10:38:21 Home condition : move to input pin
+20201202 10:38:23 Home condition : EDC process start
+20201202 10:38:23 Home condition : entered into insert debit
+20201202 10:38:25 Home condition : EDC serial port close
+20201202 10:38:25 Home condition : EDC serial port write
+20201202 10:38:43 Home condition : EDC error --> The port is closed.
+20201202 10:38:46 Home condition : EDC process start
+20201202 10:38:48 Home condition : EDC serial port close
+20201202 10:38:48 Home condition : EDC serial port write
+20201202 10:38:48 Home condition : EDC error --> The port is closed.
+20201202 10:38:50 Home condition : EDC process start
+20201202 10:38:51 Home condition : EDC serial port close
+20201202 10:38:51 Home condition : EDC serial port write
+20201202 10:38:52 Home condition : EDC error --> The port is closed.
+20201202 10:43:29 Home condition : clear transaksi success
+20201202 10:43:29 Home condition : clear transaction log success
+20201202 10:43:29 Home condition : clear array success
+20201202 10:43:29 Home condition : clear array nasabah success
+20201202 10:43:29 Home condition : clear list success
+20201202 10:43:29 Home condition : clear transaksi baru success
+20201202 10:43:30 Home condition : clear transaksi success
+20201202 10:43:30 Home condition : clear transaction log success
+20201202 10:43:30 Home condition : clear array success
+20201202 10:43:30 Home condition : clear array nasabah success
+20201202 10:43:30 Home condition : clear list success
+20201202 10:43:30 Home condition : clear transaksi baru success
+20201202 10:43:46 Home condition : input kartu success
+20201202 10:43:46 Home condition : move to input pin
+20201202 10:43:49 Home condition : EDC process start
+20201202 10:43:49 Home condition : entered into insert debit
+20201202 10:43:50 Home condition : EDC serial port close
+20201202 10:43:50 Home condition : EDC serial port write
+20201202 10:43:53 Home condition : EDC serial port already open
+20201202 10:44:01 Home condition : EDC serial port close
+20201202 10:45:03 Home condition : clear transaksi success
+20201202 10:45:03 Home condition : clear transaction log success
+20201202 10:45:03 Home condition : clear array success
+20201202 10:45:03 Home condition : clear array nasabah success
+20201202 10:45:03 Home condition : clear list success
+20201202 10:45:03 Home condition : clear transaksi baru success
+20201202 10:45:04 Home condition : clear transaksi success
+20201202 10:45:04 Home condition : clear transaction log success
+20201202 10:45:04 Home condition : clear array success
+20201202 10:45:04 Home condition : clear array nasabah success
+20201202 10:45:04 Home condition : clear list success
+20201202 10:45:04 Home condition : clear transaksi baru success
+20201202 10:45:07 Home condition : input kartu success
+20201202 10:45:07 Home condition : move to input pin
+20201202 10:45:09 Home condition : EDC process start
+20201202 10:45:09 Home condition : entered into insert debit
+20201202 10:45:10 Home condition : EDC serial port close
+20201202 10:45:10 Home condition : EDC serial port write
+20201202 10:45:12 Home condition : EDC serial port already open
+20201202 10:45:14 Home condition : EDC serial port close
+20201202 10:53:53 Home condition : clear transaksi success
+20201202 10:53:54 Home condition : clear transaction log success
+20201202 10:53:54 Home condition : clear array success
+20201202 10:53:54 Home condition : clear array nasabah success
+20201202 10:53:54 Home condition : clear list success
+20201202 10:53:54 Home condition : clear transaksi baru success
+20201202 10:53:54 Home condition : clear transaksi success
+20201202 10:53:54 Home condition : clear transaction log success
+20201202 10:53:54 Home condition : clear array success
+20201202 10:53:54 Home condition : clear array nasabah success
+20201202 10:53:54 Home condition : clear list success
+20201202 10:53:54 Home condition : clear transaksi baru success
+20201202 10:53:55 Home condition : input kartu success
+20201202 10:53:55 Home condition : move to input pin
+20201202 10:53:57 Home condition : entered into insert debit
+20201202 10:54:53 Home condition : clear transaksi success
+20201202 10:54:53 Home condition : clear transaction log success
+20201202 10:54:53 Home condition : clear array success
+20201202 10:54:53 Home condition : clear array nasabah success
+20201202 10:54:53 Home condition : clear list success
+20201202 10:54:53 Home condition : clear transaksi baru success
+20201202 10:54:54 Home condition : clear transaksi success
+20201202 10:54:54 Home condition : clear transaction log success
+20201202 10:54:54 Home condition : clear array success
+20201202 10:54:54 Home condition : clear array nasabah success
+20201202 10:54:54 Home condition : clear list success
+20201202 10:54:54 Home condition : clear transaksi baru success
+20201202 10:54:55 Home condition : input kartu success
+20201202 10:54:55 Home condition : move to input pin
+20201202 10:55:24 Home condition : entered into insert debit
+20201202 10:56:19 Home condition : clear transaksi success
+20201202 10:56:19 Home condition : clear transaction log success
+20201202 10:56:19 Home condition : clear array success
+20201202 10:56:19 Home condition : clear array nasabah success
+20201202 10:56:19 Home condition : clear list success
+20201202 10:56:19 Home condition : clear transaksi baru success
+20201202 10:56:19 Home condition : clear transaksi success
+20201202 10:56:19 Home condition : clear transaction log success
+20201202 10:56:19 Home condition : clear array success
+20201202 10:56:20 Home condition : clear array nasabah success
+20201202 10:56:20 Home condition : clear list success
+20201202 10:56:20 Home condition : clear transaksi baru success
+20201202 10:56:21 Home condition : input kartu success
+20201202 10:56:21 Home condition : move to input pin
+20201202 10:56:28 Home condition : entered into insert debit
+20201202 10:59:46 Home condition : clear transaksi success
+20201202 10:59:46 Home condition : clear transaction log success
+20201202 10:59:46 Home condition : clear array success
+20201202 10:59:46 Home condition : clear array nasabah success
+20201202 10:59:46 Home condition : clear list success
+20201202 10:59:46 Home condition : clear transaksi baru success
+20201202 10:59:46 Home condition : clear transaksi success
+20201202 10:59:46 Home condition : clear transaction log success
+20201202 10:59:46 Home condition : clear array success
+20201202 10:59:46 Home condition : clear array nasabah success
+20201202 10:59:46 Home condition : clear list success
+20201202 10:59:46 Home condition : clear transaksi baru success
+20201202 10:59:48 Home condition : input kartu success
+20201202 10:59:48 Home condition : move to input pin
+20201202 10:59:50 Home condition : EDC process start
+20201202 10:59:50 Home condition : entered into insert debit
+20201202 10:59:50 Home condition : EDC serial port close
+20201202 10:59:50 Home condition : EDC serial port open
+20201202 10:59:51 Home condition : EDC serial port write
+20201202 10:59:52 Home condition : EDC serial port already open
+20201202 10:59:55 Home condition : EDC serial port already open
+20201202 10:59:56 Home condition : EDC serial port already open
+20201202 10:59:58 Home condition : EDC serial port already open
+20201202 10:59:58 Home condition : EDC serial port already open

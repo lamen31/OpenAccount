@@ -44,6 +44,7 @@ namespace OpenAccount.Data
         public const string PARAM_SERVICES_PASSBOOK1 = "param.services.passbook1";
         public const string PARAM_SERVICES_HISTORI = "param.services.histori";
         public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
+        public const string PARAM_SERVICE_CEKPIN = "param.service.cekpin";
 
         public const string PARAM_SERVICES_POST_HISTORI = "param.services.post.histori";
         public const string PARAM_SERVICES_NASABAH = "param.service.nasabah";
