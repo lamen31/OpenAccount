@@ -24,14 +24,14 @@
                         <div>
                             <h5 style="color: #007BFF; font-weight: 600;">Bukti E-Statement</h5>
                         </div>
-                        <button type="button" class="btn btn-primary" style="width: 34%; background-color: #FF8832; font-weight: 600; border-radius: 8px;" @onclick="setEmailMethod">Alamat Email</button>
+                        <button type="button" class="btn btn-primary" style="width: 34%; background-color: #FF8832; font-weight: 600; border-radius: 8px;" @onclick="setEmailMethod">Kirim Email</button>
                         <button type="button" class="btn btn-primary" style="width: 27%; background-color: #ffffff; color: #FF8832; margin-left: 2%; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px;" @onclick="setCetakMethod">Cetak A4</button>
 
                     </div>
 
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="../assets/img/email-statement.gif" class="img-fluid" style="float: right; margin-top: 5%;">
+                    <img src="../assets/img/email-statement.gif" class="img-fluid" style="float: right; margin-top: 5%; float: right;">
                 </div>
             </div>
         </div>
@@ -50,13 +50,13 @@
                         <div>
                             <h5 style="color: #007BFF; font-weight: 600;">Bukti E-Statement</h5>
                         </div>
-                        <button type="button" class="btn btn-primary" style="width: 34%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px;" @onclick="setEmailMethod">Alamat Email</button>
+                        <button type="button" class="btn btn-primary" style="width: 34%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px;" @onclick="setEmailMethod">Kirim Email</button>
                         <button type="button" class="btn btn-primary" style="width: 27%; background-color: #FF8832; font-weight: 600; margin-left: 2%; border-radius: 8px;" @onclick="setCetakMethod">Cetak A4</button>
                     </div>
 
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="../assets/img/cetak-statement.gif" class="img-fluid" style="float: right; margin-top: 5%;">
+                    <img src="../assets/img/cetak-statement.gif" class="img-fluid" style="float: right; margin-top: 5%; float: right;">
                 </div>
             </div>
         </div>
@@ -253,7 +253,15 @@
     private async Task Lanjut()
     {
         isTimer = false;
-        checkEmailValidity();
+        if (isEmail)
+        {
+            await checkEmailValidity();
+        }
+        else
+        {
+            OnClick.InvokeAsync("konfirmasimonthly");
+        }
+        //OnClick.InvokeAsync("konfirmasimonthly");
     }
 
     private async Task checkEmailValidity()

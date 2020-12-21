@@ -22,11 +22,11 @@
                         <span class="badge badge-primary" style="margin-bottom: 2rem;">Cetak Histori Transaksi</span><br>
                         <teks style="color: #00529C; font-size: 35px;"><b> Konfirmasi Cetak</b></teks>
                         <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">Periode yang anda pilih:</h3>
-                        <h3 style="color: #F15A23; font-size: 25px;"><b>@trx.startDT.ToString("dd - MM - yyyy") s/d @trx.endDT.ToString("dd - MM - yyyy")</b></h3>
+                        <h3 style="color: #00529C; font-size: 25px;"><b style="color: #F15A23;">@trx.startDT.ToString("dd - MM - yyyy")</b> s/d <b style="color: #F15A23;">@trx.endDT.ToString("dd - MM - yyyy")</b></h3>
                     </div>
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="../assets/img/cetak-statement.gif" class="img-fluid" alt="" style="margin-top: 5%;">
+                    <img src="../assets/img/cetak-statement.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
                 </div>
             </div>
         </div>
@@ -42,11 +42,11 @@
                         <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">E-Statement akan dikirimkan ke email:</h3>
                         <h3 style="color: #F15A23; font-size: 25px;"><b>@emailNasabah</b></h3>
                         <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">Periode yang anda pilih:</h3>
-                        <h3 style="color: #F15A23; font-size: 25px;"><b>@trx.startDT.ToString("dd - MM - yyyy") s/d @trx.endDT.ToString("dd - MM - yyyy")</b></h3>
+                        <h3 style="color: #00529C; font-size: 25px;"><b style="color: #F15A23;">@trx.startDT.ToString("dd - MM - yyyy")</b> s/d <b style="color: #F15A23;">@trx.endDT.ToString("dd - MM - yyyy")</b></h3>
                     </div>
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="../assets/img/email-statement.gif" class="img-fluid" alt="" style="margin-top: 5%;">
+                    <img src="../assets/img/email-statement.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
                 </div>
             </div>
         </div>
@@ -213,7 +213,7 @@
     {
         if (trx.isEmail)
         {
-            emailNasabah = "anas@gmail.com";//trx.emailNasabah;
+            emailNasabah = trx.emailNasabah;
             isEmail = trx.isEmail;
             cetakEmail = "KIRIM";
         }

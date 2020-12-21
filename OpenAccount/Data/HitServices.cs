@@ -78,30 +78,50 @@ namespace OpenAccount.Data
             return ret;
         }
 
-        public static async Task<string> inquiryNotification(Transaksi trx, Config config)
+        public static async Task<string> InquiryNotification(Transaksi trx, Config config)
+        {
+            string ret = string.Empty;
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myPath = config.Read("LINK", Config.PARAM_SERVICES_INQUIRY_NOTIFICATION);
+            string myUrl = myLink + myPath;
+            InquiryData logdata = new InquiryData();
+            logdata.noRekening = trx._AccountNumber;
+            var _jsonSerializerOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(logdata, _jsonSerializerOptions),
+                Encoding.UTF8, "application/json");
+
+            return await CallAPI(myUrl, content, "POST");
+        }
+
+        public static async Task<string> CallAPI(string url, HttpContent payload, string method="POST")
         {
             string ret = string.Empty;
             try
             {
-                string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
-                string myPath = config.Read("LINK", Config.PARAM_SERVICES_INQUIRY_NOTIFICATION);
-                string myUrl = myLink + myPath;
-                InquiryData logdata = new InquiryData();
-                logdata.noRekening = trx._AccountNumber;
-
                 using (var handler = new HttpClientHandler())
                 {
                     handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
                     using (HttpClient client = new HttpClient(handler))
                     {
-                        var _jsonSerializerOptions = new JsonSerializerOptions
+                        var response = new HttpResponseMessage();
+                        if (method == "POST")
                         {
-                            WriteIndented = true
-                        };
-                        var content = new StringContent(
-                            JsonSerializer.Serialize(logdata, _jsonSerializerOptions),
-                            Encoding.UTF8, "application/json");
-                        var response = await client.PostAsync(myUrl, content);
+                            response = await client.PostAsync(url, payload);
+                        }
+                        else if (method == "GET")
+                        {
+                            response = await client.GetAsync(url);
+                        }
+                        else
+                        {
+                            return "Invalid HTTP Method";
+                        }
+                        
                         //----------------Prepared to send Transaction Log-----------------//
                         if (response != null)
                         {
@@ -124,6 +144,7 @@ namespace OpenAccount.Data
             }
             return ret;
         }
+
 
         public class InquiryData
         {
