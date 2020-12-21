@@ -9,6 +9,26 @@ namespace OpenAccount.Data
 {
     public class Transaksi
     {
+        public string startDate { get; set; }
+        public string timeOut { get; set; }
+        public string endDate { get; set; }
+        public DateTime startDT { get; set; }
+        public DateTime endDT { get; set; }
+        public string mbStatus { get; set; }
+        public string nomerKartu { get; set; } = "";
+        public string namaNasabah { get; set; }
+        public string alamat1 { get; set; }
+        public string alamat2 { get; set; }
+        public string kota { get; set; }
+        public string provinsi { get; set; }
+        public string kodePos { get; set; }
+        public string kodeNegara { get; set; }
+        public decimal totalDebet { get; set; } = 0;
+        public decimal totalKredit { get; set; } = 0;
+        public string debitCurr { get; set; }
+        public string kreditCurr { get; set; }
+        public string acctCurr { get; set; }
+        public string pinBlock { get; set; }
         public string[] _Nasabah { get; set; }
         public string _HistoriJenisPeriode { get; set; }
         public string _HistoriStartDate { get; set; }
@@ -63,6 +83,14 @@ namespace OpenAccount.Data
         public string _KTPKewarganegaraan { get; set; }
         public string _KTPMinutiae1 { get; set; }
         public string _KTPMinutiae2 { get; set; }
+        public class UnitKerja
+        { 
+            public string unitKerja { get; set; }
+            public string alamat1UKer { get; set; }
+            public string alamat2Uker { get; set; }
+        }
+
+        public UnitKerja uker = new UnitKerja();
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _AccountNumber { get; set; }
@@ -70,6 +98,21 @@ namespace OpenAccount.Data
         public string _AccountStatus { get; set; }
         public string _ServiceErrorCode { get; set; }
         public string _ServicesErrorMessage { get; set; }
+        public List<string> pilihanLayanan { get; } = new List<string>() {"Pencetakan Passbook Printing", "Pencetakan Mutasi 5 Transaksi Terakhir",
+                                                                                "Pencetakan Rekening Koran", "Pengiriman Rekening Koran Via Email", "Proses Persiapan Layanan" };
+        public string statusLayanan { get; set; }
+        public int jenisLayanan { get; set; }
+        public string MSISDN { get; set; }
+        public bool isEmail { get; set; }
+        public string emailNasabah { get; set; }
+        public string emailAttachment { get; set; }
+        public int emailAttachmentPage { get; set; }
+
+        //1. Pencetakan Passbook Printing 
+        //2. Pencetakan Mutasi 5 Transaksi Terakhir 
+        //3. Pencetakan Rekening Koran  
+        //4. Pengiriman Rekening Koran Via Email
+
 
         public class HistoriTransaksi
         {
@@ -123,6 +166,28 @@ namespace OpenAccount.Data
             public string _PassbookLine { get; set; }
             public string _PassbookBranch { get; set; }
         }
+
+        public class MonthlyStatement
+        {
+            public string NO_REK { get; set; }
+            public string TGL_TRAN { get; set; }
+            public string TGL_EFEKTIF { get; set; }
+            public string JAM_TRAN { get; set; }
+            public string KODE_TRAN { get; set; }
+            public string DESK_TRAN { get; set; }
+            public string SALDO_AWAL_MUTASI { get; set; }
+            public decimal saldoAwalMutasi { get; set; }
+            public string MUTASI_DEBET { get; set; }
+            public decimal mutasiDebet { get; set; }
+            public string MUTASI_KREDIT { get; set; }
+            public decimal mutasiKredit { get; set; }
+            public string SALDO_AKHIR_MUTASI { get; set; }
+            public decimal saldoAkhirMutasi { get; set; }
+            public string TRUSER { get; set; }
+            public string TRREMK { get; set; } 
+            public string TERBILANG { get; set; }
+        }
+        public List<MonthlyStatement> _listMonthly = new List<MonthlyStatement>();
 
         public class tempPrintBuku
         {

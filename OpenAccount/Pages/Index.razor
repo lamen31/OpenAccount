@@ -131,7 +131,7 @@
                     break;
                 }
             case "gantikartuberhasil":
-                { 
+                {
                     <GantiKartuBerhasilComponent OnClick="ClickHandler"></GantiKartuBerhasilComponent>
                     break;
                 }
@@ -321,7 +321,7 @@
                     break;
                 }
             case "bukuinputdata":
-                { 
+                {
                     <BukuInputDataComponent OnClick="ClickHandler"></BukuInputDataComponent>
                     break;
                 }
@@ -333,7 +333,7 @@
             case "bukuhalamanpenuh":
                 {
                     <BukuHalamanPenuhComponent OnClick="ClickHandler"></BukuHalamanPenuhComponent>
-                    break;  
+                    break;
                 }
             case "bukuberhasil":
                 {
@@ -341,7 +341,7 @@
                     break;
                 }
             case "bukupenuh":
-                { 
+                {
                     <BukuPenuhComponent OnClick="ClickHandler"></BukuPenuhComponent>
                     break;
                 }
@@ -354,7 +354,7 @@
                 {
                     <HistoriTransaksiComponent OnClick="ClickHandler"></HistoriTransaksiComponent>
                     break;
-}
+                }
             case "historiInputPin":
                 {
                     <HistoriInputPinComponent OnClick="ClickHandler"></HistoriInputPinComponent>
@@ -363,6 +363,11 @@
             case "historiPilih":
                 {
                     <HistoriPilihComponent OnClick="ClickHandler"></HistoriPilihComponent>
+                    break;
+                }
+            case "historiPilihMetode":
+                {
+                    <HistoriPilihMetodeComponent OnClick="ClickHandler"></HistoriPilihMetodeComponent>
                     break;
                 }
             case "historiBulanBerjalan":
@@ -417,7 +422,7 @@
                 }
             case "inputpin":
                 {
-                   <InputPinComponent OnClick="ClickHandler"></InputPinComponent>
+                    <InputPinComponent OnClick="ClickHandler"></InputPinComponent>
                     break;
                 }
             case "newhome":
@@ -460,9 +465,52 @@
                     <KonfirmasiRekeningComponent OnClick="ClickHandler"></KonfirmasiRekeningComponent>
                     break;
                 }
+            case "monthlystatement":
+                {
+                    <MonthlyStatement OnClick="ClickHandler"></MonthlyStatement>
+                    break;
+                }
+            case "konfirmasimonthly":
+                {
+                    <KonfirmasiMonthlyStatement OnClick="ClickHandler"></KonfirmasiMonthlyStatement>
+                    break;
+                }
+            case "kartusalah":
+                {
+                    <KartuSalah OnClick="ClickHandler"></KartuSalah>
+                    break;
+                }
+            case "konfirmasiawal":
+                {
+                    <KonfirmasiNoRekening OnClick="ClickHandler"></KonfirmasiNoRekening>
+                    break;
+                }
+            case "konfirmasitimeout":
+                {
+                    <KonfirmasiTimeOut OnClick="ClickHandler"></KonfirmasiTimeOut>
+                    break;
+                }
+            case "historiberhasilmonthly":
+                {
+                    <HistoriBerhasilComponentMonthly OnClick="ClickHandler"></HistoriBerhasilComponentMonthly>
+                    break;
+                }
+            case "konfirmasinorekmonthly":
+                {
+                    <KonfirmasiNoRekeningMonthly OnClick="ClickHandler"></KonfirmasiNoRekeningMonthly>
+                    break;
+                }
+            case "inputpinmonthly":
+                {
+                    <InputPinMonthly OnClick="ClickHandler"></InputPinMonthly>
+                    break;
+                }
             default:
                 {
-                    <LandingPage2Component OnClick="ClickHandler"></LandingPage2Component>
+                    //<LandingPage2Component OnClick="ClickHandler"></LandingPage2Component>
+                    //<NewHomeComponent OnClick="ClickHandler"></NewHomeComponent>
+                    //<KonfirmasiMonthlyStatement OnClick="ClickHandler"></KonfirmasiMonthlyStatement>
+                    <HistoriPilihMetodeComponent OnClick="ClickHandler"></HistoriPilihMetodeComponent>
                     break;
                 }
         }

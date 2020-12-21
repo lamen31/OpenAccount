@@ -42,8 +42,15 @@ namespace OpenAccount.Data
         public const string PARAM_SERVICES_REKENING = "param.services.rekening";
         public const string PARAM_SERVICES_PASSBOOK = "param.services.passbook";
         public const string PARAM_SERVICES_PASSBOOK1 = "param.services.passbook1";
+        public const string PARAM_SERVICES_LOG = "param.services.log";
+        public const string PARAM_SERVICES_EMAIL = "param.services.email";
+        public const string PARAM_SERVICES_SMS = "param.services.sms";
+        public const string PARAM_SERVICES_SMS_OTP = "param.services.smsotp"; 
+        public const string PARAM_SERVICES_INQUIRY_NOTIFICATION = "param.services.inquirynotification";
+        public const string PARAM_SERVICES_INQUIRY_ESTATEMENT = "param.services.inquiryestatement";
         public const string PARAM_SERVICES_HISTORI = "param.services.histori";
         public const string PARAM_SERVICES_THERMAL = "param.services.thermal";
+        public const string PARAM_SERVICE_CEKPIN = "param.service.cekpin";
 
         public const string PARAM_SERVICES_POST_HISTORI = "param.services.post.histori";
         public const string PARAM_SERVICES_NASABAH = "param.service.nasabah";

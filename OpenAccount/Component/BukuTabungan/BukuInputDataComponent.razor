@@ -8,15 +8,16 @@
 @inject Config config
 @inject Utility utility
 @inject HitServices services
+@inject HitLog hitlog
 <!-- ======= Hero Section ======= -->
-<section id="hero">
+<section id="hero" @onclick="ResetTimer">
 
     <div class="container" style="margin-top:-4%;">
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Transaksi Buku Tabungan</span><br>
-                    <teks>Hello, @trx._Nasabah[0]</teks>
+                    <teks>Hello, @trx.namaNasabah</teks>
                     <h3 style="color: #00529C;">Masukkan data buku tabungan Anda</h3>
                 </div>
                 <form>
@@ -146,26 +147,26 @@
     </div>
 </footer><!-- End Footer -->
 
-@if (isTime)
-{
-    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center">
-                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
-                            <span class="sr-only">Loading...</span>
+@*@if (isTime)
+    {
+        <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
                         </div>
-                    </div>
-                    <div style="text-align: center; color: rgb(0, 0, 0);">
-                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
-                        <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
+                        <div style="text-align: center; color: rgb(0, 0, 0);">
+                            <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                            <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }*@
 @if (isBarisLebih)
 {
     @*<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
@@ -288,18 +289,21 @@
     private string saldorekening = string.Empty;
     private string saldorekening2 = string.Empty;
     private string belakangkoma = string.Empty;
-    private string serialbuku = string.Empty;
+    private string serialbuku = string.Empty;//nomorseribuku
     private string isTextfield = "1";
     private string Date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("dd/MM/yy");
     private string[] tipe;
     private string[] sandi;
     private string[] nominal;
     private string[] pengesahan;
+
     private TimeSpan span;
-    private int overtime = 90000;
+    private int overtime = 60000;
     private bool isTimeOut = false;
     private bool isTime = false;
+    private bool isTimer = true;
     private DateTime starttime;
+
     private bool isBisnis = false;
     private bool isSimpedes = false;
     private bool isGrio = false;
@@ -308,20 +312,44 @@
     private bool isSerialKurang = false;
     private bool isBukanStatus = false;
 
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            Utility.WriteLog("Buku condition : entered into buku input data", "step-action");
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            trx.timeOut = "bukuinputdata";
+            isTimer = true;
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());
-            if (isTime)
+            if (isTime && isTimer)
             {
-                //isTimeOut = true;
-                //await Task.Delay(100);
-                //StateHasChanged();
-                //await Task.Delay(2000);
-                OnClick.InvokeAsync("timeout");
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTimer = false;
+                trx.statusLayanan = "CANCEL";
+                HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
+                OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
     }
@@ -338,7 +366,10 @@
             errorcode = "GIRO";
             errormessage = "This Account is GIRO";
             trx.setErrorService(errorcode, errormessage);
+            trx.statusLayanan = "ERROR";
+            HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
+            isTimer = true;
             OnClick.InvokeAsync("error");
         }
         else if (isBisnis)
@@ -347,7 +378,9 @@
             errorcode = "BISNIS";
             errormessage = "This Account is BISNIS";
             trx.setErrorService(errorcode, errormessage);
+            HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
+            isTimer = true;
             OnClick.InvokeAsync("error");
         }
     }
@@ -379,7 +412,7 @@
     {
         string errorcode;
         string errormessage;
-        string status = trx._Nasabah[4];
+        string status = trx.mbStatus;
         switch (status)
         {
             case "1":
@@ -388,14 +421,19 @@
                 errorcode = "NotStatus";
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
+                isTimer = true;
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
                 errorcode = "NotStatus";
                 errormessage = "Account Status Matured but Not Closed";
+                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = true;
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
@@ -404,7 +442,10 @@
                 errorcode = "NotStatus";
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
+                isTimer = true;
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
@@ -425,7 +466,10 @@
                 errorcode = "NotStatus";
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
+                isTimer = true;
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
@@ -433,39 +477,14 @@
         }
     }
 
-    private async Task IdleTime()
-    {
-        do
-        {
-            span = DateTime.Now - starttime;
-            if (overtime > 0 && span.TotalMilliseconds > overtime)
-            {
-                isTime = true;
-                isTimeOut = true;
-                break;
-            }
-        } while (isTimeOut == false);
-    }
-
-    private async Task ChangeIsTime()
-    {
-        isTime = !isTime;
-        await Task.Delay(100);
-        StateHasChanged();
-    }
-
-    //protected override async Task OnInitializedAsync()
-    //{
-    //    await ServicePassbook();
-    //}
-
-
-
     private async Task AmbilKartu()
     {
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("inputrekening");
+        trx.statusLayanan = "ERROR";
+        HitLog.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
+        isTimer = true;
+        OnClick.InvokeAsync("default");
     }
 
     private async Task BukuKonfirmasi()
@@ -533,6 +552,7 @@
 
                 isTimeOut = true;
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
+                isTimer = true;
                 OnClick.InvokeAsync("bukukonfirmasi");
             }
             else if (saldorekening == string.Empty || barisbuku == string.Empty || serialbuku == string.Empty)
@@ -615,6 +635,7 @@
 
                 isTimeOut = true;
                 Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
+                isTimer = true;
                 OnClick.InvokeAsync("bukukonfirmasi");
             }
             else if (Convert.ToInt32(barisbuku) > 15)
@@ -637,7 +658,7 @@
                 await Task.Delay(100);
                 StateHasChanged();
             }
-            else if(Convert.ToInt32(barisbuku) == 0 || Convert.ToInt32(barisbuku) == 00)
+            else if (Convert.ToInt32(barisbuku) == 0 || Convert.ToInt32(barisbuku) == 00)
             {
                 isTidakSesuai = true;
                 await Task.Delay(100);

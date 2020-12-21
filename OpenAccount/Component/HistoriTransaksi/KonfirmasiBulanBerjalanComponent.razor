@@ -18,7 +18,7 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
-                    <teks>Hello, @trx._Nasabah[0]</teks>
+                    <teks>Hello, @trx.namaNasabah</teks>
                     <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @jumlahtransaksi Histori Transaksi pada</h3><br>
                     <div style="margin-top:5%;">
                         <h3 style="color: #00529C;"><b>@jenisperiode</b></h3>
@@ -178,7 +178,7 @@
     private string saldo;
     private string statusPrinter;
     private TimeSpan span;
-    private int overtime = 60000;
+    private int overtime = 180000;
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
@@ -321,7 +321,7 @@
         trx.clearListHistori();
         Utility.WriteLog("Histori condition : clear list histori success", "step-action");
         string myJson = "\"REQUEST\":\"" + "{" +
-        "\"ACCT_NO\":\"" + trx._Nasabah[1] + "\"," +
+        "\"ACCT_NO\":\"" + trx._AccountNumber + "\"," +
         "\"START_DATE\":\"" + new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyyMMdd") + "\"," +
         "\"END_DATE\":\"" + new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyyMMdd") + "\"" +
         "}";

@@ -1,8 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
-@inject Utility utility 
-
+@inject Utility utility
+@inject Transaksi trx
+@inject Config config
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -57,15 +58,18 @@
     </div>
 </footer><!-- End Footer -->
 
-@code {       
+@code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        trx.statusLayanan = "SUCCESS";
+        SendNotification.SendSms(trx, config);
+        HitLog.SendLog(trx, config, "");
         await Task.Delay(8000);
         Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("home");
+        OnClick.InvokeAsync("default");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -138,7 +138,7 @@ namespace OpenAccount.Data
 
             g.DrawString("Kepada Yth.", new Font("Arial", 10, FontStyle.Regular), blackBrush, new Point(57, 174));
 
-            g.DrawString("("+_trx._Nasabah[0]+")", new Font("Arial", 10, FontStyle.Regular), blackBrush, new Point(57, 227));
+            g.DrawString("("+_trx.namaNasabah+")", new Font("Arial", 10, FontStyle.Regular), blackBrush, new Point(57, 227));
 
             int pointy = 238;
             g.DrawString("Tanggal Laporan", new Font("Arial", 10, FontStyle.Regular), blackBrush, new Point(393, pointy));
@@ -310,6 +310,9 @@ namespace OpenAccount.Data
             return arrayhasil;
         }
 
+
+
+
         public async Task PrintThermal(Transaksi trx)
         {
             printdoc = new PrintDocument();
@@ -421,14 +424,14 @@ namespace OpenAccount.Data
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
 
-            string lokasi = "0206-GALERY ATM GEDUNG BRI 1";
+            string lokasi = "0386-BRI 1 KANCA RAWAMANGUN";
             joint = "LOKASI             : " + lokasi;
             g.DrawString(joint, font, blackBrush, layout, formatLeft);
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
 
             //string nokartu = "522184..0084";
-            joint = "NO. REKENING : " + _trx._Nasabah[1];
+            joint = "NO. REKENING : " + _trx._AccountNumber;
             g.DrawString(joint, font, blackBrush, layout, formatLeft);
             offset += lineheight;
             offset += lineheight;
@@ -563,33 +566,133 @@ namespace OpenAccount.Data
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
         }
 
+        //YUDHI MULAI UBAH ====================================================================
+
+        public string backst(int jum)
+        {
+            // fungsi untuk kembali ke margin awal sesuai panjang karakter tercetak pada butab
+            String bcksp = "";
+
+            for (int i = 0; i < jum; i++)
+            {
+                bcksp = bcksp + "\x08";
+            }
+            return bcksp;
+        }
+
+
         public string PrintPassbook(Transaksi trx)
         {
-            bool result = false;
-            int nol = 0;
-            printdoc = new PrintDocument();
+
+
+            //Yudhi coba 
+            LPrinterTest.LPrinter MyPrinter;
+
+            MyPrinter = new LPrinterTest.LPrinter();
+            int PTC = 87;  //total karakter passbook
             _trx = trx;
-            string pathStatus;
-            string strfilename = "step-action";
-            string textStatus;
-            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PASSBOOK);
-            //string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_PRINTERCOBA);
-            //PrinterSettings settings = new PrinterSettings();
-            //string printername = settings.PrinterName;
-            printdoc.PrinterSettings.PrinterName = printername;
-            //printdoc.BeginPrint += new PrintEventHandler(BeginPrintEH);
-            //printdoc.EndPrint += new PrintEventHandler(EndPrintEH);
-            printdoc.PrintPage += new PrintPageEventHandler(PassbookPrintPage);
-            Utility.WriteLog("Printer condition : print passbook in " + printername + " start", "step-action");
-            printdoc.Print();
-            Utility.WriteLog("Printer condition : check status printing start", "step-action");
-            printerstatus.StatusPrinting(printername);
-            pathStatus = printerstatus.workingdirectory;
-            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
-            textStatus = Utility.ReadLog(pathStatus);
-            Utility.WriteLog(textStatus, "step-action");
-            Utility.ClearLog(pathStatus);
-            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
+
+            MyPrinter.Open("printing test");
+             
+            string saldo;
+            int baris = Convert.ToInt32(_trx._BukuBaris);
+            string cetak = "";
+            int sisabaris = 0;
+            int flipflop = 0;
+
+            sisabaris = baris % 30;
+            MyPrinter.Print("\n\n\n\n\n");//sela header
+
+            if (_trx._listbuku.Count > 0) // indikator bahwa line tidak 0
+            {
+                flipflop = 1;
+            }
+
+            //print hal pertama 
+            for (int k = 1; k < sisabaris; k++)
+            {
+                
+                MyPrinter.Print("\n");
+                if (k == 14)
+                {
+                    MyPrinter.Print("\n\n");
+                }
+                else if (k > 14)
+                {
+                    //MyPrinter.Print("\n\n");
+                    flipflop = 2;
+                }
+            }
+
+
+         
+
+            for (int i = 0; i < _trx._listbuku.Count; i++)
+            {
+                string keterangan;
+                
+
+                string sandi = _trx._listbuku[i]._Sandi;
+                //saldo = checkZero(_trx._listbuku[i]._PassbookBalance);
+                saldo = _trx._listbuku[i]._PassbookBalance;
+                saldo = checkZero(saldo);
+                long nominal = Convert.ToInt64(saldo.Substring(0, saldo.Length - 3));
+                if (nominal > 1000)
+                    saldo = nominal.ToString("N0") + ".00";
+                    saldo = String.Format("{0,15}", saldo);
+
+                string debetprint = _trx._listbuku[i]._PassbookDebitAmount;
+                debetprint = checkZero(debetprint);
+                long debet = Convert.ToInt64(debetprint.Substring(0, debetprint.Length - 3));
+                if (debet > 1000)
+                    debetprint = debet.ToString("N0") + ".00";
+                    debetprint = String.Format("{0,15}", debetprint);
+
+                string kreditprint =  _trx._listbuku[i]._PassbookCreditAmount;
+                kreditprint = checkZero(kreditprint);
+                long kredit = Convert.ToInt64(kreditprint.Substring(0, kreditprint.Length - 3));
+                if (kredit > 1000)
+                    kreditprint = kredit.ToString("N0") + ".00";
+                    kreditprint = String.Format("{0,15}", kreditprint);
+
+                string bukuDate = _trx._listbuku[i]._PassbookDate;
+                bukuDate = bukuDate.Substring(1, bukuDate.Length - 1);
+                string line = baris.ToString();
+                if (line.Length < 2)
+                    line = "0" + line;
+
+
+                keterangan = _trx._listbuku[i]._PassbookMNECode;
+
+                string tellerID = _trx._listbuku[i]._PassbookTellerID;
+
+                cetak = " " + bukuDate + "   " + sandi + "      " + debetprint + "     " + kreditprint + "  " + line + "       " + saldo +  "  " + keterangan + "  " + tellerID;
+                MyPrinter.Print( cetak + "\n" + backst(100));
+
+
+                if (baris%14 == 0 && flipflop==1)
+                {
+                    //MyPrinter.Print("\x0C");
+                    MyPrinter.Print("\n\n"); // space tengah buku pindah ke hal 2
+                    flipflop = 2;
+                }
+                else if ((baris%29 == 0) && (flipflop ==2))
+                {
+
+                    //MyPrinter.Print("\x0C"); //FF kertas 
+                    MyPrinter.Print("\n\n\n\n\n"); // header hal 1
+                    flipflop = 1;
+                }
+
+                baris = baris + 1;
+
+
+            }
+
+            MyPrinter.Print("\x0C");
+            MyPrinter.Close();
+
+
             Status = printerstatus.StatusCode;
             if (printerstatus.StatusCode == 0)
             {
@@ -603,156 +706,11 @@ namespace OpenAccount.Data
             }
             trx.setStatusPrinting(Status.ToString());
             return trx._BukuSaldo;
+
+                                    
         }
 
-        public void PassbookPrintPage(object sender, PrintPageEventArgs e)
-        {
-            font = new Font("Calibri", 7.5F, FontStyle.Regular);
-            SolidBrush blackbrush = new SolidBrush(Color.Black);
-            Graphics g = e.Graphics;
-            StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
-            StringFormat formatRight = new StringFormat(formatLeft);
-            formatRight.Alignment = StringAlignment.Far;
-            string saldo;
-            int baris = Convert.ToInt32(_trx._BukuBaris);
-            int ypoint = 87;
-            int sisabaris = 16 * baris;
-            if (baris > 14)
-            {
-                sisabaris = sisabaris + (12 * 4);
-            }
-            ypoint += sisabaris;
 
-            for (int i = 0; i < _trx._listbuku.Count; i++)
-            {
-                string keterangan;
-                //int nominal = Convert.ToInt32(_trx._listbuku[i]._Nominal.Substring(0,_trx._listbuku[i]._Nominal.Length - 2));
-                //if(keterangan == "DBT")
-                //{
-                //    string sandi = _trx._listbuku[i]._KodeTransaksi;
-                //    saldo -= nominal;
-                //    string debetprint = "-" + nominal.ToString("N0") + ",00";
-                //    g.DrawString(sandi, font, blackbrush, new Point(57, ypoint));
-                //    g.DrawString(debetprint, font, blackbrush, new Point(95, ypoint));
-                //    g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(306, ypoint));
-                //}
-                //else if(keterangan == "KRT")
-                //{
-                //    string sandi = _trx._listbuku[i]._KodeTransaksi;
-                //    saldo += nominal;
-                //    string kreditprint = nominal.ToString("N0") + ",00";
-                //    g.DrawString(sandi, font, blackbrush, new Point(57, ypoint));
-                //    g.DrawString(kreditprint, font, blackbrush, new Point(189, ypoint));
-                //    g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(306, ypoint));
-                //}
-                string sandi = _trx._listbuku[i]._Sandi;
-                //saldo = checkZero(_trx._listbuku[i]._PassbookBalance);
-                saldo = _trx._listbuku[i]._PassbookBalance;
-                saldo = checkZero(saldo);
-                long nominal = Convert.ToInt64(saldo.Substring(0, saldo.Length - 3));
-                if (nominal > 1000)
-                    saldo = nominal.ToString("N0") + ".00";
-                //string debetprint = checkZero(_trx._listbuku[i]._PassbookDebitAmount);
-                string debetprint = _trx._listbuku[i]._PassbookDebitAmount;
-                debetprint = checkZero(debetprint);
-                long debet = Convert.ToInt64(debetprint.Substring(0, debetprint.Length - 3));
-                if (debet > 1000)
-                    debetprint = debet.ToString("N0") + ".00";
-                //string kreditprint = checkZero(_trx._listbuku[i]._PassbookCreditAmount);
-                string kreditprint = _trx._listbuku[i]._PassbookCreditAmount;
-                kreditprint = checkZero(kreditprint);
-                long kredit = Convert.ToInt64(kreditprint.Substring(0, kreditprint.Length - 3));
-                if (kredit > 1000)
-                    kreditprint = kredit.ToString("N0") + ".00"; 
-                SizeF layoutsize = new SizeF(321, ypoint);
-                RectangleF layout = new RectangleF(new PointF(57-7, ypoint), layoutsize);
-                g.DrawString(sandi, font, blackbrush, layout, formatLeft);
-                //g.DrawString(sandi, font, blackbrush, new Point(57-7, ypoint));
-                layoutsize = new SizeF(162-4, ypoint);
-                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
-                g.DrawString(debetprint, font, blackbrush, layout, formatRight);
-                //g.DrawString(debetprint, font, blackbrush, new Point(95-11, ypoint));
-                layoutsize = new SizeF(249+4, ypoint);
-                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
-                g.DrawString(kreditprint, font, blackbrush, layout, formatRight);
-                //g.DrawString(kreditprint, font, blackbrush, new Point(189-11, ypoint));
-                layoutsize = new SizeF(389+8, ypoint);
-                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
-                g.DrawString(saldo, font, blackbrush, layout, formatRight);
-                //g.DrawString(saldo, font, blackbrush, new Point(306-11, ypoint));
-                //g.DrawString(baris.ToString(), font, blackbrush, new Point(0, ypoint));
-                string bukuDate = _trx._listbuku[i]._PassbookDate;
-                bukuDate = bukuDate.Substring(1, bukuDate.Length - 1);
-                //bukuDate = bukuDate.Substring(0, 10);
-                layoutsize = new SizeF(321, ypoint);
-                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
-                g.DrawString(bukuDate, font, blackbrush, layout, formatLeft);
-                //g.DrawString(bukuDate, font, blackbrush, new Point(0, ypoint));
-                //g.DrawString(_trx._listbuku[i]._SecurityCode, font, blackbrush, new Point(442, ypoint));
-                //string line = _trx._listbuku[i]._PassbookLine.Substring(1, _trx._listbuku[i]._PassbookLine.Length);
-                //string line = _trx._listbuku[i]._PassbookLine;
-                //line = line.Substring(1, line.Length - 1);
-                string line = baris.ToString();
-                if (line.Length < 2)
-                    line = "0" + line;
-                layoutsize = new SizeF(321, ypoint);
-                layout = new RectangleF(new PointF(268 - 7, ypoint), layoutsize);
-                g.DrawString(line, font, blackbrush, layout, formatLeft);
-                //g.DrawString(line, font, blackbrush, new Point(268-7, ypoint));
-                keterangan = _trx._listbuku[i]._PassbookMNECode;
-                //keterangan = _trx._listbuku[i]._PassbookMNECode + " " + _trx._listbuku[i]._PassbookTellerID;
-                string tellerID = _trx._listbuku[i]._PassbookTellerID;
-                layoutsize = new SizeF(321, ypoint);
-                layout = new RectangleF(new PointF(400 + 4, ypoint), layoutsize);
-                g.DrawString(keterangan, font, blackbrush, layout, formatLeft);
-                //g.DrawString(keterangan, font, blackbrush, new Point(400+4, ypoint));
-                layoutsize = new SizeF(468 + 8, ypoint);
-                layout = new RectangleF(new PointF(0, ypoint), layoutsize);
-                g.DrawString(tellerID, font, blackbrush, layout, formatRight);
-                baris += 1;
-                ypoint += 16;
-                if (baris == 15)
-                {
-                    ypoint = ypoint + (12 * 4);
-                }
-            }
-            //for(int i = 0; i < _trx._BukuTipe.Length; i++)
-            //{
-            //    string keterangan = _trx._BukuSandi[i];
-            //    int nominal = int.Parse(_trx._BukuNominal[i]);
-
-            //    if (keterangan == "DBT")
-            //    {
-            //        string sandi = _trx._BukuTipe[i];
-            //        saldo -= nominal;
-            //        string debetprint = "-" + nominal.ToString("N0");
-            //        g.DrawString(sandi, font, blackbrush, new Point(87, ypoint));
-            //        g.DrawString(debetprint, font, blackbrush, new Point(155, ypoint));
-            //        g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(340, ypoint));
-            //    }
-            //    else
-            //    {
-            //        //Random rnd = new Random();
-            //        string sandi = _trx._BukuTipe[i];
-            //        saldo += nominal;
-            //        string kreditprint = nominal.ToString("N0");
-            //        g.DrawString(sandi, font, blackbrush, new Point(87, ypoint));
-            //        g.DrawString(kreditprint, font, blackbrush, new Point(249, ypoint));
-            //        g.DrawString(saldo.ToString("N0"), font, blackbrush, new Point(340, ypoint));
-            //    }
-
-            //    g.DrawString(baris.ToString(), font, blackbrush, new Point(0, ypoint));
-            //    g.DrawString(_trx._BukuDate, font, blackbrush, new Point(30, ypoint));
-            //    g.DrawString(_trx._BukuPengesahan[i], font, blackbrush, new Point(442, ypoint));
-            //baris += 1;
-            //ypoint += 13;
-            //if (baris == 21)
-            //{
-            //    ypoint = ypoint + (12 * 5);
-            //}
-            //}
-            //_trx._BukuSaldo = saldo.ToString();
-        }
 
         private string checkZero(string strinput)
         {
@@ -1255,11 +1213,11 @@ namespace OpenAccount.Data
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
 
-            joint = "No Rekening : " + _trx._Nasabah[1].Substring(0, _trx._Nasabah[1].Length - 4) + "****";
+            joint = "No Rekening : " + _trx._AccountNumber.Substring(0, _trx._AccountNumber.Length - 4) + "****";
             g.DrawString(joint, font, blackBrush, layout, formatLeft);
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);
-            joint = "Nama Nasabah : " + _trx._Nasabah[0];
+            joint = "Nama Nasabah : " + _trx.namaNasabah;
             g.DrawString(joint, font, blackBrush, layout, formatLeft);
             offset += lineheight;
             layout = new RectangleF(new PointF(sizex, sizey + offset), layoutsize);

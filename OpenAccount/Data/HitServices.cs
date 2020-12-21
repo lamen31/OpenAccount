@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace OpenAccount.Data
@@ -75,6 +76,58 @@ namespace OpenAccount.Data
                 Console.WriteLine(e.InnerException.Message);
             }
             return ret;
+        }
+
+        public static async Task<string> inquiryNotification(Transaksi trx, Config config)
+        {
+            string ret = string.Empty;
+            try
+            {
+                string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+                string myPath = config.Read("LINK", Config.PARAM_SERVICES_INQUIRY_NOTIFICATION);
+                string myUrl = myLink + myPath;
+                InquiryData logdata = new InquiryData();
+                logdata.noRekening = trx._AccountNumber;
+
+                using (var handler = new HttpClientHandler())
+                {
+                    handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                    using (HttpClient client = new HttpClient(handler))
+                    {
+                        var _jsonSerializerOptions = new JsonSerializerOptions
+                        {
+                            WriteIndented = true
+                        };
+                        var content = new StringContent(
+                            JsonSerializer.Serialize(logdata, _jsonSerializerOptions),
+                            Encoding.UTF8, "application/json");
+                        var response = await client.PostAsync(myUrl, content);
+                        //----------------Prepared to send Transaction Log-----------------//
+                        if (response != null)
+                        {
+                            if (response.IsSuccessStatusCode || response.StatusCode.ToString() == "BadRequest" || response.StatusCode.ToString() == "InternalServerError")
+                            {
+                                var jsonStringResult = await response.Content.ReadAsStringAsync();
+                                return jsonStringResult;
+                            }
+                            else
+                            {
+                                return response.StatusCode.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine(e.InnerException.Message);
+            }
+            return ret;
+        }
+
+        public class InquiryData
+        {
+            public string noRekening { get; set; }
         }
     }
 }
