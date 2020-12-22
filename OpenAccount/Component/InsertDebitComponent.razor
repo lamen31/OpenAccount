@@ -103,7 +103,7 @@
         else
         {
             trx.statusLayanan = "CANCEL";
-            HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
+            //HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
             OnClick.InvokeAsync("default");
         }
     }
@@ -201,7 +201,7 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             trx.statusLayanan = "CANCEL";
-            HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
+            //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
             isLoop = false;
             serialPort.Close();
             trx.setErrorService("IEC", "Open Serial EDC Failed");
@@ -258,7 +258,7 @@
                     isLoop = false;
                     Utility.WriteLog("Home condition : EDC NAK", "step-action");
                     trx.statusLayanan = "ERROR";
-                    HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
+                    //HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
                     trx.setErrorService("IEC", "EDC NAK");
                     OnClick.InvokeAsync("error");
                 }
@@ -323,7 +323,7 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
+            //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
             isLoop = false;
             trx.setErrorService("IEC", "Open Serial EDC Failed");
             OnClick.InvokeAsync("error");
@@ -402,7 +402,7 @@
                 isLoop = false;
                 Utility.WriteLog("Home condition : EDC NAK", "step-action");
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
+                //HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
                 trx.setErrorService("IEC", "EDC NAK");
                 OnClick.InvokeAsync("error");
             }
