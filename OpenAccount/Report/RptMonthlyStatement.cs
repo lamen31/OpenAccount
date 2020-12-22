@@ -971,7 +971,7 @@ namespace OpenAccount.Report
             TestUtil.VerifyPdfFileIsReadable(pdfFilePath);
 
             //bisa dibuat function baru//
-            using (Stream input = new FileStream(pdfFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            /*using (Stream input = new FileStream(pdfFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 using (Stream output = new FileStream(pdfEncryptFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
@@ -979,6 +979,23 @@ namespace OpenAccount.Report
                     PdfEncryptor.Encrypt(reader, output, true, passwd, "BRI-Super-Secret-Code", PdfWriter.ALLOW_SCREENREADERS);
                     _trx.emailAttachment = pdfEncryptFilePath;
                     _trx.emailAttachmentPage = TestUtil.GetNumberOfPages(pdfFilePath);
+                }
+            }*/
+            EncryptPDF(pdfFilePath, pdfEncryptFilePath, passwd);
+        }
+
+        public void EncryptPDF(string inputFile, string outputFile, string uPassword)
+        {
+            //var pdfFilePath = TestUtil.GetOutputFileName();
+            //var pdfEncryptFilePath = TestUtil.GetOutputFileNameEncrypt();
+            using (Stream input = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                using (Stream output = new FileStream(outputFile, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    PdfReader reader = new PdfReader(input);
+                    PdfEncryptor.Encrypt(reader, output, true, uPassword, "BRI-Super-Secret-Code", PdfWriter.ALLOW_SCREENREADERS);
+                    _trx.emailAttachment = outputFile;
+                    _trx.emailAttachmentPage = TestUtil.GetNumberOfPages(inputFile);
                 }
             }
         }

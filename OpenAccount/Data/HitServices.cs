@@ -122,7 +122,6 @@ namespace OpenAccount.Data
                             return "Invalid HTTP Method";
                         }
                         
-                        //----------------Prepared to send Transaction Log-----------------//
                         if (response != null)
                         {
                             if (response.IsSuccessStatusCode || response.StatusCode.ToString() == "BadRequest" || response.StatusCode.ToString() == "InternalServerError")
