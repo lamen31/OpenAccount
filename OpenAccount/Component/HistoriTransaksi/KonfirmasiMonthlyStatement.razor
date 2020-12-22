@@ -294,16 +294,16 @@
                 await Task.Delay(3000);
                 isVisible = !isVisible;
                 isTimer = false;
-                if (result.Contains("2111"))
+                JObject jobResult = JObject.Parse(result);
+                if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
                 {
-                    OnClick.InvokeAsync("historiberhasilmonthly");
+                    OnClick.InvokeAsync("historiberhasilmonthlyemail");
                 }
                 else
                 {
-                    HitLog.SendLog(trx, config, "KONFIRMASI MONTHLY STATEMENT: Failed to send Email");
+                    HitLog.SendLog(trx, config, "KONFIRMASI MONTHLY STATEMENT: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
                     OnClick.InvokeAsync("error");
                 }
-
             }
             else
             {

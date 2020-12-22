@@ -107,6 +107,8 @@ namespace OpenAccount.Data
         public string emailNasabah { get; set; }
         public string emailAttachment { get; set; }
         public int emailAttachmentPage { get; set; }
+        public string emailNotif { get; set; }
+        public string smsNotif { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 

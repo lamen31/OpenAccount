@@ -227,7 +227,7 @@
                     isEDC = false;
                     Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
                     trx.statusLayanan = "CANCEL";
-                    HitLog.SendLog(trx, config, "INPUT PIN: " + "Input Pin Canceled");
+                    //HitLog.SendLog(trx, config, "INPUT PIN: " + "Input Pin Canceled");
                     OnClick.InvokeAsync("ambilkartu");
                     break;
                 }
@@ -310,7 +310,7 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "INPUT PIN: Open Serial EDC Failed");
+            //HitLog.SendLog(trx, config, "INPUT PIN: Open Serial EDC Failed");
             isLoop = false;
         }
 
@@ -640,7 +640,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-EP" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "EP")
@@ -654,7 +654,7 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         OnClick.InvokeAsync("error");
                         return;
@@ -670,7 +670,7 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         OnClick.InvokeAsync("blokirkartu");
                         return;
@@ -683,7 +683,7 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         return;
                         //OnClick.InvokeAsync("error");
@@ -698,7 +698,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
@@ -712,7 +712,7 @@
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                 trx.setErrorService(errorcode, errormessage);
                 OnClick.InvokeAsync("error");
             }
@@ -723,7 +723,7 @@
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+            //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
             trx.setErrorService(errorcode, errormessage);
             OnClick.InvokeAsync("error");
         }
@@ -792,8 +792,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -859,7 +859,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
@@ -944,7 +944,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;

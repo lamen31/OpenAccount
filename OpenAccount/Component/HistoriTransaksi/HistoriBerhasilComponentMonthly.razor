@@ -71,29 +71,15 @@
         string result = SendNotification.SendSms(trx, config).ToString();
         if (result.Contains("1111"))
         {
-            trx.statusLayanan = "SUCCESS";
-            HitLog.SendLog(trx, config, "Success Send SMS Notification");
-        }
-        else if (result.Contains("1001"))
-        {
-            trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "Failed Send SMS Notification 1001, to " + trx.MSISDN);
-        }
-        else if (result.Contains("1002"))
-        {
-            trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "Failed Send SMS Notification 1002, to " + trx.MSISDN);
-        }
-        else if (result.Contains("1999"))
-        {
-            trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "Failed Send SMS Notification 1999, to " + trx.MSISDN);
+            trx.smsNotif = "SUCCESS";
+            Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
         }
         else
         {
-            trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "Failed Send SMS Notification, to " + trx.MSISDN + ", Debug: " + result);
+            trx.smsNotif = "FAILED";
+            Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
         }
+        HitLog.SendLog(trx, config, "");
     }
 
     private async Task ResetTimer()

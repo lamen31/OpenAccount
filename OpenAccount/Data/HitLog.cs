@@ -73,6 +73,15 @@ namespace OpenAccount.Data
         public string noSeriPassbook { get; set; }
         public string statusTransaksi { get; set; }
         public string jenisTransaksi { get; set; }
+        public string kodeTransaksi { get; set; }
+        public string idTransaksi { get; set; }
+        public string tglTransaksi { get; set; }
+        public string emailNotif { get; set; }
+        public string lineInput { get; set; }
+        public string saldoBuku { get; set; }
+        public string smsNotif { get; set; }
+        public string startDate { get; set; }
+        public string endDate { get; set; }
         public string errorMessage { get; set; }
     }
 }
