@@ -67,8 +67,33 @@
     protected override async Task OnInitializedAsync()
     {
         trx.statusLayanan = "SUCCESS";
-        SendNotification.SendSms(trx, config);
         HitLog.SendLog(trx, config, "");
+        string result = SendNotification.SendSms(trx, config).ToString();
+        if (result.Contains("1111"))
+        {
+            trx.statusLayanan = "SUCCESS";
+            HitLog.SendLog(trx, config, "Success Send SMS Notification");
+        }
+        else if (result.Contains("1001"))
+        {
+            trx.statusLayanan = "ERROR";
+            HitLog.SendLog(trx, config, "Failed Send SMS Notification 1001, to " + trx.MSISDN);
+        }
+        else if (result.Contains("1002"))
+        {
+            trx.statusLayanan = "ERROR";
+            HitLog.SendLog(trx, config, "Failed Send SMS Notification 1002, to " + trx.MSISDN);
+        }
+        else if (result.Contains("1999"))
+        {
+            trx.statusLayanan = "ERROR";
+            HitLog.SendLog(trx, config, "Failed Send SMS Notification 1999, to " + trx.MSISDN);
+        }
+        else
+        {
+            trx.statusLayanan = "ERROR";
+            HitLog.SendLog(trx, config, "Failed Send SMS Notification, to " + trx.MSISDN + ", Debug: " + result);
+        }
     }
 
     private async Task ResetTimer()

@@ -37,7 +37,7 @@
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 <div>
                     <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right;" @onclick="HistoriMonthly">
-                        <div class="row no-gutters" style="opacity:100%;">
+                        <div class="row no-gutters" style="opacity:1;">
                             <div class="col-md-4" style="text-align: center;">
                                 <img src="../assets/img/full-statement.png" style="padding: 25px; width: 80%;">
                             </div>
@@ -383,7 +383,6 @@
     {
         string errorcode;
         string errormessage;
-        trx.jenisLayanan = 1;
         try
         {
             string myJson = "{" +
@@ -525,6 +524,7 @@
         await Task.Delay(100);
         StateHasChanged();
         Utility.WriteLog("Histori condition : hit service thermal start", "step-action");
+        trx.jenisLayanan = 1;
         await ServiceThermal();
 
         if (isSuccess)

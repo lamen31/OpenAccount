@@ -203,6 +203,9 @@
             trx.statusLayanan = "CANCEL";
             HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
             isLoop = false;
+            serialPort.Close();
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            OnClick.InvokeAsync("error");
         }
 
         Utility.WriteLog("Home condition : EDC serial port write", "step-action");
@@ -252,9 +255,12 @@
                 else if (dataRespond.Contains("\x15"))
                 {
                     serialPort.Close();
+                    isLoop = false;
                     Utility.WriteLog("Home condition : EDC NAK", "step-action");
                     trx.statusLayanan = "ERROR";
                     HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
+                    trx.setErrorService("IEC", "EDC NAK");
+                    OnClick.InvokeAsync("error");
                 }
             }
             await Task.Delay(100);
@@ -319,6 +325,8 @@
             trx.statusLayanan = "ERROR";
             HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
             isLoop = false;
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            OnClick.InvokeAsync("error");
         }
 
         Utility.WriteLog("Home condition : EDC serial port write", "step-action");
@@ -391,7 +399,12 @@
             else if (dataRespond.Contains("\x15"))
             {
                 serialPort.Close();
+                isLoop = false;
                 Utility.WriteLog("Home condition : EDC NAK", "step-action");
+                trx.statusLayanan = "ERROR";
+                HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
+                trx.setErrorService("IEC", "EDC NAK");
+                OnClick.InvokeAsync("error");
             }
         }
         await Task.Delay(100);
