@@ -927,8 +927,9 @@ namespace OpenAccount.Report
         }
         public void Verify_MultiColumn_Report_CanBe_Processed()
         {
+            string encryptFileName = _trx._AccountNumber + "_" +_trx.startDT.ToString("yyyyMMdd") + "-" + _trx.endDT.ToString("yyyyMMdd");
             var pdfFilePath = TestUtil.GetOutputFileName();
-            var pdfEncryptFilePath = TestUtil.GetOutputFileNameEncrypt();
+            var pdfEncryptFilePath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             string passwd = _trx._AccountNumber.Substring(6, 6);
             var fileStream = new FileStream(pdfFilePath, FileMode.Create);
             _document = new Document(PageSize.A4,10f,10f,10f,10f);
@@ -993,7 +994,7 @@ namespace OpenAccount.Report
                 using (Stream output = new FileStream(outputFile, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     PdfReader reader = new PdfReader(input);
-                    PdfEncryptor.Encrypt(reader, output, true, uPassword, "BRI-Super-Secret-Code", PdfWriter.ALLOW_SCREENREADERS);
+                    PdfEncryptor.Encrypt(reader, output, true, uPassword, "BRIxTrilogi-Super-Secret-Code", PdfWriter.ALLOW_SCREENREADERS);
                     _trx.emailAttachment = outputFile;
                     _trx.emailAttachmentPage = TestUtil.GetNumberOfPages(inputFile);
                 }
