@@ -22,11 +22,20 @@ namespace OpenAccount.Data
                 string myUrl = myLink + myPath;
                 LogData logdata = new LogData();
                 logdata.jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan];
+                logdata.kodeTransaksi = trx.kodeLayanan[trx.jenisLayanan];
+                logdata.idTransaksi = trx._TransaksiID;
                 logdata.namaNasabah = trx.namaNasabah;
                 logdata.noKartu = trx.nomerKartu;
                 logdata.noSeriPassbook = trx._BukuSerial;
+                logdata.saldoBuku = trx._BukuSaldo;
+                logdata.lineInput = trx._BukuBaris;
+                logdata.startDate = trx.startDate;
+                logdata.endDate = trx.endDate;
+                logdata.tglTransaksi = DateTime.Now.ToString("s");
                 logdata.noRekening = trx._AccountNumber;
                 logdata.statusTransaksi = trx.statusLayanan;
+                logdata.smsNotif = trx.smsNotif;
+                logdata.emailNotif = trx.emailNotif;
                 logdata.errorMessage = errorMessage;
 
                 using (var handler = new HttpClientHandler())

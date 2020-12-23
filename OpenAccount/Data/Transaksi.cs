@@ -100,6 +100,7 @@ namespace OpenAccount.Data
         public string _ServicesErrorMessage { get; set; }
         public List<string> pilihanLayanan { get; } = new List<string>() {"Pencetakan Passbook Printing", "Pencetakan Mutasi 5 Transaksi Terakhir",
                                                                                 "Pencetakan Rekening Koran", "Pengiriman Rekening Koran Via Email", "Proses Persiapan Layanan" };
+        public List<string> kodeLayanan { get; } = new List<string>() {"BUTAB", "5LAST","EMONTH", "A4MONTH", "PREP" };
         public string statusLayanan { get; set; }
         public int jenisLayanan { get; set; }
         public string MSISDN { get; set; }
