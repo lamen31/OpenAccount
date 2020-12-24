@@ -323,6 +323,7 @@
 
     private async Task PerBulan()
     {
+        trx.periodMonth = "YES";
         valueDD = value3.Value.ToString("yyyyMM");
         string start = value3.Value.ToString("yyyyMM") + "01";
         string end = value3.Value.ToString("yyyyMM");
@@ -540,6 +541,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
@@ -551,6 +554,8 @@
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimer = false;
                 OnClick.InvokeAsync("error");
             }
@@ -561,6 +566,8 @@
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
+            trx.statusLayanan = "ERROR";
+            HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
             isTimer = false;
             OnClick.InvokeAsync("error");
         }

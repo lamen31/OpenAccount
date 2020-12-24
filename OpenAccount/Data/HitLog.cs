@@ -25,12 +25,13 @@ namespace OpenAccount.Data
                 logdata.kodeTransaksi = trx.kodeLayanan[trx.jenisLayanan];
                 logdata.idTransaksi = trx._TransaksiID;
                 logdata.namaNasabah = trx.namaNasabah;
-                logdata.noKartu = trx.nomerKartu;
+                logdata.noKartu = trx.nomerKartu.Substring(0, 12) + "****";
                 logdata.noSeriPassbook = trx._BukuSerial;
                 logdata.saldoBuku = trx._BukuSaldo;
                 logdata.lineInput = trx._BukuBaris;
                 logdata.startDate = trx.startDate;
                 logdata.endDate = trx.endDate;
+                logdata.idxMonth = trx.periodMonth;
                 logdata.tglTransaksi = DateTime.Now.ToString("s");
                 logdata.noRekening = trx._AccountNumber;
                 logdata.statusTransaksi = trx.statusLayanan;
@@ -84,6 +85,7 @@ namespace OpenAccount.Data
         public string jenisTransaksi { get; set; }
         public string kodeTransaksi { get; set; }
         public string idTransaksi { get; set; }
+        public string idxMonth { get; set; }
         public string tglTransaksi { get; set; }
         public string emailNotif { get; set; }
         public string lineInput { get; set; }

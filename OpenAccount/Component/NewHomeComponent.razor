@@ -123,8 +123,6 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTimer = false;
-                //trx.statusLayanan = "CANCEL";
-                //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
                 OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
@@ -153,7 +151,7 @@
         isTimeOut = true;
         isTimer = false;
         Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
-        HitLog.SendLog(trx, config, "NEW HOME: User Cancel Transaction");
+        HitServices.SendLog(trx, config, "NEW HOME: User Cancel Transaction");
         OnClick.InvokeAsync("default");
     }
 }

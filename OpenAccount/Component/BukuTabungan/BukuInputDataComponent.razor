@@ -348,7 +348,8 @@
                 await Task.Delay(2000);
                 isTimer = false;
                 trx.statusLayanan = "CANCEL";
-                HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
+                //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
+                HitServices.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
                 OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
@@ -367,7 +368,8 @@
             errormessage = "This Account is GIRO";
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+            //HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+            HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
             isTimer = true;
             OnClick.InvokeAsync("error");
@@ -378,7 +380,8 @@
             errorcode = "BISNIS";
             errormessage = "This Account is BISNIS";
             trx.setErrorService(errorcode, errormessage);
-            HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+            //HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+            HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
             isTimer = true;
             OnClick.InvokeAsync("error");
@@ -422,7 +425,8 @@
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                //HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
                 OnClick.InvokeAsync("error");
@@ -430,7 +434,8 @@
             case "3":
                 errorcode = "NotStatus";
                 errormessage = "Account Status Matured but Not Closed";
-                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                //HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
                 isTimer = true;
@@ -443,7 +448,8 @@
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                //HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
                 OnClick.InvokeAsync("error");
@@ -467,7 +473,8 @@
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                //HitLog.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
+                HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
                 OnClick.InvokeAsync("error");
@@ -482,7 +489,8 @@
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
         trx.statusLayanan = "ERROR";
-        HitLog.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
+        //HitLog.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
+        HitServices.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
         isTimer = true;
         OnClick.InvokeAsync("default");
     }

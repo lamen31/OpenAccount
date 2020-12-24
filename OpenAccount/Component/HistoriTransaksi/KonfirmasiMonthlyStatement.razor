@@ -301,7 +301,8 @@
                 }
                 else
                 {
-                    HitLog.SendLog(trx, config, "KONFIRMASI MONTHLY STATEMENT: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
+                    trx.setErrorService("EmailFailed", "Failed to Send Email");
+                    HitServices.SendLog(trx, config, "KONFIRMASI MONTHLY STATEMENT: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
                     OnClick.InvokeAsync("error");
                 }
             }

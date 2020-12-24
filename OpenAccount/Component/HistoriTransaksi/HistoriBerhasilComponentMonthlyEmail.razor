@@ -68,7 +68,7 @@
     {
 
         trx.statusLayanan = "SUCCESS";
-        string result = SendNotification.SendSms(trx, config).ToString();
+        string result = HitServices.SendSms(trx, config).ToString();
         if (result.Contains("1111"))
         {
             trx.smsNotif = "SUCCESS";
@@ -79,7 +79,7 @@
             trx.smsNotif = "FAILED";
             Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
         }
-        HitLog.SendLog(trx, config, "");
+        HitServices.SendLog(trx, config, "");
     }
 
     private async Task ResetTimer()
@@ -105,7 +105,7 @@
         if (firstRender)
         {
             Utility.WriteLog("Home condition : entered into new home", "step-action");
-            trx.timeOut = "historiberhasilmonthly";
+            trx.timeOut = "inputpinmonthly";
             isTimer = true;
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());

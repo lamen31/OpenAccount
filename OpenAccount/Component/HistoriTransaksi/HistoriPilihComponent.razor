@@ -317,7 +317,8 @@
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
                 OnClick.InvokeAsync("error");
@@ -327,7 +328,8 @@
                 errormessage = "Account Status Matured but Not Closed";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
                 OnClick.InvokeAsync("error");
@@ -339,7 +341,8 @@
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
                 OnClick.InvokeAsync("error");
@@ -349,7 +352,8 @@
                 errormessage = "Account Status Restricted";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
                 OnClick.InvokeAsync("error");
@@ -359,7 +363,8 @@
                 errormessage = "Account Status Frozen with No Actual";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
                 OnClick.InvokeAsync("error");
@@ -369,7 +374,8 @@
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
                 OnClick.InvokeAsync("error");
@@ -428,7 +434,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
@@ -445,7 +452,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
@@ -467,7 +475,8 @@
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
-                HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimer = false;
                 OnClick.InvokeAsync("error");
             }
@@ -479,7 +488,8 @@
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
-            HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+            //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+            HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
             isTimer = false;
             OnClick.InvokeAsync("error");
         }
@@ -567,7 +577,8 @@
         Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         isTimer = false;
         trx.statusLayanan = "CANCEL";
-        HitLog.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");
+        //HitLog.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");
+        HitServices.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");
         OnClick.InvokeAsync("default");
     }
 }

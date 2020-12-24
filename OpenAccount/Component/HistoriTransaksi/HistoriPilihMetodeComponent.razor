@@ -275,8 +275,11 @@
         }
         else
         {
-            trx._ServicesErrorMessage = "Email Not Valid";
-            HitLog.SendLog(trx, config, "HISTORY PILIH METODE: Email Not Valid");
+            //trx._ServicesErrorMessage = "Email Not Valid";
+            trx.setErrorService("", "Email Not Valid");
+            trx.statusLayanan = "ERROR";
+            //HitLog.SendLog(trx, config, "HISTORY PILIH METODE: Email Not Valid");
+            HitServices.SendLog(trx, config, "HISTORY PILIH METODE: Email Not Valid");
             OnClick.InvokeAsync("error");
         }
     }

@@ -78,21 +78,104 @@ namespace OpenAccount.Data
             return ret;
         }
 
+        public static async Task<string> SendLog(Transaksi trx, Config config, string errorMessage)
+        {
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myPath = config.Read("LINK", Config.PARAM_SERVICES_LOG);
+            string myUrl = myLink + myPath;
+            LogData logdata = new LogData {
+                jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
+                kodeTransaksi = trx.kodeLayanan[trx.jenisLayanan],
+                idTransaksi = trx._TransaksiID,
+                namaNasabah = trx.namaNasabah,
+                noKartu = trx.nomerKartu.Substring(0, 12) + "****",
+                noSeriPassbook = trx._BukuSerial,
+                saldoBuku = trx._BukuSaldo,
+                lineInput = trx._BukuBaris,
+                startDate = trx.startDate,
+                endDate = trx.endDate,
+                idxMonth = trx.periodMonth,
+                tglTransaksi = DateTime.Now.ToString("s"),
+                noRekening = trx._AccountNumber,
+                statusTransaksi = trx.statusLayanan,
+                smsNotif = trx.smsNotif,
+                emailNotif = trx.emailNotif,
+                errorMessage = errorMessage,
+            };
+
+            var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true};
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(logdata, _jsonSerializerOptions),
+                Encoding.UTF8, "application/json");
+
+            return await CallAPI(myUrl, content, "POST");
+        }
+
+
         public static async Task<string> InquiryNotification(Transaksi trx, Config config)
         {
             string ret = string.Empty;
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myPath = config.Read("LINK", Config.PARAM_SERVICES_INQUIRY_NOTIFICATION);
             string myUrl = myLink + myPath;
-            InquiryData logdata = new InquiryData();
-            logdata.noRekening = trx._AccountNumber;
-            var _jsonSerializerOptions = new JsonSerializerOptions
-            {
-                WriteIndented = true
+            InquiryData logdata = new InquiryData {
+                noRekening = trx._AccountNumber,
             };
+
+            var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };
 
             var content = new StringContent(
                 JsonSerializer.Serialize(logdata, _jsonSerializerOptions),
+                Encoding.UTF8, "application/json");
+
+            return await CallAPI(myUrl, content, "POST");
+        }
+
+        public static async Task<string> SendEmail(Transaksi trx, Config config)
+        {
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myPath = config.Read("LINK", Config.PARAM_SERVICES_EMAIL);
+            string myUrl = myLink + myPath;
+            if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            {
+                return "Format Email Tidak Valid";
+            }
+            EmailData emaildata = new EmailData
+            {
+                emailNasabah = trx.emailNasabah,
+                jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
+                namaNasabah = trx.namaNasabah,
+                noRekening = trx._AccountNumber,
+                statusTransaksi = trx.statusLayanan,
+                lampiran = trx.emailAttachment,
+            };
+
+            var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(emaildata, _jsonSerializerOptions),
+                Encoding.UTF8, "application/json");
+
+            return await CallAPI(myUrl, content, "POST");
+        }
+
+        public static async Task<string> SendSms(Transaksi trx, Config config)
+        {
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myPath = config.Read("LINK", Config.PARAM_SERVICES_SMS);
+            string myUrl = myLink + myPath;
+            SmsData smsdata = new SmsData {
+                jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
+                namaNasabah = trx.namaNasabah,
+                noRekening = trx._AccountNumber,
+                msisdn = trx.MSISDN,
+            };
+
+            var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(smsdata, _jsonSerializerOptions),
                 Encoding.UTF8, "application/json");
 
             return await CallAPI(myUrl, content, "POST");
@@ -119,7 +202,7 @@ namespace OpenAccount.Data
                         }
                         else
                         {
-                            return "Invalid HTTP Method";
+                            return "Invalid Supported HTTP Method";
                         }
                         
                         if (response != null)
@@ -143,11 +226,9 @@ namespace OpenAccount.Data
             }
             return ret;
         }
-
-
-        public class InquiryData
-        {
-            public string noRekening { get; set; }
-        }
+    }
+    public class InquiryData
+    {
+        public string noRekening { get; set; }
     }
 }

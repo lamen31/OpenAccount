@@ -65,7 +65,7 @@
     protected override async Task OnInitializedAsync()
     {
         trx.statusLayanan = "SUCCESS";
-        string result = SendNotification.SendSms(trx, config).ToString();
+        string result = HitServices.SendSms(trx, config).ToString();
         if (result.Contains("1111"))
         {
             trx.smsNotif = "SUCCESS";
@@ -76,7 +76,7 @@
             trx.smsNotif = "FAILED";
             Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
         }
-        HitLog.SendLog(trx, config, "");
+        HitServices.SendLog(trx, config, "");
         await Task.Delay(8000);
         Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         OnClick.InvokeAsync("default");

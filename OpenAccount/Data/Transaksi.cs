@@ -15,7 +15,7 @@ namespace OpenAccount.Data
         public DateTime startDT { get; set; }
         public DateTime endDT { get; set; }
         public string mbStatus { get; set; }
-        public string nomerKartu { get; set; } = "";
+        public string nomerKartu { get; set; } = "****************";
         public string namaNasabah { get; set; }
         public string alamat1 { get; set; }
         public string alamat2 { get; set; }
@@ -110,6 +110,7 @@ namespace OpenAccount.Data
         public int emailAttachmentPage { get; set; }
         public string emailNotif { get; set; }
         public string smsNotif { get; set; }
+        public string periodMonth { get; set; } = "NO";
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
