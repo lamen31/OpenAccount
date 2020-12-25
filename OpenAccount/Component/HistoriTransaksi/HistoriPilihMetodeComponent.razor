@@ -268,6 +268,11 @@
     private async Task checkEmailValidity()
     {
         //check email validity
+        /*string encryptFileName = trx._AccountNumber + "_" + trx.startDT.ToString("yyyyMMdd") + "-" + trx.endDT.ToString("yyyyMMdd") + ".pdf";
+        var pdfFilePath = TestUtil.GetOutputFileName();
+        var pdfEncryptFilePath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
+        RptMonthlyStatement rpt = new RptMonthlyStatement(trx);
+        rpt.EncryptPDF(pdfFilePath, pdfEncryptFilePath, "1234567890");*/
 
         if (RegexUtilities.IsValidEmail(trx.emailNasabah))
         {

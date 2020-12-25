@@ -149,6 +149,7 @@ namespace OpenAccount.Data
                 noRekening = trx._AccountNumber,
                 statusTransaksi = trx.statusLayanan,
                 lampiran = trx.emailAttachment,
+                path = trx.attachmentPath,
             };
 
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };

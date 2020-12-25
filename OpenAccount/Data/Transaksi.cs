@@ -107,6 +107,7 @@ namespace OpenAccount.Data
         public bool isEmail { get; set; }
         public string emailNasabah { get; set; }
         public string emailAttachment { get; set; }
+        public string attachmentPath { get; set; }
         public int emailAttachmentPage { get; set; }
         public string emailNotif { get; set; }
         public string smsNotif { get; set; }

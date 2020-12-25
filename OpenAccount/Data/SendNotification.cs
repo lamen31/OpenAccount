@@ -180,6 +180,7 @@ namespace OpenAccount.Data
         public string jenisTransaksi { get; set; }
         public string statusTransaksi { get; set; }
         public string lampiran { get; set; }
+        public string path { get; set; }
     }
 
     public class SmsData
