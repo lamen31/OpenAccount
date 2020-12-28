@@ -163,18 +163,19 @@ namespace OpenAccount.Data
             serialPort.PortName = port.PortName;
             serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 
-            Console.WriteLine("1");
+            //Console.WriteLine("1");
             serialPort.Open();
 
             serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
-            Console.WriteLine("2");
+            //Console.WriteLine("2");
 
             //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
         }
 
         public string HexaBankFiller(string data_filler)
         {
-            return "202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020";
+            //return "202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020";
+            return "";
         }
 
         public void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -183,31 +184,31 @@ namespace OpenAccount.Data
             _respondCode = string.Empty;
             _statusCode = string.Empty;
             _approvalCode = string.Empty;
-            Console.WriteLine(dataRespond);
+            ////Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
-                Console.WriteLine("Data Current: " + dataCurrent);
-                Console.WriteLine("Data Respond: " + dataRespond);
+                ////Console.WriteLine("Data Current: " + dataCurrent);
+                ////Console.WriteLine("Data Respond: " + dataRespond);
                 if (dataRespond.Contains("\x06"))
                 {
                     if (dataRespond.Length > 10)
                     {
                         serialPort.Close();
                         EDCStatus = "EDC ACK";
-                        Console.WriteLine(EDCStatus);
+                        ////Console.WriteLine(EDCStatus);
                         dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
-                        Console.WriteLine("Data Split: " + dataSplit);
+                        ////Console.WriteLine("Data Split: " + dataSplit);
                         _statusCode = dataSplit.Substring(4, 2);
-                        Console.WriteLine("Status : " + _statusCode);
+                        ////Console.WriteLine("Status : " + _statusCode);
                     }
                 }
                 else if (dataRespond.Contains("\x15"))
                 {
                     serialPort.Close();
                     EDCStatus = "EDC NAK";
-                    Console.WriteLine(EDCStatus);
+                    ////Console.WriteLine(EDCStatus);
 
                 }
             }
@@ -220,30 +221,30 @@ namespace OpenAccount.Data
             _statusCode = string.Empty;
             _approvalCode = string.Empty;
             bool exitLoop = false;
-            Console.WriteLine(dataRespond);
+            ////Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
                 
                     string dataCurrent = serialPort.ReadExisting();
                     dataRespond += dataCurrent;
-                    Console.WriteLine("Data Current: " + dataCurrent);
-                    Console.WriteLine("Data Respond: " + dataRespond);
+                    ////Console.WriteLine("Data Current: " + dataCurrent);
+                    ////Console.WriteLine("Data Respond: " + dataRespond);
                     if (dataRespond.Contains("\x06"))
                     {
                         if (dataRespond.Length > 10)
                         {
                             //serialPort.Close();
-                            Console.WriteLine("EDC ACK");
+                            //Console.WriteLine("EDC ACK");
                             dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
-                            Console.WriteLine("Data Split: " + dataSplit);
+                            ////Console.WriteLine("Data Split: " + dataSplit);
                             _statusCode = dataSplit.Substring(4, 2);
-                            Console.WriteLine("Status : " + _statusCode);
+                            ////Console.WriteLine("Status : " + _statusCode);
                         }
                     }
                     else if (dataRespond.Contains("\x15"))
                     {
                         serialPort.Close();
-                        Console.WriteLine("EDC NAK");
+                        //Console.WriteLine("EDC NAK");
                     }
             }
         }
@@ -281,7 +282,7 @@ namespace OpenAccount.Data
             serialPort.BaudRate = 115200;
             //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 
-            Console.WriteLine("1");
+            //Console.WriteLine("1");
             try
             {
                 serialPort.Open();
@@ -293,7 +294,7 @@ namespace OpenAccount.Data
             }
 
             serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
-            Console.WriteLine("2");
+            //Console.WriteLine("2");
 
             //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 
@@ -301,31 +302,31 @@ namespace OpenAccount.Data
             _respondCode = string.Empty;
             _statusCode = string.Empty;
             _approvalCode = string.Empty;
-            Console.WriteLine(dataRespond);
+            ////Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
-                Console.WriteLine("Data Current: " + dataCurrent);
-                Console.WriteLine("Data Respond: " + dataRespond);
+                ////Console.WriteLine("Data Current: " + dataCurrent);
+                ////Console.WriteLine("Data Respond: " + dataRespond);
                 if (dataRespond.Contains("\x06"))
                 {
                     if (dataRespond.Length > 10)
                     {
                         serialPort.Close();
                         EDCStatus = "EDC ACK";
-                        Console.WriteLine(EDCStatus);
+                        ////Console.WriteLine(EDCStatus);
                         dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
-                        Console.WriteLine("Data Split: " + dataSplit);
+                        ////Console.WriteLine("Data Split: " + dataSplit);
                         _statusCode = dataSplit.Substring(4, 2);
-                        Console.WriteLine("Status : " + _statusCode);
+                        ////Console.WriteLine("Status : " + _statusCode);
                     }
                 }
                 else if (dataRespond.Contains("\x15"))
                 {
                     serialPort.Close();
                     EDCStatus = "EDC NAK";
-                    Console.WriteLine(EDCStatus);
+                    ////Console.WriteLine(EDCStatus);
 
                 }
             }

@@ -1,0 +1,150 @@
+20201208 11:11:16 Home condition : clear transaksi success
+20201208 11:11:16 Home condition : clear transaction log success
+20201208 11:11:16 Home condition : clear array success
+20201208 11:11:16 Home condition : clear array nasabah success
+20201208 11:11:16 Home condition : clear list success
+20201208 11:11:16 Home condition : clear transaksi baru success
+20201208 11:11:17 Home condition : clear transaksi success
+20201208 11:11:17 Home condition : clear transaction log success
+20201208 11:11:17 Home condition : clear array success
+20201208 11:11:17 Home condition : clear array nasabah success
+20201208 11:11:17 Home condition : clear list success
+20201208 11:11:17 Home condition : clear transaksi baru success
+20201208 11:13:34 Home condition : clear transaksi success
+20201208 11:13:34 Home condition : clear transaction log success
+20201208 11:13:34 Home condition : clear array success
+20201208 11:13:34 Home condition : clear array nasabah success
+20201208 11:13:34 Home condition : clear list success
+20201208 11:13:34 Home condition : clear transaksi baru success
+20201208 11:13:35 Home condition : clear transaksi success
+20201208 11:13:35 Home condition : clear transaction log success
+20201208 11:13:35 Home condition : clear array success
+20201208 11:13:35 Home condition : clear array nasabah success
+20201208 11:13:35 Home condition : clear list success
+20201208 11:13:35 Home condition : clear transaksi baru success
+20201208 11:14:26 Home condition : clear transaksi success
+20201208 11:14:26 Home condition : clear transaction log success
+20201208 11:14:26 Home condition : clear array success
+20201208 11:14:26 Home condition : clear array nasabah success
+20201208 11:14:26 Home condition : clear list success
+20201208 11:14:26 Home condition : clear transaksi baru success
+20201208 11:14:27 Home condition : clear transaksi success
+20201208 11:14:27 Home condition : clear transaction log success
+20201208 11:14:27 Home condition : clear array success
+20201208 11:14:27 Home condition : clear array nasabah success
+20201208 11:14:27 Home condition : clear list success
+20201208 11:14:27 Home condition : clear transaksi baru success
+20201208 11:17:12 Home condition : clear transaksi success
+20201208 11:17:12 Home condition : clear transaction log success
+20201208 11:17:12 Home condition : clear array success
+20201208 11:17:12 Home condition : clear array nasabah success
+20201208 11:17:12 Home condition : clear list success
+20201208 11:17:12 Home condition : clear transaksi baru success
+20201208 11:17:13 Home condition : clear transaksi success
+20201208 11:17:13 Home condition : clear transaction log success
+20201208 11:17:13 Home condition : clear array success
+20201208 11:17:13 Home condition : clear array nasabah success
+20201208 11:17:13 Home condition : clear list success
+20201208 11:17:13 Home condition : clear transaksi baru success
+20201208 11:18:58 Home condition : clear transaksi success
+20201208 11:18:58 Home condition : clear transaction log success
+20201208 11:18:58 Home condition : clear array success
+20201208 11:18:58 Home condition : clear array nasabah success
+20201208 11:18:58 Home condition : clear list success
+20201208 11:18:58 Home condition : clear transaksi baru success
+20201208 11:18:59 Home condition : clear transaksi success
+20201208 11:18:59 Home condition : clear transaction log success
+20201208 11:18:59 Home condition : clear array success
+20201208 11:18:59 Home condition : clear array nasabah success
+20201208 11:18:59 Home condition : clear list success
+20201208 11:18:59 Home condition : clear transaksi baru success
+20201208 11:28:48 Home condition : clear transaksi success
+20201208 11:28:48 Home condition : clear transaction log success
+20201208 11:28:48 Home condition : clear array success
+20201208 11:28:48 Home condition : clear array nasabah success
+20201208 11:28:48 Home condition : clear list success
+20201208 11:28:48 Home condition : clear transaksi baru success
+20201208 11:28:49 Home condition : clear transaksi success
+20201208 11:28:49 Home condition : clear transaction log success
+20201208 11:28:49 Home condition : clear array success
+20201208 11:28:49 Home condition : clear array nasabah success
+20201208 11:28:49 Home condition : clear list success
+20201208 11:28:49 Home condition : clear transaksi baru success
+20201208 11:31:06 Home condition : clear transaksi success
+20201208 11:31:06 Home condition : clear transaction log success
+20201208 11:31:06 Home condition : clear array success
+20201208 11:31:06 Home condition : clear array nasabah success
+20201208 11:31:06 Home condition : clear list success
+20201208 11:31:06 Home condition : clear transaksi baru success
+20201208 11:31:07 Home condition : clear transaksi success
+20201208 11:31:07 Home condition : clear transaction log success
+20201208 11:31:07 Home condition : clear array success
+20201208 11:31:07 Home condition : clear array nasabah success
+20201208 11:31:07 Home condition : clear list success
+20201208 11:31:07 Home condition : clear transaksi baru success
+20201208 11:32:33 Home condition : clear transaksi success
+20201208 11:32:33 Home condition : clear transaction log success
+20201208 11:32:33 Home condition : clear array success
+20201208 11:32:33 Home condition : clear array nasabah success
+20201208 11:32:33 Home condition : clear list success
+20201208 11:32:33 Home condition : clear transaksi baru success
+20201208 11:32:34 Home condition : clear transaksi success
+20201208 11:32:34 Home condition : clear transaction log success
+20201208 11:32:34 Home condition : clear array success
+20201208 11:32:34 Home condition : clear array nasabah success
+20201208 11:32:34 Home condition : clear list success
+20201208 11:32:34 Home condition : clear transaksi baru success
+20201208 11:37:14 Home condition : clear transaksi success
+20201208 11:37:14 Home condition : clear transaction log success
+20201208 11:37:14 Home condition : clear array success
+20201208 11:37:14 Home condition : clear array nasabah success
+20201208 11:37:14 Home condition : clear list success
+20201208 11:37:14 Home condition : clear transaksi baru success
+20201208 11:37:15 Home condition : clear transaksi success
+20201208 11:37:15 Home condition : clear transaction log success
+20201208 11:37:15 Home condition : clear array success
+20201208 11:37:15 Home condition : clear array nasabah success
+20201208 11:37:15 Home condition : clear list success
+20201208 11:37:15 Home condition : clear transaksi baru success
+20201208 11:37:16 Histori condition : post service start
+20201208 11:37:42 Histori condition : hit service histori start
+20201208 11:37:42 Histori condition : set data histori success
+20201208 11:37:44 Histori condition : entered into history bulan berjalan
+20201208 11:38:22 Home condition : clear transaksi success
+20201208 11:38:22 Home condition : clear transaction log success
+20201208 11:38:22 Home condition : clear array success
+20201208 11:38:22 Home condition : clear array nasabah success
+20201208 11:38:22 Home condition : clear list success
+20201208 11:38:22 Home condition : clear transaksi baru success
+20201208 11:38:23 Home condition : clear transaksi success
+20201208 11:38:23 Home condition : clear transaction log success
+20201208 11:38:23 Home condition : clear array success
+20201208 11:38:23 Home condition : clear array nasabah success
+20201208 11:38:23 Home condition : clear list success
+20201208 11:38:23 Home condition : clear transaksi baru success
+20201208 11:38:25 Histori condition : post service start
+20201208 11:39:20 Home condition : clear transaksi success
+20201208 11:39:20 Home condition : clear transaction log success
+20201208 11:39:20 Home condition : clear array success
+20201208 11:39:20 Home condition : clear array nasabah success
+20201208 11:39:20 Home condition : clear list success
+20201208 11:39:20 Home condition : clear transaksi baru success
+20201208 11:39:21 Home condition : clear transaksi success
+20201208 11:39:21 Home condition : clear transaction log success
+20201208 11:39:21 Home condition : clear array success
+20201208 11:39:21 Home condition : clear array nasabah success
+20201208 11:39:21 Home condition : clear list success
+20201208 11:39:21 Home condition : clear transaksi baru success
+20201208 11:39:24 Histori condition : post service start
+20201208 11:51:02 Home condition : clear transaksi success
+20201208 11:51:02 Home condition : clear transaction log success
+20201208 11:51:02 Home condition : clear array success
+20201208 11:51:02 Home condition : clear array nasabah success
+20201208 11:51:02 Home condition : clear list success
+20201208 11:51:02 Home condition : clear transaksi baru success
+20201208 11:51:03 Home condition : clear transaksi success
+20201208 11:51:03 Home condition : clear transaction log success
+20201208 11:51:03 Home condition : clear array success
+20201208 11:51:03 Home condition : clear array nasabah success
+20201208 11:51:03 Home condition : clear list success
+20201208 11:51:03 Home condition : clear transaksi baru success

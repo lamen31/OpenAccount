@@ -9,7 +9,7 @@
 @inject Config config
 @inject Printer print
 <!-- ======= Hero Section ======= -->
-<section id="hero">
+<section id="hero" @onclick="ResetTimer">
 
     <div class="container">
         <div class="row" style="margin-top: 8%;">
@@ -144,7 +144,7 @@
     </div>
 }
 
-@if (isTime)
+@*@if (isTime)
 {
     <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -163,7 +163,7 @@
             </div>
         </div>
     </div>
-}
+}*@
 
 @if (isRead)
 {
@@ -246,10 +246,12 @@
     public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
-    private int overtime = 90000;
+    private int overtime = 60000;
     private bool isTimeOut = false;
     private bool isTime = false;
+    private bool isTimer = true;
     private DateTime starttime;
+
     private bool isRead = false;
     private string jumlahtransaksi;
     private int tempjumlahtransaksi;
@@ -257,29 +259,43 @@
     private bool isVisible = false;
     private bool isSuccess = false;
 
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
+            trx.timeOut = "historiPilih";
+            isTimer = true;
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());
-            if (isTime)
+            if (isTime&&isTimer)
             {
-                //isTimeOut = true;
-                //await Task.Delay(100);
-                //StateHasChanged();
-                //await Task.Delay(2000);
-                OnClick.InvokeAsync("timeout");
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTimer = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
-    }
-
-    private async Task ChangeIsTime()
-    {
-        isTime = !isTime;
-        await Task.Delay(100);
-        StateHasChanged();
     }
 
     protected override async Task OnInitializedAsync()
@@ -301,6 +317,7 @@
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = false;
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
@@ -308,6 +325,7 @@
                 errormessage = "Account Status Matured but Not Closed";
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = false;
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
@@ -317,6 +335,7 @@
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = false;
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
@@ -324,6 +343,7 @@
                 errormessage = "Account Status Restricted";
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = false;
                 OnClick.InvokeAsync("error");
                 break;
             case "7":
@@ -331,6 +351,7 @@
                 errormessage = "Account Status Frozen with No Actual";
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = false;
                 OnClick.InvokeAsync("error");
                 break;
             case "8":
@@ -338,25 +359,12 @@
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
+                isTimer = false;
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
                 break;
         }
-    }
-
-    private async Task IdleTime()
-    {
-        do
-        {
-            span = DateTime.Now - starttime;
-            if (overtime > 0 && span.TotalMilliseconds > overtime)
-            {
-                isTime = true;
-                isTimeOut = true;
-                break;
-            }
-        } while (isTimeOut == false);
     }
 
     private async Task ServiceThermal()
@@ -407,6 +415,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
                     else
@@ -421,6 +430,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -440,6 +450,7 @@
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
+                isTimer = false;
                 OnClick.InvokeAsync("error");
             }
         }
@@ -449,6 +460,7 @@
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
+            isTimer = false;
             OnClick.InvokeAsync("error");
         }
     }
@@ -456,24 +468,28 @@
     {
         isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori Monthly Statement", "step-action");
+        isTimer = false;
         OnClick.InvokeAsync("monthlystatement");
     }
     private async Task HistoriBulanBerjalan()
     {
         isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori bulan berjalan", "step-action");
+        isTimer = false;
         OnClick.InvokeAsync("historiBulanBerjalan");
     }
     private async Task HistoriBulanTerakhir()
     {
         isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori bulan terakhir", "step-action");
+        isTimer = false;
         OnClick.InvokeAsync("historiBulanTerakhir");
     }
     private async Task HistoriBulanLalu()
     {
         isTimeOut = true;
         Utility.WriteLog("Histori condition : move to histori bulan lalu", "step-action");
+        isTimer = false;
         OnClick.InvokeAsync("historiBulanLalu");
     }
     private async Task HistoriSepuluhTerakhir()
@@ -499,6 +515,7 @@
             Utility.WriteLog("Histori condition : print thermal finished", "step-action");
             isTimeOut = true;
             Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
+            isTimer = false;
             OnClick.InvokeAsync("historiberhasil");
         }
     }
@@ -506,6 +523,7 @@
     {
         isTimeOut = true;
         Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("inputrekening");
+        isTimer = false;
+        OnClick.InvokeAsync("default");
     }
 }

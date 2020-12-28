@@ -1,0 +1,81 @@
+20201207 10:45:54 Home condition : clear transaksi success
+20201207 10:45:54 Home condition : clear transaction log success
+20201207 10:45:54 Home condition : clear array success
+20201207 10:45:54 Home condition : clear array nasabah success
+20201207 10:45:54 Home condition : clear list success
+20201207 10:45:54 Home condition : clear transaksi baru success
+20201207 10:45:55 Home condition : clear transaksi success
+20201207 10:45:55 Home condition : clear transaction log success
+20201207 10:45:55 Home condition : clear array success
+20201207 10:45:55 Home condition : clear array nasabah success
+20201207 10:45:55 Home condition : clear list success
+20201207 10:45:55 Home condition : clear transaksi baru success
+20201207 10:45:57 Histori condition : entered into histori pilih menu
+20201207 10:45:59 Histori condition : move to histori Monthly Statement
+20201207 10:46:14 Histori condition : post service start
+20201207 10:47:39 Home condition : clear transaksi success
+20201207 10:47:39 Home condition : clear transaction log success
+20201207 10:47:39 Home condition : clear array success
+20201207 10:47:39 Home condition : clear array nasabah success
+20201207 10:47:39 Home condition : clear list success
+20201207 10:47:40 Home condition : clear transaksi baru success
+20201207 10:47:40 Home condition : clear transaksi success
+20201207 10:47:40 Home condition : clear transaction log success
+20201207 10:47:40 Home condition : clear array success
+20201207 10:47:40 Home condition : clear array nasabah success
+20201207 10:47:40 Home condition : clear list success
+20201207 10:47:40 Home condition : clear transaksi baru success
+20201207 10:47:41 Histori condition : entered into histori pilih menu
+20201207 10:47:43 Histori condition : move to histori Monthly Statement
+20201207 10:47:51 Histori condition : post service start
+20201207 10:49:45 Home condition : clear transaksi success
+20201207 10:49:45 Home condition : clear transaction log success
+20201207 10:49:45 Home condition : clear array success
+20201207 10:49:45 Home condition : clear array nasabah success
+20201207 10:49:45 Home condition : clear list success
+20201207 10:49:45 Home condition : clear transaksi baru success
+20201207 10:49:46 Home condition : clear transaksi success
+20201207 10:49:46 Home condition : clear transaction log success
+20201207 10:49:46 Home condition : clear array success
+20201207 10:49:46 Home condition : clear array nasabah success
+20201207 10:49:46 Home condition : clear list success
+20201207 10:49:46 Home condition : clear transaksi baru success
+20201207 10:49:47 Histori condition : entered into histori pilih menu
+20201207 10:49:49 Histori condition : move to histori Monthly Statement
+20201207 10:49:52 Histori condition : post service start
+20201207 10:50:10 Home condition : clear transaksi success
+20201207 10:50:10 Home condition : clear transaction log success
+20201207 10:50:10 Home condition : clear array success
+20201207 10:50:10 Home condition : clear array nasabah success
+20201207 10:50:10 Home condition : clear list success
+20201207 10:50:10 Home condition : clear transaksi baru success
+20201207 10:53:19 Home condition : clear transaksi success
+20201207 10:53:19 Home condition : clear transaction log success
+20201207 10:53:19 Home condition : clear array success
+20201207 10:53:19 Home condition : clear array nasabah success
+20201207 10:53:19 Home condition : clear list success
+20201207 10:53:19 Home condition : clear transaksi baru success
+20201207 10:53:20 Home condition : clear transaksi success
+20201207 10:53:20 Home condition : clear transaction log success
+20201207 10:53:20 Home condition : clear array success
+20201207 10:53:20 Home condition : clear array nasabah success
+20201207 10:53:20 Home condition : clear list success
+20201207 10:53:20 Home condition : clear transaksi baru success
+20201207 10:53:21 Histori condition : entered into histori pilih menu
+20201207 10:53:23 Histori condition : move to histori Monthly Statement
+20201207 10:53:28 Histori condition : post service start
+20201207 10:54:52 Home condition : clear transaksi success
+20201207 10:54:52 Home condition : clear transaction log success
+20201207 10:54:52 Home condition : clear array success
+20201207 10:54:52 Home condition : clear array nasabah success
+20201207 10:54:52 Home condition : clear list success
+20201207 10:54:52 Home condition : clear transaksi baru success
+20201207 10:54:53 Home condition : clear transaksi success
+20201207 10:54:53 Home condition : clear transaction log success
+20201207 10:54:53 Home condition : clear array success
+20201207 10:54:53 Home condition : clear array nasabah success
+20201207 10:54:53 Home condition : clear list success
+20201207 10:54:53 Home condition : clear transaksi baru success
+20201207 10:54:54 Histori condition : entered into histori pilih menu
+20201207 10:54:56 Histori condition : move to histori Monthly Statement
+20201207 10:55:00 Histori condition : post service start

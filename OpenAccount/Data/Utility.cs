@@ -3,12 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
+using System.Drawing.Printing;
+using System.Diagnostics;
 
 namespace OpenAccount.Data
 {
     public class Utility
     {
         Config config = new Config();
+        Process process = new Process();
+
+        public void PrintPdf()
+        {
+            string pathPrintPDF;
+            string workingdirectory;
+            string path = Directory.GetCurrentDirectory();
+            pathPrintPDF = path + "\\" + "printPDF\\Print PDF.exe";
+            workingdirectory = Path.GetDirectoryName(pathPrintPDF);
+            process.StartInfo.FileName = pathPrintPDF;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.WorkingDirectory = workingdirectory;
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            //Utility.WriteLog("Signpad condition : sign pad process running", "step-action");
+            process.Start();
+            process.WaitForExit();
+            //Utility.WriteLog("Signpad condition : sign pad process done", "step-action");
+            if (process.HasExited)
+            {
+                Utility.WriteLog("Print PDF condition : Print PDF process close", "step-action");
+                process.Close();
+                //process.Dispose();
+            }
+            //using (var document = PdfDocument.Load(path))
+            //{
+            //    using (var printDocument = document.CreatePrintDocument())
+            //    {
+            //        printDocument.PrinterSettings.PrintFileName = "Letter_SkidTags_Report_9ae93aa7-4359-444e-a033-eb5bf17f5ce6.pdf";
+            //        printDocument.PrinterSettings.PrinterName = @"EPSOND03466 (L3150 Series)";
+            //        printDocument.DocumentName = "Verify_MultiColumn_Report_CanBe_Processed.pdf";
+            //        printDocument.PrinterSettings.PrintFileName = "Verify_MultiColumn_Report_CanBe_Processed.pdf";
+            //        printDocument.PrintController = new StandardPrintController();
+            //        printDocument.Print();
+            //    }
+            //}
+        }
 
         public static string ReadLog(string strdatapath)
         {

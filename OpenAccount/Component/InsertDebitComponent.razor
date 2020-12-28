@@ -15,7 +15,7 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     @*<span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span>*@
-                    <h3 style="color: #00529C; font-size: 30px;">Silakan Masukkan Kartu ATM Anda</h3>
+                    <h3 style="color: #00529C; font-size: 30px;">Silakan Gesek Kartu ATM Anda</h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -72,6 +72,8 @@
     private bool isLoop = false;
     private bool isCancel = false;
     private bool isComplete = false;
+    private bool isKartu = false;
+    private bool isTimeOut = false;
     private SerialPort sPort = new SerialPort();
 
     protected override async Task OnInitializedAsync()
@@ -83,13 +85,41 @@
         //OnClick.InvokeAsync("inputpin");
         sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
         await GetCard();
-        if(isComplete)
+        if (!isCancel)
         {
-            OnClick.InvokeAsync("inputpin");
-        }else if(isCancel)
+            await CekKartu();
+            if (!isKartu)
+            {
+                OnClick.InvokeAsync("kartusalah");
+                return;
+            }
+            if (isComplete)
+            {
+                OnClick.InvokeAsync("inputpin");
+            }
+        }
+        else
         {
             OnClick.InvokeAsync("default");
         }
+    }
+    private async Task CekKartu()
+    {
+        string cekKartu = string.Empty;
+        if (trx.nomerKartu.Length > 0)
+        {
+            cekKartu = trx.nomerKartu.Substring(0, 6);
+            if (cekKartu == "553479" || cekKartu == "522184" || cekKartu == "532659" || cekKartu == "601301")
+            {
+                isKartu = true;
+            }
+            else
+            {
+                isKartu = false;
+            }
+        }
+        else
+            isKartu = false;
     }
     private async Task GetCard()
     {
@@ -98,7 +128,7 @@
         await Task.Delay(100);
         try
         {
-            await EDCClearBuffer("1200");
+            await EDCClearBuffer("15");
             await EDC("11");
         }
         catch (Exception ex)
@@ -295,6 +325,48 @@
             dataRespond += dataCurrent;
             Console.WriteLine("Data Current Pin: " + dataCurrent);
             Console.WriteLine("Data Respond Pin: " + dataRespond);
+            if (dataRespond.Contains("BNI"))
+            {
+                dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                int intBuffer = buffer[4];
+                switch (intBuffer)
+                {
+                    case 69:
+                        //Console.WriteLine(strpin);
+                        //if (strpin.Length == 6)
+                        //{
+                        //    isLoop = false;
+                        //    await Task.Delay(100);
+                        //}
+                        //else
+                        //    continue;
+                        //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                        //Utility.WriteLog("Home condition : EDC pin enter", "step-action");
+                        break;
+                    case 88: //Cancel
+                             //Console.WriteLine(strpin);
+                        isCancel = true;
+                        isComplete = false;
+                        isTimeOut = false;
+                        isLoop = false;
+                        await Task.Delay(100);
+                        Utility.WriteLog("Home condition : EDC pin cancel", "step-action");
+                        break;
+                    case 84: //Timeout
+                             //Console.WriteLine(strpin);
+                        isTimeOut = true;
+                        isLoop = false;
+                        isComplete = false;
+                        isCancel = false;
+                        await Task.Delay(100);
+                        break;
+                    case 67:
+                        break;
+                    case 32:
+                        break;
+                }
+            }
             Console.WriteLine("Data Split Pin: " + dataSplit);
             if (dataRespond.Contains("\x06"))
             {

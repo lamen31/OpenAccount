@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx 
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="position: fixed;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" style="text-align: center;">
+                <div>
+                    <img src="./assets/img/Folder SVG/kartu-tidak-dikenal.svg" style="width: 30%;"><br>
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf kartu Anda tidak dikenali, <br>
+                            Cek kembali dan hubungi Costumer Service."<br />
+                            @errormessage
+                        </teks>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private bool isNoTransaction;
+    private bool isRekeningNotFound;
+    private bool isError;
+    private bool isNotSerial;
+    private bool isGiro;
+    private bool isTutup;
+    private bool isDataNotFound;
+    private bool isNotStatus;
+    private bool isTidakDitarik;
+
+    private string errorcode = string.Empty;
+    private string errormessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        isNoTransaction = false;
+        isRekeningNotFound = false;
+        isError = false;
+        isNotSerial = false;
+        isGiro = false;
+        isTutup = false;
+        isDataNotFound = false;
+        isNotStatus = false;
+        isTidakDitarik = false;
+
+        errorcode = trx._ServiceErrorCode;
+        //errorcode = "AS-009";
+        errormessage = trx._ServicesErrorMessage;
+
+        if(errorcode == "ES-001" || errorcode == "AS-001")
+        {
+            isRekeningNotFound = true;
+        }
+        else if(errorcode == "AS-260")
+        {
+            isNoTransaction = true;
+        }
+        else if(errorcode== "AS-287")
+        {
+            isNotSerial = true;
+        }
+        else if (errorcode == "GIRO" || errorcode == "BISNIS")
+        {
+            isGiro = true;
+        }
+        else if(errorcode == "AS-007")
+        {
+            isTutup = true;
+        }
+        else if (errorcode == "DW-001")
+        {
+            isDataNotFound = true;
+        }
+        else if(errorcode == "NotStatus")
+        {
+            isNotStatus = true;
+        }
+        else if(errorcode== "AS-009")
+        {
+            isTidakDitarik = true;
+        }
+        else
+        {
+            isError = true;
+        }
+        await Task.Delay(100);
+        StateHasChanged();
+
+        if (isNotSerial)
+        {
+            await Task.Delay(8000);
+            OnClick.InvokeAsync("bukuinputdata");
+        }
+        else
+        {
+            await Task.Delay(8000);
+            OnClick.InvokeAsync("default");
+        }
+    }
+}

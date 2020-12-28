@@ -1,0 +1,1217 @@
+20201211 09:25:06 Home condition : clear transaksi success
+20201211 09:25:06 Home condition : clear transaction log success
+20201211 09:25:06 Home condition : clear array success
+20201211 09:25:06 Home condition : clear array nasabah success
+20201211 09:25:06 Home condition : clear list success
+20201211 09:25:06 Home condition : clear transaksi baru success
+20201211 09:25:07 Home condition : clear transaksi success
+20201211 09:25:07 Home condition : clear transaction log success
+20201211 09:25:07 Home condition : clear array success
+20201211 09:25:07 Home condition : clear array nasabah success
+20201211 09:25:07 Home condition : clear list success
+20201211 09:25:07 Home condition : clear transaksi baru success
+20201211 09:25:35 Home condition : input kartu success
+20201211 09:25:35 Home condition : move to input pin
+20201211 09:25:36 Home condition : EDC process start
+20201211 09:25:36 Home condition : entered into insert debit
+20201211 09:25:36 Home condition : EDC serial port close
+20201211 09:25:36 Home condition : EDC serial port open
+20201211 09:25:36 Home condition : EDC serial port write
+20201211 09:25:36 Home condition : EDC serial port already open
+20201211 09:25:36 Home condition : EDC serial port close
+20201211 09:25:36 Home condition : EDC serial port close
+20201211 09:25:36 Home condition : EDC serial port open
+20201211 09:25:36 Home condition : EDC serial port write
+20201211 09:25:36 Home condition : EDC serial port already open
+20201211 09:25:37 Home condition : EDC serial port already open
+20201211 09:25:37 Home condition : EDC serial port already open
+20201211 09:25:37 Home condition : EDC serial port already open
+20201211 09:25:38 Home condition : EDC serial port already open
+20201211 09:25:38 Home condition : EDC serial port already open
+20201211 09:25:38 Home condition : EDC serial port already open
+20201211 09:25:38 Home condition : EDC serial port already open
+20201211 09:25:39 Home condition : EDC serial port already open
+20201211 09:25:39 Home condition : EDC serial port already open
+20201211 09:25:39 Home condition : EDC serial port already open
+20201211 09:25:40 Home condition : EDC serial port already open
+20201211 09:25:40 Home condition : EDC serial port already open
+20201211 09:25:40 Home condition : EDC serial port already open
+20201211 09:25:41 Home condition : EDC serial port already open
+20201211 09:25:41 Home condition : EDC serial port close
+20201211 09:25:41 Home condition : entered into histori input pin
+20201211 09:25:41 Home condition : EDC process start
+20201211 09:25:41 Home condition : EDC serial port close
+20201211 09:25:41 Home condition : EDC serial port open
+20201211 09:25:41 Home condition : EDC serial port write
+20201211 09:25:41 Home condition : EDC serial port already open
+20201211 09:25:41 Home condition : EDC serial port already open
+20201211 09:25:42 Home condition : EDC serial port already open
+20201211 09:25:42 Home condition : EDC serial port already open
+20201211 09:25:42 Home condition : EDC serial port already open
+20201211 09:25:43 Home condition : EDC serial port already open
+20201211 09:25:43 Home condition : EDC serial port already open
+20201211 09:25:43 Home condition : EDC serial port already open
+20201211 09:25:43 Home condition : EDC serial port already open
+20201211 09:25:44 Home condition : EDC serial port already open
+20201211 09:25:44 Home condition : EDC serial port already open
+20201211 09:25:44 Home condition : EDC serial port already open
+20201211 09:25:45 Home condition : EDC serial port already open
+20201211 09:25:45 Home condition : EDC serial port already open
+20201211 09:25:45 Home condition : EDC serial port already open
+20201211 09:25:45 Home condition : EDC serial port already open
+20201211 09:25:45 Home condition : 1
+20201211 09:25:45 Home condition : EDC pin 1
+20201211 09:25:46 Home condition : EDC serial port already open
+20201211 09:25:46 Home condition : 11
+20201211 09:25:46 Home condition : EDC pin 1
+20201211 09:25:46 Home condition : EDC serial port already open
+20201211 09:25:46 Home condition : EDC serial port already open
+20201211 09:25:46 Home condition : 111
+20201211 09:25:46 Home condition : EDC pin 1
+20201211 09:25:47 Home condition : EDC serial port already open
+20201211 09:25:47 Home condition : EDC serial port already open
+20201211 09:25:47 Home condition : EDC serial port already open
+20201211 09:25:47 Home condition : 1111
+20201211 09:25:47 Home condition : EDC pin 1
+20201211 09:25:48 Home condition : EDC serial port already open
+20201211 09:25:48 Home condition : 11111
+20201211 09:25:48 Home condition : EDC pin 1
+20201211 09:25:48 Home condition : EDC serial port already open
+20201211 09:25:48 Home condition : EDC serial port already open
+20201211 09:25:48 Home condition : 111111
+20201211 09:25:48 Home condition : EDC pin 1
+20201211 09:25:49 Home condition : EDC serial port already open
+20201211 09:25:49 Home condition : EDC serial port already open
+20201211 09:25:49 Home condition : EDC serial port close
+20201211 09:25:49 Histori condition : post service start
+20201211 09:25:54 Home condition : EDC process start
+20201211 09:25:54 Home condition : EDC serial port close
+20201211 09:25:54 Home condition : EDC serial port open
+20201211 09:25:54 Home condition : EDC serial port write
+20201211 09:25:54 Home condition : EDC serial port already open
+20201211 09:25:54 Home condition : EDC serial port already open
+20201211 09:25:55 Home condition : EDC serial port already open
+20201211 09:25:55 Home condition : EDC serial port already open
+20201211 09:25:55 Home condition : EDC serial port already open
+20201211 09:25:56 Home condition : EDC serial port already open
+20201211 09:25:56 Home condition : EDC serial port already open
+20201211 09:25:56 Home condition : EDC serial port already open
+20201211 09:25:56 Home condition : EDC serial port already open
+20201211 09:25:57 Home condition : EDC serial port already open
+20201211 09:25:57 Home condition : EDC serial port already open
+20201211 09:25:57 Home condition : EDC serial port already open
+20201211 09:25:58 Home condition : EDC serial port already open
+20201211 09:25:58 Home condition : EDC serial port already open
+20201211 09:25:58 Home condition : EDC serial port already open
+20201211 09:25:58 Home condition : EDC serial port already open
+20201211 09:25:59 Home condition : EDC serial port already open
+20201211 09:25:59 Home condition : EDC serial port already open
+20201211 09:25:59 Home condition : EDC serial port already open
+20201211 09:26:00 Home condition : EDC serial port already open
+20201211 09:26:00 Home condition : EDC serial port already open
+20201211 09:26:00 Home condition : EDC serial port already open
+20201211 09:26:00 Home condition : EDC serial port already open
+20201211 09:26:01 Home condition : EDC serial port already open
+20201211 09:26:01 Home condition : EDC serial port already open
+20201211 09:26:01 Home condition : EDC serial port already open
+20201211 09:26:02 Home condition : EDC serial port already open
+20201211 09:26:02 Home condition : EDC serial port already open
+20201211 09:26:02 Home condition : EDC serial port already open
+20201211 09:26:02 Home condition : EDC serial port already open
+20201211 09:26:03 Home condition : EDC serial port already open
+20201211 09:26:03 Home condition : EDC serial port already open
+20201211 09:26:03 Home condition : EDC serial port already open
+20201211 09:26:04 Home condition : EDC serial port already open
+20201211 09:26:04 Home condition : EDC serial port already open
+20201211 09:26:04 Home condition : EDC serial port already open
+20201211 09:26:04 Home condition : EDC serial port already open
+20201211 09:26:05 Home condition : EDC serial port already open
+20201211 09:26:05 Home condition : EDC serial port already open
+20201211 09:26:05 Home condition : EDC serial port already open
+20201211 09:26:06 Home condition : EDC serial port already open
+20201211 09:26:06 Home condition : EDC serial port already open
+20201211 09:26:06 Home condition : EDC serial port already open
+20201211 09:26:06 Home condition : EDC serial port already open
+20201211 09:27:25 Home condition : clear transaksi success
+20201211 09:27:25 Home condition : clear transaction log success
+20201211 09:27:25 Home condition : clear array success
+20201211 09:27:25 Home condition : clear array nasabah success
+20201211 09:27:25 Home condition : clear list success
+20201211 09:27:25 Home condition : clear transaksi baru success
+20201211 09:27:25 Home condition : clear transaksi success
+20201211 09:27:25 Home condition : clear transaction log success
+20201211 09:27:25 Home condition : clear array success
+20201211 09:27:25 Home condition : clear array nasabah success
+20201211 09:27:25 Home condition : clear list success
+20201211 09:27:25 Home condition : clear transaksi baru success
+20201211 09:27:40 Home condition : input kartu success
+20201211 09:27:40 Home condition : move to input pin
+20201211 09:27:40 Home condition : EDC process start
+20201211 09:27:40 Home condition : entered into insert debit
+20201211 09:27:41 Home condition : EDC serial port close
+20201211 09:27:41 Home condition : EDC serial port open
+20201211 09:27:41 Home condition : EDC serial port write
+20201211 09:27:41 Home condition : EDC serial port already open
+20201211 09:27:41 Home condition : EDC serial port close
+20201211 09:27:41 Home condition : EDC serial port close
+20201211 09:27:41 Home condition : EDC serial port open
+20201211 09:27:41 Home condition : EDC serial port write
+20201211 09:27:41 Home condition : EDC serial port already open
+20201211 09:27:42 Home condition : EDC serial port already open
+20201211 09:27:42 Home condition : EDC serial port already open
+20201211 09:27:42 Home condition : EDC serial port already open
+20201211 09:27:43 Home condition : EDC serial port already open
+20201211 09:27:43 Home condition : EDC serial port already open
+20201211 09:27:43 Home condition : EDC serial port already open
+20201211 09:27:43 Home condition : EDC serial port already open
+20201211 09:27:44 Home condition : EDC serial port already open
+20201211 09:27:44 Home condition : EDC serial port already open
+20201211 09:27:44 Home condition : EDC serial port already open
+20201211 09:27:45 Home condition : EDC serial port already open
+20201211 09:27:45 Home condition : EDC serial port already open
+20201211 09:27:45 Home condition : EDC serial port already open
+20201211 09:27:45 Home condition : EDC serial port already open
+20201211 09:27:46 Home condition : EDC serial port already open
+20201211 09:27:46 Home condition : EDC serial port already open
+20201211 09:27:46 Home condition : EDC serial port already open
+20201211 09:27:46 Home condition : EDC serial port close
+20201211 09:27:56 Home condition : input kartu success
+20201211 09:27:56 Home condition : move to input pin
+20201211 09:27:56 Home condition : EDC process start
+20201211 09:27:56 Home condition : entered into insert debit
+20201211 09:27:56 Home condition : EDC serial port close
+20201211 09:27:56 Home condition : EDC serial port open
+20201211 09:27:56 Home condition : EDC serial port write
+20201211 09:27:57 Home condition : EDC serial port already open
+20201211 09:27:57 Home condition : EDC serial port close
+20201211 09:27:57 Home condition : EDC serial port close
+20201211 09:27:57 Home condition : EDC serial port open
+20201211 09:27:57 Home condition : EDC serial port write
+20201211 09:27:57 Home condition : EDC serial port already open
+20201211 09:27:58 Home condition : EDC serial port already open
+20201211 09:27:58 Home condition : EDC serial port already open
+20201211 09:27:58 Home condition : EDC serial port already open
+20201211 09:27:58 Home condition : EDC serial port already open
+20201211 09:27:59 Home condition : EDC serial port already open
+20201211 09:27:59 Home condition : EDC serial port already open
+20201211 09:27:59 Home condition : EDC serial port already open
+20201211 09:28:00 Home condition : EDC serial port already open
+20201211 09:28:00 Home condition : EDC serial port already open
+20201211 09:28:00 Home condition : EDC serial port already open
+20201211 09:28:00 Home condition : EDC serial port already open
+20201211 09:28:01 Home condition : EDC serial port already open
+20201211 09:28:01 Home condition : EDC serial port already open
+20201211 09:28:01 Home condition : EDC serial port close
+20201211 09:28:01 Home condition : entered into histori input pin
+20201211 09:28:01 Home condition : EDC process start
+20201211 09:28:01 Home condition : EDC serial port close
+20201211 09:28:01 Home condition : EDC serial port open
+20201211 09:28:01 Home condition : EDC serial port write
+20201211 09:28:02 Home condition : EDC serial port already open
+20201211 09:28:02 Home condition : EDC serial port already open
+20201211 09:28:02 Home condition : EDC serial port already open
+20201211 09:28:03 Home condition : EDC serial port already open
+20201211 09:28:03 Home condition : EDC serial port already open
+20201211 09:28:03 Home condition : EDC serial port already open
+20201211 09:28:03 Home condition : EDC serial port already open
+20201211 09:28:04 Home condition : EDC serial port already open
+20201211 09:28:04 Home condition : EDC serial port already open
+20201211 09:28:04 Home condition : EDC serial port already open
+20201211 09:28:05 Home condition : EDC serial port already open
+20201211 09:28:05 Home condition : EDC serial port already open
+20201211 09:28:05 Home condition : EDC serial port already open
+20201211 09:28:06 Home condition : EDC serial port already open
+20201211 09:28:06 Home condition : EDC serial port already open
+20201211 09:28:06 Home condition : EDC serial port already open
+20201211 09:28:06 Home condition : EDC serial port already open
+20201211 09:28:07 Home condition : EDC serial port already open
+20201211 09:28:07 Home condition : EDC serial port already open
+20201211 09:28:07 Home condition : EDC serial port already open
+20201211 09:28:08 Home condition : EDC serial port already open
+20201211 09:28:08 Home condition : EDC serial port already open
+20201211 09:28:08 Home condition : EDC serial port already open
+20201211 09:28:08 Home condition : EDC serial port already open
+20201211 09:28:09 Home condition : EDC serial port already open
+20201211 09:28:09 Home condition : EDC serial port already open
+20201211 09:28:09 Home condition : EDC serial port already open
+20201211 09:28:10 Home condition : EDC serial port already open
+20201211 09:28:10 Home condition : EDC serial port already open
+20201211 09:28:10 Home condition : EDC serial port already open
+20201211 09:28:11 Home condition : EDC serial port already open
+20201211 09:28:11 Home condition : EDC serial port already open
+20201211 09:28:11 Home condition : EDC serial port already open
+20201211 09:28:11 Home condition : EDC serial port already open
+20201211 09:28:12 Home condition : EDC serial port already open
+20201211 09:28:12 Home condition : EDC serial port already open
+20201211 09:28:12 Home condition : EDC serial port already open
+20201211 09:28:13 Home condition : EDC serial port already open
+20201211 09:28:13 Home condition : EDC serial port already open
+20201211 09:28:13 Home condition : EDC serial port already open
+20201211 09:28:14 Home condition : EDC serial port already open
+20201211 09:28:14 Home condition : EDC serial port already open
+20201211 09:28:14 Home condition : EDC serial port already open
+20201211 09:28:14 Home condition : EDC serial port already open
+20201211 09:28:15 Home condition : EDC serial port already open
+20201211 09:28:15 Home condition : EDC serial port already open
+20201211 09:28:15 Home condition : EDC serial port already open
+20201211 09:28:16 Home condition : EDC serial port already open
+20201211 09:28:16 Home condition : EDC serial port already open
+20201211 09:28:16 Home condition : EDC serial port already open
+20201211 09:28:16 Home condition : EDC serial port already open
+20201211 09:28:17 Home condition : EDC serial port already open
+20201211 09:28:17 Home condition : EDC serial port already open
+20201211 09:28:17 Home condition : EDC serial port already open
+20201211 09:28:18 Home condition : EDC serial port already open
+20201211 09:28:18 Home condition : EDC serial port already open
+20201211 09:28:18 Home condition : EDC serial port already open
+20201211 09:28:19 Home condition : EDC serial port already open
+20201211 09:28:19 Home condition : EDC serial port already open
+20201211 09:28:19 Home condition : EDC serial port already open
+20201211 09:28:19 Home condition : EDC serial port already open
+20201211 09:28:20 Home condition : EDC serial port already open
+20201211 09:28:20 Home condition : EDC serial port already open
+20201211 09:28:20 Home condition : EDC serial port already open
+20201211 09:28:21 Home condition : EDC serial port already open
+20201211 09:28:21 Home condition : EDC serial port already open
+20201211 09:28:21 Home condition : EDC serial port already open
+20201211 09:28:22 Home condition : EDC serial port already open
+20201211 09:28:22 Home condition : EDC serial port already open
+20201211 09:28:22 Home condition : EDC serial port already open
+20201211 09:28:22 Home condition : EDC serial port already open
+20201211 09:28:23 Home condition : EDC serial port already open
+20201211 09:28:23 Home condition : EDC serial port already open
+20201211 09:28:23 Home condition : EDC serial port already open
+20201211 09:28:24 Home condition : EDC serial port already open
+20201211 09:28:24 Home condition : EDC serial port already open
+20201211 09:28:24 Home condition : EDC serial port already open
+20201211 09:28:25 Home condition : EDC serial port already open
+20201211 09:28:25 Home condition : EDC serial port already open
+20201211 09:28:25 Home condition : EDC serial port already open
+20201211 09:28:25 Home condition : EDC serial port already open
+20201211 09:28:26 Home condition : EDC serial port already open
+20201211 09:28:26 Home condition : EDC serial port already open
+20201211 09:28:26 Home condition : EDC serial port already open
+20201211 09:28:27 Home condition : EDC serial port already open
+20201211 09:28:27 Home condition : EDC serial port already open
+20201211 09:28:27 Home condition : EDC serial port already open
+20201211 09:28:28 Home condition : EDC serial port already open
+20201211 09:28:28 Home condition : EDC serial port already open
+20201211 09:28:28 Home condition : EDC serial port already open
+20201211 09:28:28 Home condition : EDC serial port already open
+20201211 09:28:29 Home condition : EDC serial port already open
+20201211 09:28:29 Home condition : EDC serial port already open
+20201211 09:28:29 Home condition : EDC serial port already open
+20201211 09:28:30 Home condition : EDC serial port already open
+20201211 09:28:30 Home condition : EDC serial port already open
+20201211 09:28:30 Home condition : EDC serial port already open
+20201211 09:28:30 Home condition : EDC serial port already open
+20201211 09:28:31 Home condition : EDC serial port already open
+20201211 09:28:31 Home condition : EDC serial port already open
+20201211 09:28:31 Home condition : EDC serial port already open
+20201211 09:28:32 Home condition : EDC serial port already open
+20201211 09:28:32 Home condition : EDC serial port already open
+20201211 09:28:32 Home condition : EDC serial port already open
+20201211 09:28:33 Home condition : EDC serial port already open
+20201211 09:28:33 Home condition : EDC serial port already open
+20201211 09:28:33 Home condition : EDC serial port already open
+20201211 09:28:33 Home condition : EDC serial port already open
+20201211 09:28:34 Home condition : EDC serial port already open
+20201211 09:28:34 Home condition : EDC serial port already open
+20201211 09:28:34 Home condition : EDC serial port already open
+20201211 09:28:35 Home condition : EDC serial port already open
+20201211 09:28:35 Home condition : EDC serial port already open
+20201211 09:28:35 Home condition : EDC serial port already open
+20201211 09:28:35 Home condition : EDC serial port already open
+20201211 09:28:36 Home condition : EDC serial port already open
+20201211 09:28:36 Home condition : EDC serial port already open
+20201211 09:28:36 Home condition : EDC serial port already open
+20201211 09:28:37 Home condition : EDC serial port already open
+20201211 09:28:37 Home condition : EDC serial port already open
+20201211 09:30:01 Home condition : EDC serial port close
+20201211 09:30:01 Home condition : move to ambil kartu
+20201211 09:30:01 Ambil kartu condition : entered into ambil kartu
+20201211 09:30:04 Ambil kartu condition : move to landing page
+20201211 09:30:06 Home condition : input kartu success
+20201211 09:30:06 Home condition : move to input pin
+20201211 09:30:06 Home condition : EDC process start
+20201211 09:30:06 Home condition : entered into insert debit
+20201211 09:30:06 Home condition : EDC serial port close
+20201211 09:30:06 Home condition : EDC serial port open
+20201211 09:30:06 Home condition : EDC serial port write
+20201211 09:30:06 Home condition : EDC serial port already open
+20201211 09:30:06 Home condition : EDC serial port close
+20201211 09:30:07 Home condition : EDC serial port close
+20201211 09:30:07 Home condition : EDC serial port open
+20201211 09:30:07 Home condition : EDC serial port write
+20201211 09:30:07 Home condition : EDC serial port already open
+20201211 09:30:07 Home condition : EDC serial port already open
+20201211 09:30:07 Home condition : EDC serial port already open
+20201211 09:30:08 Home condition : EDC serial port already open
+20201211 09:30:08 Home condition : EDC serial port already open
+20201211 09:30:08 Home condition : EDC serial port already open
+20201211 09:30:09 Home condition : EDC serial port already open
+20201211 09:30:09 Home condition : EDC serial port already open
+20201211 09:30:09 Home condition : EDC serial port already open
+20201211 09:30:09 Home condition : EDC serial port already open
+20201211 09:30:10 Home condition : EDC serial port already open
+20201211 09:30:10 Home condition : EDC serial port already open
+20201211 09:30:10 Home condition : EDC serial port already open
+20201211 09:30:11 Home condition : EDC serial port already open
+20201211 09:30:11 Home condition : EDC serial port already open
+20201211 09:30:11 Home condition : EDC serial port already open
+20201211 09:30:11 Home condition : EDC serial port already open
+20201211 09:30:11 Home condition : EDC serial port close
+20201211 09:30:12 Home condition : entered into histori input pin
+20201211 09:30:12 Home condition : EDC process start
+20201211 09:30:12 Home condition : EDC serial port close
+20201211 09:30:12 Home condition : EDC serial port open
+20201211 09:30:12 Home condition : EDC serial port write
+20201211 09:30:12 Home condition : EDC serial port already open
+20201211 09:30:12 Home condition : EDC serial port already open
+20201211 09:30:13 Home condition : EDC serial port already open
+20201211 09:30:13 Home condition : EDC serial port already open
+20201211 09:30:13 Home condition : EDC serial port already open
+20201211 09:30:13 Home condition : EDC serial port already open
+20201211 09:30:14 Home condition : EDC serial port already open
+20201211 09:30:14 Home condition : EDC serial port already open
+20201211 09:30:14 Home condition : EDC serial port already open
+20201211 09:30:15 Home condition : EDC serial port already open
+20201211 09:30:15 Home condition : EDC serial port already open
+20201211 09:30:15 Home condition : EDC serial port already open
+20201211 09:30:15 Home condition : EDC serial port already open
+20201211 09:30:16 Home condition : EDC serial port already open
+20201211 09:30:16 Home condition : EDC serial port already open
+20201211 09:30:16 Home condition : EDC serial port already open
+20201211 09:30:17 Home condition : EDC serial port already open
+20201211 09:30:36 Home condition : EDC pin cancel
+20201211 09:30:36 Home condition : EDC serial port close
+20201211 09:30:36 Home condition : move to ambil kartu
+20201211 09:30:36 Ambil kartu condition : entered into ambil kartu
+20201211 09:30:39 Ambil kartu condition : move to landing page
+20201211 09:35:23 Home condition : input kartu success
+20201211 09:35:23 Home condition : move to input pin
+20201211 09:35:23 Home condition : EDC process start
+20201211 09:35:23 Home condition : entered into insert debit
+20201211 09:35:23 Home condition : EDC serial port close
+20201211 09:35:23 Home condition : EDC serial port open
+20201211 09:35:23 Home condition : EDC serial port write
+20201211 09:35:23 Home condition : EDC serial port already open
+20201211 09:35:23 Home condition : EDC serial port close
+20201211 09:35:23 Home condition : EDC serial port close
+20201211 09:35:23 Home condition : EDC serial port open
+20201211 09:35:23 Home condition : EDC serial port write
+20201211 09:35:24 Home condition : EDC serial port already open
+20201211 09:35:24 Home condition : EDC serial port already open
+20201211 09:35:24 Home condition : EDC serial port already open
+20201211 09:35:24 Home condition : EDC serial port already open
+20201211 09:35:25 Home condition : EDC serial port already open
+20201211 09:35:25 Home condition : EDC serial port already open
+20201211 09:35:25 Home condition : EDC serial port already open
+20201211 09:35:26 Home condition : EDC serial port already open
+20201211 09:35:26 Home condition : EDC serial port already open
+20201211 09:35:26 Home condition : EDC serial port already open
+20201211 09:35:27 Home condition : EDC serial port already open
+20201211 09:35:27 Home condition : EDC serial port already open
+20201211 09:35:27 Home condition : EDC serial port already open
+20201211 09:35:28 Home condition : EDC serial port already open
+20201211 09:35:28 Home condition : EDC serial port already open
+20201211 09:35:28 Home condition : EDC serial port already open
+20201211 09:35:28 Home condition : EDC serial port already open
+20201211 09:35:29 Home condition : EDC serial port already open
+20201211 09:35:29 Home condition : EDC serial port already open
+20201211 09:35:29 Home condition : EDC serial port already open
+20201211 09:35:30 Home condition : EDC serial port already open
+20201211 09:35:30 Home condition : EDC serial port already open
+20201211 09:35:30 Home condition : EDC serial port already open
+20201211 09:35:31 Home condition : EDC serial port already open
+20201211 09:35:31 Home condition : EDC serial port already open
+20201211 09:35:31 Home condition : EDC serial port already open
+20201211 09:35:31 Home condition : EDC serial port already open
+20201211 09:35:32 Home condition : EDC serial port already open
+20201211 09:35:32 Home condition : EDC serial port already open
+20201211 09:35:32 Home condition : EDC serial port close
+20201211 09:35:36 Home condition : input kartu success
+20201211 09:35:36 Home condition : move to input pin
+20201211 09:35:36 Home condition : EDC process start
+20201211 09:35:36 Home condition : entered into insert debit
+20201211 09:35:36 Home condition : EDC serial port close
+20201211 09:35:36 Home condition : EDC serial port open
+20201211 09:35:36 Home condition : EDC serial port write
+20201211 09:35:37 Home condition : EDC serial port already open
+20201211 09:35:37 Home condition : EDC serial port close
+20201211 09:35:37 Home condition : EDC serial port close
+20201211 09:35:37 Home condition : EDC serial port open
+20201211 09:35:37 Home condition : EDC serial port write
+20201211 09:35:37 Home condition : EDC serial port already open
+20201211 09:35:37 Home condition : EDC serial port already open
+20201211 09:35:38 Home condition : EDC serial port already open
+20201211 09:35:38 Home condition : EDC serial port already open
+20201211 09:35:38 Home condition : EDC serial port already open
+20201211 09:35:38 Home condition : EDC serial port already open
+20201211 09:35:39 Home condition : EDC serial port already open
+20201211 09:35:39 Home condition : EDC serial port already open
+20201211 09:35:39 Home condition : EDC serial port already open
+20201211 09:35:40 Home condition : EDC serial port already open
+20201211 09:35:40 Home condition : EDC serial port already open
+20201211 09:35:40 Home condition : EDC serial port already open
+20201211 09:35:40 Home condition : EDC serial port already open
+20201211 09:35:41 Home condition : EDC serial port close
+20201211 09:35:41 Home condition : entered into histori input pin
+20201211 09:35:41 Home condition : EDC process start
+20201211 09:35:41 Home condition : EDC serial port close
+20201211 09:35:41 Home condition : EDC serial port open
+20201211 09:35:41 Home condition : EDC serial port write
+20201211 09:35:41 Home condition : EDC serial port already open
+20201211 09:35:41 Home condition : EDC serial port already open
+20201211 09:35:42 Home condition : EDC serial port already open
+20201211 09:35:42 Home condition : EDC serial port already open
+20201211 09:35:42 Home condition : EDC serial port already open
+20201211 09:35:43 Home condition : EDC serial port already open
+20201211 09:35:43 Home condition : EDC serial port already open
+20201211 09:35:43 Home condition : EDC serial port already open
+20201211 09:35:43 Home condition : EDC serial port already open
+20201211 09:35:44 Home condition : EDC serial port already open
+20201211 09:35:44 Home condition : EDC serial port already open
+20201211 09:35:44 Home condition : EDC serial port already open
+20201211 09:35:45 Home condition : EDC serial port already open
+20201211 09:35:45 Home condition : EDC serial port already open
+20201211 09:35:45 Home condition : EDC serial port already open
+20201211 09:35:45 Home condition : EDC serial port already open
+20201211 09:35:46 Home condition : EDC serial port already open
+20201211 09:35:46 Home condition : EDC serial port already open
+20201211 09:35:46 Home condition : EDC serial port already open
+20201211 09:35:47 Home condition : EDC serial port already open
+20201211 09:35:48 Home condition : 1
+20201211 09:35:48 Home condition : EDC pin 1
+20201211 09:35:48 Home condition : EDC serial port already open
+20201211 09:35:49 Home condition : EDC serial port already open
+20201211 09:35:49 Home condition : EDC serial port already open
+20201211 09:35:49 Home condition : EDC serial port already open
+20201211 09:35:50 Home condition : EDC serial port already open
+20201211 09:35:50 Home condition : EDC serial port already open
+20201211 09:35:50 Home condition : EDC serial port already open
+20201211 09:35:51 Home condition : EDC serial port already open
+20201211 09:36:13 Home condition : EDC pin clear
+20201211 09:36:13 Home condition : EDC serial port already open
+20201211 09:36:14 Home condition : EDC serial port already open
+20201211 09:36:14 Home condition : EDC serial port already open
+20201211 09:36:14 Home condition : EDC serial port already open
+20201211 09:36:15 Home condition : EDC serial port already open
+20201211 09:36:15 Home condition : EDC serial port already open
+20201211 09:36:15 Home condition : EDC serial port already open
+20201211 09:36:16 Home condition : EDC serial port already open
+20201211 09:36:16 Home condition : EDC serial port already open
+20201211 09:36:16 Home condition : EDC serial port already open
+20201211 09:36:17 Home condition : EDC serial port already open
+20201211 09:36:17 Home condition : EDC serial port already open
+20201211 09:36:19 Home condition : EDC pin cancel
+20201211 09:36:20 Home condition : EDC serial port close
+20201211 09:36:20 Home condition : move to ambil kartu
+20201211 09:36:20 Ambil kartu condition : entered into ambil kartu
+20201211 09:36:23 Ambil kartu condition : move to landing page
+20201211 09:36:26 Home condition : input kartu success
+20201211 09:36:26 Home condition : move to input pin
+20201211 09:36:26 Home condition : EDC process start
+20201211 09:36:26 Home condition : entered into insert debit
+20201211 09:36:26 Home condition : EDC serial port close
+20201211 09:36:26 Home condition : EDC serial port open
+20201211 09:36:27 Home condition : EDC serial port write
+20201211 09:36:27 Home condition : EDC serial port already open
+20201211 09:36:27 Home condition : EDC serial port close
+20201211 09:36:27 Home condition : EDC serial port close
+20201211 09:36:27 Home condition : EDC serial port open
+20201211 09:36:27 Home condition : EDC serial port write
+20201211 09:36:27 Home condition : EDC serial port already open
+20201211 09:36:28 Home condition : EDC serial port already open
+20201211 09:36:28 Home condition : EDC serial port already open
+20201211 09:36:28 Home condition : EDC serial port already open
+20201211 09:36:29 Home condition : EDC serial port already open
+20201211 09:36:29 Home condition : EDC serial port already open
+20201211 09:36:29 Home condition : EDC serial port already open
+20201211 09:36:29 Home condition : EDC serial port already open
+20201211 09:36:30 Home condition : EDC serial port already open
+20201211 09:36:30 Home condition : EDC serial port already open
+20201211 09:36:30 Home condition : EDC serial port close
+20201211 09:36:30 Home condition : entered into histori input pin
+20201211 09:36:30 Home condition : EDC process start
+20201211 09:36:30 Home condition : EDC serial port close
+20201211 09:36:30 Home condition : EDC serial port open
+20201211 09:36:30 Home condition : EDC serial port write
+20201211 09:36:31 Home condition : EDC serial port already open
+20201211 09:36:31 Home condition : EDC serial port already open
+20201211 09:36:31 Home condition : EDC serial port already open
+20201211 09:36:32 Home condition : EDC serial port already open
+20201211 09:36:32 Home condition : EDC serial port already open
+20201211 09:36:32 Home condition : EDC serial port already open
+20201211 09:36:32 Home condition : EDC serial port already open
+20201211 09:36:33 Home condition : EDC serial port already open
+20201211 09:36:33 Home condition : EDC serial port already open
+20201211 09:36:33 Home condition : EDC serial port already open
+20201211 09:36:34 Home condition : EDC serial port already open
+20201211 09:36:34 Home condition : EDC serial port already open
+20201211 09:36:34 Home condition : EDC serial port already open
+20201211 09:36:34 Home condition : EDC serial port already open
+20201211 09:36:35 Home condition : EDC serial port already open
+20201211 09:36:35 Home condition : EDC serial port already open
+20201211 09:36:35 Home condition : EDC serial port already open
+20201211 09:36:36 Home condition : EDC serial port already open
+20201211 09:36:36 Home condition : EDC serial port already open
+20201211 09:36:36 Home condition : EDC serial port already open
+20201211 09:36:36 Home condition : EDC serial port already open
+20201211 09:36:38 Home condition : EDC pin cancel
+20201211 09:36:38 Home condition : EDC serial port close
+20201211 09:36:38 Home condition : move to ambil kartu
+20201211 09:36:39 Ambil kartu condition : entered into ambil kartu
+20201211 09:36:42 Ambil kartu condition : move to landing page
+20201211 09:36:44 Home condition : input kartu success
+20201211 09:36:44 Home condition : move to input pin
+20201211 09:36:44 Home condition : EDC process start
+20201211 09:36:44 Home condition : entered into insert debit
+20201211 09:36:44 Home condition : EDC serial port close
+20201211 09:36:44 Home condition : EDC serial port open
+20201211 09:36:44 Home condition : EDC serial port write
+20201211 09:36:44 Home condition : EDC serial port already open
+20201211 09:36:44 Home condition : EDC serial port close
+20201211 09:36:44 Home condition : EDC serial port close
+20201211 09:36:44 Home condition : EDC serial port open
+20201211 09:36:45 Home condition : EDC serial port write
+20201211 09:36:45 Home condition : EDC serial port already open
+20201211 09:36:45 Home condition : EDC serial port already open
+20201211 09:36:45 Home condition : EDC serial port already open
+20201211 09:36:46 Home condition : EDC serial port already open
+20201211 09:36:46 Home condition : EDC serial port already open
+20201211 09:36:46 Home condition : EDC serial port already open
+20201211 09:36:46 Home condition : EDC serial port already open
+20201211 09:36:47 Home condition : EDC serial port already open
+20201211 09:36:47 Home condition : EDC serial port already open
+20201211 09:36:47 Home condition : EDC serial port already open
+20201211 09:36:48 Home condition : EDC serial port already open
+20201211 09:36:48 Home condition : EDC serial port already open
+20201211 09:36:48 Home condition : EDC serial port already open
+20201211 09:36:48 Home condition : EDC serial port already open
+20201211 09:36:49 Home condition : EDC serial port already open
+20201211 09:36:49 Home condition : EDC serial port already open
+20201211 09:36:49 Home condition : EDC serial port already open
+20201211 09:36:50 Home condition : EDC serial port already open
+20201211 09:36:50 Home condition : EDC serial port already open
+20201211 09:36:50 Home condition : EDC serial port already open
+20201211 09:36:50 Home condition : EDC serial port already open
+20201211 09:36:51 Home condition : EDC serial port already open
+20201211 09:36:51 Home condition : EDC serial port already open
+20201211 09:36:51 Home condition : EDC serial port already open
+20201211 09:36:52 Home condition : EDC serial port already open
+20201211 09:36:52 Home condition : EDC serial port already open
+20201211 09:36:52 Home condition : EDC serial port already open
+20201211 09:36:52 Home condition : EDC serial port already open
+20201211 09:36:53 Home condition : EDC serial port already open
+20201211 09:36:53 Home condition : EDC serial port already open
+20201211 09:36:53 Home condition : EDC serial port already open
+20201211 09:36:54 Home condition : EDC serial port already open
+20201211 09:36:54 Home condition : EDC serial port already open
+20201211 09:36:54 Home condition : EDC serial port already open
+20201211 09:36:55 Home condition : EDC serial port already open
+20201211 09:36:55 Home condition : EDC serial port already open
+20201211 09:36:55 Home condition : EDC serial port already open
+20201211 09:36:55 Home condition : EDC serial port already open
+20201211 09:36:56 Home condition : EDC serial port already open
+20201211 09:36:56 Home condition : EDC serial port already open
+20201211 09:36:56 Home condition : EDC serial port already open
+20201211 09:36:57 Home condition : EDC serial port already open
+20201211 09:36:57 Home condition : EDC serial port close
+20201211 09:36:57 Home condition : entered into histori input pin
+20201211 09:36:57 Home condition : EDC process start
+20201211 09:36:57 Home condition : EDC serial port close
+20201211 09:36:57 Home condition : EDC serial port open
+20201211 09:36:57 Home condition : EDC serial port write
+20201211 09:36:57 Home condition : EDC serial port already open
+20201211 09:36:58 Home condition : EDC serial port already open
+20201211 09:36:58 Home condition : EDC serial port already open
+20201211 09:36:58 Home condition : EDC serial port already open
+20201211 09:36:58 Home condition : EDC serial port already open
+20201211 09:36:59 Home condition : EDC serial port already open
+20201211 09:36:59 Home condition : EDC serial port already open
+20201211 09:36:59 Home condition : EDC serial port already open
+20201211 09:37:00 Home condition : EDC serial port already open
+20201211 09:37:00 Home condition : EDC serial port already open
+20201211 09:37:00 Home condition : EDC serial port already open
+20201211 09:37:00 Home condition : EDC serial port already open
+20201211 09:37:01 Home condition : EDC serial port already open
+20201211 09:37:01 Home condition : EDC serial port already open
+20201211 09:37:01 Home condition : EDC serial port already open
+20201211 09:37:02 Home condition : EDC serial port already open
+20201211 09:37:02 Home condition : EDC serial port already open
+20201211 09:37:02 Home condition : EDC serial port already open
+20201211 09:37:03 Home condition : EDC serial port already open
+20201211 09:37:03 Home condition : EDC serial port already open
+20201211 09:37:03 Home condition : EDC serial port already open
+20201211 09:37:03 Home condition : EDC serial port already open
+20201211 09:37:04 Home condition : EDC serial port already open
+20201211 09:37:04 Home condition : EDC serial port already open
+20201211 09:37:04 Home condition : EDC serial port already open
+20201211 09:37:05 Home condition : EDC serial port already open
+20201211 09:37:07 Home condition : EDC pin cancel
+20201211 09:37:07 Home condition : EDC serial port close
+20201211 09:37:07 Home condition : move to ambil kartu
+20201211 09:37:07 Ambil kartu condition : entered into ambil kartu
+20201211 09:37:10 Ambil kartu condition : move to landing page
+20201211 09:39:37 Home condition : clear transaksi success
+20201211 09:39:37 Home condition : clear transaction log success
+20201211 09:39:37 Home condition : clear array success
+20201211 09:39:37 Home condition : clear array nasabah success
+20201211 09:39:37 Home condition : clear list success
+20201211 09:39:37 Home condition : clear transaksi baru success
+20201211 09:39:38 Home condition : clear transaksi success
+20201211 09:39:38 Home condition : clear transaction log success
+20201211 09:39:38 Home condition : clear array success
+20201211 09:39:38 Home condition : clear array nasabah success
+20201211 09:39:38 Home condition : clear list success
+20201211 09:39:38 Home condition : clear transaksi baru success
+20201211 09:39:40 Home condition : input kartu success
+20201211 09:39:40 Home condition : move to input pin
+20201211 09:39:40 Home condition : EDC process start
+20201211 09:39:40 Home condition : entered into insert debit
+20201211 09:39:40 Home condition : EDC serial port close
+20201211 09:39:40 Home condition : EDC serial port open
+20201211 09:39:41 Home condition : EDC serial port write
+20201211 09:39:41 Home condition : EDC serial port already open
+20201211 09:39:41 Home condition : EDC serial port close
+20201211 09:39:41 Home condition : EDC serial port close
+20201211 09:39:41 Home condition : EDC serial port open
+20201211 09:39:41 Home condition : EDC serial port write
+20201211 09:39:42 Home condition : EDC serial port already open
+20201211 09:39:42 Home condition : EDC serial port already open
+20201211 09:39:42 Home condition : EDC serial port already open
+20201211 09:39:42 Home condition : EDC serial port already open
+20201211 09:39:43 Home condition : EDC serial port already open
+20201211 09:39:43 Home condition : EDC serial port already open
+20201211 09:39:43 Home condition : EDC serial port already open
+20201211 09:39:44 Home condition : EDC serial port already open
+20201211 09:39:44 Home condition : EDC serial port already open
+20201211 09:39:44 Home condition : EDC serial port already open
+20201211 09:39:45 Home condition : EDC serial port already open
+20201211 09:39:45 Home condition : EDC serial port already open
+20201211 09:39:45 Home condition : EDC serial port already open
+20201211 09:39:45 Home condition : EDC serial port already open
+20201211 09:39:46 Home condition : EDC serial port already open
+20201211 09:39:46 Home condition : EDC serial port already open
+20201211 09:39:46 Home condition : EDC serial port already open
+20201211 09:39:46 Home condition : EDC serial port already open
+20201211 09:39:47 Home condition : EDC serial port already open
+20201211 09:39:47 Home condition : EDC serial port already open
+20201211 09:39:47 Home condition : EDC serial port already open
+20201211 09:39:48 Home condition : EDC serial port already open
+20201211 09:39:48 Home condition : EDC serial port already open
+20201211 09:39:48 Home condition : EDC serial port already open
+20201211 09:39:49 Home condition : EDC serial port already open
+20201211 09:39:49 Home condition : EDC serial port already open
+20201211 09:39:49 Home condition : EDC serial port already open
+20201211 09:39:49 Home condition : EDC serial port already open
+20201211 09:39:49 Home condition : EDC serial port close
+20201211 09:39:50 Home condition : entered into histori input pin
+20201211 09:39:50 Home condition : EDC process start
+20201211 09:39:50 Home condition : EDC serial port close
+20201211 09:39:50 Home condition : EDC serial port open
+20201211 09:39:50 Home condition : EDC serial port write
+20201211 09:39:50 Home condition : EDC serial port already open
+20201211 09:39:50 Home condition : EDC serial port already open
+20201211 09:39:51 Home condition : EDC serial port already open
+20201211 09:39:51 Home condition : EDC serial port already open
+20201211 09:39:51 Home condition : EDC serial port already open
+20201211 09:39:51 Home condition : EDC serial port already open
+20201211 09:39:52 Home condition : EDC serial port already open
+20201211 09:39:52 Home condition : EDC serial port already open
+20201211 09:39:52 Home condition : EDC serial port already open
+20201211 09:39:53 Home condition : EDC serial port already open
+20201211 09:39:53 Home condition : EDC serial port already open
+20201211 09:39:53 Home condition : EDC serial port already open
+20201211 09:39:54 Home condition : EDC serial port already open
+20201211 09:39:54 Home condition : EDC serial port already open
+20201211 09:39:54 Home condition : EDC serial port already open
+20201211 09:39:54 Home condition : EDC serial port already open
+20201211 09:39:55 Home condition : EDC serial port already open
+20201211 09:39:55 Home condition : EDC serial port already open
+20201211 09:39:55 Home condition : EDC serial port already open
+20201211 09:39:56 Home condition : EDC serial port already open
+20201211 09:39:56 Home condition : EDC serial port already open
+20201211 09:39:56 Home condition : EDC serial port already open
+20201211 09:39:57 Home condition : EDC serial port already open
+20201211 09:39:57 Home condition : EDC serial port already open
+20201211 09:39:57 Home condition : EDC serial port already open
+20201211 09:39:57 Home condition : EDC serial port already open
+20201211 09:39:58 Home condition : EDC serial port already open
+20201211 09:39:58 Home condition : EDC serial port already open
+20201211 09:39:58 Home condition : EDC serial port already open
+20201211 09:39:59 Home condition : EDC serial port already open
+20201211 09:39:59 Home condition : EDC serial port already open
+20201211 09:39:59 Home condition : EDC serial port already open
+20201211 09:40:00 Home condition : EDC serial port already open
+20201211 09:40:00 Home condition : EDC serial port already open
+20201211 09:40:00 Home condition : EDC serial port already open
+20201211 09:40:01 Home condition : EDC serial port already open
+20201211 09:40:01 Home condition : EDC serial port already open
+20201211 09:40:01 Home condition : EDC serial port already open
+20201211 09:40:01 Home condition : EDC serial port already open
+20201211 09:40:02 Home condition : EDC serial port already open
+20201211 09:40:02 Home condition : EDC serial port already open
+20201211 09:40:02 Home condition : EDC serial port already open
+20201211 09:40:03 Home condition : EDC serial port already open
+20201211 09:40:03 Home condition : EDC serial port already open
+20201211 09:40:03 Home condition : EDC serial port already open
+20201211 09:40:04 Home condition : EDC serial port already open
+20201211 09:40:04 Home condition : EDC serial port already open
+20201211 09:40:04 Home condition : EDC serial port already open
+20201211 09:40:04 Home condition : EDC serial port already open
+20201211 09:40:05 Home condition : EDC serial port already open
+20201211 09:40:05 Home condition : EDC serial port already open
+20201211 09:40:05 Home condition : EDC serial port already open
+20201211 09:40:06 Home condition : EDC serial port already open
+20201211 09:40:06 Home condition : EDC serial port already open
+20201211 09:40:06 Home condition : EDC serial port already open
+20201211 09:40:07 Home condition : EDC serial port already open
+20201211 09:40:07 Home condition : EDC serial port already open
+20201211 09:40:07 Home condition : EDC serial port already open
+20201211 09:40:07 Home condition : EDC serial port already open
+20201211 09:40:08 Home condition : EDC serial port already open
+20201211 09:40:08 Home condition : EDC serial port already open
+20201211 09:40:08 Home condition : EDC serial port already open
+20201211 09:40:09 Home condition : EDC serial port already open
+20201211 09:40:09 Home condition : EDC serial port already open
+20201211 09:40:09 Home condition : EDC serial port already open
+20201211 09:40:10 Home condition : EDC serial port already open
+20201211 09:40:10 Home condition : EDC serial port already open
+20201211 09:40:10 Home condition : EDC serial port already open
+20201211 09:40:10 Home condition : EDC serial port already open
+20201211 09:40:11 Home condition : EDC serial port already open
+20201211 09:40:11 Home condition : EDC serial port already open
+20201211 09:40:11 Home condition : EDC serial port already open
+20201211 09:40:12 Home condition : EDC serial port already open
+20201211 09:40:12 Home condition : EDC serial port already open
+20201211 09:40:12 Home condition : EDC serial port already open
+20201211 09:40:12 Home condition : EDC serial port already open
+20201211 09:40:13 Home condition : EDC serial port already open
+20201211 09:40:13 Home condition : EDC serial port already open
+20201211 09:40:13 Home condition : EDC serial port already open
+20201211 09:40:14 Home condition : EDC serial port already open
+20201211 09:40:14 Home condition : EDC serial port already open
+20201211 09:40:14 Home condition : EDC serial port already open
+20201211 09:40:15 Home condition : EDC serial port already open
+20201211 09:40:15 Home condition : EDC serial port already open
+20201211 09:40:15 Home condition : EDC serial port already open
+20201211 09:40:15 Home condition : EDC serial port already open
+20201211 09:40:16 Home condition : EDC serial port already open
+20201211 09:40:16 Home condition : EDC serial port already open
+20201211 09:40:16 Home condition : EDC serial port already open
+20201211 09:40:17 Home condition : EDC serial port already open
+20201211 09:40:17 Home condition : EDC serial port already open
+20201211 09:40:17 Home condition : EDC serial port already open
+20201211 09:40:18 Home condition : EDC serial port already open
+20201211 09:40:18 Home condition : EDC serial port already open
+20201211 09:40:18 Home condition : EDC serial port already open
+20201211 09:40:18 Home condition : EDC serial port already open
+20201211 09:40:19 Home condition : EDC serial port already open
+20201211 09:40:19 Home condition : EDC serial port already open
+20201211 09:40:19 Home condition : EDC serial port already open
+20201211 09:40:20 Home condition : EDC serial port already open
+20201211 09:40:20 Home condition : EDC serial port already open
+20201211 09:40:20 Home condition : EDC serial port already open
+20201211 09:40:20 Home condition : EDC serial port already open
+20201211 09:40:21 Home condition : EDC serial port already open
+20201211 09:40:21 Home condition : EDC serial port already open
+20201211 09:40:21 Home condition : EDC serial port already open
+20201211 09:40:22 Home condition : EDC serial port already open
+20201211 09:40:22 Home condition : EDC serial port already open
+20201211 09:40:22 Home condition : EDC serial port already open
+20201211 09:40:23 Home condition : EDC serial port already open
+20201211 09:40:23 Home condition : EDC serial port already open
+20201211 09:40:23 Home condition : EDC serial port already open
+20201211 09:40:23 Home condition : EDC serial port already open
+20201211 09:40:24 Home condition : EDC serial port already open
+20201211 09:40:24 Home condition : EDC serial port already open
+20201211 09:40:24 Home condition : EDC serial port already open
+20201211 09:40:25 Home condition : EDC serial port already open
+20201211 09:40:25 Home condition : EDC serial port already open
+20201211 09:40:27 Home condition : EDC serial port close
+20201211 09:40:27 Home condition : EDC process start
+20201211 09:40:27 Home condition : EDC serial port close
+20201211 09:40:27 Home condition : EDC serial port open
+20201211 09:40:27 Home condition : EDC serial port write
+20201211 09:40:27 Home condition : EDC serial port already open
+20201211 09:40:28 Home condition : EDC serial port already open
+20201211 09:40:28 Home condition : EDC serial port already open
+20201211 09:40:28 Home condition : EDC serial port already open
+20201211 09:40:29 Home condition : EDC serial port already open
+20201211 09:40:29 Home condition : EDC serial port already open
+20201211 09:40:29 Home condition : EDC serial port already open
+20201211 09:40:29 Home condition : EDC serial port already open
+20201211 09:40:30 Home condition : EDC serial port already open
+20201211 09:40:30 Home condition : EDC serial port already open
+20201211 09:40:30 Home condition : EDC serial port already open
+20201211 09:40:31 Home condition : EDC serial port already open
+20201211 09:40:31 Home condition : EDC serial port already open
+20201211 09:40:31 Home condition : EDC serial port already open
+20201211 09:40:31 Home condition : EDC serial port already open
+20201211 09:40:32 Home condition : EDC serial port already open
+20201211 09:40:32 Home condition : EDC serial port already open
+20201211 09:40:32 Home condition : EDC serial port already open
+20201211 09:40:33 Home condition : EDC serial port already open
+20201211 09:40:33 Home condition : EDC serial port already open
+20201211 09:40:33 Home condition : EDC serial port already open
+20201211 09:40:33 Home condition : EDC serial port already open
+20201211 09:40:34 Home condition : EDC serial port already open
+20201211 09:40:34 Home condition : EDC serial port already open
+20201211 09:40:34 Home condition : EDC serial port already open
+20201211 09:40:35 Home condition : entered into histori input pin
+20201211 09:40:35 Home condition : EDC serial port already open
+20201211 09:40:35 Home condition : EDC process start
+20201211 09:40:35 Home condition : EDC serial port close
+20201211 09:40:35 Home condition : EDC serial port open
+20201211 09:40:35 Home condition : EDC error --> Access to the path 'COM3' is denied.
+20201211 09:40:35 Home condition : EDC serial port write
+20201211 09:40:35 Home condition : EDC error --> The port is closed.
+20201211 09:40:35 Home condition : EDC process start
+20201211 09:40:35 Home condition : EDC serial port already open
+20201211 09:40:35 Home condition : EDC serial port close
+20201211 09:40:35 Home condition : EDC serial port open
+20201211 09:40:36 Home condition : EDC error --> Access to the path 'COM3' is denied.
+20201211 09:40:36 Home condition : EDC serial port write
+20201211 09:40:36 Home condition : EDC error --> The port is closed.
+20201211 09:40:36 Home condition : EDC process start
+20201211 09:40:36 Home condition : EDC serial port close
+20201211 09:40:36 Home condition : EDC serial port open
+20201211 09:40:36 Home condition : EDC error --> Access to the path 'COM3' is denied.
+20201211 09:40:36 Home condition : EDC serial port write
+20201211 09:40:37 Home condition : EDC error --> The port is closed.
+20201211 09:40:37 Home condition : EDC process start
+20201211 09:40:37 Home condition : EDC serial port already open
+20201211 09:40:37 Home condition : EDC serial port close
+20201211 09:40:37 Home condition : EDC serial port open
+20201211 09:40:37 Home condition : EDC error --> Access to the path 'COM3' is denied.
+20201211 09:40:37 Home condition : EDC serial port write
+20201211 09:40:38 Home condition : EDC error --> The port is closed.
+20201211 09:40:38 Home condition : EDC process start
+20201211 09:40:38 Home condition : EDC serial port close
+20201211 09:40:38 Home condition : EDC serial port open
+20201211 09:40:38 Home condition : EDC error --> Access to the path 'COM3' is denied.
+20201211 09:40:38 Home condition : EDC serial port write
+20201211 09:40:38 Home condition : EDC error --> The port is closed.
+20201211 09:40:38 Home condition : EDC process start
+20201211 09:40:38 Home condition : EDC serial port already open
+20201211 09:40:38 Home condition : EDC serial port close
+20201211 09:40:38 Home condition : EDC serial port open
+20201211 09:40:39 Home condition : EDC error --> Access to the path 'COM3' is denied.
+20201211 09:40:39 Home condition : EDC serial port write
+20201211 09:41:18 Home condition : clear transaksi success
+20201211 09:41:18 Home condition : clear transaction log success
+20201211 09:41:18 Home condition : clear array success
+20201211 09:41:18 Home condition : clear array nasabah success
+20201211 09:41:18 Home condition : clear list success
+20201211 09:41:18 Home condition : clear transaksi baru success
+20201211 09:41:20 Home condition : clear transaksi success
+20201211 09:41:20 Home condition : clear transaction log success
+20201211 09:41:20 Home condition : clear array success
+20201211 09:41:20 Home condition : clear array nasabah success
+20201211 09:41:20 Home condition : clear list success
+20201211 09:41:20 Home condition : clear transaksi baru success
+20201211 09:41:33 Home condition : input kartu success
+20201211 09:41:33 Home condition : move to input pin
+20201211 09:41:33 Home condition : EDC process start
+20201211 09:41:33 Home condition : entered into insert debit
+20201211 09:41:33 Home condition : EDC serial port close
+20201211 09:41:33 Home condition : EDC serial port open
+20201211 09:41:34 Home condition : EDC serial port write
+20201211 09:41:34 Home condition : EDC serial port already open
+20201211 09:41:34 Home condition : EDC serial port close
+20201211 09:41:34 Home condition : EDC serial port close
+20201211 09:41:34 Home condition : EDC serial port open
+20201211 09:41:34 Home condition : EDC serial port write
+20201211 09:41:34 Home condition : EDC serial port already open
+20201211 09:41:35 Home condition : EDC serial port already open
+20201211 09:41:35 Home condition : EDC serial port already open
+20201211 09:41:35 Home condition : EDC serial port already open
+20201211 09:41:35 Home condition : EDC serial port already open
+20201211 09:41:36 Home condition : EDC serial port already open
+20201211 09:41:36 Home condition : EDC serial port already open
+20201211 09:41:36 Home condition : EDC serial port already open
+20201211 09:41:37 Home condition : EDC serial port already open
+20201211 09:41:37 Home condition : EDC serial port already open
+20201211 09:41:37 Home condition : EDC serial port already open
+20201211 09:41:38 Home condition : EDC serial port already open
+20201211 09:41:38 Home condition : EDC serial port already open
+20201211 09:41:38 Home condition : EDC serial port already open
+20201211 09:41:38 Home condition : EDC serial port already open
+20201211 09:41:39 Home condition : EDC serial port already open
+20201211 09:41:39 Home condition : EDC serial port already open
+20201211 09:41:39 Home condition : EDC serial port already open
+20201211 09:41:40 Home condition : EDC serial port already open
+20201211 09:41:40 Home condition : EDC serial port close
+20201211 09:41:40 Home condition : entered into histori input pin
+20201211 09:41:40 Home condition : EDC process start
+20201211 09:41:40 Home condition : EDC serial port close
+20201211 09:41:40 Home condition : EDC serial port open
+20201211 09:41:40 Home condition : EDC serial port write
+20201211 09:41:40 Home condition : EDC serial port already open
+20201211 09:41:41 Home condition : EDC serial port already open
+20201211 09:41:41 Home condition : EDC serial port already open
+20201211 09:41:41 Home condition : EDC serial port already open
+20201211 09:41:41 Home condition : EDC serial port already open
+20201211 09:41:42 Home condition : EDC serial port already open
+20201211 09:41:42 Home condition : EDC serial port already open
+20201211 09:41:42 Home condition : EDC serial port already open
+20201211 09:41:43 Home condition : EDC serial port already open
+20201211 09:41:43 Home condition : EDC serial port already open
+20201211 09:41:43 Home condition : EDC serial port already open
+20201211 09:41:43 Home condition : EDC serial port already open
+20201211 09:41:44 Home condition : EDC serial port already open
+20201211 09:41:44 Home condition : EDC serial port already open
+20201211 09:41:44 Home condition : EDC serial port already open
+20201211 09:41:45 Home condition : EDC serial port already open
+20201211 09:41:45 Home condition : EDC serial port already open
+20201211 09:41:45 Home condition : EDC serial port already open
+20201211 09:41:46 Home condition : EDC serial port already open
+20201211 09:41:46 Home condition : EDC serial port already open
+20201211 09:41:46 Home condition : EDC serial port already open
+20201211 09:41:47 Home condition : EDC serial port already open
+20201211 09:41:47 Home condition : EDC serial port already open
+20201211 09:41:47 Home condition : EDC serial port already open
+20201211 09:41:47 Home condition : EDC serial port already open
+20201211 09:41:48 Home condition : EDC serial port already open
+20201211 09:41:48 Home condition : EDC serial port already open
+20201211 09:41:48 Home condition : EDC serial port already open
+20201211 09:41:49 Home condition : EDC serial port already open
+20201211 09:41:49 Home condition : EDC serial port already open
+20201211 09:41:49 Home condition : EDC serial port already open
+20201211 09:41:49 Home condition : EDC serial port already open
+20201211 09:41:50 Home condition : EDC serial port already open
+20201211 09:41:50 Home condition : EDC serial port already open
+20201211 09:41:50 Home condition : EDC serial port already open
+20201211 09:41:51 Home condition : EDC serial port already open
+20201211 09:41:51 Home condition : EDC serial port already open
+20201211 09:41:51 Home condition : EDC serial port already open
+20201211 09:41:51 Home condition : EDC serial port already open
+20201211 09:41:52 Home condition : EDC serial port already open
+20201211 09:41:52 Home condition : EDC serial port already open
+20201211 09:41:52 Home condition : EDC serial port already open
+20201211 09:41:53 Home condition : EDC serial port already open
+20201211 09:41:53 Home condition : EDC serial port already open
+20201211 09:41:53 Home condition : EDC serial port already open
+20201211 09:41:54 Home condition : EDC serial port already open
+20201211 09:41:54 Home condition : EDC serial port already open
+20201211 09:41:54 Home condition : EDC serial port already open
+20201211 09:41:54 Home condition : EDC serial port already open
+20201211 09:41:55 Home condition : EDC serial port already open
+20201211 09:41:55 Home condition : EDC serial port already open
+20201211 09:41:55 Home condition : EDC serial port already open
+20201211 09:41:56 Home condition : EDC serial port already open
+20201211 09:41:56 Home condition : EDC serial port already open
+20201211 09:41:56 Home condition : EDC serial port already open
+20201211 09:41:56 Home condition : EDC serial port already open
+20201211 09:41:57 Home condition : EDC serial port already open
+20201211 09:41:57 Home condition : EDC serial port already open
+20201211 09:41:57 Home condition : EDC serial port already open
+20201211 09:41:58 Home condition : EDC serial port already open
+20201211 09:41:58 Home condition : EDC serial port already open
+20201211 09:41:58 Home condition : EDC serial port already open
+20201211 09:41:58 Home condition : EDC serial port already open
+20201211 09:41:59 Home condition : EDC serial port already open
+20201211 09:41:59 Home condition : EDC serial port already open
+20201211 09:41:59 Home condition : EDC serial port already open
+20201211 09:42:00 Home condition : EDC serial port already open
+20201211 09:42:00 Home condition : EDC serial port already open
+20201211 09:42:00 Home condition : EDC serial port already open
+20201211 09:42:01 Home condition : EDC serial port already open
+20201211 09:42:01 Home condition : EDC serial port already open
+20201211 09:42:01 Home condition : EDC serial port already open
+20201211 09:42:01 Home condition : EDC serial port already open
+20201211 09:42:02 Home condition : EDC serial port already open
+20201211 09:42:02 Home condition : EDC serial port already open
+20201211 09:42:02 Home condition : EDC serial port already open
+20201211 09:42:03 Home condition : EDC serial port already open
+20201211 09:42:03 Home condition : EDC serial port already open
+20201211 09:42:03 Home condition : EDC serial port already open
+20201211 09:42:04 Home condition : EDC serial port already open
+20201211 09:42:04 Home condition : EDC serial port already open
+20201211 09:42:04 Home condition : EDC serial port already open
+20201211 09:42:04 Home condition : EDC serial port already open
+20201211 09:42:05 Home condition : EDC serial port already open
+20201211 09:42:05 Home condition : EDC serial port already open
+20201211 09:42:05 Home condition : EDC serial port already open
+20201211 09:42:06 Home condition : EDC serial port already open
+20201211 09:42:06 Home condition : EDC serial port already open
+20201211 09:42:06 Home condition : EDC serial port already open
+20201211 09:42:07 Home condition : EDC serial port already open
+20201211 09:42:07 Home condition : EDC serial port already open
+20201211 09:42:07 Home condition : EDC serial port already open
+20201211 09:42:07 Home condition : EDC serial port already open
+20201211 09:42:08 Home condition : EDC serial port already open
+20201211 09:42:08 Home condition : EDC serial port already open
+20201211 09:42:08 Home condition : EDC serial port already open
+20201211 09:42:09 Home condition : EDC serial port already open
+20201211 09:42:09 Home condition : EDC serial port already open
+20201211 09:42:09 Home condition : EDC serial port already open
+20201211 09:42:10 Home condition : EDC serial port already open
+20201211 09:42:10 Home condition : EDC serial port already open
+20201211 09:42:10 Home condition : EDC serial port already open
+20201211 09:42:10 Home condition : EDC serial port already open
+20201211 09:42:11 Home condition : EDC serial port already open
+20201211 09:42:11 Home condition : EDC serial port already open
+20201211 09:42:11 Home condition : EDC serial port already open
+20201211 09:42:12 Home condition : EDC serial port already open
+20201211 09:42:12 Home condition : EDC serial port already open
+20201211 09:42:12 Home condition : EDC serial port already open
+20201211 09:42:13 Home condition : EDC serial port already open
+20201211 09:42:13 Home condition : EDC serial port already open
+20201211 09:42:13 Home condition : EDC serial port already open
+20201211 09:42:13 Home condition : EDC serial port already open
+20201211 09:42:14 Home condition : EDC serial port already open
+20201211 09:42:14 Home condition : EDC serial port already open
+20201211 09:42:14 Home condition : EDC serial port already open
+20201211 09:42:15 Home condition : EDC serial port already open
+20201211 09:42:15 Home condition : EDC serial port already open
+20201211 09:42:15 Home condition : EDC serial port already open
+20201211 09:42:15 Home condition : EDC serial port close
+20201211 09:42:18 Home condition : entered into histori input pin
+20201211 09:42:18 Home condition : EDC process start
+20201211 09:42:18 Home condition : EDC serial port close
+20201211 09:42:18 Home condition : EDC serial port open
+20201211 09:42:19 Home condition : EDC serial port write
+20201211 09:42:19 Home condition : EDC serial port already open
+20201211 09:42:19 Home condition : EDC serial port already open
+20201211 09:42:19 Home condition : EDC serial port already open
+20201211 09:42:20 Home condition : EDC serial port already open
+20201211 09:42:20 Home condition : EDC serial port already open
+20201211 09:42:20 Home condition : EDC serial port already open
+20201211 09:42:21 Home condition : EDC serial port already open
+20201211 09:42:21 Home condition : EDC serial port already open
+20201211 09:42:21 Home condition : EDC serial port already open
+20201211 09:42:21 Home condition : EDC serial port already open
+20201211 09:42:22 Home condition : EDC serial port already open
+20201211 09:42:22 Home condition : EDC serial port already open
+20201211 09:42:22 Home condition : EDC serial port already open
+20201211 09:42:23 Home condition : EDC serial port already open
+20201211 09:42:23 Home condition : EDC serial port already open
+20201211 09:42:23 Home condition : EDC serial port already open
+20201211 09:42:23 Home condition : EDC serial port already open
+20201211 09:42:24 Home condition : EDC serial port already open
+20201211 09:42:24 Home condition : EDC serial port already open
+20201211 09:42:24 Home condition : EDC serial port already open
+20201211 09:42:25 Home condition : EDC serial port already open
+20201211 09:42:25 Home condition : EDC serial port already open
+20201211 09:42:25 Home condition : EDC serial port already open
+20201211 09:42:25 Home condition : EDC serial port already open
+20201211 09:42:26 Home condition : EDC serial port already open
+20201211 09:42:26 Home condition : EDC serial port already open
+20201211 09:42:26 Home condition : EDC serial port already open
+20201211 09:42:27 Home condition : EDC serial port already open
+20201211 09:42:27 Home condition : EDC serial port already open
+20201211 09:42:27 Home condition : EDC serial port already open
+20201211 09:42:27 Home condition : EDC serial port already open
+20201211 09:42:28 Home condition : EDC serial port already open
+20201211 09:42:28 Home condition : EDC serial port already open
+20201211 09:42:28 Home condition : EDC serial port already open
+20201211 09:42:29 Home condition : EDC serial port already open
+20201211 09:42:29 Home condition : EDC serial port already open
+20201211 09:42:29 Home condition : EDC serial port already open
+20201211 09:42:29 Home condition : EDC serial port already open
+20201211 09:42:30 Home condition : EDC serial port already open
+20201211 09:42:30 Home condition : EDC serial port already open
+20201211 09:42:30 Home condition : EDC serial port already open
+20201211 09:42:31 Home condition : EDC serial port already open
+20201211 09:42:31 Home condition : EDC serial port already open
+20201211 09:42:31 Home condition : EDC serial port already open
+20201211 09:42:31 Home condition : EDC serial port already open
+20201211 09:42:32 Home condition : EDC serial port already open
+20201211 09:42:32 Home condition : EDC serial port already open
+20201211 09:42:32 Home condition : EDC serial port already open
+20201211 09:42:32 Home condition : EDC serial port already open
+20201211 09:42:33 Home condition : EDC serial port already open
+20201211 09:42:33 Home condition : EDC serial port already open
+20201211 09:42:33 Home condition : EDC serial port already open
+20201211 09:42:34 Home condition : EDC serial port already open
+20201211 09:42:34 Home condition : EDC serial port already open
+20201211 09:42:34 Home condition : EDC serial port already open
+20201211 09:42:34 Home condition : EDC serial port already open
+20201211 09:42:35 Home condition : EDC serial port already open
+20201211 09:42:35 Home condition : EDC serial port already open
+20201211 09:42:35 Home condition : EDC serial port already open
+20201211 09:42:36 Home condition : EDC serial port already open
+20201211 09:42:36 Home condition : EDC serial port already open
+20201211 09:42:36 Home condition : EDC serial port already open
+20201211 09:42:37 Home condition : EDC serial port already open
+20201211 09:42:37 Home condition : EDC serial port already open
+20201211 09:42:37 Home condition : EDC serial port already open
+20201211 09:42:37 Home condition : EDC serial port already open
+20201211 09:42:38 Home condition : EDC serial port already open
+20201211 09:42:38 Home condition : EDC serial port already open
+20201211 09:42:38 Home condition : EDC serial port already open
+20201211 09:42:39 Home condition : EDC serial port already open
+20201211 09:42:39 Home condition : EDC serial port already open
+20201211 09:42:39 Home condition : EDC serial port already open
+20201211 09:42:39 Home condition : EDC serial port already open
+20201211 09:42:40 Home condition : EDC serial port already open
+20201211 09:42:40 Home condition : EDC serial port already open
+20201211 09:42:40 Home condition : EDC serial port already open
+20201211 09:42:41 Home condition : EDC serial port already open
+20201211 09:42:41 Home condition : EDC serial port already open
+20201211 09:42:41 Home condition : EDC serial port already open
+20201211 09:42:41 Home condition : EDC serial port already open
+20201211 09:42:42 Home condition : EDC serial port already open
+20201211 09:42:42 Home condition : EDC serial port already open
+20201211 09:42:42 Home condition : EDC serial port already open
+20201211 09:42:43 Home condition : EDC serial port already open
+20201211 09:42:43 Home condition : EDC serial port already open
+20201211 09:42:43 Home condition : EDC serial port already open
+20201211 09:42:43 Home condition : EDC serial port already open
+20201211 09:42:44 Home condition : EDC serial port already open
+20201211 09:42:44 Home condition : EDC serial port already open
+20201211 09:42:44 Home condition : EDC serial port already open
+20201211 09:42:45 Home condition : EDC serial port already open
+20201211 09:42:45 Home condition : EDC serial port already open
+20201211 09:42:45 Home condition : EDC serial port already open
+20201211 09:42:45 Home condition : EDC serial port already open
+20201211 09:42:46 Home condition : EDC serial port already open
+20201211 09:42:46 Home condition : EDC serial port already open
+20201211 09:42:46 Home condition : EDC serial port already open
+20201211 09:42:47 Home condition : EDC serial port already open
+20201211 09:42:47 Home condition : EDC serial port already open
+20201211 09:42:47 Home condition : EDC serial port already open
+20201211 09:42:47 Home condition : EDC serial port already open
+20201211 09:42:48 Home condition : EDC serial port already open
+20201211 09:42:48 Home condition : EDC serial port already open
+20201211 09:42:48 Home condition : EDC serial port already open
+20201211 09:42:48 Home condition : EDC serial port already open
+20201211 09:42:49 Home condition : EDC serial port already open
+20201211 09:42:49 Home condition : EDC serial port already open
+20201211 09:42:49 Home condition : EDC serial port already open
+20201211 09:42:50 Home condition : EDC serial port already open
+20201211 09:42:50 Home condition : EDC serial port already open
+20201211 09:42:50 Home condition : EDC serial port already open
+20201211 09:42:50 Home condition : EDC serial port already open
+20201211 09:42:51 Home condition : EDC serial port already open
+20201211 09:42:51 Home condition : EDC serial port already open
+20201211 09:42:51 Home condition : EDC serial port already open
+20201211 09:42:52 Home condition : EDC serial port already open
+20201211 09:42:52 Home condition : EDC serial port already open
+20201211 09:42:52 Home condition : EDC serial port already open
+20201211 09:42:53 Home condition : EDC serial port already open
+20201211 09:42:53 Home condition : EDC serial port already open
+20201211 09:42:53 Home condition : EDC serial port already open
+20201211 09:42:53 Home condition : EDC serial port already open
+20201211 09:42:54 Home condition : EDC serial port already open
+20201211 09:42:54 Home condition : EDC serial port already open
+20201211 09:42:54 Home condition : EDC serial port close
+20201211 09:50:34 Home condition : clear transaksi success
+20201211 09:50:34 Home condition : clear transaction log success
+20201211 09:50:34 Home condition : clear array success
+20201211 09:50:34 Home condition : clear array nasabah success
+20201211 09:50:34 Home condition : clear list success
+20201211 09:50:34 Home condition : clear transaksi baru success
+20201211 09:50:35 Home condition : clear transaksi success
+20201211 09:50:35 Home condition : clear transaction log success
+20201211 09:50:35 Home condition : clear array success
+20201211 09:50:35 Home condition : clear array nasabah success
+20201211 09:50:35 Home condition : clear list success
+20201211 09:50:35 Home condition : clear transaksi baru success
+20201211 09:50:37 Home condition : entered into new home
+20201211 09:50:56 Home condition : entered into new home
+20201211 09:51:24 Home condition : move to histori pilih menu
+20201211 09:51:24 Histori condition : entered into histori pilih menu

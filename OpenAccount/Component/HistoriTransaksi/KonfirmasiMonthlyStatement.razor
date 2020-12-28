@@ -1,0 +1,277 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using OpenAccount.Report;
+ 
+@inject Transaksi trx
+@inject Config config
+@inject Printer print
+@inject Utility utility
+@inject HitServices services
+@inject PrinterStatus printerstatus 
+<!-- ======= Hero Section ======= -->
+<section id="hero" @onclick="ResetTimer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
+                    <teks>Hello, @trx.namaNasabah</teks>
+                    <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak @trx._listMonthly.Count Histori Transaksi pada</h3><br>
+                    <div style="margin-top:5%;">
+                        <h3 style="color: #F15A23;"><b>@trx.startDT.ToString("dd - MM - yyyy") s/d @trx.endDT.ToString("dd - MM - yyyy")</b></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/printer.png" class="img-fluid" alt="" style="margin-top: 5%;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;" @onclick="PilihHistori">Kembali</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" @onclick="HistoriBerhasil">Cetak</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@if (isVisible)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h5 style="font-style:italic;">Sedang dalam proses...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isNoTransaksi)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Tidak ada transaksi pada periode ini.</h3>
+                        <h5 style="font-style:italic;">Tekan <b>Kembali</b> untuk ke menu utama</h5>
+                        <button type="button" class="btn btn-primary" style="text-align:center; margin-top: 5%;" data-toggle="modal" data-target="#exampleModalCenter" @onclick="AmbilKartu">Kembali</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isRead)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                        <h5 style="font-style:italic;">Sistem sedang membaca data tabungan anda</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isTime)
+{
+    <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.418);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status" style="padding:0.5rem; margin-top: 5%;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgb(0, 0, 0);">
+                        <h3 class="teks" style="margin-top: 5%;">MAAF,</h3>
+                        <h5 style="font-style:italic;">Waktu Anda Telah Habis!</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private bool isVisible = false;
+    private bool isBaris = false;
+    private bool isNoTransaksi = false;
+    private bool isRead = false;
+    private string noRek = string.Empty;
+    private string jenisperiode = "Periode Bulan Berjalan";
+    private string startdate;
+    private string enddate;
+    private string hourdate;
+    private string path;
+    private string[] lines;
+    private string[] uraian;
+    private string[] tipe;
+    private string[] nominal;
+    private string jumlahtransaksi;
+    private int tempjumlahtransaksi;
+    private int sisatransaksi;
+    private string saldo;
+    private string statusPrinter;
+
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    protected override async Task OnInitializedAsync()
+    {
+        startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy-MM-dd");
+        enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString("yyyy-MM-dd");
+
+        hourdate = DateTime.Now.ToString("HH:mm:ss");
+        //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
+        StateHasChanged();
+        Utility.WriteLog("Histori condition : hit service histori start", "step-action");
+
+        jumlahtransaksi = tempjumlahtransaksi.ToString();
+        Utility.WriteLog("Histori condition : set data histori success", "step-action");
+    }
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            trx.timeOut = "konfirmasimonthly";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimer)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTimer = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+            }
+        }
+    }
+
+    private async Task HistoriBerhasil()
+    {
+        isTimeOut = true;
+        isVisible = !isVisible;
+        await Task.Delay(100);
+        StateHasChanged();
+        Utility.WriteLog("Histori condition : modal visible appear", "step-action");
+
+        RptMonthlyStatement rpt = new RptMonthlyStatement(trx);
+        rpt.Verify_MultiColumn_Report_CanBe_Processed();
+
+        await Task.Delay(3000);
+        utility.PrintPdf();
+
+        await Task.Delay(30000);
+        isVisible = !isVisible;
+        isTimer = false;
+        OnClick.InvokeAsync("historiberhasilmonthly");
+
+    }
+
+    private async Task PilihHistori()
+    {
+        isTimeOut = true;
+        Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
+        isTimer = false;
+        OnClick.InvokeAsync("historiPilih");
+    }
+
+    private async Task AmbilKartu()
+    {
+        isTimeOut = true;
+        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
+        isTimer = false;
+        OnClick.InvokeAsync("ambilkartu");
+    }
+}
