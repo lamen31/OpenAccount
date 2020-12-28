@@ -11,6 +11,7 @@ namespace OpenAccount.Data
 {
     public class HitServices
     {
+        private readonly Random _random = new Random();
         public static async Task<string> PostCallAPI(string url, string jsonString)
         {
             string ret = string.Empty;
@@ -86,7 +87,7 @@ namespace OpenAccount.Data
             LogData logdata = new LogData {
                 jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
                 kodeTransaksi = trx.kodeLayanan[trx.jenisLayanan],
-                idTransaksi = trx._TransaksiID,
+                idTransaksi = config.Read("LINK", Config.PARAM_DEVICE_TERMINAL_ID) + DateTime.Now.ToString("ddMMyyyyHHmmss"),
                 namaNasabah = trx.namaNasabah,
                 noKartu = trx.nomerKartu.Substring(0, 12) + "****",
                 noSeriPassbook = trx._BukuSerial,

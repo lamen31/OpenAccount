@@ -290,7 +290,7 @@
             //ini yang pindah ke page baru
             if (trx.isEmail)
             {
-                string result = await SendNotification.SendEmail(trx, config);
+                string result = await HitServices.SendEmail(trx, config);
                 await Task.Delay(3000);
                 isVisible = !isVisible;
                 isTimer = false;
