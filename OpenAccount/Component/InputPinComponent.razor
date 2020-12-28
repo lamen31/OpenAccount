@@ -840,7 +840,7 @@
                     {
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("CUST_NAME");
                         //trx.acctCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
-                        trx.MSISDN = (string)jobResult["RESPONSE"].SelectToken("NO_HP");
+                        trx.MSISDN = (string)jobResult["RESPONSE"].SelectToken("HP_NO");
                         trx.emailNasabah = (string)jobResult["RESPONSE"].SelectToken("EMAIL");
                         trx.debitCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
                         trx.kreditCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
