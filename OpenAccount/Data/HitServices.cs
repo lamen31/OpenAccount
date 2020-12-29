@@ -147,7 +147,7 @@ namespace OpenAccount.Data
                 emailNasabah = trx.emailNasabah,
                 jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
                 namaNasabah = trx.namaNasabah,
-                noRekening = trx._AccountNumber,
+                noRekening = trx._AccountNumber2,
                 statusTransaksi = trx.statusLayanan,
                 lampiran = trx.emailAttachment,
                 path = trx.attachmentPath,
@@ -170,7 +170,7 @@ namespace OpenAccount.Data
             SmsData smsdata = new SmsData {
                 jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
                 namaNasabah = trx.namaNasabah,
-                noRekening = trx._AccountNumber,
+                noRekening = trx._AccountNumber2,
                 msisdn = trx.MSISDN,
             };
 

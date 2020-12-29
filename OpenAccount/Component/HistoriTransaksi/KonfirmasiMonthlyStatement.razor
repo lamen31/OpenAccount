@@ -290,6 +290,10 @@
             //ini yang pindah ke page baru
             if (trx.isEmail)
             {
+
+                //DATA DUMMY
+                //trx.emailNasabah = "andreas@gmail.com";
+
                 string result = await HitServices.SendEmail(trx, config);
                 await Task.Delay(3000);
                 isVisible = !isVisible;

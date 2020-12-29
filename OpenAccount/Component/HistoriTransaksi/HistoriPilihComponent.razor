@@ -545,8 +545,8 @@
             await print.PrintThermal(trx);
             Utility.WriteLog("Histori condition : print thermal finished", "step-action");
             isTimeOut = true;
-            Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             isTimer = false;
+            Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             OnClick.InvokeAsync("historiberhasil");
         }
     }
@@ -574,8 +574,8 @@
     private async Task Home()
     {
         isTimeOut = true;
-        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         isTimer = false;
+        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         trx.statusLayanan = "CANCEL";
         //HitLog.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");
         HitServices.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");

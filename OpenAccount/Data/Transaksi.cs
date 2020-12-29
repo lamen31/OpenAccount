@@ -94,6 +94,7 @@ namespace OpenAccount.Data
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _AccountNumber { get; set; }
+        public string _AccountNumber2 { get; set; }
         public string _AccountProductType { get; set; }
         public string _AccountStatus { get; set; }
         public string _ServiceErrorCode { get; set; }
