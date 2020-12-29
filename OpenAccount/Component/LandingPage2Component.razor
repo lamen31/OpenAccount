@@ -114,7 +114,7 @@
         sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
         try
         {
-            await EDCClearBuffer("1200");
+            await EDCClearBuffer("15");
             Console.WriteLine("EDC CLEAR BUFFER SUCCESS");
         }
         catch (Exception ex)
@@ -128,19 +128,19 @@
     {
         if (firstRender)
         {
-            trx.timeOut = "default";
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime&&isTimer)
-            {
-                isTimeOut = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isTime = false;
-                isTimer = false;
-                //OnClick.InvokeAsync("timeout");
-            }
+            //trx.timeOut = "default";
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime&&isTimer)
+            //{
+            //    isTimeOut = true;
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //    await Task.Delay(2000);
+            //    isTime = false;
+            //    isTimer = false;
+            //    //OnClick.InvokeAsync("timeout");
+            //}
         }
     }
     private async Task IdleTime()

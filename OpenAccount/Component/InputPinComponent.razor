@@ -175,7 +175,7 @@
             await Task.Delay(100);
             try
             {
-                await EDC("1220");
+                await EDC("12");
                 if (isComplete)
                 {
                     await CekPin();
@@ -195,9 +195,9 @@
                             await InquiryCIFByAcct();
 
                             //DATA DUMMY
-                            trx.namaNasabah = "RIANTO WIBOWO";
-                            trx.MSISDN = "081314118862";
-                            trx.emailNasabah = "rianto.wibowo21@gmail.com";
+                            //trx.namaNasabah = "RIANTO WIBOWO";
+                            //trx.MSISDN = "081314118862";
+                            trx.emailNasabah = "andreas.lamen@gmail.com";
 
                             trx._AccountNumber2 = trx._AccountNumber;
 
@@ -258,7 +258,7 @@
                     Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
                     trx.statusLayanan = "CANCEL";
                     //HitLog.SendLog(trx, config, "INPUT PIN: " + "Input Pin Canceled");
-                    OnClick.InvokeAsync("ambilkartu");
+                    OnClick.InvokeAsync("default");
                     break;
                 }
                 else if (isTimeOut)
@@ -527,7 +527,7 @@
                             }
                             Utility.WriteLog("Home condition : EDC pin clear", "step-action");
                             break;
-                        case 32:
+                        case 16:
                             if (strpin.Length < 7)
                             {
                                 strpin = strpin + "0";
@@ -970,7 +970,8 @@
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             //string myUrl = myLink + "inquiry/cifbyacct";
 
-            string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
+            //string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
+            string myUrl = myLink + "fivemutation/validasi";
             //string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
             Utility.WriteLog("Histori condition : post service start", "step-action");
             try

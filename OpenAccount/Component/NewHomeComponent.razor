@@ -86,7 +86,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Home condition : set account number " + trx._AccountNumber + " on New Home", "step-action");
     }
 
     private async Task ResetTimer()

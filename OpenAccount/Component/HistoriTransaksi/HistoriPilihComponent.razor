@@ -301,6 +301,8 @@
     protected override async Task OnInitializedAsync()
     {
         await CheckStatus();
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Histori condition : set account number " + trx._AccountNumber + " on Histori Pilih", "step-action");
     }
 
     private async Task CheckStatus()
@@ -430,13 +432,13 @@
                     {
                         Console.WriteLine("No Data Found");
                         isTimeOut = true;
+                        isTimer = false;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                        isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
                     else
@@ -448,13 +450,13 @@
                         //await Task.Delay(100);
                         //StateHasChanged();
                         isTimeOut = true;
+                        isTimer = false;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                        isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -471,34 +473,34 @@
                 //await Task.Delay(100);
                 //StateHasChanged();
                 isTimeOut = true;
+                isTimer = false;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
                 //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                isTimer = false;
                 OnClick.InvokeAsync("error");
             }
         }
         catch (Exception ex)
         {
             isTimeOut = true;
+            isTimer = false;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
             //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
             HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-            isTimer = false;
             OnClick.InvokeAsync("error");
         }
     }
     private async Task HistoriMonthly()
     {
         isTimeOut = true;
-        Utility.WriteLog("Histori condition : move to histori Monthly Statement", "step-action");
         isTimer = false;
+        Utility.WriteLog("Histori condition : move to histori Monthly Statement", "step-action");
         OnClick.InvokeAsync("monthlystatement");
     }
     private async Task HistoriBulanBerjalan()

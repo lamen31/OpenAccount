@@ -66,18 +66,26 @@
 
     protected override async Task OnInitializedAsync()
     {
-
+        await Task.Delay(500);
         trx.statusLayanan = "SUCCESS";
-        string result = HitServices.SendSms(trx, config).ToString();
-        if (result.Contains("1111"))
+        if (trx.MSISDN != string.Empty)
         {
-            trx.smsNotif = "SUCCESS";
-            Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
+            string result = HitServices.SendSms(trx, config).ToString();
+            if (result.Contains("1111"))
+            {
+                trx.smsNotif = "SUCCESS";
+                Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
+            }
+            else
+            {
+                trx.smsNotif = "FAILED";
+                Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
+            }
         }
         else
         {
             trx.smsNotif = "FAILED";
-            Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
+            Utility.WriteLog("Histori condition : SMS FAILED ==> phone number not registered", "step-action");
         }
         HitServices.SendLog(trx, config, "");
     }

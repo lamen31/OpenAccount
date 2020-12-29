@@ -160,7 +160,7 @@
             await Task.Delay(100);
             try
             {
-                await EDC("1220");
+                await EDC("12");
                 if (isComplete)
                 {
                     await CekPin();
@@ -488,11 +488,28 @@
                             await Task.Delay(100);
                             break;
                         case 67:
-                            strpin = string.Empty;
-                            strpinMask = string.Empty;
+                            //if (strpin == string.Empty || strpinMask == string.Empty)
+                            //{
+                            //    isCancel = true;
+                            //    isComplete = false;
+                            //    isTimeOut = false;
+                            //    isLoop = false;
+                            //    await Task.Delay(100);
+                            //}
+                            //else
+                            //{
+                            //    strpin = string.Empty;
+                            //    strpinMask = string.Empty;
+                            //}
+
+                            if (strpin.Length > 0 && strpinMask.Length > 0)
+                            {
+                                strpin = string.Empty;
+                                strpinMask = string.Empty;
+                            }
                             Utility.WriteLog("Home condition : EDC pin clear", "step-action");
                             break;
-                        case 32:
+                        case 16:
                             if (strpin.Length < 7)
                             {
                                 strpin = strpin + "0";

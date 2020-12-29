@@ -13,7 +13,7 @@
                 <div>
                     <img src="./assets/img/Folder SVG/kartu-tidak-dikenal.svg" style="width: 30%;"><br>
                     <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                        @trx.namaNasabah <br>
+                        @nama <br>
                         @nomerRek<br />
                         @nomerHP<br />
                         @email<br />
@@ -150,12 +150,12 @@
         }
         else
         {
-            nomerHP = "Handphone number not found.";
+            nomerHP = "Handphone number not registered.";
         }
         nomerHP = "HANDPHONE : " + nomerHP;
         email = trx.emailNasabah;
         if (email == string.Empty)
-            email = "E-mail not found.";
+            email = "E-mail not registered.";
         email = "E-MAIL : " + email;
         errorcode = trx._ServiceErrorCode;
         //errorcode = "AS-009";

@@ -227,10 +227,10 @@
         hourdate = DateTime.Now.ToString("HH:mm:ss");
         //trx.setHistoriTransaksi(jenisperiode, startdate, enddate, hourdate);
         StateHasChanged();
-        Utility.WriteLog("Histori condition : hit service histori start", "step-action");
+        //Utility.WriteLog("Histori condition : hit service histori start", "step-action");
 
         jumlahtransaksi = tempjumlahtransaksi.ToString();
-        Utility.WriteLog("Histori condition : set data histori success", "step-action");
+        //Utility.WriteLog("Histori condition : set data histori success", "step-action");
     }
 
     private async Task ResetTimer()
@@ -278,6 +278,7 @@
         {
             button = false;
             isTimeOut = true;
+            isTime = false;
             isVisible = !isVisible;
             await Task.Delay(100);
             StateHasChanged();
@@ -290,9 +291,6 @@
             //ini yang pindah ke page baru
             if (trx.isEmail)
             {
-
-                //DATA DUMMY
-                //trx.emailNasabah = "andreas@gmail.com";
 
                 string result = await HitServices.SendEmail(trx, config);
                 await Task.Delay(3000);
@@ -344,6 +342,6 @@
         isTimeOut = true;
         Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         isTimer = false;
-        OnClick.InvokeAsync("ambilkartu");
+        OnClick.InvokeAsync("default");
     }
 }

@@ -396,6 +396,7 @@
     {
         OnChange();
         AddMonthly();
+        trx._AccountNumber = trx._AccountNumber2;
     }
 
     async Task dateEndAdd()
@@ -481,6 +482,7 @@
         string errorcode;
         string errormessage;
         isRead = true;
+        isTimeOut = true;
         trx._listMonthly.Clear();
         //trx._AccountNumber = "008301031142500";
         try
@@ -532,6 +534,7 @@
                         start = DateTime.Now.AddDays(1);
                         end = DateTime.Now.AddDays(1);
                         isTimer = false;
+                        isTimeOut = true;
                         //OnClick.InvokeAsync("konfirmasimonthly");
                         OnClick.InvokeAsync("historiPilihMetode");
                     }
@@ -539,12 +542,12 @@
                     {
                         isRead = false;
                         isTimeOut = true;
+                        isTimer = false;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
-                        isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -552,24 +555,24 @@
             catch (Exception ex)
             {
                 isTimeOut = true;
+                isTimer = false;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                isTimer = false;
                 OnClick.InvokeAsync("error");
             }
         }
         catch (Exception ex)
         {
             isTimeOut = true;
+            isTimer = false;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
             HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-            isTimer = false;
             OnClick.InvokeAsync("error");
         }
     }
