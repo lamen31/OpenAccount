@@ -278,7 +278,7 @@
         {
             button = false;
             isTimeOut = true;
-            isTime = false;
+            isTimer = false;
             isVisible = !isVisible;
             await Task.Delay(100);
             StateHasChanged();
@@ -292,7 +292,7 @@
             if (trx.isEmail)
             {
 
-                string result = await HitServices.SendEmail(trx, config);
+                string result = await HitServices.SendEmailAttachment(trx, config);
                 await Task.Delay(3000);
                 isVisible = !isVisible;
                 isTimer = false;

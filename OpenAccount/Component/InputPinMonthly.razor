@@ -785,23 +785,23 @@
 
                         string kodeAccount = trx._AccountNumber.Substring(12, 2);
                         if (kodeAccount == "30")
-                            trx._AccountProductType = "Giro";
+                            trx._AccountProductType = "GIRO";
                         else if (kodeAccount == "40")
-                            trx._AccountProductType = "Deposito";
+                            trx._AccountProductType = "DEPOSITO";
                         else if (kodeAccount == "50")
-                            trx._AccountProductType = "BritAma";
+                            trx._AccountProductType = "BRITAMA";
                         else if (kodeAccount == "51")
-                            trx._AccountProductType = "Tab. Haji";
+                            trx._AccountProductType = "TAB. HAJI";
                         else if (kodeAccount == "53")
-                            trx._AccountProductType = "Simpedes";
+                            trx._AccountProductType = "SIMPEDES";
                         else if (kodeAccount == "64")
                             trx._AccountProductType = "CN";
                         else if (kodeAccount == "65")
-                            trx._AccountProductType = "Transfer";
+                            trx._AccountProductType = "TRANSFER";
                         else if (kodeAccount == "80")
                             trx._AccountProductType = "RTGS";
                         else if (kodeAccount == "99")
-                            trx._AccountProductType = "Internal Account";
+                            trx._AccountProductType = "INTERNAL ACCOUNT";
                         string valuta = trx._AccountNumber.Substring(4, 2);
                         if (valuta == "01")
                             trx.acctCurr = "IDR";

@@ -109,6 +109,48 @@
     private string errorcode = string.Empty;
     private string errormessage = string.Empty;
 
+    private TimeSpan span;
+    private int overtime = 10000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        Utility.WriteLog("Home condition : entered into new home", "step-action");
+    //        trx.timeOut = "bukukonfirmasi";
+    //        isTimer = true;
+    //        starttime = DateTime.Now;
+    //        await Task.Run(() => IdleTime());
+    //        if (isTime && isTimer)
+    //        {
+    //            isTimeOut = true;
+    //            await Task.Delay(100);
+    //            StateHasChanged();
+    //            await Task.Delay(2000);
+    //            isTimer = false;
+    //            OnClick.InvokeAsync("default");
+    //        }
+    //    }
+    //}
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
     protected override async Task OnInitializedAsync()
     {
         isNoTransaction = false;
@@ -171,11 +213,15 @@
         if (isNotSerial)
         {
             await Task.Delay(8000);
+            isTimeOut = true;
+            isTimer = false;
             OnClick.InvokeAsync("bukuinputdata");
         }
         else
         {
             await Task.Delay(8000);
+            isTimeOut = true;
+            isTimer = false;
             OnClick.InvokeAsync("default");
         }
     }

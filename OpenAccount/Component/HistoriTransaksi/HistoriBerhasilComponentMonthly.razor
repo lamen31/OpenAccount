@@ -92,6 +92,7 @@
         if (trx.emailNasabah != string.Empty)
         {
             trx.emailAttachment = "";
+            trx.attachmentPath = "";
             result = await HitServices.SendEmail(trx, config);
             await Task.Delay(3000);
             JObject jobResult = JObject.Parse(result);
@@ -104,16 +105,18 @@
             {
                 trx.emailNotif = "FAILED";
                 trx.setErrorService("EmailFailed", "Failed to Send Email");
-                HitServices.SendLog(trx, config, "HISTORI BERHASIL: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
-                OnClick.InvokeAsync("error");
+                //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
+                //OnClick.InvokeAsync("error");
+                Utility.WriteLog("Histori condition : Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString(), "step-action");
             }
         }
         else
         {
             trx.emailNotif = "FAILED";
             trx.setErrorService("EmailFailed", "Email Not Registered");
-            HitServices.SendLog(trx, config, "HISTORI BERHASIL: Email not registered");
-            OnClick.InvokeAsync("error");
+            //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Email not registered");
+            //OnClick.InvokeAsync("error");
+            Utility.WriteLog("Histori condition : Email not registered", "step-action");
         }
         HitServices.SendLog(trx, config, "");
     }

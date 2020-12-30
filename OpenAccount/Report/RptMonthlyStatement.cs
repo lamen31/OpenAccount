@@ -931,7 +931,7 @@ namespace OpenAccount.Report
             var pdfFilePath = TestUtil.GetOutputFileName();
             var pdfEncryptFilePath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             string passwd = _trx._AccountNumber.Substring(6, 6);
-            _trx.attachmentPath = TestUtil.GetOutputFileNameEncrypt();
+            _trx.attachmentPath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             _trx.emailAttachment = encryptFileName;
             var fileStream = new FileStream(pdfFilePath, FileMode.Create);
             _document = new Document(PageSize.A4,10f,10f,10f,10f);
@@ -999,7 +999,7 @@ namespace OpenAccount.Report
                     Utility.WriteLog("Monthly Statement condition : pdf encrypt start.", "step-action");
                     PdfEncryptor.Encrypt(reader, output, true, uPassword, "BRIxTrilogi-Super-Secret-Code", PdfWriter.ALLOW_SCREENREADERS);
                     Utility.WriteLog("Monthly Statement condition : pdf encrypt success.", "step-action");
-                    _trx.emailAttachment = outputFile;
+                    //_trx.emailAttachment = outputFile;
                     _trx.emailAttachmentPage = TestUtil.GetNumberOfPages(inputFile);
                 }
             }

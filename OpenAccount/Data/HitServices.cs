@@ -162,6 +162,34 @@ namespace OpenAccount.Data
             return await CallAPI(myUrl, content, "POST");
         }
 
+        public static async Task<string> SendEmailAttachment(Transaksi trx, Config config)
+        {
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + "notif/emailattachment";
+            if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            {
+                return "Format Email Tidak Valid";
+            }
+            EmailData emaildata = new EmailData
+            {
+                emailNasabah = trx.emailNasabah,
+                jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
+                namaNasabah = trx.namaNasabah,
+                noRekening = trx._AccountNumber2,
+                statusTransaksi = trx.statusLayanan,
+                lampiran = trx.emailAttachment,
+                path = trx.attachmentPath,
+            };
+
+            var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(emaildata, _jsonSerializerOptions),
+                Encoding.UTF8, "application/json");
+
+            return await CallAPI(myUrl, content, "POST");
+        }
+
         public static async Task<string> SendSms(Transaksi trx, Config config)
         {
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);

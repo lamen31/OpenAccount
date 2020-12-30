@@ -716,6 +716,12 @@ namespace OpenAccount.Data
         {
             string result;
             int startindex = 0;
+            bool isMinus = false;
+            if (strinput.Substring(0, 1) == "-")
+            {
+                isMinus = true;
+                strinput = strinput.Substring(1, strinput.Length - 1);
+            }
             for(int i = 0; i < strinput.Length; i++)
             {
                 if (strinput.Substring(i, 1) == "0")
@@ -729,7 +735,10 @@ namespace OpenAccount.Data
                     break;
 
             }
-            result = strinput.Substring(startindex, strinput.Length - startindex);
+            if(isMinus)
+                result = "-" + strinput.Substring(startindex, strinput.Length - startindex);
+            else
+                result = strinput.Substring(startindex, strinput.Length - startindex);
             return result;
         }
 

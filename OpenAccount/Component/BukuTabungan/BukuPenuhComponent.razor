@@ -126,6 +126,8 @@
     protected override async Task OnInitializedAsync()
     {
         await CheckRekening();
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Buku condition : set account number " + trx._AccountNumber + " on Buku Penuh", "step-action");
     }
 
     private async Task CheckRekening()
@@ -133,15 +135,15 @@
         string producttype = trx._AccountProductType;
         switch (producttype)
         {
-            case "Britama":
+            case "BRITAMA":
                 isBisnis = false;
                 isSimpedes = false;
                 break;
-            case "Britama Bisnis":
+            case "BISNIS":
                 isBisnis = true;
                 isSimpedes = false;
                 break;
-            case "Simpedes":
+            case "SIMPEDES":
                 isSimpedes = true;
                 isBisnis = false;
                 break;

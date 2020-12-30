@@ -54,7 +54,14 @@
                         <button type="button" class="btn btn-primary" style="width: 34%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px;" @onclick="setEmailMethod">Kirim Email</button>
                         <button type="button" class="btn btn-primary" style="width: 27%; background-color: #FF8832; font-weight: 600; margin-left: 2%; border-radius: 8px;" @onclick="setCetakMethod">Cetak A4</button>
                     </div>
-
+                    @if (isNotEmail)
+                    {
+                        <h3 style="color: #ff0000; font-size: 20px; margin-top:20%;">
+                            Mohon maaf, <br /> 
+                            Anda tidak bisa melakukan layanan kirim email <br />
+                            karena email anda belum terdaftar.
+                    </h3>
+                    }
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                     <img src="../assets/img/cetak-statement.gif" class="img-fluid" style="float: right; margin-top: 5%; float: right;">
@@ -179,6 +186,7 @@
     private bool isError = false;
     private bool isVisible = false;
     private bool isSuccess = false;
+    private bool isNotEmail = false;
 
     private string cetakEmail = "CETAK";
     private bool isEmail = false;
@@ -230,11 +238,24 @@
 
     private async Task setEmailMethod()
     {
-        isEmail = true;
-        trx.jenisLayanan = 3;
-        trx.isEmail = isEmail;
-        cetakEmail = "KIRIM";
-        StateHasChanged();
+        if (trx.emailNasabah != string.Empty)
+        {
+            isEmail = true;
+            trx.jenisLayanan = 3;
+            trx.isEmail = isEmail;
+            cetakEmail = "KIRIM";
+            StateHasChanged();
+        }
+        else
+        {
+            isEmail = false;
+            trx.jenisLayanan = 2;
+            trx.isEmail = isEmail;
+            cetakEmail = "CETAK";
+            isNotEmail = true;
+            await Task.Delay(100);
+            StateHasChanged();
+        }
     }
 
     private async Task setCetakMethod()
@@ -255,6 +276,7 @@
     private async Task Lanjut()
     {
         isTimer = false;
+        isTimeOut = true;
         if (isEmail)
         {
             await checkEmailValidity();

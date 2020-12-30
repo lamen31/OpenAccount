@@ -14,6 +14,7 @@ namespace OpenAccount.Data
     {
         Config config = new Config();
         Process process = new Process();
+        Transaksi _trx = new Transaksi();
 
         public void PrintPdf()
         {
@@ -49,6 +50,28 @@ namespace OpenAccount.Data
             //    }
             //}
         }
+
+        public void createCSV()
+        {
+            string CSVName = "TRILOGI" + "_" + _trx.startDT.ToString("yyyyMMdd") + "-" + _trx.endDT.ToString("yyyyMMdd") + ".csv";
+            string CSVpath = @"c:\Reports\" + CSVName;
+
+            // Set the variable "delimiter" to ", ".
+            string delimiter = ", ";
+
+            // This text is added only once to the file.
+            if (!File.Exists(CSVpath))
+            {
+                // Create a file to write to.
+                string createText = "id" + delimiter + "no_rekening" + delimiter + "no_seri_passbook" + delimiter +
+                    "no_kartu" + delimiter + "nama_nasabah" + delimiter + "jenis_transaksi" + delimiter +
+                    "status_transaksi" + delimiter + "error_message" + delimiter + "tgl_transaksi" + delimiter +
+                    "kode_transaksi" + delimiter + "id_transaksi" + delimiter + "idx_month" + delimiter +
+                    "email_notif" + delimiter + "line_input" + delimiter + "saldo_buku" + delimiter +
+                    "sms_notif" + delimiter + "start_date" + delimiter + "end_date" + delimiter + Environment.NewLine;
+                File.WriteAllText(CSVpath, createText);
+            }
+        } 
 
         public static string ReadLog(string strdatapath)
         {
