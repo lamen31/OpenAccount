@@ -14,7 +14,7 @@ namespace OpenAccount.Data
         private readonly Random _random = new Random();
         public static async Task<string> PostCallAPI(string url, string jsonString)
         {
-            string ret = string.Empty;
+             string ret = string.Empty;
             try
             {
                 using (var handler = new HttpClientHandler())
@@ -188,6 +188,50 @@ namespace OpenAccount.Data
                 Encoding.UTF8, "application/json");
 
             return await CallAPI(myUrl, content, "POST");
+        }
+
+        public static async Task<string> SendEmailReport(Transaksi trx, Config config)
+        {
+            //string error;
+            //string errorcode;
+            //string errormessage;
+            //try
+            //{
+                string myLink = config.Read("LINK", Config.PARAM_SERVICES_REPORT);
+                string myUrl = myLink + @"/notif/emailreport";
+                //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+                //{
+                //    return "Format Email Tidak Valid";
+                //}
+                EmailData emaildata = new EmailData
+                {
+                    emailNasabah = "andreas.lamen@gmail.com",
+                    jenisTransaksi = "Attachement Report",
+                    namaNasabah = "",
+                    noRekening = "0",
+                    statusTransaksi = "Sukses",
+                    lampiran = trx.emailAttachment,
+                    path = trx.attachmentPath,
+                };
+
+                var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
+
+                var content = new StringContent(
+                    JsonSerializer.Serialize(emaildata, _jsonSerializerOptions),
+                    Encoding.UTF8, "application/json");
+
+                return await CallAPI(myUrl, content, "POST");
+            //}
+            //catch(Exception ex)
+            //{
+            //    //tambahan
+            //    errorcode = "ReportError";
+            //    errormessage = "SendDataReportError";
+            //    error = ex.Message;
+            //    //return;
+            //    trx.reportStatus = "FAILED";
+            //    return errormessage;
+            //}
         }
 
         public static async Task<string> SendSms(Transaksi trx, Config config)

@@ -114,6 +114,7 @@ namespace OpenAccount.Data
         public string smsNotif { get; set; }
         public string periodMonth { get; set; } = "NO";
         public string idLogTrx { get; set; }
+        public string reportStatus { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
