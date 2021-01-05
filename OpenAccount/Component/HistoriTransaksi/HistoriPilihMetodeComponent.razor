@@ -51,7 +51,14 @@
                         <div>
                             <h5 style="color: #007BFF; font-weight: 600;">Bukti E-Statement</h5>
                         </div>
+                        @if (!isEmailFound)
+                        {
+                            <button type="button" class="btn btn-primary" style="width: 34%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px; opacity:50%;" @onclick="setEmailMethod">Kirim Email</button>
+                        }
+                        else
+                        {
                         <button type="button" class="btn btn-primary" style="width: 34%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px;" @onclick="setEmailMethod">Kirim Email</button>
+                        }
                         <button type="button" class="btn btn-primary" style="width: 27%; background-color: #FF8832; font-weight: 600; margin-left: 2%; border-radius: 8px;" @onclick="setCetakMethod">Cetak A4</button>
                     </div>
                     @if (isNotEmail)
@@ -190,6 +197,7 @@
 
     private string cetakEmail = "CETAK";
     private bool isEmail = false;
+    private bool isEmailFound = true;
 
     private async Task ResetTimer()
     {
@@ -213,6 +221,8 @@
     {
         if (firstRender)
         {
+            if (trx.emailNasabah != string.Empty && trx.emailNasabah != "")
+                isEmailFound = false;
             Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
             trx.timeOut = "historiPilihMetode";
             isTimer = true;

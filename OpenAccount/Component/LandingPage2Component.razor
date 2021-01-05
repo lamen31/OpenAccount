@@ -13,7 +13,7 @@
 @inject Reports report
 <!-- ======= Hero Section ======= -->
 <body oncontextmenu="return false" class="bg-home2" style="background-image:url('../assets/img/Folder SVG/bg-landing.svg')">
-    <section id="hero" style="position: fixed;" @onclick="testOnclik">
+    <section id="hero" style="position: fixed;">
         
         <div class="container" >
             <div class="row" style="margin-top:8%;">
@@ -25,7 +25,7 @@
                         <button class="btn btn-primary" type="button" style="float: left; margin-top: 9%; font-weight: 700;" @onclick="InputRekening">START HERE</button>
                     </div>
                 </div>
-                <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" @onclick="testOnclik">
+                <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                     <img src="./assets/img/Folder GIF/Landing-animation2.gif" style="width: 100%;">
                 </div>
             </div>
@@ -97,30 +97,30 @@
 
     private async Task testOnclik()
     {
-        //if (DateTime.Now.Hour > 17 || DateTime.Now.Hour < 7)
-        //{
-        trx.clearReport();
-        if (isSendReport)
+        if (DateTime.Now.Hour > 15 || DateTime.Now.Hour < 7)
         {
-            await report.createReportCSV();
-            isSendReport = false;
-            string result = await HitServices.SendEmailReport(trx, config);
-            await Task.Delay(3000);
-            JObject jobResult = JObject.Parse(result);
-            if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+            trx.clearReport();
+            if (isSendReport)
             {
-                Console.WriteLine("SEND REPORT SUCCESS");
-            }
-            else
-            {
-                Console.WriteLine("SEND REPORT FAILED");
+                await report.createReportCSV();
+                isSendReport = false;
+                string result = await HitServices.SendEmailReport(trx, config);
+                await Task.Delay(3000);
+                JObject jobResult = JObject.Parse(result);
+                if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+                {
+                    Console.WriteLine("SEND REPORT SUCCESS");
+                }
+                else
+                {
+                    Console.WriteLine("SEND REPORT FAILED");
+                }
             }
         }
-        //}
-        //else
-        //{
-        //    isSendReport = true;
-        //}
+        else
+        {
+            isSendReport = true;
+        }
     }
     protected override async Task OnInitializedAsync()
     {
@@ -321,7 +321,7 @@
     private async Task InputRekening()
     {
         TimeNow = DateTime.Now.ToString("HH:mm:ss");
-        if (DateTime.Now.Hour > 17 || DateTime.Now.Hour < 7)
+        if (DateTime.Now.Hour > 16 || DateTime.Now.Hour < 7)
         {
             isNotHour = true;
             await Task.Delay(100);
@@ -335,7 +335,7 @@
         }
         else
         {
-            isSendReport = true;
+            trx.isSendReport = true;
             isTimer = false;
             isTimeOut = true;
             OnClick.InvokeAsync("insertdebit");

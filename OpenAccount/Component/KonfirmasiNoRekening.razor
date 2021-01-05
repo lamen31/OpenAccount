@@ -154,13 +154,13 @@
             nomerHP = "Handphone number not registered.";
         }
         nomerHP = "HANDPHONE : " + nomerHP;
-        if (trx.emailNasabah != string.Empty || trx.emailNasabah != "")
+        if (trx.emailNasabah != string.Empty && trx.emailNasabah != "")
         {
-            if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
-            {
-                email = "Email not valid.";
-            }
-            else
+            //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            //{
+            //    email = "Email not valid.";
+            //}
+            //else
             email = trx.emailNasabah;
         }
         else

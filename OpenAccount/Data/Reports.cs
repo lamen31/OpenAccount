@@ -22,6 +22,9 @@ namespace OpenAccount.Data
         //private string startdate = "2020-12-28";
         //private string enddate = "2020-12-29";
 
+        public string CSVName = string.Empty;
+        public string CSVPath = string.Empty;
+
         private class ReportData
         {
             public string id { get; set; }
@@ -151,8 +154,8 @@ namespace OpenAccount.Data
             if (trx.reportStatus == "SUCCESS")
             {
                 string path = Directory.GetCurrentDirectory();
-                string CSVName = "TRILOGI" + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv";
-                string CSVpath = path + @"\Reports\" + CSVName;
+                CSVName = "TRILOGI" + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv";
+                CSVPath = path + @"\Reports\" + CSVName;
 
                 // Set the variable "delimiter" to ", ".
                 string delimiter = ", ";
@@ -167,7 +170,7 @@ namespace OpenAccount.Data
                     "kode_transaksi" + delimiter + "id_transaksi" + delimiter + "idx_month" + delimiter +
                     "email_notif" + delimiter + "line_input" + delimiter + "saldo_buku" + delimiter +
                     "sms_notif" + delimiter + "start_date" + delimiter + "end_date" + delimiter + Environment.NewLine;
-                File.WriteAllText(CSVpath, createText);
+                File.WriteAllText(CSVPath, createText);
                 Console.WriteLine("CREATE REPORT HEADER SUCCESS");
                 //}
                 foreach (var report in _listReport)
@@ -178,11 +181,11 @@ namespace OpenAccount.Data
                         report.kodeTransaksi + delimiter + report.idTransaksi + delimiter + report.idxMonth + delimiter +
                         report.emailNotif + delimiter + report.lineInput + delimiter + report.saldoBuku + delimiter +
                         report.smsNotif + delimiter + report.startDate + delimiter + report.endDate + delimiter + Environment.NewLine;
-                    File.AppendAllText(CSVpath, appendText);
+                    File.AppendAllText(CSVPath, appendText);
                 }
                 Console.WriteLine("CREATE REPORT SUCCESS");
                 trx.reportAttachment = CSVName;
-                trx.reportPath = CSVpath;
+                trx.reportPath = CSVPath;
             }
             else
             {

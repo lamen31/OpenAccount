@@ -117,6 +117,7 @@ namespace OpenAccount.Data
         public string reportStatus { get; set; }
         public string reportAttachment { get; set; }
         public string reportPath { get; set; }
+        public bool isSendReport { get; set; } = true;
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 

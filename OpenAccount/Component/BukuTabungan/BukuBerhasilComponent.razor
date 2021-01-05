@@ -74,54 +74,38 @@
         await Task.Delay(500);
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
         trx.statusLayanan = "SUCCESS";
-        if (trx.MSISDN != string.Empty)
+
+        string result = HitServices.SendSms(trx, config).ToString();
+        if (result.Contains("1111"))
         {
-            string result = HitServices.SendSms(trx, config).ToString();
-            if (result.Contains("1111"))
-            {
-                trx.smsNotif = "SUCCESS";
-                Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
-            }
-            else
-            {
-                trx.smsNotif = "FAILED";
-                Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
-            }
+            trx.smsNotif = "SUCCESS";
+            Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
         }
         else
         {
             trx.smsNotif = "FAILED";
-            Utility.WriteLog("Histori condition : SMS FAILED ==> phone number not registered", "step-action");
+            Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
         }
-        if (trx.emailNasabah != string.Empty)
+
+        trx.emailAttachment = "";
+        trx.attachmentPath = "";
+        result = await HitServices.SendEmail(trx, config);
+        await Task.Delay(3000);
+        JObject jobResult = JObject.Parse(result);
+        if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
         {
-            trx.emailAttachment = "";
-            trx.attachmentPath = "";
-            result = await HitServices.SendEmail(trx, config);
-            await Task.Delay(3000);
-            JObject jobResult = JObject.Parse(result);
-            if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
-            {
-                trx.emailNotif = "SUCCESS";
-                Utility.WriteLog("Histori condition : EMAIL SUCCESS", "step-action");
-            }
-            else
-            {
-                trx.emailNotif = "FAILED";
-                trx.setErrorService("EmailFailed", "Failed to Send Email");
-                //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
-                //OnClick.InvokeAsync("error");
-                Utility.WriteLog("Histori condition : Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString(), "step-action");
-            }
+            trx.emailNotif = "SUCCESS";
+            Utility.WriteLog("Histori condition : EMAIL SUCCESS", "step-action");
         }
         else
         {
             trx.emailNotif = "FAILED";
-            trx.setErrorService("EmailFailed", "Email Not Registered");
-            //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Email not registered");
+            //trx.setErrorService("EmailFailed", "Failed to Send Email");
+            //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
             //OnClick.InvokeAsync("error");
-            Utility.WriteLog("Histori condition : Email not registered", "step-action");
+            Utility.WriteLog("Histori condition : Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString(), "step-action");
         }
+
         HitServices.SendLog(trx, config, "");
         await Task.Delay(8000);
         OnClick.InvokeAsync("home");
