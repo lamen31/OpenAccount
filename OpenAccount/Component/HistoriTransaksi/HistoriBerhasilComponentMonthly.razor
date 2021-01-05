@@ -71,7 +71,7 @@
         await Task.Delay(500);
         trx.statusLayanan = "SUCCESS";
 
-        string result = HitServices.SendSms(trx, config).ToString();
+        string result = await HitServices.SendSms(trx, config);
         if (result.Contains("1111"))
         {
             trx.smsNotif = "SUCCESS";

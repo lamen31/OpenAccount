@@ -32,7 +32,7 @@ namespace OpenAccount.Report
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetOutputFileName([CallerMemberName] string methodName = null)
         {
-            return @"\Test\testpdf.pdf";
+            return @"c:\Test\testpdf.pdf";
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]

@@ -96,7 +96,7 @@ namespace OpenAccount.Data
                 startDate = trx.startDate,
                 endDate = trx.endDate,
                 idxMonth = trx.periodMonth,
-                tglTransaksi = DateTime.Now.ToString("s"),
+                tglTransaksi = DateTime.Now.AddHours(-7).ToString("s"),
                 noRekening = trx._AccountNumber,
                 statusTransaksi = trx.statusLayanan,
                 smsNotif = trx.smsNotif,
