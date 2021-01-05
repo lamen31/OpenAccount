@@ -166,7 +166,7 @@
         </div>
 }
 @code {
-    string valueDD = string.Empty;
+        string valueDD = string.Empty;
 
     private TimeSpan span;
     private int overtime = 60000;
@@ -336,24 +336,56 @@
         {
             if (Int32.Parse(year) % 4 == 0)
             {
-                trx.endDate = valueDD + "29";
-                trx.endDT = value3.Value.AddDays(28);
+                if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 29)
+                {
+                    trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                    trx.endDT = DateTime.Now;
+                }
+                else
+                {
+                    trx.endDate = valueDD + "29";
+                    trx.endDT = value3.Value.AddDays(28);
+                }
             }
             else
             {
-                trx.endDate = valueDD + "28";
-                trx.endDT = value3.Value.AddDays(27);
+                if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 28)
+                {
+                    trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                    trx.endDT = DateTime.Now;
+                }
+                else
+                {
+                    trx.endDate = valueDD + "28";
+                    trx.endDT = value3.Value.AddDays(27);
+                }
             }
         }
         else if (month == "01" || month == "03" || month == "05" || month == "07" || month == "08" || month == "10" || month == "12")
         {
-            trx.endDate = valueDD + "31";
-            trx.endDT = value3.Value.AddDays(30);
+            if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 31)
+            {
+                trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                trx.endDT = DateTime.Now;
+            }
+            else
+            {
+                trx.endDate = valueDD + "31";
+                trx.endDT = value3.Value.AddDays(30);
+            }
         }
         else if (month == "04" || month == "06" || month == "09" || month == "11")
         {
-            trx.endDate = valueDD + "30";
-            trx.endDT = value3.Value.AddDays(29);
+            if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 30)
+            {
+                trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                trx.endDT = DateTime.Now;
+            }
+            else
+            {
+                trx.endDate = valueDD + "30";
+                trx.endDT = value3.Value.AddDays(29);
+            }
         }
     }
 

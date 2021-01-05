@@ -32,13 +32,13 @@ namespace OpenAccount.Report
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetOutputFileName([CallerMemberName] string methodName = null)
         {
-            return @"c:\Test\testpdf.pdf";
+            return @"\Test\testpdf.pdf";
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetOutputFileNameEncrypt([CallerMemberName] string methodName = null)
         {
-            return "c:\\Encrypt\\";
+            return @"\Encrypt\";
         }
 
         public static string GetOutputFolder()

@@ -74,8 +74,8 @@
 }
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
+        [Parameter]
+        public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
     private int overtime = 60000;
@@ -97,29 +97,30 @@
 
     private async Task testOnclik()
     {
-        if (DateTime.Now.Hour > 16 || DateTime.Now.Hour < 7)
+        //if (DateTime.Now.Hour > 17 || DateTime.Now.Hour < 7)
+        //{
+        trx.clearReport();
+        if (isSendReport)
         {
-            if (isSendReport)
+            await report.createReportCSV();
+            isSendReport = false;
+            string result = await HitServices.SendEmailReport(trx, config);
+            await Task.Delay(3000);
+            JObject jobResult = JObject.Parse(result);
+            if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
             {
-                await report.createReportCSV();
-                isSendReport = false;
-                string result = await HitServices.SendEmailReport(trx, config);
-                await Task.Delay(3000);
-                JObject jobResult = JObject.Parse(result);
-                if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
-                {
-                    Console.WriteLine("SEND REPORT SUCCESS");
-                }
-                else
-                {
-                    Console.WriteLine("SEND REPORT FAILED");
-                }
+                Console.WriteLine("SEND REPORT SUCCESS");
+            }
+            else
+            {
+                Console.WriteLine("SEND REPORT FAILED");
             }
         }
-        else
-        {
-            isSendReport = true;
-        }
+        //}
+        //else
+        //{
+        //    isSendReport = true;
+        //}
     }
     protected override async Task OnInitializedAsync()
     {
@@ -134,18 +135,18 @@
         trx.ClearList();
         Utility.WriteLog("Home condition : clear list success", "step-action");
 
-        //sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
-        //try
-        //{
-        //    await EDCClearBuffer("15");
-        //    Console.WriteLine("EDC CLEAR BUFFER SUCCESS");
-        //}
-        //catch (Exception ex)
-        //{
-        //    Console.WriteLine("EDC CLEAR BUFFER FAILED");
-        //    Console.WriteLine(ex.Message);
-        //    Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
-        //}
+        sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+        try
+        {
+            await EDCClearBuffer("15");
+            Console.WriteLine("EDC CLEAR BUFFER SUCCESS");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("EDC CLEAR BUFFER FAILED");
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+        }
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

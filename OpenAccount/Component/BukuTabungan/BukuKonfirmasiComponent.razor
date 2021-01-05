@@ -290,17 +290,17 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTimer = false;
-                //OnClick.InvokeAsync("konfirmasitimeout");
+                OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
     }
 
-    private async Task ChangeIsTime()
-    {
-        isTime = !isTime;
-        await Task.Delay(100);
-        StateHasChanged();
-    }
+    //private async Task ChangeIsTime()
+    //{
+    //    isTime = !isTime;
+    //    await Task.Delay(100);
+    //    StateHasChanged();
+    //}
 
     private async Task AmbilKartu()
     {
@@ -365,7 +365,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
-                        trx.statusLayanan = "ERROR";
+                        trx.statusLayanan = "SUCCESS";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
@@ -472,6 +472,7 @@
     private async Task BukuBerhasil()
     {
         isTimeOut = true;
+        isTimer = false;
         tempmaxbaris = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARIS);
         maxbaris = Convert.ToInt32(tempmaxbaris);
         tempmaxhalaman = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXHALAMAN);

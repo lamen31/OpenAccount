@@ -123,6 +123,52 @@
     private bool isBaris = false;
     private int ClickCount = 0;
 
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Buku condition : entered into buku penuh", "step-action");
+            trx.timeOut = "bukupenuh";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimer)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTimer = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+            }
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await CheckRekening();
@@ -209,6 +255,8 @@
 
                     Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                     //await Task.Delay(10000);
+                    isTimeOut = true;
+                    isTimer = false;
                     Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
                     OnClick.InvokeAsync("bukuberhasil");
                     break;
@@ -627,11 +675,4 @@
             ChangeFlag();
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Utility.WriteLog("Buku condition : entered into buku penuh", "step-action");
-        }
-    }
 }

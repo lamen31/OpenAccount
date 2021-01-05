@@ -88,7 +88,7 @@
                 </div>
                 <div style="text-align: center; color: rgb(255, 255, 255);">
                     <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                    <h3>Sedang dalam proses...</h3>
+                    <h3>Data kartu anda sedang dibaca...</h3>
                 </div>
 
             </div>
@@ -123,6 +123,7 @@
     private bool isBlocked = false;
     private bool isNotFound = false;
     private bool isLoading = true;
+    private bool isAccountInquiry = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -192,18 +193,22 @@
                         {
                             Utility.WriteLog("Home condition : card is inquiry", "step-action");
                             await ServiceRekening();
-                            await InquiryCIFByAcct();
+                            if (isAccountInquiry)
+                            {
+                                await InquiryCIFByAcct();
 
-                            //DATA DUMMY
-                            //trx.namaNasabah = "ANDREAS LAMEN";
-                            //trx.MSISDN = "081314118862";
-                            //trx.emailNasabah = "andreas.lamen@gmail.com";
+                                //DATA DUMMY
+                                //trx.namaNasabah = "ANDREAS LAMEN";
+                                //trx.MSISDN = "081314118862";
+                                //trx.emailNasabah = "andreas.lamen@gmail.com";
+                                //trx.emailNasabah = "";
 
-                            trx._AccountNumber2 = trx._AccountNumber;
+                                trx._AccountNumber2 = trx._AccountNumber;
 
 
-                            OnClick.InvokeAsync("konfirmasiawal");
-                            return;
+                                OnClick.InvokeAsync("konfirmasiawal");
+                                return;
+                            }
                         }
                         else
                         {
@@ -986,6 +991,7 @@
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
                         trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         isData = true;
+                        isAccountInquiry = true;
                         await Task.Delay(100);
                         StateHasChanged();
                     }

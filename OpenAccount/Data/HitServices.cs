@@ -198,20 +198,20 @@ namespace OpenAccount.Data
             //try
             //{
                 string myLink = config.Read("LINK", Config.PARAM_SERVICES_REPORT);
-                string myUrl = myLink + @"/notif/emailreport";
-                //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
-                //{
-                //    return "Format Email Tidak Valid";
-                //}
-                EmailData emaildata = new EmailData
+                string myUrl = myLink + "notif/emailreport";
+            //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            //{
+            //    return "Format Email Tidak Valid";
+            //}
+            EmailData emaildata = new EmailData
                 {
-                    emailNasabah = "andreas.lamen@gmail.com",
+                    emailNasabah = "",
                     jenisTransaksi = "Attachement Report",
                     namaNasabah = "",
                     noRekening = "0",
                     statusTransaksi = "Sukses",
-                    lampiran = trx.emailAttachment,
-                    path = trx.attachmentPath,
+                    lampiran = trx.reportAttachment,
+                    path = trx.reportPath,
                 };
 
                 var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };

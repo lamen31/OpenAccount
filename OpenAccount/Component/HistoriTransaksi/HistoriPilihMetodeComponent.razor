@@ -238,7 +238,7 @@
 
     private async Task setEmailMethod()
     {
-        if (trx.emailNasabah != string.Empty)
+        if (trx.emailNasabah != string.Empty || trx.emailNasabah != "")
         {
             isEmail = true;
             trx.jenisLayanan = 3;

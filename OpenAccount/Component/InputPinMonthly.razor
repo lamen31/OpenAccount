@@ -88,7 +88,7 @@
                 </div>
                 <div style="text-align: center; color: rgb(255, 255, 255);">
                     <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                    <h3>Sedang dalam proses...</h3>
+                    <h3>Data kartu anda sedang dibaca...</h3>
                 </div>
 
             </div>
@@ -123,6 +123,7 @@
     private bool isLoading = true;
     private bool isBlocked = false;
     private bool isFailed = false;
+    private bool isAccountInquiry = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -175,9 +176,12 @@
                         if (isInquiry)
                         {
                             await ServiceRekening();
-                            await InquiryCIFByAcct();
-                            OnClick.InvokeAsync("newhome");
-                            return;
+                            if (isAccountInquiry)
+                            {
+                                await InquiryCIFByAcct();
+                                OnClick.InvokeAsync("newhome");
+                                return;
+                            }
                         }
                         else
                         {
@@ -956,6 +960,7 @@
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
                         trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         isData = true;
+                        isAccountInquiry = true;
                         await Task.Delay(100);
                         StateHasChanged();
                     }

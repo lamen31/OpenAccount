@@ -927,11 +927,13 @@ namespace OpenAccount.Report
         }
         public void Verify_MultiColumn_Report_CanBe_Processed()
         {
+            string path = Directory.GetCurrentDirectory();
             string encryptFileName = "TRILOGI" + _trx._AccountNumber + "_" +_trx.startDT.ToString("yyyyMMdd") + "-" + _trx.endDT.ToString("yyyyMMdd") + ".pdf";
-            var pdfFilePath = TestUtil.GetOutputFileName();
-            var pdfEncryptFilePath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
+            var pdfFilePath = path + TestUtil.GetOutputFileName();
+            var pdfEncryptFilePath = path + TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             string passwd = _trx._AccountNumber.Substring(6, 6);
-            _trx.attachmentPath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
+            //_trx.attachmentPath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
+            _trx.attachmentPath = pdfEncryptFilePath;
             _trx.emailAttachment = encryptFileName;
             var fileStream = new FileStream(pdfFilePath, FileMode.Create);
             _document = new Document(PageSize.A4,10f,10f,10f,10f);

@@ -115,6 +115,8 @@ namespace OpenAccount.Data
         public string periodMonth { get; set; } = "NO";
         public string idLogTrx { get; set; }
         public string reportStatus { get; set; }
+        public string reportAttachment { get; set; }
+        public string reportPath { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
@@ -652,6 +654,13 @@ namespace OpenAccount.Data
             _KTPKewarganegaraan = string.Empty;
             _KTPMinutiae1 = string.Empty;
             _KTPMinutiae2 = string.Empty;
+        }
+
+        public void clearReport()
+        {
+            reportStatus = string.Empty;
+            reportAttachment = string.Empty;
+            reportPath = string.Empty;
         }
 
         public void clearArray()

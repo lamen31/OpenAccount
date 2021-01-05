@@ -56,11 +56,13 @@
     private async Task Kembali()
     {
         isTimer = false;
+        isTimeOut = true;
         OnClick.InvokeAsync("default");
     }
     private async Task Lanjut()
     {
         isTimer = false;
+        isTimeOut=true;
         OnClick.InvokeAsync("inputpinmonthly");
     }
 

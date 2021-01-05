@@ -16,11 +16,11 @@ namespace OpenAccount.Data
 {
     public class Reports
     {
-        //private string startdate = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
-        //private string enddate = DateTime.Now.ToString("yyyy-MM-dd");
+        private string startdate = DateTime.Now.ToString("yyyy-MM-dd");
+        private string enddate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
 
-        private string startdate = "2020-12-28";
-        private string enddate = "2020-12-29";
+        //private string startdate = "2020-12-28";
+        //private string enddate = "2020-12-29";
 
         private class ReportData
         {
@@ -108,7 +108,7 @@ namespace OpenAccount.Data
                                     (string)response.SelectToken("startDate"), (string)response.SelectToken("endDate"), (string)response.SelectToken("errorMessage"));
                             }
                             trx.reportStatus = "SUCCESS";
-
+                            Console.WriteLine("GAIN DATA REPORT SUCCESS");
                         }
                         else
                         {
@@ -117,6 +117,7 @@ namespace OpenAccount.Data
                             errormessage = "GainDataReportError";
                             //return;
                             trx.reportStatus = "FAILED";
+                            Console.WriteLine("GAIN DATA REPORT FAILED");
                         }
                     }
                 }
@@ -127,6 +128,7 @@ namespace OpenAccount.Data
                     errormessage = ex.Message;
                     //return;
                     trx.reportStatus = "FAILED";
+                    Console.WriteLine(ex.Message);
                 }
             }
              catch (Exception ex)
@@ -136,6 +138,7 @@ namespace OpenAccount.Data
                 errormessage = ex.Message;
                 //return;
                 trx.reportStatus = "FAILED";
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -148,7 +151,7 @@ namespace OpenAccount.Data
             if (trx.reportStatus == "SUCCESS")
             {
                 string path = Directory.GetCurrentDirectory();
-                string CSVName = "TRILOGI" + "_" + trx.startDT.ToString("yyyyMMdd") + "-" + trx.endDT.ToString("yyyyMMdd") + ".csv";
+                string CSVName = "TRILOGI" + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv";
                 string CSVpath = path + @"\Reports\" + CSVName;
 
                 // Set the variable "delimiter" to ", ".
@@ -165,6 +168,7 @@ namespace OpenAccount.Data
                     "email_notif" + delimiter + "line_input" + delimiter + "saldo_buku" + delimiter +
                     "sms_notif" + delimiter + "start_date" + delimiter + "end_date" + delimiter + Environment.NewLine;
                 File.WriteAllText(CSVpath, createText);
+                Console.WriteLine("CREATE REPORT HEADER SUCCESS");
                 //}
                 foreach (var report in _listReport)
                 {
@@ -176,8 +180,9 @@ namespace OpenAccount.Data
                         report.smsNotif + delimiter + report.startDate + delimiter + report.endDate + delimiter + Environment.NewLine;
                     File.AppendAllText(CSVpath, appendText);
                 }
-                trx.emailAttachment = CSVName;
-                trx.attachmentPath = CSVpath;
+                Console.WriteLine("CREATE REPORT SUCCESS");
+                trx.reportAttachment = CSVName;
+                trx.reportPath = CSVpath;
             }
             else
             {
