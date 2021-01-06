@@ -38,7 +38,7 @@ namespace OpenAccount.Report
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetOutputFileNameEncrypt([CallerMemberName] string methodName = null)
         {
-            return @"\Encrypt\";
+            return @"c:\Encrypt\";
         }
 
         public static string GetOutputFolder()

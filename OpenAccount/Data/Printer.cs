@@ -354,6 +354,7 @@ namespace OpenAccount.Data
 
         public void ThermalPrintPage(object sender, PrintPageEventArgs e)
         {
+            _trx._AccountNumber = _trx._AccountNumber2;
             path = Directory.GetCurrentDirectory();
             string logo = path + "\\wwwroot\\inputopenaccount" + config.Read("PATH", Config.PARAM_PATH_IMAGE_THERMAL);
             StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);

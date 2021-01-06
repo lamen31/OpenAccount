@@ -70,7 +70,9 @@
     {
         await Task.Delay(500);
         trx.statusLayanan = "SUCCESS";
-        
+
+        if (trx.MSISDN.Length > 9)
+        {
             string result = await HitServices.SendSms(trx, config);
             if (result.Contains("1111"))
             {
@@ -82,9 +84,15 @@
                 trx.smsNotif = "FAILED";
                 Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
             }
-        
+        }
+        else
+        {
+            trx.smsNotif = "FAILED";
+        }
+
         HitServices.SendLog(trx, config, "");
     }
+
 
     private async Task ResetTimer()
     {

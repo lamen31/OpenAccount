@@ -244,6 +244,7 @@ namespace OpenAccount.Data
                 namaNasabah = trx.namaNasabah,
                 noRekening = trx._AccountNumber2,
                 msisdn = trx.MSISDN,
+                statusTransaksi = trx.statusLayanan,
             };
 
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };

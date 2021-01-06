@@ -321,7 +321,7 @@
     private async Task InputRekening()
     {
         TimeNow = DateTime.Now.ToString("HH:mm:ss");
-        if (DateTime.Now.Hour > 16 || DateTime.Now.Hour < 7)
+        if (DateTime.Now.Hour > 21 || DateTime.Now.Hour < 7)
         {
             isNotHour = true;
             await Task.Delay(100);

@@ -118,6 +118,8 @@ namespace OpenAccount.Data
         public string reportAttachment { get; set; }
         public string reportPath { get; set; }
         public bool isSendReport { get; set; } = true;
+        public string reportStartDate { get; set; }
+        public string reportEndDate { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
@@ -562,6 +564,12 @@ namespace OpenAccount.Data
             _AccountStatus = strstatus;
         }
 
+        public void setReportDate(string strstartdate, string strenddate)
+        {
+            reportStartDate = strstartdate;
+            reportEndDate = strenddate;
+        }
+
         public class AuditTrail
         {
             public string _action { get; set; }
@@ -662,6 +670,8 @@ namespace OpenAccount.Data
             reportStatus = string.Empty;
             reportAttachment = string.Empty;
             reportPath = string.Empty;
+            reportStartDate = string.Empty;
+            reportEndDate = string.Empty;
         }
 
         public void clearArray()

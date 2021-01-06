@@ -16,11 +16,14 @@ namespace OpenAccount.Data
 {
     public class Reports
     {
-        private string startdate = DateTime.Now.ToString("yyyy-MM-dd");
-        private string enddate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
+        //private string startdate = DateTime.Now.ToString("yyyy-MM-dd");
+        //private string enddate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
 
         //private string startdate = "2020-12-28";
         //private string enddate = "2020-12-29";
+
+        public string startdate;
+        public string enddate;
 
         public string CSVName = string.Empty;
         public string CSVPath = string.Empty;
@@ -72,7 +75,7 @@ namespace OpenAccount.Data
             report.smsNotif = strsmsnotif;
             report.startDate = strstartdate;
             report.endDate = strenddate;
-            report.errorMessage = strenddate;
+            report.errorMessage = strerromessage;
             _listReport.Add(report);
         }
 
@@ -154,8 +157,8 @@ namespace OpenAccount.Data
             if (trx.reportStatus == "SUCCESS")
             {
                 string path = Directory.GetCurrentDirectory();
-                CSVName = "TRILOGI" + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv";
-                CSVPath = path + @"\Reports\" + CSVName;
+                CSVName = "TRILOGI" + "_REPORT_" + startdate + "_" + enddate + ".csv";
+                CSVPath =  @"c:\Reports\" + CSVName;
 
                 // Set the variable "delimiter" to ", ".
                 string delimiter = ", ";
