@@ -121,6 +121,7 @@ namespace OpenAccount.Data
         public string reportStartDate { get; set; }
         public string reportEndDate { get; set; }
         public string externalID { get; set; }
+        public string ExternalID2 { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
@@ -637,6 +638,7 @@ namespace OpenAccount.Data
             _AccountProductType = string.Empty;
             _AccountNumber = string.Empty;
             _AccountStatus = string.Empty;
+            externalID = string.Empty;
         }
 
         public void clearTransactionLog()

@@ -102,6 +102,7 @@ namespace OpenAccount.Data
                 smsNotif = trx.smsNotif,
                 emailNotif = trx.emailNotif,
                 errorMessage = errorMessage,
+                externalId = trx.externalID,
             };
 
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true};

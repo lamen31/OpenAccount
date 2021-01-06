@@ -439,10 +439,14 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "CANCEL";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                        //trx.externalID = (string)jobResult["externalId"];
-                        trx.setExternalId((string)jobResult["EXTERNALID"]);
+                        trx.ExternalID2 = (string)jobResult["externalId"];
+                        trx.externalID = trx.ExternalID2;
+                        //trx.setExternalId((string)jobResult["EXTERNALID
+                        Console.WriteLine("EXTERNAL ID 2" + trx.ExternalID2);
+                        Console.WriteLine("EXTERNAL ID" + trx.externalID);
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                     else
                     {
@@ -462,6 +466,7 @@
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                 }
             }

@@ -236,19 +236,11 @@
         await Task.Delay(100);
         StateHasChanged();
 
-        if (isNotSerial)
-        {
-            await Task.Delay(8000);
-            isTimeOut = true;
-            isTimer = false;
-            OnClick.InvokeAsync("bukuinputdata");
-        }
-        else
-        {
+        
             await Task.Delay(8000);
             isTimeOut = true;
             isTimer = false;
             OnClick.InvokeAsync("default");
-        }
+        
     }
 }
