@@ -107,7 +107,7 @@
         else
         {
             trx.statusLayanan = "CANCEL";
-            //HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
+            HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
             OnClick.InvokeAsync("default");
         }
     }
