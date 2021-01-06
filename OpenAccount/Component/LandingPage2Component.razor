@@ -13,7 +13,7 @@
 @inject Reports report
 <!-- ======= Hero Section ======= -->
 <body oncontextmenu="return false" class="bg-home2" style="background-image:url('../assets/img/Folder SVG/bg-landing.svg')">
-    <section id="hero" style="position: fixed;">
+    <section id="hero" style="position: fixed;" @onclick="Report">
         
         <div class="container" >
             <div class="row" style="margin-top:8%;">
@@ -74,8 +74,8 @@
 }
 
 @code {
-        [Parameter]
-        public EventCallback<string> OnClick { get; set; }
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
     private int overtime = 60000;
@@ -94,6 +94,8 @@
     private bool isSendReport = true;
 
     private SerialPort sPort = new SerialPort();
+
+    private int clickcount = 0;
 
     private async Task testOnclik()
     {
@@ -148,6 +150,19 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
         }
     }
+
+    private async Task Report()
+    {
+        trx.clearReport();
+        if (isSendReport)
+        {
+            clickcount += 1;
+            if (clickcount == 3)
+                OnClick.InvokeAsync("report");
+        }
+
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

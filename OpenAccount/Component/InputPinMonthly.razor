@@ -785,6 +785,17 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
+                        if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
+                        {
+                            isTimeOut = true;
+                            errorcode = "CARD DISABLE";
+                            errormessage = "Card has disabled";
+                            trx.setErrorService(errorcode, errormessage);
+                            isInquiry = false;
+                            OnClick.InvokeAsync("error");
+                            return;
+                        }
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
 
                         string kodeAccount = trx._AccountNumber.Substring(12, 2);

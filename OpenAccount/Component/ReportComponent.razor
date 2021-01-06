@@ -161,6 +161,7 @@
         report.enddate = enddate.ToString("yyyy-MM-dd");
         //trx.setReportDate(startdate.ToString("yyyy-MM-dd"), enddate.ToString("yyyy-MM-dd"));
         await report.createReportCSV();
+        //trx._ServicesErrorMessage = "Report success";
         OnClick.InvokeAsync("default");
     }
 

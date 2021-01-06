@@ -221,8 +221,6 @@
     {
         if (firstRender)
         {
-            if (trx.emailNasabah != string.Empty && trx.emailNasabah != "")
-                isEmailFound = false;
             Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
             trx.timeOut = "historiPilihMetode";
             isTimer = true;
@@ -242,6 +240,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        if (trx.emailNasabah == string.Empty || trx.emailNasabah == "")
+            isEmailFound = false;
         setCetakMethod();
         trx._AccountNumber = trx._AccountNumber2;
     }

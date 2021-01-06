@@ -83,6 +83,20 @@
                             Email yang terdaftar tidak valid, silahkan lakukan pembaharuan data."
                         </teks>
                     }
+                    else if (isReport)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Email yang terdaftar tidak valid, silahkan lakukan pembaharuan data."
+                        </teks>
+                    }
+                    else if (isCardDisable)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Mohon maaf, <br>
+                            Kartu yang anda gunakan tidak dikenal."
+                        </teks>
+                    }
                 </div>
             </div>
         </div>
@@ -105,6 +119,8 @@
     private bool isNotStatus;
     private bool isTidakDitarik;
     private bool isEmailNotValid;
+    private bool isReport;
+    private bool isCardDisable;
 
     private string errorcode = string.Empty;
     private string errormessage = string.Empty;
@@ -162,6 +178,8 @@
         isDataNotFound = false;
         isNotStatus = false;
         isTidakDitarik = false;
+        isReport = false;
+        isCardDisable = false;
 
         errorcode = trx._ServiceErrorCode;
         //errorcode = "AS-009";
@@ -203,6 +221,14 @@
         {
             isEmailNotValid = true;
         }
+        else if(errorcode== "CARD DISABLE")
+        {
+            isCardDisable = true;
+        }
+        //else if(errormessage=="Report success")
+        //{
+        //    isReport = true;
+        //}
         else
         {
             isError = true;

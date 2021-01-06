@@ -73,7 +73,7 @@
 
         if (trx.MSISDN.Length > 9)
         {
-            string result = await HitServices.SendSms(trx, config);
+            result = await HitServices.SendSms(trx, config);
             if (result.Contains("1111"))
             {
                 trx.smsNotif = "SUCCESS";
@@ -87,7 +87,7 @@
         }
         else
         {
-            trx.smsNotif = "FAILED";
+            trx.smsNotif = "NOT REGISTER";
         }
 
         if (trx.emailNasabah != string.Empty && trx.emailNasabah != "")
@@ -113,7 +113,7 @@
         }
         else
         {
-            trx.emailNotif = "FAILED";
+            trx.emailNotif = "NOT REGISTER";
         }
 
         HitServices.SendLog(trx, config, "");

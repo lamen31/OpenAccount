@@ -30,6 +30,7 @@ namespace OpenAccount.Data
 
         private class ReportData
         {
+            public string externalId { get; set; }
             public string id { get; set; }
             public string tglTransaksi { get; set; }
             public string namaNasabah { get; set; }
@@ -53,11 +54,12 @@ namespace OpenAccount.Data
 
         private List<ReportData> _listReport = new List<ReportData>();
 
-        private void addListReport(string strid, string strtgltransaksi, string strnamanasabah, string strnorekening, string strnokartu, string strnoseripassbook, string strstatustransaksi,
+        private void addListReport(string strexternalid, string strid, string strtgltransaksi, string strnamanasabah, string strnorekening, string strnokartu, string strnoseripassbook, string strstatustransaksi,
             string strjenistransaki, string strkodetransaksi, string stridtransaksi, string stridxmonth, string stremailnotif, string strlineinput, string strsaldobuku, string strsmsnotif, string strstartdate,
             string strenddate, string strerromessage)
         {
             ReportData report = new ReportData();
+            report.externalId = strexternalid;
             report.id = strid;
             report.tglTransaksi = strtgltransaksi;
             report.namaNasabah = strnamanasabah;
@@ -107,7 +109,7 @@ namespace OpenAccount.Data
                         {
                             foreach(var response in jobResult["listReport"].Select((response) => (response)))
                             {
-                                addListReport((string)response.SelectToken("id"), (string)response.SelectToken("tglTransaksi"), (string)response.SelectToken("namaNasabah"),
+                                addListReport((string)response.SelectToken("externalId"), (string)response.SelectToken("id"), (string)response.SelectToken("tglTransaksi"), (string)response.SelectToken("namaNasabah"),
                                     (string)response.SelectToken("noRekening"), (string)response.SelectToken("noKartu"), (string)response.SelectToken("noSeriPassbook"), (string)response.SelectToken("statusTransaksi"),
                                     (string)response.SelectToken("jenisTransaksi"), (string)response.SelectToken("kodeTransaksi"), (string)response.SelectToken("idTransaksi"), (string)response.SelectToken("idxMonth"),
                                     (string)response.SelectToken("emailNotif"), (string)response.SelectToken("lineInput"), (string)response.SelectToken("saldoBuku"), (string)response.SelectToken("smsNotif"),
@@ -167,7 +169,7 @@ namespace OpenAccount.Data
                 //if (!File.Exists(CSVpath))
                 //{
                 // Create a file to write to.
-                string createText = "id" + delimiter + "no_rekening" + delimiter + "no_seri_passbook" + delimiter +
+                string createText = "extenal_id" + delimiter + "id" + delimiter + "no_rekening" + delimiter + "no_seri_passbook" + delimiter +
                     "no_kartu" + delimiter + "nama_nasabah" + delimiter + "jenis_transaksi" + delimiter +
                     "status_transaksi" + delimiter + "error_message" + delimiter + "tgl_transaksi" + delimiter +
                     "kode_transaksi" + delimiter + "id_transaksi" + delimiter + "idx_month" + delimiter +
@@ -178,7 +180,7 @@ namespace OpenAccount.Data
                 //}
                 foreach (var report in _listReport)
                 {
-                    string appendText = report.id + delimiter + report.noRekening + delimiter + report.noSeriPassbook + delimiter +
+                    string appendText = report.externalId + delimiter + report.id + delimiter + report.noRekening + delimiter + report.noSeriPassbook + delimiter +
                         report.noKartu + delimiter + report.namaNasabah + delimiter + report.jenisTransaksi + delimiter +
                         report.statusTransaksi + delimiter + report.errorMessage + delimiter + report.tglTransaksi + delimiter +
                         report.kodeTransaksi + delimiter + report.idTransaksi + delimiter + report.idxMonth + delimiter +

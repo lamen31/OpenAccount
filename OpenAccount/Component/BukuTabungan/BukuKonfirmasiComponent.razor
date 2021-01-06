@@ -356,6 +356,7 @@
                         tempjumlahtransaksi = trx._listbuku.Count;
                         isRead = false;
                         await Task.Delay(100);
+                        trx.externalID = (string)jobResult["externalId"];
                         StateHasChanged();
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-260" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "NI")
@@ -367,6 +368,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "SUCCESS";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");
@@ -380,6 +382,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");
@@ -393,6 +396,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");
@@ -405,6 +409,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         OnClick.InvokeAsync("error");

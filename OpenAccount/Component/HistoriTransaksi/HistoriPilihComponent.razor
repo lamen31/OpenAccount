@@ -424,6 +424,7 @@
                         tempjumlahtransaksi = trx._listthermal.Count;
                         isRead = false;
                         isSuccess = true;
+                        trx.externalID = (string)jobResult["externalId"];
                         trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
                         await Task.Delay(100);
                         StateHasChanged();
@@ -436,8 +437,10 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
-                        trx.statusLayanan = "ERROR";
+                        trx.statusLayanan = "CANCEL";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        //trx.externalID = (string)jobResult["externalId"];
+                        trx.setExternalId((string)jobResult["EXTERNALID"]);
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");
                     }
@@ -456,6 +459,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");
                     }

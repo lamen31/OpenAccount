@@ -120,6 +120,7 @@ namespace OpenAccount.Data
         public bool isSendReport { get; set; } = true;
         public string reportStartDate { get; set; }
         public string reportEndDate { get; set; }
+        public string externalID { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
@@ -365,6 +366,11 @@ namespace OpenAccount.Data
             thermal._AMT = stramt;
             thermal._REMK = strremk;
             _listthermal.Add(thermal);
+        }
+
+        public void setExternalId(string strexternal)
+        {
+            externalID = strexternal;
         }
 
         public void setAccountNumber(string straccount)

@@ -166,7 +166,7 @@
         </div>
 }
 @code {
-        string valueDD = string.Empty;
+    string valueDD = string.Empty;
 
     private TimeSpan span;
     private int overtime = 60000;
@@ -567,6 +567,7 @@
                         end = DateTime.Now.AddDays(1);
                         isTimer = false;
                         isTimeOut = true;
+                        trx.externalID = (string)jobResult["externalId"];
                         //OnClick.InvokeAsync("konfirmasimonthly");
                         OnClick.InvokeAsync("historiPilihMetode");
                     }
@@ -579,6 +580,7 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
                         OnClick.InvokeAsync("error");
                     }

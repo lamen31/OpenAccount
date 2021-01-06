@@ -692,7 +692,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-EP" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "EP")
@@ -706,7 +707,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         OnClick.InvokeAsync("error");
                         return;
@@ -722,7 +724,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         OnClick.InvokeAsync("blokirkartu");
                         return;
@@ -735,7 +738,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         return;
                         //OnClick.InvokeAsync("error");
@@ -750,7 +754,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
@@ -803,6 +808,17 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
+                        if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
+                        {
+                            isTimeOut = true;
+                            errorcode = "CARD DISABLE";
+                            errormessage = "Card has disabled";
+                            trx.setErrorService(errorcode, errormessage);
+                            isInquiry = false;
+                            OnClick.InvokeAsync("error");
+                            return;
+                        }
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
 
                         //trx._AccountNumber = (string)jobResult["RESPONSE"].SelectToken("ACCT_NO");
@@ -847,8 +863,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -906,6 +922,7 @@
                         //trx.setArrayNasabah(Nasabah);
                         isData = true;
                         await Task.Delay(100);
+                        trx.externalID = (string)jobResult["externalId"];
                         StateHasChanged();
                     }
                     else
@@ -914,7 +931,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
@@ -1001,7 +1019,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
