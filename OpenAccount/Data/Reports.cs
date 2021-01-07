@@ -165,11 +165,12 @@ namespace OpenAccount.Data
                 // Set the variable "delimiter" to ", ".
                 string delimiter = ", ";
 
-                // This text is added only once to the file.
-                //if (!File.Exists(CSVpath))
-                //{
-                // Create a file to write to.
-                string createText = "extenal_id" + delimiter + "id" + delimiter + "no_rekening" + delimiter + "no_seri_passbook" + delimiter +
+                //This text is added only once to the file.
+                if (!File.Exists(CSVPath))
+                {
+                    File.Delete(CSVPath);
+                    // Create a file to write to.
+                    string createText = "extenal_id" + delimiter + "id" + delimiter + "no_rekening" + delimiter + "no_seri_passbook" + delimiter +
                     "no_kartu" + delimiter + "nama_nasabah" + delimiter + "jenis_transaksi" + delimiter +
                     "status_transaksi" + delimiter + "error_message" + delimiter + "tgl_transaksi" + delimiter +
                     "kode_transaksi" + delimiter + "id_transaksi" + delimiter + "idx_month" + delimiter +
@@ -177,7 +178,7 @@ namespace OpenAccount.Data
                     "sms_notif" + delimiter + "start_date" + delimiter + "end_date" + delimiter + Environment.NewLine;
                 File.WriteAllText(CSVPath, createText);
                 Console.WriteLine("CREATE REPORT HEADER SUCCESS");
-                //}
+                }
                 foreach (var report in _listReport)
                 {
                     string appendText = report.externalId + delimiter + report.id + delimiter + report.noRekening + delimiter + report.noSeriPassbook + delimiter +

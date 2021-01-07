@@ -639,6 +639,8 @@ namespace OpenAccount.Data
             _AccountNumber = string.Empty;
             _AccountStatus = string.Empty;
             externalID = string.Empty;
+            emailNotif = string.Empty;
+            smsNotif = string.Empty;
         }
 
         public void clearTransactionLog()

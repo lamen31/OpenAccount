@@ -366,7 +366,7 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
-                        trx.statusLayanan = "SUCCESS";
+                        trx.statusLayanan = "CANCEL";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);

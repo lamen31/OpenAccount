@@ -88,7 +88,27 @@
                 </div>
                 <div style="text-align: center; color: rgb(255, 255, 255);">
                     <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                    <h3>Data kartu anda sedang dibaca...</h3>
+                    <h3>Kartu anda sedang dibaca...</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+@if (isReadPin)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Data anda sedang dibaca...</h3>
                 </div>
 
             </div>
@@ -124,6 +144,7 @@
     private bool isNotFound = false;
     private bool isLoading = true;
     private bool isAccountInquiry = false;
+    private bool isReadPin = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -200,7 +221,7 @@
                                 //DATA DUMMY
                                 //trx.namaNasabah = "ANDREAS LAMEN";
                                 //trx.MSISDN = "081314118862";
-                                //trx.emailNasabah = "andreas.lamen@gmail.com";
+                                //trx.emailNasabah = "nanarmk23@gmail.com";
                                 //trx.emailNasabah = "";
 
                                 trx._AccountNumber2 = trx._AccountNumber;
@@ -470,6 +491,9 @@
                     int intBuffer = buffer[4];
                     if (strpin.Length == 6)
                     {
+                        isReadPin = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
                         trx.pinBlock = dataSplit.Substring(4, 16);
                         //Console.WriteLine(trx.pinBlock);
                         isEDC = false;
@@ -822,7 +846,7 @@
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
 
                         //trx._AccountNumber = (string)jobResult["RESPONSE"].SelectToken("ACCT_NO");
-                        Utility.WriteLog("Home condition : set account number " + trx._AccountNumber+" success", "step-action");
+                        Utility.WriteLog("Home condition : set account number " + trx._AccountNumber + " success", "step-action");
 
                         string kodeAccount = trx._AccountNumber.Substring(12, 2);
                         if (kodeAccount == "30")

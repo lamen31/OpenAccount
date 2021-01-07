@@ -17,7 +17,8 @@
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem;">Cetak Transaksi Buku Tabungan</span><br>
                     <teks style="color: #00529C;">Transaksi <b style="color: #40B703;">Berhasil</b><b> dicetak</b></teks>
-                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">Silakan ambil buku tabungan Anda <br> pada bagian bawah mesin</h3>
+                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">Silakan ambil buku tabungan Anda <br> pada bagian bawah mesin
+                    <br /> Apakah Anda Ingin Melakukan Transaksi Lagi?</h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -31,7 +32,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
+            <button @onclick="Kembali" type="button" class="btn btn-primary" style="background-color: #4E4E4E;">TIDAK</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -58,7 +59,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <button type="button" class="btn btn-primary" style="float: right;">Lanjut</button> -->
+            <button @onclick="Lanjut" type="button" class="btn btn-primary" style="float: right;">YA</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -67,7 +68,66 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
     private string result;
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Buku condition : entered into buku berhasil", "step-action");
+            trx.timeOut = "inputpinmonthly";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimeOut)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTime = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+            }
+        }
+    }
+
+    private async Task Kembali()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        OnClick.InvokeAsync("default");
+    }
+    private async Task Lanjut()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        OnClick.InvokeAsync("inputpinmonthly");
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -123,13 +183,5 @@
         HitServices.SendLog(trx, config, "");
         await Task.Delay(8000);
         OnClick.InvokeAsync("default");
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Utility.WriteLog("Buku condition : entered into buku berhasil", "step-action");
-        }
     }
 }

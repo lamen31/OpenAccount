@@ -95,6 +95,26 @@
         </div>
     </div>
 }
+@if (isReadPin)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Data anda sedang dibaca...</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
@@ -124,6 +144,7 @@
     private bool isBlocked = false;
     private bool isFailed = false;
     private bool isAccountInquiry = false;
+    private bool isReadPin = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -451,6 +472,9 @@
                     int intBuffer = buffer[4];
                     if (strpin.Length == 6)
                     {
+                        isReadPin = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
                         trx.pinBlock = dataSplit.Substring(4, 16);
                         //Console.WriteLine(trx.pinBlock);
                         isEDC = false;
@@ -475,7 +499,7 @@
                             Utility.WriteLog("Home condition : EDC pin enter", "step-action");
                             break;
                         case 88: //Cancel
-                            //Console.WriteLine(strpin);
+                                 //Console.WriteLine(strpin);
                             isCancel = true;
                             isComplete = false;
                             isTimeOut = false;
@@ -484,7 +508,7 @@
                             Utility.WriteLog("Home condition : EDC pin cancel", "step-action");
                             break;
                         case 84: //Timeout
-                            //Console.WriteLine(strpin);
+                                 //Console.WriteLine(strpin);
                             isTimeOut = true;
                             isLoop = false;
                             isComplete = false;

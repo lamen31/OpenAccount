@@ -1,9 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
-@using OpenAccount.Data 
+@using OpenAccount.Data
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
 
 @inject Transaksi trx
 @inject Reports report
-
+@inject Config config
 <!-- ======= Hero Section ======= -->
 <section id="hero" @onclick="ResetTimer">
 
@@ -14,30 +17,30 @@
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Report Transaksi</span><br>
                     <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Cetak Report</h5>
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
-                                <div class="form-group">
-                                    @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value1 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender YearRange="@yearRange" Change="OnChange" />*@
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
+                            <div class="form-group">
+                                @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value1 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender YearRange="@yearRange" Change="OnChange" />*@
 
-                                    <input placeholder="Select date" class="form-control datepicker" type="date" @bind="startdate"/>
+                                <input placeholder="Select date" class="form-control datepicker" type="date" @bind="startdate" />
 
-                                    @*<DatePicker class="form-control datepicker" Visible="datePicker2Visible" OnSelected="selected2" />*@
-
-                                </div>
+                                @*<DatePicker class="form-control datepicker" Visible="datePicker2Visible" OnSelected="selected2" />*@
 
                             </div>
-                            <div class="col-sm-6">
-                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
 
-                                <div class="form-group">
-                                    @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value2 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender2 YearRange="@yearRange" Change="OnChange" />*@
-                                    <input placeholder="Select date" class="form-control datepicker" type="date" @bind="enddate"/>
-                                </div>
-
-                            </div>
                         </div>
-                        <button class="btn btn-primary" type="button" style="float: left; margin-top: 9%; font-weight: 700;" @onclick="ClearDate">CLEAR</button>
+                        <div class="col-sm-6">
+                            <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
+
+                            <div class="form-group">
+                                @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value2 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender2 YearRange="@yearRange" Change="OnChange" />*@
+                                <input placeholder="Select date" class="form-control datepicker" type="date" @bind="enddate" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="button" style="float: left; margin-top: 9%; font-weight: 700;" @onclick="ClearDate">CLEAR</button>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -82,10 +85,30 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right;"@onclick="Generate">Generate</button>
+            <button type="button" class="btn btn-primary" style="float: right;" @onclick="Generate">Generate</button>
         </div>
     </div>
 </footer><!-- End Footer -->
+@if (isLoading)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Laporan sedang di generate..</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
@@ -100,6 +123,8 @@
 
     private DateTime startdate;
     private DateTime enddate;
+
+    private bool isLoading = false;
 
     private async Task ResetTimer()
     {
@@ -154,6 +179,9 @@
 
     private async Task Generate()
     {
+        isLoading = true;
+        await Task.Delay(100);
+        StateHasChanged();
         isTimer = false;
         isTimeOut = true;
         trx.clearReport();
@@ -161,6 +189,20 @@
         report.enddate = enddate.ToString("yyyy-MM-dd");
         //trx.setReportDate(startdate.ToString("yyyy-MM-dd"), enddate.ToString("yyyy-MM-dd"));
         await report.createReportCSV();
+        trx.reportAttachment = report.CSVName;
+        trx.reportPath = report.CSVPath;
+        trx.isSendReport = false;
+        string result = await HitServices.SendEmailReport(trx, config);
+        await Task.Delay(3000);
+        JObject jobResult = JObject.Parse(result);
+        if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+        {
+            Console.WriteLine("SEND REPORT SUCCESS");
+        }
+        else
+        {
+            Console.WriteLine("SEND REPORT FAILED");
+        }
         //trx._ServicesErrorMessage = "Report success";
         OnClick.InvokeAsync("default");
     }

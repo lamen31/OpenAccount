@@ -441,9 +441,11 @@
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         trx.ExternalID2 = (string)jobResult["externalId"];
                         trx.externalID = trx.ExternalID2;
+                        trx._AccountNumber = trx._AccountNumber2;
                         //trx.setExternalId((string)jobResult["EXTERNALID
                         Console.WriteLine("EXTERNAL ID 2" + trx.ExternalID2);
                         Console.WriteLine("EXTERNAL ID" + trx.externalID);
+                        Console.WriteLine("ACCOUNT NUMBER" + trx._AccountNumber);
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");
                         return;
