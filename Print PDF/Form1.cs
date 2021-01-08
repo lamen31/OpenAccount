@@ -1,8 +1,4 @@
-﻿//using Patagames.Pdf.Net;
-//using Patagames.Pdf.Net.Controls.WinForms;
-//using Spire;
-//using Spire.Pdf;
-using Spire.Pdf;
+﻿using Spire.Pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +34,7 @@ namespace Print_PDF
             //var printDoc = new PdfPrintDocument(doc);
             PrintController printController = new StandardPrintController();
             printdoc.PrintController = printController;
+            printdoc.PrinterSettings.PrinterName = "Brother HL-L5100DN Series";
             //printdoc.PrinterSettings.PrinterName = "Brother HL-L5100DN Series";
             printdoc.Print(); // Print PDF document
             this.Close();
