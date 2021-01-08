@@ -5,7 +5,7 @@
 @inject Transaksi trx
 @inject HitLog hitlog
 <!-- ======= Hero Section ======= -->
-<section id="hero" style="position: fixed;" @onclick="ResetTimer">
+<section id="hero" style="position: fixed;" onclick="ResetTimer">
 
     <div class="container">
         <div class="row">
@@ -13,8 +13,10 @@
                 <div>
                     <img src="./assets/img/Folder SVG/kartu-tidak-dikenal.svg" style="width: 30%;"><br>
                     <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                        @trx.namaNasabah <br>
+                        @nama <br>
                         @nomerRek<br />
+                        @nomerHP<br />
+                        @email<br />
                         @produk
                         <br />
                     </teks>
@@ -73,7 +75,7 @@
         if (firstRender)
         {
             Utility.WriteLog("Home condition : entered into new home", "step-action");
-            trx.timeOut = "konfirmasirekening";
+            trx.timeOut = "konfirmasiawal";
             isTimer = true;
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());
@@ -94,6 +96,7 @@
     private async Task Kembali()
     {
         isTimer = false;
+        isTimeOut = true;
         trx.statusLayanan = "CANCEL";
         HitLog.SendLog(trx, config, "KONFIRMASI NO REKENING: User Cancel Transaction");
         OnClick.InvokeAsync("default");
@@ -101,6 +104,7 @@
     private async Task Lanjut()
     {
         isTimer = false;
+        isTimeOut = true;
         OnClick.InvokeAsync("newhome");
     }
     private bool isNoTransaction;
@@ -113,7 +117,10 @@
     private bool isNotStatus;
     private bool isTidakDitarik;
 
+    private string nama = string.Empty;
     private string nomerRek = string.Empty;
+    private string nomerHP = string.Empty;
+    private string email = string.Empty;
     private string produk = string.Empty;
     private string errorcode = string.Empty;
     private string errormessage = string.Empty;
@@ -130,8 +137,35 @@
         isNotStatus = false;
         isTidakDitarik = false;
 
-        produk = trx._AccountProductType;
-        nomerRek = trx._AccountNumber.Substring(0, 4) + "-" + trx._AccountNumber.Substring(4, 2) + "-" + trx._AccountNumber.Substring(6, 2) + "****" + "-" + trx._AccountNumber.Substring(12, 2) + "-" + trx._AccountNumber.Substring(14, 1);
+        nama = "NAME : " + trx.namaNasabah;
+        produk = "PRODUCT : " + trx._AccountProductType + " (" +trx.acctCurr+")" ;
+        nomerRek = "ACCOUNT : " + trx._AccountNumber.Substring(0, 4) + "-" + trx._AccountNumber.Substring(4, 2) + "-" + trx._AccountNumber.Substring(6, 2) + "****" + "-" + trx._AccountNumber.Substring(12, 2) + "-" + trx._AccountNumber.Substring(14, 1);
+        nomerHP = trx.MSISDN;
+        //if (trx.MSISDN != string.Empty || trx.MSISDN != "" || trx.MSISDN != "000")
+        if(trx.MSISDN.Length > 9)
+        {
+            string joint = string.Empty;
+            for (int i = 0; i < nomerHP.Length - 4; i++)
+                joint = joint + "*";
+            nomerHP = joint + nomerHP.Substring(nomerHP.Length - 4, 4);
+        }
+        else
+        {
+            nomerHP = "Handphone number not registered.";
+        }
+        nomerHP = "HANDPHONE : " + nomerHP;
+        if (trx.emailNasabah != string.Empty && trx.emailNasabah != "")
+        {
+            //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            //{
+            //    email = "Email not valid.";
+            //}
+            //else
+            email = trx.emailNasabah;
+        }
+        else
+            email = "Email not registered.";
+        email = "EMAIL : " + email;
         errorcode = trx._ServiceErrorCode;
         //errorcode = "AS-009";
         errormessage = trx._ServicesErrorMessage;

@@ -11,9 +11,10 @@ namespace OpenAccount.Data
 {
     public class HitServices
     {
+        private readonly Random _random = new Random();
         public static async Task<string> PostCallAPI(string url, string jsonString)
         {
-            string ret = string.Empty;
+             string ret = string.Empty;
             try
             {
                 using (var handler = new HttpClientHandler())
@@ -86,7 +87,7 @@ namespace OpenAccount.Data
             LogData logdata = new LogData {
                 jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
                 kodeTransaksi = trx.kodeLayanan[trx.jenisLayanan],
-                idTransaksi = trx._TransaksiID,
+                idTransaksi = config.Read("LINK", Config.PARAM_DEVICE_TERMINAL_ID) + DateTime.Now.ToString("ddMMyyyyHHmmss"),
                 namaNasabah = trx.namaNasabah,
                 noKartu = trx.nomerKartu.Substring(0, 12) + "****",
                 noSeriPassbook = trx._BukuSerial,
@@ -95,12 +96,13 @@ namespace OpenAccount.Data
                 startDate = trx.startDate,
                 endDate = trx.endDate,
                 idxMonth = trx.periodMonth,
-                tglTransaksi = DateTime.Now.ToString("s"),
+                tglTransaksi = DateTime.Now.AddHours(-7).ToString("s"),
                 noRekening = trx._AccountNumber,
                 statusTransaksi = trx.statusLayanan,
                 smsNotif = trx.smsNotif,
                 emailNotif = trx.emailNotif,
                 errorMessage = errorMessage,
+                externalId = trx.externalID,
             };
 
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true};
@@ -146,7 +148,7 @@ namespace OpenAccount.Data
                 emailNasabah = trx.emailNasabah,
                 jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
                 namaNasabah = trx.namaNasabah,
-                noRekening = trx._AccountNumber,
+                noRekening = trx._AccountNumber2,
                 statusTransaksi = trx.statusLayanan,
                 lampiran = trx.emailAttachment,
                 path = trx.attachmentPath,
@@ -161,6 +163,78 @@ namespace OpenAccount.Data
             return await CallAPI(myUrl, content, "POST");
         }
 
+        public static async Task<string> SendEmailAttachment(Transaksi trx, Config config)
+        {
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + "notif/emailattachment";
+            if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            {
+                return "Format Email Tidak Valid";
+            }
+            EmailData emaildata = new EmailData
+            {
+                emailNasabah = trx.emailNasabah,
+                jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
+                namaNasabah = trx.namaNasabah,
+                noRekening = trx._AccountNumber2,
+                statusTransaksi = trx.statusLayanan,
+                lampiran = trx.emailAttachment,
+                path = trx.attachmentPath,
+            };
+
+            var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(emaildata, _jsonSerializerOptions),
+                Encoding.UTF8, "application/json");
+
+            return await CallAPI(myUrl, content, "POST");
+        }
+
+        public static async Task<string> SendEmailReport(Transaksi trx, Config config)
+        {
+            //string error;
+            //string errorcode;
+            //string errormessage;
+            //try
+            //{
+                string myLink = config.Read("LINK", Config.PARAM_SERVICES_REPORT);
+                string myUrl = myLink + "notif/emailreport";
+            //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
+            //{
+            //    return "Format Email Tidak Valid";
+            //}
+            EmailData emaildata = new EmailData
+                {
+                    emailNasabah = "",
+                    jenisTransaksi = "Attachement Report",
+                    namaNasabah = "",
+                    noRekening = "0",
+                    statusTransaksi = "Sukses",
+                    lampiran = trx.reportAttachment,
+                    path = trx.reportPath,
+                };
+
+                var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
+
+                var content = new StringContent(
+                    JsonSerializer.Serialize(emaildata, _jsonSerializerOptions),
+                    Encoding.UTF8, "application/json");
+
+                return await CallAPI(myUrl, content, "POST");
+            //}
+            //catch(Exception ex)
+            //{
+            //    //tambahan
+            //    errorcode = "ReportError";
+            //    errormessage = "SendDataReportError";
+            //    error = ex.Message;
+            //    //return;
+            //    trx.reportStatus = "FAILED";
+            //    return errormessage;
+            //}
+        }
+
         public static async Task<string> SendSms(Transaksi trx, Config config)
         {
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
@@ -169,8 +243,9 @@ namespace OpenAccount.Data
             SmsData smsdata = new SmsData {
                 jenisTransaksi = trx.pilihanLayanan[trx.jenisLayanan],
                 namaNasabah = trx.namaNasabah,
-                noRekening = trx._AccountNumber,
+                noRekening = trx._AccountNumber2,
                 msisdn = trx.MSISDN,
+                statusTransaksi = trx.statusLayanan,
             };
 
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };

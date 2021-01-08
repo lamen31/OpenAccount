@@ -88,7 +88,27 @@
                 </div>
                 <div style="text-align: center; color: rgb(255, 255, 255);">
                     <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                    <h3>Sedang dalam proses...</h3>
+                    <h3>Kartu anda sedang dibaca...</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+@if (isReadPin)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Data anda sedang dibaca...</h3>
                 </div>
 
             </div>
@@ -123,6 +143,8 @@
     private bool isBlocked = false;
     private bool isNotFound = false;
     private bool isLoading = true;
+    private bool isAccountInquiry = false;
+    private bool isReadPin = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -138,14 +160,29 @@
         isEDC = true;
         await InputPin();
 
+        //isLoading = false;
         //await Task.Delay(5000);
         //Console.WriteLine("INPUT PIN SUCCESS");
         //Utility.WriteLog("Home condition : input pin success", "step-action");
 
         //Console.WriteLine("INPUT DATA SUCCESS");
-        //Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
-        //trx.setArrayNasabah(Nasabah);
-        //OnClick.InvokeAsync("newhome");
+        ////Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+        ////trx.setArrayNasabah(Nasabah);
+        //trx.nomerKartu = "5221841160264056";
+        //await InquiryByCardNo();
+        //if (isInquiry)
+        //{
+        //    await ServiceRekening();
+        //    await InquiryCIFByAcct();
+        //    OnClick.InvokeAsync("konfirmasiawal");
+        //    return;
+        //}
+        //else
+        //{
+        //    OnClick.InvokeAsync("error");
+        //    return;
+        //}
+        ////OnClick.InvokeAsync("newhome");
 
         //isEDC = true;
         //await InputPin();
@@ -160,7 +197,7 @@
             await Task.Delay(100);
             try
             {
-                await EDC("1220");
+                await EDC("12");
                 if (isComplete)
                 {
                     await CekPin();
@@ -169,24 +206,41 @@
                     //trx.nomerKartu = "6013014700000139";
                     if (isValid)
                     {
+                        Utility.WriteLog("Home condition : pin is valid", "step-action");
                         //await EDCClearBuffer("1200");
                         await InquiryByCardNo();
                         //isInquiry = true;
                         if (isInquiry)
                         {
+                            Utility.WriteLog("Home condition : card is inquiry", "step-action");
                             await ServiceRekening();
-                            await InquiryCIFByAcct();
-                            OnClick.InvokeAsync("konfirmasiawal");
-                            return;
+                            if (isAccountInquiry)
+                            {
+                                await InquiryCIFByAcct();
+
+                                //DATA DUMMY
+                                //trx.namaNasabah = "ANDREAS LAMEN";
+                                trx.MSISDN = "081314118862";
+                                trx.emailNasabah = "nanarmk23@gmail.com";
+                                //trx.emailNasabah = "";
+
+                                trx._AccountNumber2 = trx._AccountNumber;
+
+
+                                OnClick.InvokeAsync("konfirmasiawal");
+                                return;
+                            }
                         }
                         else
                         {
+                            Utility.WriteLog("Home condition : card inquiry error", "step-action");
                             OnClick.InvokeAsync("error");
                             return;
                         }
                     }
                     else if (isInvalid)
                     {
+                        Utility.WriteLog("Home condition : pin is invalid", "step-action");
                         isSalah = true;
                         strpin = string.Empty;
                         strpinMask = string.Empty;
@@ -198,6 +252,7 @@
                         }
                         else
                         {
+                            Utility.WriteLog("Home condition : card is blocked", "step-action");
                             isSalah = false;
                             OnClick.InvokeAsync("blokirkartu");
                             return;
@@ -205,6 +260,7 @@
                     }
                     else if (isNotFound)
                     {
+                        Utility.WriteLog("Home condition : account not found", "step-action");
                         OnClick.InvokeAsync("rekeningnotfound");
                         return;
                     }
@@ -228,7 +284,7 @@
                     Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
                     trx.statusLayanan = "CANCEL";
                     //HitLog.SendLog(trx, config, "INPUT PIN: " + "Input Pin Canceled");
-                    OnClick.InvokeAsync("ambilkartu");
+                    OnClick.InvokeAsync("default");
                     break;
                 }
                 else if (isTimeOut)
@@ -423,7 +479,7 @@
             //Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
-                Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+                //Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
                 //Console.WriteLine("Data Current Pin: " + dataCurrent);
@@ -435,6 +491,9 @@
                     int intBuffer = buffer[4];
                     if (strpin.Length == 6)
                     {
+                        isReadPin = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
                         trx.pinBlock = dataSplit.Substring(4, 16);
                         //Console.WriteLine(trx.pinBlock);
                         isEDC = false;
@@ -476,11 +535,28 @@
                             await Task.Delay(100);
                             break;
                         case 67:
-                            strpin = string.Empty;
-                            strpinMask = string.Empty;
+                            //if (strpin == string.Empty || strpinMask == string.Empty)
+                            //{
+                            //    isCancel = true;
+                            //    isComplete = false;
+                            //    isTimeOut = false;
+                            //    isLoop = false;
+                            //    await Task.Delay(100);
+                            //}
+                            //else
+                            //{
+                            //    strpin = string.Empty;
+                            //    strpinMask = string.Empty;
+                            //}
+
+                            if (strpin.Length > 0 && strpinMask.Length > 0)
+                            {
+                                strpin = string.Empty;
+                                strpinMask = string.Empty;
+                            }
                             Utility.WriteLog("Home condition : EDC pin clear", "step-action");
                             break;
-                        case 32:
+                        case 16:
                             if (strpin.Length < 7)
                             {
                                 strpin = strpin + "0";
@@ -640,7 +716,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-EP" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "EP")
@@ -654,7 +731,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         OnClick.InvokeAsync("error");
                         return;
@@ -670,7 +748,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         OnClick.InvokeAsync("blokirkartu");
                         return;
@@ -683,7 +762,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         return;
                         //OnClick.InvokeAsync("error");
@@ -698,7 +778,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
@@ -751,29 +832,43 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
+                        if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
+                        {
+                            isTimeOut = true;
+                            errorcode = "CARD DISABLE";
+                            errormessage = "Card has disabled";
+                            trx.setErrorService(errorcode, errormessage);
+                            isInquiry = false;
+                            OnClick.InvokeAsync("error");
+                            return;
+                        }
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
+
+                        //trx._AccountNumber = (string)jobResult["RESPONSE"].SelectToken("ACCT_NO");
+                        Utility.WriteLog("Home condition : set account number " + trx._AccountNumber + " success", "step-action");
 
                         string kodeAccount = trx._AccountNumber.Substring(12, 2);
                         if (kodeAccount == "30")
-                            trx._AccountProductType = "Giro";
+                            trx._AccountProductType = "GIRO";
                         else if (kodeAccount == "40")
-                            trx._AccountProductType = "Deposito";
+                            trx._AccountProductType = "DEPOSITO";
                         else if (kodeAccount == "50")
-                            trx._AccountProductType = "BritAma";
+                            trx._AccountProductType = "BRITAMA";
                         else if (kodeAccount == "51")
-                            trx._AccountProductType = "Tab. Haji";
+                            trx._AccountProductType = "TAB. HAJI";
                         else if (kodeAccount == "53")
-                            trx._AccountProductType = "Simpedes";
+                            trx._AccountProductType = "SIMPEDES";
                         else if (kodeAccount == "56")
-                            trx._AccountProductType = "Bisnis";
+                            trx._AccountProductType = "BISNIS";
                         else if (kodeAccount == "64")
                             trx._AccountProductType = "CN";
                         else if (kodeAccount == "65")
-                            trx._AccountProductType = "Transfer";
+                            trx._AccountProductType = "TRANSFER";
                         else if (kodeAccount == "80")
                             trx._AccountProductType = "RTGS";
                         else if (kodeAccount == "99")
-                            trx._AccountProductType = "Internal Account";
+                            trx._AccountProductType = "INTERNAL ACCOUNT";
                         string valuta = trx._AccountNumber.Substring(4, 2);
                         if (valuta == "01")
                             trx.acctCurr = "IDR";
@@ -792,8 +887,8 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -840,7 +935,7 @@
                     {
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("CUST_NAME");
                         //trx.acctCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
-                        trx.MSISDN = (string)jobResult["RESPONSE"].SelectToken("NO_HP");
+                        trx.MSISDN = (string)jobResult["RESPONSE"].SelectToken("HP_NO");
                         trx.emailNasabah = (string)jobResult["RESPONSE"].SelectToken("EMAIL");
                         trx.debitCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
                         trx.kreditCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
@@ -851,6 +946,7 @@
                         //trx.setArrayNasabah(Nasabah);
                         isData = true;
                         await Task.Delay(100);
+                        trx.externalID = (string)jobResult["externalId"];
                         StateHasChanged();
                     }
                     else
@@ -859,7 +955,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
@@ -920,7 +1017,8 @@
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             //string myUrl = myLink + "inquiry/cifbyacct";
 
-            string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
+            //string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
+            string myUrl = myLink + "fivemutation/validasi";
             //string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
             Utility.WriteLog("Histori condition : post service start", "step-action");
             try
@@ -935,6 +1033,7 @@
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
                         trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         isData = true;
+                        isAccountInquiry = true;
                         await Task.Delay(100);
                         StateHasChanged();
                     }
@@ -944,7 +1043,8 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
-                        //HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;

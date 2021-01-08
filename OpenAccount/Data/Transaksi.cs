@@ -94,6 +94,7 @@ namespace OpenAccount.Data
         public string _PinATM1 { get; set; }
         public string _PinATM2 { get; set; }
         public string _AccountNumber { get; set; }
+        public string _AccountNumber2 { get; set; }
         public string _AccountProductType { get; set; }
         public string _AccountStatus { get; set; }
         public string _ServiceErrorCode { get; set; }
@@ -112,6 +113,15 @@ namespace OpenAccount.Data
         public string emailNotif { get; set; }
         public string smsNotif { get; set; }
         public string periodMonth { get; set; } = "NO";
+        public string idLogTrx { get; set; }
+        public string reportStatus { get; set; }
+        public string reportAttachment { get; set; }
+        public string reportPath { get; set; }
+        public bool isSendReport { get; set; } = true;
+        public string reportStartDate { get; set; }
+        public string reportEndDate { get; set; }
+        public string externalID { get; set; }
+        public string ExternalID2 { get; set; }
 
         //1. Pencetakan Passbook Printing 
         //2. Pencetakan Mutasi 5 Transaksi Terakhir 
@@ -359,6 +369,11 @@ namespace OpenAccount.Data
             _listthermal.Add(thermal);
         }
 
+        public void setExternalId(string strexternal)
+        {
+            externalID = strexternal;
+        }
+
         public void setAccountNumber(string straccount)
         {
             _AccountNumber = straccount;
@@ -556,6 +571,12 @@ namespace OpenAccount.Data
             _AccountStatus = strstatus;
         }
 
+        public void setReportDate(string strstartdate, string strenddate)
+        {
+            reportStartDate = strstartdate;
+            reportEndDate = strenddate;
+        }
+
         public class AuditTrail
         {
             public string _action { get; set; }
@@ -617,6 +638,9 @@ namespace OpenAccount.Data
             _AccountProductType = string.Empty;
             _AccountNumber = string.Empty;
             _AccountStatus = string.Empty;
+            externalID = string.Empty;
+            emailNotif = string.Empty;
+            smsNotif = string.Empty;
         }
 
         public void clearTransactionLog()
@@ -649,6 +673,15 @@ namespace OpenAccount.Data
             _KTPKewarganegaraan = string.Empty;
             _KTPMinutiae1 = string.Empty;
             _KTPMinutiae2 = string.Empty;
+        }
+
+        public void clearReport()
+        {
+            reportStatus = string.Empty;
+            reportAttachment = string.Empty;
+            reportPath = string.Empty;
+            reportStartDate = string.Empty;
+            reportEndDate = string.Empty;
         }
 
         public void clearArray()

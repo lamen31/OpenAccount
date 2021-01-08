@@ -286,13 +286,13 @@
             isTimer = true;
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());
-            if (isTime&&isTimer)
+            if (isTime && isTimeOut)
             {
                 isTimeOut = true;
                 await Task.Delay(100);
                 StateHasChanged();
                 await Task.Delay(2000);
-                isTimer = false;
+                isTime = false;
                 OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
@@ -301,6 +301,8 @@
     protected override async Task OnInitializedAsync()
     {
         await CheckStatus();
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Histori condition : set account number " + trx._AccountNumber + " on Histori Pilih", "step-action");
     }
 
     private async Task CheckStatus()
@@ -422,6 +424,7 @@
                         tempjumlahtransaksi = trx._listthermal.Count;
                         isRead = false;
                         isSuccess = true;
+                        trx.externalID = (string)jobResult["externalId"];
                         trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
                         await Task.Delay(100);
                         StateHasChanged();
@@ -430,14 +433,22 @@
                     {
                         Console.WriteLine("No Data Found");
                         isTimeOut = true;
+                        isTimer = false;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
-                        trx.statusLayanan = "ERROR";
+                        trx.statusLayanan = "CANCEL";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        trx.ExternalID2 = (string)jobResult["externalId"];
+                        trx.externalID = trx.ExternalID2;
+                        trx._AccountNumber = trx._AccountNumber2;
+                        //trx.setExternalId((string)jobResult["EXTERNALID
+                        Console.WriteLine("EXTERNAL ID 2" + trx.ExternalID2);
+                        Console.WriteLine("EXTERNAL ID" + trx.externalID);
+                        Console.WriteLine("ACCOUNT NUMBER" + trx._AccountNumber);
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                        isTimer = false;
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                     else
                     {
@@ -448,14 +459,16 @@
                         //await Task.Delay(100);
                         //StateHasChanged();
                         isTimeOut = true;
+                        isTimer = false;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                        isTimer = false;
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                 }
             }
@@ -471,34 +484,34 @@
                 //await Task.Delay(100);
                 //StateHasChanged();
                 isTimeOut = true;
+                isTimer = false;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
                 //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                isTimer = false;
                 OnClick.InvokeAsync("error");
             }
         }
         catch (Exception ex)
         {
             isTimeOut = true;
+            isTimer = false;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
             //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
             HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-            isTimer = false;
             OnClick.InvokeAsync("error");
         }
     }
     private async Task HistoriMonthly()
     {
         isTimeOut = true;
-        Utility.WriteLog("Histori condition : move to histori Monthly Statement", "step-action");
         isTimer = false;
+        Utility.WriteLog("Histori condition : move to histori Monthly Statement", "step-action");
         OnClick.InvokeAsync("monthlystatement");
     }
     private async Task HistoriBulanBerjalan()
@@ -525,6 +538,7 @@
     private async Task HistoriSepuluhTerakhir()
     {
         isTimeOut = true;
+        isTimer = false;
 
         //Utility.WriteLog("Histori condition : move to histori sepuluh terakhir", "step-action");
         //OnClick.InvokeAsync("historiSepuluhTerakhir");
@@ -545,8 +559,8 @@
             await print.PrintThermal(trx);
             Utility.WriteLog("Histori condition : print thermal finished", "step-action");
             isTimeOut = true;
-            Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             isTimer = false;
+            Utility.WriteLog("Histori condition : move to histori berhasil", "step-action");
             OnClick.InvokeAsync("historiberhasil");
         }
     }
@@ -574,8 +588,8 @@
     private async Task Home()
     {
         isTimeOut = true;
-        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         isTimer = false;
+        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
         trx.statusLayanan = "CANCEL";
         //HitLog.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");
         HitServices.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");

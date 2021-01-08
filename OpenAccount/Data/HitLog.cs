@@ -38,6 +38,7 @@ namespace OpenAccount.Data
                 logdata.smsNotif = trx.smsNotif;
                 logdata.emailNotif = trx.emailNotif;
                 logdata.errorMessage = errorMessage;
+                logdata.externalId = trx.externalID;
 
                 using (var handler = new HttpClientHandler())
                 {
@@ -94,5 +95,6 @@ namespace OpenAccount.Data
         public string startDate { get; set; }
         public string endDate { get; set; }
         public string errorMessage { get; set; }
+        public string externalId { get; set; }
     }
 }

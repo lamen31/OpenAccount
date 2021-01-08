@@ -1,5 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
+@using System.IO
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 
 @inject Utility utility
 @inject Transaksi trx
@@ -12,7 +15,7 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <teks style="color: black; font-size: 35px;">Histori Transaksi <b style="color: rgb(122, 190, 20);">Berhasil</b> dicetak</teks>
-                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">"Silakan ambil kertas Anda pada bagian bawah mesin"</h3>
+                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">"Silakan ambil kertas Anda pada bagian bawah mesin"<br /> Apakah Anda Ingin Melakukan Transaksi Lagi?</h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -26,7 +29,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
+            <button @onclick="Kembali" type="button" class="btn btn-primary" style="background-color: #4E4E4E;">TIDAK</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
@@ -53,7 +56,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <!-- <button type="button" class="btn btn-primary" style="float: right;">Lanjut</button> -->
+            <button @onclick="Lanjut" type="button" class="btn btn-primary" style="float: right;">YA</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -62,24 +65,31 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    private string result;
+
+    private async Task ResetTimer()
     {
-        trx.statusLayanan = "SUCCESS";
-        string result = HitServices.SendSms(trx, config).ToString();
-        if (result.Contains("1111"))
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
         {
-            trx.smsNotif = "SUCCESS";
-            Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
-        }
-        else
-        {
-            trx.smsNotif = "FAILED";
-            Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
-        }
-        HitServices.SendLog(trx, config, "");
-        await Task.Delay(8000);
-        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("default");
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -87,7 +97,90 @@
         if (firstRender)
         {
             Utility.WriteLog("Histori condition : entered into histori berhasil", "step-action");
+            trx.timeOut = "inputpinmonthly";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimeOut)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTime = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+            }
         }
     }
+
+    private async Task Kembali()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        OnClick.InvokeAsync("default");
+    }
+    private async Task Lanjut()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        OnClick.InvokeAsync("inputpinmonthly");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        trx.statusLayanan = "SUCCESS";
+
+        if (trx.MSISDN.Length > 9)
+        {
+            result = await HitServices.SendSms(trx, config);
+            if (result.Contains("1111"))
+            {
+                trx.smsNotif = "SUCCESS";
+                Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
+            }
+            else
+            {
+                trx.smsNotif = "FAILED";
+                Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
+            }
+        }
+        else
+        {
+            trx.smsNotif = "NOT REGISTER";
+        }
+
+        if (trx.emailNasabah != string.Empty && trx.emailNasabah != "")
+        {
+            trx.emailAttachment = "";
+            trx.attachmentPath = "";
+            result = await HitServices.SendEmail(trx, config);
+            await Task.Delay(3000);
+            JObject jobResult = JObject.Parse(result);
+            if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+            {
+                trx.emailNotif = "SUCCESS";
+                Utility.WriteLog("Histori condition : EMAIL SUCCESS", "step-action");
+            }
+            else
+            {
+                trx.emailNotif = "FAILED";
+                //trx.setErrorService("EmailFailed", "Failed to Send Email");
+                //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
+                //OnClick.InvokeAsync("error");
+                Utility.WriteLog("Histori condition : Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString(), "step-action");
+            }
+        }
+        else
+        {
+            trx.emailNotif = "NOT REGISTER";
+        }
+
+        HitServices.SendLog(trx, config, "");
+        //await Task.Delay(8000);
+        //Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
+        //OnClick.InvokeAsync("default");
+    }
+
 
 }

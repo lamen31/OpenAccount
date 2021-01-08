@@ -7,6 +7,7 @@ using System.Drawing.Printing;
 using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace OpenAccount.Data
 {
@@ -14,6 +15,7 @@ namespace OpenAccount.Data
     {
         Config config = new Config();
         Process process = new Process();
+        Transaksi _trx = new Transaksi();
 
         public void PrintPdf()
         {

@@ -281,13 +281,15 @@
 
         starttime = DateTime.Now;
         await Task.Run(() => IdleTime());
-        if (isTime)
+        if (isTime && isTimeOut)
         {
             isTimeOut = true;
             await Task.Delay(100);
             StateHasChanged();
             await Task.Delay(2000);
-            OnClick.InvokeAsync("Home");
+            isTime = false;
+            //OnClick.InvokeAsync("Home");
+            OnClick.InvokeAsync("konfirmasitimeout");
         }
     }
 

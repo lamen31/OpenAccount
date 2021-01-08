@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Folder GIF/insert-card.gif" class="img-fluid" alt="" style="margin-top: 19%;">
+                <img src="../assets/img/Folder GIF/Swipe-card.gif" class="img-fluid" alt="" style="margin-top: 1%;">
             </div>
         </div>
     </div>
@@ -65,6 +65,25 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+@if (isLoading)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu..</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
@@ -77,14 +96,23 @@
     private bool isTimeOut = false;
     private SerialPort sPort = new SerialPort();
 
+    private bool isLoading;
+
     protected override async Task OnInitializedAsync()
     {
         //await Task.Delay(5000);
+        isLoading = true;
+        await Task.Delay(100);
+        StateHasChanged();
         StateHasChanged();
         Utility.WriteLog("Home condition : input kartu success", "step-action");
         Utility.WriteLog("Home condition : move to input pin", "step-action");
         trx.jenisLayanan = 4;//4. Proses Persiapan Layanan
+                             //OnClick.InvokeAsync("inputpin");
+
+        //await Task.Delay(5000);
         //OnClick.InvokeAsync("inputpin");
+
         sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
         await GetCard();
         if (!isCancel && !isTimeOut)
@@ -103,7 +131,7 @@
         else
         {
             trx.statusLayanan = "CANCEL";
-            //HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
+            HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
             OnClick.InvokeAsync("default");
         }
     }
@@ -134,7 +162,7 @@
         await Task.Delay(100);
         try
         {
-            await EDCClearBuffer("1200");
+            //await EDCClearBuffer("1200");
             await EDC("11");
         }
         catch (Exception ex)
@@ -201,7 +229,7 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             trx.statusLayanan = "CANCEL";
-            //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
+            HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
             isLoop = false;
             serialPort.Close();
             trx.setErrorService("IEC", "Open Serial EDC Failed");
@@ -210,6 +238,9 @@
 
         Utility.WriteLog("Home condition : EDC serial port write", "step-action");
         serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+        isLoading = false;
+        await Task.Delay(100);
+        StateHasChanged();
 
         while (isLoop)
         {
@@ -221,7 +252,7 @@
             Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
-                Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+                //Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
                 Console.WriteLine("Data Current: " + dataCurrent);
@@ -231,13 +262,14 @@
                     dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
                     byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
                     int intBuffer = buffer[4];
-                    if(buffer[4] == 0x30 && buffer[5] == 0x30 && buffer[6] == 0x30 && buffer[7] == 0x30)
+                    if (buffer[4] == 0x30 && buffer[5] == 0x30 && buffer[6] == 0x30 && buffer[7] == 0x30)
                     {
                         trx.nomerKartu = dataSplit.Substring(10, 16);
                         Console.WriteLine(trx.nomerKartu);
                         isComplete = true;
                         break;
-                    }else
+                    }
+                    else
                     {
                         isCancel = true;
                         break;

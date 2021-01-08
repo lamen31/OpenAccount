@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -22,8 +22,6 @@
   <ItemGroup>
     <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.7.0" />
     <PackageReference Include="NodaTimePicker" Version="0.7.0" />
-    <PackageReference Include="Pdfium.Net.SDK" Version="4.37.2704" />
-    <PackageReference Include="PdfiumViewer" Version="2.13.0" />
     <PackageReference Include="Radzen.Blazor" Version="2.18.2" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />

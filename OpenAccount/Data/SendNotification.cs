@@ -191,5 +191,6 @@ namespace OpenAccount.Data
         public string jenisTransaksi { get; set; }
         public string produk { get; set; }
         public string divisi { get; set; }
+        public string statusTransaksi { get; set; }
     }
 }

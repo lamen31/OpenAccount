@@ -88,7 +88,27 @@
                 </div>
                 <div style="text-align: center; color: rgb(255, 255, 255);">
                     <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
-                    <h3>Sedang dalam proses...</h3>
+                    <h3>Data kartu anda sedang dibaca...</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+@if (isReadPin)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Data anda sedang dibaca...</h3>
                 </div>
 
             </div>
@@ -123,6 +143,8 @@
     private bool isLoading = true;
     private bool isBlocked = false;
     private bool isFailed = false;
+    private bool isAccountInquiry = false;
+    private bool isReadPin = false;
     private int tryLimit = 3;
 
     private void CancelEDC()
@@ -160,7 +182,7 @@
             await Task.Delay(100);
             try
             {
-                await EDC("1220");
+                await EDC("12");
                 if (isComplete)
                 {
                     await CekPin();
@@ -175,9 +197,12 @@
                         if (isInquiry)
                         {
                             await ServiceRekening();
-                            await InquiryCIFByAcct();
-                            OnClick.InvokeAsync("newhome");
-                            return;
+                            if (isAccountInquiry)
+                            {
+                                await InquiryCIFByAcct();
+                                OnClick.InvokeAsync("newhome");
+                                return;
+                            }
                         }
                         else
                         {
@@ -447,6 +472,9 @@
                     int intBuffer = buffer[4];
                     if (strpin.Length == 6)
                     {
+                        isReadPin = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
                         trx.pinBlock = dataSplit.Substring(4, 16);
                         //Console.WriteLine(trx.pinBlock);
                         isEDC = false;
@@ -471,7 +499,7 @@
                             Utility.WriteLog("Home condition : EDC pin enter", "step-action");
                             break;
                         case 88: //Cancel
-                            //Console.WriteLine(strpin);
+                                 //Console.WriteLine(strpin);
                             isCancel = true;
                             isComplete = false;
                             isTimeOut = false;
@@ -480,7 +508,7 @@
                             Utility.WriteLog("Home condition : EDC pin cancel", "step-action");
                             break;
                         case 84: //Timeout
-                            //Console.WriteLine(strpin);
+                                 //Console.WriteLine(strpin);
                             isTimeOut = true;
                             isLoop = false;
                             isComplete = false;
@@ -488,11 +516,28 @@
                             await Task.Delay(100);
                             break;
                         case 67:
-                            strpin = string.Empty;
-                            strpinMask = string.Empty;
+                            //if (strpin == string.Empty || strpinMask == string.Empty)
+                            //{
+                            //    isCancel = true;
+                            //    isComplete = false;
+                            //    isTimeOut = false;
+                            //    isLoop = false;
+                            //    await Task.Delay(100);
+                            //}
+                            //else
+                            //{
+                            //    strpin = string.Empty;
+                            //    strpinMask = string.Empty;
+                            //}
+
+                            if (strpin.Length > 0 && strpinMask.Length > 0)
+                            {
+                                strpin = string.Empty;
+                                strpinMask = string.Empty;
+                            }
                             Utility.WriteLog("Home condition : EDC pin clear", "step-action");
                             break;
-                        case 32:
+                        case 16:
                             if (strpin.Length < 7)
                             {
                                 strpin = strpin + "0";
@@ -764,27 +809,38 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
+                        if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
+                        {
+                            isTimeOut = true;
+                            errorcode = "CARD DISABLE";
+                            errormessage = "Card has disabled";
+                            trx.setErrorService(errorcode, errormessage);
+                            isInquiry = false;
+                            OnClick.InvokeAsync("error");
+                            return;
+                        }
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
 
                         string kodeAccount = trx._AccountNumber.Substring(12, 2);
                         if (kodeAccount == "30")
-                            trx._AccountProductType = "Giro";
+                            trx._AccountProductType = "GIRO";
                         else if (kodeAccount == "40")
-                            trx._AccountProductType = "Deposito";
+                            trx._AccountProductType = "DEPOSITO";
                         else if (kodeAccount == "50")
-                            trx._AccountProductType = "BritAma";
+                            trx._AccountProductType = "BRITAMA";
                         else if (kodeAccount == "51")
-                            trx._AccountProductType = "Tab. Haji";
+                            trx._AccountProductType = "TAB. HAJI";
                         else if (kodeAccount == "53")
-                            trx._AccountProductType = "Simpedes";
+                            trx._AccountProductType = "SIMPEDES";
                         else if (kodeAccount == "64")
                             trx._AccountProductType = "CN";
                         else if (kodeAccount == "65")
-                            trx._AccountProductType = "Transfer";
+                            trx._AccountProductType = "TRANSFER";
                         else if (kodeAccount == "80")
                             trx._AccountProductType = "RTGS";
                         else if (kodeAccount == "99")
-                            trx._AccountProductType = "Internal Account";
+                            trx._AccountProductType = "INTERNAL ACCOUNT";
                         string valuta = trx._AccountNumber.Substring(4, 2);
                         if (valuta == "01")
                             trx.acctCurr = "IDR";
@@ -939,6 +995,7 @@
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
                         trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         isData = true;
+                        isAccountInquiry = true;
                         await Task.Delay(100);
                         StateHasChanged();
                     }

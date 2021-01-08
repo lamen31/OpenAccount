@@ -225,13 +225,13 @@
             isTimer = true;
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());
-            if (isTime && isTimer)
+            if (isTime && isTimeOut)
             {
                 isTimeOut = true;
                 await Task.Delay(100);
                 StateHasChanged();
                 await Task.Delay(2000);
-                isTimer = false;
+                isTime = false;
                 OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
@@ -292,6 +292,7 @@
     private async Task Kembali()
     {
         isTimer = false;
+        isTimeOut = true;
         OnClick.InvokeAsync("historiPilih");
     }
 
@@ -335,24 +336,56 @@
         {
             if (Int32.Parse(year) % 4 == 0)
             {
-                trx.endDate = valueDD + "29";
-                trx.endDT = value3.Value.AddDays(28);
+                if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 29)
+                {
+                    trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                    trx.endDT = DateTime.Now;
+                }
+                else
+                {
+                    trx.endDate = valueDD + "29";
+                    trx.endDT = value3.Value.AddDays(28);
+                }
             }
             else
             {
-                trx.endDate = valueDD + "28";
-                trx.endDT = value3.Value.AddDays(27);
+                if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 28)
+                {
+                    trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                    trx.endDT = DateTime.Now;
+                }
+                else
+                {
+                    trx.endDate = valueDD + "28";
+                    trx.endDT = value3.Value.AddDays(27);
+                }
             }
         }
         else if (month == "01" || month == "03" || month == "05" || month == "07" || month == "08" || month == "10" || month == "12")
         {
-            trx.endDate = valueDD + "31";
-            trx.endDT = value3.Value.AddDays(30);
+            if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 31)
+            {
+                trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                trx.endDT = DateTime.Now;
+            }
+            else
+            {
+                trx.endDate = valueDD + "31";
+                trx.endDT = value3.Value.AddDays(30);
+            }
         }
         else if (month == "04" || month == "06" || month == "09" || month == "11")
         {
-            trx.endDate = valueDD + "30";
-            trx.endDT = value3.Value.AddDays(29);
+            if (DateTime.Now.Month == value3.Value.Month && DateTime.Now.Year == value3.Value.Year && DateTime.Now.Day < 30)
+            {
+                trx.endDate = valueDD + DateTime.Now.ToString("dd");
+                trx.endDT = DateTime.Now;
+            }
+            else
+            {
+                trx.endDate = valueDD + "30";
+                trx.endDT = value3.Value.AddDays(29);
+            }
         }
     }
 
@@ -395,6 +428,7 @@
     {
         OnChange();
         AddMonthly();
+        trx._AccountNumber = trx._AccountNumber2;
     }
 
     async Task dateEndAdd()
@@ -480,6 +514,7 @@
         string errorcode;
         string errormessage;
         isRead = true;
+        isTimeOut = true;
         trx._listMonthly.Clear();
         //trx._AccountNumber = "008301031142500";
         try
@@ -531,6 +566,8 @@
                         start = DateTime.Now.AddDays(1);
                         end = DateTime.Now.AddDays(1);
                         isTimer = false;
+                        isTimeOut = true;
+                        trx.externalID = (string)jobResult["externalId"];
                         //OnClick.InvokeAsync("konfirmasimonthly");
                         OnClick.InvokeAsync("historiPilihMetode");
                     }
@@ -538,12 +575,13 @@
                     {
                         isRead = false;
                         isTimeOut = true;
+                        isTimer = false;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
-                        isTimer = false;
                         OnClick.InvokeAsync("error");
                     }
                 }
@@ -551,24 +589,24 @@
             catch (Exception ex)
             {
                 isTimeOut = true;
+                isTimer = false;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-                isTimer = false;
                 OnClick.InvokeAsync("error");
             }
         }
         catch (Exception ex)
         {
             isTimeOut = true;
+            isTimer = false;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
             HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
-            isTimer = false;
             OnClick.InvokeAsync("error");
         }
     }
