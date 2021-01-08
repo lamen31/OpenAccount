@@ -25,7 +25,7 @@ namespace Print_PDF
             this.Hide();
             PdfDocument doc = new PdfDocument();
             doc.LoadFromFile(@"c:\Test\testpdf.pdf");
-            doc.PrinterName = "Brother HL-L5100DN Series";
+            doc.PrintSettings.PrinterName = "Brother HL-L5100DN Series";
 
             PrintDocument printdoc = new PrintDocument();
 
