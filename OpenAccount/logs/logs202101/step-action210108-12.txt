@@ -1,0 +1,32 @@
+20210108 12:43:32 Home condition : clear transaksi success
+20210108 12:43:32 Home condition : clear transaction log success
+20210108 12:43:32 Home condition : clear array success
+20210108 12:43:32 Home condition : clear array nasabah success
+20210108 12:43:32 Home condition : clear list success
+20210108 12:43:32 Home condition : clear transaksi baru success
+20210108 12:43:32 Home condition : clear transaksi success
+20210108 12:43:32 Home condition : clear transaction log success
+20210108 12:43:32 Home condition : clear array success
+20210108 12:43:32 Home condition : clear array nasabah success
+20210108 12:43:32 Home condition : clear list success
+20210108 12:43:32 Home condition : EDC serial port close
+20210108 12:43:32 Home condition : EDC serial port open
+20210108 12:43:32 Home condition : EDC error --> Could not find file 'COM3'.
+20210108 12:43:32 Home condition : EDC serial port write
+20210108 12:43:32 Home condition : EDC error --> The port is closed.
+20210108 12:43:33 Home condition : clear transaksi success
+20210108 12:43:33 Home condition : clear transaction log success
+20210108 12:43:33 Home condition : clear array success
+20210108 12:43:33 Home condition : clear array nasabah success
+20210108 12:43:33 Home condition : clear list success
+20210108 12:43:33 Home condition : clear transaksi baru success
+20210108 12:43:33 Home condition : clear transaksi success
+20210108 12:43:33 Home condition : clear transaction log success
+20210108 12:43:33 Home condition : clear array success
+20210108 12:43:33 Home condition : clear array nasabah success
+20210108 12:43:33 Home condition : clear list success
+20210108 12:43:33 Home condition : EDC serial port close
+20210108 12:43:33 Home condition : EDC serial port open
+20210108 12:43:34 Home condition : EDC error --> Could not find file 'COM3'.
+20210108 12:43:34 Home condition : EDC serial port write
+20210108 12:43:34 Home condition : EDC error --> The port is closed.

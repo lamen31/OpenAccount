@@ -1,8 +1,10 @@
-﻿using Spire.Pdf;
+﻿using Microsoft.Win32;
+using Spire.Pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -25,8 +27,8 @@ namespace Print_PDF
             this.Hide();
             //var doc = PdfDocument.Load(@"c:\Test\testpdf.pdf");
             //var printDoc = new PdfPrintDocument(doc);
-            PdfDocument doc = new PdfDocument();
-            doc.LoadFromFile(@"c:\Test\testpdf.pdf");
+            //PdfDocument doc = new PdfDocument();
+            //doc.LoadFromFile(@"c:\Test\testpdf.pdf");
             //PrintController printController = new StandardPrintController();
             //printDoc.PrintController = printController;
             //printDoc.PrinterSettings.PrinterName = "Brother HL-L2360D series";
@@ -47,11 +49,23 @@ namespace Print_PDF
             //    PrintDocument printDoc = doc.PrintDocument;
             //    printDoc.Print();
             //}
-            doc.PrintSettings.PrintController = new StandardPrintController();
-            doc.PrinterName = "Brother HL-L5100DN Series";
-            PrintDocument printdoc = doc.PrintDocument;
-            printdoc.PrintController = new StandardPrintController();
-            printdoc.Print();
+            //doc.PrintSettings.PrintController = new StandardPrintController();
+            //doc.PrinterName = "Brother HL-L5100DN Series";
+            //PrintDocument printdoc = doc.PrintDocument;
+            //printdoc.PrintController = new StandardPrintController();
+            //printdoc.Print();
+            string pathToPdf = @"c:\Test\testpdf.pdf";
+            string printerName = "Brother HL-L2360D series";
+
+            var exePath = Registry.LocalMachine.OpenSubKey(
+            @"SOFTWARE\Microsoft\Windows\CurrentVersion" +
+            @"\App Paths\SumatraPDF.exe").GetValue("").ToString();
+
+            var args = $"-print-to \"{printerName}\" {pathToPdf}";
+
+            var process = Process.Start(exePath, args);
+            process.WaitForExit();
+
             this.Close();
         }
     }
