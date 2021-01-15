@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Printing;
 
-namespace printserverapplication
+namespace PrintServerA4
 {
     class Program
     {
@@ -71,7 +71,7 @@ namespace printserverapplication
                         Environment.Exit(3);
                         break;
                     }
-                    
+
                     if ((pq.QueueStatus & PrintQueueStatus.PaperJam) == PrintQueueStatus.PaperJam)
                     {
                         Console.WriteLine("PRINTER HAS A PAPER JAM");

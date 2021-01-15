@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormSignPad", "FormSignPad\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Print PDF", "Print PDF\Print PDF.csproj", "{9D5F1D9F-D12F-486D-AEC7-70F83657CA63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintServerA4", "PrintServerA4\PrintServerA4.csproj", "{D56A8843-0C25-41D0-9E16-AF2794873ADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9D5F1D9F-D12F-486D-AEC7-70F83657CA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D5F1D9F-D12F-486D-AEC7-70F83657CA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D5F1D9F-D12F-486D-AEC7-70F83657CA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56A8843-0C25-41D0-9E16-AF2794873ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56A8843-0C25-41D0-9E16-AF2794873ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56A8843-0C25-41D0-9E16-AF2794873ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56A8843-0C25-41D0-9E16-AF2794873ADB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

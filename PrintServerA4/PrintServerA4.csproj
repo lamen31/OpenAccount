@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3D4F6F2-3CC7-41AD-9417-76FB3F3DFC0C}</ProjectGuid>
+    <ProjectGuid>{D56A8843-0C25-41D0-9E16-AF2794873ADB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>printserverthermalapplication</RootNamespace>
-    <AssemblyName>printserverthermalapplication</AssemblyName>
+    <RootNamespace>PrintServerA4</RootNamespace>
+    <AssemblyName>PrintServerA4</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,7 +37,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+      <HintPath>..\packages\System.Drawing.Common.5.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Printing" />
     <Reference Include="System.Xml.Linq" />

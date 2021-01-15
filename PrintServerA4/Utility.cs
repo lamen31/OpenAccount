@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace printserverthermalapplication
+namespace PrintServerA4
 {
     class Utility
     {
