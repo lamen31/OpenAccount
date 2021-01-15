@@ -11,8 +11,7 @@
                 <div>
                     <teks style="color: #FF0000; font-weight: 900;">Mohon Maaf,</teks>
                     <h3 style="margin-top: 5%; font-size: 25px; font-weight: 600; line-height: 40px;">
-                        Nomor PIN yang Anda Masukkan Salah <br>
-                        Untuk Keamanan, Kartu Anda Kami Blokir
+                        Kartu Anda Telah Terblokir
                     </h3>
                     <h3 style="color: #00529C; margin-top: 10%; font-size: 25px; line-height: 40px;">"Harap menghubungi <b>Customer Service</b><br> untuk info lebih lanjut"</h3>
                 </div>
@@ -39,8 +38,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(3000);
+        await Task.Delay(10000);
         Utility.WriteLog("Blokir kartu condition : move to landing page", "step-action");
-        OnClick.InvokeAsync("ambilkartu");
+        OnClick.InvokeAsync("default");
     }
 }

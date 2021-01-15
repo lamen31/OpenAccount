@@ -1,15 +1,19 @@
 ﻿@page "/"
 
-@using OpenAccount.Component 
+@using OpenAccount.Component
 @using OpenAccount.Component.HistoriTransaksi
 @using OpenAccount.Component.BukuTabungan
 @using OpenAccount.Component.BukaRekening
 @using OpenAccount.Component.GantiKartu
-@using OpenAccount.Component.GantiPin 
+@using OpenAccount.Component.GantiPin
 @using OpenAccount.Data
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 
 @inject Transaksi trx
 @inject TransaksiBaru trxbaru
+@inject Reports report
+@inject Config config
 
 <div class="wrapper">
     <div class="main-panel">
@@ -44,9 +48,9 @@
                             </p>
                         </div>
                         <!-- <div class="clock-col">
-                      <p id="date" class="clock-timer">
-                      </p>
-                    </div> -->
+                          <p id="date" class="clock-timer">
+                          </p>
+                        </div> -->
                         <div class="clock-col">
                             <p class="clock-hours clock-timer">
                             </p>
@@ -131,7 +135,7 @@
                     break;
                 }
             case "gantikartuberhasil":
-                { 
+                {
                     <GantiKartuBerhasilComponent OnClick="ClickHandler"></GantiKartuBerhasilComponent>
                     break;
                 }
@@ -321,7 +325,7 @@
                     break;
                 }
             case "bukuinputdata":
-                { 
+                {
                     <BukuInputDataComponent OnClick="ClickHandler"></BukuInputDataComponent>
                     break;
                 }
@@ -333,7 +337,7 @@
             case "bukuhalamanpenuh":
                 {
                     <BukuHalamanPenuhComponent OnClick="ClickHandler"></BukuHalamanPenuhComponent>
-                    break;  
+                    break;
                 }
             case "bukuberhasil":
                 {
@@ -341,7 +345,7 @@
                     break;
                 }
             case "bukupenuh":
-                { 
+                {
                     <BukuPenuhComponent OnClick="ClickHandler"></BukuPenuhComponent>
                     break;
                 }
@@ -354,7 +358,7 @@
                 {
                     <HistoriTransaksiComponent OnClick="ClickHandler"></HistoriTransaksiComponent>
                     break;
-}
+                }
             case "historiInputPin":
                 {
                     <HistoriInputPinComponent OnClick="ClickHandler"></HistoriInputPinComponent>
@@ -363,6 +367,11 @@
             case "historiPilih":
                 {
                     <HistoriPilihComponent OnClick="ClickHandler"></HistoriPilihComponent>
+                    break;
+                }
+            case "historiPilihMetode":
+                {
+                    <HistoriPilihMetodeComponent OnClick="ClickHandler"></HistoriPilihMetodeComponent>
                     break;
                 }
             case "historiBulanBerjalan":
@@ -417,7 +426,7 @@
                 }
             case "inputpin":
                 {
-                   <InputPinComponent OnClick="ClickHandler"></InputPinComponent>
+                    <InputPinComponent OnClick="ClickHandler"></InputPinComponent>
                     break;
                 }
             case "newhome":
@@ -460,9 +469,62 @@
                     <KonfirmasiRekeningComponent OnClick="ClickHandler"></KonfirmasiRekeningComponent>
                     break;
                 }
+            case "monthlystatement":
+                {
+                    <MonthlyStatement OnClick="ClickHandler"></MonthlyStatement>
+                    break;
+                }
+            case "konfirmasimonthly":
+                {
+                    <KonfirmasiMonthlyStatement OnClick="ClickHandler"></KonfirmasiMonthlyStatement>
+                    break;
+                }
+            case "kartusalah":
+                {
+                    <KartuSalah OnClick="ClickHandler"></KartuSalah>
+                    break;
+                }
+            case "konfirmasiawal":
+                {
+                    <KonfirmasiNoRekening OnClick="ClickHandler"></KonfirmasiNoRekening>
+                    break;
+                }
+            case "konfirmasitimeout":
+                {
+                    <KonfirmasiTimeOut OnClick="ClickHandler"></KonfirmasiTimeOut>
+                    break;
+                }
+            case "historiberhasilmonthly":
+                {
+                    <HistoriBerhasilComponentMonthly OnClick="ClickHandler"></HistoriBerhasilComponentMonthly>
+                    break;
+                }
+            case "historiberhasilmonthlyemail":
+                {
+                    <HistoriBerhasilComponentMonthlyEmail OnClick="ClickHandler"></HistoriBerhasilComponentMonthlyEmail>
+                    break;
+                }
+            case "konfirmasinorekmonthly":
+                {
+                    <KonfirmasiNoRekeningMonthly OnClick="ClickHandler"></KonfirmasiNoRekeningMonthly>
+                    break;
+                }
+            case "inputpinmonthly":
+                {
+                    <InputPinMonthly OnClick="ClickHandler"></InputPinMonthly>
+                    break;
+                }
+            case "report":
+                {
+                    <ReportComponent OnClick="ClickHandler"></ReportComponent>
+                    break;
+                }
             default:
                 {
                     <LandingPage2Component OnClick="ClickHandler"></LandingPage2Component>
+                    //<NewHomeComponent OnClick="ClickHandler"></NewHomeComponent>
+                    //<KonfirmasiMonthlyStatement OnClick="ClickHandler"></KonfirmasiMonthlyStatement>
+                    //<HistoriPilihMetodeComponent OnClick="ClickHandler"></HistoriPilihMetodeComponent>
                     break;
                 }
         }
@@ -473,6 +535,7 @@
 @code{
     private string message = string.Empty;
     private string language = "ID";
+    private int clickcount = 0;
 
     protected override async Task OnInitializedAsync()
     {
@@ -488,6 +551,43 @@
         Utility.WriteLog("Home condition : clear list success", "step-action");
         trxbaru.clear();
         Utility.WriteLog("Home condition : clear transaksi baru success", "step-action");
+    }
+
+    private async Task testOnclik()
+    {
+        //if (DateTime.Now.Hour > 15 || DateTime.Now.Hour < 7)
+        //{
+        //trx.clearReport();
+        //if (trx.isSendReport)
+        //{
+        //await report.createReportCSV();
+        //trx.reportAttachment = report.CSVName;
+        //trx.reportPath = report.CSVPath;
+        //trx.isSendReport = false;
+        //string result = await HitServices.SendEmailReport(trx, config);
+        //await Task.Delay(3000);
+        //JObject jobResult = JObject.Parse(result);
+        //if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+        //{
+        //    Console.WriteLine("SEND REPORT SUCCESS");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("SEND REPORT FAILED");
+        //}
+        //}
+        //    }
+        //else
+        //{
+        //    isSendReport = true;
+        //}
+    }
+
+    private async Task Report()
+    {
+        clickcount += 1;
+        if (clickcount == 3)
+            message = "report";
     }
 
     void ClickHandler(string strmessage)

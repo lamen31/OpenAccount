@@ -1,0 +1,118 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Transaksi trx
+@inject Config config
+@inject HitLog hitlog
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="position: fixed;" @onclick="ResetTimer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" style="text-align: center;">
+                <div>
+                    <img src="./assets/img/Folder SVG/konfirmasi-timeout.svg" style="width: 30%;"><br>
+                    <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                        Waktu Anda Telah Habis,<br> Apakah Anda Ingin Tambahan Waktu ?<br />
+                    </teks>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" @onclick="Kembali" class="btn btn-primary" style="background-color: #4E4E4E;">TIDAK</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button @onclick="Lanjut" type="button" class="btn btn-primary" style="float: right;">YA</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    private async Task Kembali()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        //trx.statusLayanan = "CANCEL";
+        //HitLog.SendLog(trx, config, "KONFIRMASI TIMEOUT: Konfirmasi Timeout");
+        OnClick.InvokeAsync("default");
+        return;
+    }
+    private async Task Lanjut()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        OnClick.InvokeAsync(trx.timeOut);
+        return;
+    }
+
+    private string nomerRek = string.Empty;
+    private string errorcode = string.Empty;
+    private string errormessage = string.Empty;
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            //trx.timeOut = "default";
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimer)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTimer = false;
+                Console.WriteLine("TimeOut Konfirmasi Time Out");
+                //trx.statusLayanan = "CANCEL";
+                //HitLog.SendLog(trx, config, "KONFIRMASI TIMEOUT: Konfirmasi Timeout");
+                OnClick.InvokeAsync("default");
+                return;
+            }
+        }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(100);
+        StateHasChanged();
+
+    }
+}

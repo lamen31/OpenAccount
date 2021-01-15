@@ -16,7 +16,7 @@
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
                     <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
-                    <teks>Hello, @trx._Nasabah[0]</teks>
+                    <teks>Hello, @trx.namaNasabah</teks>
                     <h3 style="color: #00529C; margin-right: -2rem;">Anda akan Mencetak  Histori Transaksi pada</h3><br>
                     <div style="margin-top:5%;">
                         <h3 style="color: #00529C;"><b>Sepuluh Transaksi Terakhir</b></h3>
@@ -171,7 +171,7 @@
     private int tempjumlahtransaksi;
     private string noRekening = "008301031142500";
     private TimeSpan span;
-    private int overtime = 60000;
+    private int overtime = 1800000;
     private bool isTimeOut = false;
     private bool isTime = false;
     private DateTime starttime;
@@ -284,7 +284,7 @@
     private async Task ServiceThermal()
     {
         string myJson = "{" +
-        "\"acct_no\":\"" + trx._Nasabah[1] + "\"" +
+        "\"acct_no\":\"" + trx._AccountNumber + "\"" +
         "}";
         string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
         string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);

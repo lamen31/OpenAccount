@@ -129,9 +129,58 @@
     private bool isBaris = false;
     private int ClickCount = 0;
 
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            trx.timeOut = "bukuhalamanpenuh";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimer)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTimer = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+                return;
+            }
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await CheckRekening();
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Buku condition : set account number " + trx._AccountNumber + " on Buku Halaman Penuh", "step-action");
     }
 
     private async Task CheckRekening()
@@ -139,15 +188,15 @@
         string producttype = trx._AccountProductType;
         switch (producttype)
         {
-            case "Britama":
+            case "BRITAMA":
                 isBisnis = false;
                 isSimpedes = false;
                 break;
-            case "Britama Bisnis":
+            case "BISNIS":
                 isBisnis = true;
                 isSimpedes = false;
                 break;
-            case "Simpedes":
+            case "SIMPEDES":
                 isSimpedes = true;
                 isBisnis = false;
                 break;
@@ -156,6 +205,8 @@
 
     private async Task LanjutCetak()
     {
+        isTimeOut = true;
+        isTimer = false;
         ClickCount += 1;
         tempmaxbaris = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARIS);
         maxbaris = Convert.ToInt32(tempmaxbaris);
@@ -206,8 +257,16 @@
                     trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
                     Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                    //loading by nana
+                    isVisible = !isVisible;
+                    await Task.Delay(7000);
+                    StateHasChanged();
+
                     Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                     //await Task.Delay(10000);
+                    isTimeOut = true;
+                    isTimer = false;
                     Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
                     OnClick.InvokeAsync("bukuberhasil");
                     break;
@@ -238,6 +297,12 @@
                     startindex = startindex + maxbaris;
                     Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                     saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                    //loading by nana
+                    isVisible = !isVisible;
+                    await Task.Delay(7000);
+                    StateHasChanged();
+
                     Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                     jmlhalaman += 1;
                     //await Task.Delay(10000);
@@ -290,6 +355,8 @@
                     Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                     //await Task.Delay(10000);
                     Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+                    isTimer = false;
+                    isTimeOut = true;
                     OnClick.InvokeAsync("bukuberhasil");
                     break;
                 }
@@ -431,6 +498,9 @@
 
     private async Task BukuHabis()
     {
+        isTimeOut = true;
+        isTimer = false;
         OnClick.InvokeAsync("bukupenuh");
+        return;
     }
 }

@@ -1,0 +1,1128 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO.Ports
+@using System.Text;
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
+@inject Config config
+@inject Transaksi trx
+@inject Utility utility
+@inject EDC edc
+<!-- ======= Hero Section ======= -->
+<section id="hero" style="position: fixed;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    @*<span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>*@
+                    <teks>Silakan Masukkan PIN Anda</teks>
+                    <h3 style="color: #00529C; font-size: 25px;">Setelah Ada Perintah Input Pin Pada Layar EDC</h3>
+                    @*<input type="password" class="form-control" placeholder="Masukan Pin Anda" @bind="strpin">*@
+                    <teks style="align-content:center">@strpinMask</teks>
+                    @if (isSalah)
+                    {
+                <h3 style="color: #ff0000; font-size: 20px; margin-top:20%;">PIN yang anda masukan <b>SALAH</b>.</h3>
+                                <h3 style="color: #ff0000; font-size: 20px; font-style:italic">Kesempatan mencoba @tryLimit.ToString()x lagi</h3>}
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder GIF/enter-pin2.gif" class="img-fluid" alt="" style="margin-top: 1%; width: 60%">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressHome" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <button type="button" class="btn btn-primary" style="float: right;">Lanjut</button> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@if (isLoading)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Data kartu anda sedang dibaca...</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+@if (isReadPin)
+{
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.733);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: transparent;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-white" role="status" style="padding:0.5rem; margin-top: 5%;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <!-- <img src="../assets/img/Spinner.gif"> -->
+                </div>
+                <div style="text-align: center; color: rgb(255, 255, 255);">
+                    <h3 class="teks" style="margin-top: 5%;">Mohon tunggu,</h3>
+                    <h3>Data anda sedang dibaca...</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string[] Nasabah = new string[3];
+    private string pinNasabah = string.Empty;
+    private string strpin = string.Empty;
+    private string strpinMask = string.Empty;
+    private SerialPort sPort = new SerialPort();
+    private bool isLoop = true;
+    private bool isCancel = false;
+    private bool isValid = false;
+    private bool isInvalid = false;
+    private bool isSalah = false;
+    private bool isEDC = false;
+    private bool isComplete = false;
+    private bool isCIF = false;
+    private bool isInquiry = false;
+    private bool isTrue = false;
+    private bool isRead = false;
+    private bool isTimeOut = false;
+    private bool isData = false;
+    private bool isKartu = false;
+    private bool isNotFound = false;
+    private bool isLoading = true;
+    private bool isBlocked = false;
+    private bool isFailed = false;
+    private bool isAccountInquiry = false;
+    private bool isCIFInquiry = false;
+    private bool isReadPin = false;
+    private int tryLimit = 3;
+
+    private TimeSpan span;
+    private int overtime = 30000;
+    private bool istimeout = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    private void CancelEDC()
+    {
+        //isCancel = true;
+        //isLoop = false;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(100);
+        trx.timeOut = "inputpinmonthly";
+
+        isEDC = true;
+        await InputPin();
+
+        //await Task.Delay(5000);
+        //Console.WriteLine("INPUT PIN SUCCESS");
+        //Utility.WriteLog("Home condition : input pin success", "step-action");
+
+        //Console.WriteLine("INPUT DATA SUCCESS");
+        //Utility.WriteLog("Home condition : input data " + Nasabah[0].ToString() + " success", "step-action");
+        //trx.setArrayNasabah(Nasabah);
+        //OnClick.InvokeAsync("newhome");
+
+        //isEDC = true;
+        //await InputPin();
+    }
+
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                istimeout = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    private async Task InputPin()
+    {
+        while (isEDC)
+        {
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                await EDC("12");
+                if (isComplete)
+                {
+                    //isTimer = true;
+                    //starttime = DateTime.Now;
+                    //await Task.Run(() => IdleTime());
+                    //if (isTime && isTimer)
+                    //{
+                    //    string errormessage = "Service Pin Time Out";
+                    //    string errorcode = "SERVICE-TIME-OUT";
+                    //    trx.setErrorService(errorcode, errorcode);
+                    //    istimeout = true;
+                    //    await Task.Delay(100);
+                    //    StateHasChanged();
+                    //    await Task.Delay(2000);
+                    //    isTimer = false;
+                    //    OnClick.InvokeAsync("error");
+                    //    return;
+                    //}
+
+                    await CekPin();
+                    //isValid = true;
+                    //isInvalid = true;
+                    //trx.nomerKartu = "6013014700000139";
+                    if (isValid)
+                    {
+                        //await EDCClearBuffer("1200");
+                        await InquiryByCardNo();
+                        //isInquiry = true;
+                        if (isInquiry)
+                        {
+                            await InquiryCIFByAcct();
+                            if (isCIFInquiry)
+                            {
+                                istimeout = true;
+                                isTimer = false;
+                                trx._AccountNumber2 = trx._AccountNumber;
+                                OnClick.InvokeAsync("newhome");
+                                return;
+                            }
+                            else
+                            {
+                                await ServiceRekening();
+                                if (isAccountInquiry)
+                                {
+                                    istimeout = true;
+                                    isTimer = false;
+                                    trx._AccountNumber2 = trx._AccountNumber;
+                                    OnClick.InvokeAsync("newhome");
+                                    return;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            OnClick.InvokeAsync("error");
+                            return;
+                        }
+                    }
+                    else if (isInvalid)
+                    {
+                        isSalah = true;
+                        strpin = string.Empty;
+                        strpinMask = string.Empty;
+                        tryLimit -= 1;
+                        if (tryLimit > 0)
+                        {
+                            isEDC = true;
+                            //await InputPin();
+                        }
+                        else
+                        {
+                            isSalah = false;
+                            OnClick.InvokeAsync("blokirkartu");
+                            return;
+                        }
+                    }
+                    else if (isNotFound)
+                    {
+                        OnClick.InvokeAsync("rekeningnotfound");
+                        return;
+                    }
+                    else if (isBlocked)
+                    {
+                        isSalah = false;
+                        OnClick.InvokeAsync("blokirkartu");
+                        return;
+                    }
+                    //OnClick.InvokeAsync("newhome");
+                }
+                //else if (!isCancel)
+                //{
+                //    trx.AddTrail("INPUT PIN EDC", strpin, "SUCCESS");
+                //    pinNasabah = config.Read("NASABAH", Config.PARAM_PIN_NASABAH);
+                //}
+                else if (isCancel)
+                {
+                    trx.AddTrail("INPUT PIN EDC", "", "CANCELED");
+                    isEDC = false;
+                    Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
+                    //trx.statusLayanan = "CANCEL";
+                    //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: User Cancel Transaction");
+                    OnClick.InvokeAsync("ambilkartu");
+                    break;
+                }
+                else if (isTimeOut)
+                {
+                    isEDC = false;
+                    OnClick.InvokeAsync("konfirmasitimeout");
+                    break;
+                }
+                else if (isFailed)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+                //trx.statusLayanan = "ERROR";
+                //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC Error --> " + ex.Message);
+                trx.setErrorService("Exception", ex.Message);
+                OnClick.InvokeAsync("error");
+                return;
+            }
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into histori input pin", "step-action");
+        }
+    }
+
+    private async Task EDCClearBuffer(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port open", "step-action");
+            serialPort.Open();
+            trx.AddTrail("OPEN SERIAL EDC", "", "SUCCESS");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            trx.statusLayanan = "ERROR";
+            HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC Error --> " + ex.Message);
+            isLoop = false;
+            trx.setErrorService("Exception", ex.Message);
+            OnClick.InvokeAsync("error");
+        }
+
+        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        await Task.Delay(150);
+
+        dataRespond = string.Empty;
+        dataSplit = string.Empty;
+        //bool exitLoop = false;
+        //Console.WriteLine(dataRespond);
+        if (serialPort.IsOpen)
+        {
+            Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+            string dataCurrent = serialPort.ReadExisting();
+            dataRespond += dataCurrent;
+            //Console.WriteLine("Data Current Pin: " + dataCurrent);
+            //Console.WriteLine("Data Respond Pin: " + dataRespond);
+            //Console.WriteLine("Data Split Pin: " + dataSplit);
+            if (dataRespond.Contains("\x06"))
+            {
+                if (dataRespond.Length > 10)
+                {
+                    //serialPort.Close();
+                    Utility.WriteLog("Home condition : EDC ACK", "step-action");
+                }
+            }
+            else if (dataRespond.Contains("\x15"))
+            {
+                serialPort.Close();
+                Utility.WriteLog("Home condition : EDC NAK", "step-action");
+                trx.statusLayanan = "ERROR";
+                HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC NAK ");
+                trx.setErrorService("", "EDC Return NAK");
+                OnClick.InvokeAsync("error");
+            }
+        }
+        await Task.Delay(100);
+        StateHasChanged();
+
+        Console.WriteLine("2");
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+    }
+
+    private async Task EDC(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port open", "step-action");
+            serialPort.Open();
+            trx.AddTrail("OPEN SERIAL EDC", "", "SUCCESS");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            isLoop = false;
+            //trx.statusLayanan = "ERROR";
+            //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC Error --> " + ex.Message);
+            trx.setErrorService("Exception", ex.Message);
+            OnClick.InvokeAsync("error");
+            return;
+        }
+
+        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+
+        await Task.Delay(3000);
+        isLoading = false;
+
+        while (isLoop)
+        {
+            await Task.Delay(150);
+
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            //Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+                Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                //Console.WriteLine("Data Current Pin: " + dataCurrent);
+                //Console.WriteLine("Data Respond Pin: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    if (strpin.Length == 6)
+                    {
+                        isReadPin = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                        trx.pinBlock = dataSplit.Substring(4, 16);
+                        //Console.WriteLine(trx.pinBlock);
+                        isEDC = false;
+                        isLoop = false;
+                        isComplete = true;
+                        isCancel = false;
+                        isTimeOut = false;
+                        break;
+                    }
+                    switch (intBuffer)
+                    {
+                        case 69:
+                            //Console.WriteLine(strpin);
+                            if (strpin.Length == 6)
+                            {
+                                isLoop = false;
+                                await Task.Delay(100);
+                            }
+                            else
+                                continue;
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin enter", "step-action");
+                            break;
+                        case 88: //Cancel
+                                 //Console.WriteLine(strpin);
+                            isCancel = true;
+                            isComplete = false;
+                            isTimeOut = false;
+                            isLoop = false;
+                            await Task.Delay(100);
+                            Utility.WriteLog("Home condition : EDC pin cancel", "step-action");
+                            break;
+                        case 84: //Timeout
+                                 //Console.WriteLine(strpin);
+                            isTimeOut = true;
+                            isLoop = false;
+                            isComplete = false;
+                            isCancel = false;
+                            await Task.Delay(100);
+                            break;
+                        case 67:
+                            //if (strpin == string.Empty || strpinMask == string.Empty)
+                            //{
+                            //    isCancel = true;
+                            //    isComplete = false;
+                            //    isTimeOut = false;
+                            //    isLoop = false;
+                            //    await Task.Delay(100);
+                            //}
+                            //else
+                            //{
+                            //    strpin = string.Empty;
+                            //    strpinMask = string.Empty;
+                            //}
+
+                            if (strpin.Length > 0 && strpinMask.Length > 0)
+                            {
+                                strpin = string.Empty;
+                                strpinMask = string.Empty;
+                            }
+                            Utility.WriteLog("Home condition : EDC pin clear", "step-action");
+                            break;
+                        case 16:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "0";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 0", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 1:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "1";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 1", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 2:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "2";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 2", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 3:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "3";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 3", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 4:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "4";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 4", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 5:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "5";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 5", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 6:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "6";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 6", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 7:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "7";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 7", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 8:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "8";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 8", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                        case 9:
+                            if (strpin.Length < 7)
+                            {
+                                strpin = strpin + "9";
+                                strpinMask = strpinMask + "*";
+                            }
+                            //Utility.WriteLog("Home condition : " + strpin, "step-action");
+                            Utility.WriteLog("Home condition : EDC pin 9", "step-action");
+                            //Console.WriteLine(strpin);
+                            break;
+                    }
+                }
+                //Console.WriteLine("Data Split Pin: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Utility.WriteLog("Home condition : EDC ACK", "step-action");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    Utility.WriteLog("Home condition : EDC NAK", "step-action");
+                    //trx.statusLayanan = "ERROR";
+                    //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC NAK ");
+                    trx.setErrorService("", "EDC Return NAK");
+                    OnClick.InvokeAsync("error");
+                    return;
+                }
+            }
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+
+        Console.WriteLine("2");
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+    }
+    private async Task CekPin()
+    {
+        string errorcode;
+        string errormessage;
+        try
+        {
+            string myJson = "{" +
+                "\"card_no\":\"" + trx.nomerKartu + "\"," +
+            "\"pin\":\"" + trx.pinBlock + "\"" +
+            "}";
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + "inquiry/checkpin";
+            ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
+            Utility.WriteLog("Histori condition : post service start", "step-action");
+            try
+            {
+                string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                if (strResult != null)
+                {
+                    JObject jobResult = JObject.Parse(strResult);
+
+                    if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                    {
+                        isValid = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                        return;
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-25" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "25")
+                    {
+                        isNotFound = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        return;
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-EP" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "EP")
+                    {
+                        //isInvalid = true;
+                        isComplete = false;
+                        isFailed = true;
+                        isTimeOut = false;
+                        isSalah = false;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
+                        StateHasChanged();
+                        OnClick.InvokeAsync("error");
+                        return;
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "RC-38" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "38")
+                    {
+                        //isInvalid = true;
+                        isComplete = false;
+                        isFailed = false;
+                        isTimeOut = false;
+                        isSalah = false;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
+                        trx.setErrorService(errorcode, errormessage);
+                        StateHasChanged();
+                        OnClick.InvokeAsync("blokirkartu");
+                        return;
+                    }
+
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CAMS-50" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "99")
+                    {
+                        //isTimeOut = true;
+                        isInvalid = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
+                        trx.setErrorService(errorcode, errormessage);
+                        StateHasChanged();
+                        return;
+                        //OnClick.InvokeAsync("error");
+                    }
+                    else
+                    {
+                        //isTimeOut = true;
+                        isComplete = false;
+                        isFailed = false;
+                        isTimeOut = false;
+                        isSalah = false;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
+                        trx.setErrorService(errorcode, errormessage);
+                        StateHasChanged();
+                        //return;
+                        OnClick.InvokeAsync("error");
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.statusLayanan = "ERROR";
+                HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Cek Pin Error --> " + ex.Message);
+                trx.setErrorService(errorcode, errormessage);
+                OnClick.InvokeAsync("error");
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.statusLayanan = "ERROR";
+            HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Cek Pin Error --> " + ex.Message);
+            trx.setErrorService(errorcode, errormessage);
+            OnClick.InvokeAsync("error");
+            return;
+        }
+    }
+    private async Task InquiryByCardNo()
+    {
+        //trx.nomerKartu = "5221841100014660";
+        string errorcode;
+        string errormessage;
+        try
+        {
+            string myJson = "{" +
+                "\"card_no\":\"" + trx.nomerKartu + "\"" +
+            "}";
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + "inquiry/bycardno";
+            ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
+            Utility.WriteLog("Histori condition : post service start", "step-action");
+            try
+            {
+                string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                if (strResult != null)
+                {
+                    JObject jobResult = JObject.Parse(strResult);
+
+                    if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                    {
+                        string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
+                        if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
+                        {
+                            isTimeOut = true;
+                            errorcode = "CARD DISABLE";
+                            errormessage = "Card has disabled";
+                            trx.setErrorService(errorcode, errormessage);
+                            isInquiry = false;
+                            trx.statusLayanan = "ERROR";
+                            HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                            OnClick.InvokeAsync("error");
+                            return;
+                        }
+                        trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
+
+                        string kodeAccount = trx._AccountNumber.Substring(12, 2);
+                        if (kodeAccount == "30")
+                            trx._AccountProductType = "GIRO";
+                        else if (kodeAccount == "40")
+                            trx._AccountProductType = "DEPOSITO";
+                        else if (kodeAccount == "50")
+                            trx._AccountProductType = "BRITAMA";
+                        else if (kodeAccount == "51")
+                            trx._AccountProductType = "TAB. HAJI";
+                        else if (kodeAccount == "53")
+                            trx._AccountProductType = "SIMPEDES";
+                        else if (kodeAccount == "64")
+                            trx._AccountProductType = "CN";
+                        else if (kodeAccount == "65")
+                            trx._AccountProductType = "TRANSFER";
+                        else if (kodeAccount == "80")
+                            trx._AccountProductType = "RTGS";
+                        else if (kodeAccount == "99")
+                            trx._AccountProductType = "INTERNAL ACCOUNT";
+                        string valuta = trx._AccountNumber.Substring(4, 2);
+                        if (valuta == "01")
+                            trx.acctCurr = "IDR";
+                        else if (valuta == "02")
+                            trx.acctCurr = "USD";
+
+                        isInquiry = true;
+
+                        await Task.Delay(100);
+                        StateHasChanged();
+                        return;
+                    }
+                    else
+                    {
+                        isTimeOut = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry By Card No --> " + errormessage);
+                        OnClick.InvokeAsync("error");
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry By Card No --> " + errormessage);
+                OnClick.InvokeAsync("error");
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
+            trx.statusLayanan = "ERROR";
+            HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry By Card No --> " + errormessage);
+            OnClick.InvokeAsync("error");
+            return;
+        }
+    }
+    private async Task InquiryCIFByAcct()
+    {
+        string errorcode;
+        string errormessage;
+        try
+        {
+            string myJson = "{" +
+            "\"acct_no\":\"" + trx._AccountNumber + "\"" +
+            "}";
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            string myUrl = myLink + "inquiry/cifbyacct";
+
+            Utility.WriteLog("Histori condition : post service start", "step-action");
+            try
+            {
+                string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                if (strResult != null)
+                {
+                    JObject jobResult = JObject.Parse(strResult);
+
+                    if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                    {
+                        trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("CUST_NAME");
+                        trx.acctCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
+                        trx.debitCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
+                        trx.kreditCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
+                        trx._BukuSaldo = (string)jobResult["RESPONSE"].SelectToken("AVAILABLE_BAL");
+                        trx.alamat1 = (string)jobResult["RESPONSE"].SelectToken("ADDRESS1");
+                        trx.alamat2 = "RT " + (string)jobResult["RESPONSE"].SelectToken("RT_NO") + "/RW " + (string)jobResult["RESPONSE"].SelectToken("RW_NO");
+                        //trx.alamat1
+                        //trx.setArrayNasabah(Nasabah);
+                        isData = true;
+                        isCIFInquiry = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                //isError = true;
+                //isRead = false;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                //await Task.Delay(2000);
+                //isError = false;
+                //strnorek = string.Empty;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
+                OnClick.InvokeAsync("error");
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            //Console.WriteLine(ex.Message);
+            //isError = true;
+            //isRead = false;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            //await Task.Delay(2000);
+            //isError = false;
+            //strnorek = string.Empty;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
+            trx.statusLayanan = "ERROR";
+            HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
+            OnClick.InvokeAsync("error");
+            return;
+        }
+    }
+
+    private async Task ServiceRekening()
+    {
+        string errorcode;
+        string errormessage;
+        try
+        {
+            string myJson = "{" +
+                "\"remark2\":\"" + "inquiryAccountTest2" + "\"," +
+            "\"acct_no\":\"" + trx._AccountNumber + "\"" +
+            "}";
+
+            string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
+            //string myUrl = myLink + "inquiry/cifbyacct";
+
+            string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
+            //string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
+            Utility.WriteLog("Histori condition : post service start", "step-action");
+            try
+            {
+                string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                if (strResult != null)
+                {
+                    JObject jobResult = JObject.Parse(strResult);
+
+                    if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
+                    {
+                        trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
+                        trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
+                        isData = true;
+                        isAccountInquiry = true;
+                        await Task.Delay(100);
+                        StateHasChanged();
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                //isError = true;
+                //isRead = false;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                //await Task.Delay(2000);
+                //isError = false;
+                //strnorek = string.Empty;
+                //await Task.Delay(100);
+                //StateHasChanged();
+                isTimeOut = true;
+                errorcode = "Exception";
+                errormessage = ex.Message;
+                trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Service Rekening --> " + errormessage);
+                OnClick.InvokeAsync("error");
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            //Console.WriteLine(ex.Message);
+            //isError = true;
+            //isRead = false;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            //await Task.Delay(2000);
+            //isError = false;
+            //strnorek = string.Empty;
+            //await Task.Delay(100);
+            //StateHasChanged();
+            isTimeOut = true;
+            errorcode = "Exception";
+            errormessage = ex.Message;
+            trx.setErrorService(errorcode, errormessage);
+            trx.statusLayanan = "ERROR";
+            HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Service Rekening --> " + errormessage);
+            OnClick.InvokeAsync("error");
+            return;
+        }
+    }
+}

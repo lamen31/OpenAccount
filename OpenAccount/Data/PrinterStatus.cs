@@ -64,7 +64,7 @@ namespace OpenAccount.Data
             path = Directory.GetCurrentDirectory();
             string pathprinter = "";
             pathPrintCoba = config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_PRINTCOBA);
-            if (strnamaprinter == printername)
+            if (strnamaprinter == config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_A4))
             {
                 pathprinter = path + "\\" + config.Read("PATH", Config.PARAM_PATH_PRINTSERVER_A4);
                 workingdirectory = Path.GetDirectoryName(pathprinter);

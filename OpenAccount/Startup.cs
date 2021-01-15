@@ -42,6 +42,8 @@ namespace OpenAccount
             services.AddSingleton<HitServices>();
             services.AddScoped<EKtp>();
             services.AddSingleton<FingerPrint>();
+            services.AddSingleton<HitLog>();
+            services.AddScoped<Reports>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

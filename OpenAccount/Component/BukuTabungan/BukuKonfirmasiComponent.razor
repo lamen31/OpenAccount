@@ -9,8 +9,9 @@
 @inject Config config
 @inject Utility utility
 @inject HitServices services
+@inject HitLog hitlog
 <!-- ======= Hero Section ======= -->
-<section id="hero">
+<section id="hero" @onclick="ResetTimer">
 
     <div class="container">
         <div class="row">
@@ -223,12 +224,14 @@
     private string saldo;
     private string jumlahtransaksi;
     private int tempjumlahtransaksi;
+
     private TimeSpan span;
-    private int overtime = 90000;
+    private int overtime = 60000;
     private bool isTimeOut = false;
     private bool isTime = false;
-    private bool isBerhenti = false;
+    private bool isTimer = true;
     private DateTime starttime;
+
     private bool isBisnis = false;
     private bool isSimpedes = false;
     private bool isGrio = false;
@@ -249,33 +252,14 @@
         await Task.Delay(100);
         StateHasChanged();
         jumlahtransaksi = tempjumlahtransaksi.ToString();
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Buku condition : set account number " + trx._AccountNumber + " on Buku Konfirmasi", "step-action");
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private async Task ResetTimer()
     {
-        if (firstRender)
-        {
-            Utility.WriteLog("Buku condition : entered into buku konfirmasi", "step-action");
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime)
-            {
-                //isTimeOut = true;
-                //await Task.Delay(100);
-                //StateHasChanged();
-                //await Task.Delay(2000);
-                OnClick.InvokeAsync("timeout");
-            }
-        }
+        starttime = DateTime.Now;
     }
-
-    private async Task ChangeIsTime()
-    {
-        isTime = !isTime;
-        await Task.Delay(100);
-        StateHasChanged();
-    }
-
     private async Task IdleTime()
     {
         do
@@ -290,11 +274,42 @@
         } while (isTimeOut == false);
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            trx.timeOut = "bukukonfirmasi";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimeOut)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTime = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+                return;
+            }
+        }
+    }
+
+    //private async Task ChangeIsTime()
+    //{
+    //    isTime = !isTime;
+    //    await Task.Delay(100);
+    //    StateHasChanged();
+    //}
+
     private async Task AmbilKartu()
     {
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+        isTimer = false;
         OnClick.InvokeAsync("ambilkartu");
+        return;
     }
 
     private async Task ServicePassbook()
@@ -306,12 +321,12 @@
             trx.clearListBuku();
             Utility.WriteLog("Buku condition : clear list buku success", "step-action");
             string myJson = "{" +
-            "\"debit_account\":\"" + trx._Nasabah[1] + "\"," +
+            "\"debit_account\":\"" + trx._AccountNumber + "\"," + //MnoPQR
             "\"passbook_serialno\":\"" + trx._BukuSerial + "\"," +
             "\"passbook_balance\":\"" + trx._BukuSaldo + "\"," +
             "\"passbook_rowno\":\"" + trx._BukuBaris + "\"," +
-            "\"debit_currency\":\"" + trx._Nasabah[2] + "\"," +
-            "\"credit_currency\":\"" + trx._Nasabah[2] + "\"," +
+            "\"debit_currency\":\"" + trx.acctCurr + "\"," +
+            "\"credit_currency\":\"" + trx.acctCurr + "\"," +
             "\"remark2\":\"" + "" + "\"," +
             "\"remark3\":\"" + "" + "\"" +
             "}";
@@ -343,7 +358,9 @@
                         tempjumlahtransaksi = trx._listbuku.Count;
                         isRead = false;
                         await Task.Delay(100);
+                        trx.externalID = (string)jobResult["externalId"];
                         StateHasChanged();
+                        return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-260" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "NI")
                     {
@@ -352,7 +369,13 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        //trx.statusLayanan = "CANCEL";
+                        //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        //HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        isTimer = false;
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "03")
                     {
@@ -361,7 +384,13 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        isTimer = false;
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-287" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "77")
                     {
@@ -370,7 +399,13 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        isTimer = false;
                         OnClick.InvokeAsync("error");
+                        return;
                     }
                     else
                     {
@@ -378,7 +413,13 @@
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        trx.externalID = (string)jobResult["externalId"];
+                        HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                        isTimer = false;
                         OnClick.InvokeAsync("error");
+                        return;
                     }
 
                 }
@@ -390,7 +431,12 @@
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
+                trx.statusLayanan = "ERROR";
+                //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+                isTimer = false;
                 OnClick.InvokeAsync("error");
+                return;
             }
         }
         catch (Exception ex)
@@ -399,7 +445,12 @@
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
+            trx.statusLayanan = "ERROR";
+            //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+            HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
+            isTimer = false;
             OnClick.InvokeAsync("error");
+            return;
         }
     }
 
@@ -408,7 +459,9 @@
         isTimeOut = true;
         Utility.WriteLog("Buku condition : move to buku input data", "step-action");
         trx.ClearList();
+        isTimer = false;
         OnClick.InvokeAsync("bukuinputdata");
+        return;
     }
 
     private async Task CheckRekening()
@@ -416,15 +469,15 @@
         string producttype = trx._AccountProductType;
         switch (producttype)
         {
-            case "Britama":
+            case "BRITAMA":
                 isBisnis = false;
                 isSimpedes = false;
                 break;
-            case "Britama Bisnis":
+            case "BISNIS":
                 isBisnis = true;
                 isSimpedes = false;
                 break;
-            case "Simpedes":
+            case "SIMPEDES":
                 isSimpedes = true;
                 isBisnis = false;
                 break;
@@ -434,6 +487,7 @@
     private async Task BukuBerhasil()
     {
         isTimeOut = true;
+        isTimer = false;
         tempmaxbaris = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARIS);
         maxbaris = Convert.ToInt32(tempmaxbaris);
         tempmaxhalaman = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXHALAMAN);
@@ -535,6 +589,12 @@
                         startindex = maxbaris - baris;
                         Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                         saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                        //loading by nana
+                        isVisible = !isVisible;
+                        await Task.Delay(7000);
+                        StateHasChanged();
+
                         Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                         jmlhalaman += 1;
                         trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
@@ -623,7 +683,9 @@
                     //    await Task.Delay(100);
                     //} while (isBaris);
                     isTimeOut = true;
+                    isTimer = false;
                     OnClick.InvokeAsync("bukuhalamanpenuh");
+                    return;
                     //if (isBerhenti)
                     //{
                     //    i = n;
@@ -638,9 +700,17 @@
             else if (totalbaris <= maxbaris)
             {
                 saldo = await Task.Run(() => print.PrintPassbook(trx));
+
+                //loading by nana
+                isVisible = !isVisible;
+                await Task.Delay(7000);
+                StateHasChanged();
+
                 isTimeOut = true;
                 Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+                isTimer = false;
                 OnClick.InvokeAsync("bukuberhasil");
+                return;
             }
         }
         else if (isBisnis && !isSimpedes)
@@ -723,6 +793,12 @@
                         startindex = maxbaris - baris;
                         Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
                         saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+
+                        //loading by nana
+                        isVisible = !isVisible;
+                        await Task.Delay(7000);
+                        StateHasChanged();
+
                         Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                         jmlhalaman += 1;
                         trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
@@ -811,7 +887,9 @@
                     //    await Task.Delay(100);
                     //} while (isBaris);
                     isTimeOut = true;
+                    isTimer = false;
                     OnClick.InvokeAsync("bukuhalamanpenuh");
+                    return;
                     //if (isBerhenti)
                     //{
                     //    i = n;
@@ -826,9 +904,17 @@
             else if (totalbaris < maxbaris)
             {
                 saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+
+                //loading by nana
+                isVisible = !isVisible;
+                await Task.Delay(7000);
+                StateHasChanged();
+
                 isTimeOut = true;
                 Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+                isTimer = false;
                 OnClick.InvokeAsync("bukuberhasil");
+                return;
             }
         }
         //else if (!isBisnis && isSimpedes)
@@ -1585,7 +1671,6 @@
     private void Berhenti()
     {
         Utility.WriteLog("Buku condition : click Berhenti button", "step-action");
-        isBerhenti = true;
         isBaris = false;
         isVisible = false;
     }

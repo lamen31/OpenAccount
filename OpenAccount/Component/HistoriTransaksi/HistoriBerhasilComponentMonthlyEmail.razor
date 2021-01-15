@@ -1,0 +1,139 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+@using System.IO.Ports
+@using System.Text;
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
+@inject Utility utility
+@inject Transaksi trx
+@inject Config config
+<!-- ======= Hero Section ======= -->
+<section id="hero" @onclick="ResetTimer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <teks style="color: black; font-size: 35px;">Histori Transaksi <b style="color: rgb(122, 190, 20);">Berhasil</b> dikirim</teks>
+                    <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">"Silakan periksa email yang anda daftarkan"<br /> Apakah Anda Ingin Melakukan Transaksi Lagi?</h3>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/berhasil.png" class="img-fluid" alt="" style="margin-top: 5%;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button @onclick="Kembali" type="button" class="btn btn-primary" style="background-color: #4E4E4E;">TIDAK</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progress" style="margin-left: 0%; margin-bottom: 2%;">
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <button @onclick="Lanjut" type="button" class="btn btn-primary" style="float: right;">YA</button>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private TimeSpan span;
+    private int overtime = 60000;
+    private bool isTimeOut = false;
+    private bool isTime = false;
+    private bool isTimer = true;
+    private DateTime starttime;
+
+    private async Task Kembali()
+    {
+        isTimer = false;
+        isTimeOut = true;
+        OnClick.InvokeAsync("default");
+        return;
+    }
+    private async Task Lanjut()
+    {
+        isTimer = false;
+        isTimeOut=true;
+        OnClick.InvokeAsync("inputpinmonthly");
+        return;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        trx.statusLayanan = "SUCCESS";
+
+        if (trx.MSISDN.Length > 9 && trx.MSISDN != string.Empty && trx.MSISDN != "" && trx.MSISDN != "000000000000")
+        {
+            string result = await HitServices.SendSms(trx, config);
+            if (result.Contains("1111"))
+            {
+                trx.smsNotif = "SUCCESS";
+                Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
+            }
+            else
+            {
+                trx.smsNotif = "FAILED";
+                Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
+            }
+        }
+        else
+        {
+            trx.smsNotif = "NOT REGISTER";
+        }
+
+        HitServices.SendLog(trx, config, "");
+    }
+
+
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
+    private async Task IdleTime()
+    {
+        do
+        {
+            span = DateTime.Now - starttime;
+            if (overtime > 0 && span.TotalMilliseconds > overtime)
+            {
+                isTime = true;
+                isTimeOut = true;
+                break;
+            }
+        } while (isTimeOut == false);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            trx.timeOut = "inputpinmonthly";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimeOut)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTime = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+                return;
+            }
+        }
+    }
+
+}

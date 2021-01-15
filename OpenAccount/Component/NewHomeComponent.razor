@@ -2,9 +2,11 @@
 @using OpenAccount.Data
 
 @inject Utility utility
-
+@inject Transaksi trx
+@inject Config config
+@inject HitLog hitlog
 <!-- ======= Hero Section ======= -->
-<section id="hero" style="position:fixed;">
+<section id="hero" style="position:fixed;" @onclick="ResetTimer">
     <div class="container">
         <div class="row">
             <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
@@ -76,25 +78,22 @@
     public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
-    private int overtime = 90000;
+    private int overtime = 60000;
     private bool isTimeOut = false;
     private bool isTime = false;
+    private bool isTimer = true;
     private DateTime starttime;
 
     protected override async Task OnInitializedAsync()
     {
-        starttime = DateTime.Now;
-        await Task.Run(() => IdleTime());
-        if (isTime)
-        {
-            //isTimeOut = true;
-            //await Task.Delay(100);
-            //StateHasChanged();
-            //await Task.Delay(2000);
-            OnClick.InvokeAsync("timeout");
-        }
+        trx._AccountNumber = trx._AccountNumber2;
+        Utility.WriteLog("Home condition : set account number " + trx._AccountNumber + " on New Home", "step-action");
     }
 
+    private async Task ResetTimer()
+    {
+        starttime = DateTime.Now;
+    }
     private async Task IdleTime()
     {
         do
@@ -114,27 +113,50 @@
         if (firstRender)
         {
             Utility.WriteLog("Home condition : entered into new home", "step-action");
+            trx.timeOut = "newhome";
+            isTimer = true;
+            starttime = DateTime.Now;
+            await Task.Run(() => IdleTime());
+            if (isTime && isTimeOut)
+            {
+                isTimeOut = true;
+                await Task.Delay(100);
+                StateHasChanged();
+                await Task.Delay(2000);
+                isTime = false;
+                OnClick.InvokeAsync("konfirmasitimeout");
+                return;
+            }
         }
     }
 
     private async Task PrintBuku()
     {
         isTimeOut = true;
+        isTimer = false;
         Utility.WriteLog("Home condition : move to buku input data", "step-action");
+        trx.jenisLayanan = 0;//0. Pencetakan Passbook Printing
         OnClick.InvokeAsync("bukuinputdata");
+        return;
     }
 
     private async Task PrintHistori()
     {
         isTimeOut = true;
+        isTimer = false;
         Utility.WriteLog("Home condition : move to histori pilih menu", "step-action");
+        trx.jenisLayanan = 2;//2. Pencetakan Rekening Koran
         OnClick.InvokeAsync("historiPilih");
+        return;
     }
 
     private async Task AmbilKartu()
     {
         isTimeOut = true;
+        isTimer = false;
         Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
-        OnClick.InvokeAsync("inputrekening");
+        HitServices.SendLog(trx, config, "NEW HOME: User Cancel Transaction");
+        OnClick.InvokeAsync("default");
+        return;
     }
 }
