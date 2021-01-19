@@ -1,0 +1,2 @@
+20210119 14:22:35 Status printing in EPSON L3150 Series : printer is out of paper
+20210119 14:58:12 Status printing in EPSON L3150 Series : printer is out of paper

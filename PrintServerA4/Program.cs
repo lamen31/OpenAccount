@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Printing;
+using System.IO;
 
 namespace PrintServerA4
 {
@@ -15,11 +16,13 @@ namespace PrintServerA4
         {
             PrintDocument printdoc = new PrintDocument();
             PrinterSettings settings = new PrinterSettings();
+            Config config = new Config();
 
-            string printername = settings.PrinterName;
+            string printername = config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_A4);
 
             printdoc.PrinterSettings.PrinterName = printername;
 
+            string filename = @"c:/Test/status.txt";
             string machinenames = Environment.MachineName;
             PrintServer myprintserver = new LocalPrintServer();
             PrintQueueCollection myprintqueue = myprintserver.GetPrintQueues();
@@ -49,6 +52,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER HAS A PAPER PROBLEM");
                         Utility.WriteLog("Status printing in " + printername + " : printer has a paper problem", "step-action");
+                        using(StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("1");
+                        }
                         isjobdone = true;
                         Environment.Exit(1);
                         break;
@@ -58,6 +65,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER IS OUT OF TONER");
                         Utility.WriteLog("Status printing in " + printername + " : printer is out of toner", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("2");
+                        }
                         isjobdone = true;
                         Environment.Exit(2);
                         break;
@@ -67,6 +78,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER IS IN AN ERROR STATE");
                         Utility.WriteLog("Status printing in " + printername + " : printer is in an error state", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("3");
+                        }
                         isjobdone = true;
                         Environment.Exit(3);
                         break;
@@ -76,6 +91,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER HAS A PAPER JAM");
                         Utility.WriteLog("Status printing in " + printername + " : printer has a paper jam", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("4");
+                        }
                         isjobdone = true;
                         Environment.Exit(4);
                         break;
@@ -85,6 +104,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER IS OUT OF PAPER");
                         Utility.WriteLog("Status printing in " + printername + " : printer is out of paper", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("5");
+                        }
                         isjobdone = true;
                         Environment.Exit(5);
                     }
@@ -93,6 +116,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER IS OFF LINE");
                         Utility.WriteLog("Status printing in " + printername + " : printer is off line", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("6");
+                        }
                         isjobdone = true;
                         Environment.Exit(6);
                         break;
@@ -102,6 +129,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER IS OUT OF MEMORY");
                         Utility.WriteLog("Status printing in " + printername + " : printer is out of memory", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("7");
+                        }
                         isjobdone = true;
                         Environment.Exit(7);
                         break;
@@ -111,6 +142,10 @@ namespace PrintServerA4
                     {
                         Console.WriteLine("PRINTER IS LOW ON TONER");
                         Utility.WriteLog("Status printing in " + printername + " : printer is low on toner", "step-action");
+                        using (StreamWriter stream = new StreamWriter(filename, false))
+                        {
+                            stream.WriteLine("8");
+                        }
                         isjobdone = true;
                         Environment.Exit(8);
                         break;
@@ -191,6 +226,10 @@ namespace PrintServerA4
             //}
             Console.WriteLine("PRINTING DONE");
             Utility.WriteLog("Status printing in " + printername + " : printing done", "step-action");
+            using (StreamWriter stream = new StreamWriter(filename, false))
+            {
+                stream.WriteLine("0");
+            }
             Environment.Exit(0);
         }
     }

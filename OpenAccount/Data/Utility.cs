@@ -40,68 +40,68 @@ namespace OpenAccount.Data
                 //process.Dispose();
             }
 
-            string pathStatus;
-            string strfilename = "step-action";
-            string textStatus;
-            int printStatus;
-            Utility.WriteLog("Printer condition : check status printing start", "step-action");
-            status.StatusPrinting(config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_A4));
-            pathStatus = status.workingdirectory;
-            pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
-            textStatus = Utility.ReadLog(pathStatus);
-            Utility.WriteLog(textStatus, "step-action");
-            Utility.ClearLog(pathStatus);
-            Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
-            printStatus = status.StatusCode;
-            switch (status.StatusCode)
-            {
-                case 0:
-                    {
-                        Utility.WriteLog("Printer condition : print success", "step-action");
-                        break;
-                    }
-                case 1:
-                    {
-                        Utility.WriteLog("Printer condition : printer has a paper problem", "step-action");
-                        break;
-                    }
-                case 2:
-                    {
-                        Utility.WriteLog("Printer condition : printer is out of toner", "step-action");
-                        break;
-                    }
-                case 3:
-                    {
-                        Utility.WriteLog("Printer condition : printer is in an error state", "step-action");
-                        break;
-                    }
-                case 4:
-                    {
-                        Utility.WriteLog("Printer condition : printer has a paper jam", "step-action");
-                        break;
-                    }
-                case 5:
-                    {
-                        Utility.WriteLog("Printer condition : printer is out of paper", "step-action");
-                        break;
-                    }
-                case 6:
-                    {
-                        Utility.WriteLog("Printer condition : printer is off line", "step-action");
-                        break;
-                    }
-                case 7:
-                    {
-                        Utility.WriteLog("Printer condition : printer is out of memory", "step-action");
-                        break;
-                    }
-                case 8:
-                    {
-                        Utility.WriteLog("Printer condition : printer is low on toner", "step-action");
-                        break;
-                    }
-            }
-            _trx.setStatusPrinting(printStatus.ToString());
+            //string pathStatus;
+            //string strfilename = "step-action";
+            //string textStatus;
+            //int printStatus;
+            //Utility.WriteLog("Printer condition : check status printing start", "step-action");
+            //status.StatusPrinting(config.Read("PRINTERNAME", Config.PARAM_PRINTERNAME_A4));
+            //pathStatus = status.workingdirectory;
+            //pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            //textStatus = Utility.ReadLog(pathStatus);
+            //Utility.WriteLog(textStatus, "step-action");
+            //Utility.ClearLog(pathStatus);
+            //Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
+            //printStatus = status.StatusCode;
+            //switch (status.StatusCode)
+            //{
+            //    case 0:
+            //        {
+            //            Utility.WriteLog("Printer condition : print success", "step-action");
+            //            break;
+            //        }
+            //    case 1:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer has a paper problem", "step-action");
+            //            break;
+            //        }
+            //    case 2:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer is out of toner", "step-action");
+            //            break;
+            //        }
+            //    case 3:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer is in an error state", "step-action");
+            //            break;
+            //        }
+            //    case 4:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer has a paper jam", "step-action");
+            //            break;
+            //        }
+            //    case 5:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer is out of paper", "step-action");
+            //            break;
+            //        }
+            //    case 6:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer is off line", "step-action");
+            //            break;
+            //        }
+            //    case 7:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer is out of memory", "step-action");
+            //            break;
+            //        }
+            //    case 8:
+            //        {
+            //            Utility.WriteLog("Printer condition : printer is low on toner", "step-action");
+            //            break;
+            //        }
+            //}
+            //_trx.setStatusPrinting(printStatus.ToString());
             //using (var document = PdfDocument.Load(path))
             //{
             //    using (var printDocument = document.CreatePrintDocument())

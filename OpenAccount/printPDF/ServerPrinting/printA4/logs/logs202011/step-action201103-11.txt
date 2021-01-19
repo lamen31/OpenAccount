@@ -1,0 +1,2 @@
+20201103 11:02:07 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper
+20201103 11:15:53 Status printing in EPSOND03466 (L3150 Series) : printer is out of paper

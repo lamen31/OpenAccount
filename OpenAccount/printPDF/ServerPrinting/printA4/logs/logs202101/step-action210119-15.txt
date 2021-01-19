@@ -1,0 +1,27 @@
+20210119 15:01:42 Status printing in EPSON L3150 Series : job finish printing
+20210119 15:01:42 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:01:42 Status printing in EPSON L3150 Series : printing done
+20210119 15:03:27 Status printing in EPSON L3150 Series : job finish printing
+20210119 15:03:27 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:03:27 Status printing in EPSON L3150 Series : printing done
+20210119 15:18:30 Status printing in EPSON L3150 Series : no pages left
+20210119 15:18:30 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:18:30 Status printing in EPSON L3150 Series : printing done
+20210119 15:21:54 Status printing in EPSON L3150 Series : no pages left
+20210119 15:21:54 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:21:54 Status printing in EPSON L3150 Series : printing done
+20210119 15:30:18 Status printing in EPSON L3150 Series : no pages left
+20210119 15:30:18 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:30:18 Status printing in EPSON L3150 Series : printing done
+20210119 15:36:36 Status printing in EPSON L3150 Series : no pages left
+20210119 15:36:36 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:36:36 Status printing in EPSON L3150 Series : printing done
+20210119 15:39:14 Status printing in EPSON L3150 Series : no pages left
+20210119 15:39:14 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:39:14 Status printing in EPSON L3150 Series : printing done
+20210119 15:41:33 Status printing in EPSON L3150 Series : printer is out of paper
+20210119 15:46:36 Status printing in EPSON L3150 Series : printer is out of paper
+20210119 15:49:11 Status printing in EPSON L3150 Series : printer is out of paper
+20210119 15:50:34 Status printing in EPSON L3150 Series : job finish printing
+20210119 15:50:34 Status printing in EPSON L3150 Series : status queue is none
+20210119 15:50:34 Status printing in EPSON L3150 Series : printing done

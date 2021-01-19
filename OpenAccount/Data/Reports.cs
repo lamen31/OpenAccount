@@ -164,7 +164,7 @@ namespace OpenAccount.Data
                 CSVPath =  @"c:\Reports\" + CSVName;
 
                 // Set the variable "delimiter" to ", ".
-                string delimiter = ", ";
+                string delimiter = "; ";
 
                 //This text is added only once to the file.
                 if (!File.Exists(CSVPath))

@@ -1,0 +1,3 @@
+20200921 11:20:33 Status printing in BT-T080(U) 1 : job queue is empty
+20200921 11:20:33 Status printing in BT-T080(U) 1 : status queue is none
+20200921 11:20:33 Status printing in BT-T080(U) 1 : printing done

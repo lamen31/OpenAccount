@@ -371,6 +371,7 @@
             await Task.Delay(100);
             StateHasChanged();
             await ServiceRekening();
+            //trx._AccountNumber = strnorek;
             if (isTrue)
             {
                 isTimeOut = true;
@@ -420,6 +421,7 @@
                         Nasabah[3] = (string)jobResult["RESPONSE"].SelectToken("AVAILABLE_BAL");
                         Nasabah[4] = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         trx.setArrayNasabah(Nasabah);
+                        trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
                         isTrue = true;
                         isRead = false;
                         await Task.Delay(100);

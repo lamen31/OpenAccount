@@ -55,16 +55,95 @@ namespace Print_PDF
             //printdoc.PrintController = new StandardPrintController();
             //printdoc.Print();
             string pathToPdf = @"c:\Test\testpdf.pdf";
-            string printerName = "Brother HL-L2360D series";
+            string printerName = "EPSON L3150 Series";
 
             var exePath = Registry.LocalMachine.OpenSubKey(
             @"SOFTWARE\Microsoft\Windows\CurrentVersion" +
             @"\App Paths\SumatraPDF.exe").GetValue("").ToString();
 
+            //var exePath = Registry.LocalMachine.OpenSubKey(
+            //@"SOFTWARE\Microsoft\Windows\CurrentVersion" +
+            //@"\App Paths\SumatraPDF-3.2-64.exe").GetValue("").ToString();
+
+            //Console.WriteLine(exePath);
+
             var args = $"-print-to \"{printerName}\" {pathToPdf}";
 
             var process = Process.Start(exePath, args);
             process.WaitForExit();
+
+            PrinterStatus status = new PrinterStatus();
+            string pathStatus;
+            string strfilename = "step-action";
+            string textStatus;
+            int printStatus;
+            Task.Delay(500);
+            status.StatusPrinting(printerName);
+            //pathStatus = status.workingdirectory;
+            //pathStatus = pathStatus + "\\logs\\logs" + DateTime.Now.ToString("yyyyMM") + "\\" + strfilename + DateTime.Now.ToString("yyMMdd-HH") + ".txt";
+            //textStatus = Utility.ReadLog(pathStatus);
+            //Utility.WriteLog(textStatus, "step-action");
+            //Utility.ClearLog(pathStatus);
+            //Utility.WriteLog("Printer condition : log has been moved from " + pathStatus, "step-action");
+            printStatus = status.StatusCode;
+            Console.WriteLine("STATUS CODE " + printStatus.ToString());
+            switch (printStatus)
+            {
+                case 0:
+                    {
+                        //Utility.WriteLog("Printer condition : print success", "step-action");
+                        Console.WriteLine("print success");
+                        break;
+                    }
+                case 1:
+                    {
+                        //Utility.WriteLog("Printer condition : printer has a paper problem", "step-action");
+                        Console.WriteLine("printer has a paper problem");
+                        break;
+                    }
+                case 2:
+                    {
+                        //Utility.WriteLog("Printer condition : printer is out of toner", "step-action");
+                        Console.WriteLine("printer is out of toner");
+                        break;
+                    }
+                case 3:
+                    {
+                        //Utility.WriteLog("Printer condition : printer is in an error state", "step-action");
+                        Console.WriteLine("pprinter is in an error state");
+                        break;
+                    }
+                case 4:
+                    {
+                        //Utility.WriteLog("Printer condition : printer has a paper jam", "step-action");
+                        Console.WriteLine("rinter has a paper jam");
+                        break;
+                    }
+                case 5:
+                    {
+                        //Utility.WriteLog("Printer condition : printer is out of paper", "step-action");
+                        Console.WriteLine("printer is out of paper");
+                        break;
+                    }
+                case 6:
+                    {
+                        //Utility.WriteLog("Printer condition : printer is off line", "step-action");
+                        Console.WriteLine("printer is off line");
+                        break;
+                    }
+                case 7:
+                    {
+                        //Utility.WriteLog("Printer condition : printer is out of memory", "step-action");
+                        Console.WriteLine("printer is out of memory");
+                        break;
+                    }
+                case 8:
+                    {
+                        //Utility.WriteLog("Printer condition : printer is low on toner", "step-action");
+                        Console.WriteLine("printer is low on toner");
+                        break;
+                    }
+            }
             this.Close();
         }
     }

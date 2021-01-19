@@ -313,11 +313,18 @@
             }
             else
             {
+                File.WriteAllText(@"c:\Test\status.txt", "");
+                await Task.Delay(500);
                 utility.PrintPdf();
-                await Task.Delay(30000);
+                await Task.Delay(8000);
+                string status = File.ReadAllText(@"c:\Test\status.txt");
                 isVisible = !isVisible;
                 isTimer = false;
-                OnClick.InvokeAsync("historiberhasilmonthly");
+                status = status.Substring(0, 1);
+                if (status == "0")
+                    OnClick.InvokeAsync("historiberhasilmonthly");
+                else
+                    OnClick.InvokeAsync("historigagal");
                 return;
             }
             //OnClick.InvokeAsync("historipilihmetode");

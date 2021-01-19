@@ -1,0 +1,3 @@
+20201103 10:28:18 Status printing in EPSOND03466 (L3150 Series) : job finish printing
+20201103 10:28:18 Status printing in EPSOND03466 (L3150 Series) : status queue is none
+20201103 10:28:18 Status printing in EPSOND03466 (L3150 Series) : printing done

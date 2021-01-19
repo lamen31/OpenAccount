@@ -931,7 +931,7 @@ namespace OpenAccount.Report
             string encryptFileName = "TRILOGI" + _trx._AccountNumber + "_" +_trx.startDT.ToString("yyyyMMdd") + "-" + _trx.endDT.ToString("yyyyMMdd") + ".pdf";
             var pdfFilePath = TestUtil.GetOutputFileName();
             var pdfEncryptFilePath = path + TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
-            string passwd = _trx._AccountNumber.Substring(6, 6);
+            //string passwd = _trx._AccountNumber.Substring(6, 6);
             //_trx.attachmentPath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             _trx.attachmentPath = pdfEncryptFilePath;
             _trx.emailAttachment = encryptFileName;
@@ -986,7 +986,8 @@ namespace OpenAccount.Report
                     _trx.emailAttachmentPage = TestUtil.GetNumberOfPages(pdfFilePath);
                 }
             }*/
-            EncryptPDF(pdfFilePath, pdfEncryptFilePath, passwd);
+            //EncryptPDF(pdfFilePath, pdfEncryptFilePath, passwd);
+            EncryptPDF(pdfFilePath, pdfEncryptFilePath, "");
         }
 
         public void EncryptPDF(string inputFile, string outputFile, string uPassword)
