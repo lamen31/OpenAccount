@@ -15,7 +15,7 @@
 @inject EDC edc
 @inject IJSRuntime js;
 <!-- ======= Hero Section ======= -->
-<section id="hero" @onclick="ResetTimer">
+<section id="hero" @onclick="ResetTimer" style="height: 780px" @ref="heroo">
 
     <div class="container">
         <div class="row">
@@ -240,6 +240,7 @@
     private bool isStart = false;
     private bool isEnd = false;
     private bool isPicked => isStart && isEnd;
+    private bool IsDisabledEndDate = true;
 
     string formatTanggal = "yyyyMMdd";
     string formatBulan = "yyyyMM";
@@ -256,7 +257,7 @@
     private string minEnd = DateTime.Today.AddYears(-2).ToString("yyyy-MM-dd");
     private string maxEnd = DateTime.Today.ToString("yyyy-MM-dd");
 
-    //private ElementReference container;
+    private ElementReference heroo;
 
     private async Task ResetTimer()
     {
@@ -278,11 +279,11 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
+        await Task.Delay(100);
 
         if (periodeCode == "1")
         {
-            //await js.InvokeVoidAsync("setMonthPicker");
+            await js.InvokeVoidAsync("setMonthPicker");
             monthValue = await js.InvokeAsync<string>("getMonthPicker");
             //Console.WriteLine("Month Value: " + monthValue);
             //value3 = DateTime.ParseExact(monthValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
@@ -299,6 +300,9 @@
                 trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 trx.periodMonth = "YES";
+                Console.WriteLine("1 Month Value: " + monthValue);
+                Console.WriteLine("1 Start Date: " + startDateValue);
+                Console.WriteLine("1 End Date: " + endDateValue);
             }
 
 
@@ -317,6 +321,9 @@
                 //Console.WriteLine("End Date: " + endDateValue);
                 monthValue = null;
                 trx.periodMonth = "NO";
+                Console.WriteLine("2 Start Date: " + startDateValue);
+                Console.WriteLine("2 End Date: " + endDateValue);
+                
             }
 
         }
@@ -325,8 +332,8 @@
         //parseDateTime();
         if (firstRender)
         {
-            await js.InvokeVoidAsync("setMonthPicker");
-            await js.InvokeVoidAsync("setDatePicker");
+            //await js.InvokeVoidAsync("setMonthPicker");
+            //await js.InvokeVoidAsync("setDatePicker");
             Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "monthlystatement";
             isTimer = true;
@@ -342,6 +349,7 @@
                 OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
+        //StateHasChanged();
 
     }
 
@@ -544,6 +552,9 @@
 
     private async Task PeriodePick(ChangeEventArgs args)
     {
+        monthValue = string.Empty;
+        startDateValue = string.Empty;
+        endDateValue = string.Empty;
         trx.startDate = string.Empty;
         trx.endDate = string.Empty;
         periodeCode = args.Value.ToString();

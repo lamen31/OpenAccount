@@ -118,7 +118,11 @@
         $(".form-control").focus(function () {
             $('#keyboard').jkeyboard("setinput", this);
         });
-        setDatePicker();
+        initDateTimePicker();
+        @*Blazor.registerFunction('InitDatepicker', function () {
+            setDatePicker();
+        });*@
+        //setDatePicker();
         /*//console.log("OLALA")
         setMonthPicker();
         $("body").onclick(function () {
