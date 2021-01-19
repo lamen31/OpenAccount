@@ -20,7 +20,7 @@ function setDatePicker() {
 		$(".startdate").on("change.datetimepicker", function (e) {
 			
 			minLimit2 = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date() + 1);
-			console.log("E Date: " + minLimit2);
+			//console.log("E Date: " + minLimit2);
 			$(".enddate").val("")
 			$(".enddate").datetimepicker({
 				locale: '@System.Threading.Thread.CurrentThread.CurrentUICulture.Name',

@@ -298,6 +298,7 @@
                 value3 = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                trx.periodMonth = "YES";
             }
 
 
@@ -312,15 +313,16 @@
                 trx.endDate = endDateValue;
                 trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                Console.WriteLine("Start Date: " + startDateValue);
-                Console.WriteLine("End Date: " + endDateValue);
+                //Console.WriteLine("Start Date: " + startDateValue);
+                //Console.WriteLine("End Date: " + endDateValue);
                 monthValue = null;
+                trx.periodMonth = "NO";
             }
 
         }
 
         //await js.InvokeVoidAsync("initializeDatePickerComponent", container);
-        parseDateTime();
+        //parseDateTime();
         if (firstRender)
         {
             await js.InvokeVoidAsync("setMonthPicker");
