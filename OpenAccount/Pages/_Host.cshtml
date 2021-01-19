@@ -29,7 +29,7 @@
                 font-size: larger;
             }
         </style>*@
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/keyboard.css">
     <link rel="stylesheet" href="../lib/css/jkeyboard.css">
     <link rel="stylesheet" href="../assets/css/jquery.signaturepad.css">
@@ -41,7 +41,9 @@
     <link rel="stylesheet" href="../assets/css/scrollbar.css">
     <link rel="stylesheet" href="../assets/css/datepicker.css">
     <link rel="stylesheet" href="_content/Radzen.Blazor/css/default.css">
-    <link href="_content/Syncfusion.Blazor/styles/bootstrap4.css" rel="stylesheet" />
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"> <!-- add file -->
+    <link href="../lib/fontawesome/css/all.min.css" rel="stylesheet"> <!-- add file -->
+    @*<link href="_content/Syncfusion.Blazor/styles/bootstrap4.css" rel="stylesheet" />*@
     @*<link rel="stylesheet" href="../assets/css/jkeyboard2.css">*@
 
     <meta content="" name="descriptison">
@@ -58,11 +60,12 @@
     <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/css/datepicker.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/carrousel.css" rel="stylesheet">
-    <script src="https://cdn.syncfusion.com/blazor/18.3.47/syncfusion-blazor.min.js"></script>
+    @*<script src="https://cdn.syncfusion.com/blazor/18.3.47/syncfusion-blazor.min.js"></script>*@
     <script type="text/JavaScript">
         //courtesy of BoogieJack.com
         function killCopy(e) {
@@ -97,54 +100,70 @@
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js'></script>
     <script src="../assets/js/clock.js"></script>
-
+    <script src="../lib/moment/moment.min.js"></script> <!-- add file -->
+    <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/bahasa.js"></script>
     <script src="../assets/js/datepicker.js"></script>
     <script src="../lib/js/jkeyboard.js"></script>
-    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    @*<script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>*@
     <script type="text/javascript">
         $('#keyboard').jkeyboard({
             layout: "numbers_only",
             input: $('#input_field_1')
         });
 
-
         $(".form-control").focus(function () {
             $('#keyboard').jkeyboard("setinput", this);
         });
+        setDatePicker();
+        /*//console.log("OLALA")
+        setMonthPicker();
+        $("body").onclick(function () {
+            setMonthPicker();
+            console.log("M");
+        })
+        $("body").onclick(function () {
+            setMonthPicker();
+            console.log("S");
+        })
+        $("body").onclick(function () {
+            setMonthPicker();
+            console.log("E");
+        })*/
     </script>
     <!-- Month Picker -->
-    <script type="text/JavaScript">
+    @*<script type="text/JavaScript">
 
-        var startDate = new Date();
-        var fechaFin = new Date();
-        var FromEndDate = new Date();
-        var ToEndDate = new Date();
+            var startDate = new Date();
+            var fechaFin = new Date();
+            var FromEndDate = new Date();
+            var ToEndDate = new Date();
 
-        $('.from').datepicker({
-            autoclose: true,
-            minViewMode: 1,
-            format: 'yyyy-mm'
-        }).on('changeDate', function (selected) {
-            startDate = new Date(selected.date.valueOf());
-            startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-            $('.to').datepicker('setStartDate', startDate);
-        });
+            $('.from').datepicker({
+                autoclose: true,
+                minViewMode: 1,
+                format: 'yyyy-mm'
+            }).on('changeDate', function (selected) {
+                startDate = new Date(selected.date.valueOf());
+                startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+                $('.to').datepicker('setStartDate', startDate);
+            });
 
-        $('.to').datepicker({
-            autoclose: true,
-            minViewMode: 1,
-            format: 'yyyy-mm'
-        }).on('changeDate', function (selected) {
-            FromEndDate = new Date(selected.date.valueOf());
-            FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-            $('.from').datepicker('setEndDate', FromEndDate);
-        });
+            $('.to').datepicker({
+                autoclose: true,
+                minViewMode: 1,
+                format: 'yyyy-mm'
+            }).on('changeDate', function (selected) {
+                FromEndDate = new Date(selected.date.valueOf());
+                FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+                $('.from').datepicker('setEndDate', FromEndDate);
+            });
 
-    </script>
+        </script>*@
     <script src="_framework/blazor.server.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    @*<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>*@
 </body>
 </html>

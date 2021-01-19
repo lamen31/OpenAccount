@@ -13,11 +13,69 @@
 @inject Transaksi trx
 @inject Utility utility
 @inject EDC edc
-@inject IJSRuntime JsRuntime;
+@inject IJSRuntime js;
 <!-- ======= Hero Section ======= -->
 <section id="hero" @onclick="ResetTimer">
 
     <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>
+                    <teks>Hello, @trx.namaNasabah</teks>
+                    <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Cetak Transaksi</h5>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input checked="@(periodeCode == "1")" value="1" @onchange="PeriodePick" type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input"/>
+                        <label class="custom-control-label" for="customRadioInline2" style="color: darkorange; font-weight: 700;">Cetak Per Bulan</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input checked="@(periodeCode == "2")" value="2" @onchange="PeriodePick" type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" />
+                        <label class="custom-control-label" for="customRadioInline1" style="color: darkorange; font-weight: 700;">Cetak Per Tanggal</label>
+                    </div>
+
+                    @if (periodeCode == "1")
+                    {
+                        <div class="">
+                            <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;"></h5>
+                            <div class="form-group"> 
+                                <input id="monthpicker" type="text" class="form-control monthpicker datetimepicker-input" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".monthpicker" placeholder="Pilih Bulan"/>
+                            </div>
+                        </div>
+
+                    }
+                    @if (periodeCode == "2")
+                    {
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
+
+                                <div class="form-group">
+                                    <input id="startdate" type="text" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate"/>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
+
+                                <div class="form-group">
+                                    <input id="enddate" type="text" class="form-control enddate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".enddate"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/calendar.svg" style="float: right;">
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="container">
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
@@ -87,7 +145,7 @@
                 <img src="../assets/img/Folder SVG/monthly2.svg" style="float: right;">
             </div>
         </div>
-    </div>
+    </div>-->
 </section>
 <!-- End Hero -->
 <!-- ======= Footer ======= -->
@@ -198,6 +256,8 @@
     private string minEnd = DateTime.Today.AddYears(-2).ToString("yyyy-MM-dd");
     private string maxEnd = DateTime.Today.ToString("yyyy-MM-dd");
 
+    //private ElementReference container;
+
     private async Task ResetTimer()
     {
         starttime = DateTime.Now;
@@ -218,8 +278,53 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+
+
+        if (periodeCode == "1")
+        {
+            //await js.InvokeVoidAsync("setMonthPicker");
+            monthValue = await js.InvokeAsync<string>("getMonthPicker");
+            //Console.WriteLine("Month Value: " + monthValue);
+            //value3 = DateTime.ParseExact(monthValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            if (!String.IsNullOrEmpty(monthValue))
+            {
+                string[] dates = monthValue.Split('#');
+                string[] startDates = dates[0].Split('/');
+                string[] endDates = dates[1].Split('/');
+                startDateValue = dates[0];
+                endDateValue = dates[1];
+                trx.startDate = startDateValue;
+                trx.endDate = endDateValue;
+                value3 = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+
+        } else if (periodeCode == "2")
+        {
+            await js.InvokeVoidAsync("setDatePicker");
+            startDateValue = await js.InvokeAsync<string>("getStartDatePicker");
+            endDateValue = await js.InvokeAsync<string>("getEndDatePicker");
+            if (!String.IsNullOrEmpty(startDateValue) && !String.IsNullOrEmpty(endDateValue))
+            {
+                trx.startDate = startDateValue;
+                trx.endDate = endDateValue;
+                trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                Console.WriteLine("Start Date: " + startDateValue);
+                Console.WriteLine("End Date: " + endDateValue);
+                monthValue = null;
+            }
+
+        }
+
+        //await js.InvokeVoidAsync("initializeDatePickerComponent", container);
+        parseDateTime();
         if (firstRender)
         {
+            await js.InvokeVoidAsync("setMonthPicker");
+            await js.InvokeVoidAsync("setDatePicker");
             Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "monthlystatement";
             isTimer = true;
@@ -235,6 +340,24 @@
                 OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
+
+    }
+
+    private string monthValue { get; set; } = null;
+    private string startDateValue { get; set; } = null;
+    private string endDateValue { get; set; } = null;
+
+    public void parseDateTime()
+    {
+        //js.InvokeVoidAsync("getMonthPicker");
+        Console.WriteLine("Month Value: " + monthValue);
+        Console.WriteLine("Start Date: " + startDateValue);
+        Console.WriteLine("End Date: " + endDateValue);
+        Console.WriteLine("Start DT: " + trx.startDT);
+        Console.WriteLine("End DT: " + trx.endDT);
+        Console.WriteLine("Start Date: " + trx.startDate);
+        Console.WriteLine("End Date: " + trx.endDate);
+
     }
 
     public void DateTimeVisible()
@@ -298,11 +421,13 @@
 
     private async Task Cetak()
     {
-
+        StateHasChanged();
         if (periodeCode == "1")
         {
             if (value3.HasValue)
-                PerBulan();
+            {
+                //PerBulan();
+            }
             //if (trx.startDate == null || trx.endDate == null)
             else
             {
@@ -312,13 +437,19 @@
         }
         else if (periodeCode == "2")
         {
-            PerTanggal();
-            if (!isPicked)
+
+            if (!String.IsNullOrEmpty(endDateValue) && String.IsNullOrEmpty(startDateValue))
             {
                 isVisible = true;
                 return;
             }
+            else
+            {
+                //PerTanggal();
+            }
         }
+        await Task.Delay(100);
+        Console.WriteLine("Cetak Function " + value3 + "---" + endDateValue);
         await MonthlyStatementAPI();
     }
 
@@ -514,6 +645,7 @@
         string errorcode;
         string errormessage;
         isRead = true;
+        StateHasChanged();
         isTimeOut = true;
         trx._listMonthly.Clear();
         //trx._AccountNumber = "008301031142500";
