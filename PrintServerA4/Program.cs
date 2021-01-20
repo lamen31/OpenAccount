@@ -42,7 +42,7 @@ namespace PrintServerA4
                     PrintJobInfoCollection jobs = pq.GetPrintJobInfoCollection();
                     if (pq.NumberOfJobs == 0)
                     {
-                        Console.WriteLine("JOB IN QUEUE IS EMPTY");
+                        //Console.WriteLine("JOB IN QUEUE IS EMPTY");
                         Utility.WriteLog("Status printing in " + printername + " : job queue is empty", "step-action");
                         isjobdone = true;
                         break;
@@ -50,7 +50,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.PaperProblem) == PrintQueueStatus.PaperProblem)
                     {
-                        Console.WriteLine("PRINTER HAS A PAPER PROBLEM");
+                        //Console.WriteLine("PRINTER HAS A PAPER PROBLEM");
                         Utility.WriteLog("Status printing in " + printername + " : printer has a paper problem", "step-action");
                         using(StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -63,7 +63,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.NoToner) == PrintQueueStatus.NoToner)
                     {
-                        Console.WriteLine("PRINTER IS OUT OF TONER");
+                        //Console.WriteLine("PRINTER IS OUT OF TONER");
                         Utility.WriteLog("Status printing in " + printername + " : printer is out of toner", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -76,7 +76,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.Error) == PrintQueueStatus.Error)
                     {
-                        Console.WriteLine("PRINTER IS IN AN ERROR STATE");
+                        //Console.WriteLine("PRINTER IS IN AN ERROR STATE");
                         Utility.WriteLog("Status printing in " + printername + " : printer is in an error state", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -89,7 +89,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.PaperJam) == PrintQueueStatus.PaperJam)
                     {
-                        Console.WriteLine("PRINTER HAS A PAPER JAM");
+                        //Console.WriteLine("PRINTER HAS A PAPER JAM");
                         Utility.WriteLog("Status printing in " + printername + " : printer has a paper jam", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -102,7 +102,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.PaperOut) == PrintQueueStatus.PaperOut)
                     {
-                        Console.WriteLine("PRINTER IS OUT OF PAPER");
+                        //Console.WriteLine("PRINTER IS OUT OF PAPER");
                         Utility.WriteLog("Status printing in " + printername + " : printer is out of paper", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -114,7 +114,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.Offline) == PrintQueueStatus.Offline)
                     {
-                        Console.WriteLine("PRINTER IS OFF LINE");
+                        //Console.WriteLine("PRINTER IS OFF LINE");
                         Utility.WriteLog("Status printing in " + printername + " : printer is off line", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -127,7 +127,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.OutOfMemory) == PrintQueueStatus.OutOfMemory)
                     {
-                        Console.WriteLine("PRINTER IS OUT OF MEMORY");
+                        //Console.WriteLine("PRINTER IS OUT OF MEMORY");
                         Utility.WriteLog("Status printing in " + printername + " : printer is out of memory", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -140,7 +140,7 @@ namespace PrintServerA4
 
                     if ((pq.QueueStatus & PrintQueueStatus.TonerLow) == PrintQueueStatus.TonerLow)
                     {
-                        Console.WriteLine("PRINTER IS LOW ON TONER");
+                        //Console.WriteLine("PRINTER IS LOW ON TONER");
                         Utility.WriteLog("Status printing in " + printername + " : printer is low on toner", "step-action");
                         using (StreamWriter stream = new StreamWriter(filename, false))
                         {
@@ -158,14 +158,14 @@ namespace PrintServerA4
                         var aux = job;
                         if (aux.IsDeleted)
                         {
-                            Console.WriteLine("JOB HAS DELETED");
+                            //Console.WriteLine("JOB HAS DELETED");
                             Utility.WriteLog("Status printing in " + printername + " : job has deleted", "step-action");
                             isjobdone = true;
                             break;
                         }
                         if (aux.NumberOfPages == 0)
                         {
-                            Console.WriteLine("NO PAGES LEFT");
+                            //Console.WriteLine("NO PAGES LEFT");
                             Utility.WriteLog("Status printing in " + printername + " : no pages left", "step-action");
                             isjobdone = true;
                             break;
@@ -174,14 +174,14 @@ namespace PrintServerA4
                         Console.WriteLine(aux.JobStatus);
                         if (!aux.IsPrinting)
                         {
-                            Console.WriteLine("JOB FINISH PRINTING");
+                            //Console.WriteLine("JOB FINISH PRINTING");
                             Utility.WriteLog("Status printing in " + printername + " : job finish printing", "step-action");
                             isjobdone = true;
                             break;
                         }
                         if (aux.IsPrinted)
                         {
-                            Console.WriteLine("JOB HAS PRINTED");
+                            //Console.WriteLine("JOB HAS PRINTED");
                             Utility.WriteLog("Status printing in " + printername + " : job has printed", "step-action");
                             isjobdone = true;
                             break;
@@ -189,7 +189,7 @@ namespace PrintServerA4
                         }
                         if (aux.IsDeleting)
                         {
-                            Console.WriteLine("JOB HAS DELETING");
+                            //Console.WriteLine("JOB HAS DELETING");
                             Utility.WriteLog("Status printing in " + printername + " : job has deleting", "step-action");
                             isjobdone = true;
                             break;
@@ -197,7 +197,7 @@ namespace PrintServerA4
                         }
                         if (aux.IsCompleted)
                         {
-                            Console.WriteLine("JOB HAS COMPLETED");
+                            //Console.WriteLine("JOB HAS COMPLETED");
                             Utility.WriteLog("Status printing in " + printername + " : job has completed", "step-action");
                             isjobdone = true;
                             break;
@@ -212,7 +212,7 @@ namespace PrintServerA4
                 } while (!isjobdone);
                 if (pq.QueueStatus == PrintQueueStatus.None)
                 {
-                    Console.WriteLine("STATUS QUEUEU IS NONE");
+                    //Console.WriteLine("STATUS QUEUEU IS NONE");
                     Utility.WriteLog("Status printing in " + printername + " : status queue is none", "step-action");
                     isjobdone = true;
                     break;
@@ -224,7 +224,7 @@ namespace PrintServerA4
             //    Utility.WriteLog("Status printing in " + printername + " : printing failed", "step-action");
             //    Environment.Exit(1);
             //}
-            Console.WriteLine("PRINTING DONE");
+            //Console.WriteLine("PRINTING DONE");
             Utility.WriteLog("Status printing in " + printername + " : printing done", "step-action");
             using (StreamWriter stream = new StreamWriter(filename, false))
             {

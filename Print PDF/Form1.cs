@@ -55,7 +55,8 @@ namespace Print_PDF
             //printdoc.PrintController = new StandardPrintController();
             //printdoc.Print();
             string pathToPdf = @"c:\Test\testpdf.pdf";
-            string printerName = "EPSON L3150 Series";
+            //string printerName = "EPSON L3150 Series";
+            string printerName = "Brother HL-L2360D series";
 
             var exePath = Registry.LocalMachine.OpenSubKey(
             @"SOFTWARE\Microsoft\Windows\CurrentVersion" +

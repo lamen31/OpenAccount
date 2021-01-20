@@ -316,7 +316,7 @@
                 File.WriteAllText(@"c:\Test\status.txt", "");
                 await Task.Delay(500);
                 utility.PrintPdf();
-                await Task.Delay(8000);
+                await Task.Delay(15000);
                 string status = File.ReadAllText(@"c:\Test\status.txt");
                 isVisible = !isVisible;
                 isTimer = false;

@@ -601,8 +601,10 @@ namespace OpenAccount.Data
             int sisabaris = 0;
             int flipflop = 0;
 
+            bool isTwentyNine = false;
+
             sisabaris = baris % 30;
-            MyPrinter.Print("\n\n\n\n\n");//sela header
+            MyPrinter.Print("\n\n\n\n");//sela header
 
             if (_trx._listbuku.Count > 0) // indikator bahwa line tidak 0
             {
@@ -631,7 +633,6 @@ namespace OpenAccount.Data
             for (int i = 0; i < _trx._listbuku.Count; i++)
             {
                 string keterangan;
-                
 
                 string sandi = _trx._listbuku[i]._Sandi;
                 //saldo = checkZero(_trx._listbuku[i]._PassbookBalance);
@@ -680,32 +681,33 @@ namespace OpenAccount.Data
                 else if ((baris%29 == 0) && (flipflop ==2))
                 {
 
-                    //MyPrinter.Print("\x0C"); //FF kertas 
-                    MyPrinter.Print("\n\n\n\n\n"); // header hal 1
+                    MyPrinter.Print("\x0C"); //FF kertas 
+                    //MyPrinter.Print("\n\n\n\n\n"); // header hal 1
                     flipflop = 1;
+                    isTwentyNine = true;
                 }
 
                 baris = baris + 1;
-
-
             }
-
-            MyPrinter.Print("\x0C");
+            if (!isTwentyNine)
+            {
+                MyPrinter.Print("\x0C");
+            }
             MyPrinter.Close();
 
 
-            Status = printerstatus.StatusCode;
-            if (printerstatus.StatusCode == 0)
-            {
-                Console.WriteLine("Print Selesai ...");
-                Utility.WriteLog("Printer condition : print passbook in " + printername + " finished", "step-action");
-            }
-            else
-            {
-                Console.WriteLine("Print Gagal ...");
-                Utility.WriteLog("Printer condition : print passbook in " + printername + " failed", "step-action");
-            }
-            trx.setStatusPrinting(Status.ToString());
+            //Status = printerstatus.StatusCode;
+            //if (printerstatus.StatusCode == 0)
+            //{
+            //    Console.WriteLine("Print Selesai ...");
+            //    Utility.WriteLog("Printer condition : print passbook in " + printername + " finished", "step-action");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Print Gagal ...");
+            //    Utility.WriteLog("Printer condition : print passbook in " + printername + " failed", "step-action");
+            //}
+            //trx.setStatusPrinting(Status.ToString());
             return trx._BukuSaldo;
 
                                     
