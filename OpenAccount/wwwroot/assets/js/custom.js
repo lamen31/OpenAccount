@@ -1,6 +1,8 @@
-let monthVal;
-let startDate;
-let endDate;
+var monthVal = "";
+var startDate = "";
+var startDateFormated = "";
+var endDate = "";
+var endDateFormated = "";
 
 var todayDate = new Date();
 var yesterdayDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() - 1);
@@ -23,6 +25,9 @@ function setDatePicker() {
 		$(".startdate").on("change.datetimepicker", function (e) {
 			minLimit2 = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date() + 1);
 			maxLimit2 = new Date(minLimit2.getFullYear(), minLimit2.getMonth() + 1, minLimit2.getDate() - 2);
+			startDate = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date())
+			startDateFormated = moment(e.date).format('DD/MM/YYYY');
+			//console.log(moment(e.date).format('DD/MM/YYYY'));
 			if (maxLimit2 < todayDate) {
 				//console.log("Max Limit Less Than Today:" + minLimit2 + " " + maxLimit2);
 			} else {
@@ -39,9 +44,11 @@ function setDatePicker() {
 		$(".enddate").datetimepicker('minDate', minLimit2);
 		$(".enddate").datetimepicker('format', "DD/MM/YYYY");
 		$(".enddate").datetimepicker('maxDate', maxLimit2);
-		$(".enddate").val("");
+		$(".enddate").val(endDateFormated);
 
 		$(".enddate").on("change.datetimepicker", function (e) {
+			endDate = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date())
+			endDateFormated = moment(e.date).format('DD/MM/YYYY');
 			//console.log("Update Data EndDate:" + e.date);
 			//console.log("Later Date Picker");
 		});
