@@ -19,6 +19,7 @@
                     @*<span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Cetak Histori Transaksi</span><br>*@
                     <teks>Silakan Masukkan PIN Anda</teks>
                     <h3 style="color: #00529C; font-size: 25px;">Setelah Ada Perintah Input Pin Pada Layar EDC</h3>
+                    <h3 style="color: #00529C; font-size: 25px;">"Tekan “ENTER” jika selesai memasukkan PIN"</h3>
                     @*<input type="password" class="form-control" placeholder="Masukan Pin Anda" @bind="strpin">*@
                     <teks style="align-content:center">@strpinMask</teks>
                     @if (isSalah)
@@ -153,7 +154,6 @@
     private bool isTime = false;
     private bool isTimer = true;
     private DateTime starttime;
-
     private void CancelEDC()
     {
         //isCancel = true;

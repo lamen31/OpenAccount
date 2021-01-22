@@ -113,7 +113,6 @@ namespace OpenAccount.Data
 
             return await CallAPI(myUrl, content, "POST");
         }
-
         public static async Task<string> GetExternalTest(Transaksi trx, Config config, string errorMessage)
         {
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_REPORT);
@@ -185,7 +184,6 @@ namespace OpenAccount.Data
 
             return await CallAPI(myUrl, content, "POST");
         }
-
 
         public static async Task<string> InquiryNotification(Transaksi trx, Config config)
         {
@@ -262,7 +260,6 @@ namespace OpenAccount.Data
 
             return await CallAPI(myUrl, content, "POST");
         }
-
         public static async Task<string> SendEmailReport(Reports reports, Config config)
         {
             //string error;
@@ -270,7 +267,6 @@ namespace OpenAccount.Data
             //string errormessage;
             //try
             //{
-            
                 string myLink = config.Read("LINK", Config.PARAM_SERVICES_REPORT);
                 string myUrl = myLink + "notif/emailreport";
             //if (!RegexUtilities.IsValidEmail(trx.emailNasabah))
@@ -346,6 +342,7 @@ namespace OpenAccount.Data
             //    return errormessage;
             //}
         }
+
         public static async Task<string> SendSms(Transaksi trx, Config config)
         {
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);

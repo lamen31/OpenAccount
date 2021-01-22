@@ -932,6 +932,7 @@ namespace OpenAccount.Report
             var pdfFilePath = TestUtil.GetOutputFileName();
             var pdfEncryptFilePath = path + TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             //string passwd = _trx._AccountNumber.Substring(6, 6);
+            string passwd = _trx._AccountNumber.Substring(6, 6);
             //_trx.attachmentPath = TestUtil.GetOutputFileNameEncrypt() + encryptFileName;
             _trx.attachmentPath = pdfEncryptFilePath;
             _trx.emailAttachment = encryptFileName;
@@ -988,6 +989,7 @@ namespace OpenAccount.Report
             }*/
             //EncryptPDF(pdfFilePath, pdfEncryptFilePath, passwd);
             EncryptPDF(pdfFilePath, pdfEncryptFilePath, "");
+            EncryptPDF(pdfFilePath, pdfEncryptFilePath, passwd);
         }
 
         public void EncryptPDF(string inputFile, string outputFile, string uPassword)

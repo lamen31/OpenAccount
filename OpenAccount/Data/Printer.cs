@@ -605,6 +605,8 @@ namespace OpenAccount.Data
 
             sisabaris = baris % 30;
             MyPrinter.Print("\n\n\n\n");//sela header
+            sisabaris = baris % 30;
+            MyPrinter.Print("\n\n\n\n\n");//sela header
 
             if (_trx._listbuku.Count > 0) // indikator bahwa line tidak 0
             {
@@ -708,6 +710,21 @@ namespace OpenAccount.Data
             //    Utility.WriteLog("Printer condition : print passbook in " + printername + " failed", "step-action");
             //}
             //trx.setStatusPrinting(Status.ToString());
+
+
+
+            Status = printerstatus.StatusCode;
+            if (printerstatus.StatusCode == 0)
+            {
+                Console.WriteLine("Print Selesai ...");
+                Utility.WriteLog("Printer condition : print passbook in " + printername + " finished", "step-action");
+            }
+            else
+            {
+                Console.WriteLine("Print Gagal ...");
+                Utility.WriteLog("Printer condition : print passbook in " + printername + " failed", "step-action");
+            }
+            trx.setStatusPrinting(Status.ToString());
             return trx._BukuSaldo;
 
                                     

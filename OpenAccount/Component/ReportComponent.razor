@@ -53,52 +53,53 @@
     </div>
 </div> 
     }
-            else
-            {
-                <div class="container">
+    else
+    {
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Report Transaksi</span><br>
+                    <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Cetak Report</h5>
+
                     <div class="row">
-                        <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-                            <div>
-                                <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Report Transaksi</span><br>
-                                <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Cetak Report</h5>
+                        <div class="col-sm-6">
+                            <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
+                            <div class="form-group">
+                                @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value1 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender YearRange="@yearRange" Change="OnChange" />*@
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
-                                        <div class="form-group">
-                                            @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value1 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender YearRange="@yearRange" Change="OnChange" />*@
+                                <input placeholder="Select date" class="form-control datepicker" type="date" @bind="startdate" />
 
-                                            <input placeholder="Select date" class="form-control datepicker" type="date" @bind="startdate" />
+                                @*<DatePicker class="form-control datepicker" Visible="datePicker2Visible" OnSelected="selected2" />*@
 
-                                            @*<DatePicker class="form-control datepicker" Visible="datePicker2Visible" OnSelected="selected2" />*@
+                            </div>
 
-                                        </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
 
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
-
-                                        <div class="form-group">
-                                            @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value2 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender2 YearRange="@yearRange" Change="OnChange" />*@
-                                            <input placeholder="Select date" class="form-control datepicker" type="date" @bind="enddate" />
-                                        </div>
+                            <div class="form-group">
+                                @*<RadzenDatePicker Placeholder="Select Date" Style="font-weight: 700; font-size: 18px;" @bind-Value=@value2 DateFormat="dd'/'MM'/'yyyy" DateRender=@DateRender2 YearRange="@yearRange" Change="OnChange" />*@
+                                <input placeholder="Select date" class="form-control datepicker" type="date" @bind="enddate" />
+                            </div>
                                     </div>
                                     <div style="margin-top:5%;">
                                         <button class="btn btn-primary" type="button" style="float: left; margin-top: 9%; font-weight: 700;" @onclick="ClearDate">CLEAR</button>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
                                 <div style="margin-top:5%">
                                     <button type="button" class="btn btn-primary" style="width: 34%; background-color: #ffffff; color: #FF8832; font-weight: 600; border: 2px solid #FF8832; border-radius: 8px;" @onclick="setEmailMethod">Kirim Email</button>
                                     <button type="button" class="btn btn-primary" style="width: 27%; background-color: #FF8832; font-weight: 600; margin-left: 2%; border-radius: 8px;" @onclick="setCopyMethod">Copy File</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                            <img src="../assets/img/Folder SVG/monthly2.svg" style="float: right;">
-                        </div>
-                    </div>
                 </div>
-            }
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder SVG/monthly2.svg" style="float: right;">
+            </div>
+        </div>
+    </div>
+        </div>
+    }
+
 </section>
 <!-- End Hero -->
 <!-- ======= Footer ======= -->
@@ -266,16 +267,16 @@
         @if (isEmail)
         {
             string result = await HitServices.SendEmailReport(report, config);
-            await Task.Delay(3000);
-            JObject jobResult = JObject.Parse(result);
-            if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
-            {
-                Console.WriteLine("SEND REPORT SUCCESS");
-            }
-            else
-            {
-                Console.WriteLine("SEND REPORT FAILED");
-            }
+        await Task.Delay(3000);
+        JObject jobResult = JObject.Parse(result);
+        if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+        {
+            Console.WriteLine("SEND REPORT SUCCESS");
+        }
+        else
+        {
+            Console.WriteLine("SEND REPORT FAILED");
+        }
         }
         else
         {

@@ -114,9 +114,11 @@
         $(".form-control").focus(function () {
             $('#keyboard').jkeyboard("setinput", this);
         });
+
+        initDateTimePicker();
     </script>
     <!-- Month Picker -->
-    <script type="text/JavaScript">
+    @*<script type="text/JavaScript">
 
         var startDate = new Date();
         var fechaFin = new Date();
@@ -143,7 +145,7 @@
             $('.from').datepicker('setEndDate', FromEndDate);
         });
 
-    </script>
+    </script>*@
     <script src="_framework/blazor.server.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 </body>

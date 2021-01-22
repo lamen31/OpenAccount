@@ -182,12 +182,10 @@ namespace OpenAccount.Data
         public string lampiran { get; set; }
         public string path { get; set; }
     }
-
     public class CopyData
     {
         public string filename { get; set; }
     }
-
     public class SmsData
     {
         public string namaNasabah { get; set; }

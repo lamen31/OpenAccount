@@ -75,8 +75,8 @@
 }
 
 @code {
-    [Parameter]
-    public EventCallback<string> OnClick { get; set; }
+        [Parameter]
+        public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
     private int overtime = 60000;
@@ -385,6 +385,13 @@
         if (Decimal.Compare(frac, 0.0m) != 0)
             strHasil = " KOMA "+Terbilang(Decimal.Round(frac * 100)) ;
         else
+        {
+            trx.isSendReport = true;
+            isTimer = false;
+            isTimeOut = true;
+            OnClick.InvokeAsync("insertdebit");
+        }
+
             strHasil = "RUPIAH";
         int xDigit = 0;
         int xPosisi = 0;

@@ -352,6 +352,10 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: Konfirmasi Timeout");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
+                trx.statusLayanan = "CANCEL";
+                //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
+                HitServices.SendLog(trx, config, "BUKU INPUT DATA: Konfirmasi Timeout");
+                OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
     }
