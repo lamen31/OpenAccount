@@ -292,9 +292,9 @@
                     endDateValue = dates[1];
                     trx.startDate = startDateValue;
                     trx.endDate = endDateValue;
-                    value3 = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    value3 = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.startDT = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.endDT = DateTime.ParseExact(endDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     trx.periodMonth = "YES";
                     Console.WriteLine("1 Month Value: " + monthValue);
                     Console.WriteLine("1 Start Date: " + startDateValue);
@@ -312,8 +312,8 @@
                 {
                     trx.startDate = startDateValue;
                     trx.endDate = endDateValue;
-                    trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.startDT = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.endDT = DateTime.ParseExact(endDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     //Console.WriteLine("Start Date: " + startDateValue);
                     //Console.WriteLine("End Date: " + endDateValue);
                     monthValue = null;

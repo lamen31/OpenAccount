@@ -1,8 +1,10 @@
 var monthVal = "";
 var startDate = "";
 var startDateFormated = "";
+var returnStartDateFormated = "";
 var endDate = "";
 var endDateFormated = "";
+var returnEndDateFormated = "";
 
 var todayDate = new Date();
 var yesterdayDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() - 1);
@@ -27,6 +29,7 @@ function setDatePicker() {
 			maxLimit2 = new Date(minLimit2.getFullYear(), minLimit2.getMonth() + 1, minLimit2.getDate() - 2);
 			startDate = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date())
 			startDateFormated = moment(e.date).format('DD/MM/YYYY');
+			returnStartDateFormated = moment(e.date).format('YYYY-MM-DD');
 			//console.log(moment(e.date).format('DD/MM/YYYY'));
 			if (maxLimit2 < todayDate) {
 				//console.log("Max Limit Less Than Today:" + minLimit2 + " " + maxLimit2);
@@ -50,6 +53,7 @@ function setDatePicker() {
 		$(".enddate").on("change.datetimepicker", function (e) {
 			endDate = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date())
 			endDateFormated = moment(e.date).format('DD/MM/YYYY');
+			returnEndDateFormated = moment(e.date).format('YYYY-MM-DD');
 			//console.log("Update Data EndDate:" + e.date);
 			//console.log("Later Date Picker");
 		});
@@ -103,7 +107,7 @@ function getStartDatePicker() {
 		//console.log("Start Date : " + moment($(".startdate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY'));
 		//$(".startdate").val(startDateFormated);
 		//return moment($(".startdate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY');
-		return startDateFormated
+		return returnStartDateFormated;
 	}
 	catch(err) {
 		return ""
@@ -116,7 +120,7 @@ function getEndDatePicker() {
 		//console.log("End Date : " + moment($(".enddate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY'));
 		//$(".enddate").val(endDateFormated);
 		//return moment($(".enddate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY');
-		return endDateFormated;
+		return returnEndDateFormated
 	}
 	catch (err) {
 		return ""
@@ -127,7 +131,7 @@ function getMonthPicker() {
 
 	try {
 		//console.log("Month Range : " + moment($(".monthpicker").data("datetimepicker")._dates[0]).format('DD/MM/YYYY') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('DD/MM/YYYY'));
-		return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('DD/MM/YYYY') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('DD/MM/YYYY');
+		return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('YYYY-MM-DD') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('YYYY-MM-DD');
 	}
 	catch (err) {
 		return ""
