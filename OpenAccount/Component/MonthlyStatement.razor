@@ -50,7 +50,7 @@
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
 
                                 <div class="form-group">
-                                    <input id="startdate" type="text" @onchange="resetDate" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate"/>
+                                    <input id="startdate" type="text" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate"/>
                                 </div>
 
                             </div>
@@ -58,7 +58,7 @@
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
 
                                 <div class="form-group">
-                                    <input id="enddate" type="text" @onchange="resetDate" class="form-control enddate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".enddate" />
+                                    <input id="enddate" type="text" class="form-control enddate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".enddate" />
                                 </div>
 
                             </div>
@@ -453,7 +453,7 @@
                     //PerTanggal();
                 }
             }
-            await Task.Delay(100);
+            await Task.Delay(1000);
             Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
             await MonthlyStatementAPI();
         }
