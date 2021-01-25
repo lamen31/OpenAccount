@@ -50,7 +50,7 @@
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
 
                                 <div class="form-group">
-                                    <input id="startdate" type="text" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate" />
+                                    <input id="startdate" type="text" @onchange="resetDate" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate"/>
                                 </div>
 
                             </div>
@@ -58,7 +58,7 @@
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
 
                                 <div class="form-group">
-                                    <input id="enddate" type="text" class="form-control enddate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".enddate" />
+                                    <input id="enddate" type="text" @onchange="resetDate" class="form-control enddate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".enddate" />
                                 </div>
 
                             </div>
@@ -276,7 +276,7 @@
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             await Task.Delay(100);
-
+            parseDateTime();
             if (periodeCode == "1")
             {
                 await js.InvokeVoidAsync("setMonthPicker");
@@ -361,6 +361,8 @@
 
         }
 
+
+
         public void DateTimeVisible()
         {
             trx.startDate = string.Empty;
@@ -423,11 +425,14 @@
 
         private async Task Cetak()
         {
-
+            StateHasChanged();
             if (periodeCode == "1")
             {
                 if (value3.HasValue)
-                    PerBulan();
+                {
+                    //PerBulan();
+                    trx.periodMonth = "YES";
+                }
                 //if (trx.startDate == null || trx.endDate == null)
                 else
                 {
@@ -437,15 +442,22 @@
             }
             else if (periodeCode == "2")
             {
-                PerTanggal();
-                if (!isPicked)
+
+                if (String.IsNullOrEmpty(endDateValue) && String.IsNullOrEmpty(startDateValue))
                 {
                     isVisible = true;
                     return;
                 }
+                else
+                {
+                    //PerTanggal();
+                }
             }
+            await Task.Delay(100);
+            Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
             await MonthlyStatementAPI();
         }
+
 
         private async Task PerBulan()
         {
@@ -541,8 +553,26 @@
             endDateValue = string.Empty;
             trx.startDate = string.Empty;
             trx.endDate = string.Empty;
+            //trx.endDT = null;
             periodeCode = args.Value.ToString();
             StateHasChanged();
+            //parseDateTime();
+        }
+
+        private async Task resetDate(ChangeEventArgs args)
+        {
+            //js.InvokeVoidAsync("getMonthPicker");
+            Console.WriteLine("1Month Value: " + monthValue);
+            Console.WriteLine("1Start Date: " + startDateValue);
+            Console.WriteLine("1End Date: " + endDateValue);
+            Console.WriteLine("1Start DT: " + trx.startDT);
+            Console.WriteLine("1End DT: " + trx.endDT);
+            Console.WriteLine("1Start Date: " + trx.startDate);
+            Console.WriteLine("1End Date: " + trx.endDate);
+            isStart = true;
+            isEnd = true;
+            Console.WriteLine("HAHAHA: " + args.Value.ToString());
+            Console.WriteLine("is Picked : " + isPicked);
         }
 
         DateTime? value1;
