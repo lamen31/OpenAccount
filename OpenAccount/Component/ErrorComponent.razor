@@ -14,167 +14,83 @@
 
                     @if (isError)
                     {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
-                    Silahkan menghubungi Petugas Bank / Customer Service"
-                </teks> }
-                            else if (isNoTransaction)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
-                    Tidak ada transaksi lagi untuk di print"
-                </teks> }
-                            else if (isRekeningNotFound)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Rekening tidak ditemukan"
-                </teks> }
-                            else if (isNotSerial)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Nomor serial yang Anda masukan salah."
-                </teks> }
-                            else if (isGiro)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Rekening Anda tidak bisa melakukan layanan ini."
-                </teks> }
-                            else if (isTutup)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Rekening Anda sudah ditutup."
-                </teks> }
-                            else if (isDataNotFound)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Data pada rekening Anda tidak ditemukan."
-                </teks> }
-                            else if (isNotStatus)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Rekening Anda tidak bisa melakukan layanan ini."<br />
-                    @errormessage
-                </teks> }
-                            else if (isTidakDitarik)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Rekening Anda tidak bisa melakukan layanan ini."
-                </teks> }
-                            else if (isEmailNotValid)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Email yang terdaftar tidak valid, silahkan lakukan pembaharuan data."
-                </teks> }
-                            else if (isReport)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Email yang terdaftar tidak valid, silahkan lakukan pembaharuan data."
-                </teks> }
-                            else if (isCardDisable)
-                            {
-                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                    "Mohon maaf, <br>
-                    Kartu yang anda gunakan tidak dikenal."
-                </teks> }
-                            else if (isServiceTimeOut)
-                            {
-                                <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                                    "Server time out. <br>
-                                    Mohon maaf, sedang terjadi masalah pada server."
-                                </teks>
-                            }
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
                             Silahkan menghubungi Petugas Bank / Customer Service"
-                        </teks>
-                    }
+                        </teks> }
                     else if (isNoTransaction)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf Anda tidak dapat melanjutkan transaksi, <br>
                             Tidak ada transaksi lagi untuk di print"
-                        </teks>
-                    }
+                        </teks> }
                     else if (isRekeningNotFound)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Rekening tidak ditemukan"
-                        </teks>
-                    }
+                        </teks> }
                     else if (isNotSerial)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Nomor serial yang Anda masukan salah."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isGiro)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Rekening Anda tidak bisa melakukan layanan ini."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isTutup)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Rekening Anda sudah ditutup."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isDataNotFound)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Data pada rekening Anda tidak ditemukan."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isNotStatus)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Rekening Anda tidak bisa melakukan layanan ini."<br />
                             @errormessage
-                        </teks>
-                    }
+                        </teks> }
                     else if (isTidakDitarik)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Rekening Anda tidak bisa melakukan layanan ini."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isEmailNotValid)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Email yang terdaftar tidak valid, silahkan lakukan pembaharuan data."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isReport)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Email yang terdaftar tidak valid, silahkan lakukan pembaharuan data."
-                        </teks>
-                    }
+                        </teks> }
                     else if (isCardDisable)
                     {
                         <teks style="font-weight: 900; font-size: 32px; text-align: center;">
                             "Mohon maaf, <br>
                             Kartu yang anda gunakan tidak dikenal."
-                        </teks>
-                    }
+                        </teks> }
+                    else if (isServiceTimeOut)
+                    {
+                        <teks style="font-weight: 900; font-size: 32px; text-align: center;">
+                            "Server time out. <br>
+                            Mohon maaf, sedang terjadi masalah pada server."
+                        </teks>}
                 </div>
             </div>
         </div>
