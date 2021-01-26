@@ -106,8 +106,8 @@ function getStartDatePicker() {
 	try {
 		//console.log("Start Date : " + moment($(".startdate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY'));
 		//$(".startdate").val(startDateFormated);
-		//return moment($(".startdate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY');
-		return returnStartDateFormated;
+		return moment($(".startdate").data("datetimepicker")._dates[0]).format('YYYY-MM-DD');
+		//return returnStartDateFormated;
 	}
 	catch(err) {
 		return ""
@@ -119,8 +119,8 @@ function getEndDatePicker() {
 	try {
 		//console.log("End Date : " + moment($(".enddate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY'));
 		//$(".enddate").val(endDateFormated);
-		//return moment($(".enddate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY');
-		return returnEndDateFormated
+		return moment($(".enddate").data("datetimepicker")._dates[0]).format('YYYY-MM-DD');
+		//return returnEndDateFormated
 	}
 	catch (err) {
 		return ""

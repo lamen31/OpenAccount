@@ -253,6 +253,8 @@
         private string minEnd = DateTime.Today.AddYears(-2).ToString("yyyy-MM-dd");
         private string maxEnd = DateTime.Today.ToString("yyyy-MM-dd");
 
+        private bool isHit;
+
         private ElementReference heroo;
 
         private async Task ResetTimer()
@@ -296,9 +298,9 @@
                     trx.startDT = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     trx.endDT = DateTime.ParseExact(endDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     trx.periodMonth = "YES";
-                    Console.WriteLine("1 Month Value: " + monthValue);
-                    Console.WriteLine("1 Start Date: " + startDateValue);
-                    Console.WriteLine("1 End Date: " + endDateValue);
+                    //Console.WriteLine("1 Month Value: " + monthValue);
+                    //Console.WriteLine("1 Start Date: " + startDateValue);
+                    //Console.WriteLine("1 End Date: " + endDateValue);
                 }
 
 
@@ -318,14 +320,15 @@
                     //Console.WriteLine("End Date: " + endDateValue);
                     monthValue = null;
                     trx.periodMonth = "NO";
-                    Console.WriteLine("2 Start Date: " + startDateValue);
-                    Console.WriteLine("2 End Date: " + endDateValue);
+                    //Console.WriteLine("2 Start Date: " + startDateValue);
+                    //Console.WriteLine("2 End Date: " + endDateValue);
 
                 }
 
             }
             if (firstRender)
             {
+                isHit = true;
                 Utility.WriteLog("Home condition : entered into new home", "step-action");
                 trx.timeOut = "monthlystatement";
                 isTimer = true;
@@ -351,13 +354,13 @@
         public void parseDateTime()
         {
             //js.InvokeVoidAsync("getMonthPicker");
-            Console.WriteLine("Month Value: " + monthValue);
-            Console.WriteLine("Start Date: " + startDateValue);
-            Console.WriteLine("End Date: " + endDateValue);
-            Console.WriteLine("Start DT: " + trx.startDT);
-            Console.WriteLine("End DT: " + trx.endDT);
-            Console.WriteLine("Start Date: " + trx.startDate);
-            Console.WriteLine("End Date: " + trx.endDate);
+            //Console.WriteLine("Month Value: " + monthValue);
+            //Console.WriteLine("Start Date: " + startDateValue);
+            //Console.WriteLine("End Date: " + endDateValue);
+            //Console.WriteLine("Start DT: " + trx.startDT);
+            //Console.WriteLine("End DT: " + trx.endDT);
+            //Console.WriteLine("Start Date: " + trx.startDate);
+            //Console.WriteLine("End Date: " + trx.endDate);
 
         }
 
@@ -432,6 +435,10 @@
                 {
                     //PerBulan();
                     trx.periodMonth = "YES";
+                    await Task.Delay(1000);
+                    Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
+                    if (isHit)
+                        await MonthlyStatementAPI();
                 }
                 //if (trx.startDate == null || trx.endDate == null)
                 else
@@ -451,11 +458,12 @@
                 else
                 {
                     //PerTanggal();
+                    await Task.Delay(1000);
+                    Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
+                    if (isHit)
+                        await MonthlyStatementAPI();
                 }
             }
-            await Task.Delay(1000);
-            Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
-            await MonthlyStatementAPI();
         }
 
 
@@ -673,6 +681,7 @@
             string errormessage;
             isRead = true;
             isTimeOut = true;
+            isHit = false;
             trx._listMonthly.Clear();
             //trx._AccountNumber = "008301031142500";
             try
