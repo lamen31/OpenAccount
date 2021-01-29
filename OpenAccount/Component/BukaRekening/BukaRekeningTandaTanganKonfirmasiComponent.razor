@@ -2,6 +2,8 @@
 @using OpenAccount.Data
 
 @inject Utility utility 
+@inject SignPad sign
+@inject TransaksiBaru trxbaru
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="margin-top: 50px;">
@@ -90,11 +92,33 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+    private bool isDone=false;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             Utility.WriteLog("Buka rekening condition : entered into buka rekening tanda tangan konfirmasi", "step-action");
+            sign.DeleteSign();
+            sign.signpad();
+            do
+            {
+                if (!trxbaru._StatusSignPad)
+                {
+                    await Task.Delay(100);
+                    StateHasChanged();
+                }
+                else
+                {
+                    isDone = true;
+                    await Task.Delay(100);
+                    StateHasChanged();
+                }
+            } while (!isDone);
+        }
+        else
+        {
+            sign.saveSign();
         }
     }
 

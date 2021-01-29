@@ -494,28 +494,43 @@
             isLoop = false;
             //trx.statusLayanan = "ERROR";
             //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC Error --> " + ex.Message);
-            trx.setErrorService("Exception", ex.Message);
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            Utility.WriteLog("Home condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
 
-        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
-        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+            serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
 
-        await Task.Delay(3000);
-        isLoading = false;
+            await Task.Delay(3000);
+            isLoading = false;
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            isLoop = false;
+            //trx.statusLayanan = "ERROR";
+            //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC Error --> " + ex.Message);
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            Utility.WriteLog("Home condition : move to error", "step-action");
+            OnClick.InvokeAsync("error");
+            return;
+        }
 
         while (isLoop)
         {
-            await Task.Delay(150);
-
             dataRespond = string.Empty;
             dataSplit = string.Empty;
             //bool exitLoop = false;
             //Console.WriteLine(dataRespond);
             if (serialPort.IsOpen)
             {
-                Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+                //Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
                 string dataCurrent = serialPort.ReadExisting();
                 dataRespond += dataCurrent;
                 //Console.WriteLine("Data Current Pin: " + dataCurrent);
@@ -709,7 +724,8 @@
                     Utility.WriteLog("Home condition : EDC NAK", "step-action");
                     //trx.statusLayanan = "ERROR";
                     //HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: EDC NAK ");
-                    trx.setErrorService("", "EDC Return NAK");
+                    trx.setErrorService("IEC", "EDC NAK");
+                    Utility.WriteLog("Home condition : move to error", "step-action");
                     OnClick.InvokeAsync("error");
                     return;
                 }
@@ -775,6 +791,7 @@
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
                         StateHasChanged();
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -792,6 +809,7 @@
                         HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
+                        Utility.WriteLog("Home condition : move to blokir kartu", "step-action");
                         OnClick.InvokeAsync("blokirkartu");
                         return;
                     }
@@ -825,6 +843,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -832,24 +851,28 @@
             }
             catch (Exception ex)
             {
+                Utility.WriteLog("Home condition : hit service error -- cekpin", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.statusLayanan = "ERROR";
                 HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Cek Pin Error --> " + ex.Message);
                 trx.setErrorService(errorcode, errormessage);
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 return;
             }
         }
         catch (Exception ex)
         {
+            Utility.WriteLog("Home condition : hit service error -- cekpin", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.statusLayanan = "ERROR";
             HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Cek Pin Error --> " + ex.Message);
             trx.setErrorService(errorcode, errormessage);
+            Utility.WriteLog("Home condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -886,6 +909,7 @@
                             trx.setErrorService(errorcode, errormessage);
                             isInquiry = false;
                             trx.statusLayanan = "ERROR";
+                            Utility.WriteLog("Home condition : move to error", "step-action");
                             HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                             OnClick.InvokeAsync("error");
                             return;
@@ -932,6 +956,7 @@
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry By Card No --> " + errormessage);
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -939,11 +964,13 @@
             }
             catch (Exception ex)
             {
+                Utility.WriteLog("Home condition : hit service error -- inquiry by card number", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry By Card No --> " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;
@@ -951,11 +978,13 @@
         }
         catch (Exception ex)
         {
+            Utility.WriteLog("Home condition : hit service error -- inquiry by card number", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
+            Utility.WriteLog("Home condition : move to error", "step-action");
             HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry By Card No --> " + errormessage);
             OnClick.InvokeAsync("error");
             return;
@@ -1012,11 +1041,13 @@
                 //strnorek = string.Empty;
                 //await Task.Delay(100);
                 //StateHasChanged();
+                Utility.WriteLog("Home condition : hit service error -- inquiry cif by account", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;
@@ -1034,11 +1065,13 @@
             //strnorek = string.Empty;
             //await Task.Delay(100);
             //StateHasChanged();
+            Utility.WriteLog("Home condition : hit service error -- inquiry cif by account", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
+            Utility.WriteLog("Home condition : move to error", "step-action");
             HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
             OnClick.InvokeAsync("error");
             return;
@@ -1093,11 +1126,13 @@
                 //strnorek = string.Empty;
                 //await Task.Delay(100);
                 //StateHasChanged();
+                Utility.WriteLog("Home condition : hit service error -- service rekening", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Service Rekening --> " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;
@@ -1115,11 +1150,13 @@
             //strnorek = string.Empty;
             //await Task.Delay(100);
             //StateHasChanged();
+            Utility.WriteLog("Home condition : hit service error -- service rekening", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
+            Utility.WriteLog("Home condition : move to error", "step-action");
             HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Service Rekening --> " + errormessage);
             OnClick.InvokeAsync("error");
             return;

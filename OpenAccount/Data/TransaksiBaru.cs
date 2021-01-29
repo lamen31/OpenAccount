@@ -43,6 +43,7 @@ namespace OpenAccount.Data
         public string _MenuEBanking { get; set; }
         public string _ReferenceID { get; set; }
         public string _StatusPrinter { get; set; }
+        public bool _StatusSignPad { get; set; } = false;
 
         public void setTransaksiID(string strtransaksiid)
         {

@@ -36,7 +36,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.HWPenSignLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\AxInterop.HWPenSignLib.dll</HintPath>
+      <HintPath>.\AxInterop.HWPenSignLib.dll</HintPath>
     </Reference>
     <Reference Include="INIFileParser, Version=2.5.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -45,7 +45,7 @@
     <Reference Include="Interop.HWPenSignLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>bin\Debug\Interop.HWPenSignLib.dll</HintPath>
+      <HintPath>.\Interop.HWPenSignLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

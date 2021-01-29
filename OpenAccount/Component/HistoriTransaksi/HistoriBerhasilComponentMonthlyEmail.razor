@@ -57,6 +57,7 @@
     {
         isTimer = false;
         isTimeOut = true;
+        Utility.WriteLog("Histori condition : move to home", "step-action");
         OnClick.InvokeAsync("default");
         return;
     }
@@ -64,6 +65,7 @@
     {
         isTimer = false;
         isTimeOut=true;
+        Utility.WriteLog("Histori condition : move to input pin monthly", "step-action");
         OnClick.InvokeAsync("inputpinmonthly");
         return;
     }
@@ -75,21 +77,30 @@
 
         if (trx.MSISDN.Length > 9 && trx.MSISDN != string.Empty && trx.MSISDN != "" && trx.MSISDN != "000000000000")
         {
-            string result = await HitServices.SendSms(trx, config);
-            if (result.Contains("1111"))
+            try
             {
-                trx.smsNotif = "SUCCESS";
-                Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
+                string result = await HitServices.SendSms(trx, config);
+                if (result.Contains("1111"))
+                {
+                    trx.smsNotif = "SUCCESS";
+                    Utility.WriteLog("Histori condition : SMS SUCCESS", "step-action");
+                }
+                else
+                {
+                    trx.smsNotif = "FAILED";
+                    Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
+                }
             }
-            else
+            catch(Exception ex)
             {
                 trx.smsNotif = "FAILED";
-                Utility.WriteLog("Histori condition : SMS FAILED " + result, "step-action");
+                Utility.WriteLog("Histori condition : SMS FAILED ", "step-action");
             }
         }
         else
         {
             trx.smsNotif = "NOT REGISTER";
+            Utility.WriteLog("Histori condition : HANDPHONE NUMBER NOT REGISTER ", "step-action");
         }
 
         HitServices.SendLog(trx, config, "");
@@ -118,7 +129,6 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "inputpinmonthly";
             isTimer = true;
             starttime = DateTime.Now;

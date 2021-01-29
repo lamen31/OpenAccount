@@ -329,7 +329,6 @@
             if (firstRender)
             {
                 isHit = true;
-                Utility.WriteLog("Home condition : entered into new home", "step-action");
                 trx.timeOut = "monthlystatement";
                 isTimer = true;
                 starttime = DateTime.Now;
@@ -435,7 +434,7 @@
                 {
                     //PerBulan();
                     trx.periodMonth = "YES";
-                    await Task.Delay(1000);
+                    await Task.Delay(100);
                     Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
                     if (isHit)
                         await MonthlyStatementAPI();
@@ -458,7 +457,7 @@
                 else
                 {
                     //PerTanggal();
-                    await Task.Delay(1000);
+                    await Task.Delay(100);
                     Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
                     if (isHit)
                         await MonthlyStatementAPI();
@@ -736,6 +735,7 @@
                             isTimeOut = true;
                             trx.externalID = (string)jobResult["externalId"];
                             //OnClick.InvokeAsync("konfirmasimonthly");
+                            Utility.WriteLog("Histori condition : move to histori pilih metode", "step-action");
                             OnClick.InvokeAsync("historiPilihMetode");
                             return;
                         }
@@ -750,6 +750,7 @@
                             trx.statusLayanan = "ERROR";
                             trx.externalID = (string)jobResult["externalId"];
                             HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
+                            Utility.WriteLog("Histori condition : move to error", "step-action");
                             OnClick.InvokeAsync("error");
                             return;
                         }
@@ -757,12 +758,14 @@
                 }
                 catch (Exception ex)
                 {
+                    Utility.WriteLog("Histori condition : hit service error -- monthly statement api", "step-action");
                     isTimeOut = true;
                     isTimer = false;
                     errorcode = "Exception";
                     errormessage = ex.Message;
                     trx.setErrorService(errorcode, errormessage);
                     trx.statusLayanan = "ERROR";
+                    Utility.WriteLog("Histori condition : move to error", "step-action");
                     HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                     OnClick.InvokeAsync("error");
                     return;
@@ -770,12 +773,14 @@
             }
             catch (Exception ex)
             {
+                Utility.WriteLog("Histori condition : hit service error -- monthly statement api", "step-action");
                 isTimeOut = true;
                 isTimer = false;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;

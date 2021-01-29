@@ -300,12 +300,15 @@
                 JObject jobResult = JObject.Parse(result);
                 if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
                 {
+                    Utility.WriteLog("Histori condition : move to histori berhasil monthly email", "step-action");
                     OnClick.InvokeAsync("historiberhasilmonthlyemail");
                     return;
                 }
                 else
                 {
                     trx.setErrorService("EmailFailed", "Failed to Send Email");
+                    Utility.WriteLog("Histori condition : failed send email", "step-action");
+                    Utility.WriteLog("Histori condition : move to error", "step-action");
                     HitServices.SendLog(trx, config, "KONFIRMASI MONTHLY STATEMENT: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
                     OnClick.InvokeAsync("error");
                     return;
@@ -322,9 +325,15 @@
                 isTimer = false;
                 status = status.Substring(0, 1);
                 if (status == "0")
+                {
+                    Utility.WriteLog("Histori condition : move to histori berhasil monthly", "step-action");
                     OnClick.InvokeAsync("historiberhasilmonthly");
+                }
                 else
+                {
+                    Utility.WriteLog("Histori condition : move to histori gagal", "step-action");
                     OnClick.InvokeAsync("historigagal");
+                }
                 return;
             }
             //OnClick.InvokeAsync("historipilihmetode");
@@ -353,7 +362,7 @@
     private async Task AmbilKartu()
     {
         isTimeOut = true;
-        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
+        Utility.WriteLog("Histori condition : move to home", "step-action");
         isTimer = false;
         OnClick.InvokeAsync("default");
         return;

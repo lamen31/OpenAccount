@@ -306,9 +306,9 @@
     private async Task AmbilKartu()
     {
         isTimeOut = true;
-        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+        Utility.WriteLog("Buku condition : move to home", "step-action");
         isTimer = false;
-        OnClick.InvokeAsync("ambilkartu");
+        OnClick.InvokeAsync("default");
         return;
     }
 
@@ -374,6 +374,7 @@
                         trx.externalID = (string)jobResult["externalId"];
                         //HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
+                        Utility.WriteLog("Buku condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -389,6 +390,7 @@
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
+                        Utility.WriteLog("Buku condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -404,6 +406,7 @@
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
+                        Utility.WriteLog("Buku condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -418,6 +421,7 @@
                         trx.externalID = (string)jobResult["externalId"];
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
+                        Utility.WriteLog("Buku condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -427,6 +431,7 @@
             catch (Exception ex)
             {
                 Console.WriteLine("HIT SERVICES ERROR");
+                Utility.WriteLog("Buku condition : hit service error -- service passbook", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
@@ -435,12 +440,14 @@
                 //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                 HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                 isTimer = false;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 return;
             }
         }
         catch (Exception ex)
         {
+            Utility.WriteLog("Buku condition : hit service error -- service passbook", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
@@ -449,6 +456,7 @@
             //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
             HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
             isTimer = false;
+            Utility.WriteLog("Buku condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -684,6 +692,7 @@
                     //} while (isBaris);
                     isTimeOut = true;
                     isTimer = false;
+                    Utility.WriteLog("Buku condition : move to buku halaman penuh", "step-action");
                     OnClick.InvokeAsync("bukuhalamanpenuh");
                     return;
                     //if (isBerhenti)
@@ -888,6 +897,7 @@
                     //} while (isBaris);
                     isTimeOut = true;
                     isTimer = false;
+                    Utility.WriteLog("Buku condition : move to buku halaman penuh", "step-action");
                     OnClick.InvokeAsync("bukuhalamanpenuh");
                     return;
                     //if (isBerhenti)

@@ -36,6 +36,8 @@ namespace OpenAccount.Data
             {
                 Utility.WriteLog("Signpad condition : sign pad process close", "step-action");
                 process.Close();
+                if (process.ExitCode == 0)
+                    trxbaru._StatusSignPad = true;
                 //process.Dispose();
             }
         }

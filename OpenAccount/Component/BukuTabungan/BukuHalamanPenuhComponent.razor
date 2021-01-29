@@ -158,7 +158,6 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "bukuhalamanpenuh";
             isTimer = true;
             starttime = DateTime.Now;
@@ -500,6 +499,7 @@
     {
         isTimeOut = true;
         isTimer = false;
+        Utility.WriteLog("Buku condition : move to buku habis", "step-action");
         OnClick.InvokeAsync("bukupenuh");
         return;
     }

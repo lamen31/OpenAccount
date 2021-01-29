@@ -335,7 +335,6 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "bukuinputdata";
             isTimer = true;
             starttime = DateTime.Now;
@@ -349,13 +348,8 @@
                 isTime = false;
                 //trx.statusLayanan = "CANCEL";
                 //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
-                HitServices.SendLog(trx, config, "BUKU INPUT DATA: Konfirmasi Timeout");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
-                trx.statusLayanan = "CANCEL";
-                //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
-                HitServices.SendLog(trx, config, "BUKU INPUT DATA: Konfirmasi Timeout");
-                OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
     }
@@ -377,6 +371,7 @@
             HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
             isTimer = false;
+            Utility.WriteLog("Buku condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -391,6 +386,7 @@
             HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
             isTimer = false;
+            Utility.WriteLog("Buku condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -439,6 +435,7 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
@@ -450,6 +447,7 @@
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
@@ -463,6 +461,7 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
@@ -488,6 +487,7 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
@@ -503,6 +503,7 @@
         //HitLog.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
         HitServices.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
         isTimer = false;
+        Utility.WriteLog("Buku condition : move to home", "step-action");
         OnClick.InvokeAsync("default");
         return;
     }

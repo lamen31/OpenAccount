@@ -66,7 +66,7 @@
                 </div>
                 <div style="text-align: center; color: rgb(255, 255, 255);">
                     <h3 class="teks" style="margin-top: 5%;">MAAF, mesin sedang tidak beroperasi</h3>
-                    <h3>Jam operasional mesin 06.00-16.00</h3>
+                    <h3>Jam operasional mesin 08.00-16.00</h3>
                 </div>
 
             </div>
@@ -75,8 +75,8 @@
 }
 
 @code {
-        [Parameter]
-        public EventCallback<string> OnClick { get; set; }
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
 
     private TimeSpan span;
     private int overtime = 60000;
@@ -93,6 +93,7 @@
     private bool isCancel = false;
     private bool isComplete = false;
     private bool isSendReport = true;
+    private int edccount = 0;
 
     private SerialPort sPort = new SerialPort();
 
@@ -149,7 +150,6 @@
         try
         {
             await EDCClearBuffer("15");
-            Console.WriteLine("EDC CLEAR BUFFER SUCCESS");
         }
         catch (Exception ex)
         {
@@ -175,6 +175,143 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        TimeNow = DateTime.Now.ToString("HH:mm:ss");
+        if(DateTime.Now.Hour > 16 && edccount == 1)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 16.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+        }
+        else if(DateTime.Now.Hour > 18 && edccount == 2)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 18.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+        }
+        else if (DateTime.Now.Hour > 20 && edccount == 3)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 20.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+        }
+        else if (DateTime.Now.Hour > 22 && edccount == 4)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 22.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+        }
+        else if (DateTime.Now.Hour < 2 && edccount == 5)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 02.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+        }
+        else if (DateTime.Now.Hour < 4 && edccount == 6)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 04.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+            edccount += 1;
+        }
+        else if (DateTime.Now.Hour < 6 && edccount == 7)
+        {
+            edccount += 1;
+            Console.WriteLine("EDC COUNT " + edccount);
+            Console.WriteLine("EDC CHECK STATUS 06.00");
+            sPort.PortName = config.Read("PORT", Config.PARAM_PORT_EDC);
+            Utility.WriteLog("Home condition : EDC process start", "step-action");
+            await Task.Delay(100);
+            try
+            {
+                //await EDCClearBuffer("1200");
+                await EDC("11");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            }
+            edccount += 1;
+        }
+
         if (firstRender)
         {
             //trx.timeOut = "default";
@@ -192,6 +329,169 @@
             //}
         }
     }
+
+    private async Task EDCclose()
+    {
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+    }
+
+    private async Task EDC(string ecrmsg)
+    {
+        isLoop = true;
+        string _statusCode = string.Empty;
+        string stx = "02";
+        string ecr = "424E49"; // BNI;
+        string ecr_messsage = string.Empty;
+        string etx = "03";
+        string lrc = "00";
+        string dataSplit = "";
+
+        string dataRespond = string.Empty;
+        SerialPort serialPort = new SerialPort();
+
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+
+        string request_BankFiller = string.Empty;
+
+        request_BankFiller = edc.HexaBankFiller("");
+
+        ecr_messsage = ecrmsg
+            + request_BankFiller;
+
+        string data = stx
+            + ecr
+            + ecr_messsage
+            + etx
+            + lrc;
+
+        byte[] data2 = edc.StringToByteArray(data);
+        byte[] data2_with_lrc = edc.LRC(data2);
+        //data2[56] = 0x77;
+        serialPort.PortName = sPort.PortName;
+        serialPort.BaudRate = 115200;
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceivedLoop);
+
+        Console.WriteLine("1");
+
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port open", "step-action");
+            serialPort.Open();
+            trx.AddTrail("OPEN SERIAL EDC", "", "SUCCESS");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            //trx.statusLayanan = "CANCEL";
+            //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
+            isLoop = false;
+            serialPort.Close();
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            //OnClick.InvokeAsync("error");
+            //return;
+        }
+
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+            serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+            await Task.Delay(2000);
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            //trx.statusLayanan = "CANCEL";
+            //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
+            isLoop = false;
+            serialPort.Close();
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            //OnClick.InvokeAsync("error");
+            //return;
+        }
+
+        while (isLoop)
+        {
+            await Task.Delay(150);
+
+            dataRespond = string.Empty;
+            dataSplit = string.Empty;
+            //bool exitLoop = false;
+            Console.WriteLine(dataRespond);
+            if (serialPort.IsOpen)
+            {
+                //Utility.WriteLog("Home condition : EDC serial port already open", "step-action");
+                string dataCurrent = serialPort.ReadExisting();
+                dataRespond += dataCurrent;
+                Console.WriteLine("Data Current: " + dataCurrent);
+                Console.WriteLine("Data Respond: " + dataRespond);
+                if (dataRespond.Contains("BNI"))
+                {
+                    dataSplit = dataRespond.Substring(dataRespond.IndexOf("BNI"));
+                    byte[] buffer = Encoding.ASCII.GetBytes(dataSplit);
+                    int intBuffer = buffer[4];
+                    if (buffer[4] == 0x30 && buffer[5] == 0x30 && buffer[6] == 0x30 && buffer[7] == 0x30)
+                    {
+                        trx.nomerKartu = dataSplit.Substring(10, 16);
+                        Console.WriteLine(trx.nomerKartu);
+                        isComplete = true;
+                        break;
+                    }
+                    else
+                    {
+                        isCancel = true;
+                        break;
+                    }
+                }
+                Console.WriteLine("Data Split: " + dataSplit);
+                if (dataRespond.Contains("\x06"))
+                {
+                    if (dataRespond.Length > 10)
+                    {
+                        //serialPort.Close();
+                        Utility.WriteLog("Home condition : EDC ACK", "step-action");
+                    }
+                }
+                else if (dataRespond.Contains("\x15"))
+                {
+                    serialPort.Close();
+                    isLoop = false;
+                    Utility.WriteLog("Home condition : EDC NAK", "step-action");
+                    trx.statusLayanan = "ERROR";
+                    //HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
+                    trx.setErrorService("IEC", "EDC NAK");
+                    //OnClick.InvokeAsync("error");
+                    //return;
+                }
+            }
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+
+        Console.WriteLine("2");
+        Utility.WriteLog("Home condition : EDC serial port close", "step-action");
+        serialPort.Close();
+        //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+    }
+
     private async Task IdleTime()
     {
         do
@@ -258,6 +558,9 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             isLoop = false;
+            trx.setErrorService("Exception", ex.Message);
+            OnClick.InvokeAsync("error");
+            return;
         }
 
         Utility.WriteLog("Home condition : EDC serial port write", "step-action");
@@ -346,8 +649,9 @@
     private async Task InputRekening()
     {
         TimeNow = DateTime.Now.ToString("HH:mm:ss");
-        if (DateTime.Now.Hour > 16 || DateTime.Now.Hour < 7)
+        if (DateTime.Now.Hour > 15 || DateTime.Now.Hour < 7)
         {
+            Utility.WriteLog("Home condition : Machine is freeze", "step-action");
             isNotHour = true;
             await Task.Delay(100);
             StateHasChanged();
@@ -356,14 +660,15 @@
             await Task.Delay(100);
             StateHasChanged();
             Console.WriteLine(TimeNow);
-            OnClick.InvokeAsync("nothour");
-            return;
+            //OnClick.InvokeAsync("nothour");
+            //return;
         }
         else
         {
             trx.isSendReport = true;
             isTimer = false;
             isTimeOut = true;
+            Utility.WriteLog("Home condition : move to insert debit", "step-action");
             //OnClick.InvokeAsync("inputrekening");
             OnClick.InvokeAsync("insertdebit");
             return;
@@ -392,7 +697,7 @@
             OnClick.InvokeAsync("insertdebit");
         }
 
-            strHasil = "RUPIAH";
+        strHasil = "RUPIAH";
         int xDigit = 0;
         int xPosisi = 0;
 
