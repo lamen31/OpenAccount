@@ -124,6 +124,7 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTime = false;
+                Utility.WriteLog("Home condition : move to konfirmasi time out", "step-action");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
             }

@@ -690,6 +690,8 @@
                 "\"start_date\":\"" + trx.startDate + "\"," +
                 "\"end_date\":\"" + trx.endDate + "\"" +
                     "}";
+                Utility.WriteLog("Histori condition : request JSON --> "+myJson, "step-action");
+                Console.WriteLine("REQUEST JSON -- " + myJson);
                 string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
                 string myUrl = myLink + "monthly/statement";
                 ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
@@ -697,6 +699,8 @@
                 try
                 {
                     string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                    Utility.WriteLog("Histori condition : respond JSON --> " + strResult, "step-action");
+                    Console.WriteLine("RESPOND JSON -- " + strResult);
                     if (strResult != null)
                     {
                         JObject jobResult = JObject.Parse(strResult);

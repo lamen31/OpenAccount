@@ -30,6 +30,7 @@ namespace OpenAccount.Data
             process.StartInfo.WorkingDirectory = workingdirectory;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             //Utility.WriteLog("Signpad condition : sign pad process running", "step-action");
+            Utility.WriteLog("Print PDF condition : Print PDF process start", "step-action");
             process.Start();
             process.WaitForExit();
             //Utility.WriteLog("Signpad condition : sign pad process done", "step-action");

@@ -293,6 +293,7 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTime = false;
+                Utility.WriteLog("Histori condition : move to konfirmasi time out", "step-action");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
             }
@@ -314,8 +315,10 @@
         switch (status)
         {
             case "1":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 break;
             case "2":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
@@ -328,6 +331,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Matured but Not Closed";
                 trx.setErrorService(errorcode, errormessage);
@@ -340,8 +344,10 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 break;
             case "5":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
@@ -354,6 +360,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Restricted";
                 trx.setErrorService(errorcode, errormessage);
@@ -366,6 +373,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "7":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Frozen with No Actual";
                 trx.setErrorService(errorcode, errormessage);
@@ -378,6 +386,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "8":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
@@ -390,6 +399,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 break;
         }
     }
@@ -403,6 +413,7 @@
             string myJson = "{" +
             "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
+            Utility.WriteLog("Histori condition : request JSON --> "+myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
             //string myUrl = "http://172.18.136.207:6001/invoke/bri.core.services.v1:fiveMutation";
@@ -411,6 +422,7 @@
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Histori condition : respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);

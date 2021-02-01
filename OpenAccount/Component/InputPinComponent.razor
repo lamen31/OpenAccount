@@ -770,13 +770,15 @@
                 "\"card_no\":\"" + trx.nomerKartu + "\"," +
             "\"pin\":\"" + trx.pinBlock + "\"" +
             "}";
+            Utility.WriteLog("Home condition : Request JSON --> "+myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + "inquiry/checkpin";
             ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- cek pin", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
@@ -907,13 +909,15 @@
             string myJson = "{" +
                 "\"card_no\":\"" + trx.nomerKartu + "\"" +
             "}";
+            Utility.WriteLog("Home condition : Request JSON --> " + myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + "inquiry/bycardno";
             ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- inquiry by card number", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
@@ -1019,13 +1023,15 @@
             string myJson = "{" +
             "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
+            Utility.WriteLog("Histori condition : Request JSON --> " + myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + "inquiry/cifbyacct";
 
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- inquiry cif by account", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
@@ -1126,6 +1132,7 @@
                 "\"remark2\":\"" + "inquiryAccountTest2" + "\"," +
             "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
+            Utility.WriteLog("Home condition : Request JSON --> " + myJson, "step-action");
 
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             //string myUrl = myLink + "inquiry/cifbyacct";
@@ -1133,10 +1140,11 @@
             //string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
             string myUrl = myLink + "fivemutation/validasi";
             //string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- service rekening", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);

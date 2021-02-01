@@ -425,8 +425,10 @@
         switch (status)
         {
             case "1":
+                Utility.WriteLog("Buku condition : status "+ status, "step-action");
                 break;
             case "2":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
@@ -439,6 +441,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Matured but Not Closed";
                 trx.statusLayanan = "ERROR";
@@ -451,8 +454,10 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 break;
             case "5":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
@@ -465,6 +470,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 //errorcode = "NotStatus";
                 //errormessage = "Account Status Restricted";
                 //trx.setErrorService(errorcode, errormessage);
@@ -472,6 +478,7 @@
                 //OnClick.InvokeAsync("error");
                 break;
             case "7":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 //errorcode = "NotStatus";
                 //errormessage = "Account Status Frozen with No Actual";
                 //trx.setErrorService(errorcode, errormessage);
@@ -479,6 +486,7 @@
                 //OnClick.InvokeAsync("error");
                 break;
             case "8":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
@@ -491,6 +499,7 @@
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
+                Utility.WriteLog("Buku condition : status " + status, "step-action");
                 break;
         }
     }
