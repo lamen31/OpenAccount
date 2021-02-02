@@ -330,14 +330,16 @@
             "\"remark2\":\"" + "" + "\"," +
             "\"remark3\":\"" + "" + "\"" +
             "}";
+            Utility.WriteLog("Buku condition : request JSON --> " + myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK);
             //string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK1) + "/" + config.Read("NASABAH", Config.PARAM_REKENING_NASABAH);
             //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
-            Utility.WriteLog("Buku condition : get service start", "step-action");
+            Utility.WriteLog("Buku condition : post service start -- service passbook", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Buku condition : respond JSON --> " + strResult, "step-action");
 
                 if (strResult != null)
                 {
@@ -359,11 +361,13 @@
                         isRead = false;
                         await Task.Delay(100);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Buku condition : service passbook external id " + trx.externalID, "step-action");
                         StateHasChanged();
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-260" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "NI")
                     {
+                        Utility.WriteLog("Buku condition : hit service passbook failed", "step-action");
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
                         isTimeOut = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
@@ -372,6 +376,7 @@
                         //trx.statusLayanan = "CANCEL";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Buku condition : service passbook external id " + trx.externalID, "step-action");
                         //HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         Utility.WriteLog("Buku condition : move to error", "step-action");
@@ -380,6 +385,7 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-001" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "03")
                     {
+                        Utility.WriteLog("Buku condition : hit service passbook failed", "step-action");
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
                         isTimeOut = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
@@ -388,6 +394,7 @@
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Buku condition : service passbook external id " + trx.externalID, "step-action");
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         Utility.WriteLog("Buku condition : move to error", "step-action");
@@ -396,6 +403,7 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-287" || (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "77")
                     {
+                        Utility.WriteLog("Buku condition : hit service passbook failed", "step-action");
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
                         isTimeOut = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
@@ -404,6 +412,7 @@
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Buku condition : service passbook external id " + trx.externalID, "step-action");
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         Utility.WriteLog("Buku condition : move to error", "step-action");
@@ -412,6 +421,7 @@
                     }
                     else
                     {
+                        Utility.WriteLog("Buku condition : hit service passbook failed", "step-action");
                         isTimeOut = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
@@ -419,6 +429,7 @@
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Buku condition : service passbook external id " + trx.externalID, "step-action");
                         HitServices.SendLog(trx, config, "BUKU KONFIRMASI: " + errormessage);
                         isTimer = false;
                         Utility.WriteLog("Buku condition : move to error", "step-action");
@@ -603,7 +614,7 @@
                         await Task.Delay(7000);
                         StateHasChanged();
 
-                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
                         jmlhalaman += 1;
                         trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
                         //await Task.Delay(10000);
@@ -709,7 +720,7 @@
             else if (totalbaris <= maxbaris)
             {
                 saldo = await Task.Run(() => print.PrintPassbook(trx));
-
+                Utility.WriteLog("Buku condition : print passbook success", "step-action");
                 //loading by nana
                 isVisible = !isVisible;
                 await Task.Delay(7000);
@@ -722,211 +733,212 @@
                 return;
             }
         }
-        else if (isBisnis && !isSimpedes)
-        {
-            if (totalbaris > maxbarisbisnis)
-            {
-                int n = totalbaris / maxbarisbisnis;
-                string[] temptipe = null;
-                string[] tempsandi = null;
-                string[] tempnominal = null;
-                string[] temppengesahan = null;
-                int startindex = 0;
+        //else if (isBisnis && !isSimpedes)
+        //{
+        //    if (totalbaris > maxbarisbisnis)
+        //    {
+        //        int n = totalbaris / maxbarisbisnis;
+        //        string[] temptipe = null;
+        //        string[] tempsandi = null;
+        //        string[] tempnominal = null;
+        //        string[] temppengesahan = null;
+        //        int startindex = 0;
 
-                if (totalbaris % maxbarisbisnis > 0)
-                {
-                    n += 1;
-                }
+        //        if (totalbaris % maxbarisbisnis > 0)
+        //        {
+        //            n += 1;
+        //        }
 
-                //temptipe = new string[trx._listbuku.Count];
-                //tempsandi = new string[trx._listbuku.Count];
-                //tempnominal = new string[trx._listbuku.Count];
-                //temppengesahan = new string[trx._listbuku.Count];
+        //        //temptipe = new string[trx._listbuku.Count];
+        //        //tempsandi = new string[trx._listbuku.Count];
+        //        //tempnominal = new string[trx._listbuku.Count];
+        //        //temppengesahan = new string[trx._listbuku.Count];
 
-                List<Transaksi.printBuku> tempList = new List<Transaksi.printBuku>();
-                Utility.WriteLog("Buku condition : temporary list created", "step-action");
-                foreach (var buku in trx._listbuku)
-                {
-                    tempList.Add(buku);
-                    trx.AddListTempBuku(buku._Sandi, buku._PassbookBalance, buku._PassbookTellerID, buku._PassbookDate,
-                        buku._PassbookMNECode, buku._PassbookCreditAmount, buku._PassbookDebitAmount, buku._PassbookLine, buku._PassbookBranch);
-                }
-                //for (int i = 0;i<40;i++)
-                //{
-                //    str2.Add(trx._listbuku[i]._Nominal);
-                //}
-                //Array.Copy(trx._BukuTipe, startindex, temptipe, 0, trx._BukuTipe.Length);
-                //Array.Copy(trx._BukuSandi, 0, tempsandi, 0, trx._BukuSandi.Length);
-                //Array.Copy(trx._BukuNominal, 0, tempnominal, 0, trx._BukuNominal.Length);
-                //Array.Copy(trx._BukuPengesahan, 0, temppengesahan, 0, trx._BukuPengesahan.Length);
+        //        List<Transaksi.printBuku> tempList = new List<Transaksi.printBuku>();
+        //        Utility.WriteLog("Buku condition : temporary list created", "step-action");
+        //        foreach (var buku in trx._listbuku)
+        //        {
+        //            tempList.Add(buku);
+        //            trx.AddListTempBuku(buku._Sandi, buku._PassbookBalance, buku._PassbookTellerID, buku._PassbookDate,
+        //                buku._PassbookMNECode, buku._PassbookCreditAmount, buku._PassbookDebitAmount, buku._PassbookLine, buku._PassbookBranch);
+        //        }
+        //        //for (int i = 0;i<40;i++)
+        //        //{
+        //        //    str2.Add(trx._listbuku[i]._Nominal);
+        //        //}
+        //        //Array.Copy(trx._BukuTipe, startindex, temptipe, 0, trx._BukuTipe.Length);
+        //        //Array.Copy(trx._BukuSandi, 0, tempsandi, 0, trx._BukuSandi.Length);
+        //        //Array.Copy(trx._BukuNominal, 0, tempnominal, 0, trx._BukuNominal.Length);
+        //        //Array.Copy(trx._BukuPengesahan, 0, temppengesahan, 0, trx._BukuPengesahan.Length);
 
-                for (int i = 0; i < n; i++)
-                {
-                    string TransactionID = string.Empty;
-                    string JenisTransaksi = string.Empty;
-                    string Nominal = string.Empty;
-                    string Keterangan = string.Empty;
-                    string KodeTransaksi = string.Empty;
-                    string Tanggal = string.Empty;
-                    string SecurityCode = string.Empty;
+        //        for (int i = 0; i < n; i++)
+        //        {
+        //            string TransactionID = string.Empty;
+        //            string JenisTransaksi = string.Empty;
+        //            string Nominal = string.Empty;
+        //            string Keterangan = string.Empty;
+        //            string KodeTransaksi = string.Empty;
+        //            string Tanggal = string.Empty;
+        //            string SecurityCode = string.Empty;
 
-                    string tanggal = trx._BukuDate;
-                    string[] tipe = null;
-                    string[] sandi = null;
-                    string[] nominal = null;
-                    string[] pengesahan = null;
+        //            string tanggal = trx._BukuDate;
+        //            string[] tipe = null;
+        //            string[] sandi = null;
+        //            string[] nominal = null;
+        //            string[] pengesahan = null;
 
-                    if (i == 0)
-                    {
-                        trx.clearListBuku();
-                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-                        //tipe = new string[40 - baris];
-                        //sandi = new string[40 - baris];
-                        //nominal = new string[40 - baris];
-                        //pengesahan = new string[40 - baris];
-                        //Array.Copy(temptipe, startindex, tipe, 0, 40 - baris);
-                        //Array.Copy(tempsandi, startindex, sandi, 0, 40 - baris);
-                        //Array.Copy(tempnominal, startindex, nominal, 0, 40 - baris);
-                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40 - baris);
-                        for (int j = 0; j < maxbaris - baris; j++)
-                        {
-                            trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
-                                tempList[j]._PassbookDate, tempList[j]._PassbookMNECode, tempList[j]._PassbookCreditAmount, tempList[j]._PassbookDebitAmount,
-                                tempList[j]._PassbookLine, tempList[j]._PassbookBranch);
-                        }
-                        baris += 1;
-                        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-                        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-                        trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
-                        baris -= 1;
-                        startindex = maxbaris - baris;
-                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-                        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+        //            if (i == 0)
+        //            {
+        //                trx.clearListBuku();
+        //                Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+        //                //tipe = new string[40 - baris];
+        //                //sandi = new string[40 - baris];
+        //                //nominal = new string[40 - baris];
+        //                //pengesahan = new string[40 - baris];
+        //                //Array.Copy(temptipe, startindex, tipe, 0, 40 - baris);
+        //                //Array.Copy(tempsandi, startindex, sandi, 0, 40 - baris);
+        //                //Array.Copy(tempnominal, startindex, nominal, 0, 40 - baris);
+        //                //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40 - baris);
+        //                for (int j = 0; j < maxbaris - baris; j++)
+        //                {
+        //                    trx.AddListBuku2(tempList[j]._Sandi, tempList[j]._PassbookBalance, tempList[j]._PassbookTellerID,
+        //                        tempList[j]._PassbookDate, tempList[j]._PassbookMNECode, tempList[j]._PassbookCreditAmount, tempList[j]._PassbookDebitAmount,
+        //                        tempList[j]._PassbookLine, tempList[j]._PassbookBranch);
+        //                }
+        //                baris += 1;
+        //                //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+        //                //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
+        //                trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
+        //                baris -= 1;
+        //                startindex = maxbaris - baris;
+        //                Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+        //                saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
 
-                        //loading by nana
-                        isVisible = !isVisible;
-                        await Task.Delay(7000);
-                        StateHasChanged();
+        //                //loading by nana
+        //                isVisible = !isVisible;
+        //                await Task.Delay(7000);
+        //                StateHasChanged();
 
-                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-                        jmlhalaman += 1;
-                        trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
-                        //await Task.Delay(10000);
-                        //if (int.Parse(saldo) == 0) isEmpty = true;
-                        //else isEmpty = false;
-                    }
-                    //else
-                    //{
-                    //    if (i == n - 1)
-                    //    {
-                    //        trx.clearListBuku();
-                    //        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-                    //        int sisabaris = tempList.Count - startindex;
-                    //        baris = 1;
-                    //        //tipe = new string[sisabaris];
-                    //        //sandi = new string[sisabaris];
-                    //        //nominal = new string[sisabaris];
-                    //        //pengesahan = new string[sisabaris];
-                    //        //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
-                    //        //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
-                    //        //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
-                    //        //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
-                    //        for (int j = startindex; j < tempList.Count; j++)
-                    //        {
-                    //            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-                    //        }
-                    //        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-                    //        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-                    //        trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
-                    //        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-                    //        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
-                    //        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-                    //        //await Task.Delay(10000);
-                    //        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-                    //        OnClick.InvokeAsync("bukuberhasil");
-                    //        break;
-                    //    }
-                    //    else
-                    //    {
-                    //        trx.clearListBuku();
-                    //        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-                    //        baris = 1;
-                    //        //tipe = new string[40];
-                    //        //sandi = new string[40];
-                    //        //nominal = new string[40];
-                    //        //pengesahan = new string[40];
-                    //        //Array.Copy(temptipe, startindex, tipe, 0, 40);
-                    //        //Array.Copy(tempsandi, startindex, sandi, 0, 40);
-                    //        //Array.Copy(tempnominal, startindex, nominal, 0, 40);
-                    //        //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
-                    //        for (int j = startindex; j < startindex + maxbarisbisnis; j++)
-                    //        {
-                    //            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-                    //        }
-                    //        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-                    //        trx.setPassbookTransaksi(baris.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-                    //        startindex = startindex + maxbarisbisnis;
-                    //        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-                    //        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
-                    //        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-                    //        jmlhalaman += 1;
-                    //        await Task.Delay(10000);
-                    //    }
-                    //}
-                    //halaman += 1;
-                    //isVisible = false;
-                    //await Task.Delay(100);
-                    //StateHasChanged();
-                    ////if (halaman > maxhalaman)
-                    ////{
-                    ////    cetak = false;
-                    ////    bukuhabis = true;
-                    ////    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-                    ////    OnClick.InvokeAsync("bukupenuh");
-                    ////    break;
-                    ////}
-                    ////else
-                    ////{
-                    //isBaris = !isBaris;
-                    //await Task.Delay(100);
-                    //StateHasChanged();
-                    //Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-                    //do
-                    //{
-                    //    await Task.Delay(100);
-                    //} while (isBaris);
-                    isTimeOut = true;
-                    isTimer = false;
-                    Utility.WriteLog("Buku condition : move to buku halaman penuh", "step-action");
-                    OnClick.InvokeAsync("bukuhalamanpenuh");
-                    return;
-                    //if (isBerhenti)
-                    //{
-                    //    i = n;
-                    //    Utility.WriteLog("Buku condition : print buku stop", "step-action");
-                    //    Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-                    //    OnClick.InvokeAsync("ambilkartu");
-                    //    break;
-                    //}
-                    //}
-                }
-            }
-            else if (totalbaris < maxbaris)
-            {
-                saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+        //                Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+        //                jmlhalaman += 1;
+        //                trx.setPassbookTransaksi2(startindex.ToString(), saldo.ToString());
+        //                //await Task.Delay(10000);
+        //                //if (int.Parse(saldo) == 0) isEmpty = true;
+        //                //else isEmpty = false;
+        //            }
+        //            //else
+        //            //{
+        //            //    if (i == n - 1)
+        //            //    {
+        //            //        trx.clearListBuku();
+        //            //        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+        //            //        int sisabaris = tempList.Count - startindex;
+        //            //        baris = 1;
+        //            //        //tipe = new string[sisabaris];
+        //            //        //sandi = new string[sisabaris];
+        //            //        //nominal = new string[sisabaris];
+        //            //        //pengesahan = new string[sisabaris];
+        //            //        //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
+        //            //        //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
+        //            //        //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
+        //            //        //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
+        //            //        for (int j = startindex; j < tempList.Count; j++)
+        //            //        {
+        //            //            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
+        //            //        }
+        //            //        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+        //            //        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
+        //            //        trx.setPassbookTransaksi(baris.ToString(), saldo.ToString());
+        //            //        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+        //            //        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+        //            //        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+        //            //        //await Task.Delay(10000);
+        //            //        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+        //            //        OnClick.InvokeAsync("bukuberhasil");
+        //            //        break;
+        //            //    }
+        //            //    else
+        //            //    {
+        //            //        trx.clearListBuku();
+        //            //        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
+        //            //        baris = 1;
+        //            //        //tipe = new string[40];
+        //            //        //sandi = new string[40];
+        //            //        //nominal = new string[40];
+        //            //        //pengesahan = new string[40];
+        //            //        //Array.Copy(temptipe, startindex, tipe, 0, 40);
+        //            //        //Array.Copy(tempsandi, startindex, sandi, 0, 40);
+        //            //        //Array.Copy(tempnominal, startindex, nominal, 0, 40);
+        //            //        //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
+        //            //        for (int j = startindex; j < startindex + maxbarisbisnis; j++)
+        //            //        {
+        //            //            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
+        //            //        }
+        //            //        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+        //            //        trx.setPassbookTransaksi(baris.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
+        //            //        startindex = startindex + maxbarisbisnis;
+        //            //        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
+        //            //        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+        //            //        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
+        //            //        jmlhalaman += 1;
+        //            //        await Task.Delay(10000);
+        //            //    }
+        //            //}
+        //            //halaman += 1;
+        //            //isVisible = false;
+        //            //await Task.Delay(100);
+        //            //StateHasChanged();
+        //            ////if (halaman > maxhalaman)
+        //            ////{
+        //            ////    cetak = false;
+        //            ////    bukuhabis = true;
+        //            ////    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
+        //            ////    OnClick.InvokeAsync("bukupenuh");
+        //            ////    break;
+        //            ////}
+        //            ////else
+        //            ////{
+        //            //isBaris = !isBaris;
+        //            //await Task.Delay(100);
+        //            //StateHasChanged();
+        //            //Utility.WriteLog("Buku condition : modal baris appear", "step-action");
+        //            //do
+        //            //{
+        //            //    await Task.Delay(100);
+        //            //} while (isBaris);
+        //            isTimeOut = true;
+        //            isTimer = false;
+        //            Utility.WriteLog("Buku condition : move to buku halaman penuh", "step-action");
+        //            OnClick.InvokeAsync("bukuhalamanpenuh");
+        //            return;
+        //            //if (isBerhenti)
+        //            //{
+        //            //    i = n;
+        //            //    Utility.WriteLog("Buku condition : print buku stop", "step-action");
+        //            //    Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+        //            //    OnClick.InvokeAsync("ambilkartu");
+        //            //    break;
+        //            //}
+        //            //}
+        //        }
+        //    }
+        //    else if (totalbaris < maxbaris)
+        //    {
+        //        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
+        //        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
 
-                //loading by nana
-                isVisible = !isVisible;
-                await Task.Delay(7000);
-                StateHasChanged();
+        //        //loading by nana
+        //        isVisible = !isVisible;
+        //        await Task.Delay(7000);
+        //        StateHasChanged();
 
-                isTimeOut = true;
-                Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-                isTimer = false;
-                OnClick.InvokeAsync("bukuberhasil");
-                return;
-            }
-        }
+        //        isTimeOut = true;
+        //        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
+        //        isTimer = false;
+        //        OnClick.InvokeAsync("bukuberhasil");
+        //        return;
+        //    }
+        //}
         //else if (!isBisnis && isSimpedes)
         //{
         //    if (totalbaris > maxbaris)
@@ -1115,561 +1127,6 @@
         //    }
         //}
     }
-
-    //private async Task BukuBerhasil()
-    //{
-    //    isTimeOut = true;
-    //    tempmaxbaris = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARIS);
-    //    maxbaris = Convert.ToInt32(tempmaxbaris);
-    //    tempmaxhalaman = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXHALAMAN);
-    //    maxhalaman = Convert.ToInt32(tempmaxhalaman);
-    //    tempmaxbarisbisnis = config.Read("PASSBOOK", Config.PARAM_PASSBOOK_MAXBARISBISNIS);
-    //    maxbarisbisnis = Convert.ToInt32(tempmaxbarisbisnis);
-
-    //    isVisible = !isVisible;
-    //    Utility.WriteLog("Buku condition : modal visible appear", "step-action");
-    //    await Task.Delay(100);
-    //    StateHasChanged();
-
-    //    int jmlhalaman = 1;
-    //    baris = Convert.ToInt32(trx._BukuBaris);
-    //    baris -= 1;
-    //    totaldata = trx._listbuku.Count;
-    //    totalbaris = baris + totaldata;
-    //    halaman = Convert.ToInt32(trx._BukuHalaman);
-    //    saldo = trx._BukuSaldo;
-    //    if (!isBisnis && !isSimpedes)
-    //    {
-    //        if (totalbaris > maxbaris)
-    //        {
-    //            int n = totalbaris / maxbaris;
-    //            string[] temptipe = null;
-    //            string[] tempsandi = null;
-    //            string[] tempnominal = null;
-    //            string[] temppengesahan = null;
-    //            int startindex = 0;
-
-    //            if (totalbaris % maxbaris > 0)
-    //            {
-    //                n += 1;
-    //            }
-
-    //            //temptipe = new string[trx._listbuku.Count];
-    //            //tempsandi = new string[trx._listbuku.Count];
-    //            //tempnominal = new string[trx._listbuku.Count];
-    //            //temppengesahan = new string[trx._listbuku.Count];
-
-    //            List<Transaksi.printBuku> tempList = new List<Transaksi.printBuku>();
-    //            Utility.WriteLog("Buku condition : temporary list created", "step-action");
-    //            foreach (var buku in trx._listbuku)
-    //            {
-    //                tempList.Add(buku);
-    //            }
-    //            //for (int i = 0;i<40;i++)
-    //            //{
-    //            //    str2.Add(trx._listbuku[i]._Nominal);
-    //            //}
-    //            //Array.Copy(trx._BukuTipe, startindex, temptipe, 0, trx._BukuTipe.Length);
-    //            //Array.Copy(trx._BukuSandi, 0, tempsandi, 0, trx._BukuSandi.Length);
-    //            //Array.Copy(trx._BukuNominal, 0, tempnominal, 0, trx._BukuNominal.Length);
-    //            //Array.Copy(trx._BukuPengesahan, 0, temppengesahan, 0, trx._BukuPengesahan.Length);
-
-    //            for (int i = 0; i < n; i++)
-    //            {
-    //                string TransactionID = string.Empty;
-    //                string JenisTransaksi = string.Empty;
-    //                string Nominal = string.Empty;
-    //                string Keterangan = string.Empty;
-    //                string KodeTransaksi = string.Empty;
-    //                string Tanggal = string.Empty;
-    //                string SecurityCode = string.Empty;
-
-    //                string tanggal = trx._BukuDate;
-    //                string[] tipe = null;
-    //                string[] sandi = null;
-    //                string[] nominal = null;
-    //                string[] pengesahan = null;
-
-    //                if (i == 0)
-    //                {
-    //                    trx.clearListBuku();
-    //                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                    //tipe = new string[40 - baris];
-    //                    //sandi = new string[40 - baris];
-    //                    //nominal = new string[40 - baris];
-    //                    //pengesahan = new string[40 - baris];
-    //                    //Array.Copy(temptipe, startindex, tipe, 0, 40 - baris);
-    //                    //Array.Copy(tempsandi, startindex, sandi, 0, 40 - baris);
-    //                    //Array.Copy(tempnominal, startindex, nominal, 0, 40 - baris);
-    //                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40 - baris);
-    //                    for (int j = 0; j < maxbaris - baris; j++)
-    //                    {
-    //                        trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                    }
-    //                    baris += 1;
-    //                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                    trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-    //                    baris -= 1;
-    //                    startindex = maxbaris - baris;
-    //                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                    saldo = await Task.Run(() => print.PrintPassbook(trx));
-    //                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                    jmlhalaman += 1;
-    //                    //await Task.Delay(10000);
-    //                    if (int.Parse(saldo) == 0) isEmpty = true;
-    //                    else isEmpty = false;
-    //                }
-    //                else
-    //                {
-    //                    if (i == n - 1)
-    //                    {
-    //                        trx.clearListBuku();
-    //                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                        int sisabaris = tempList.Count - startindex;
-    //                        baris = 1;
-    //                        //tipe = new string[sisabaris];
-    //                        //sandi = new string[sisabaris];
-    //                        //nominal = new string[sisabaris];
-    //                        //pengesahan = new string[sisabaris];
-    //                        //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
-    //                        //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
-    //                        //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
-    //                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
-    //                        for (int j = startindex; j < tempList.Count; j++)
-    //                        {
-    //                            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                        }
-    //                        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-    //                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                        saldo = await Task.Run(() => print.PrintPassbook(trx));
-    //                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                        //await Task.Delay(10000);
-    //                        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-    //                        OnClick.InvokeAsync("bukuberhasil");
-    //                        break;
-    //                    }
-    //                    else
-    //                    {
-    //                        trx.clearListBuku();
-    //                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                        baris = 1;
-    //                        //tipe = new string[40];
-    //                        //sandi = new string[40];
-    //                        //nominal = new string[40];
-    //                        //pengesahan = new string[40];
-    //                        //Array.Copy(temptipe, startindex, tipe, 0, 40);
-    //                        //Array.Copy(tempsandi, startindex, sandi, 0, 40);
-    //                        //Array.Copy(tempnominal, startindex, nominal, 0, 40);
-    //                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
-    //                        for (int j = startindex; j < startindex + maxbaris; j++)
-    //                        {
-    //                            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                        }
-    //                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                        startindex = startindex + maxbaris;
-    //                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                        saldo = await Task.Run(() => print.PrintPassbook(trx));
-    //                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                        jmlhalaman += 1;
-    //                        await Task.Delay(10000);
-    //                    }
-    //                }
-    //                halaman += 1;
-    //                isVisible = false;
-    //                await Task.Delay(100);
-    //                StateHasChanged();
-    //                //if (halaman > maxhalaman)
-    //                //{
-    //                //    cetak = false;
-    //                //    bukuhabis = true;
-    //                //    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-    //                //    OnClick.InvokeAsync("bukupenuh");
-    //                //    break;
-    //                //}
-    //                //else
-    //                //{
-    //                isBaris = !isBaris;
-    //                await Task.Delay(100);
-    //                StateHasChanged();
-    //                Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-    //                do
-    //                {
-    //                    await Task.Delay(100);
-    //                } while (isBaris);
-    //                if (isBerhenti)
-    //                {
-    //                    i = n;
-    //                    Utility.WriteLog("Buku condition : print buku stop", "step-action");
-    //                    Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-    //                    OnClick.InvokeAsync("ambilkartu");
-    //                    break;
-    //                }
-    //                //}
-    //            }
-    //        }
-    //        else if (totalbaris < maxbaris)
-    //        {
-    //            saldo = await Task.Run(() => print.PrintPassbook(trx));
-    //            Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-    //            OnClick.InvokeAsync("bukuberhasil");
-    //        }
-    //    }
-    //    else if(isBisnis && !isSimpedes)
-    //    {
-    //        if (totalbaris > maxbarisbisnis)
-    //        {
-    //            int n = totalbaris / maxbarisbisnis;
-    //            string[] temptipe = null;
-    //            string[] tempsandi = null;
-    //            string[] tempnominal = null;
-    //            string[] temppengesahan = null;
-    //            int startindex = 0;
-
-    //            if (totalbaris % maxbarisbisnis > 0)
-    //            {
-    //                n += 1;
-    //            }
-
-    //            //temptipe = new string[trx._listbuku.Count];
-    //            //tempsandi = new string[trx._listbuku.Count];
-    //            //tempnominal = new string[trx._listbuku.Count];
-    //            //temppengesahan = new string[trx._listbuku.Count];
-
-    //            List<Transaksi.printBuku> tempList = new List<Transaksi.printBuku>();
-    //            Utility.WriteLog("Buku condition : temporary list created", "step-action");
-    //            foreach (var buku in trx._listbuku)
-    //            {
-    //                tempList.Add(buku);
-    //            }
-    //            //for (int i = 0;i<40;i++)
-    //            //{
-    //            //    str2.Add(trx._listbuku[i]._Nominal);
-    //            //}
-    //            //Array.Copy(trx._BukuTipe, startindex, temptipe, 0, trx._BukuTipe.Length);
-    //            //Array.Copy(trx._BukuSandi, 0, tempsandi, 0, trx._BukuSandi.Length);
-    //            //Array.Copy(trx._BukuNominal, 0, tempnominal, 0, trx._BukuNominal.Length);
-    //            //Array.Copy(trx._BukuPengesahan, 0, temppengesahan, 0, trx._BukuPengesahan.Length);
-
-    //            for (int i = 0; i < n; i++)
-    //            {
-    //                string TransactionID = string.Empty;
-    //                string JenisTransaksi = string.Empty;
-    //                string Nominal = string.Empty;
-    //                string Keterangan = string.Empty;
-    //                string KodeTransaksi = string.Empty;
-    //                string Tanggal = string.Empty;
-    //                string SecurityCode = string.Empty;
-
-    //                string tanggal = trx._BukuDate;
-    //                string[] tipe = null;
-    //                string[] sandi = null;
-    //                string[] nominal = null;
-    //                string[] pengesahan = null;
-
-    //                if (i == 0)
-    //                {
-    //                    trx.clearListBuku();
-    //                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                    //tipe = new string[40 - baris];
-    //                    //sandi = new string[40 - baris];
-    //                    //nominal = new string[40 - baris];
-    //                    //pengesahan = new string[40 - baris];
-    //                    //Array.Copy(temptipe, startindex, tipe, 0, 40 - baris);
-    //                    //Array.Copy(tempsandi, startindex, sandi, 0, 40 - baris);
-    //                    //Array.Copy(tempnominal, startindex, nominal, 0, 40 - baris);
-    //                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40 - baris);
-    //                    for (int j = 0; j < maxbarisbisnis - baris; j++)
-    //                    {
-    //                        trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                    }
-    //                    baris += 1;
-    //                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                    trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-    //                    baris -= 1;
-    //                    startindex = maxbarisbisnis - baris;
-    //                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                    saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
-    //                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                    jmlhalaman += 1;
-    //                    //await Task.Delay(10000);
-    //                    if (int.Parse(saldo) == 0) isEmpty = true;
-    //                    else isEmpty = false;
-    //                }
-    //                else
-    //                {
-    //                    if (i == n - 1)
-    //                    {
-    //                        trx.clearListBuku();
-    //                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                        int sisabaris = tempList.Count - startindex;
-    //                        baris = 1;
-    //                        //tipe = new string[sisabaris];
-    //                        //sandi = new string[sisabaris];
-    //                        //nominal = new string[sisabaris];
-    //                        //pengesahan = new string[sisabaris];
-    //                        //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
-    //                        //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
-    //                        //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
-    //                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
-    //                        for (int j = startindex; j < tempList.Count; j++)
-    //                        {
-    //                            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                        }
-    //                        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-    //                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
-    //                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                        //await Task.Delay(10000);
-    //                        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-    //                        OnClick.InvokeAsync("bukuberhasil");
-    //                        break;
-    //                    }
-    //                    else
-    //                    {
-    //                        trx.clearListBuku();
-    //                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                        baris = 1;
-    //                        //tipe = new string[40];
-    //                        //sandi = new string[40];
-    //                        //nominal = new string[40];
-    //                        //pengesahan = new string[40];
-    //                        //Array.Copy(temptipe, startindex, tipe, 0, 40);
-    //                        //Array.Copy(tempsandi, startindex, sandi, 0, 40);
-    //                        //Array.Copy(tempnominal, startindex, nominal, 0, 40);
-    //                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
-    //                        for (int j = startindex; j < startindex + maxbarisbisnis; j++)
-    //                        {
-    //                            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                        }
-    //                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                        startindex = startindex + maxbarisbisnis;
-    //                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                        saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
-    //                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                        jmlhalaman += 1;
-    //                        await Task.Delay(10000);
-    //                    }
-    //                }
-    //                halaman += 1;
-    //                isVisible = false;
-    //                await Task.Delay(100);
-    //                StateHasChanged();
-    //                //if (halaman > maxhalaman)
-    //                //{
-    //                //    cetak = false;
-    //                //    bukuhabis = true;
-    //                //    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-    //                //    OnClick.InvokeAsync("bukupenuh");
-    //                //    break;
-    //                //}
-    //                //else
-    //                //{
-    //                isBaris = !isBaris;
-    //                await Task.Delay(100);
-    //                StateHasChanged();
-    //                Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-    //                do
-    //                {
-    //                    await Task.Delay(100);
-    //                } while (isBaris);
-    //                if (isBerhenti)
-    //                {
-    //                    i = n;
-    //                    Utility.WriteLog("Buku condition : print buku stop", "step-action");
-    //                    Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-    //                    OnClick.InvokeAsync("ambilkartu");
-    //                    break;
-    //                }
-    //                //}
-    //            }
-    //        }
-    //        else if (totalbaris < maxbaris)
-    //        {
-    //            saldo = await Task.Run(() => print.PrintPassbookBisnis(trx));
-    //            Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-    //            OnClick.InvokeAsync("bukuberhasil");
-    //        }
-    //    }
-    //    else if (!isBisnis && isSimpedes)
-    //    {
-    //        if (totalbaris > maxbaris)
-    //        {
-    //            int n = totalbaris / maxbaris;
-    //            string[] temptipe = null;
-    //            string[] tempsandi = null;
-    //            string[] tempnominal = null;
-    //            string[] temppengesahan = null;
-    //            int startindex = 0;
-
-    //            if (totalbaris % maxbaris > 0)
-    //            {
-    //                n += 1;
-    //            }
-
-    //            //temptipe = new string[trx._listbuku.Count];
-    //            //tempsandi = new string[trx._listbuku.Count];
-    //            //tempnominal = new string[trx._listbuku.Count];
-    //            //temppengesahan = new string[trx._listbuku.Count];
-
-    //            List<Transaksi.printBuku> tempList = new List<Transaksi.printBuku>();
-    //            Utility.WriteLog("Buku condition : temporary list created", "step-action");
-    //            foreach (var buku in trx._listbuku)
-    //            {
-    //                tempList.Add(buku);
-    //            }
-    //            //for (int i = 0;i<40;i++)
-    //            //{
-    //            //    str2.Add(trx._listbuku[i]._Nominal);
-    //            //}
-    //            //Array.Copy(trx._BukuTipe, startindex, temptipe, 0, trx._BukuTipe.Length);
-    //            //Array.Copy(trx._BukuSandi, 0, tempsandi, 0, trx._BukuSandi.Length);
-    //            //Array.Copy(trx._BukuNominal, 0, tempnominal, 0, trx._BukuNominal.Length);
-    //            //Array.Copy(trx._BukuPengesahan, 0, temppengesahan, 0, trx._BukuPengesahan.Length);
-
-    //            for (int i = 0; i < n; i++)
-    //            {
-    //                string TransactionID = string.Empty;
-    //                string JenisTransaksi = string.Empty;
-    //                string Nominal = string.Empty;
-    //                string Keterangan = string.Empty;
-    //                string KodeTransaksi = string.Empty;
-    //                string Tanggal = string.Empty;
-    //                string SecurityCode = string.Empty;
-
-    //                string tanggal = trx._BukuDate;
-    //                string[] tipe = null;
-    //                string[] sandi = null;
-    //                string[] nominal = null;
-    //                string[] pengesahan = null;
-
-    //                if (i == 0)
-    //                {
-    //                    trx.clearListBuku();
-    //                    Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                    //tipe = new string[40 - baris];
-    //                    //sandi = new string[40 - baris];
-    //                    //nominal = new string[40 - baris];
-    //                    //pengesahan = new string[40 - baris];
-    //                    //Array.Copy(temptipe, startindex, tipe, 0, 40 - baris);
-    //                    //Array.Copy(tempsandi, startindex, sandi, 0, 40 - baris);
-    //                    //Array.Copy(tempnominal, startindex, nominal, 0, 40 - baris);
-    //                    //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40 - baris);
-    //                    for (int j = 0; j < maxbaris - baris; j++)
-    //                    {
-    //                        trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                    }
-    //                    baris += 1;
-    //                    //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                    trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-    //                    baris -= 1;
-    //                    startindex = maxbaris - baris;
-    //                    Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                    saldo = await Task.Run(() => print.PrintPassbookSimpedes(trx));
-    //                    Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                    jmlhalaman += 1;
-    //                    //await Task.Delay(10000);
-    //                    if (int.Parse(saldo) == 0) isEmpty = true;
-    //                    else isEmpty = false;
-    //                }
-    //                else
-    //                {
-    //                    if (i == n - 1)
-    //                    {
-    //                        trx.clearListBuku();
-    //                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                        int sisabaris = tempList.Count - startindex;
-    //                        baris = 1;
-    //                        //tipe = new string[sisabaris];
-    //                        //sandi = new string[sisabaris];
-    //                        //nominal = new string[sisabaris];
-    //                        //pengesahan = new string[sisabaris];
-    //                        //Array.Copy(temptipe, startindex, tipe, 0, sisabaris);
-    //                        //Array.Copy(tempsandi, startindex, sandi, 0, sisabaris);
-    //                        //Array.Copy(tempnominal, startindex, nominal, 0, sisabaris);
-    //                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, sisabaris);
-    //                        for (int j = startindex; j < tempList.Count; j++)
-    //                        {
-    //                            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                        }
-    //                        //trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), saldo.ToString());
-    //                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                        saldo = await Task.Run(() => print.PrintPassbookSimpedes(trx));
-    //                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                        //await Task.Delay(10000);
-    //                        Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-    //                        OnClick.InvokeAsync("bukuberhasil");
-    //                        break;
-    //                    }
-    //                    else
-    //                    {
-    //                        trx.clearListBuku();
-    //                        Utility.WriteLog("Buku condition : clear list buku success", "step-action");
-    //                        baris = 1;
-    //                        //tipe = new string[40];
-    //                        //sandi = new string[40];
-    //                        //nominal = new string[40];
-    //                        //pengesahan = new string[40];
-    //                        //Array.Copy(temptipe, startindex, tipe, 0, 40);
-    //                        //Array.Copy(tempsandi, startindex, sandi, 0, 40);
-    //                        //Array.Copy(tempnominal, startindex, nominal, 0, 40);
-    //                        //Array.Copy(temppengesahan, startindex, pengesahan, 0, 40);
-    //                        for (int j = startindex; j < startindex + maxbaris; j++)
-    //                        {
-    //                            trx.AddListBuku(tempList[j]._TransactionID, tempList[j]._JenisTransaksi, tempList[j]._Nominal, tempList[j]._Keterangan, tempList[j]._KodeTransaksi, tempList[j]._Tanggal, tempList[j]._SecurityCode);
-    //                        }
-    //                        trx.setPassbookTransaksi(baris.ToString(), halaman.ToString(), tanggal, tipe, sandi, nominal, saldo, pengesahan);
-    //                        startindex = startindex + maxbaris;
-    //                        Utility.WriteLog("Buku condition : print halaman ke-" + jmlhalaman.ToString(), "step-action");
-    //                        saldo = await Task.Run(() => print.PrintPassbookSimpedes(trx));
-    //                        Utility.WriteLog("Buku condition : print history halaman ke-" + jmlhalaman.ToString() + " success", "step-action");
-    //                        jmlhalaman += 1;
-    //                        await Task.Delay(10000);
-    //                    }
-    //                }
-    //                halaman += 1;
-    //                isVisible = false;
-    //                await Task.Delay(100);
-    //                StateHasChanged();
-    //                //if (halaman > maxhalaman)
-    //                //{
-    //                //    cetak = false;
-    //                //    bukuhabis = true;
-    //                //    Utility.WriteLog("Buku condition : move to buku penuh", "step-action");
-    //                //    OnClick.InvokeAsync("bukupenuh");
-    //                //    break;
-    //                //}
-    //                //else
-    //                //{
-    //                isBaris = !isBaris;
-    //                await Task.Delay(100);
-    //                StateHasChanged();
-    //                Utility.WriteLog("Buku condition : modal baris appear", "step-action");
-    //                do
-    //                {
-    //                    await Task.Delay(100);
-    //                } while (isBaris);
-    //                if (isBerhenti)
-    //                {
-    //                    i = n;
-    //                    Utility.WriteLog("Buku condition : print buku stop", "step-action");
-    //                    Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
-    //                    OnClick.InvokeAsync("ambilkartu");
-    //                    break;
-    //                }
-    //                //}
-    //            }
-    //        }
-    //        else if (totalbaris < maxbaris)
-    //        {
-    //            saldo = await Task.Run(() => print.PrintPassbookSimpedes(trx));
-    //            Utility.WriteLog("Buku condition : move to buku berhasil", "step-action");
-    //            OnClick.InvokeAsync("bukuberhasil");
-    //        }
-    //    }
-    //}
 
     private void change()
     {

@@ -157,11 +157,11 @@
                         <em>1</em>
                         <!-- <span>Menu</span> -->
                     </li>
-                    <li class="todo">
+                    <li class="done">
                         <em>2</em>
                         <!-- <span>T & C</span> -->
                     </li>
-                    <li class="todo">
+                    <li class="done">
                         <em>3</em>
                         <!-- <span>Menu</span> -->
                     </li>
@@ -434,7 +434,7 @@
                 {
                     //PerBulan();
                     trx.periodMonth = "YES";
-                    await Task.Delay(100);
+                    await Task.Delay(1000);
                     Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
                     if (isHit)
                         await MonthlyStatementAPI();
@@ -457,7 +457,7 @@
                 else
                 {
                     //PerTanggal();
-                    await Task.Delay(100);
+                    await Task.Delay(1000);
                     Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
                     if (isHit)
                         await MonthlyStatementAPI();
@@ -695,7 +695,7 @@
                 string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
                 string myUrl = myLink + "monthly/statement";
                 ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-                Utility.WriteLog("Histori condition : post service start", "step-action");
+                Utility.WriteLog("Histori condition : post service start -- monthly statement api", "step-action");
                 try
                 {
                     string strResult = await HitServices.PostCallAPI(myUrl, myJson);
@@ -707,6 +707,7 @@
 
                         if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                         {
+                            Utility.WriteLog("Histori condition : hit monthly statement api success", "step-action");
                             await Task.Delay(100);
                             foreach (var dt in jobResult["RESPONSE"].SelectToken("DATA"))
                             {
@@ -738,6 +739,7 @@
                             isTimer = false;
                             isTimeOut = true;
                             trx.externalID = (string)jobResult["externalId"];
+                            Utility.WriteLog("Histori condition : monthly statement api external id " + trx.externalID, "step-action");
                             //OnClick.InvokeAsync("konfirmasimonthly");
                             Utility.WriteLog("Histori condition : move to histori pilih metode", "step-action");
                             OnClick.InvokeAsync("historiPilihMetode");
@@ -745,6 +747,7 @@
                         }
                         else
                         {
+                            Utility.WriteLog("Histori condition : hit monthly statement api failed", "step-action");
                             isRead = false;
                             isTimeOut = true;
                             isTimer = false;
@@ -753,6 +756,7 @@
                             trx.setErrorService(errorcode, errormessage);
                             trx.statusLayanan = "ERROR";
                             trx.externalID = (string)jobResult["externalId"];
+                            Utility.WriteLog("Histori condition : monthly statement api external id " + trx.externalID, "step-action");
                             HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
                             Utility.WriteLog("Histori condition : move to error", "step-action");
                             OnClick.InvokeAsync("error");

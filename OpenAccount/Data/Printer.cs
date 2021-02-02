@@ -759,7 +759,7 @@ namespace OpenAccount.Data
                     startindex += 1;
                 else if (strinput.Substring(i, 1) == ".")
                 {
-                    startindex -= 1;
+                    isZero = true;
                     break;
                 }
                 else
@@ -768,8 +768,11 @@ namespace OpenAccount.Data
             }
             if(isMinus)
                 result = "-" + strinput.Substring(startindex, strinput.Length - startindex);
+            else if (isZero)
+                result = " ";
             else
                 result = strinput.Substring(startindex, strinput.Length - startindex);
+            Utility.WriteLog("Printer condition : print passbook check zero result " + result, "step-action");
             return result;
         }
 

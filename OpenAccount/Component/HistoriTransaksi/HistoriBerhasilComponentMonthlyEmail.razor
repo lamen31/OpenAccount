@@ -79,6 +79,7 @@
         {
             try
             {
+                Utility.WriteLog("Histori condition : hit service send sms notif start", "step-action");
                 string result = await HitServices.SendSms(trx, config);
                 if (result.Contains("1111"))
                 {

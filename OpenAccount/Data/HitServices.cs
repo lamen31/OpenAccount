@@ -323,6 +323,7 @@ namespace OpenAccount.Data
                 filename = trx.reportPath,
             };
 
+            Utility.WriteLog("Hit Service condition : request JSON --> " + copydata, "step-action");
             var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
 
             var content = new StringContent(

@@ -74,7 +74,6 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "konfirmasiawal";
             isTimer = true;
             starttime = DateTime.Now;
@@ -88,6 +87,7 @@
                 isTimer = false;
                 //trx.statusLayanan = "CANCEL";
                 //HitLog.SendLog(trx, config, "KONFIRMASI NO REKENING: Konfirmasi Timeout");
+                Utility.WriteLog("Home condition : move to konfirmasi time out", "step-action");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
             }
@@ -98,8 +98,9 @@
     {
         isTimer = false;
         isTimeOut = true;
-        trx.statusLayanan = "CANCEL";
-        HitLog.SendLog(trx, config, "KONFIRMASI NO REKENING: User Cancel Transaction");
+        //trx.statusLayanan = "CANCEL";
+        //HitLog.SendLog(trx, config, "KONFIRMASI NO REKENING: User Cancel Transaction");
+        Utility.WriteLog("Home condition : entered into home", "step-action");
         OnClick.InvokeAsync("default");
         return;
     }
@@ -107,6 +108,7 @@
     {
         isTimer = false;
         isTimeOut = true;
+        Utility.WriteLog("Home condition : entered into new home", "step-action");
         OnClick.InvokeAsync("newhome");
         return;
     }

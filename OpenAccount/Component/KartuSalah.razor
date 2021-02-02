@@ -99,11 +99,13 @@
         if (isNotSerial)
         {
             await Task.Delay(8000);
+            Utility.WriteLog("Home condition : move to buku input data", "step-action");
             OnClick.InvokeAsync("bukuinputdata");
         }
         else
         {
             await Task.Delay(8000);
+            Utility.WriteLog("Home condition : move to home", "step-action");
             OnClick.InvokeAsync("default");
         }
     }

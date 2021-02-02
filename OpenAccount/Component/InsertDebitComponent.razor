@@ -324,6 +324,7 @@
         Console.WriteLine("2");
         Utility.WriteLog("Home condition : EDC serial port close", "step-action");
         serialPort.Close();
+        Utility.WriteLog("Home condition : process EDC done", "step-action");
         //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
     private async Task EDCClearBuffer(string ecrmsg)

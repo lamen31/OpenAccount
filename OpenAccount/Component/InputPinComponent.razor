@@ -251,7 +251,7 @@
                         //isInquiry = true;
                         if (isInquiry)
                         {
-                            Utility.WriteLog("Home condition : card is inquiry", "step-action");
+                            Utility.WriteLog("Home condition : card inquiry success", "step-action");
                             await InquiryCIFByAcct();
                             if (isCIFInquiry)
                             {
@@ -261,14 +261,17 @@
                                 //trx.emailNasabah = "nanarmk23@gmail.com";
                                 //trx.emailNasabah = "";
 
+                                Utility.WriteLog("Home condition : card cif inquiry success", "step-action");
                                 istimeout = true;
                                 isTimer = false;
                                 trx._AccountNumber2 = trx._AccountNumber;
+                                Utility.WriteLog("Home condition : move to konfirmasi awal", "step-action");
                                 OnClick.InvokeAsync("konfirmasiawal");
                                 return;
                             }
                             else
                             {
+                                Utility.WriteLog("Home condition : card cif inquiry failed", "step-action");
                                 await ServiceRekening();
                                 if (isAccountInquiry)
                                 {
@@ -279,9 +282,11 @@
                                     //trx.emailNasabah = "nanarmk23@gmail.com";
                                     //trx.emailNasabah = "";
 
+                                    Utility.WriteLog("Home condition : inqury account success", "step-action");
                                     istimeout = true;
                                     isTimer = false;
                                     trx._AccountNumber2 = trx._AccountNumber;
+                                    Utility.WriteLog("Home condition : move to konfirmasi awal", "step-action");
                                     OnClick.InvokeAsync("konfirmasiawal");
                                     return;
                                 }
@@ -758,6 +763,7 @@
         Console.WriteLine("2");
         Utility.WriteLog("Home condition : EDC serial port close", "step-action");
         serialPort.Close();
+        Utility.WriteLog("Home condition : process EDC done", "step-action");
         //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
     private async Task CekPin()
@@ -785,6 +791,7 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin success", "step-action");
                         isValid = true;
                         await Task.Delay(100);
                         StateHasChanged();
@@ -792,16 +799,19 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-25" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "25")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         isNotFound = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-EP" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "EP")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isInvalid = true;
                         isComplete = false;
                         isFailed = true;
@@ -812,6 +822,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         Utility.WriteLog("Home condition : move to error", "step-action");
@@ -820,6 +831,7 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-38" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "38")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isInvalid = true;
                         isComplete = false;
                         isFailed = false;
@@ -830,6 +842,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         Utility.WriteLog("Home condition : move to blokir kartu", "step-action");
@@ -838,6 +851,7 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CAMS-50" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "99")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isTimeOut = true;
                         isInvalid = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
@@ -845,6 +859,7 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         return;
@@ -852,6 +867,7 @@
                     }
                     else
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isTimeOut = true;
                         isComplete = false;
                         isFailed = false;
@@ -861,6 +877,7 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
@@ -927,18 +944,22 @@
                         string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
                         if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
                         {
+                            Utility.WriteLog("Home condition : hit inquiry by card number failed", "step-action");
                             isTimeOut = true;
                             errorcode = "CARD DISABLE";
                             errormessage = "Card has disabled";
                             trx.setErrorService(errorcode, errormessage);
                             isInquiry = false;
                             trx.statusLayanan = "ERROR";
+                            Utility.WriteLog("Home condition : status card disabled", "step-action");
                             HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                            Utility.WriteLog("Home condition : move to error", "step-action");
                             OnClick.InvokeAsync("error");
                             return;
                         }
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
 
+                        Utility.WriteLog("Home condition : hit inquiry by card number success", "step-action");
                         //trx._AccountNumber = (string)jobResult["RESPONSE"].SelectToken("ACCT_NO");
                         Utility.WriteLog("Home condition : set account number " + trx._AccountNumber + " success", "step-action");
 
@@ -977,12 +998,14 @@
                     }
                     else
                     {
+                        Utility.WriteLog("Home condition : hit inquiry by card number failed", "step-action");
                         isTimeOut = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : inquiry by card number external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
@@ -1038,6 +1061,7 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        Utility.WriteLog("Home condition : hit inquiry cif by account success", "step-action");
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("CUST_NAME");
                         //trx.acctCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
                         trx.MSISDN = (string)jobResult["RESPONSE"].SelectToken("HP_NO");
@@ -1053,16 +1077,19 @@
                         isData = true;
                         await Task.Delay(100);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : inquiry cif by account external id " + trx.externalID, "step-action");
                         StateHasChanged();
                         return;
                     }
                     else
                     {
                         //tambahan
+                        Utility.WriteLog("Home condition : hit inquiry cif by account failed", "step-action");
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : inquiry cif by account external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
@@ -1109,7 +1136,7 @@
             //strnorek = string.Empty;
             //await Task.Delay(100);
             //StateHasChanged();
-            Utility.WriteLog("Home condition : hit service error -- cekpin", "step-action");
+            Utility.WriteLog("Home condition : hit service error -- inquiry cif by account", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
@@ -1151,6 +1178,7 @@
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        Utility.WriteLog("Home condition : hit service rekening success", "step-action");
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
                         trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         isData = true;
@@ -1162,10 +1190,12 @@
                     else
                     {
                         //tambahan
+                        Utility.WriteLog("Home condition : hit service rekening failed", "step-action");
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : service rekening external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();

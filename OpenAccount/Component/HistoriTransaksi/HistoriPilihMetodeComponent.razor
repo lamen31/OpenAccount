@@ -315,6 +315,7 @@
 
         if (RegexUtilities.IsValidEmail(trx.emailNasabah))
         {
+            Utility.WriteLog("Histori condition : email valid", "step-action");
             Utility.WriteLog("Histori condition : move to konfirmasi monthly", "step-action");
             OnClick.InvokeAsync("konfirmasimonthly");
             return;

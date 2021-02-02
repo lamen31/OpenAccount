@@ -418,7 +418,7 @@
             string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
             //string myUrl = "http://172.18.136.207:6001/invoke/bri.core.services.v1:fiveMutation";
             //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
-            Utility.WriteLog("Histori condition : get service start", "step-action");
+            Utility.WriteLog("Histori condition : post service start -- service thermal", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
@@ -444,6 +444,7 @@
                         isRead = false;
                         isSuccess = true;
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Histori condition : service thermal external id " + trx.externalID, "step-action");
                         trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
                         await Task.Delay(100);
                         StateHasChanged();
@@ -451,6 +452,7 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-001" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
                     {
+                        Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         Console.WriteLine("No Data Found");
                         isTimeOut = true;
                         isTimer = false;
@@ -462,6 +464,7 @@
                         trx.ExternalID2 = (string)jobResult["externalId"];
                         trx.externalID = trx.ExternalID2;
                         trx._AccountNumber = trx._AccountNumber2;
+                        Utility.WriteLog("Histori condition : service thermal external id " + trx.externalID, "step-action");
                         //trx.setExternalId((string)jobResult["EXTERNALID
                         //Console.WriteLine("EXTERNAL ID 2" + trx.ExternalID2);
                         //Console.WriteLine("EXTERNAL ID" + trx.externalID);
@@ -473,6 +476,7 @@
                     }
                     else
                     {
+                        Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
                         Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         //trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
@@ -487,6 +491,7 @@
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Histori condition : service thermal external id " + trx.externalID, "step-action");
                         Utility.WriteLog("Histori condition : move to error", "step-action");
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");

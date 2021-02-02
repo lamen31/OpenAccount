@@ -249,30 +249,37 @@
         isTimer = false;
         isTimeOut = true;
         trx.clearReport();
+        Utility.WriteLog("Home condition : clear report data success", "step-action");
         report.startdate = startdate.ToString("yyyy-MM-dd");
         report.enddate = enddate.AddDays(1).ToString("yyyy-MM-dd");
         report.enddateName = enddate.ToString("yyyy-MM-dd");
         //trx.setReportDate(startdate.ToString("yyyy-MM-dd"), enddate.ToString("yyyy-MM-dd"));
+        Utility.WriteLog("Home condition : create report csv start", "step-action");
         await report.createReportCSV();
+        Utility.WriteLog("Home condition : create report csv finish", "step-action");
         trx.reportAttachment = report.CSVName;
         trx.reportPath = report.CSVPath;
         trx.isSendReport = false;
         @if (isEmail)
         {
+            Utility.WriteLog("Home condition : hit service send email report start", "step-action");
             string result = await HitServices.SendEmailReport(report, config);
-        await Task.Delay(3000);
-        JObject jobResult = JObject.Parse(result);
-        if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
-        {
-            Console.WriteLine("SEND REPORT SUCCESS");
+            await Task.Delay(3000);
+            JObject jobResult = JObject.Parse(result);
+            if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
+            {
+                Utility.WriteLog("Home condition : send email report success", "step-action");
+                Console.WriteLine("SEND REPORT SUCCESS");
+            }
+            else
+            {
+                Utility.WriteLog("Home condition : send email report failed", "step-action");
+                Console.WriteLine("SEND REPORT FAILED");
+            }
         }
         else
         {
-            Console.WriteLine("SEND REPORT FAILED");
-        }
-        }
-        else
-        {
+            Utility.WriteLog("Home condition : hit service copy report start", "step-action");
             await HitServices.CopyReport(trx, config);
             await Task.Delay(5000);
         }

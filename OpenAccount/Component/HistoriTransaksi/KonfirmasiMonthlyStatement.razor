@@ -293,7 +293,7 @@
             //ini yang pindah ke page baru
             if (trx.isEmail)
             {
-
+                Utility.WriteLog("Histori condition : hit service send email attachment start", "step-action");
                 string result = await HitServices.SendEmailAttachment(trx, config);
                 Utility.WriteLog("Histori condition : respond JSON --> " + result, "step-action");
                 await Task.Delay(3000);
@@ -302,6 +302,7 @@
                 JObject jobResult = JObject.Parse(result);
                 if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
                 {
+                    Utility.WriteLog("Histori condition : hit service send email attachment success", "step-action");
                     Utility.WriteLog("Histori condition : move to histori berhasil monthly email", "step-action");
                     OnClick.InvokeAsync("historiberhasilmonthlyemail");
                     return;
@@ -320,7 +321,9 @@
             {
                 File.WriteAllText(@"c:\Test\status.txt", "");
                 await Task.Delay(500);
+                Utility.WriteLog("Histori condition : print pdf start", "step-action");
                 utility.PrintPdf();
+                Utility.WriteLog("Histori condition : print pdf finish", "step-action");
                 await Task.Delay(15000);
                 string status = File.ReadAllText(@"c:\Test\status.txt");
                 isVisible = !isVisible;

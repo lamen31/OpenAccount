@@ -144,6 +144,7 @@
         {
             try
             {
+                Utility.WriteLog("Histori condition : hit service send sms notif start", "step-action");
                 result = await HitServices.SendSms(trx, config);
                 if (result.Contains("1111"))
                 {
@@ -174,13 +175,14 @@
             trx.attachmentPath = "";
             try
             {
+                Utility.WriteLog("Histori condition : hit service send email notif start", "step-action");
                 result = await HitServices.SendEmail(trx, config);
                 await Task.Delay(3000);
                 JObject jobResult = JObject.Parse(result);
                 if (jobResult["fcdEmailResult"]["statusCode"].ToString() == "2111")
                 {
                     trx.emailNotif = "SUCCESS";
-                    Utility.WriteLog("Buku condition : EMAIL SUCCESS", "step-action");
+                    Utility.WriteLog("Buku condition : SEND EMAIL NOTIF SUCCESS", "step-action");
                 }
                 else
                 {
@@ -188,13 +190,13 @@
                     //trx.setErrorService("EmailFailed", "Failed to Send Email");
                     //HitServices.SendLog(trx, config, "HISTORI BERHASIL: Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString());
                     //OnClick.InvokeAsync("error");
-                    Utility.WriteLog("Buku condition : Failed to send Email, " + jobResult["fcdEmailResult"]["statusDesc"].ToString(), "step-action");
+                    Utility.WriteLog("Buku condition : Failed to send Email notif, " + jobResult["fcdEmailResult"]["statusDesc"].ToString(), "step-action");
                 }
             }
             catch(Exception ex)
             {
                 trx.emailNotif = "FAILED";
-                Utility.WriteLog("Buku condition : Failed to send Email, ", "step-action");
+                Utility.WriteLog("Buku condition : Failed to send Email notif, ", "step-action");
             }
         }
         else
