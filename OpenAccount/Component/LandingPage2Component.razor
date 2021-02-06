@@ -560,12 +560,25 @@
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             isLoop = false;
             trx.setErrorService("Exception", ex.Message);
-            OnClick.InvokeAsync("error");
-            return;
+            //OnClick.InvokeAsync("error");
+            //return;
         }
 
-        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
-        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+            serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            isLoop = false;
+            trx.setErrorService("Exception", ex.Message);
+            //OnClick.InvokeAsync("error");
+            //return;
+        }
 
         await Task.Delay(150);
 
@@ -650,7 +663,7 @@
     private async Task InputRekening()
     {
         TimeNow = DateTime.Now.ToString("HH:mm:ss");
-        if (DateTime.Now.Hour > 15 || DateTime.Now.Hour < 7)
+        if (DateTime.Now.Hour > 22 || DateTime.Now.Hour < 7)
         {
             Utility.WriteLog("Home condition : Machine is freeze", "step-action");
             isNotHour = true;

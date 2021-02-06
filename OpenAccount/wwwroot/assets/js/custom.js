@@ -132,6 +132,7 @@ function getMonthPicker() {
 	try {
 		//console.log("Month Range : " + moment($(".monthpicker").data("datetimepicker")._dates[0]).format('DD/MM/YYYY') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('DD/MM/YYYY'));
 		return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('YYYY-MM-01') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('YYYY-MM-DD');
+		//return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('YYYY-MM-01') + "#" + todayDate.format('YYYY-MM-DD')
 	}
 	catch (err) {
 		return ""

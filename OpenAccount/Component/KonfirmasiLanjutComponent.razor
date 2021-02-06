@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xl-12 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" style="text-align: center;">
                 <div>
-                    <img src="./assets/img/Folder SVG/konfirmasi-timeout.svg" style="width: 30%;"><br>
+                    <img src="./assets/img/Folder SVG/error-page.svg" style="width: 30%;"><br>
                     <teks style="font-weight: 900; font-size: 32px; text-align: center;">
-                        Waktu Anda Telah Habis,<br> Apakah Anda Ingin Tambahan Waktu ?<br />
+                         Apakah Anda Ingin Melanjutkan Transaksi ?
                     </teks>
                 </div>
             </div>
@@ -36,6 +36,7 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
@@ -92,7 +93,7 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into konfirmasi time out", "step-action");
+            Utility.WriteLog("Home condition : entered into konfirmasi lanjut", "step-action");
             //trx.timeOut = "default";
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());

@@ -39,6 +39,8 @@ namespace OpenAccount.Data
         public const string PARAM_PORT_CARD_DISPENSER = "param.port.card.dispenser";
         public const string PARAM_SERVICES_LINK = "param.services.link";
         public const string PARAM_SERVICES_LINK2 = "param.services.link2";
+        public const string PARAM_SERVICES_LINK_PRINTBUKU = "param.services.link.printBuku";
+        public const string PARAM_SERVICES_LINK_PRINTSTATEMENT = "param.services.link.printStatement";
         public const string PARAM_SERVICES_REKENING = "param.services.rekening";
         public const string PARAM_SERVICES_PASSBOOK = "param.services.passbook";
         public const string PARAM_SERVICES_PASSBOOK1 = "param.services.passbook1";

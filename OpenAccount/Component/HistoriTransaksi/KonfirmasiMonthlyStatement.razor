@@ -23,6 +23,7 @@
                         <teks style="color: #00529C; font-size: 35px;"><b> Konfirmasi Cetak</b></teks>
                         <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">Periode yang anda pilih:</h3>
                         <h3 style="color: #00529C; font-size: 25px;"><b style="color: #F15A23;">@trx.startDT.ToString("dd - MM - yyyy")</b> s/d <b style="color: #F15A23;">@trx.endDT.ToString("dd - MM - yyyy")</b></h3>
+                        <h3 style="color: #00529C; font-size: 25px;">Anda memiliki @trx._listMonthly.Count transaksi pada periode ini.</h3>
                     </div>
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -43,6 +44,7 @@
                         <h3 style="color: #F15A23; font-size: 25px;"><b>@emailNasabah</b></h3>
                         <h3 style="color: #00529C; margin-top: 5%; font-size: 25px;">Periode yang anda pilih:</h3>
                         <h3 style="color: #00529C; font-size: 25px;"><b style="color: #F15A23;">@trx.startDT.ToString("dd - MM - yyyy")</b> s/d <b style="color: #F15A23;">@trx.endDT.ToString("dd - MM - yyyy")</b></h3>
+                        <h3 style="color: #00529C; font-size: 25px;">Anda memiliki @trx._listMonthly.Count transaksi pada periode ini.</h3>
                     </div>
                 </div>
                 <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -328,17 +330,17 @@
                 string status = File.ReadAllText(@"c:\Test\status.txt");
                 isVisible = !isVisible;
                 isTimer = false;
-                status = status.Substring(0, 1);
-                if (status == "0")
-                {
-                    Utility.WriteLog("Histori condition : move to histori berhasil monthly", "step-action");
-                    OnClick.InvokeAsync("historiberhasilmonthly");
-                }
-                else
-                {
-                    Utility.WriteLog("Histori condition : move to histori gagal", "step-action");
-                    OnClick.InvokeAsync("historigagal");
-                }
+                //status = status.Substring(0, 1);
+                //if (status == "0")
+                //{
+                Utility.WriteLog("Histori condition : move to histori berhasil monthly", "step-action");
+                OnClick.InvokeAsync("historiberhasilmonthly");
+                //}
+                //else
+                //{
+                //    Utility.WriteLog("Histori condition : move to histori gagal", "step-action");
+                //    OnClick.InvokeAsync("historigagal");
+                //}
                 return;
             }
             //OnClick.InvokeAsync("historipilihmetode");

@@ -46,7 +46,7 @@
                     @if (periodeCode == "2")
                     {
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
 
                                 <div class="form-group">
@@ -54,7 +54,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
 
                                 <div class="form-group">
@@ -316,8 +316,8 @@
                     trx.endDate = endDateValue;
                     trx.startDT = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     trx.endDT = DateTime.ParseExact(endDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-                    //Console.WriteLine("Start Date: " + startDateValue);
-                    //Console.WriteLine("End Date: " + endDateValue);
+                    Console.WriteLine("Start Date: " + startDateValue);
+                    Console.WriteLine("End Date: " + endDateValue);
                     monthValue = null;
                     trx.periodMonth = "NO";
                     //Console.WriteLine("2 Start Date: " + startDateValue);

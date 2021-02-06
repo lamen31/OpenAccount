@@ -640,11 +640,11 @@ namespace OpenAccount.Data
                 //saldo = checkZero(_trx._listbuku[i]._PassbookBalance);
                 saldo = _trx._listbuku[i]._PassbookBalance;
                 saldo = checkZero(saldo);
-                if (!isZero)
+                if (saldo != " ")
                 {
-                    long nominal = Convert.ToInt64(saldo.Substring(0, saldo.Length - 3));
+                    var nominal = Convert.ToDecimal(saldo.Substring(0, saldo.Length));
                     if (nominal > 1000)
-                        saldo = nominal.ToString("N0") + ".00";
+                        saldo = nominal.ToString("N");
                 }
                 else
                     saldo = "0.00";
@@ -652,21 +652,21 @@ namespace OpenAccount.Data
 
                 string debetprint = _trx._listbuku[i]._PassbookDebitAmount;
                 debetprint = checkZero(debetprint);
-                if (!isZero)
+                if (debetprint != " ")
                 {
-                    long debet = Convert.ToInt64(debetprint.Substring(0, debetprint.Length - 3));
+                    var debet = Convert.ToDecimal(debetprint.Substring(0, debetprint.Length - 3));
                     if (debet > 1000)
-                        debetprint = debet.ToString("N0") + ".00";
+                        debetprint = debet.ToString("N");
                 }
                 debetprint = String.Format("{0,15}", debetprint);
 
                 string kreditprint =  _trx._listbuku[i]._PassbookCreditAmount;
                 kreditprint = checkZero(kreditprint);
-                if (!isZero)
+                if (kreditprint != " ")
                 {
-                    long kredit = Convert.ToInt64(kreditprint.Substring(0, kreditprint.Length - 3));
+                    var kredit = Convert.ToDecimal(kreditprint.Substring(0, kreditprint.Length - 3));
                     if (kredit > 1000)
-                        kreditprint = kredit.ToString("N0") + ".00";
+                        kreditprint = kredit.ToString("N");
                 }
                 kreditprint = String.Format("{0,15}", kreditprint);
 
@@ -748,6 +748,7 @@ namespace OpenAccount.Data
             string result;
             int startindex = 0;
             bool isMinus = false;
+            isZero = false;
             if (strinput.Substring(0, 1) == "-")
             {
                 isMinus = true;

@@ -330,6 +330,16 @@
             "\"remark2\":\"" + "" + "\"," +
             "\"remark3\":\"" + "" + "\"" +
             "}";
+            //string myJson = "{" +
+            //"\"debit_account\":\"" + " " + "\"," + //MnoPQR
+            //"\"passbook_serialno\":\"" + " " + "\"," +
+            //"\"passbook_balance\":\"" + " " + "\"," +
+            //"\"passbook_rowno\":\"" + " " + "\"," +
+            //"\"debit_currency\":\"" + "IDR" + "\"," +
+            //"\"credit_currency\":\"" + "IDR" + "\"," +
+            //"\"remark2\":\"" + "" + "\"," +
+            //"\"remark3\":\"" + "" + "\"" +
+            //"}";
             Utility.WriteLog("Buku condition : request JSON --> " + myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_PASSBOOK);

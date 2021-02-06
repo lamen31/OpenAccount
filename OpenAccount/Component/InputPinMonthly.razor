@@ -239,6 +239,12 @@
                             await InquiryCIFByAcct();
                             if (isCIFInquiry)
                             {
+                                //DATA DUMMY
+                                //trx.namaNasabah = "ANDREAS LAMEN";
+                                //trx.MSISDN = "081314118862";
+                                //trx.emailNasabah = "andreas.lamen@gmail.com";
+                                //trx.emailNasabah = "";
+
                                 Utility.WriteLog("Home condition : card cif inquiry success", "step-action");
                                 istimeout = true;
                                 isTimer = false;
@@ -253,6 +259,12 @@
                                 await ServiceRekening();
                                 if (isAccountInquiry)
                                 {
+                                    //DATA DUMMY
+                                    //trx.namaNasabah = "ANDREAS LAMEN";
+                                    //trx.MSISDN = "081314118862";
+                                    //trx.emailNasabah = "andreas.lamen@gmail.com";
+                                    //trx.emailNasabah = "";
+
                                     Utility.WriteLog("Home condition : inqury account success", "step-action");
                                     istimeout = true;
                                     isTimer = false;
@@ -274,9 +286,12 @@
                     {
                         Utility.WriteLog("Home condition : pin is invalid", "step-action");
                         isSalah = true;
+                        isReadPin = false;
                         strpin = string.Empty;
                         strpinMask = string.Empty;
                         tryLimit -= 1;
+                        await Task.Delay(3000);
+                        StateHasChanged();
                         if (tryLimit > 0)
                         {
                             isEDC = true;
@@ -510,7 +525,7 @@
             trx.setErrorService("IEC", "Open Serial EDC Failed");
             Utility.WriteLog("Home condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
-            return;
+            //return;
         }
 
         try
@@ -532,7 +547,7 @@
             trx.setErrorService("IEC", "Open Serial EDC Failed");
             Utility.WriteLog("Home condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
-            return;
+            //return;
         }
 
         while (isLoop)
@@ -740,7 +755,7 @@
                     trx.setErrorService("IEC", "EDC NAK");
                     Utility.WriteLog("Home condition : move to error", "step-action");
                     OnClick.InvokeAsync("error");
-                    return;
+                    //return;
                 }
             }
             await Task.Delay(100);
@@ -849,6 +864,22 @@
                         Utility.WriteLog("Histori condition : cek pin external id " + trx.externalID, "step-action");
                         HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
+                        StateHasChanged();
+                        return;
+                        //OnClick.InvokeAsync("error");
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-50" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "50")
+                    {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
+                        //isTimeOut = true;
+                        isInvalid = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         return;
                         //OnClick.InvokeAsync("error");
