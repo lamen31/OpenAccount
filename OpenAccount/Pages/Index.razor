@@ -109,6 +109,26 @@
                     <GantiKartuComponent OnClick="ClickHandler"></GantiKartuComponent>
                     break;
                 }
+            case "gantikartualasan":
+                {
+                    <GantiKartuAlasanComponent OnClick="ClickHandler"></GantiKartuAlasanComponent>
+                    break;
+                }
+            case "gantikarturekening":
+                {
+                    <GantiKartuRekeningComponent OnClick="ClickHandler"></GantiKartuRekeningComponent>
+                    break;
+                }
+            case "gantikartuinsertdebit":
+                {
+                    <GantiKartuInsertDebitComponent OnClick="ClickHandler"></GantiKartuInsertDebitComponent>
+                    break;
+                }
+            case "gantikartuinputpin":
+                {
+                    <GantiKartuInputPinComponent OnClick="ClickHandler"></GantiKartuInputPinComponent>
+                    break;
+                }
             case "gantikartupindaiktp":
                 {
                     <GantiKartuPindaiKTPComponent OnClick="ClickHandler"></GantiKartuPindaiKTPComponent>
@@ -127,6 +147,36 @@
             case "gantikartufingerberhasil":
                 {
                     <GantiKartuFingerBerhasilComponent OnClick="ClickHandler"></GantiKartuFingerBerhasilComponent>
+                    break;
+                }
+            case "gantikartumodel":
+                {
+                    <GantiKartuModelComponent OnClick="ClickHandler"></GantiKartuModelComponent>
+                    break;
+                }
+            case "gantikartusyarat":
+                {
+                    <GantiKartuSyaratComponent OnClick="ClickHandler"></GantiKartuSyaratComponent>
+                    break;
+                }
+            case "gantikartupinbaru":
+                {
+                    <GantiKartuPinBaruComponent OnClick="ClickHandler"></GantiKartuPinBaruComponent>
+                    break;
+                }
+            case "gantikartupinbarukonfirmasi":
+                {
+                    <GantiKartuPinBaruKonfirmasiComponent OnClick="ClickHandler"></GantiKartuPinBaruKonfirmasiComponent>
+                    break;
+                }
+            case "gantikartupernyataan":
+                {
+                    <GantiKartuPernyataanComponent OnClick="ClickHandler"></GantiKartuPernyataanComponent>
+                    break;
+                }
+            case "gantikartutandatangan":
+                {
+                    <GantiKartuTandaTanganComponent OnClick="ClickHandler"></GantiKartuTandaTanganComponent>
                     break;
                 }
             case "gantikartukonfirmasidata":
@@ -516,7 +566,8 @@
                 }
             default:
                 {
-                    <LandingPage2Component OnClick="ClickHandler"></LandingPage2Component>
+                    <NewHomeComponent OnClick="ClickHandler"></NewHomeComponent>
+                    //<LandingPage2Component OnClick="ClickHandler"></LandingPage2Component>
                     //<NewHomeComponent OnClick="ClickHandler"></NewHomeComponent>
                     //<KonfirmasiMonthlyStatement OnClick="ClickHandler"></KonfirmasiMonthlyStatement>
                     //<HistoriPilihMetodeComponent OnClick="ClickHandler"></HistoriPilihMetodeComponent>
@@ -528,7 +579,7 @@
 </div>
 
 @code{
-    private string message = string.Empty;
+    private string message = "gantikartutandatangan";
     private string language = "ID";
     private int clickcount = 0;
 

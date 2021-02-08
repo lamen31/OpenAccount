@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Ganti Kartu</span><br>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Pindai Sidik Jari</span><br>
                 </div>
                 <h3 style="color: #00529C;">Proses pindai Sidik Jari <b style="color: #00AF80;">Berhasil</b></h3>
             </div>
@@ -87,18 +87,18 @@
         //Utility.WriteLog("Ganti kartu condition : id scanner radio pos", "step-action");
         //scanner.RadioPos();
         await Task.Delay(2000);
-        Utility.WriteLog("Ganti kartu condition : move to ganti kartu konfirmasi data", "step-action");
-        OnClick.InvokeAsync("gantikartukonfirmasidata");
+        //Utility.WriteLog("Ganti kartu condition : move to ganti kartu konfirmasi data", "step-action");
+        //OnClick.InvokeAsync("gantikartukonfirmasidata");
     }
 
     private async Task KTP()
     {
         await Task.Delay(100);
-        Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
-        scanner.ReturnCard();
-        await Task.Delay(100);
-        Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
-        scanner.CloseCVRReader();
+        //Utility.WriteLog("Ganti kartu condition : id scanner return card", "step-action");
+        //scanner.ReturnCard();
+        //await Task.Delay(100);
+        //Utility.WriteLog("Ganti kartu condition : id scanner close reader", "step-action");
+        //scanner.CloseCVRReader();
         Utility.WriteLog("Ganti kartu condition : move to ganti kartu pindai ktp", "step-action");
         OnClick.InvokeAsync("gantikartupindaiktp");
     }

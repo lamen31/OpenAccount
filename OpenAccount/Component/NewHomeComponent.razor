@@ -14,7 +14,7 @@
                     <h2 style="font-weight: bold;">Get <b style="color: #F37024;">Easy</b>, Simply Use</h2>
                     <h5 style="color: #00529C; margin-top: -1rem; margin-bottom: 2em;">Silakan pilih menu yang Anda inginkan</h5>
                 </div>
-                <div class="card-deck" style="float: left; margin-top: 1%; margin-bottom: 1%; padding-left: 20%; padding-right: 20%;" data-aos="fade-up">
+                <div class="card-deck" style="float: left; margin-top: 1%; margin-bottom: 1%;" data-aos="fade-up">
                     <div class="card" style="height: 90%; background-color: #00509B; text-align: center; border-radius: 15px;" @onclick="PrintBuku">
                         <div class="text-center" style="align-items: center; height: 60%;">
                             <img src="../assets/img/Folder SVG/bukutabungan.svg" class="card-img-top" style="width: 70%; padding: 65px;" alt="...">
@@ -31,6 +31,14 @@
                             <small class="text-muted" style="font-size: 17px; color: #ffffff; font-weight: 600;">Print Histori Transaksi</small>
                         </div>
                     </div>
+                    <div class="card" style="height: 90%; background-color: #00509B; text-align: center; border-radius: 15px;" @onclick="GantiKartu">
+                        <div class="text-center" style="align-items: center; height: 60%;">
+                            <img src="../assets/img/Folder SVG/gk.svg" class="card-img-top" style="width: 70%; padding: 65px;" alt="...">
+                        </div>
+                        <div class="card-body2">
+                            <small class="text-muted" style="font-size: 17px; color: #ffffff; font-weight: 600;">Ganti Kartu Expired/Hilang</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,15 +49,15 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left:-5%;" @onclick="AmbilKartu">Batal</button>
+            @*<button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left:-5%;" @onclick="AmbilKartu">Batal</button>*@
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progressHome" style="margin-left: 0%; margin-bottom: 2%;">
-                <li class="done">
+                <li class="todo">
                     <em>1</em>
                     <!-- <span>Menu</span> -->
                 </li>
-                <li class="done">
+                <li class="todo">
                     <em>2</em>
                     <!-- <span>T & C</span> -->
                 </li>
@@ -113,21 +121,21 @@
         if (firstRender)
         {
             Utility.WriteLog("Home condition : entered into new home", "step-action");
-            trx.timeOut = "newhome";
-            isTimer = true;
-            starttime = DateTime.Now;
-            await Task.Run(() => IdleTime());
-            if (isTime && isTimeOut)
-            {
-                isTimeOut = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isTime = false;
-                Utility.WriteLog("Home condition : move to konfirmasi time out", "step-action");
-                OnClick.InvokeAsync("konfirmasitimeout");
-                return;
-            }
+            //trx.timeOut = "newhome";
+            //isTimer = true;
+            //starttime = DateTime.Now;
+            //await Task.Run(() => IdleTime());
+            //if (isTime && isTimeOut)
+            //{
+            //    isTimeOut = true;
+            //    await Task.Delay(100);
+            //    StateHasChanged();
+            //    await Task.Delay(2000);
+            //    isTime = false;
+            //    Utility.WriteLog("Home condition : move to konfirmasi time out", "step-action");
+            //    OnClick.InvokeAsync("konfirmasitimeout");
+            //    return;
+            //}
         }
     }
 
@@ -148,6 +156,16 @@
         Utility.WriteLog("Home condition : move to histori pilih menu", "step-action");
         trx.jenisLayanan = 2;//2. Pencetakan Rekening Koran
         OnClick.InvokeAsync("historiPilih");
+        return;
+    }
+
+    private async Task GantiKartu()
+    {
+        isTimeOut = true;
+        isTimer = false;
+        Utility.WriteLog("Home condition : move to alasan ganti kartu", "step-action");
+        trx.jenisLayanan = 2;//2. Pencetakan Rekening Koran
+        OnClick.InvokeAsync("gantikartualasan");
         return;
     }
 

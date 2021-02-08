@@ -1,0 +1,117 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+@inject Utility utility
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row" style="margin-top: 13%;">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;">Ganti Kartu</span><br>
+                    <teks>Alasan Anda Ganti Kartu</teks>
+                    <h3 style="color: #00529C; font-weight: 400;">Silakan pilih alasan disamping</h3><br>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <div>
+                    <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right;" @onclick="InsertDebit">
+                        <div class="row no-gutters">
+                            <div class="col-md-4" style="text-align: center;">
+                                <img src="../assets/img/Folder SVG/icn-kartu-expired.svg" style="padding: 25px; width: 90%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" style="text-align:left;  margin-left: -1.5rem; margin-top: 2%;">
+                                    <h5 class="card-title">Kartu Expired</h5>
+                                    <b class="card-text" style="color: #3D80BC;">3 Bulan Sebelum Expired</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 80%; border: 2px solid #007BFF; border-radius: 10px; float: right; margin-top: 3%;" @onclick="InputRekening">
+
+                        <div class="row no-gutters">
+                            <div class="col-md-4" style="text-align: center;">
+                                <img src="../assets/img/Folder SVG/icn-kartu-hilang.svg" style="padding: 25px; width: 90%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" style="text-align:left;  margin-left: -1.5rem; margin-top: 2%;">
+                                    <h5 class="card-title">Kartu Hilang</h5>
+                                    <b class="card-text" style="color: #3D80BC;">Kartu Hilang/Rusak</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem;" @onclick="Batal">Batal</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <button type="button" class="btn btn-primary" style="float: right;">Cetak</button> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private async Task Batal()
+    {
+        Utility.WriteLog("Ganti kartu condition : move to home", "step-action");
+        OnClick.InvokeAsync("default");
+    }
+
+    private async Task InsertDebit()
+    {
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu insert debit", "step-action");
+        OnClick.InvokeAsync("gantikartuinsertdebit");
+        return;
+    }
+
+    private async Task InputRekening()
+    {
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu rekening", "step-action");
+        OnClick.InvokeAsync("gantikarturekening");
+        return;
+    }
+}

@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row" style="margin-top: 15%;">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;">Kartu Expired</span><br>
+                    <h3 style="color: #00529C; font-size: 30px;">Silakan masukkan <b>PIN ATM Baru</b></h3>
+                    <h3 style="font-size: 20px; margin-top: 8%;">PIN ATM Baru <b style="color: #D80000;">(*6Digit)</b></h3>
+                    <div class="omrs-input-group" style="padding: 15px 0px 0px 0px;">
+                        <label class="omrs-input-underlined">
+                            <input required>
+                            <input style="margin-left: 3%;" required>
+                            <input style="margin-left: 3%;" required>
+                            <input style="margin-left: 3%;" required>
+                            <input style="margin-left: 3%;" required>
+                            <input style="margin-left: 3%;" required>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/input-pin-baru.svg" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem;">Batal</button>
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="done">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="done">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="done">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <button type="button" class="btn btn-primary" style="float: right;">Selesai</button> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+}

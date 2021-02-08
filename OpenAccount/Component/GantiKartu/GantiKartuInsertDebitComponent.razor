@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Components
+@using OpenAccount.Data
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;">Kartu Expired</span><br>
+                    <h3 style="color: #00529C; font-size: 30px;">Silakan masukkan kartu ATM anda</h3>
+                </div>
+            </div>
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="../assets/img/Folder GIF/Insert-Debit.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Footer ======= -->
+<footer id="footer" class="fixed-bottom">
+    <div class="container" style="display: flex;">
+        <div class="col-xl-2 order-1 order-lg-1">
+            <!-- <button type="button" class="btn btn-primary" style="background-color: #4E4E4E;">Batal</button> -->
+        </div>
+        <div class="col-xl-8 order-2 order-lg-2">
+            <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
+                <li class="done">
+                    <em>1</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>2</em>
+                    <!-- <span>T & C</span> -->
+                </li>
+                <li class="todo">
+                    <em>3</em>
+                    <!-- <span>Menu</span> -->
+                </li>
+                <li class="todo">
+                    <em>4</em>
+                    <!-- <span>Verification</span> -->
+                </li>
+                <li class="todo">
+                    <em>5</em>
+                    <!-- <span>Insert Money</span> -->
+                </li>
+                <li class="todo">
+                    <em>6</em>
+                    <!-- <span>Done</span> -->
+                </li>
+            </ol>
+        </div>
+        <div class="col-xl-2 order-3 order-lg-3">
+            <!-- <button type="button" class="btn btn-primary" style="float: right;">Selesai</button> -->
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+}
