@@ -69,7 +69,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right; margin-right: -1rem;" @onclick="PinBaru">Selesai</button>
+            <button type="button" class="btn btn-primary" style="float: right; margin-right: -1rem;" @onclick="TandaTangan">Selesai</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -78,9 +78,9 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private async Task PinBaru()
+    private async Task TandaTangan()
     {
-        OnClick.InvokeAsync("gantikartupinbaru");
+        OnClick.InvokeAsync("gantikartutandatangan");
         return;
     }
 }

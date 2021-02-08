@@ -1,20 +1,27 @@
 ﻿@using Microsoft.AspNetCore.Components
-@using OpenAccount.Data
 
 <!-- ======= Hero Section ======= -->
-<section id="hero">
+<section id="hero" style="margin-top: 50px;">
 
     <div class="container">
-        <div class="row" style="margin-top: 0%;">
+        <div class="row">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 45%;">Kartu Hilang/Rusak</span><br>
-                    <h3 style="color: #00529C; font-weight: 900;">Tanda Tangan Form</h3>
-                    <h3 style="color: #00529C; font-size: 25px; font-weight: 400;">Silakan Tanda Tangan Sesuai E-KTP Anda <br> Pada Bagian Bawah Mesin</h3>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px;">Buka Rekening</span><br>
                 </div>
+                <h3 style="color: #00529C;">Silakan <b>Tanda Tangan</b> sesuai e-KTP Anda pada bagian bawah mesin</h3>
             </div>
-            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left" style=" padding: 3rem;">
-                <img src="../assets/img/Folder GIF/Signature.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;" @onclick="Konfirmasi">
+            <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <h5 style="color: #fd1f1f; font-style: italic;">*Tanda tangan anda akan tampil disini</h5>
+                <div class="card mb-3" style="padding-left: 5%; padding-right: 5%; background-color: rgb(240, 240, 240);">
+                    <div class="text-center">
+                        <img class="card-img-top" src="../assets/signpad/imgsignpad.png" style="width: 50%;" alt="Card image cap" @onclick="PinBaru">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hasil Tanda Tangan</h5>
+                    </div>
+                </div>
+                <h5 style="color: #00529C; margin-top: 5%;" @onclick="TandaTangan">Ulangi Tanda Tangan?</h5>
             </div>
         </div>
     </div>
@@ -64,9 +71,14 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
-    private async Task Konfirmasi()
+    private async Task TandaTangan()
     {
-        OnClick.InvokeAsync("gantikartutandatangankonfirmasi");
+        OnClick.InvokeAsync("gantikartutandatangan");
+    }
+
+    private async Task PinBaru()
+    {
+        OnClick.InvokeAsync("gantikartupinbaru");
     }
 
     private async Task Model()

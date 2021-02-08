@@ -8,12 +8,12 @@
         <div class="row" style="margin-top: 5%;">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;">Kartu Expired</span><br>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;" @onclick="KartuSalah">Insert Card</span><br>
                     <h3 style="color: #00529C; font-size: 30px;">Silakan masukkan kartu ATM anda</h3>
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Folder GIF/Insert-Debit.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
+                <img src="../assets/img/Folder GIF/Insert-Debit.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;" @onclick="KartuBenar">
             </div>
         </div>
     </div>
@@ -62,4 +62,14 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private async Task KartuBenar()
+    {
+        OnClick.InvokeAsync("gantikartuinputpin");
+    }
+
+    private async Task KartuSalah()
+    {
+        OnClick.InvokeAsync("atminvalid");
+    }
 }

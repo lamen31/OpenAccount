@@ -8,14 +8,19 @@
         <div class="row" style="margin-top: 0%;">
             <div class="col-xl-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
                 <div>
-                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;">Masukkan Pin ATM</span><br>
+                    <span class="badge badge-primary" style="margin-bottom: 2rem; font-size: 20px; width: 35%;" @onclick="PinSalah">Pin ATM</span><br>
                     <h3 style="color: #00529C; font-size: 35px;">Silakan masukkan <b> PIN ATM</b> anda</h3>
                     <h3 style="color: #00529C; font-size: 25px; font-weight: 300;">"Tekan <b style="color: #F37024; font-weight: 700;">“ENTER”</b> jika selesai memasukkan PIN"</h3>
                     <h3 style="color: #007BFF; font-size: 35px; margin-top: 10%; letter-spacing: 30px;">******</h3>
+                    @if (isSalah)
+                    {
+                        <h3 style="color: #ff0000; font-size: 20px; margin-top:20%;">PIN yang anda masukan <b>SALAH</b>.</h3>
+                        <h3 style="color: #ff0000; font-size: 20px; font-style:italic">Kesempatan mencoba @salahCount.ToString()x lagi</h3>
+                    }
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/Folder GIF/enter-pin2.gif" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
+                <img src="../assets/img/Folder GIF/enter-pin2.gif" class="img-fluid" alt="" style="float: right;margin-top: 1%; width:60%;" @onclick="PinBenar">
             </div>
         </div>
     </div>
@@ -64,4 +69,24 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private bool isSalah = false;
+    private int salahCount = 3;
+
+    private async Task PinBenar()
+    {
+        OnClick.InvokeAsync("gantikartupindaiktp");
+    }
+
+    private async Task PinSalah()
+    {
+        salahCount -= 1;
+        isSalah = true;
+        await Task.Delay(100);
+        StateHasChanged();
+        if (salahCount == 0)
+        {
+            OnClick.InvokeAsync("blokirkartu");
+        }
+    }
 }

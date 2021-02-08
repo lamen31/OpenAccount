@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-xl-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                <img src="../assets/img/input-pin-baru.svg" class="img-fluid" alt="" style="margin-top: 5%; float: right;">
+                <img src="../assets/img/Folder SVG/input-pin-baru.svg" class="img-fluid" alt="" style="margin-top: 5%; float: right;" @onclick="Konfirmasi">
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
 <footer id="footer" class="fixed-bottom">
     <div class="container" style="display: flex;">
         <div class="col-xl-2 order-1 order-lg-1">
-            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem;">Batal</button>
+            <button type="button" class="btn btn-primary" style="background-color: #4E4E4E; margin-left: -1rem;" @onclick="Model">Batal</button>
         </div>
         <div class="col-xl-8 order-2 order-lg-2">
             <ol class="track-progressGK" style="margin-left: 0%; margin-bottom: 2%;">
@@ -72,4 +72,14 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private async Task Konfirmasi()
+    {
+        OnClick.InvokeAsync("gantikartupinbarukonfirmasi");
+    }
+
+    private async Task Model()
+    {
+        OnClick.InvokeAsync("gantikartumodel");
+    }
 }

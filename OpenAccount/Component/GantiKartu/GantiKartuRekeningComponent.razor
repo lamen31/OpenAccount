@@ -73,7 +73,7 @@
             </ol>
         </div>
         <div class="col-xl-2 order-3 order-lg-3">
-            <button type="button" class="btn btn-primary" style="float: right; margin-right: -1rem;">Lanjut</button>
+            <button type="button" class="btn btn-primary" style="float: right; margin-right: -1rem;" @onclick="InputPin">Lanjut</button>
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -81,4 +81,9 @@
 @code {
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
+
+    private async Task InputPin()
+    {
+        OnClick.InvokeAsync("gantikartuinputpin");
+    }
 }

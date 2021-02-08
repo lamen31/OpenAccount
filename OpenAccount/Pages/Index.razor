@@ -179,6 +179,11 @@
                     <GantiKartuTandaTanganComponent OnClick="ClickHandler"></GantiKartuTandaTanganComponent>
                     break;
                 }
+            case "gantikartutandatangankonfirmasi":
+                {
+                    <GantiKartuTandaTanganKonfirmasiComponent OnClick="ClickHandler"></GantiKartuTandaTanganKonfirmasiComponent>
+                    break;
+                }
             case "gantikartukonfirmasidata":
                 {
                     <GantiKartuKonfirmasiDataComponent OnClick="ClickHandler"></GantiKartuKonfirmasiDataComponent>
@@ -529,6 +534,11 @@
                     <KartuSalah OnClick="ClickHandler"></KartuSalah>
                     break;
                 }
+            case "atminvalid":
+                {
+                    <ATMInvalidComponent OnClick="ClickHandler"></ATMInvalidComponent>
+                    break;
+                }
             case "konfirmasiawal":
                 {
                     <KonfirmasiNoRekening OnClick="ClickHandler"></KonfirmasiNoRekening>
@@ -579,7 +589,7 @@
 </div>
 
 @code{
-    private string message = "gantikartutandatangan";
+    private string message = string.Empty;
     private string language = "ID";
     private int clickcount = 0;
 
