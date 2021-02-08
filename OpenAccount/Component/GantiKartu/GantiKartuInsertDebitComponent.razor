@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
+@inject Config config
+@inject CardDispenser dispenser
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -65,6 +67,13 @@
 
     private async Task KartuBenar()
     {
+        string dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
+        CardDispenser.baudRate = 115200;
+        string ErrorCode = string.Empty;
+        string message = string.Empty;
+        Utility.WriteLog("Ganti kartu condition : card dispenser process start", "step-action");
+        dispenser.GetCard(ref ErrorCode, dispenserPort, ref message);
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu input pin", "step-action");
         OnClick.InvokeAsync("gantikartuinputpin");
     }
 

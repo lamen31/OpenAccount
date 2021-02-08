@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using OpenAccount.Data
 
+@inject Config config
+@inject CardDispenser dispenser
 <!-- ======= Hero Section ======= -->
 <section id="hero">
 
@@ -74,8 +76,20 @@
     [Parameter]
     public EventCallback<string> OnClick { get; set; }
 
+
+    private string dispenserPort = string.Empty;
+    private string dispenserBox = "1";
+
     private async Task Berhasil()
     {
+        dispenserPort = config.Read("PORT", Config.PARAM_PORT_CARD_DISPENSER);
+        CardDispenser.baudRate = 115200;
+        string ErrorCode = string.Empty;
+        string message = string.Empty;
+        dispenserBox = config.Read("DISPENSERCARD", Config.PARAM_DISPENSER_BOX);
+        Utility.WriteLog("Ganti kartu condition : card dispenser process start", "step-action");
+        dispenser.Dispenser(ref ErrorCode, dispenserPort, dispenserBox, ref message);
+        Utility.WriteLog("Ganti kartu condition : move to ganti kartu berhasil", "step-action");
         OnClick.InvokeAsync("gantikartuberhasil");
     }
 
