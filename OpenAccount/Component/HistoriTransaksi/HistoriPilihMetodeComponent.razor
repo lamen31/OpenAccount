@@ -221,7 +221,6 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Histori condition : entered into histori pilih menu", "step-action");
             trx.timeOut = "historiPilihMetode";
             isTimer = true;
             starttime = DateTime.Now;
@@ -233,6 +232,7 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTime = false;
+                Utility.WriteLog("Histori condition : move to konfirmasi time out", "step-action");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
             }
@@ -282,6 +282,7 @@
     {
         isTimer = false;
         isTimeOut = true;
+        Utility.WriteLog("Histori condition : move to histori pilih menu", "step-action");
         OnClick.InvokeAsync("historiPilih");
         return;
     }
@@ -296,6 +297,7 @@
         }
         else
         {
+            Utility.WriteLog("Histori condition : move to konfirmasi monthly", "step-action");
             OnClick.InvokeAsync("konfirmasimonthly");
             return;
         }
@@ -313,15 +315,19 @@
 
         if (RegexUtilities.IsValidEmail(trx.emailNasabah))
         {
+            Utility.WriteLog("Histori condition : email valid", "step-action");
+            Utility.WriteLog("Histori condition : move to konfirmasi monthly", "step-action");
             OnClick.InvokeAsync("konfirmasimonthly");
             return;
         }
         else
         {
             //trx._ServicesErrorMessage = "Email Not Valid";
+            Utility.WriteLog("Histori condition : email not valid", "step-action");
             trx.setErrorService("", "Email Not Valid");
             trx.statusLayanan = "ERROR";
             //HitLog.SendLog(trx, config, "HISTORY PILIH METODE: Email Not Valid");
+            Utility.WriteLog("Histori condition : move to error", "step-action");
             HitServices.SendLog(trx, config, "HISTORY PILIH METODE: Email Not Valid");
             OnClick.InvokeAsync("error");
             return;

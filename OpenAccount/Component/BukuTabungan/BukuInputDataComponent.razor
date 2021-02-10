@@ -335,7 +335,6 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into new home", "step-action");
             trx.timeOut = "bukuinputdata";
             isTimer = true;
             starttime = DateTime.Now;
@@ -349,13 +348,8 @@
                 isTime = false;
                 //trx.statusLayanan = "CANCEL";
                 //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
-                HitServices.SendLog(trx, config, "BUKU INPUT DATA: Konfirmasi Timeout");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
-                trx.statusLayanan = "CANCEL";
-                //HitLog.SendLog(trx, config, "NEW HOME: Konfirmasi Timeout");
-                HitServices.SendLog(trx, config, "BUKU INPUT DATA: Konfirmasi Timeout");
-                OnClick.InvokeAsync("konfirmasitimeout");
             }
         }
     }
@@ -377,6 +371,8 @@
             HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
             isTimer = false;
+            Utility.WriteLog("Buku condition : book account is giro", "step-action");
+            Utility.WriteLog("Buku condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -391,6 +387,8 @@
             HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
             isTimeOut = true;
             isTimer = false;
+            Utility.WriteLog("Buku condition : book account is bisnis", "step-action");
+            Utility.WriteLog("Buku condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -429,8 +427,10 @@
         switch (status)
         {
             case "1":
+                Utility.WriteLog("Buku condition : card status "+ status, "step-action");
                 break;
             case "2":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
@@ -439,9 +439,11 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Matured but Not Closed";
                 trx.statusLayanan = "ERROR";
@@ -450,11 +452,14 @@
                 trx.setErrorService(errorcode, errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 break;
             case "5":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
@@ -463,9 +468,11 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 //errorcode = "NotStatus";
                 //errormessage = "Account Status Restricted";
                 //trx.setErrorService(errorcode, errormessage);
@@ -473,6 +480,7 @@
                 //OnClick.InvokeAsync("error");
                 break;
             case "7":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 //errorcode = "NotStatus";
                 //errormessage = "Account Status Frozen with No Actual";
                 //trx.setErrorService(errorcode, errormessage);
@@ -480,6 +488,7 @@
                 //OnClick.InvokeAsync("error");
                 break;
             case "8":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
@@ -488,9 +497,11 @@
                 HitServices.SendLog(trx, config, "BUKU INPUT DATA: " + errormessage);
                 isTimeOut = true;
                 isTimer = true;
+                Utility.WriteLog("Buku condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
+                Utility.WriteLog("Buku condition : card status " + status, "step-action");
                 break;
         }
     }
@@ -498,11 +509,12 @@
     private async Task AmbilKartu()
     {
         isTimeOut = true;
-        Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
+        //Utility.WriteLog("Buku condition : move to ambil kartu", "step-action");
         trx.statusLayanan = "ERROR";
         //HitLog.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
         HitServices.SendLog(trx, config, "BUKU INPUT DATA: User Cancel Transaction");
         isTimer = false;
+        Utility.WriteLog("Buku condition : move to home", "step-action");
         OnClick.InvokeAsync("default");
         return;
     }
@@ -514,6 +526,7 @@
         {
             if (barisbuku == "0" || barisbuku == "00")
             {
+                Utility.WriteLog("Buku condition : baris buku is zero", "step-action");
                 isTidakSesuai = true;
                 await Task.Delay(100);
                 StateHasChanged();
@@ -524,6 +537,7 @@
             }
             else if (barisbuku == string.Empty)
             {
+                Utility.WriteLog("Buku condition : baris buku empty", "step-action");
                 isTidakSesuai = true;
                 await Task.Delay(100);
                 StateHasChanged();
@@ -578,6 +592,7 @@
             }
             else if (saldorekening == string.Empty || barisbuku == string.Empty || serialbuku == string.Empty)
             {
+                Utility.WriteLog("Buku condition : empty column", "step-action");
                 isTidakSesuai = true;
                 await Task.Delay(100);
                 StateHasChanged();
@@ -588,6 +603,7 @@
             }
             else if (Convert.ToInt32(barisbuku) > 29)
             {
+                Utility.WriteLog("Buku condition : baris buku more than 29", "step-action");
                 isBarisLebih = true;
                 await Task.Delay(100);
                 StateHasChanged();
@@ -598,6 +614,7 @@
             }
             else if (serialbuku.Length < 7)
             {
+                Utility.WriteLog("Buku condition : serial buku length less than 7", "step-action");
                 isSerialKurang = true;
                 await Task.Delay(100);
                 StateHasChanged();
@@ -608,6 +625,7 @@
             }
             else
             {
+                Utility.WriteLog("Buku condition : input data passbook not valid", "step-action");
                 isTidakSesuai = true;
                 await Task.Delay(100);
                 StateHasChanged();
@@ -617,89 +635,89 @@
                 StateHasChanged();
             }
         }
-        else if (isBisnis && !isSimpedes)
-        {
-            if (saldorekening != string.Empty && Convert.ToInt32(barisbuku) <= 15)
-            {
-                //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
-                //string[] lines = System.IO.File.ReadAllLines(path);
-                //tipe = new string[lines.Length];
-                //sandi = new string[lines.Length];
-                //nominal = new string[lines.Length];
-                //pengesahan = new string[lines.Length];
-                //for (int i = 0; i < lines.Length; i++)
-                //{
-                //    string[] column = lines[i].Split(";");
-                //    for (int j = 0; j < column.Length; j++)
-                //    {
-                //        if (j == 0)
-                //            tipe[i] = column[j];
+        //else if (isBisnis && !isSimpedes)
+        //{
+        //    if (saldorekening != string.Empty && Convert.ToInt32(barisbuku) <= 15)
+        //    {
+        //        //string path = config.Read("PATH", Config.PARAM_PATH_PASSBOOK);
+        //        //string[] lines = System.IO.File.ReadAllLines(path);
+        //        //tipe = new string[lines.Length];
+        //        //sandi = new string[lines.Length];
+        //        //nominal = new string[lines.Length];
+        //        //pengesahan = new string[lines.Length];
+        //        //for (int i = 0; i < lines.Length; i++)
+        //        //{
+        //        //    string[] column = lines[i].Split(";");
+        //        //    for (int j = 0; j < column.Length; j++)
+        //        //    {
+        //        //        if (j == 0)
+        //        //            tipe[i] = column[j];
 
-                //        else if (j == 1)
-                //            sandi[i] = column[j];
+        //        //        else if (j == 1)
+        //        //            sandi[i] = column[j];
 
-                //        else if (j == 2)
-                //            nominal[i] = column[j];
+        //        //        else if (j == 2)
+        //        //            nominal[i] = column[j];
 
-                //        else if (j == 3)
-                //            pengesahan[i] = column[j];
-                //    }
-                //}
-                //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
-                //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
-                //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
+        //        //        else if (j == 3)
+        //        //            pengesahan[i] = column[j];
+        //        //    }
+        //        //}
+        //        //Console.WriteLine("INPUT DATA FROM " + path + " SUCCESS");
+        //        //Utility.WriteLog("Buku condition : input data from " + path + " success", "step-action");
+        //        //trx.setPassbookTransaksi(barisbuku, halamanbuku, Date, tipe, sandi, nominal, saldorekening, pengesahan);
 
-                //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
-                trx.setPassbookTransaksi(barisbuku, saldorekening);
-                Utility.WriteLog("Buku condition : set data passbook success", "step-action");
+        //        //trx.setPassbookTransaksi(barisbuku, halamanbuku, saldorekening);
+        //        trx.setPassbookTransaksi(barisbuku, saldorekening);
+        //        Utility.WriteLog("Buku condition : set data passbook success", "step-action");
 
 
-                isTimeOut = true;
-                Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
-                isTimer = true;
-                OnClick.InvokeAsync("bukukonfirmasi");
-            }
-            else if (Convert.ToInt32(barisbuku) > 15)
-            {
-                isBarisLebih = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isBarisLebih = false;
-                await Task.Delay(100);
-                StateHasChanged();
-            }
-            else if (serialbuku.Length < 7)
-            {
-                isSerialKurang = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isSerialKurang = false;
-                await Task.Delay(100);
-                StateHasChanged();
-            }
-            else if (Convert.ToInt32(barisbuku) == 0 || Convert.ToInt32(barisbuku) == 00)
-            {
-                isTidakSesuai = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isTidakSesuai = false;
-                await Task.Delay(100);
-                StateHasChanged();
-            }
-            else
-            {
-                isTidakSesuai = true;
-                await Task.Delay(100);
-                StateHasChanged();
-                await Task.Delay(2000);
-                isTidakSesuai = false;
-                await Task.Delay(100);
-                StateHasChanged();
-            }
-        }
+        //        isTimeOut = true;
+        //        Utility.WriteLog("Buka rekening condition : move to buku konfirmasi", "step-action");
+        //        isTimer = true;
+        //        OnClick.InvokeAsync("bukukonfirmasi");
+        //    }
+        //    else if (Convert.ToInt32(barisbuku) > 15)
+        //    {
+        //        isBarisLebih = true;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //        await Task.Delay(2000);
+        //        isBarisLebih = false;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //    }
+        //    else if (serialbuku.Length < 7)
+        //    {
+        //        isSerialKurang = true;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //        await Task.Delay(2000);
+        //        isSerialKurang = false;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //    }
+        //    else if (Convert.ToInt32(barisbuku) == 0 || Convert.ToInt32(barisbuku) == 00)
+        //    {
+        //        isTidakSesuai = true;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //        await Task.Delay(2000);
+        //        isTidakSesuai = false;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //    }
+        //    else
+        //    {
+        //        isTidakSesuai = true;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //        await Task.Delay(2000);
+        //        isTidakSesuai = false;
+        //        await Task.Delay(100);
+        //        StateHasChanged();
+        //    }
+        //}
     }
 
     private void Inputfield1()

@@ -1,6 +1,10 @@
-let monthVal;
-let startDate;
-let endDate;
+var monthVal = "";
+var startDate = "";
+var startDateFormated = "";
+var returnStartDateFormated = "";
+var endDate = "";
+var endDateFormated = "";
+var returnEndDateFormated = "";
 
 var todayDate = new Date();
 var yesterdayDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() - 1);
@@ -19,10 +23,14 @@ function setDatePicker() {
 			minDate: minLimit,
 			maxDate: yesterdayDate
 		});
-
+		//$(".startdate").val(startDateFormated);
 		$(".startdate").on("change.datetimepicker", function (e) {
 			minLimit2 = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date() + 1);
 			maxLimit2 = new Date(minLimit2.getFullYear(), minLimit2.getMonth() + 1, minLimit2.getDate() - 2);
+			startDate = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date())
+			startDateFormated = moment(e.date).format('DD/MM/YYYY');
+			returnStartDateFormated = moment(e.date).format('YYYY-MM-DD');
+			//console.log(moment(e.date).format('DD/MM/YYYY'));
 			if (maxLimit2 < todayDate) {
 				//console.log("Max Limit Less Than Today:" + minLimit2 + " " + maxLimit2);
 			} else {
@@ -33,15 +41,19 @@ function setDatePicker() {
 			$(".enddate").datetimepicker('format', "DD/MM/YYYY");
 			$(".enddate").datetimepicker('maxDate', maxLimit2);
 			$(".enddate").val("");
+			endDateFormated = "";
 			//console.log("Update Data StartDate:" + minLimit2 + maxLimit2 + e.date);
 		});
 
 		$(".enddate").datetimepicker('minDate', minLimit2);
 		$(".enddate").datetimepicker('format', "DD/MM/YYYY");
 		$(".enddate").datetimepicker('maxDate', maxLimit2);
-		$(".enddate").val("");
+		$(".enddate").val(endDateFormated);
 
 		$(".enddate").on("change.datetimepicker", function (e) {
+			endDate = new Date(moment(e.date).year(), moment(e.date).month(), moment(e.date).date())
+			endDateFormated = moment(e.date).format('DD/MM/YYYY');
+			returnEndDateFormated = moment(e.date).format('YYYY-MM-DD');
 			//console.log("Update Data EndDate:" + e.date);
 			//console.log("Later Date Picker");
 		});
@@ -93,7 +105,9 @@ function setMonthPicker(){
 function getStartDatePicker() {
 	try {
 		//console.log("Start Date : " + moment($(".startdate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY'));
-		return moment($(".startdate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY');
+		//$(".startdate").val(startDateFormated);
+		return moment($(".startdate").data("datetimepicker")._dates[0]).format('YYYY-MM-DD');
+		//return returnStartDateFormated;
 	}
 	catch(err) {
 		return ""
@@ -104,7 +118,9 @@ function getEndDatePicker() {
 	
 	try {
 		//console.log("End Date : " + moment($(".enddate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY'));
-		return moment($(".enddate").data("datetimepicker")._dates[0]).format('DD/MM/YYYY');
+		//$(".enddate").val(endDateFormated);
+		return moment($(".enddate").data("datetimepicker")._dates[0]).format('YYYY-MM-DD');
+		//return returnEndDateFormated
 	}
 	catch (err) {
 		return ""
@@ -115,7 +131,8 @@ function getMonthPicker() {
 
 	try {
 		//console.log("Month Range : " + moment($(".monthpicker").data("datetimepicker")._dates[0]).format('DD/MM/YYYY') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('DD/MM/YYYY'));
-		return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('DD/MM/YYYY') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('DD/MM/YYYY');
+		return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('YYYY-MM-01') + "#" + moment($(".monthpicker").data("datetimepicker")._dates[0]).endOf('month').format('YYYY-MM-DD');
+		//return moment($(".monthpicker").data("datetimepicker")._dates[0]).format('YYYY-MM-01') + "#" + todayDate.format('YYYY-MM-DD')
 	}
 	catch (err) {
 		return ""

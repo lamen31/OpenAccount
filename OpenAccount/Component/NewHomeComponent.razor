@@ -124,6 +124,7 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTime = false;
+                Utility.WriteLog("Home condition : move to konfirmasi time out", "step-action");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
             }
@@ -154,7 +155,7 @@
     {
         isTimeOut = true;
         isTimer = false;
-        Utility.WriteLog("Home condition : move to ambil kartu", "step-action");
+        Utility.WriteLog("Home condition : move to home", "step-action");
         HitServices.SendLog(trx, config, "NEW HOME: User Cancel Transaction");
         OnClick.InvokeAsync("default");
         return;

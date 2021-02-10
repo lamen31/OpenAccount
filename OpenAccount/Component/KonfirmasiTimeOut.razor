@@ -53,6 +53,7 @@
         isTimeOut = true;
         //trx.statusLayanan = "CANCEL";
         //HitLog.SendLog(trx, config, "KONFIRMASI TIMEOUT: Konfirmasi Timeout");
+        Utility.WriteLog("Home condition : move to home", "step-action");
         OnClick.InvokeAsync("default");
         return;
     }
@@ -60,7 +61,8 @@
     {
         isTimer = false;
         isTimeOut = true;
-        OnClick.InvokeAsync(trx.timeOut);
+        Utility.WriteLog("Home condition : move to input pin monthly", "step-action");
+        OnClick.InvokeAsync("inputpinmonthly");
         return;
     }
 
@@ -90,7 +92,7 @@
     {
         if (firstRender)
         {
-            Utility.WriteLog("Home condition : entered into new home", "step-action");
+            Utility.WriteLog("Home condition : entered into konfirmasi time out", "step-action");
             //trx.timeOut = "default";
             starttime = DateTime.Now;
             await Task.Run(() => IdleTime());
@@ -104,6 +106,7 @@
                 Console.WriteLine("TimeOut Konfirmasi Time Out");
                 //trx.statusLayanan = "CANCEL";
                 //HitLog.SendLog(trx, config, "KONFIRMASI TIMEOUT: Konfirmasi Timeout");
+                Utility.WriteLog("Home condition : move to home", "step-action");
                 OnClick.InvokeAsync("default");
                 return;
             }

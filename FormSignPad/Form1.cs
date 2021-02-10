@@ -20,6 +20,7 @@ namespace FormSignPad
         //private DateTime dateTimeImage = DateTime.Now;
         private string strSignFile;
         //private string strSignFile1;
+        private bool isSaveSign = true;
 
         //return value of interface function
         static int HW_eOk = 0;      //success
@@ -34,9 +35,10 @@ namespace FormSignPad
 
         public Form1()
         {
+            this.Hide();
             InitializeComponent();
             button1.PerformClick();
-            strSignFile = Directory.GetCurrentDirectory().ToString() + "\\hwsign.png";
+            strSignFile = Directory.GetCurrentDirectory() + "\\hwsign.png";
             axHWPenSign1.HWSetBkColor(0xE0F8E0);
             axHWPenSign1.HWSetCtlFrame(2, 0x000000);
             axHWPenSign1.HWSetFilePath(strSignFile);
@@ -46,6 +48,21 @@ namespace FormSignPad
             IntPtr ptrWnd = Marshal.UnsafeAddrOfPinnedArrayElement(hwnd, 0);
             axHWPenSign1.HWSetExtWndHandleCSharp(ptrWnd);
             OpenDevice();
+            do
+            {
+                int res;
+                Task.Delay(1000);
+
+                res = axHWPenSign1.HWSaveFile();
+                if (res == 0)
+                {
+                    Utility.WriteLog("Sign pad condition : save image success", "step-action");
+                }
+                else
+                {
+                    Utility.WriteLog("Sign pad condition : save image failed", "step-action");
+                }
+            } while (isSaveSign);
         }
 
 
@@ -55,55 +72,51 @@ namespace FormSignPad
             int res = axHWPenSign1.HWInitialize();
             if (res == HW_eOk)
             {
-                Console.WriteLine("SIGN PAD FORM: OPEN DEVICE SUCCESS");
                 Utility.WriteLog("Sign pad condition : device open success", "step-action");
             }
             else if (res == HW_eDeviceNotFound)
             {
-                Console.WriteLine("SIGN PAD FORM: DEVICE NOT FOUND");
                 Utility.WriteLog("Condition : device not found", "step-action");
             }
             else if (res == HW_eFailedLoadModule)
             {
-                Console.WriteLine("SIGN PAD FORM: DEVICE FAILED LOAD MODULE");
                 Utility.WriteLog("Sign pad condition : device failed load module", "step-action");
             }
             else if (res == HW_eFailedInitModule)
             {
-                Console.WriteLine("SIGN PAD FORM: DEVICE FAILED INIT MODULE");
                 Utility.WriteLog("Sign pad condition : device failed init module", "step-action");
             }
             else if (res == HW_eWrongImageFormat)
             {
-                Console.WriteLine("SIGN PAD FORM: DEVICE WRONG IMAGE FORMAT");
                 Utility.WriteLog("Sign pad condition : device wrong image format", "step-action");
             }
             else if (res == HW_eNoSignData)
             {
-                Console.WriteLine("SIGN PAD FORM: NO SIGN DATA");
                 Utility.WriteLog("Sign pad condition : no sign data", "step-action");
             }
             else if (res == HW_eInvalidInput)
             {
-                Console.WriteLine("SIGN PAD FORM: DEVICE INVALID INPUT");
                 Utility.WriteLog("Sign pad condition : device invalid output", "step-action");
             }
         }
 
         private void SaveImage()
         {
-            int res;
-            res = axHWPenSign1.HWSaveFile();
-            if (res == 0)
-            {
-                Console.WriteLine("SIGN PAD FORM: SAVE IMAGE SUCCESS");
-                Utility.WriteLog("Sign pad condition : save image success", "step-action");
-            }
-            else
-            {
-                Console.WriteLine("SIGN PAD FORM: SAVE IMAGE FAILED");
-                Utility.WriteLog("Sign pad condition : save image failed", "step-action");
-            }
+            //int res;
+            //res = axHWPenSign1.HWSaveFile();
+            //if (res == 0)
+            //{
+            //    Console.WriteLine("SIGN PAD FORM: SAVE IMAGE SUCCESS");
+            //    Utility.WriteLog("Sign pad condition : save image success", "step-action");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("SIGN PAD FORM: SAVE IMAGE FAILED");
+            //    Utility.WriteLog("Sign pad condition : save image failed", "step-action");
+            //}
+            isSaveSign = false;
+            Task.Delay(100);
+            Environment.Exit(0);
             CloseDevice();
         }
 

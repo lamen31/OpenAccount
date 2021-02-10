@@ -104,9 +104,6 @@
         isLoading = true;
         await Task.Delay(100);
         StateHasChanged();
-        StateHasChanged();
-        Utility.WriteLog("Home condition : input kartu success", "step-action");
-        Utility.WriteLog("Home condition : move to input pin", "step-action");
         trx.jenisLayanan = 4;//4. Proses Persiapan Layanan
                              //OnClick.InvokeAsync("inputpin");
 
@@ -120,11 +117,14 @@
             await CekKartu();
             if (!isKartu)
             {
+                Utility.WriteLog("Home condition : move to kartu salah", "step-action");
                 OnClick.InvokeAsync("kartusalah");
                 return;
             }
             if (isComplete)
             {
+                Utility.WriteLog("Home condition : input kartu success", "step-action");
+                Utility.WriteLog("Home condition : move to input pin", "step-action");
                 OnClick.InvokeAsync("inputpin");
                 return;
             }
@@ -133,6 +133,7 @@
         {
             //trx.statusLayanan = "CANCEL";
             //HitLog.SendLog(trx, config, "INSERT DEBIT: USER Cancel Transaction");
+            Utility.WriteLog("Home condition : move to home", "step-action");
             OnClick.InvokeAsync("default");
             return;
         }
@@ -143,6 +144,7 @@
         if (trx.nomerKartu.Length > 0)
         {
             cekKartu = trx.nomerKartu.Substring(0, 6);
+            Utility.WriteLog("Home condition : status kartu --> " + cekKartu, "step-action");
             if (cekKartu == "553479" || cekKartu == "522184" || cekKartu == "532659" || cekKartu == "601301")
             {
                 isKartu = true;
@@ -227,24 +229,42 @@
         }
         catch (Exception ex)
         {
+            //throw new InvalidOperationException(ex.Message);
             Console.WriteLine(ex.Message);
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
-            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            //trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             //trx.statusLayanan = "CANCEL";
             //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
             isLoop = false;
             serialPort.Close();
             trx.setErrorService("IEC", "Open Serial EDC Failed");
             OnClick.InvokeAsync("error");
-            return;
+            //return;
         }
 
-        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
-        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
-        await Task.Delay(2000);
-        isLoading = false;
-        await Task.Delay(100);
-        StateHasChanged();
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+            serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
+            await Task.Delay(2000);
+            isLoading = false;
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+        catch(Exception ex)
+        {
+            //throw new InvalidOperationException(ex.Message);
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            //trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            //trx.statusLayanan = "CANCEL";
+            //HitLog.SendLog(trx, config, "INSERT DEBIT: Open Serial EDC Failed");
+            isLoop = false;
+            serialPort.Close();
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            OnClick.InvokeAsync("error");
+            //return;
+        }
 
         while (isLoop)
         {
@@ -270,6 +290,7 @@
                     {
                         trx.nomerKartu = dataSplit.Substring(10, 16);
                         Console.WriteLine(trx.nomerKartu);
+                        Utility.WriteLog("Home condition : EDC nomor kartu --> " + trx.nomerKartu, "step-action");
                         isComplete = true;
                         break;
                     }
@@ -297,7 +318,7 @@
                     //HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
                     trx.setErrorService("IEC", "EDC NAK");
                     OnClick.InvokeAsync("error");
-                    return;
+                    //return;
                 }
             }
             await Task.Delay(100);
@@ -307,6 +328,7 @@
         Console.WriteLine("2");
         Utility.WriteLog("Home condition : EDC serial port close", "step-action");
         serialPort.Close();
+        Utility.WriteLog("Home condition : process EDC done", "step-action");
         //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
     private async Task EDCClearBuffer(string ecrmsg)
@@ -364,7 +386,7 @@
             isLoop = false;
             trx.setErrorService("IEC", "Open Serial EDC Failed");
             OnClick.InvokeAsync("error");
-            return;
+            //return;
         }
 
         Utility.WriteLog("Home condition : EDC serial port write", "step-action");
@@ -443,7 +465,7 @@
                 //HitLog.SendLog(trx, config, "INSERT DEBIT: EDC NAK");
                 trx.setErrorService("IEC", "EDC NAK");
                 OnClick.InvokeAsync("error");
-                return;
+                //return;
             }
         }
         await Task.Delay(100);

@@ -95,20 +95,23 @@ namespace OpenAccount.Data
                 "\"startDate\":\"" + startdate + "\"," +
                 "\"endDate\":\"" + enddate + "\"" +
                 "}";
+                Utility.WriteLog("Report condition : request JSON --> " + myJson, "step-action");
                 string myLink = config.Read("LINK", Config.PARAM_SERVICES_REPORT);
                 string myUrl = myLink + @"/log/daily";
 
-                Utility.WriteLog("Histori condition : post service start", "step-action");
+                Utility.WriteLog("Report condition : post service start -- get report", "step-action");
                 try
                 {
                     string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                    Utility.WriteLog("Report condition : respond JSON --> " + strResult, "step-action");
                     if (strResult != null)
                     {
                         JObject jobResult = JObject.Parse(strResult);
 
                         if ((string)jobResult["responseCode"] == "0000")
                         {
-                            foreach(var response in jobResult["listReport"].Select((response) => (response)))
+                            Utility.WriteLog("Report condition : hit get report success", "step-action");
+                            foreach (var response in jobResult["listReport"].Select((response) => (response)))
                             {
                                 addListReport((string)response.SelectToken("externalId"), (string)response.SelectToken("id"), (string)response.SelectToken("tglTransaksi"), (string)response.SelectToken("namaNasabah"),
                                     (string)response.SelectToken("noRekening"), (string)response.SelectToken("noKartu"), (string)response.SelectToken("noSeriPassbook"), (string)response.SelectToken("statusTransaksi"),
@@ -122,6 +125,7 @@ namespace OpenAccount.Data
                         else
                         {
                             //tambahan
+                            Utility.WriteLog("Report condition : hit get report failed", "step-action");
                             errorcode = "ReportError";
                             errormessage = "GainDataReportError";
                             //return;
@@ -133,6 +137,7 @@ namespace OpenAccount.Data
                 catch (Exception ex)
                 {
                     //tambahan
+                    Utility.WriteLog("Report condition : hit service error -- get report", "step-action");
                     errorcode = "ReportError";
                     errormessage = ex.Message;
                     //return;
@@ -143,6 +148,7 @@ namespace OpenAccount.Data
              catch (Exception ex)
             {
                 //tambahan
+                Utility.WriteLog("Report condition : hit service error -- get report", "step-action");
                 errorcode = "ReportError";
                 errormessage = ex.Message;
                 //return;
@@ -159,6 +165,7 @@ namespace OpenAccount.Data
 
             if (trx.reportStatus == "SUCCESS")
             {
+                Utility.WriteLog("Report condition : create csv start", "step-action");
                 string path = Directory.GetCurrentDirectory();
                 CSVName = "TRILOGI" + "_REPORT_" + startdate + "_" + enddateName + ".csv";
                 CSVPath =  @"c:\Reports\" + CSVName;
@@ -193,6 +200,7 @@ namespace OpenAccount.Data
                 Console.WriteLine("CREATE REPORT SUCCESS");
                 trx.reportAttachment = CSVName;
                 trx.reportPath = CSVPath;
+                Utility.WriteLog("Report condition : create csv finish", "step-action");
             }
             else
             {

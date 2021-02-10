@@ -223,7 +223,7 @@ namespace OpenAccount.Data
                 lampiran = trx.emailAttachment,
                 path = trx.attachmentPath,
             };
-
+            Utility.WriteLog("Hit Service condition : request JSON --> " + emaildata, "step-action");
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };
 
             var content = new StringContent(
@@ -251,7 +251,7 @@ namespace OpenAccount.Data
                 lampiran = trx.emailAttachment,
                 path = trx.attachmentPath,
             };
-
+            Utility.WriteLog("Hit Service condition : request JSON --> " + emaildata, "step-action");
             var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
 
             var content = new StringContent(
@@ -285,8 +285,8 @@ namespace OpenAccount.Data
                     lampiran = reports.CSVName,
                     path = reports.CSVPath,
                 };
-
-                var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
+            Utility.WriteLog("Hit Service condition : request JSON --> " + emaildata, "step-action");
+            var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
 
                 var content = new StringContent(
                     JsonSerializer.Serialize(emaildata, _jsonSerializerOptions),
@@ -323,6 +323,7 @@ namespace OpenAccount.Data
                 filename = trx.reportPath,
             };
 
+            Utility.WriteLog("Hit Service condition : request JSON --> " + copydata, "step-action");
             var _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true, };
 
             var content = new StringContent(
@@ -355,7 +356,7 @@ namespace OpenAccount.Data
                 msisdn = trx.MSISDN,
                 statusTransaksi = trx.statusLayanan,
             };
-
+            Utility.WriteLog("Hit Service condition : request JSON --> " + smsdata, "step-action");
             var _jsonSerializerOptions = new JsonSerializerOptions {WriteIndented = true, };
 
             var content = new StringContent(

@@ -46,15 +46,15 @@
                     @if (periodeCode == "2")
                     {
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Dari Tanggal</h5>
 
                                 <div class="form-group">
-                                    <input id="startdate" type="text" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate" />
+                                    <input id="startdate" type="text" class="form-control startdate datetimepicker-input" placeholder="Pilih Tanggal" style="font-weight: 700; font-size: 16px;" data-toggle="datetimepicker" data-target=".startdate"/>
                                 </div>
 
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <h5 style="color: #00529C; font-weight: bold; margin-top: 5%;">Sampai Tanggal</h5>
 
                                 <div class="form-group">
@@ -157,11 +157,11 @@
                         <em>1</em>
                         <!-- <span>Menu</span> -->
                     </li>
-                    <li class="todo">
+                    <li class="done">
                         <em>2</em>
                         <!-- <span>T & C</span> -->
                     </li>
-                    <li class="todo">
+                    <li class="done">
                         <em>3</em>
                         <!-- <span>Menu</span> -->
                     </li>
@@ -253,6 +253,8 @@
         private string minEnd = DateTime.Today.AddYears(-2).ToString("yyyy-MM-dd");
         private string maxEnd = DateTime.Today.ToString("yyyy-MM-dd");
 
+        private bool isHit;
+
         private ElementReference heroo;
 
         private async Task ResetTimer()
@@ -276,7 +278,7 @@
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             await Task.Delay(100);
-
+            parseDateTime();
             if (periodeCode == "1")
             {
                 await js.InvokeVoidAsync("setMonthPicker");
@@ -292,13 +294,13 @@
                     endDateValue = dates[1];
                     trx.startDate = startDateValue;
                     trx.endDate = endDateValue;
-                    value3 = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    value3 = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.startDT = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.endDT = DateTime.ParseExact(endDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     trx.periodMonth = "YES";
-                    Console.WriteLine("1 Month Value: " + monthValue);
-                    Console.WriteLine("1 Start Date: " + startDateValue);
-                    Console.WriteLine("1 End Date: " + endDateValue);
+                    //Console.WriteLine("1 Month Value: " + monthValue);
+                    //Console.WriteLine("1 Start Date: " + startDateValue);
+                    //Console.WriteLine("1 End Date: " + endDateValue);
                 }
 
 
@@ -312,21 +314,21 @@
                 {
                     trx.startDate = startDateValue;
                     trx.endDate = endDateValue;
-                    trx.startDT = DateTime.ParseExact(startDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    trx.endDT = DateTime.ParseExact(endDateValue, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    //Console.WriteLine("Start Date: " + startDateValue);
-                    //Console.WriteLine("End Date: " + endDateValue);
+                    trx.startDT = DateTime.ParseExact(startDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    trx.endDT = DateTime.ParseExact(endDateValue, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    Console.WriteLine("Start Date: " + startDateValue);
+                    Console.WriteLine("End Date: " + endDateValue);
                     monthValue = null;
                     trx.periodMonth = "NO";
-                    Console.WriteLine("2 Start Date: " + startDateValue);
-                    Console.WriteLine("2 End Date: " + endDateValue);
+                    //Console.WriteLine("2 Start Date: " + startDateValue);
+                    //Console.WriteLine("2 End Date: " + endDateValue);
 
                 }
 
             }
             if (firstRender)
             {
-                Utility.WriteLog("Home condition : entered into new home", "step-action");
+                isHit = true;
                 trx.timeOut = "monthlystatement";
                 isTimer = true;
                 starttime = DateTime.Now;
@@ -351,15 +353,17 @@
         public void parseDateTime()
         {
             //js.InvokeVoidAsync("getMonthPicker");
-            Console.WriteLine("Month Value: " + monthValue);
-            Console.WriteLine("Start Date: " + startDateValue);
-            Console.WriteLine("End Date: " + endDateValue);
-            Console.WriteLine("Start DT: " + trx.startDT);
-            Console.WriteLine("End DT: " + trx.endDT);
-            Console.WriteLine("Start Date: " + trx.startDate);
-            Console.WriteLine("End Date: " + trx.endDate);
+            //Console.WriteLine("Month Value: " + monthValue);
+            //Console.WriteLine("Start Date: " + startDateValue);
+            //Console.WriteLine("End Date: " + endDateValue);
+            //Console.WriteLine("Start DT: " + trx.startDT);
+            //Console.WriteLine("End DT: " + trx.endDT);
+            //Console.WriteLine("Start Date: " + trx.startDate);
+            //Console.WriteLine("End Date: " + trx.endDate);
 
         }
+
+
 
         public void DateTimeVisible()
         {
@@ -423,11 +427,18 @@
 
         private async Task Cetak()
         {
-
+            StateHasChanged();
             if (periodeCode == "1")
             {
                 if (value3.HasValue)
-                    PerBulan();
+                {
+                    //PerBulan();
+                    trx.periodMonth = "YES";
+                    await Task.Delay(1000);
+                    Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
+                    if (isHit)
+                        await MonthlyStatementAPI();
+                }
                 //if (trx.startDate == null || trx.endDate == null)
                 else
                 {
@@ -437,15 +448,23 @@
             }
             else if (periodeCode == "2")
             {
-                PerTanggal();
-                if (!isPicked)
+
+                if (String.IsNullOrEmpty(endDateValue) && String.IsNullOrEmpty(startDateValue))
                 {
                     isVisible = true;
                     return;
                 }
+                else
+                {
+                    //PerTanggal();
+                    await Task.Delay(1000);
+                    Console.WriteLine("Cetak Function " + value3 + "---" + startDateValue + "---" + endDateValue);
+                    if (isHit)
+                        await MonthlyStatementAPI();
+                }
             }
-            await MonthlyStatementAPI();
         }
+
 
         private async Task PerBulan()
         {
@@ -541,8 +560,26 @@
             endDateValue = string.Empty;
             trx.startDate = string.Empty;
             trx.endDate = string.Empty;
+            //trx.endDT = null;
             periodeCode = args.Value.ToString();
             StateHasChanged();
+            //parseDateTime();
+        }
+
+        private async Task resetDate(ChangeEventArgs args)
+        {
+            //js.InvokeVoidAsync("getMonthPicker");
+            Console.WriteLine("1Month Value: " + monthValue);
+            Console.WriteLine("1Start Date: " + startDateValue);
+            Console.WriteLine("1End Date: " + endDateValue);
+            Console.WriteLine("1Start DT: " + trx.startDT);
+            Console.WriteLine("1End DT: " + trx.endDT);
+            Console.WriteLine("1Start Date: " + trx.startDate);
+            Console.WriteLine("1End Date: " + trx.endDate);
+            isStart = true;
+            isEnd = true;
+            Console.WriteLine("HAHAHA: " + args.Value.ToString());
+            Console.WriteLine("is Picked : " + isPicked);
         }
 
         DateTime? value1;
@@ -643,6 +680,7 @@
             string errormessage;
             isRead = true;
             isTimeOut = true;
+            isHit = false;
             trx._listMonthly.Clear();
             //trx._AccountNumber = "008301031142500";
             try
@@ -652,19 +690,24 @@
                 "\"start_date\":\"" + trx.startDate + "\"," +
                 "\"end_date\":\"" + trx.endDate + "\"" +
                     "}";
+                Utility.WriteLog("Histori condition : request JSON --> "+myJson, "step-action");
+                Console.WriteLine("REQUEST JSON -- " + myJson);
                 string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
                 string myUrl = myLink + "monthly/statement";
                 ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-                Utility.WriteLog("Histori condition : post service start", "step-action");
+                Utility.WriteLog("Histori condition : post service start -- monthly statement api", "step-action");
                 try
                 {
                     string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                    Utility.WriteLog("Histori condition : respond JSON --> " + strResult, "step-action");
+                    Console.WriteLine("RESPOND JSON -- " + strResult);
                     if (strResult != null)
                     {
                         JObject jobResult = JObject.Parse(strResult);
 
                         if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                         {
+                            Utility.WriteLog("Histori condition : hit monthly statement api success", "step-action");
                             await Task.Delay(100);
                             foreach (var dt in jobResult["RESPONSE"].SelectToken("DATA"))
                             {
@@ -696,12 +739,15 @@
                             isTimer = false;
                             isTimeOut = true;
                             trx.externalID = (string)jobResult["externalId"];
+                            Utility.WriteLog("Histori condition : monthly statement api external id " + trx.externalID, "step-action");
                             //OnClick.InvokeAsync("konfirmasimonthly");
+                            Utility.WriteLog("Histori condition : move to histori pilih metode", "step-action");
                             OnClick.InvokeAsync("historiPilihMetode");
                             return;
                         }
                         else
                         {
+                            Utility.WriteLog("Histori condition : hit monthly statement api failed", "step-action");
                             isRead = false;
                             isTimeOut = true;
                             isTimer = false;
@@ -710,7 +756,9 @@
                             trx.setErrorService(errorcode, errormessage);
                             trx.statusLayanan = "ERROR";
                             trx.externalID = (string)jobResult["externalId"];
+                            Utility.WriteLog("Histori condition : monthly statement api external id " + trx.externalID, "step-action");
                             HitServices.SendLog(trx, config, "MONTHLY STATEMENT: " + errormessage);
+                            Utility.WriteLog("Histori condition : move to error", "step-action");
                             OnClick.InvokeAsync("error");
                             return;
                         }
@@ -718,12 +766,14 @@
                 }
                 catch (Exception ex)
                 {
+                    Utility.WriteLog("Histori condition : hit service error -- monthly statement api", "step-action");
                     isTimeOut = true;
                     isTimer = false;
                     errorcode = "Exception";
                     errormessage = ex.Message;
                     trx.setErrorService(errorcode, errormessage);
                     trx.statusLayanan = "ERROR";
+                    Utility.WriteLog("Histori condition : move to error", "step-action");
                     HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                     OnClick.InvokeAsync("error");
                     return;
@@ -731,12 +781,14 @@
             }
             catch (Exception ex)
             {
+                Utility.WriteLog("Histori condition : hit service error -- monthly statement api", "step-action");
                 isTimeOut = true;
                 isTimer = false;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;

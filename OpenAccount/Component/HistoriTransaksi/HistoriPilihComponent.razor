@@ -293,6 +293,7 @@
                 StateHasChanged();
                 await Task.Delay(2000);
                 isTime = false;
+                Utility.WriteLog("Histori condition : move to konfirmasi time out", "step-action");
                 OnClick.InvokeAsync("konfirmasitimeout");
                 return;
             }
@@ -314,8 +315,10 @@
         switch (status)
         {
             case "1":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 break;
             case "2":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Closed";
                 trx.setErrorService(errorcode, errormessage);
@@ -324,9 +327,11 @@
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "3":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Matured but Not Closed";
                 trx.setErrorService(errorcode, errormessage);
@@ -335,11 +340,14 @@
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "4":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 break;
             case "5":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Zero Actual";
                 trx.setErrorService(errorcode, errormessage);
@@ -348,9 +356,11 @@
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "6":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Restricted";
                 trx.setErrorService(errorcode, errormessage);
@@ -359,9 +369,11 @@
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "7":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Frozen with No Actual";
                 trx.setErrorService(errorcode, errormessage);
@@ -370,9 +382,11 @@
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "8":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 errorcode = "NotStatus";
                 errormessage = "Account Status Charge Off";
                 trx.setErrorService(errorcode, errormessage);
@@ -381,9 +395,11 @@
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 isTimeOut = true;
                 isTimer = false;
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 break;
             case "9":
+                Utility.WriteLog("Histori condition : card status " + status, "step-action");
                 break;
         }
     }
@@ -397,14 +413,16 @@
             string myJson = "{" +
             "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
+            Utility.WriteLog("Histori condition : request JSON --> "+myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_THERMAL);
             //string myUrl = "http://172.18.136.207:6001/invoke/bri.core.services.v1:fiveMutation";
             //trx._Nasabah[1] = myUrl.Substring(myUrl.Length - 15, 15);
-            Utility.WriteLog("Histori condition : get service start", "step-action");
+            Utility.WriteLog("Histori condition : post service start -- service thermal", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Histori condition : respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
@@ -426,6 +444,7 @@
                         isRead = false;
                         isSuccess = true;
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Histori condition : service thermal external id " + trx.externalID, "step-action");
                         trx.AddTrail("GET DATA HISTORI", "", "SUCCESS");
                         await Task.Delay(100);
                         StateHasChanged();
@@ -433,6 +452,7 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "DW-001" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "01")
                     {
+                        Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         Console.WriteLine("No Data Found");
                         isTimeOut = true;
                         isTimer = false;
@@ -444,16 +464,19 @@
                         trx.ExternalID2 = (string)jobResult["externalId"];
                         trx.externalID = trx.ExternalID2;
                         trx._AccountNumber = trx._AccountNumber2;
+                        Utility.WriteLog("Histori condition : service thermal external id " + trx.externalID, "step-action");
                         //trx.setExternalId((string)jobResult["EXTERNALID
-                        Console.WriteLine("EXTERNAL ID 2" + trx.ExternalID2);
-                        Console.WriteLine("EXTERNAL ID" + trx.externalID);
-                        Console.WriteLine("ACCOUNT NUMBER" + trx._AccountNumber);
+                        //Console.WriteLine("EXTERNAL ID 2" + trx.ExternalID2);
+                        //Console.WriteLine("EXTERNAL ID" + trx.externalID);
+                        //Console.WriteLine("ACCOUNT NUMBER" + trx._AccountNumber);
                         //HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                        Utility.WriteLog("Histori condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
                     else
                     {
+                        Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         Console.WriteLine((string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE"));
                         Utility.WriteLog("Histori condition : hit service thermal failed", "step-action");
                         //trx.AddTrail("GET DATA HISTORI", "NO DATA SEPULUH TERAKHIR", "FAILED");
@@ -468,6 +491,8 @@
                         trx.statusLayanan = "ERROR";
                         //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Histori condition : service thermal external id " + trx.externalID, "step-action");
+                        Utility.WriteLog("Histori condition : move to error", "step-action");
                         HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                         OnClick.InvokeAsync("error");
                         return;
@@ -485,6 +510,7 @@
                 //isError = false;
                 //await Task.Delay(100);
                 //StateHasChanged();
+                Utility.WriteLog("Histori condition : hit service error -- service thermal", "step-action");
                 isTimeOut = true;
                 isTimer = false;
                 errorcode = "Exception";
@@ -492,6 +518,7 @@
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
                 //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+                Utility.WriteLog("Histori condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;
@@ -499,6 +526,7 @@
         }
         catch (Exception ex)
         {
+            Utility.WriteLog("Histori condition : hit service error -- service thermal", "step-action");
             isTimeOut = true;
             isTimer = false;
             errorcode = "Exception";
@@ -507,6 +535,7 @@
             trx.statusLayanan = "ERROR";
             //HitLog.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
             HitServices.SendLog(trx, config, "HISTORY PILIH: " + errormessage);
+            Utility.WriteLog("Histori condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -595,7 +624,7 @@
     {
         isTimeOut = true;
         isTimer = false;
-        Utility.WriteLog("Histori condition : move to ambil kartu", "step-action");
+        Utility.WriteLog("Histori condition : move to home", "step-action");
         //trx.statusLayanan = "CANCEL";
         //HitLog.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");
         //HitServices.SendLog(trx, config, "HISTORY PILIH: User Cancel Transaction");

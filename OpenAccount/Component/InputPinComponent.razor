@@ -251,24 +251,27 @@
                         //isInquiry = true;
                         if (isInquiry)
                         {
-                            Utility.WriteLog("Home condition : card is inquiry", "step-action");
+                            Utility.WriteLog("Home condition : card inquiry success", "step-action");
                             await InquiryCIFByAcct();
                             if (isCIFInquiry)
                             {
                                 //DATA DUMMY
                                 //trx.namaNasabah = "ANDREAS LAMEN";
                                 //trx.MSISDN = "081314118862";
-                                //trx.emailNasabah = "nanarmk23@gmail.com";
+                                //trx.emailNasabah = "andreas.lamen@gmail.com";
                                 //trx.emailNasabah = "";
 
+                                Utility.WriteLog("Home condition : card cif inquiry success", "step-action");
                                 istimeout = true;
                                 isTimer = false;
                                 trx._AccountNumber2 = trx._AccountNumber;
+                                Utility.WriteLog("Home condition : move to konfirmasi awal", "step-action");
                                 OnClick.InvokeAsync("konfirmasiawal");
                                 return;
                             }
                             else
                             {
+                                Utility.WriteLog("Home condition : card cif inquiry failed", "step-action");
                                 await ServiceRekening();
                                 if (isAccountInquiry)
                                 {
@@ -276,12 +279,14 @@
                                     //DATA DUMMY
                                     //trx.namaNasabah = "ANDREAS LAMEN";
                                     //trx.MSISDN = "081314118862";
-                                    //trx.emailNasabah = "nanarmk23@gmail.com";
+                                    //trx.emailNasabah = "andreas.lamen@gmail.com";
                                     //trx.emailNasabah = "";
 
+                                    Utility.WriteLog("Home condition : inqury account success", "step-action");
                                     istimeout = true;
                                     isTimer = false;
                                     trx._AccountNumber2 = trx._AccountNumber;
+                                    Utility.WriteLog("Home condition : move to konfirmasi awal", "step-action");
                                     OnClick.InvokeAsync("konfirmasiawal");
                                     return;
                                 }
@@ -301,6 +306,8 @@
                         strpin = string.Empty;
                         strpinMask = string.Empty;
                         tryLimit -= 1;
+                        isReadPin = false;
+                        await Task.Delay(3000);
                         if (tryLimit > 0)
                         {
                             isEDC = true;
@@ -522,18 +529,31 @@
             Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
             trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
             isLoop = false;
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            OnClick.InvokeAsync("error");
+            //return;
         }
+        try
+        {
+            Utility.WriteLog("Home condition : EDC serial port write", "step-action");
+            serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
 
-        Utility.WriteLog("Home condition : EDC serial port write", "step-action");
-        serialPort.Write(data2_with_lrc, 0, data2_with_lrc.Length);
-
-        await Task.Delay(3000);
-        isLoading = false;
+            await Task.Delay(3000);
+            isLoading = false;
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Utility.WriteLog("Home condition : EDC error --> " + ex.Message, "step-action");
+            trx.AddTrail("OPEN SERIAL EDC", "", "FAILED");
+            isLoop = false;
+            trx.setErrorService("IEC", "Open Serial EDC Failed");
+            OnClick.InvokeAsync("error");
+            //return;
+        }
 
         while (isLoop)
         {
-            await Task.Delay(150);
-
             dataRespond = string.Empty;
             dataSplit = string.Empty;
             //bool exitLoop = false;
@@ -732,6 +752,10 @@
                 {
                     serialPort.Close();
                     Utility.WriteLog("Home condition : EDC NAK", "step-action");
+                    trx.setErrorService("IEC", "EDC NAK");
+                    Utility.WriteLog("Home condition : move to error", "step-action");
+                    OnClick.InvokeAsync("error");
+                    //return;
                 }
             }
             await Task.Delay(100);
@@ -741,6 +765,7 @@
         Console.WriteLine("2");
         Utility.WriteLog("Home condition : EDC serial port close", "step-action");
         serialPort.Close();
+        Utility.WriteLog("Home condition : process EDC done", "step-action");
         //serialPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
     }
     private async Task CekPin()
@@ -753,19 +778,22 @@
                 "\"card_no\":\"" + trx.nomerKartu + "\"," +
             "\"pin\":\"" + trx.pinBlock + "\"" +
             "}";
+            Utility.WriteLog("Home condition : Request JSON --> "+myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + "inquiry/checkpin";
             ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- cek pin", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-00" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin success", "step-action");
                         isValid = true;
                         await Task.Delay(100);
                         StateHasChanged();
@@ -773,16 +801,19 @@
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-25" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "25")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         isNotFound = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "ES-EP" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "EP")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isInvalid = true;
                         isComplete = false;
                         isFailed = true;
@@ -793,13 +824,16 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-38" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "38")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isInvalid = true;
                         isComplete = false;
                         isFailed = false;
@@ -810,13 +844,16 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
+                        Utility.WriteLog("Home condition : move to blokir kartu", "step-action");
                         OnClick.InvokeAsync("blokirkartu");
                         return;
                     }
                     else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CAMS-50" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "99")
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isTimeOut = true;
                         isInvalid = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
@@ -824,6 +861,23 @@
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
+                        HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        StateHasChanged();
+                        return;
+                        //OnClick.InvokeAsync("error");
+                    }
+                    else if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "CM-50" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "50")
+                    {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
+                        //isTimeOut = true;
+                        isInvalid = true;
+                        errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
+                        errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
+                        trx.setErrorService(errorcode, errormessage);
+                        trx.statusLayanan = "ERROR";
+                        trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         StateHasChanged();
                         return;
@@ -831,6 +885,7 @@
                     }
                     else
                     {
+                        Utility.WriteLog("Home condition : hit cek pin failed", "step-action");
                         //isTimeOut = true;
                         isComplete = false;
                         isFailed = false;
@@ -840,10 +895,12 @@
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : cek pin external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -851,24 +908,28 @@
             }
             catch (Exception ex)
             {
+                Utility.WriteLog("Home condition : hit service error -- cekpin", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.statusLayanan = "ERROR";
                 HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                 trx.setErrorService(errorcode, errormessage);
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 return;
             }
         }
         catch (Exception ex)
         {
+            Utility.WriteLog("Home condition : hit service error -- cekpin", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.statusLayanan = "ERROR";
             HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
             trx.setErrorService(errorcode, errormessage);
+            Utility.WriteLog("Home condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -883,13 +944,15 @@
             string myJson = "{" +
                 "\"card_no\":\"" + trx.nomerKartu + "\"" +
             "}";
+            Utility.WriteLog("Home condition : Request JSON --> " + myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + "inquiry/bycardno";
             ////string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- inquiry by card number", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
@@ -899,18 +962,22 @@
                         string statusCard = (string)jobResult["RESPONSE"].SelectToken("CARD_STATUS");
                         if (statusCard == "DS" || statusCard == "BL" || statusCard == "PS")
                         {
+                            Utility.WriteLog("Home condition : hit inquiry by card number failed", "step-action");
                             isTimeOut = true;
                             errorcode = "CARD DISABLE";
                             errormessage = "Card has disabled";
                             trx.setErrorService(errorcode, errormessage);
                             isInquiry = false;
                             trx.statusLayanan = "ERROR";
+                            Utility.WriteLog("Home condition : status card disabled", "step-action");
                             HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                            Utility.WriteLog("Home condition : move to error", "step-action");
                             OnClick.InvokeAsync("error");
                             return;
                         }
                         trx.setAccountNumber((string)jobResult["RESPONSE"].SelectToken("ACCT_NO"));
 
+                        Utility.WriteLog("Home condition : hit inquiry by card number success", "step-action");
                         //trx._AccountNumber = (string)jobResult["RESPONSE"].SelectToken("ACCT_NO");
                         Utility.WriteLog("Home condition : set account number " + trx._AccountNumber + " success", "step-action");
 
@@ -949,13 +1016,16 @@
                     }
                     else
                     {
+                        Utility.WriteLog("Home condition : hit inquiry by card number failed", "step-action");
                         isTimeOut = true;
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.setErrorService(errorcode, errormessage);
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : inquiry by card number external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -963,20 +1033,24 @@
             }
             catch (Exception ex)
             {
+                Utility.WriteLog("Home condition : hit service error -- inquiry by card number", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 OnClick.InvokeAsync("error");
                 return;
             }
         }
         catch (Exception ex)
         {
+            Utility.WriteLog("Home condition : hit service error -- inquiry by card number", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
+            Utility.WriteLog("Home condition : move to error", "step-action");
             OnClick.InvokeAsync("error");
             return;
         }
@@ -990,19 +1064,22 @@
             string myJson = "{" +
             "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
+            Utility.WriteLog("Histori condition : Request JSON --> " + myJson, "step-action");
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             string myUrl = myLink + "inquiry/cifbyacct";
 
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- inquiry cif by account", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        Utility.WriteLog("Home condition : hit inquiry cif by account success", "step-action");
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("CUST_NAME");
                         //trx.acctCurr = (string)jobResult["RESPONSE"].SelectToken("ACCT_CURR");
                         trx.MSISDN = (string)jobResult["RESPONSE"].SelectToken("HP_NO");
@@ -1018,20 +1095,24 @@
                         isData = true;
                         await Task.Delay(100);
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : inquiry cif by account external id " + trx.externalID, "step-action");
                         StateHasChanged();
                         return;
                     }
                     else
                     {
                         //tambahan
+                        Utility.WriteLog("Home condition : hit inquiry cif by account failed", "step-action");
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : inquiry cif by account external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -1049,11 +1130,13 @@
                 //strnorek = string.Empty;
                 //await Task.Delay(100);
                 //StateHasChanged();
+                Utility.WriteLog("Home condition : hit service error -- inquiry cif by account", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;
@@ -1071,11 +1154,13 @@
             //strnorek = string.Empty;
             //await Task.Delay(100);
             //StateHasChanged();
+            Utility.WriteLog("Home condition : hit service error -- inquiry cif by account", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
+            Utility.WriteLog("Home condition : move to error", "step-action");
             HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
             OnClick.InvokeAsync("error");
             return;
@@ -1092,6 +1177,7 @@
                 "\"remark2\":\"" + "inquiryAccountTest2" + "\"," +
             "\"acct_no\":\"" + trx._AccountNumber + "\"" +
             "}";
+            Utility.WriteLog("Home condition : Request JSON --> " + myJson, "step-action");
 
             string myLink = config.Read("LINK", Config.PARAM_SERVICES_LINK);
             //string myUrl = myLink + "inquiry/cifbyacct";
@@ -1099,16 +1185,18 @@
             //string myUrl = myLink + config.Read("LINK", Config.PARAM_SERVICES_REKENING);
             string myUrl = myLink + "fivemutation/validasi";
             //string myUrl = "http://131.107.5.153:8080/fivemutation/validasi";
-            Utility.WriteLog("Histori condition : post service start", "step-action");
+            Utility.WriteLog("Home condition : post service start -- service rekening", "step-action");
             try
             {
                 string strResult = await HitServices.PostCallAPI(myUrl, myJson);
+                Utility.WriteLog("Home condition : Respond JSON --> " + strResult, "step-action");
                 if (strResult != null)
                 {
                     JObject jobResult = JObject.Parse(strResult);
 
                     if ((string)jobResult["RESPONSE"].SelectToken("ERROR_CODE") == "AS-000" && (string)jobResult["RESPONSE"].SelectToken("RESPONSE_CODE") == "00")
                     {
+                        Utility.WriteLog("Home condition : hit service rekening success", "step-action");
                         trx.namaNasabah = (string)jobResult["RESPONSE"].SelectToken("SHORT_NAME");
                         trx.mbStatus = (string)jobResult["RESPONSE"].SelectToken("STATUS");
                         isData = true;
@@ -1120,14 +1208,17 @@
                     else
                     {
                         //tambahan
+                        Utility.WriteLog("Home condition : hit service rekening failed", "step-action");
                         errorcode = (string)jobResult["RESPONSE"].SelectToken("ERROR_CODE");
                         errormessage = (string)jobResult["RESPONSE"].SelectToken("RESPONSE_MESSAGE");
                         trx.statusLayanan = "ERROR";
                         trx.externalID = (string)jobResult["externalId"];
+                        Utility.WriteLog("Home condition : service rekening external id " + trx.externalID, "step-action");
                         HitLog.SendLog(trx, config, "INPUT PIN: " + errormessage);
                         trx.setErrorService(errorcode, errormessage);
                         StateHasChanged();
                         //return;
+                        Utility.WriteLog("Home condition : move to error", "step-action");
                         OnClick.InvokeAsync("error");
                         return;
                     }
@@ -1145,11 +1236,13 @@
                 //strnorek = string.Empty;
                 //await Task.Delay(100);
                 //StateHasChanged();
+                Utility.WriteLog("Home condition : hit service error -- service rekening", "step-action");
                 isTimeOut = true;
                 errorcode = "Exception";
                 errormessage = ex.Message;
                 trx.setErrorService(errorcode, errormessage);
                 trx.statusLayanan = "ERROR";
+                Utility.WriteLog("Home condition : move to error", "step-action");
                 HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
                 OnClick.InvokeAsync("error");
                 return;
@@ -1167,11 +1260,13 @@
             //strnorek = string.Empty;
             //await Task.Delay(100);
             //StateHasChanged();
+            Utility.WriteLog("Home condition : hit service error -- service rekening", "step-action");
             isTimeOut = true;
             errorcode = "Exception";
             errormessage = ex.Message;
             trx.setErrorService(errorcode, errormessage);
             trx.statusLayanan = "ERROR";
+            Utility.WriteLog("Home condition : move to error", "step-action");
             HitServices.SendLog(trx, config, "INPUT PIN MONTHLY: Inquiry Cif By Acct --> " + errormessage);
             OnClick.InvokeAsync("error");
             return;

@@ -26,6 +26,8 @@ namespace OpenAccount.Data
         private string path = string.Empty;
         private int Status;
 
+        private bool isZero;
+
         public void BeginPrintEH(object sender, PrintEventArgs e)
         {
             SolidBrush blackbrush = new SolidBrush(Color.Black);
@@ -605,8 +607,6 @@ namespace OpenAccount.Data
 
             sisabaris = baris % 30;
             MyPrinter.Print("\n\n\n\n");//sela header
-            sisabaris = baris % 30;
-            MyPrinter.Print("\n\n\n\n\n");//sela header
 
             if (_trx._listbuku.Count > 0) // indikator bahwa line tidak 0
             {
@@ -640,24 +640,35 @@ namespace OpenAccount.Data
                 //saldo = checkZero(_trx._listbuku[i]._PassbookBalance);
                 saldo = _trx._listbuku[i]._PassbookBalance;
                 saldo = checkZero(saldo);
-                long nominal = Convert.ToInt64(saldo.Substring(0, saldo.Length - 3));
-                if (nominal > 1000)
-                    saldo = nominal.ToString("N0") + ".00";
-                    saldo = String.Format("{0,15}", saldo);
+                if (saldo != " ")
+                {
+                    var nominal = Convert.ToDecimal(saldo.Substring(0, saldo.Length));
+                    if (nominal > 1000)
+                        saldo = nominal.ToString("N");
+                }
+                else
+                    saldo = "0.00";
+                saldo = String.Format("{0,15}", saldo);
 
                 string debetprint = _trx._listbuku[i]._PassbookDebitAmount;
                 debetprint = checkZero(debetprint);
-                long debet = Convert.ToInt64(debetprint.Substring(0, debetprint.Length - 3));
-                if (debet > 1000)
-                    debetprint = debet.ToString("N0") + ".00";
-                    debetprint = String.Format("{0,15}", debetprint);
+                if (debetprint != " ")
+                {
+                    var debet = Convert.ToDecimal(debetprint.Substring(0, debetprint.Length - 3));
+                    if (debet > 1000)
+                        debetprint = debet.ToString("N");
+                }
+                debetprint = String.Format("{0,15}", debetprint);
 
                 string kreditprint =  _trx._listbuku[i]._PassbookCreditAmount;
                 kreditprint = checkZero(kreditprint);
-                long kredit = Convert.ToInt64(kreditprint.Substring(0, kreditprint.Length - 3));
-                if (kredit > 1000)
-                    kreditprint = kredit.ToString("N0") + ".00";
-                    kreditprint = String.Format("{0,15}", kreditprint);
+                if (kreditprint != " ")
+                {
+                    var kredit = Convert.ToDecimal(kreditprint.Substring(0, kreditprint.Length - 3));
+                    if (kredit > 1000)
+                        kreditprint = kredit.ToString("N");
+                }
+                kreditprint = String.Format("{0,15}", kreditprint);
 
                 string bukuDate = _trx._listbuku[i]._PassbookDate;
                 bukuDate = bukuDate.Substring(1, bukuDate.Length - 1);
@@ -737,6 +748,7 @@ namespace OpenAccount.Data
             string result;
             int startindex = 0;
             bool isMinus = false;
+            isZero = false;
             if (strinput.Substring(0, 1) == "-")
             {
                 isMinus = true;
@@ -748,7 +760,7 @@ namespace OpenAccount.Data
                     startindex += 1;
                 else if (strinput.Substring(i, 1) == ".")
                 {
-                    startindex -= 1;
+                    isZero = true;
                     break;
                 }
                 else
@@ -757,8 +769,11 @@ namespace OpenAccount.Data
             }
             if(isMinus)
                 result = "-" + strinput.Substring(startindex, strinput.Length - startindex);
+            else if (isZero)
+                result = " ";
             else
                 result = strinput.Substring(startindex, strinput.Length - startindex);
+            Utility.WriteLog("Printer condition : print passbook check zero result " + result, "step-action");
             return result;
         }
 
